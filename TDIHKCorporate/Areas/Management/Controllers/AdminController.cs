@@ -21,7 +21,7 @@ namespace TDIHKCorporate.Areas.Management.Controllers
         // GET: Management/Admin
         public ActionResult Index()
         {
-            string a = "asdasd";
+
             return View();
         }
 
