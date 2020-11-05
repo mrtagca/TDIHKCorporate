@@ -1,0 +1,102 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Management/Views/Shared/_layoutDashboard.cshtml";
+}
+
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script>tinymce.init({selector:'textarea'});</script>
+
+<div class="row">
+    <div class="col col-md-9">
+        <div>
+            <h5>Sayfa Ekle</h5>
+            <input type="text" placeholder="Başlığı buraya girin" class="form-control" name="name" value="" />
+        </div>
+        <br />
+        <div id="htmlEditor">
+            <div>
+                <button class="btn btn-dark"><i class="fa fa-photo-video"></i> Ortam Ekle</button>
+            </div>
+            <br />
+            <textarea>Next, use our Get Started docs to setup Tiny!</textarea>
+        </div>
+    </div>
+    <div class="col col-md-3">
+        <div id="PublishTab">
+            <div class="card">
+
+                <button class="btn btn-light" data-toggle="collapse" data-target="#collapsePublish" aria-expanded="true" aria-controls="collapsePublish">
+                    <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                            Yayımla
+                        </h5>
+                    </div>
+                </button>
+
+                <div id="collapsePublish" class="collapse show" aria-labelledby="headingOne" data-parent="#PublishTab">
+                    <div class="card-body">
+                        <div>
+                            <input type="submit" class="btn btn-outline-primary" name="" value="Taslak Olarak Kaydet" />
+                            &nbsp;
+                            <input type="submit" class="btn btn-outline-primary" name="" value="Önizleme" />
+                        </div>
+                        <br />
+                        <div>
+                            <input type="submit" class="btn btn-primary" name="" value="Yayımla" />
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div id="PageFeatures">
+            <div class="card">
+
+                <button class="btn btn-light" data-toggle="collapse" data-target="#collapsePageFeatures" aria-expanded="true" aria-controls="collapsePageFeatures">
+                    <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                            Sayfa Özellikleri
+                        </h5>
+                    </div>
+                </button>
+
+                <div id="collapsePageFeatures" class="collapse show" aria-labelledby="headingOne" data-parent="#PageFeatures">
+                    <div class="card-body">
+                        <div>
+                            <label>Kategori Seçiniz</label>
+                            <select class="form-control" id="PageCategories">
+                                <option>Seçiniz..</option>
+                                <option>Gündem</option>
+                            </select>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div id="PagePicture">
+            <div class="card">
+
+                <button class="btn btn-light" data-toggle="collapse" data-target="#collapsePagePicture" aria-expanded="true" aria-controls="collapsePagePicture">
+                    <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                            Öne Çıkan Görsel
+                        </h5>
+                    </div>
+                </button>
+
+                <div id="collapsePagePicture" class="collapse show" aria-labelledby="headingOne" data-parent="#PagePicture">
+                    <div class="card-body">
+                        <div>
+                            <a href="#">Öne çıkarılmış görsel belirle</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
