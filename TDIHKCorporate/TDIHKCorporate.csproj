@@ -1963,6 +1963,11 @@
     <Content Include="Areas\Management\Views\Admin\Index.cshtml" />
     <Content Include="Areas\Management\Views\Page\Create.cshtml" />
     <None Include="packages.config" />
+    <Content Include="Views\Partial\_PartialFooter.cshtml" />
+    <Content Include="Views\Partial\_PartialInvestData.cshtml" />
+    <Content Include="Views\Partial\_PartialHeader.cshtml" />
+    <Content Include="Views\Shared\_layoutMaster.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
