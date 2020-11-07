@@ -117,11 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Alman" xml:space="preserve">
+    <value>Alman</value>
+  </data>
   <data name="Anasayfa" xml:space="preserve">
     <value>Anasayfa</value>
   </data>
   <data name="Ara" xml:space="preserve">
     <value>Ara</value>
+  </data>
+  <data name="Baslik" xml:space="preserve">
+    <value>Başlık</value>
   </data>
   <data name="BeniHatirla" xml:space="preserve">
     <value>Beni Hatırla</value>
@@ -131,6 +137,9 @@
   </data>
   <data name="EmailKullaniciAdi" xml:space="preserve">
     <value>Email veya Kullanıcı Adı</value>
+  </data>
+  <data name="Etiketler" xml:space="preserve">
+    <value>Etiketler</value>
   </data>
   <data name="EtkinlikEkle" xml:space="preserve">
     <value>Etkinlik Ekle</value>
@@ -159,14 +168,32 @@
   <data name="IstekListesi" xml:space="preserve">
     <value>İstek Listesi</value>
   </data>
+  <data name="KategoriAyarlari" xml:space="preserve">
+    <value>Kategori Ayarları</value>
+  </data>
+  <data name="KategoriSeciniz" xml:space="preserve">
+    <value>Kategori Seçiniz</value>
+  </data>
   <data name="Login" xml:space="preserve">
     <value>Giriş Yap</value>
+  </data>
+  <data name="OneCikanGorsel" xml:space="preserve">
+    <value>Öne Çıkan Görsel</value>
+  </data>
+  <data name="OneCikanGorselBelirle" xml:space="preserve">
+    <value>Öne çıkarılmış görsel belirle</value>
+  </data>
+  <data name="Onizleme" xml:space="preserve">
+    <value>Önizleme</value>
   </data>
   <data name="Ozet" xml:space="preserve">
     <value>Özet</value>
   </data>
   <data name="RaporOlustur" xml:space="preserve">
     <value>Rapor Oluştur</value>
+  </data>
+  <data name="SayfaDili" xml:space="preserve">
+    <value>Sayfa Dili</value>
   </data>
   <data name="SayfaEkle" xml:space="preserve">
     <value>Sayfa Ekle</value>
@@ -177,11 +204,26 @@
   <data name="SayfaListesi" xml:space="preserve">
     <value>Sayfa Listesi</value>
   </data>
+  <data name="SayfaOzellikleri" xml:space="preserve">
+    <value>Sayfa Özellikleri</value>
+  </data>
+  <data name="SeoAnahtarKelimeleri" xml:space="preserve">
+    <value>SEO Anahtar Kelimeleri</value>
+  </data>
+  <data name="SeoAyarlari" xml:space="preserve">
+    <value>SEO Ayarları</value>
+  </data>
   <data name="Sifre" xml:space="preserve">
     <value>Şifre</value>
   </data>
   <data name="SifremiUnuttum" xml:space="preserve">
     <value>Şifremi Unuttum</value>
+  </data>
+  <data name="TaslakOlarakKaydet" xml:space="preserve">
+    <value>Taslak Olarak Kaydet</value>
+  </data>
+  <data name="Yayimla" xml:space="preserve">
+    <value>Yayımla</value>
   </data>
   <data name="YonetimPaneli" xml:space="preserve">
     <value>Yonetim Paneli</value>

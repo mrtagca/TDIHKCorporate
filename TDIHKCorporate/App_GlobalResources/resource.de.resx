@@ -117,11 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Alman" xml:space="preserve">
+    <value>German</value>
+  </data>
   <data name="Anasayfa" xml:space="preserve">
     <value>Startseite</value>
   </data>
   <data name="Ara" xml:space="preserve">
     <value>Suche</value>
+  </data>
+  <data name="Baslik" xml:space="preserve">
+    <value>Kapuze</value>
   </data>
   <data name="BeniHatirla" xml:space="preserve">
     <value>Erinnere dich an mich</value>
@@ -131,6 +137,9 @@
   </data>
   <data name="EmailKullaniciAdi" xml:space="preserve">
     <value>E-Mail Adresse oder Benutzername</value>
+  </data>
+  <data name="Etiketler" xml:space="preserve">
+    <value>Stichworte</value>
   </data>
   <data name="EtkinlikEkle" xml:space="preserve">
     <value>Ereignis hinzufügen</value>
@@ -159,14 +168,32 @@
   <data name="IstekListesi" xml:space="preserve">
     <value>Wunschzettel</value>
   </data>
+  <data name="KategoriAyarlari" xml:space="preserve">
+    <value>Kategorieeinstellungen</value>
+  </data>
+  <data name="KategoriSeciniz" xml:space="preserve">
+    <value>Kategorie Wählen</value>
+  </data>
   <data name="Login" xml:space="preserve">
     <value>Anmeldung</value>
+  </data>
+  <data name="OneCikanGorsel" xml:space="preserve">
+    <value>Ausgewähltes Bild</value>
+  </data>
+  <data name="OneCikanGorselBelirle" xml:space="preserve">
+    <value>Stellen sie das vorgestellte bild ein</value>
+  </data>
+  <data name="Onizleme" xml:space="preserve">
+    <value>Vorschau</value>
   </data>
   <data name="Ozet" xml:space="preserve">
     <value>Zusammenfassung</value>
   </data>
   <data name="RaporOlustur" xml:space="preserve">
     <value>Bericht erstellen</value>
+  </data>
+  <data name="SayfaDili" xml:space="preserve">
+    <value>Seitensprache</value>
   </data>
   <data name="SayfaEkle" xml:space="preserve">
     <value>Seite hinzufügen</value>
@@ -177,11 +204,26 @@
   <data name="SayfaListesi" xml:space="preserve">
     <value>Seitenliste</value>
   </data>
+  <data name="SayfaOzellikleri" xml:space="preserve">
+    <value>Seiteneigenschaften</value>
+  </data>
+  <data name="SeoAnahtarKelimeleri" xml:space="preserve">
+    <value>SEO-Schlüsselwörter</value>
+  </data>
+  <data name="SeoAyarlari" xml:space="preserve">
+    <value>SEO-Einstellungen</value>
+  </data>
   <data name="Sifre" xml:space="preserve">
     <value>Passwort</value>
   </data>
   <data name="SifremiUnuttum" xml:space="preserve">
     <value>Passwort vergessen</value>
+  </data>
+  <data name="TaslakOlarakKaydet" xml:space="preserve">
+    <value>Als Entwurf Speichern</value>
+  </data>
+  <data name="Yayimla" xml:space="preserve">
+    <value>Veröffentlichen</value>
   </data>
   <data name="YonetimPaneli" xml:space="preserve">
     <value>Management Panel</value>

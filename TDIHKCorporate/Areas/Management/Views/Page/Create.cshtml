@@ -1,63 +1,53 @@
 ﻿
+
 @{
     ViewBag.Title = "Create";
     Layout = "~/Areas/Management/Views/Shared/_layoutDashboard.cshtml";
 }
 
-<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-<script>tinymce.init({selector:'textarea'});</script>
+<script src="~/Content/quill/js/quill.min.js"></script>
+<link href="~/Content/quill/css/quill.snow.css" rel="stylesheet" />
+<link href="~/Content/quill/css/quill.bubble.css" rel="stylesheet" />
+<link href="~/Content/quill/css/quill.core.css" rel="stylesheet" />
+<script src="~/Content/quill/js/quill.core.js"></script>
+
+<script src="~/Content/Scripts/Page.js"></script>
+
+<script>
+    $(document).ready(function () {
+        GetPageCategories("PageCategories");
+    });
+</script>
+
 
 <div class="row">
-    <div class="col col-md-9">
+    <div class="col-md-9 col-sm-12">
         <div>
-            <h5>Sayfa Ekle</h5>
-            <input type="text" placeholder="Başlığı buraya girin" class="form-control" name="name" value="" />
+            <h5>@Resources.resource.SayfaEkle</h5>
+            <input type="text" id="PageTitle" placeholder="@Resources.resource.Baslik" onkeyup="GenerateFriendlyUrl('PageTitle','PageSeoLink')" class="form-control" name="name" value="" />
         </div>
         <br />
-        <div id="htmlEditor">
-            <div>
-                <button class="btn btn-dark"><i class="fa fa-photo-video"></i> Ortam Ekle</button>
-            </div>
-            <br />
-            <textarea>Next, use our Get Started docs to setup Tiny!</textarea>
+
+        <div>
+            <h5>Seo Link</h5>
+            <input type="text" class="form-control" id="PageSeoLink" placeholder="Seo Link" value="" />
+        </div>
+        <br />
+
+        <div id="toolbar">
+        </div>
+        <div id="editor" style="background-color:#ffffff">
         </div>
     </div>
-    <div class="col col-md-3">
-        <div id="PublishTab">
-            <div class="card">
 
-                <button class="btn btn-light" data-toggle="collapse" data-target="#collapsePublish" aria-expanded="true" aria-controls="collapsePublish">
-                    <div class="card-header" id="headingOne">
-                        <h5 class="mb-0">
-                            Yayımla
-                        </h5>
-                    </div>
-                </button>
-
-                <div id="collapsePublish" class="collapse show" aria-labelledby="headingOne" data-parent="#PublishTab">
-                    <div class="card-body">
-                        <div>
-                            <input type="submit" class="btn btn-outline-primary" name="" value="Taslak Olarak Kaydet" />
-                            &nbsp;
-                            <input type="submit" class="btn btn-outline-primary" name="" value="Önizleme" />
-                        </div>
-                        <br />
-                        <div>
-                            <input type="submit" class="btn btn-primary" name="" value="Yayımla" />
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-        <br />
+    <div class="col-md-3 col-sm-12">
         <div id="PageFeatures">
             <div class="card">
 
                 <button class="btn btn-light" data-toggle="collapse" data-target="#collapsePageFeatures" aria-expanded="true" aria-controls="collapsePageFeatures">
                     <div class="card-header" id="headingOne">
                         <h5 class="mb-0">
-                            Sayfa Özellikleri
+                            @Resources.resource.SayfaOzellikleri
                         </h5>
                     </div>
                 </button>
@@ -65,10 +55,16 @@
                 <div id="collapsePageFeatures" class="collapse show" aria-labelledby="headingOne" data-parent="#PageFeatures">
                     <div class="card-body">
                         <div>
-                            <label>Kategori Seçiniz</label>
+                            <label>@Resources.resource.KategoriSeciniz</label>
                             <select class="form-control" id="PageCategories">
-                                <option>Seçiniz..</option>
-                                <option>Gündem</option>
+                            </select>
+                        </div>
+                        <br />
+                        <div>
+                            <label>@Resources.resource.SayfaDili</label>
+                            <select class="form-control" id="PageLanguage">
+                                <option value="tr">TR</option>
+                                <option value="de">DE</option>
                             </select>
                         </div>
 
@@ -77,13 +73,42 @@
             </div>
         </div>
         <br />
+        <div id="PageSeoOptions">
+            <div class="card">
+
+                <button class="btn btn-light" data-toggle="collapse" data-target="#collapsePageSeoOptions" aria-expanded="true" aria-controls="collapsePageSeoOptions">
+                    <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                            @Resources.resource.SeoAyarlari
+                        </h5>
+                    </div>
+                </button>
+
+                <div id="collapsePageSeoOptions" class="collapse show" aria-labelledby="headingOne" data-parent="#PageSeoOptions">
+                    <div class="card-body">
+                        <div>
+                            <label>@Resources.resource.SeoAnahtarKelimeleri</label>
+                            <textarea class="form-control"></textarea>
+                        </div>
+                        <br />
+                        <div>
+                            <label>@Resources.resource.Etiketler</label>
+                            <input type="text" class="form-control" name="name" value="" />
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br />
         <div id="PagePicture">
             <div class="card">
 
                 <button class="btn btn-light" data-toggle="collapse" data-target="#collapsePagePicture" aria-expanded="true" aria-controls="collapsePagePicture">
                     <div class="card-header" id="headingOne">
                         <h5 class="mb-0">
-                            Öne Çıkan Görsel
+                            @Resources.resource.OneCikanGorsel
                         </h5>
                     </div>
                 </button>
@@ -91,12 +116,116 @@
                 <div id="collapsePagePicture" class="collapse show" aria-labelledby="headingOne" data-parent="#PagePicture">
                     <div class="card-body">
                         <div>
-                            <a href="#">Öne çıkarılmış görsel belirle</a>
+                            <a href="#">@Resources.resource.OneCikanGorselBelirle</a>
                         </div>
 
                     </div>
                 </div>
             </div>
         </div>
+        <br />
+
+
+        <div id="PublishTab">
+            <div class="card">
+
+                <button class="btn btn-light" data-toggle="collapse" data-target="#collapsePublish" aria-expanded="true" aria-controls="collapsePublish">
+                    <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                            @Resources.resource.Yayimla
+                        </h5>
+                    </div>
+                </button>
+
+                <div id="collapsePublish" class="collapse show" aria-labelledby="headingOne" data-parent="#PublishTab">
+                    <div class="card-body">
+                        <div>
+                            <input type="submit" class="btn btn-outline-primary" name="" value="@Resources.resource.TaslakOlarakKaydet" />
+                            &nbsp;
+                            <input type="submit" class="btn btn-outline-primary" name="" value="@Resources.resource.Onizleme" />
+                        </div>
+                        <br />
+                        <div>
+                            <input id="Publish" onclick="AddPage()" type="submit" class="btn btn-primary" name="" value=" @Resources.resource.Yayimla" />
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
+
+<!-- Include the Quill library -->
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+
+<!-- Initialize Quill editor -->
+<script>
+
+    var bindings = {
+        // This will overwrite the default binding also named 'tab'
+        tab: {
+            key: 9,
+            handler: function () {
+                // Handle tab
+            }
+        },
+
+        // There is no default binding named 'custom'
+        // so this will be added without overwriting anything
+        custom: {
+            key: 'B',
+            shiftKey: true,
+            handler: function (range, context) {
+                // Handle shift+b
+            }
+        },
+
+        list: {
+            key: 'backspace',
+            format: ['list'],
+            handler: function (range, context) {
+                if (context.offset === 0) {
+                    // When backspace on the first character of a list,
+                    // remove the list instead
+                    this.quill.format('list', false, Quill.sources.USER);
+                } else {
+                    // Otherwise propogate to Quill's default
+                    return true;
+                }
+            }
+        }
+    };
+
+    var toolbarOptions = [
+        ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+        ['blockquote', 'code-block'],
+
+        [{ 'header': 1 }, { 'header': 2 }],               // custom button values
+        [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+        [{ 'script': 'sub' }, { 'script': 'super' }],      // superscript/subscript
+        [{ 'indent': '-1' }, { 'indent': '+1' }],          // outdent/indent
+        [{ 'direction': 'rtl' }],                         // text direction
+
+        [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
+        [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+
+        [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+        [{ 'font': [] }],
+        [{ 'align': [] }],
+        ['link', 'image'],
+
+        ['clean']                                         // remove formatting button
+    ];
+
+    var quill = new Quill('#editor', {
+        modules: {
+            toolbar: toolbarOptions,
+            keyboard: {
+                bindings: bindings
+            }
+        },
+        theme: 'snow'
+    });
+</script>

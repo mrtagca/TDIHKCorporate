@@ -13,32 +13,34 @@ namespace TDIHKCorporate.BaseControllers.MultiLanguage
         protected override IAsyncResult BeginExecuteCore(AsyncCallback callback, object state)
         {
             string langParameter = "language";
+            string cultureParameter = "culture";
             if (Request.QueryString[langParameter] != null)
             {
                 if (Request.QueryString[langParameter] == "tr")
                 {
-                    Session[langParameter] = "tr";
-                    Session["culture"] = "TR";
+                   HttpContext.Session[langParameter] = "tr";
+                    Session[cultureParameter] = "TR";
                 }
                 else if (Request.QueryString[langParameter] == "de")
                 {
-                    Session[langParameter] = "de";
-                    Session["culture"] = "DE";
+                    HttpContext.Session[langParameter] = "de";
+                    HttpContext.Session[cultureParameter] = "DE";
                 }
                 else if (Request.QueryString["language"] == "en")
                 {
-                    Session[langParameter] = "en";
-                    Session["culture"] = "US";
+                    HttpContext.Session[langParameter] = "en";
+                    HttpContext.Session[cultureParameter] = "US";
                 }
-                else if (Request.QueryString["language"] == "fr")
+                else if (Request.QueryString[langParameter] == "fr")
                 {
-                    Session[langParameter] = "fr";
-                    Session["culture"] = "FR";
+                    HttpContext.Session[langParameter] = "fr";
+                    HttpContext.Session[cultureParameter] = "FR";
                 }
             }
 
-            var language = Session[langParameter] ?? "tr";
-            var culture = Session["culture"] ?? "TR";
+
+            var language = HttpContext.Session[langParameter] ?? "tr";
+            var culture = HttpContext.Session[cultureParameter] ?? "TR";
 
             Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo($"{language}-{culture}");
             Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo($"{language}-{culture}");
