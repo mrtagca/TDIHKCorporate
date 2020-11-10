@@ -1981,6 +1981,7 @@
     <Content Include="Areas\Management\Views\Shared\_layoutDashboard.cshtml" />
     <Content Include="Areas\Management\Views\Admin\Index.cshtml" />
     <Content Include="Areas\Management\Views\Page\Create.cshtml" />
+    <Content Include="Areas\Management\Views\Partial\_PartialQuillHtmlEditor.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Partial\_PartialFooter.cshtml" />
     <Content Include="Views\Partial\_PartialInvestData.cshtml" />

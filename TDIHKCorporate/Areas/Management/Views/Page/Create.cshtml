@@ -5,11 +5,6 @@
     Layout = "~/Areas/Management/Views/Shared/_layoutDashboard.cshtml";
 }
 
-<script src="~/Content/quill/js/quill.min.js"></script>
-<link href="~/Content/quill/css/quill.snow.css" rel="stylesheet" />
-<link href="~/Content/quill/css/quill.bubble.css" rel="stylesheet" />
-<link href="~/Content/quill/css/quill.core.css" rel="stylesheet" />
-<script src="~/Content/quill/js/quill.core.js"></script>
 
 <script src="~/Content/Scripts/Page.js"></script>
 
@@ -34,10 +29,8 @@
         </div>
         <br />
 
-        <div id="toolbar">
-        </div>
-        <div id="editor" style="background-color:#ffffff">
-        </div>
+        @Html.Partial("~/Areas/Management/Views/Partial/_PartialQuillHtmlEditor.cshtml")
+        
     </div>
 
     <div class="col-md-3 col-sm-12">
@@ -89,12 +82,7 @@
                     <div class="card-body">
                         <div>
                             <label>@Resources.resource.SeoAnahtarKelimeleri</label>
-                            <textarea class="form-control"></textarea>
-                        </div>
-                        <br />
-                        <div>
-                            <label>@Resources.resource.Etiketler</label>
-                            <input type="text" class="form-control" name="name" value="" />
+                            <textarea id="SeoKeywords" class="form-control"></textarea>
                         </div>
 
                     </div>
@@ -129,7 +117,6 @@
 
         <div id="PublishTab">
             <div class="card">
-
                 <button class="btn btn-light" data-toggle="collapse" data-target="#collapsePublish" aria-expanded="true" aria-controls="collapsePublish">
                     <div class="card-header" id="headingOne">
                         <h5 class="mb-0">
@@ -158,75 +145,3 @@
     </div>
 </div>
 
-<!-- Include the Quill library -->
-<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
-
-<!-- Initialize Quill editor -->
-<script>
-
-    var bindings = {
-        // This will overwrite the default binding also named 'tab'
-        tab: {
-            key: 9,
-            handler: function () {
-                // Handle tab
-            }
-        },
-
-        // There is no default binding named 'custom'
-        // so this will be added without overwriting anything
-        custom: {
-            key: 'B',
-            shiftKey: true,
-            handler: function (range, context) {
-                // Handle shift+b
-            }
-        },
-
-        list: {
-            key: 'backspace',
-            format: ['list'],
-            handler: function (range, context) {
-                if (context.offset === 0) {
-                    // When backspace on the first character of a list,
-                    // remove the list instead
-                    this.quill.format('list', false, Quill.sources.USER);
-                } else {
-                    // Otherwise propogate to Quill's default
-                    return true;
-                }
-            }
-        }
-    };
-
-    var toolbarOptions = [
-        ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
-        ['blockquote', 'code-block'],
-
-        [{ 'header': 1 }, { 'header': 2 }],               // custom button values
-        [{ 'list': 'ordered' }, { 'list': 'bullet' }],
-        [{ 'script': 'sub' }, { 'script': 'super' }],      // superscript/subscript
-        [{ 'indent': '-1' }, { 'indent': '+1' }],          // outdent/indent
-        [{ 'direction': 'rtl' }],                         // text direction
-
-        [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
-        [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
-
-        [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
-        [{ 'font': [] }],
-        [{ 'align': [] }],
-        ['link', 'image'],
-
-        ['clean']                                         // remove formatting button
-    ];
-
-    var quill = new Quill('#editor', {
-        modules: {
-            toolbar: toolbarOptions,
-            keyboard: {
-                bindings: bindings
-            }
-        },
-        theme: 'snow'
-    });
-</script>

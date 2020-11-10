@@ -19,6 +19,10 @@ namespace TDIHKCorporate.Helpers.Extensions
             {
                 url = url.Substring(0, 100);
             }
+            
+            url = url.Replace("Ä", "a");
+            url = url.Replace("ä", "a");
+            url = url.Replace("ß", "b");
             url = url.Replace("İ", "I");
             url = url.Replace("ı", "i");
             url = url.Replace("ğ", "g");

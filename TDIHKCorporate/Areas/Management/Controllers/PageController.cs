@@ -43,7 +43,7 @@ namespace TDIHKCorporate.Areas.Management.Controllers
             pages.CreatedBy = 1;
             pages.IsActive = true;
 
-            var result = addPage.Execute(@"INSERT INTO Pages([PageCategoryID],[PageImageId],[PageThumbnailPath],[PageTitle],[PageContent],[PageSeoLink],[PageSeoKeywords],[PageTags],[Language],[CreatedDate],[CreatedBy],[IsActive]) values(@PageCategoryID, @PageImageId, @PageThumbnailPath, @PageTitle, @PageContent, @PageSeoLink, @PageSeoKeywords, @PageTags, @Language, @CreatedDate, @CreatedBy,@IsActive)", new {
+            var result = addPage.Execute(@"INSERT INTO Pages([PageCategoryID],[PageImageId],[PageThumbnailPath],[PageTitle],[PageContent],[PageSeoLink],[PageSeoKeywords],[Language],[CreatedDate],[CreatedBy],[IsActive]) values(@PageCategoryID, @PageImageId, @PageThumbnailPath, @PageTitle, @PageContent, @PageSeoLink, @PageSeoKeywords, @Language, @CreatedDate, @CreatedBy,@IsActive)", new {
 
                 PageCategoryID = pages.PageCategoryID,
                 PageImageID = "",
@@ -52,7 +52,6 @@ namespace TDIHKCorporate.Areas.Management.Controllers
                 PageContent = pages.PageContent,
                 PageSeoLink=pages.PageSeoLink,
                 PageSeoKeywords = pages.PageSeoKeywords,
-                PageTags = pages.PageTags,
                 Language = pages.Language,
                 CreatedDate = DateTime.Now,
                 CreatedBy = pages.CreatedBy,

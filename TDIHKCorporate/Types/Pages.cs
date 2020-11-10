@@ -17,7 +17,6 @@ namespace TDIHKCorporate.Types
         public string PageContent { get; set; }
         public string PageSeoLink { get; set; }
         public string PageSeoKeywords { get; set; }
-        public string PageTags { get; set; }
         public string Language { get; set; }
         public DateTime CreatedDate { get; set; }
         public int CreatedBy { get; set; }
