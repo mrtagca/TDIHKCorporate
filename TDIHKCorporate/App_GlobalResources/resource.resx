@@ -141,14 +141,32 @@
   <data name="Etiketler" xml:space="preserve">
     <value>Etiketler</value>
   </data>
+  <data name="EtkinlikAciklamasi" xml:space="preserve">
+    <value>Etkinlik Açıklaması</value>
+  </data>
   <data name="EtkinlikEkle" xml:space="preserve">
     <value>Etkinlik Ekle</value>
+  </data>
+  <data name="EtkinlikKontenjani" xml:space="preserve">
+    <value>Etkinlik Kontenjanı</value>
+  </data>
+  <data name="EtkinlikKritikKontenjan" xml:space="preserve">
+    <value>Etkinlik Kritik Kontenjan</value>
   </data>
   <data name="Etkinlikler" xml:space="preserve">
     <value>Etkinlikler</value>
   </data>
   <data name="EtkinlikListesi" xml:space="preserve">
     <value>Etkinlik Listesi</value>
+  </data>
+  <data name="EtkinlikOzellikleri" xml:space="preserve">
+    <value>Etkinlik Özellikleri</value>
+  </data>
+  <data name="EtkinlikSaati" xml:space="preserve">
+    <value>Etkinlik Saati</value>
+  </data>
+  <data name="EtkinlikTarihi" xml:space="preserve">
+    <value>Etkinlik Tarihi</value>
   </data>
   <data name="HaberEkle" xml:space="preserve">
     <value>Haber Ekle</value>
@@ -176,6 +194,15 @@
   </data>
   <data name="Login" xml:space="preserve">
     <value>Giriş Yap</value>
+  </data>
+  <data name="MenuEkle" xml:space="preserve">
+    <value>Menü Ekle</value>
+  </data>
+  <data name="Menuler" xml:space="preserve">
+    <value>Menüler</value>
+  </data>
+  <data name="MenuListesi" xml:space="preserve">
+    <value>Menü Listesi</value>
   </data>
   <data name="OneCikanGorsel" xml:space="preserve">
     <value>Öne Çıkan Görsel</value>
@@ -218,6 +245,18 @@
   </data>
   <data name="SifremiUnuttum" xml:space="preserve">
     <value>Şifremi Unuttum</value>
+  </data>
+  <data name="Slider" xml:space="preserve">
+    <value>Slider</value>
+  </data>
+  <data name="SliderEkle" xml:space="preserve">
+    <value>Slider Ekle</value>
+  </data>
+  <data name="SliderIcerikEkle" xml:space="preserve">
+    <value>Slider İçerik Ekle</value>
+  </data>
+  <data name="SliderListesi" xml:space="preserve">
+    <value>Slider Listesi</value>
   </data>
   <data name="TaslakOlarakKaydet" xml:space="preserve">
     <value>Taslak Olarak Kaydet</value>

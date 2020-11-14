@@ -15,7 +15,7 @@
 <div class="row">
     <div class="col-md-9 col-sm-12">
         <div>
-            <h5>Etkinlik Ekle</h5>
+            <h5>@Resources.resource.EtkinlikEkle</h5>
             <input type="text" id="EventTitle" placeholder="@Resources.resource.Baslik" onkeyup="GenerateFriendlyUrl('EventTitle','EventSeoLink')" class="form-control" name="name" value="" />
 
             <br />
@@ -27,8 +27,8 @@
             <br />
 
             <div>
-                <h5>Etkinlik Açıklaması</h5>
-                <textarea class="form-control" maxlength="500" id="EventDescription"></textarea>
+                <h5>@Resources.resource.EtkinlikAciklamasi</h5>
+                <textarea class="form-control" maxlength="500" placeholder="@Resources.resource.EtkinlikAciklamasi" id="EventDescription"></textarea>
             </div>
             
         </div>
@@ -45,7 +45,7 @@
                 <button class="btn btn-light" data-toggle="collapse" data-target="#collapseEventFeatures" aria-expanded="true" aria-controls="collapseEventFeatures">
                     <div class="card-header" id="headingOne">
                         <h5 class="mb-0">
-                            Etkinlik Özellikleri
+                            @Resources.resource.EtkinlikOzellikleri
                         </h5>
 
                     </div>
@@ -68,11 +68,17 @@
                         </div>
                         <br />
                         <div>
-                            <label>Etkinlik Tarihi</label>
+                            <label>@Resources.resource.EtkinlikTarihi</label>
                             <input type="date" class="form-control" id="EventDate" name="name" value="" />
                             <br />
-                            <label>Etkinlik Saati</label>
+                            <label>@Resources.resource.EtkinlikSaati</label>
                             <input type="time" class="form-control" id="EventTime" name="name" value="" />
+                            <br />
+                            <label>@Resources.resource.EtkinlikKontenjani</label>
+                            <input type="number" class="form-control" id="EventQuota" name="name" value="1" min="1" />
+                            <br />
+                            <label>@Resources.resource.EtkinlikKritikKontenjan</label>
+                            <input type="number" class="form-control" id="EventCriticalQuota" name="name" value="1" min="1" />
                         </div>
 
                     </div>
@@ -149,7 +155,6 @@
                         <div>
                             <input id="Publish" onclick="AddEvent()" type="submit" class="btn btn-primary" name="" value=" @Resources.resource.Yayimla" />
                         </div>
-
                     </div>
                 </div>
             </div>

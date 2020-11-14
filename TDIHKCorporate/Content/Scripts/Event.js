@@ -42,6 +42,8 @@ function AddEvent() {
     dataParams.EventSeoKeywords = $("#SeoKeywords").val();
     dataParams.EventDate = $("#EventDate").val();
     dataParams.EventTime = $("#EventTime").val();
+    dataParams.EventQuota = $("#EventQuota").val();
+    dataParams.EventCriticalQuota = $("#EventCriticalQuota").val();
 
 
     if (eventContent[0].innerText === '' || typeof (eventContent[0].innerText) === 'undefined' || eventContent[0].innerText === null) {
@@ -106,6 +108,34 @@ function AddEvent() {
         var element = document.getElementById("EventDate");
         element.style = styleCss;
         return;
+    }
+
+    if (dataParams.EventQuota === '' || typeof (dataParams.EventQuota) === 'undefined' || dataParams.EventQuota === null) {
+        alert("Event Quota cannot be null!");
+        var element = document.getElementById("EventQuota");
+        element.style = styleCss;
+    }
+    else {
+        if (dataParams.EventQuota < 1) {
+            alert("Event Quota value cannot be smaller than 1");
+            var element = document.getElementById("EventQuota");
+            element.style = styleCss;
+            return;
+        }
+    }
+
+    if (dataParams.EventCriticalQuota === '' || typeof (dataParams.EventCriticalQuota) === 'undefined' || dataParams.EventCriticalQuota === null) {
+        alert("Critical Quota cannot be null!");
+        var element = document.getElementById("EventQuota");
+        element.style = styleCss;
+    }
+    else {
+        if (dataParams.EventCriticalQuota < 1) {
+            alert("Critical Quota value cannot be smaller than 1");
+            var element = document.getElementById("EventCriticalQuota");
+            element.style = styleCss;
+            return;
+        }
     }
 
 

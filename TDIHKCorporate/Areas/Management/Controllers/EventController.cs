@@ -42,7 +42,7 @@ namespace TDIHKCorporate.Areas.Management.Controllers
             events.CreatedBy = 1;
             events.IsActive = true;
 
-            var result = addPage.Execute(@"INSERT INTO IHK.dbo.[Events]([Language],EventCategoryID,EventImageId,EventThumbnailPath,EventTitle,EventDate,EventTime,EventContent,EventSeoLink,EventDescription,EventSeoKeywords,EventTags,CreatedDate,CreatedBy,IsActive) values (@Language,@EventCategoryID,@EventImageId,@EventThumbnailPath,@EventTitle,@EventDate,@EventTime,@EventContent,@EventSeoLink,@EventDescription,@EventSeoKeywords,@EventTags,@CreatedDate,@CreatedBy,@IsActive)", new
+            var result = addPage.Execute(@"INSERT INTO IHK.dbo.[Events]([Language],EventCategoryID,EventImageId,EventThumbnailPath,EventTitle,EventDate,EventTime,EventContent,EventSeoLink,EventDescription,EventSeoKeywords,EventTags,EventQuota,EventCriticalQuota,CreatedDate,CreatedBy,IsActive) values (@Language,@EventCategoryID,@EventImageId,@EventThumbnailPath,@EventTitle,@EventDate,@EventTime,@EventContent,@EventSeoLink,@EventDescription,@EventSeoKeywords,@EventTags,@EventQuota,@EventCriticalQuota,@CreatedDate,@CreatedBy,@IsActive)", new
             {
 
                 Language = events.Language,
@@ -57,6 +57,8 @@ namespace TDIHKCorporate.Areas.Management.Controllers
                 EventDescription = events.EventDescription,
                 EventSeoKeywords = events.EventSeoKeywords,
                 EventTags = events.EventTags,
+                EventQuota = events.EventQuota,
+                EventCriticalQuota = events.EventCriticalQuota,
                 CreatedDate = events.CreatedDate,
                 CreatedBy = events.CreatedBy,
                 IsActive = events.IsActive
