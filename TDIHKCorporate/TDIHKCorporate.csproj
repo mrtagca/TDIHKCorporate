@@ -1763,11 +1763,14 @@
     <Content Include="Content\Admin\vendor\jquery\jquery.min.js" />
     <Content Include="Content\Admin\vendor\jquery\jquery.slim.js" />
     <Content Include="Content\Admin\vendor\jquery\jquery.slim.min.js" />
+    <Content Include="Content\Multiselect\multiselect.css" />
+    <Content Include="Content\Multiselect\multiselect.js" />
     <Content Include="Content\quill\css\quill.bubble.css" />
     <Content Include="Content\quill\css\quill.core.css" />
     <Content Include="Content\quill\css\quill.snow.css" />
     <Content Include="Content\quill\js\quill.core.js" />
     <Content Include="Content\quill\js\quill.min.js" />
+    <Content Include="Content\Scripts\Event.js" />
     <Content Include="Content\Scripts\Page.js" />
     <Content Include="Content\Scripts\RequestHelper.js" />
     <Content Include="Content\Scripts\UrlHelper.js" />
@@ -1787,7 +1790,9 @@
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Management\Controllers\AdminController.cs" />
+    <Compile Include="Areas\Management\Controllers\EventController.cs" />
     <Compile Include="Areas\Management\Controllers\PageController.cs" />
+    <Compile Include="Areas\Management\Controllers\SliderController.cs" />
     <Compile Include="Areas\Management\Controllers\UrlController.cs" />
     <Compile Include="Areas\Management\ManagementAreaRegistration.cs" />
     <Compile Include="BaseControllers\MultiLanguage\SiteBaseController.cs" />
@@ -1799,6 +1804,8 @@
     <Compile Include="Models\Language\Language.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="test.cs" />
+    <Compile Include="Types\EventCategories.cs" />
+    <Compile Include="Types\Events.cs" />
     <Compile Include="Types\PageCategories.cs" />
     <Compile Include="Types\Pages.cs" />
   </ItemGroup>
@@ -1982,6 +1989,8 @@
     <Content Include="Areas\Management\Views\Admin\Index.cshtml" />
     <Content Include="Areas\Management\Views\Page\Create.cshtml" />
     <Content Include="Areas\Management\Views\Partial\_PartialQuillHtmlEditor.cshtml" />
+    <Content Include="Areas\Management\Views\Slider\CreateContent.cshtml" />
+    <Content Include="Areas\Management\Views\Event\Create.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Partial\_PartialFooter.cshtml" />
     <Content Include="Views\Partial\_PartialInvestData.cshtml" />

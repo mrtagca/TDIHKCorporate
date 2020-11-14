@@ -92,11 +92,11 @@ function AddPage() {
         response = JSON.parse(response);
 
         if (response.success === true) {
-            alert(response.message);
+            alert("Page Create successfull!");
             location.reload();
         }
         else {
-            alert(response.message);
+            alert("Fail!");
         }
     });
 

@@ -1,0 +1,81 @@
+﻿
+@{
+    ViewBag.Title = "CreateContent";
+    Layout = "~/Areas/Management/Views/Shared/_layoutDashboard.cshtml";
+}
+<link href="~/Content/Multiselect/multiselect.css" rel="stylesheet" />
+<script src="~/Content/Multiselect/multiselect.js"></script>
+
+
+<h5>Slider İçerik Ekle</h5>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <div>
+            <label>Başlık</label>
+            <input type="text" id="SliderContentTitle" placeholder="Slider İçerik Başlığı" class="form-control" name="name" value="" />
+        </div>
+        <br />
+
+        <div>
+            <label>Slider İçerik Dili</label>
+            <select class="form-control" id="SliderContentLanguage">
+                <option value="tr">TR</option>
+                <option value="de">DE</option>
+            </select>
+        </div>
+        <br />
+
+        <div>
+            <label>Slider Görsel Yükle (1200x600)</label>
+            <br />
+            <input type="file" name="name" value="" />
+        </div>
+        <br />
+        <div>
+            <label>Slider Alanı Seç</label>
+            <br />
+
+            <select id="SliderAreas" type="text" class="multiselect" multiple="multiple" role="multiselect">
+                <option>Photos</option>
+                <option>Link</option>
+                <option>Edit</option>
+                <option>Cart</option>
+                <option>Cart</option>
+                <option>Cart</option>
+                <option>Cart</option>
+                <option>Cart</option>
+                <option>Cart</option>
+            </select>
+        </div>
+        <br />
+        <div>
+            <label>Slider Sırası</label>
+            <br />
+            <select id="SliderContentIndex" class="form-control">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+            </select>
+        </div>
+        <br />
+        <div>
+            <label>Slider URL</label>
+            <br />
+            <input type="text" placeholder="Content URL" class="form-control" name="name" value="" />
+        </div>
+        <br />
+        <div>
+            <button class="btn btn-success float-lg-right">Kaydet</button>
+        </div>
+    </div>
+</div>
+

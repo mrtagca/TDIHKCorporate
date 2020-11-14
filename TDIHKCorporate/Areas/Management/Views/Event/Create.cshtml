@@ -1,0 +1,159 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Management/Views/Shared/_layoutDashboard.cshtml";
+}
+<script src="~/Content/Scripts/Event.js"></script>
+
+<script>
+    $(document).ready(function () {
+        GetEventCategories("EventCategories");
+    });
+</script>
+
+<div class="row">
+    <div class="col-md-9 col-sm-12">
+        <div>
+            <h5>Etkinlik Ekle</h5>
+            <input type="text" id="EventTitle" placeholder="@Resources.resource.Baslik" onkeyup="GenerateFriendlyUrl('EventTitle','EventSeoLink')" class="form-control" name="name" value="" />
+
+            <br />
+
+            <div>
+                <h5>Seo Link</h5>
+                <input type="text" class="form-control" id="EventSeoLink" placeholder="Seo Link" value="" />
+            </div>
+            <br />
+
+            <div>
+                <h5>Etkinlik Açıklaması</h5>
+                <textarea class="form-control" maxlength="500" id="EventDescription"></textarea>
+            </div>
+            
+        </div>
+        <br />
+
+        @Html.Partial("~/Areas/Management/Views/Partial/_PartialQuillHtmlEditor.cshtml")
+
+    </div>
+
+    <div class="col-md-3 col-sm-12">
+        <div id="EventFeatures">
+            <div class="card">
+
+                <button class="btn btn-light" data-toggle="collapse" data-target="#collapseEventFeatures" aria-expanded="true" aria-controls="collapseEventFeatures">
+                    <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                            Etkinlik Özellikleri
+                        </h5>
+
+                    </div>
+                </button>
+
+                <div id="collapseEventFeatures" class="collapse show" aria-labelledby="headingOne" data-parent="#EventFeatures">
+                    <div class="card-body">
+                        <div>
+                            <label>@Resources.resource.KategoriSeciniz</label>
+                            <select class="form-control" id="EventCategories">
+                            </select>
+                        </div>
+                        <br />
+                        <div>
+                            <label>@Resources.resource.SayfaDili</label>
+                            <select class="form-control" id="EventLanguage">
+                                <option value="tr">TR</option>
+                                <option value="de">DE</option>
+                            </select>
+                        </div>
+                        <br />
+                        <div>
+                            <label>Etkinlik Tarihi</label>
+                            <input type="date" class="form-control" id="EventDate" name="name" value="" />
+                            <br />
+                            <label>Etkinlik Saati</label>
+                            <input type="time" class="form-control" id="EventTime" name="name" value="" />
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div id="EventSeoOptions">
+            <div class="card">
+
+                <button class="btn btn-light" data-toggle="collapse" data-target="#collapseEventSeoOptions" aria-expanded="true" aria-controls="collapseEventSeoOptions">
+                    <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                            @Resources.resource.SeoAyarlari
+                        </h5>
+                    </div>
+                </button>
+
+                <div id="collapseEventSeoOptions" class="collapse show" aria-labelledby="headingOne" data-parent="#EventSeoOptions">
+                    <div class="card-body">
+                        <div>
+                            <label>@Resources.resource.SeoAnahtarKelimeleri</label>
+                            <textarea id="SeoKeywords" class="form-control"></textarea>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br />
+        <div id="EventPicture">
+            <div class="card">
+
+                <button class="btn btn-light" data-toggle="collapse" data-target="#collapseEventPicture" aria-expanded="true" aria-controls="collapseEventPicture">
+                    <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                            @Resources.resource.OneCikanGorsel
+                        </h5>
+                    </div>
+                </button>
+
+                <div id="collapseEventPicture" class="collapse show" aria-labelledby="headingOne" data-parent="#EventPicture">
+                    <div class="card-body">
+                        <div>
+                            <a href="#">@Resources.resource.OneCikanGorselBelirle</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+
+
+        <div id="PublishTab">
+            <div class="card">
+                <button class="btn btn-light" data-toggle="collapse" data-target="#collapsePublish" aria-expanded="true" aria-controls="collapsePublish">
+                    <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                            @Resources.resource.Yayimla
+                        </h5>
+                    </div>
+                </button>
+
+                <div id="collapsePublish" class="collapse show" aria-labelledby="headingOne" data-parent="#PublishTab">
+                    <div class="card-body">
+                        <div>
+                            <input type="submit" class="btn btn-outline-primary" name="" value="@Resources.resource.TaslakOlarakKaydet" />
+                            &nbsp;
+                            <input type="submit" class="btn btn-outline-primary" name="" value="@Resources.resource.Onizleme" />
+                        </div>
+                        <br />
+                        <div>
+                            <input id="Publish" onclick="AddEvent()" type="submit" class="btn btn-primary" name="" value=" @Resources.resource.Yayimla" />
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+

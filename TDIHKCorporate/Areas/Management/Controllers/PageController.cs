@@ -37,9 +37,9 @@ namespace TDIHKCorporate.Areas.Management.Controllers
         public string AddPage(Pages pages)
         {
             DapperRepository<Pages> addPage = new DapperRepository<Pages>();
-
-            pages.Language = System.Threading.Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName;
-            pages.CreatedDate = DateTime.Now;
+            
+            string TimezoneId = System.Configuration.ConfigurationManager.AppSettings[System.Threading.Thread.CurrentThread.CurrentCulture.Name];
+            pages.CreatedDate = TimeZoneInfo.ConvertTimeBySystemTimeZoneId(DateTime.Now, TimezoneId);
             pages.CreatedBy = 1;
             pages.IsActive = true;
 
@@ -53,7 +53,7 @@ namespace TDIHKCorporate.Areas.Management.Controllers
                 PageSeoLink=pages.PageSeoLink,
                 PageSeoKeywords = pages.PageSeoKeywords,
                 Language = pages.Language,
-                CreatedDate = DateTime.Now,
+                CreatedDate =pages.CreatedDate,
                 CreatedBy = pages.CreatedBy,
                 IsActive = pages.IsActive
 

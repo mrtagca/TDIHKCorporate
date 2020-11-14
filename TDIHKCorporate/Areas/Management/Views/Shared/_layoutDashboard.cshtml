@@ -18,6 +18,8 @@
     <!-- Custom styles for this template-->
     <link href="~/Content/Admin/css/sb-admin-2.min.css" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.8.1/css/bootstrap-select.css">
+
     <script src="~/Content/Admin/vendor/jquery/jquery.min.js"></script>
     <script src="~/Content/Scripts/RequestHelper.js"></script>
     <script src="~/Content/Scripts/UrlHelper.js"></script>
@@ -51,13 +53,42 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
 
+            <!--Menu-->
+            <li class="nav-item">
+                <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseMenu" aria-expanded="true" aria-controls="collapseMenu">
+                    <i class="fas fa-fw fa-bars"></i>
+                    <span>Menüler</span>
+                </a>
+                <div id="collapseMenu" class="collapse" aria-labelledby="collapseMenu" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="#">Menü Listesi</a>
+                        <a class="collapse-item" href="#">Menü Ekle</a>
+                    </div>
+                </div>
+            </li>
+
+            <!--Slider-->
+            <li class="nav-item">
+                <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseSliders" aria-expanded="true" aria-controls="collapseSliders">
+                    <i class="fas fa-fw fa-sliders-h"></i>
+                    <span>Slider</span>
+                </a>
+                <div id="collapseSliders" class="collapse" aria-labelledby="collapseSliders" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="#">Slider Listesi</a>
+                        <a class="collapse-item" href="#">Slider Ekle</a>
+                        <a class="collapse-item" href="#">Slider İçerik Ekle</a>
+                    </div>
+                </div>
+            </li>
+
             <!-- Sayfalar -->
             <li class="nav-item">
                 <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>@Resources.resource.Sayfalar</span>
                 </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div id="collapsePages" class="collapse" aria-labelledby="collapsePages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="login.html">@Resources.resource.SayfaListesi</a>
                         <a class="collapse-item" href="~/Management/Page/Create">@Resources.resource.SayfaEkle</a>
@@ -71,7 +102,7 @@
                     <i class="fas fa-fw fa-newspaper"></i>
                     <span>@Resources.resource.Haberler</span>
                 </a>
-                <div id="collapseNews" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div id="collapseNews" class="collapse" aria-labelledby="collapseNews" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="login.html">@Resources.resource.HaberListesi</a>
                         <a class="collapse-item" href="register.html">@Resources.resource.HaberEkle</a>
@@ -88,7 +119,21 @@
                 <div id="collapseEvents" class="collapse" aria-labelledby="collapseEvents" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="login.html">@Resources.resource.EtkinlikListesi</a>
-                        <a class="collapse-item" href="register.html">@Resources.resource.EtkinlikEkle</a>
+                        <a class="collapse-item" href="~/Management/Event/Create">@Resources.resource.EtkinlikEkle</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Üyeler -->
+            <li class="nav-item">
+                <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseMembers" aria-expanded="true" aria-controls="collapseMembers">
+                    <i class="fas fa-fw fa-users"></i>
+                    <span>Üyeler</span>
+                </a>
+                <div id="collapseMembers" class="collapse" aria-labelledby="collapseMembers" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="login.html">Üye Listesi</a>
+                        <a class="collapse-item" href="register.html">Üye Ekle</a>
                     </div>
                 </div>
             </li>
@@ -99,7 +144,7 @@
                     <i class="fas fa-fw fa-mail-bulk"></i>
                     <span>@Resources.resource.IletisimFormu</span>
                 </a>
-                <div id="collapseContacts" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div id="collapseContacts" class="collapse" aria-labelledby="collapseContacts" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="login.html">@Resources.resource.IstekListesi</a>
                     </div>
@@ -263,7 +308,7 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    
+
 
     <script src="~/Content/Admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
@@ -278,7 +323,7 @@
 
     <!-- Page level custom scripts -->
     @*<script src="~/Content/Admin/js/demo/chart-area-demo.js"></script>
-    <script src="~/Content/Admin/js/demo/chart-pie-demo.js"></script>*@
+        <script src="~/Content/Admin/js/demo/chart-pie-demo.js"></script>*@
 
 </body>
 
