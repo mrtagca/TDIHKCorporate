@@ -5,22 +5,19 @@
 
 <!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>TD IHK</title>
-</head>
-<body>
-    @Html.Partial("~/Views/Partial/_PartialInvestData.cshtml")
-
-
+<html lang="@Session["language"]">
     @Html.Partial("~/Views/Partial/_PartialHeader.cshtml")
 
+<body>
+    @Html.Partial("~/Views/Partial/_PartialInvestData.cshtml")
 
     @RenderBody()
 
 
     @Html.Partial("~/Views/Partial/_PartialFooter.cshtml")
+
+    <script src="~/Content/MainSite/assets/uikit/dist/js/uikit.min.js"></script>
+    <script src="~/Content/MainSite/assets/uikit/dist/js/uikit-icons.min.js"></script>
 
 </body>
 

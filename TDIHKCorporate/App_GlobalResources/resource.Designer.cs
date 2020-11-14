@@ -106,6 +106,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to COVID-19.
+        /// </summary>
+        internal static string Covid19 {
+            get {
+                return ResourceManager.GetString("Covid19", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Yönetim Paneli.
         /// </summary>
         internal static string Dashboard {
@@ -178,6 +187,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Etkinliklerimiz.
+        /// </summary>
+        internal static string Etkinliklerimiz {
+            get {
+                return ResourceManager.GetString("Etkinliklerimiz", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Etkinlik Listesi.
         /// </summary>
         internal static string EtkinlikListesi {
@@ -237,6 +255,24 @@ namespace Resources {
         internal static string HaberListesi {
             get {
                 return ResourceManager.GetString("HaberListesi", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hakkımızda.
+        /// </summary>
+        internal static string Hakkimizda {
+            get {
+                return ResourceManager.GetString("Hakkimizda", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hizmetlerimiz.
+        /// </summary>
+        internal static string Hizmetlerimiz {
+            get {
+                return ResourceManager.GetString("Hizmetlerimiz", resourceCulture);
             }
         }
         
@@ -493,11 +529,29 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Üyelik.
+        /// </summary>
+        internal static string Uyelik {
+            get {
+                return ResourceManager.GetString("Uyelik", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Yayımla.
         /// </summary>
         internal static string Yayimla {
             get {
                 return ResourceManager.GetString("Yayimla", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yayınlar.
+        /// </summary>
+        internal static string Yayinlarimiz {
+            get {
+                return ResourceManager.GetString("Yayinlarimiz", resourceCulture);
             }
         }
         

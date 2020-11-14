@@ -14,10 +14,14 @@ namespace TDIHKCorporate
 
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            string lang = System.Threading.Thread.CurrentThread.CurrentUICulture.Name;
+
+            lang = lang.Substring(0, 2);
+
             routes.MapRoute(
                 name: "Default",
-                url: "{lang}/{controller}/{action}/{id}",
-                defaults: new { lang = UrlParameter.Optional, controller = "Home", action = "Index", id = UrlParameter.Optional }
+                url: "{lang}",
+                defaults: new { lang = "de", controller = "Home", action = "Index"}
             );
 
         }

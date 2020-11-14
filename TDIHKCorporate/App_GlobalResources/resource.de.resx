@@ -132,6 +132,9 @@
   <data name="BeniHatirla" xml:space="preserve">
     <value>Erinnere dich an mich</value>
   </data>
+  <data name="Covid19" xml:space="preserve">
+    <value>COVID-19</value>
+  </data>
   <data name="Dashboard" xml:space="preserve">
     <value>Instrumententafel</value>
   </data>
@@ -156,6 +159,9 @@
   <data name="Etkinlikler" xml:space="preserve">
     <value>Veranstaltungen</value>
   </data>
+  <data name="Etkinliklerimiz" xml:space="preserve">
+    <value>Veranstaltungen</value>
+  </data>
   <data name="EtkinlikListesi" xml:space="preserve">
     <value>Veranstaltungsliste</value>
   </data>
@@ -176,6 +182,12 @@
   </data>
   <data name="HaberListesi" xml:space="preserve">
     <value>Nachrichtenliste</value>
+  </data>
+  <data name="Hakkimizda" xml:space="preserve">
+    <value>Über uns</value>
+  </data>
+  <data name="Hizmetlerimiz" xml:space="preserve">
+    <value>Dienstleistungen</value>
   </data>
   <data name="Hosgeldiniz" xml:space="preserve">
     <value>Herzlich Willkommen</value>
@@ -261,8 +273,14 @@
   <data name="TaslakOlarakKaydet" xml:space="preserve">
     <value>Als Entwurf Speichern</value>
   </data>
+  <data name="Uyelik" xml:space="preserve">
+    <value>Mitgliedschaft</value>
+  </data>
   <data name="Yayimla" xml:space="preserve">
     <value>Veröffentlichen</value>
+  </data>
+  <data name="Yayinlarimiz" xml:space="preserve">
+    <value>Veröffentlichungen</value>
   </data>
   <data name="YonetimPaneli" xml:space="preserve">
     <value>Management Panel</value>

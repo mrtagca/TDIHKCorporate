@@ -1,0 +1,124 @@
+//
+// Component: Section
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+@section-padding-vertical:                        @global-medium-margin;
+@section-padding-vertical-m:                      @global-large-margin;
+
+@section-xsmall-padding-vertical:                 @global-margin;
+
+@section-small-padding-vertical:                  @global-medium-margin;
+
+@section-large-padding-vertical:                  @global-large-margin;
+@section-large-padding-vertical-m:                @global-xlarge-margin;
+
+@section-xlarge-padding-vertical:                 @global-xlarge-margin;
+@section-xlarge-padding-vertical-m:               (@global-large-margin + @global-xlarge-margin);
+
+@section-default-background:                      @global-background;
+
+@section-muted-background:                        @global-muted-background;
+
+@section-primary-background:                      @global-primary-background;
+@section-primary-color-mode:                      light;
+
+@section-secondary-background:                    @global-secondary-background;
+@section-secondary-color-mode:                    light;
+
+
+// Component
+// ========================================================================
+
+.hook-section() {}
+
+
+// Style modifiers
+// ========================================================================
+
+.hook-section-default() {}
+
+.hook-section-muted() {}
+
+.hook-section-primary() {}
+
+.hook-section-secondary() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-section-misc() {
+    //Font sizes
+
+    .size-h1 {
+        font-size: @base-h1-font-size-m;
+        @media (max-width: @breakpoint-small-max) {
+            font-size: @base-h1-font-size;
+        }
+    }
+    .size-h2 {
+        font-size: @base-h2-font-size-m;
+        @media (max-width: @breakpoint-small-max) {
+            font-size: @base-h2-font-size;
+        }
+    }
+
+    .line-height-1{
+        line-height: 1;
+    }
+
+    .color-white{
+        color: @white;
+    }
+
+    .event-day {
+        font-size: 60px;
+        @media (min-width: @breakpoint-medium) {
+            font-size: 80px;
+        }
+        
+    }
+
+    .event-date {
+        font-size: @base-h2-font-size-m;
+        @media (min-width: @breakpoint-medium) {
+            font-size: 30px;
+        }
+    }
+
+    ////HOME
+    .news-wrapper {
+        @media (min-width: @breakpoint-medium) {
+            width: calc (100% * 8 / 9.001);
+        }
+    }
+
+    //Footer
+    .footer-links{
+        color: @white;
+    }
+
+    .footer-section-1{
+        padding: 20px 0;
+        @media(min-width: @breakpoint-medium) {
+            padding: 50px 0;
+        }
+    }
+
+    .footer-section-2{
+        padding: 15px 0;
+        @media (min-width: @breakpoint-medium) {
+            padding: 40px 0 10px 0;
+        }
+    }
+    .play-icon{
+        path{
+            fill: @grey-80 !important;
+        }
+    }
+}
