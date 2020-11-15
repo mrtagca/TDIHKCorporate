@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TDIHKCorporate.BaseControllers.MultiLanguage;
 
 namespace TDIHKCorporate.Controllers
 {
-    //[Route("Detail/{Film_Id}/{seo_text}")]
 
-    public class PageController : Controller
+    public class PageController : SiteBaseController
     {
         // GET: Page
         public ActionResult Show(string seolink)

@@ -24,7 +24,16 @@
                                     @foreach (TDIHKCorporate.Types.MenuItems item in Model.Where(x => x.IsSubMenu == false).OrderBy(x => x.MenuItemPriority))
                                     {
                                         <li>
-                                            <a href="@item.PageSeoLink">@item.MenuName</a>
+                                            @{
+                                                if (item.Language == "tr")
+                                                {
+                                                    <a href="sayfalar/@item.PageSeoLink">@item.MenuName</a>
+                                                }
+                                                else if (item.Language == "de")
+                                                {
+                                                    <a href="seiten/@item.PageSeoLink">@item.MenuName</a>
+                                                }
+                                            }
 
 
                                             @* Sub Menuler
@@ -37,8 +46,10 @@
                                                 </ul>*@
                                         </li>
 
+
                                     }
-                                    @*<li><a href="">@Resources.resource.Hizmetlerimiz</a></li>
+                                    @*
+                                        <li><a href="">@Resources.resource.Hizmetlerimiz</a></li>
                                         <li><a href="">@Resources.resource.Uyelik</a></li>
                                         <li><a href="">@Resources.resource.Etkinliklerimiz</a></li>
                                         <li><a href="">@Resources.resource.Yayinlarimiz</a></li>
@@ -97,27 +108,36 @@
                     @foreach (TDIHKCorporate.Types.MenuItems item in Model.Where(x => x.IsSubMenu == false).OrderBy(x => x.MenuItemPriority))
                     {
                         <li>
-                            <a href="@item.PageSeoLink">@item.MenuName</a>
+                            @{
+                                if (item.Language == "tr")
+                                {
+                                    <a href="sayfalar/@item.PageSeoLink">@item.MenuName</a>
+                                }
+                                else if (item.Language == "de")
+                                {
+                                    <a href="seiten/@item.PageSeoLink">@item.MenuName</a>
+                                }
+                            }
 
                             @* Sub Menuler
-                    <ul class="uk-navbar-nav uk-width-expand uk-flex-between">
-                    @foreach (var secondItem in (Model.Where(s => s.ParentMenuItemID == item.ID && s.IsSubMenu == true).ToList()))
-                    {
-                        <li><a href="@secondItem.PageSeoLink">@secondItem.MenuName</a></li>
+                                    <ul class="uk-navbar-nav uk-width-expand uk-flex-between">
+                                    @foreach (var secondItem in (Model.Where(s => s.ParentMenuItemID == item.ID && s.IsSubMenu == true).ToList()))
+                                    {
+                                        <li><a href="@secondItem.PageSeoLink">@secondItem.MenuName</a></li>
 
-                    }
-                </ul>*@
+                                    }
+                                </ul>*@
 
                         </li>
 
                     }
 
                     @*<li><a href="" class="uk-padding-small-left">@Resources.resource.Hizmetlerimiz</a></li>
-        <li><a href="">@Resources.resource.Uyelik</a></li>
-        <li><a href="">@Resources.resource.Etkinliklerimiz</a></li>
-        <li><a href="">@Resources.resource.Yayinlarimiz</a></li>
-        <li><a href="">@Resources.resource.Covid19</a></li>
-        <li><a href="">@Resources.resource.Hakkimizda</a></li>*@
+                        <li><a href="">@Resources.resource.Uyelik</a></li>
+                        <li><a href="">@Resources.resource.Etkinliklerimiz</a></li>
+                        <li><a href="">@Resources.resource.Yayinlarimiz</a></li>
+                        <li><a href="">@Resources.resource.Covid19</a></li>
+                        <li><a href="">@Resources.resource.Hakkimizda</a></li>*@
                 </ul>
             </div>
             <!--Navbar searchbar ve dil-->

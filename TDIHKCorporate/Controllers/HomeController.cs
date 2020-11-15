@@ -19,8 +19,6 @@ namespace TDIHKCorporate.Controllers
             return View();
         }
 
-        //[AllowAnonymous]
-        //[ChildActionOnly]
         public ActionResult MenuList()
         {
             DapperRepository<MenuItems> getPageCategories = new DapperRepository<MenuItems>();

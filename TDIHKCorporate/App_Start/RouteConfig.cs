@@ -18,12 +18,27 @@ namespace TDIHKCorporate
             language = language.Substring(0, 2);
 
 
+
+            #region Sayfalar
+
+            //Sayfalar Almanca Routing
             routes.MapRoute(
-                name: "Page",
-                url: "pages/{seolink}",
-                defaults: new { controller = "Page", action = "Show" },
-                new[] { "TDIHKCorporate.Controllers" }
-            );
+                   name: "PageGerman",
+                   url: "seiten/{seolink}",
+                   defaults: new { controller = "Page", action = "Show" },
+                   new[] { "TDIHKCorporate.Controllers" }
+               );
+
+
+            //Sayfalar Türkçe Routing
+            routes.MapRoute(
+                   name: "PageTurkish",
+                   url: "sayfalar/{seolink}",
+                   defaults: new { controller = "Page", action = "Show" },
+                   new[] { "TDIHKCorporate.Controllers" }
+               ); 
+
+            #endregion
 
             routes.MapRoute(
                 name: "Default",
