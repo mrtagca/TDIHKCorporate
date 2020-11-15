@@ -19,11 +19,18 @@ namespace TDIHKCorporate
             lang = lang.Substring(0, 2);
 
             routes.MapRoute(
-                name: "Default",
-                url: "{lang}",
-                defaults: new { lang = "de", controller = "Home", action = "Index"}
+                name: "Page",
+                url: "{seolink}",
+                defaults: new { controller = "Page", action = "Show" },
+                new[] { "TDIHKCorporate.Controllers" }
             );
 
+            routes.MapRoute(
+                name: "Default",
+                url: "{controller}/{action}",
+                defaults: new { controller = "Home", action = "Index" },
+                new[] { "TDIHKCorporate.Controllers" }
+            );
         }
     }
 }
