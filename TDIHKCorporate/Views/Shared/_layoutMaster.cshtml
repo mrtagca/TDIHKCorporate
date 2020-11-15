@@ -9,10 +9,11 @@
     @Html.Partial("~/Views/Partial/_PartialHeader.cshtml")
 
 <body>
-    @Html.Partial("~/Views/Partial/_PartialInvestData.cshtml")
+
+    @Html.Action("MenuList", "Home")
+
 
     @RenderBody()
-
 
     @Html.Partial("~/Views/Partial/_PartialFooter.cshtml")
 

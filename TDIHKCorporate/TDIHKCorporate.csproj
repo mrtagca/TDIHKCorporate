@@ -2276,6 +2276,7 @@
     <Compile Include="test.cs" />
     <Compile Include="Types\EventCategories.cs" />
     <Compile Include="Types\Events.cs" />
+    <Compile Include="Types\MenuItems.cs" />
     <Compile Include="Types\PageCategories.cs" />
     <Compile Include="Types\Pages.cs" />
   </ItemGroup>
@@ -2844,10 +2845,10 @@
     <None Include="Content\MainSite\other\Calibri Bold.ttf" />
     <None Include="packages.config" />
     <Content Include="Views\Partial\_PartialFooter.cshtml" />
-    <Content Include="Views\Partial\_PartialInvestData.cshtml" />
     <Content Include="Views\Partial\_PartialHeader.cshtml" />
     <Content Include="Views\Shared\_layoutMaster.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\_PartialInvestData.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
