@@ -11,11 +11,11 @@ namespace TDIHKCorporate.Areas.Management.Controllers
     [RouteArea("Management")]
     public class AdminController : SiteBaseController
     {
-        public ActionResult ChangeLanguage(string lang)
+        public ActionResult ChangeLanguage(string language)
         {
-            new SiteLanguage().SetLanguage(lang);
+            new SiteLanguage().SetLanguage(language);
             string controllerName = this.ControllerContext.RouteData.Values["controller"].ToString();
-            return RedirectToAction("Index", controllerName);
+            return Redirect(Request.UrlReferrer.ToString());
         }
 
         // GET: Management/Admin

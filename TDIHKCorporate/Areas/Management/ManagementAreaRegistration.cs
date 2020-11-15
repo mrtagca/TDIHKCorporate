@@ -24,7 +24,7 @@ namespace TDIHKCorporate.Areas.Management
             context.MapRoute(
                 "Management_default",
                 "Management/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

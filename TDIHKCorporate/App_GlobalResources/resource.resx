@@ -138,6 +138,9 @@
   <data name="Dashboard" xml:space="preserve">
     <value>Yönetim Paneli</value>
   </data>
+  <data name="Dil" xml:space="preserve">
+    <value>Dil</value>
+  </data>
   <data name="EmailKullaniciAdi" xml:space="preserve">
     <value>Email veya Kullanıcı Adı</value>
   </data>
@@ -174,6 +177,9 @@
   <data name="EtkinlikTarihi" xml:space="preserve">
     <value>Etkinlik Tarihi</value>
   </data>
+  <data name="Eylemler" xml:space="preserve">
+    <value>Eylemler</value>
+  </data>
   <data name="HaberEkle" xml:space="preserve">
     <value>Haber Ekle</value>
   </data>
@@ -207,14 +213,38 @@
   <data name="Login" xml:space="preserve">
     <value>Giriş Yap</value>
   </data>
+  <data name="MenuAdi" xml:space="preserve">
+    <value>Menü Adı</value>
+  </data>
   <data name="MenuEkle" xml:space="preserve">
     <value>Menü Ekle</value>
+  </data>
+  <data name="MenuElemanEkle" xml:space="preserve">
+    <value>Menü Elemanı Ekle</value>
+  </data>
+  <data name="MenuElemanListesi" xml:space="preserve">
+    <value>Menü Eleman Listesi</value>
+  </data>
+  <data name="MenuID" xml:space="preserve">
+    <value>Menü ID</value>
   </data>
   <data name="Menuler" xml:space="preserve">
     <value>Menüler</value>
   </data>
+  <data name="MenuLevel" xml:space="preserve">
+    <value>Menü Level</value>
+  </data>
   <data name="MenuListesi" xml:space="preserve">
     <value>Menü Listesi</value>
+  </data>
+  <data name="MenuSirasi" xml:space="preserve">
+    <value>Menü Sırası</value>
+  </data>
+  <data name="MenuTip" xml:space="preserve">
+    <value>Menü Tipi</value>
+  </data>
+  <data name="OlusturulmaTarihi" xml:space="preserve">
+    <value>Oluşturulma Tarihi</value>
   </data>
   <data name="OneCikanGorsel" xml:space="preserve">
     <value>Öne Çıkan Görsel</value>
@@ -231,6 +261,9 @@
   <data name="RaporOlustur" xml:space="preserve">
     <value>Rapor Oluştur</value>
   </data>
+  <data name="SayfaBaslik" xml:space="preserve">
+    <value>Sayfa Başlık</value>
+  </data>
   <data name="SayfaDili" xml:space="preserve">
     <value>Sayfa Dili</value>
   </data>
@@ -245,6 +278,9 @@
   </data>
   <data name="SayfaOzellikleri" xml:space="preserve">
     <value>Sayfa Özellikleri</value>
+  </data>
+  <data name="Sec" xml:space="preserve">
+    <value>Seç</value>
   </data>
   <data name="SeoAnahtarKelimeleri" xml:space="preserve">
     <value>SEO Anahtar Kelimeleri</value>
@@ -261,8 +297,14 @@
   <data name="Slider" xml:space="preserve">
     <value>Slider</value>
   </data>
+  <data name="SliderAlaniSec" xml:space="preserve">
+    <value>Slider Alanı Seç</value>
+  </data>
   <data name="SliderEkle" xml:space="preserve">
     <value>Slider Ekle</value>
+  </data>
+  <data name="SliderGorselYukle" xml:space="preserve">
+    <value>Slider Görsel Yükle</value>
   </data>
   <data name="SliderIcerikEkle" xml:space="preserve">
     <value>Slider İçerik Ekle</value>
@@ -270,11 +312,29 @@
   <data name="SliderListesi" xml:space="preserve">
     <value>Slider Listesi</value>
   </data>
+  <data name="SliderSirasi" xml:space="preserve">
+    <value>Slider Sırası</value>
+  </data>
+  <data name="SliderUrl" xml:space="preserve">
+    <value>Slider URL</value>
+  </data>
+  <data name="Sonuclar" xml:space="preserve">
+    <value>Sonuçlar</value>
+  </data>
   <data name="TaslakOlarakKaydet" xml:space="preserve">
     <value>Taslak Olarak Kaydet</value>
   </data>
+  <data name="UyeEkle" xml:space="preserve">
+    <value>Üye Ekle</value>
+  </data>
+  <data name="Uyeler" xml:space="preserve">
+    <value>Üyeler</value>
+  </data>
   <data name="Uyelik" xml:space="preserve">
     <value>Üyelik</value>
+  </data>
+  <data name="UyeListesi" xml:space="preserve">
+    <value>Üye Listesi</value>
   </data>
   <data name="Yayimla" xml:space="preserve">
     <value>Yayımla</value>

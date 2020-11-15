@@ -138,6 +138,9 @@
   <data name="Dashboard" xml:space="preserve">
     <value>Instrumententafel</value>
   </data>
+  <data name="Dil" xml:space="preserve">
+    <value>Sprache</value>
+  </data>
   <data name="EmailKullaniciAdi" xml:space="preserve">
     <value>E-Mail Adresse oder Benutzername</value>
   </data>
@@ -174,6 +177,9 @@
   <data name="EtkinlikTarihi" xml:space="preserve">
     <value>Veranstaltungsdatum</value>
   </data>
+  <data name="Eylemler" xml:space="preserve">
+    <value>Aktionen</value>
+  </data>
   <data name="HaberEkle" xml:space="preserve">
     <value>Nachrichten hinzufügen</value>
   </data>
@@ -207,14 +213,38 @@
   <data name="Login" xml:space="preserve">
     <value>Anmeldung</value>
   </data>
+  <data name="MenuAdi" xml:space="preserve">
+    <value>Menüname</value>
+  </data>
   <data name="MenuEkle" xml:space="preserve">
     <value>Menü Hinzufügen</value>
+  </data>
+  <data name="MenuElemanEkle" xml:space="preserve">
+    <value>Menüpunkt Hinzufügen</value>
+  </data>
+  <data name="MenuElemanListesi" xml:space="preserve">
+    <value>Menüpunktliste</value>
+  </data>
+  <data name="MenuID" xml:space="preserve">
+    <value>Menü ID</value>
   </data>
   <data name="Menuler" xml:space="preserve">
     <value>Menüs</value>
   </data>
+  <data name="MenuLevel" xml:space="preserve">
+    <value>Menüebene</value>
+  </data>
   <data name="MenuListesi" xml:space="preserve">
     <value>Menüliste</value>
+  </data>
+  <data name="MenuSirasi" xml:space="preserve">
+    <value>Menüpriorität</value>
+  </data>
+  <data name="MenuTip" xml:space="preserve">
+    <value>Menütyp</value>
+  </data>
+  <data name="OlusturulmaTarihi" xml:space="preserve">
+    <value>Erstellungsdatum</value>
   </data>
   <data name="OneCikanGorsel" xml:space="preserve">
     <value>Ausgewähltes Bild</value>
@@ -231,6 +261,9 @@
   <data name="RaporOlustur" xml:space="preserve">
     <value>Bericht erstellen</value>
   </data>
+  <data name="SayfaBaslik" xml:space="preserve">
+    <value>Seitentitel</value>
+  </data>
   <data name="SayfaDili" xml:space="preserve">
     <value>Seitensprache</value>
   </data>
@@ -245,6 +278,9 @@
   </data>
   <data name="SayfaOzellikleri" xml:space="preserve">
     <value>Seiteneigenschaften</value>
+  </data>
+  <data name="Sec" xml:space="preserve">
+    <value>Wählen</value>
   </data>
   <data name="SeoAnahtarKelimeleri" xml:space="preserve">
     <value>SEO-Schlüsselwörter</value>
@@ -261,8 +297,14 @@
   <data name="Slider" xml:space="preserve">
     <value>Schieberegler</value>
   </data>
+  <data name="SliderAlaniSec" xml:space="preserve">
+    <value>Schiebereglerbereich Auswählen</value>
+  </data>
   <data name="SliderEkle" xml:space="preserve">
     <value>Schieberegler Hinzufügen</value>
+  </data>
+  <data name="SliderGorselYukle" xml:space="preserve">
+    <value>Schiebereglerbild hinzufügen</value>
   </data>
   <data name="SliderIcerikEkle" xml:space="preserve">
     <value>Schiebereglerinhalt Hinzufügen</value>
@@ -270,11 +312,29 @@
   <data name="SliderListesi" xml:space="preserve">
     <value>Schiebereglerliste</value>
   </data>
+  <data name="SliderSirasi" xml:space="preserve">
+    <value>Schiebereglerpriorität</value>
+  </data>
+  <data name="SliderUrl" xml:space="preserve">
+    <value>Schieberegler URL</value>
+  </data>
+  <data name="Sonuclar" xml:space="preserve">
+    <value>Ergebnisse</value>
+  </data>
   <data name="TaslakOlarakKaydet" xml:space="preserve">
     <value>Als Entwurf Speichern</value>
   </data>
+  <data name="UyeEkle" xml:space="preserve">
+    <value>Mitglied Hinzufügen</value>
+  </data>
+  <data name="Uyeler" xml:space="preserve">
+    <value>Mitglieder</value>
+  </data>
   <data name="Uyelik" xml:space="preserve">
     <value>Mitgliedschaft</value>
+  </data>
+  <data name="UyeListesi" xml:space="preserve">
+    <value>Mitgliederliste</value>
   </data>
   <data name="Yayimla" xml:space="preserve">
     <value>Veröffentlichen</value>

@@ -1,0 +1,92 @@
+﻿@model List<TDIHKCorporate.Types.Menus>
+@{
+    ViewBag.Title = "MenuList";
+    Layout = "~/Areas/Management/Views/Shared/_layoutDashboard.cshtml";
+}
+
+<script src="~/Content/Scripts/Menu.js"></script>
+
+<h5>@Resources.resource.MenuListesi</h5>
+<br />
+<div class="col-sm-12">
+    <table id="tableMenu" class="table table-hover dataTable" style="width:100%" role="grid" aria-describedby="zero-config_info">
+        <thead>
+            <tr role="row">
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" aria-label="ID: activate to sort column descending" style="width: 234px;">@Resources.resource.MenuID</th>
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Menu Name: activate to sort column descending" style="width: 234px;">@Resources.resource.MenuAdi</th>
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Created Date: activate to sort column descending" style="width: 234px;">@Resources.resource.OlusturulmaTarihi</th>
+                <th style="width: 234px;">@Resources.resource.Eylemler</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr role="row">
+                    <td class="sorting_1">@item.ID</td>
+                    <td>@item.MenuName</td>
+                    @{
+                        string TimezoneId = System.Configuration.ConfigurationManager.AppSettings[System.Threading.Thread.CurrentThread.CurrentCulture.Name];
+                        DateTime createdDate = TimeZoneInfo.ConvertTimeBySystemTimeZoneId(item.CreatedDate, TimezoneId);
+                        <td>@createdDate</td>
+
+                    }
+
+                    <td>
+                        <input type="submit" onclick="GetMenuItems('@item.ID','bodyMenuItems','tableMenuItems')" class="btn btn-primary" name="name" value="@Resources.resource.Sec" />
+                        @*<a class="btn btn-primary" onclick="GetMenuItems('@item.ID','bodyMenuItems','tableMenuItems')">@Resources.resource.Sec</a>*@
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+<br />
+
+<hr />
+
+<h5>@Resources.resource.MenuElemanListesi</h5>
+<br />
+
+<div id="MenuItemsArea" class="col-sm-12">
+    <table id="tableMenuItems" class="table table-hover dataTable" style="width:100%" role="grid" aria-describedby="zero-config_info">
+        <thead>
+            <tr role="row">
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" aria-label="PageTitle: activate to sort column descending" style="width: 234px;">@Resources.resource.SayfaBaslik</th>
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Language: activate to sort column descending" style="width: 234px;">@Resources.resource.Dil</th>
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Menu Priority: activate to sort column descending" style="width: 234px;">@Resources.resource.MenuSirasi</th>
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Menu Name: activate to sort column descending" style="width: 234px;">@Resources.resource.MenuAdi</th>
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Menu Level: activate to sort column descending" style="width: 234px;">@Resources.resource.MenuLevel</th>
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Menu Type: activate to sort column descending" style="width: 234px;">@Resources.resource.MenuTip</th>
+            </tr>
+        </thead>
+        <tbody id="bodyMenuItems">
+        </tbody>
+    </table>
+</div>
+
+
+
+<script>
+    $(document).ready(function () {
+
+        $('#' + 'tableMenu').DataTable({
+            "oLanguage": {
+                "oPaginate": { "sPrevious": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>', "sNext": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>' },
+                "sInfo": "Showing page _PAGE_ of _PAGES_",
+                "sSearch": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>',
+                "sSearchPlaceholder": "Search...",
+                "sLengthMenu": "Results :  _MENU_",
+            },
+            "stripeClasses": [],
+            "lengthMenu": [7, 10, 20, 50],
+            "pageLength": 7,
+            "destroy": true
+        });
+
+    });
+
+</script>
+

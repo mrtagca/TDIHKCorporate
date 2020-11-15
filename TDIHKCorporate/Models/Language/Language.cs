@@ -29,7 +29,7 @@ namespace TDIHKCorporate.Models.Language
         {
             try
             {
-                if (!IsLanguageAvailable(lang))
+                if (string.IsNullOrWhiteSpace(lang))
                 {
                     lang = GetDefaultLanguage();
                 }

@@ -20,9 +20,16 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.8.1/css/bootstrap-select.css">
 
+    <link rel="stylesheet" type="text/css" href="~/Content/Admin/plugins/table/datatable/datatables.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/Admin/plugins/table/datatable/dt-global_style.css">
+
+
+
     <script src="~/Content/Admin/vendor/jquery/jquery.min.js"></script>
+   
     <script src="~/Content/Scripts/RequestHelper.js"></script>
     <script src="~/Content/Scripts/UrlHelper.js"></script>
+
 </head>
 
 <body id="page-top">
@@ -61,8 +68,8 @@
                 </a>
                 <div id="collapseMenu" class="collapse" aria-labelledby="collapseMenu" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="#">@Resources.resource.MenuListesi</a>
-                        <a class="collapse-item" href="#">@Resources.resource.MenuEkle</a>
+                        <a class="collapse-item" href="~/Management/Menu/MenuList">@Resources.resource.MenuListesi</a>
+                        <a class="collapse-item" href="#">@Resources.resource.MenuElemanEkle</a>
                     </div>
                 </div>
             </li>
@@ -128,12 +135,12 @@
             <li class="nav-item">
                 <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseMembers" aria-expanded="true" aria-controls="collapseMembers">
                     <i class="fas fa-fw fa-users"></i>
-                    <span>Üyeler</span>
+                    <span>@Resources.resource.Uyeler</span>
                 </a>
                 <div id="collapseMembers" class="collapse" aria-labelledby="collapseMembers" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="login.html">Üye Listesi</a>
-                        <a class="collapse-item" href="register.html">Üye Ekle</a>
+                        <a class="collapse-item" href="login.html">@Resources.resource.UyeListesi</a>
+                        <a class="collapse-item" href="register.html">@Resources.resource.UyeEkle</a>
                     </div>
                 </div>
             </li>
@@ -212,15 +219,14 @@
                         </li>
 
 
-                        Select Language
                         <li class="nav-item dropdown no-arrow mx-1">
-                            <a class="nav-link dropdown-toggle" href="~/Management/Admin?language=tr"><img src="~/Content/Admin/img/turkey-flag-icon-32.png" /></a>
+                            @*<a class="nav-link dropdown-toggle" href="~/Management/Admin?language=tr"><img src="~/Content/Admin/img/turkey-flag-icon-32.png" /></a>*@
+                            <a class="nav-link dropdown-toggle" href="~/Management/Admin/ChangeLanguage?language=tr"><img src="~/Content/Admin/img/turkey-flag-icon-32.png" /></a>
                         </li>
 
                         <li class="nav-item dropdown no-arrow mx-1">
-                            <a class="nav-link dropdown-toggle" href="~/Management/Admin?language=de">
-                                <img src="~/Content/Admin/img/germany-flag-icon-32.png" />
-                            </a>
+                            @*<a class="nav-link dropdown-toggle" href="~/Management/Admin?language=de"><img src="~/Content/Admin/img/germany-flag-icon-32.png" /></a>*@
+                            <a class="nav-link dropdown-toggle" href="~/Management/Admin/ChangeLanguage?language=de"><img src="~/Content/Admin/img/germany-flag-icon-32.png" /></a>
                         </li>
 
 
@@ -306,6 +312,8 @@
             </div>
         </div>
     </div>
+
+    <script src="~/Content/Admin/plugins/table/datatable/datatables.js"></script>
 
     <!-- Bootstrap core JavaScript-->
 
