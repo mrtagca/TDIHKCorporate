@@ -16,9 +16,14 @@ namespace TDIHKCorporate.Controllers
 
         public ActionResult ChangeLanguage(string language)
         {
+           
             new SiteLanguage().SetLanguage(language);
             string controllerName = this.ControllerContext.RouteData.Values["controller"].ToString();
-            return Redirect(Request.UrlReferrer.ToString());
+
+            string url = Request.UrlReferrer.ToString();
+
+            return RedirectToAction("Index","Home");
+            //return Redirect(url);
         }
 
         // GET: Home
