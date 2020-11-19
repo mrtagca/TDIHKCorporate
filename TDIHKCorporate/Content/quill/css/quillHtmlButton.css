@@ -1,0 +1,11 @@
+﻿body {
+    padding: 25px;
+}
+
+#editor {
+    border: 1px solid #ccc;
+}
+
+button.ql-showHtml:after {
+    content: "[HTML Source]";
+}

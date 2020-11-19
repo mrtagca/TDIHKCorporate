@@ -1,0 +1,16 @@
+﻿@model TDIHKCorporate.Types.Pages
+
+
+@{
+    ViewBag.Title = "Show";
+    Layout = "~/Views/Shared/_layoutMaster.cshtml";
+}
+
+<head>
+    <meta name="description" content="@Model.PageTitle">
+    <meta name="keywords" content="@Model.PageSeoKeywords">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+
+@Html.Raw(Model.PageContent)

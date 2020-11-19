@@ -3,7 +3,37 @@
 <link href="~/Content/quill/css/quill.bubble.css" rel="stylesheet" />
 <link href="~/Content/quill/css/quill.core.css" rel="stylesheet" />
 <script src="~/Content/quill/js/quill.core.js"></script>
+<link href="~/Content/quill/css/quillHtmlButton.css" rel="stylesheet" />
 
+<!-- Modal -->
+<div class="modal fade" id="htmlSourceModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">HTML Source</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" >
+                <textarea id="ModalHtml" class="form-control" style="background-color:#ffffff">
+
+</textarea>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button onclick="SaveHtmlSource()" type="button" class="btn btn-primary">Paste Html</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div>
+    <button type="button" class="btn btn-primary" id="SourceButton" onclick="GetHtmlSource()">
+        Source
+    </button>
+</div>
+<br />
 
 <div id="toolbar">
 </div>
@@ -73,13 +103,111 @@
         ['clean']                                         // remove formatting button
     ];
 
+    //var quill = new Quill('#editor', {
+    //    modules: {
+    //        toolbar: toolbarOptions,
+    //        keyboard: {
+    //            bindings: bindings
+    //        }
+    //    },
+    //    theme: 'snow'
+    //});
+
     var quill = new Quill('#editor', {
+        theme: 'snow',
         modules: {
-            toolbar: toolbarOptions,
-            keyboard: {
-                bindings: bindings
+            toolbar: {
+                container: [
+                    [{
+                        font: []
+                    }],
+                    [{
+                        header: [false, 1, 2, 3, 4, 5, 6]
+                    }],
+                    ["bold", "italic", "underline", "strike"],
+                    [{
+                        align: []
+                    }],
+                    ["blockquote", "code-block"],
+                    [{
+                        list: "ordered"
+                    }, {
+                        list: "bullet"
+                    }, {
+                        list: "check"
+                    }],
+                    [{
+                        indent: "-1"
+                    }, {
+                        indent: "+1"
+                    }],
+                    [{
+                        color: []
+                    }, {
+                        background: []
+                    }],
+                    ["link", "image", "video"],
+                    ["clean"],
+                    ["showHtml"]
+                ],
+                handlers: {
+                    showHtml: () => {
+                        if (quill.txtArea.style.display === "") {
+                            const html = quill.txtArea.value;
+                            if (html === '<p><br/></p>') {
+                                quill.html = null;
+                            } else {
+                                quill.html = html.replace(new RegExp('<p><br/>', 'g'), '<p>')
+                            }
+                            quill.pasteHTML(html);
+                        }
+                        quill.txtArea.style.display =
+                            quill.txtArea.style.display === "none" ? "" : "none";
+                    }
+                }
             }
-        },
-        theme: 'snow'
+        }
     });
-</script>
+
+    if (Quill.prototype.getHTML == undefined)
+        Quill.prototype.getHTML = function () {
+            return this.container.firstChild.innerHTML;
+        };
+
+    //fix for Quill v2
+    if (Quill.prototype.pasteHTML == undefined)
+        Quill.prototype.pasteHTML = function (html) {
+            {
+                this.container.firstChild.innerHTML = html;
+            }
+        }
+
+    quill.txtArea = document.createElement("textarea");
+    quill.txtArea.style.cssText =
+        "width: 100%;margin: 0px;background: rgb(29, 29, 29);box-sizing: border-box;color: rgb(204, 204, 204);font-size: 15px;outline: none;padding: 20px;line-height: 24px;font-family: Consolas, Menlo, Monaco, &quot;Courier New&quot;, monospace;position: absolute;top: 0;bottom: 0;border: none;display:none;resize: none;";
+
+    var htmlEditor = quill.addContainer("ql-custom");
+    htmlEditor.appendChild(quill.txtArea);
+
+    quill.on("text-change", (delta, oldDelta, source) => {
+        var html = quill.getHTML();
+        quill.txtArea.value = html;
+    });
+
+    quill.txtArea.value = quill.getHTML();
+
+    function GetHtmlSource() {
+
+        $('#htmlSourceModal').modal('show');
+
+    }
+
+    function SaveHtmlSource()
+    {
+        debugger
+        quill.txtArea.value = $("#ModalHtml").val();
+         
+
+        $('#htmlSourceModal').modal('hide');
+    }
+</script> 

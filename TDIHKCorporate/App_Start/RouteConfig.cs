@@ -33,17 +33,17 @@ namespace TDIHKCorporate
             //Sayfalar Türkçe Routing
             routes.MapRoute(
                    name: "PageTurkish",
-                   url: "sayfalar/{seolink}",
-                   defaults: new { controller = "Page", action = "Show" },
-                   new[] { "TDIHKCorporate.Controllers" }
+                   url: "sayfalar/{seoLink}",
+                   defaults: new { controller = "Page", action = "Show", seoLink = UrlParameter.Optional },
+                new[] { "TDIHKCorporate.Controllers" }
                ); 
 
             #endregion
 
             routes.MapRoute(
                 name: "Default",
-                url: "{controller}/{action}",
-                defaults: new { controller = "Home", action = "Index" },
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
                 new[] { "TDIHKCorporate.Controllers" }
             );
         }
