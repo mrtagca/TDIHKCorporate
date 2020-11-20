@@ -1,8 +1,12 @@
 ﻿@model List<TDIHKCorporate.Types.MenuItems>
+
 <header>
     <!--Altın Dolar Euro Verileri-->
     <section class="uk-section-muted">
         <div class="market-wrapper">
+            <div id="currency">
+
+            </div>
         </div>
     </section>
     <!--Navbar üstü görselleri-->
@@ -28,10 +32,39 @@
                                                 if (item.Language == "tr")
                                                 {
                                                     <a href="/sayfalar/@item.PageSeoLink">@item.MenuName</a>
+
+                                                    <div class="uk-navbar-dropdown">
+                                                        <ul class="uk-nav uk-navbar-dropdown-nav">
+
+                                                            @foreach (var subMenuItem in Model.Where(x => x.ParentMenuItemID == item.ID && x.IsSubMenu == true && x.MenuLevel == 1).OrderBy(x => x.MenuItemPriority))
+                                                            {
+
+                                                                <li class="uk-active">
+                                                                    <a href="/seiten/@subMenuItem.PageSeoLink">@subMenuItem.MenuName</a>
+
+                                                                </li>
+
+                                                            }
+                                                        </ul>
+                                                    </div>
                                                 }
                                                 else if (item.Language == "de")
                                                 {
                                                     <a href="/seiten/@item.PageSeoLink">@item.MenuName</a>
+
+                                                    <div class="uk-navbar-dropdown">
+                                                        <ul class="uk-nav uk-navbar-dropdown-nav">
+
+                                                            @foreach (var subMenuItem in Model.Where(x => x.ParentMenuItemID == item.ID && x.IsSubMenu == true && x.MenuLevel == 1).OrderBy(x => x.MenuItemPriority))
+                                                            {
+
+                                                                <li class="uk-active">
+                                                                    <a href="/seiten/@subMenuItem.PageSeoLink">@subMenuItem.MenuName</a>
+                                                                </li>
+
+                                                            }
+                                                        </ul>
+                                                    </div>
                                                 }
                                             }
 
@@ -112,10 +145,38 @@
                                 if (item.Language == "tr")
                                 {
                                     <a href="/sayfalar/@item.PageSeoLink">@item.MenuName</a>
+
+                                    <div class="uk-navbar-dropdown">
+                                        <ul class="uk-nav uk-navbar-dropdown-nav">
+
+                                            @foreach (var subMenuItem in Model.Where(x => x.ParentMenuItemID == item.ID && x.IsSubMenu == true && x.MenuLevel == 1).OrderBy(x => x.MenuItemPriority))
+                                            {
+
+                                                <li class="uk-active">
+                                                    <a href="/seiten/@subMenuItem.PageSeoLink">@subMenuItem.MenuName</a>
+                                                </li>
+
+                                            }
+                                        </ul>
+                                    </div>
                                 }
                                 else if (item.Language == "de")
                                 {
                                     <a href="/seiten/@item.PageSeoLink">@item.MenuName</a>
+
+                                    <div class="uk-navbar-dropdown">
+                                        <ul class="uk-nav uk-navbar-dropdown-nav">
+
+                                            @foreach (var subMenuItem in Model.Where(x => x.ParentMenuItemID == item.ID && x.IsSubMenu == true && x.MenuLevel == 1).OrderBy(x => x.MenuItemPriority))
+                                            {
+
+                                                <li class="uk-active">
+                                                    <a href="/seiten/@subMenuItem.PageSeoLink">@subMenuItem.MenuName</a>
+                                                </li>
+
+                                            }
+                                        </ul>
+                                    </div>
                                 }
                             }
 
@@ -170,3 +231,4 @@
         </nav>
     </div>
 </header>
+ 
