@@ -30,7 +30,7 @@ namespace TDIHKCorporate.Areas.Management.Controllers
 
             string name = cultureInfo.TwoLetterISOLanguageName;
 
-            Pages page = getPage.Get("select * from Pages where [Language] = @lang and PageId = @pageId", new { lang = name, pageId = id });
+            Pages page = getPage.Get("select * from Pages where  PageId = @pageId", new { lang = name, pageId = id });
 
             return View(page);
         }
