@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_layoutMaster.cshtml";
 }
 
- 
+
 
 <main class="uk-container">
     <!--Banner-->
@@ -338,11 +338,11 @@
     <section>
         <h2 class="uk-text-bold">Nachrichten</h2>
         <!--Haber Örneği-->
-        <!--İlk haber örneği (cshtml'e) bu kısmı taşırsın. Bu kısmı güncelledim zaten forla dönecektir burası.)-->
+        <!--İlk haber örneği (cshtml'e) bu kısmı taşırsın)-->
         <div class="uk-grid uk-grid-medium uk-margin-large-bottom" uk-grid>
             <div class="uk-width-1-4 uk-width-1-6@s">
                 <div class="uk-grid uk-child-width-1-2 uk-grid-small" uk-grid>
-                    <div class="uk-flex date-flex-direction uk-flex-middle">
+                    <div class="uk-flex">
                         <div class="uk-margin-small-right event-day" style="line-height: .7;">
                             4
                         </div>
@@ -375,7 +375,7 @@
         <div class="uk-grid uk-grid-medium uk-margin-large-bottom" uk-grid>
             <div class="uk-width-1-4 uk-width-1-6@s">
                 <div class="uk-grid uk-child-width-1-2 uk-grid-small" uk-grid>
-                    <div class="uk-flex date-flex-direction uk-flex-middle">
+                    <div class="uk-flex">
                         <div class="uk-margin-small-right event-day" style="line-height: .7;">
                             4
                         </div>
@@ -387,7 +387,7 @@
                 </div>
             </div>
             <div class="uk-width-3-4 uk-width-expand@s">
-                <div class="size-20 uk-width-1-1 uk-width-3-4@s">
+                <div class="size-20 uk-width-1-1 uk-width-3-4@s uk-margin-small-left">
                     Kurzarbeitergeld bis 31.12.2021
                     verlängert / Mehr Kinderkrankengeldtage für
                     arbeitende Eltern Wir möchten Sie über einige weitere Beschlüsse der Großen Koalition
@@ -442,7 +442,7 @@
             unserer Newsletter an um die Neusten Nachrichten zu erhalten.
         </p>
 
-        @Html.Action("Index","Newsletter")
+        @Html.Action("Index", "Newsletter")
 
     </section>
 </main>

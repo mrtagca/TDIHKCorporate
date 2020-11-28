@@ -1,0 +1,92 @@
+﻿@model List<TDIHKCorporate.Types.ViewTypes.PageItem>
+@{
+    ViewBag.Title = "PageList";
+    Layout = "~/Areas/Management/Views/Shared/_layoutDashboard.cshtml";
+}
+
+<h5>Sayfa Listesi</h5>
+<br />
+
+<div class="col-sm-12">
+    <table id="pageTable" class="table table-hover dataTable" style="width:100%" role="grid" aria-describedby="zero-config_info">
+        <thead>
+            <tr role="row">
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 250px;">Sayfa ID</th>
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 250px;">Page Identifier</th>
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 250px;">Page Title</th>
+
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 250px;">Page Language</th>
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 250px;">Page Seo Link</th>
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 250px;">Created Date</th>
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 250px;">Creator</th>
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 250px;">Updated Date</th>
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 250px;">Updater</th>
+                <th style="width: 234px;">Eylemler</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var row in Model)
+            {
+                <tr>
+                    <td class="sorting_1">@row.PageID</td>
+                    <td>@row.PageIdentifier</td>
+                    <td>@row.PageTitle</td>
+                    <td>@row.PageLanguage</td>
+                    <td>@row.PageSeoLink</td>
+
+                    @{
+                        string TimezoneId = System.Configuration.ConfigurationManager.AppSettings[System.Threading.Thread.CurrentThread.CurrentCulture.Name];
+                        DateTime createdDate = TimeZoneInfo.ConvertTimeBySystemTimeZoneId((DateTime)row.CreatedDate, TimezoneId);
+                        <td>@createdDate</td>
+                    }
+
+
+                    <td>@row.Creator</td>
+
+                    @if (row.UpdatedDate != null)
+                    {
+                        string updateTimezoneId = System.Configuration.ConfigurationManager.AppSettings[System.Threading.Thread.CurrentThread.CurrentCulture.Name];
+                        DateTime updatedDate = TimeZoneInfo.ConvertTimeBySystemTimeZoneId((DateTime)row.UpdatedDate, TimezoneId);
+                        <td>@createdDate</td>
+
+                    }
+                    else
+                    {
+                        <td>@row.UpdatedDate</td>
+                    }
+                    <td>@row.Updater</td>
+                    <td>
+                        <input type="submit" onclick="
+                           window.open(
+                         '/Management/Page/Edit/' +@row.PageID,
+                         '_blank' );" class="btn btn-primary" name="name" value="Edit" />
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+
+        $('#' + 'pageTable').DataTable({
+            "oLanguage": {
+                "oPaginate": { "sPrevious": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>', "sNext": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>' },
+                "sInfo": "Showing page _PAGE_ of _PAGES_",
+                "sSearch": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>',
+                "sSearchPlaceholder": "Search...",
+                "sLengthMenu": "Results :  _MENU_",
+            },
+            "stripeClasses": [],
+            "lengthMenu": [7, 10, 20, 50],
+            "pageLength": 7,
+            "destroy": true
+        });
+
+    });
+
+</script>
