@@ -44,31 +44,30 @@ namespace TDIHKCorporate
             routes.MapRoute(
                        name: "MemberShipGerman",
                        url: "mitgliedschaft",
-                       defaults: new { controller = "MemberShip", action = "Index", seoLink = UrlParameter.Optional },
+                       defaults: new { controller = "MemberShip", action = "Index"},
                     new[] { "TDIHKCorporate.Controllers" }
                    );
 
             routes.MapRoute(
                    name: "MemberShipTurkish",
                    url: "uyelik",
-                   defaults: new { controller = "MemberShip", action = "Index", seoLink = UrlParameter.Optional },
+                   defaults: new { controller = "MemberShip", action = "Index"},
                 new[] { "TDIHKCorporate.Controllers" }
                );
             #endregion
-
 
             #region Etkinliklerimiz / Veranstaltungen
             routes.MapRoute(
                        name: "EventsGerman",
                        url: "veranstaltungen",
-                       defaults: new { controller = "Event", action = "Index", seoLink = UrlParameter.Optional },
+                       defaults: new { controller = "Event", action = "Index"},
                     new[] { "TDIHKCorporate.Controllers" }
                    );
 
             routes.MapRoute(
                       name: "EventsTurkish",
                       url: "etkinliklerimiz",
-                      defaults: new { controller = "Event", action = "Index", seoLink = UrlParameter.Optional },
+                      defaults: new { controller = "Event", action = "Index" },
                    new[] { "TDIHKCorporate.Controllers" }
                   );
 
@@ -79,14 +78,14 @@ namespace TDIHKCorporate
             routes.MapRoute(
                        name: "PublicationsGerman",
                        url: "veröffentlichungen",
-                       defaults: new { controller = "Publication", action = "Index", seoLink = UrlParameter.Optional },
+                       defaults: new { controller = "Publication", action = "Index"},
                     new[] { "TDIHKCorporate.Controllers" }
                    );
 
             routes.MapRoute(
                       name: "PublicationsTurkish",
                       url: "yayinlarimiz",
-                      defaults: new { controller = "Publication", action = "Index", seoLink = UrlParameter.Optional },
+                      defaults: new { controller = "Publication", action = "Index"},
                    new[] { "TDIHKCorporate.Controllers" }
                   );
 
@@ -94,16 +93,12 @@ namespace TDIHKCorporate
             #endregion
 
             #region Covid
-
             routes.MapRoute(
-                    name: "CovidTurkish",
-                    url: "Covid",
-                    defaults: new { controller = "Publication", action = "Index", seoLink = UrlParameter.Optional },
+                    name: "covid",
+                    url: "covid-19",
+                    defaults: new { controller = "Covid", action = "Index", seoLink = UrlParameter.Optional },
                  new[] { "TDIHKCorporate.Controllers" }
                 );
-
-
-
             #endregion
 
             routes.MapRoute(

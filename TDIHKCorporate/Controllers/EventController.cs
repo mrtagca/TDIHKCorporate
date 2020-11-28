@@ -5,12 +5,13 @@ using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TDIHKCorporate.BaseControllers.MultiLanguage;
 using TDIHKCorporate.Types;
 
 
 namespace TDIHKCorporate.Controllers
 {
-    public class EventController : Controller
+    public class EventController : SiteBaseController
     {
         // GET: Event
         public ActionResult Index()
