@@ -13,8 +13,8 @@ namespace DbAccess.Dapper.Repository
 
         public DapperRepository()
         {
-            ////_connection = new System.Data.SqlClient.SqlConnection(@"Server=77.245.159.18;Database=IHK;User Id=tdihk;Password=*F56dwa7;");
-            _connection = new System.Data.SqlClient.SqlConnection(@"Server=DESKTOP-IUFI4CJ\SQLEXPRESS;Database=IHK;Trusted_Connection=True;");
+            _connection = new System.Data.SqlClient.SqlConnection(@"Server=77.245.159.18;Database=IHK;User Id=tdihk;Password=*F56dwa7;");
+            //_connection = new System.Data.SqlClient.SqlConnection(@"Server=DESKTOP-IUFI4CJ\SQLEXPRESS;Database=IHK;Trusted_Connection=True;");
 
         }
 
