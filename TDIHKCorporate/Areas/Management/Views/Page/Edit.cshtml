@@ -3,7 +3,7 @@
 
 @{
     ViewBag.Title = "Edit";
-Layout = "~/Areas/Management/Views/Shared/_layoutDashboard.cshtml";
+    Layout = "~/Areas/Management/Views/Shared/_layoutDashboard.cshtml";
 }
 
 
@@ -155,9 +155,16 @@ Layout = "~/Areas/Management/Views/Shared/_layoutDashboard.cshtml";
         var editor = $("#editor").data("kendoEditor");
 
         debugger
+        @{
+
+            IHtmlString headerHtml = Html.Raw(Html.Partial("~/Views/Partial/_PartialHeader.cshtml"));
+        }
+
+        var header = @Html.Raw(JsonConvert.SerializeObject(headerHtml.ToHtmlString()))
+
         var html = @Html.Raw(JsonConvert.SerializeObject(Model.PageContent));
 
-        var htmlContent = html;
+        var htmlContent = header+html+"</br>";
         editor.value(htmlContent);
     });
 </script>

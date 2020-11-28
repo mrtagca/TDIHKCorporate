@@ -2782,6 +2782,7 @@
     <Content Include="Content\Scripts\UrlHelper.js" />
     <Content Include="Global.asax" />
     <Content Include="Areas\Management\Views\Page\Edit.cshtml" />
+    <Content Include="Areas\Management\Views\Page\PageList.cshtml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
@@ -3249,6 +3250,7 @@
     <Compile Include="Types\Menus.cs" />
     <Compile Include="Types\PageCategories.cs" />
     <Compile Include="Types\Pages.cs" />
+    <Compile Include="Types\ViewTypes\PageItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />

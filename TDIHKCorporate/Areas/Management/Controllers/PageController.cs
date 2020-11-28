@@ -9,6 +9,7 @@ using TDIHKCorporate.Types;
 using System.Globalization;
 using Newtonsoft.Json;
 using TDIHKCorporate.Extensions;
+using TDIHKCorporate.Types.ViewTypes;
 
 namespace TDIHKCorporate.Areas.Management.Controllers
 {
@@ -22,7 +23,6 @@ namespace TDIHKCorporate.Areas.Management.Controllers
 
         public ActionResult Edit(int id)
         {
-            ViewExtension.ConvertPartialViewToString(new PartialViewResult() { ViewName="_PartialHeader" }, "Home");
 
             DapperRepository<Pages> getPage = new DapperRepository<Pages>();
 
@@ -30,7 +30,7 @@ namespace TDIHKCorporate.Areas.Management.Controllers
 
             string name = cultureInfo.TwoLetterISOLanguageName;
 
-            Pages page = getPage.Get("select * from Pages where [Language] = @lang and PageId = @pageId", new { lang = name , pageId = id});
+            Pages page = getPage.Get("select * from Pages where [Language] = @lang and PageId = @pageId", new { lang = name, pageId = id });
 
             return View(page);
         }
@@ -79,6 +79,29 @@ namespace TDIHKCorporate.Areas.Management.Controllers
 
             return Newtonsoft.Json.JsonConvert.SerializeObject(result);
 
+        }
+
+        public ActionResult PageList()
+        {
+            DapperRepository<PageItem> pageList = new DapperRepository<PageItem>();
+            var result = pageList.GetList(@"SELECT  
+                                            pg.PageID,pg.PageIdentifier,
+                                            pg.PageTitle,pg.[Language] as PageLanguage,
+                                            pg.PageSeoLink,
+                                            convert(nvarchar,pg.CreatedDate,120) as CreatedDate,
+                                            case when (pg.CreatedBy = usr.UserID) then usr.Username else null end as Creator,
+                                            convert(nvarchar,pg.UpdatedDate,120) as UpdatedDate,
+                                            case when (pg.UpdatedBy = usr.UserID) then usr.Username else null end as Updater
+
+                                            FROM Pages pg (NOLOCK)
+                                            inner join PageCategories pgc (NOLOCK)
+                                            on pg.PageCategoryID = pgc.ID
+                                            inner join Users usr
+                                            on pg.CreatedBy = usr.UserID or pg.UpdatedBy = usr.UserID
+                                            ", null).OrderBy(x => x.PageTitle).ToList();
+
+
+            return View(result);
         }
     }
 }
