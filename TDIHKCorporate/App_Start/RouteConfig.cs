@@ -93,6 +93,19 @@ namespace TDIHKCorporate
 
             #endregion
 
+            #region Covid
+
+            routes.MapRoute(
+                    name: "CovidTurkish",
+                    url: "Covid",
+                    defaults: new { controller = "Publication", action = "Index", seoLink = UrlParameter.Optional },
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
+
+
+
+            #endregion
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
