@@ -3246,9 +3246,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Types\EventCategories.cs" />
     <Compile Include="Types\Events.cs" />
+    <Compile Include="Types\FormTypes\NewsletterFormModel.cs" />
     <Compile Include="Types\MenuItems.cs" />
     <Compile Include="Types\MenuItemsByMenuId.cs" />
     <Compile Include="Types\Menus.cs" />
+    <Compile Include="Types\NewsletterRegistrations.cs" />
     <Compile Include="Types\PageCategories.cs" />
     <Compile Include="Types\Pages.cs" />
     <Compile Include="Types\ViewTypes\PageItem.cs" />

@@ -3,20 +3,74 @@
     Layout = null;
 }
 
+<script src="~/Scripts/jquery-1.9.1.js"></script>
+<script src="~/Content/Scripts/RequestHelper.js"></script>
+
 <div class="uk-margin-medium-bottom">
     <!--Bülten Aboneliği-->
-    <form action="" class="uk-width-2-3@s uk-margin-auto subscriptionForm" id="subscriptionForm">
-        <div class="uk-grid uk-child-width-1-1 uk-child-width-1-2@s uk-grid-medium" uk-grid uk-height-match="target: > div > *">
-            <div>
-                <input type="email" class="uk-input uk-border-rounded subscription-email" placeholder="E-mail Adresse" required>
-            </div>
-            <div>
-                <button class="uk-button uk-button-primary uk-border-rounded uk-width-1-1" type="submit">Anmeden</button>
-            </div>
+    <div class="uk-grid uk-child-width-1-1 uk-child-width-1-2@s uk-grid-medium" uk-grid uk-height-match="target: > div > *">
+        <div>
+            <input type="email" id="email" pattern="^[a-zA-Z0-9._+-]+&#64;[a-zA-Z0-9.-]+\.[a-zA-Z]{2,9}$" maxlength="500" name="Email" class="uk-input uk-border-rounded subscription-email" placeholder="E-mail Adresse" required>
         </div>
-    </form>
+        <div>
+            <a id="SaveNewsletterEmail" class="uk-button uk-button-primary uk-border-rounded uk-width-1-1" href="#">Anmeden</a>
+        </div>
+    </div>
+
+    <div>
+        <h3>@ViewBag.ErrorNewsletter</h3>
+        <h3>@ViewBag.SuccessNewsletter</h3>
+    </div>
     <!--Bülten Aboneliği Sonu-->
     <div class="uk-margin-small-top uk-width-1-1 uk-width-3-4@s uk-margin-auto">
         <p class="uk-width-2-5@s uk-margin-auto">Informationen dazu, wie TD-IHK mit deinen Daten umgeht, findest du in unserer <b>Datenschutzerklarung</b></p>
     </div>
 </div>
+
+<script>
+    $("#SaveNewsletterEmail").click(function () {
+
+        debugger
+
+        var callParams = {
+            endPoint: "../Newsletter/CheckEmail",
+            requestType: "POST"
+        };
+
+        var email = $("#email").val();
+
+        var dataParams = {};
+        dataParams.Email = email;
+
+        RequestAjax(callParams, dataParams, function (response) {
+
+            debugger
+
+            if (response == "True") {
+
+                var callParams = {
+                    endPoint: "../Newsletter/AddEmail",
+                    requestType: "POST"
+                };
+
+                var dataParams = {};
+                dataParams.Email = email;
+
+                RequestAjax(callParams, dataParams, function (response) {
+                    if (response == "True") {
+                        alert('@Resources.resource.MailListesineEklendi');
+                        $("#email").val("");
+                    }
+                    else {
+                        alert('@Resources.resource.MailListesineEklenemedi');
+                    }
+                });
+
+            }
+            else {
+                alert('@Resources.resource.MailAdresiKayitli');
+            }
+        });
+
+    });
+</script>

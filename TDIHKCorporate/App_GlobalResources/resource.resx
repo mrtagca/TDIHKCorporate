@@ -213,6 +213,15 @@
   <data name="Login" xml:space="preserve">
     <value>Giriş Yap</value>
   </data>
+  <data name="MailAdresiKayitli" xml:space="preserve">
+    <value>Mail zaten kayıtlı!</value>
+  </data>
+  <data name="MailListesineEklendi" xml:space="preserve">
+    <value>Mail listesine eklendi.</value>
+  </data>
+  <data name="MailListesineEklenemedi" xml:space="preserve">
+    <value>Mail listesine eklenemedi!</value>
+  </data>
   <data name="MenuAdi" xml:space="preserve">
     <value>Menü Adı</value>
   </data>
