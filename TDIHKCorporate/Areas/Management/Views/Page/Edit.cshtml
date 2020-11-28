@@ -152,18 +152,19 @@
 
 <script>
     $(document).ready(function () {
-        var editor = $("#editor").data("kendoEditor");
 
-        @{
+            var editor = $("#editor").data("kendoEditor");
+
+        @*@{
 
             IHtmlString headerHtml = Html.Raw(Html.Partial("~/Views/Partial/_PartialHeader.cshtml"));
         }
 
-        var header = @Html.Raw(JsonConvert.SerializeObject(headerHtml.ToHtmlString()))
+        var header = @Html.Raw(JsonConvert.SerializeObject(headerHtml.ToHtmlString()))*@
 
         var html = @Html.Raw(JsonConvert.SerializeObject(Model.PageContent));
 
-        var htmlContent = header+html+"</br>";
-        editor.value(htmlContent);
+        var htmlContent = html + "</br>";
+        editor.value(editor.value()+htmlContent);
     });
 </script>
