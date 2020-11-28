@@ -22,21 +22,74 @@ namespace TDIHKCorporate
             #region Sayfalar
 
             //Sayfalar Almanca Routing
-            routes.MapRoute(
-                   name: "PageGerman",
-                   url: "seiten/{seolink}",
-                   defaults: new { controller = "Page", action = "Show" },
-                   new[] { "TDIHKCorporate.Controllers" }
-               );
+            //routes.MapRoute(
+            //       name: "PageGerman",
+            //       url: "seiten/{seolink}",
+            //       defaults: new { controller = "Page", action = "Show" },
+            //       new[] { "TDIHKCorporate.Controllers" }
+            //   );
 
 
-            //Sayfalar Türkçe Routing
+            ////Sayfalar Türkçe Routing
+            //routes.MapRoute(
+            //       name: "PageTurkish",
+            //       url: "sayfalar/{seoLink}",
+            //       defaults: new { controller = "Page", action = "Show", seoLink = UrlParameter.Optional },
+            //    new[] { "TDIHKCorporate.Controllers" }
+            //   );
+
+            #endregion
+
+            #region Üyelik / Mitgliedschaft
             routes.MapRoute(
-                   name: "PageTurkish",
-                   url: "sayfalar/{seoLink}",
-                   defaults: new { controller = "Page", action = "Show", seoLink = UrlParameter.Optional },
+                       name: "MemberShipGerman",
+                       url: "mitgliedschaft",
+                       defaults: new { controller = "MemberShip", action = "Index", seoLink = UrlParameter.Optional },
+                    new[] { "TDIHKCorporate.Controllers" }
+                   );
+
+            routes.MapRoute(
+                   name: "MemberShipTurkish",
+                   url: "uyelik",
+                   defaults: new { controller = "MemberShip", action = "Index", seoLink = UrlParameter.Optional },
                 new[] { "TDIHKCorporate.Controllers" }
-               ); 
+               );
+            #endregion
+
+
+            #region Etkinliklerimiz / Veranstaltungen
+            routes.MapRoute(
+                       name: "EventsGerman",
+                       url: "veranstaltungen",
+                       defaults: new { controller = "Event", action = "Index", seoLink = UrlParameter.Optional },
+                    new[] { "TDIHKCorporate.Controllers" }
+                   );
+
+            routes.MapRoute(
+                      name: "EventsTurkish",
+                      url: "etkinliklerimiz",
+                      defaults: new { controller = "Event", action = "Index", seoLink = UrlParameter.Optional },
+                   new[] { "TDIHKCorporate.Controllers" }
+                  );
+
+
+            #endregion
+
+            #region Yayınlarımız / Veröffentlichungen
+            routes.MapRoute(
+                       name: "PublicationsGerman",
+                       url: "veröffentlichungen",
+                       defaults: new { controller = "Publication", action = "Index", seoLink = UrlParameter.Optional },
+                    new[] { "TDIHKCorporate.Controllers" }
+                   );
+
+            routes.MapRoute(
+                      name: "PublicationsTurkish",
+                      url: "yayinlarimiz",
+                      defaults: new { controller = "Publication", action = "Index", seoLink = UrlParameter.Optional },
+                   new[] { "TDIHKCorporate.Controllers" }
+                  );
+
 
             #endregion
 

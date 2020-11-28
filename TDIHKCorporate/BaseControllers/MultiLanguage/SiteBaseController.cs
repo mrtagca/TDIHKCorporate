@@ -44,8 +44,8 @@ namespace TDIHKCorporate.BaseControllers.MultiLanguage
 
             if (HttpContext.Session[langParameter] == null && HttpContext.Session[cultureParameter] == null)
             {
-                language = "tr";
-                culture = "TR";
+                language = "de";
+                culture = "DE";
 
                 HttpContext.Session[langParameter] = language;
                 HttpContext.Session[cultureParameter] = culture;

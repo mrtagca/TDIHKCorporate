@@ -1,9 +1,19 @@
-﻿<script src="~/Content/quill/js/quill.min.js"></script>
-<link href="~/Content/quill/css/quill.snow.css" rel="stylesheet" />
-<link href="~/Content/quill/css/quill.bubble.css" rel="stylesheet" />
-<link href="~/Content/quill/css/quill.core.css" rel="stylesheet" />
-<script src="~/Content/quill/js/quill.core.js"></script>
-<link href="~/Content/quill/css/quillHtmlButton.css" rel="stylesheet" />
+﻿@*<script src="~/Content/quill/js/quill.min.js"></script>
+    <link href="~/Content/quill/css/quill.snow.css" rel="stylesheet" />
+    <link href="~/Content/quill/css/quill.bubble.css" rel="stylesheet" />
+    <link href="~/Content/quill/css/quill.core.css" rel="stylesheet" />
+    <script src="~/Content/quill/js/quill.core.js"></script>
+    <link href="~/Content/quill/css/quillHtmlButton.css" rel="stylesheet" />*@
+
+
+
+<link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.3.1017/styles/kendo.common-material.min.css" />
+<link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.3.1017/styles/kendo.material.min.css" />
+<link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.3.1017/styles/kendo.material.mobile.min.css" />
+<script src="https://kendo.cdn.telerik.com/2018.3.1017/js/jquery.min.js"></script>
+<script src="https://kendo.cdn.telerik.com/2018.3.1017/js/kendo.all.min.js"></script>
+
+
 
 <!-- Modal -->
 <div class="modal fade" id="htmlSourceModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -15,7 +25,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body" >
+            <div class="modal-body">
                 <textarea id="ModalHtml" class="form-control" style="background-color:#ffffff">
 
 </textarea>
@@ -35,17 +45,134 @@
 </div>
 <br />
 
-<div id="toolbar">
+@*<div id="toolbar">
+    </div>
+    <div id="editor" style="background-color:#ffffff">
+    </div>*@
+
+
+
+<div class="col-lg-12">
+    <div id="example">
+        <textarea id="editor" style="width:100%; height:450px"> </textarea>
+    </div>
 </div>
-<div id="editor" style="background-color:#ffffff">
-</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#editor").kendoEditor(
+            {
+                tools: [
+
+                    "bold",
+                    "italic",
+                    "underline",
+                    "strikethrough",
+                    "justifyLeft",
+                    "justifyCenter",
+                    "justifyRight",
+                    "justifyFull",
+                    "insertUnorderedList",
+                    "insertOrderedList",
+                    "indent",
+                    "outdent",
+                    "createLink",
+                    "unlink",
+                    "insertImage",
+                    "insertFile",
+                    "subscript",
+                    "superscript",
+                    "tableWizard",
+                    "createTable",
+                    "addRowAbove",
+                    "addRowBelow",
+                    "addColumnLeft",
+                    "addColumnRight",
+                    "deleteRow",
+                    "deleteColumn",
+                    "viewHtml",
+                    "formatting",
+                    "cleanFormatting",
+                    "fontName",
+                    "fontSize",
+                    "foreColor",
+                    "backColor",
+                    "print",
+                    "pdf",
+                    "tableWizard",
+                    "createTable",
+                    "addRowAbove",
+                    "addRowBelow",
+                    "addColumnLeft",
+                    "addColumnRight",
+                    "deleteRow",
+                    "deleteColumn",
+                    "mergeCellsHorizontally",
+                    "mergeCellsVertically",
+                    "splitCellHorizontally",
+                    "splitCellVertically"
+                ],
+                pdf: {
+                    fileName: "PDFDemoDocument.pdf",
+                    proxyURL: "https://demos.telerik.com/kendo-ui/service/export",
+                    paperSize: "a4",
+                    margin: {
+                        bottom: 20,
+                        left: 20,
+                        right: 20,
+                        top: 20
+                    }
+                },
+                stylesheets: [
+                    "../content/shared/styles/editor.css",
+                ],
+                imageBrowser: {
+                    messages: {
+                        dropFilesHere: "Drop files here"
+                    },
+                    transport: {
+                        read: "/kendo-ui/service/ImageBrowser/Read", //dizin okuyabileceği bir metot verilecek.
+                        destroy: {
+                            url: "/kendo-ui/service/ImageBrowser/Destroy", //dosya silebileceği bir metot verilecek
+                            type: "POST"
+                        },
+                        create: {
+                            url: "/kendo-ui/service/ImageBrowser/Create", //image yükleyebileceği bir metot verilecek
+                            type: "POST"
+                        },
+                        thumbnailUrl: "/kendo-ui/service/ImageBrowser/Thumbnail",
+                        uploadUrl: "/kendo-ui/service/ImageBrowser/Upload",
+                        imageUrl: "/kendo-ui/service/ImageBrowser/Image?path={0}"
+                    }
+                },
+                fileBrowser: {
+                    messages: {
+                        dropFilesHere: "Drop files here"
+                    },
+                    transport: {
+                        read: "/kendo-ui/service/FileBrowser/Read", //dosya okuyabileceği bir metot verilecek
+                        destroy: {
+                            url: "/kendo-ui/service/FileBrowser/Destroy", //dosya silebileceği bir metot verilecek.
+                            type: "POST"
+                        },
+                        create: {
+                            url: "/kendo-ui/service/FileBrowser/Create", //dosya oluşturabileceği bir metot verilecek.
+                            type: "POST"
+                        },
+                        uploadUrl: "/kendo-ui/service/FileBrowser/Upload", 
+                        fileUrl: "/kendo-ui/service/FileBrowser/File?fileName={0}"
+                    }
+                }
+
+            });
+    });
+</script>
 
 
 <!-- Include the Quill library -->
-<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
-
+<!--<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>-->
 <!-- Initialize Quill editor -->
-<script>
+<!--<script>
 
     var bindings = {
         // This will overwrite the default binding also named 'tab'
@@ -202,12 +329,11 @@
 
     }
 
-    function SaveHtmlSource()
-    {
+    function SaveHtmlSource() {
         debugger
         quill.txtArea.value = $("#ModalHtml").val();
-         
+
 
         $('#htmlSourceModal').modal('hide');
     }
-</script> 
+</script>-->

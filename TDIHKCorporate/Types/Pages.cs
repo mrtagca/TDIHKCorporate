@@ -11,6 +11,7 @@ namespace TDIHKCorporate.Types
         public int PageCategoryID { get; set; }
         public int PageImageID { get; set; }
         public string PageThumbnailPath { get; set; }
+        public string PageIdentifier { get; set; }
         public string PageTitle { get; set; }
 
         [System.Web.Mvc.AllowHtml]

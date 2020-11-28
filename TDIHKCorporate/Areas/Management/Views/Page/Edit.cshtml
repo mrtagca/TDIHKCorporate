@@ -1,0 +1,163 @@
+﻿@model TDIHKCorporate.Types.Pages
+@using Newtonsoft.Json
+
+@{
+    ViewBag.Title = "Edit";
+Layout = "~/Areas/Management/Views/Shared/_layoutDashboard.cshtml";
+}
+
+
+
+<script src="~/Content/Scripts/Page.js"></script>
+
+@*<script>
+        $(document).ready(function () {
+            GetPageCategories("PageCategories");
+        });
+    </script>*@
+
+
+
+
+<div class="row">
+    <div class="col-md-9 col-sm-12">
+        <div>
+            <h5>@Resources.resource.SayfaEkle</h5>
+            <input type="text" id="PageTitle" placeholder="@Resources.resource.Baslik" onkeyup="GenerateFriendlyUrl('PageTitle','PageSeoLink')" class="form-control" name="name" value="" />
+        </div>
+        <br />
+
+        <div>
+            <h5>Seo Link</h5>
+            <input type="text" class="form-control" id="PageSeoLink" placeholder="Seo Link" value="" />
+        </div>
+        <br />
+
+        @Html.Partial("~/Areas/Management/Views/Partial/_PartialQuillHtmlEditor.cshtml")
+
+    </div>
+
+    <div class="col-md-3 col-sm-12">
+        <div id="PageFeatures">
+            <div class="card">
+
+                <button class="btn btn-light" data-toggle="collapse" data-target="#collapsePageFeatures" aria-expanded="true" aria-controls="collapsePageFeatures">
+                    <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                            @Resources.resource.SayfaOzellikleri
+                        </h5>
+
+                    </div>
+                </button>
+
+                <div id="collapsePageFeatures" class="collapse show" aria-labelledby="headingOne" data-parent="#PageFeatures">
+                    <div class="card-body">
+                        <div>
+                            <label>@Resources.resource.KategoriSeciniz</label>
+                            <select class="form-control" id="PageCategories">
+                            </select>
+                        </div>
+                        <br />
+                        <div>
+                            <label>@Resources.resource.SayfaDili</label>
+                            <select class="form-control" id="PageLanguage">
+                                <option value="tr">TR</option>
+                                <option value="de">DE</option>
+                            </select>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div id="PageSeoOptions">
+            <div class="card">
+
+                <button class="btn btn-light" data-toggle="collapse" data-target="#collapsePageSeoOptions" aria-expanded="true" aria-controls="collapsePageSeoOptions">
+                    <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                            @Resources.resource.SeoAyarlari
+                        </h5>
+                    </div>
+                </button>
+
+                <div id="collapsePageSeoOptions" class="collapse show" aria-labelledby="headingOne" data-parent="#PageSeoOptions">
+                    <div class="card-body">
+                        <div>
+                            <label>@Resources.resource.SeoAnahtarKelimeleri</label>
+                            <textarea id="SeoKeywords" class="form-control"></textarea>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br />
+        <div id="PagePicture">
+            <div class="card">
+
+                <button class="btn btn-light" data-toggle="collapse" data-target="#collapsePagePicture" aria-expanded="true" aria-controls="collapsePagePicture">
+                    <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                            @Resources.resource.OneCikanGorsel
+                        </h5>
+                    </div>
+                </button>
+
+                <div id="collapsePagePicture" class="collapse show" aria-labelledby="headingOne" data-parent="#PagePicture">
+                    <div class="card-body">
+                        <div>
+                            <a href="#">@Resources.resource.OneCikanGorselBelirle</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+
+
+        <div id="PublishTab">
+            <div class="card">
+                <button class="btn btn-light" data-toggle="collapse" data-target="#collapsePublish" aria-expanded="true" aria-controls="collapsePublish">
+                    <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                            @Resources.resource.Yayimla
+                        </h5>
+                    </div>
+                </button>
+
+                <div id="collapsePublish" class="collapse show" aria-labelledby="headingOne" data-parent="#PublishTab">
+                    <div class="card-body">
+                        <div>
+                            <input type="submit" class="btn btn-outline-primary" name="" value="@Resources.resource.TaslakOlarakKaydet" />
+                            &nbsp;
+                            <input type="submit" class="btn btn-outline-primary" name="" value="@Resources.resource.Onizleme" />
+                        </div>
+                        <br />
+                        <div>
+                            <input id="Publish" onclick="AddPage()" type="submit" class="btn btn-primary" name="" value=" @Resources.resource.Yayimla" />
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        var editor = $("#editor").data("kendoEditor");
+
+        debugger
+        var html = @Html.Raw(JsonConvert.SerializeObject(Model.PageContent));
+
+        var htmlContent = html;
+        editor.value(htmlContent);
+    });
+</script>
