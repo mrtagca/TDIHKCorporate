@@ -15,20 +15,32 @@
         <!--Mobil Nav-->
         <div class="uk-hidden@m">
             <div class="uk-flex uk-flex-between uk-container nav-overlay-mobile">
-                <div class="uk-navbar-left">
-                    <a href="#modal-mobile-nav" class="uk-icon" uk-icon="icon: menu; ratio: 2" uk-toggle></a>
+                <div class="uk-navbar-left uk-width-expand">
+                    <a href="#" class="uk-link-reset uk-width-1-1">
+                        <img src="assets/images/tdihk-logo-m.png" alt="">
+                    </a>
                 </div>
                 <!--Mobile Nav Linkleri-->
                 <div id="modal-mobile-nav" class="uk-modal-full" uk-modal>
                     <div class="uk-modal-dialog" uk-height-viewport="offset-top: true">
                         <button class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
+                        <div class="uk-inline uk-width-1-3 uk-padding-small uk-position-top-left" style="padding-left: 20px;">
+                            <a type="button" href="#" class="uk-button uk-padding-remove" style="background: transparent; border: none; width: 55px;"><img src="assets/images/Turkey-icon.png" alt=""></a>
+                            <!--Mobil dil dropdown-->
+                            <div uk-dropdown="mode: click" class="uk-width-1-3">
+                                <ul class="uk-nav uk-dropdown-nav">
+                                    <li><a href=""><img src="assets/images/Germany-icon.png" alt=""></a></li>
+                                    <li><a href=""><img src="assets/images/USA-icon.png" alt=""></a></li>
+                                </ul>
+                            </div>
+                        </div>
                         <div class="uk-flex-middle uk-flex-center" uk-grid uk-height-viewport="offset-top: true">
                             <div class="uk-padding-large">
-                                <ul class="uk-list uk-link-reset uk-text-center uk-h1">
+                                <ul class="uk-list uk-link-reset uk-nav-default uk-nav-parent-icon mobile-nav-links uk-text-center">
 
                                     @foreach (TDIHKCorporate.Types.MenuItems item in Model.Where(x => x.IsSubMenu == false).OrderBy(x => x.MenuItemPriority))
                                     {
-                                        <li>
+                                        <li class="uk-h2">
                                             @{
                                                 if (item.Language == "tr")
                                                 {
@@ -71,24 +83,24 @@
 
 
                                             @* Sub Menuler
-                                                    <ul class="uk-list uk-link-reset uk-text-center uk-h1">
-                                                    @foreach (var secondItem in (Model.Where(s => s.ParentMenuItemID == item.ID && s.IsSubMenu == true).ToList()))
-                                                    {
-                                                        <li><a href="@secondItem.PageSeoLink">@secondItem.MenuName</a></li>
+                                <ul class="uk-list uk-link-reset uk-text-center uk-h1">
+                                @foreach (var secondItem in (Model.Where(s => s.ParentMenuItemID == item.ID && s.IsSubMenu == true).ToList()))
+                                {
+                                    <li><a href="@secondItem.PageSeoLink">@secondItem.MenuName</a></li>
 
-                                                    }
-                                                </ul>*@
+                                }
+                            </ul>*@
                                         </li>
 
 
                                     }
                                     @*
-                                        <li><a href="">@Resources.resource.Hizmetlerimiz</a></li>
-                                        <li><a href="">@Resources.resource.Uyelik</a></li>
-                                        <li><a href="">@Resources.resource.Etkinliklerimiz</a></li>
-                                        <li><a href="">@Resources.resource.Yayinlarimiz</a></li>
-                                        <li><a href="">@Resources.resource.Covid19</a></li>
-                                        <li><a href="">@Resources.resource.Hakkimizda</a></li>*@
+                    <li><a href="">@Resources.resource.Hizmetlerimiz</a></li>
+                    <li><a href="">@Resources.resource.Uyelik</a></li>
+                    <li><a href="">@Resources.resource.Etkinliklerimiz</a></li>
+                    <li><a href="">@Resources.resource.Yayinlarimiz</a></li>
+                    <li><a href="">@Resources.resource.Covid19</a></li>
+                    <li><a href="">@Resources.resource.Hakkimizda</a></li>*@
                                 </ul>
                             </div>
                         </div>
@@ -118,20 +130,20 @@
                     string name = cultureInfo.TwoLetterISOLanguageName;
 
                     <div class="uk-navbar-right uk-flex-right uk-text-right">
-                        <a class="uk-navbar-toggle uk-icon" uk-search-icon="icon: icn-search"
+                        <a class="uk-navbar-toggle uk-icon uk-margin-small-right" uk-search-icon="icon: icn-search"
                            uk-toggle="target: .nav-overlay-mobile; animation: uk-animation-fade" href="#"></a>
                         <div class="uk-inline uk-width-1-3">
 
                             @if (name == "tr")
                             {
-                                <button type="button" onclick="location.href='/Home/ChangeLanguage?language=de'" class="uk-width-1-1 uk-margin-small-left" style="background: transparent; border: none;">
+                                <button type="button" onclick="location.href='/Home/ChangeLanguage?language=de'" class="uk-width-1-1" style="background: transparent; border: none;">
                                     <img src="~/Content/MainSite/assets/images/Germany-icon.png" alt="">
                                 </button>
 
                                 <div uk-dropdown="mode: click">
                                     <ul class="uk-nav uk-dropdown-nav">
                                         <li>
-                                            <a href="~/Home/ChangeLanguage?language=tr" type="button" class="uk-width-1-1 uk-margin-small-left" style="background: transparent; border: none;">
+                                            <a href="~/Home/ChangeLanguage?language=tr" type="button" class="uk-width-1-1" style="background: transparent; border: none;">
                                                 <img src="~/Content/MainSite/assets/images/Turkey-icon.png" alt="">
                                             </a>
                                         </li>
@@ -140,14 +152,14 @@
                             }
                             else
                             {
-                                <button type="button" onclick="location.href='/Home/ChangeLanguage?language=tr'" class="uk-width-1-1 uk-margin-small-left" style="background: transparent; border: none;">
+                                <button type="button" onclick="location.href='/Home/ChangeLanguage?language=tr'" class="uk-width-1-1" style="background: transparent; border: none;">
                                     <img src="~/Content/MainSite/assets/images/Turkey-icon.png" alt="">
                                 </button>
 
                                 <div uk-dropdown="mode: click">
                                     <ul class="uk-nav uk-dropdown-nav">
                                         <li>
-                                            <a href="~/Home/ChangeLanguage?language=de" type="button" class="uk-width-1-1 uk-margin-small-left" style="background: transparent; border: none;">
+                                            <a href="~/Home/ChangeLanguage?language=de" type="button" class="uk-button uk-padding-remove uk-width-1-1 uk-margin-small-left" style="background: transparent; border: none;">
                                                 <img src="~/Content/MainSite/assets/images/Germany-icon.png" alt="">
                                             </a>
                                         </li>
@@ -178,13 +190,22 @@
             </div>
         </div>
         <div class="uk-flex uk-flex-between uk-container">
+            <!--Yeni header logo düzeni-->
+            <a href="" class="uk-link-reset">
+                <div class="uk-visible@m uk-flex uk-flex-middle">
+                    <div>
+                        <img src="assets/images/tdihk-logo.png" alt="">
+                    </div>
+                    <div class="uk-flex uk-flex-column uk-margin-small-left">
+                        <span class="uk-h3 uk-margin-remove">Türkish Deutsche Industrie- und Handelskammer</span>
+                        <span class="uk-h3 uk-margin-remove">Türk-Alman Ticaret ve Sanayi Odası</span>
+                    </div>
+                </div>
+            </a>
+            <!--Yeni header logo düzeni sonu-->
             <div>
-                <img src="~/Content/MainSite/assets/images/tdihk-logo.png" alt="" width="813" height="87">
+                <img src="assets/images/TOBB2B LOGO.svg" alt="" class="uk-width-1-1 uk-visible@m" uk-img>
             </div>
-            <div>
-                <img src="~/Content/MainSite/assets/images/TOBB2B LOGO.svg" alt="" class="uk-width-1-1 uk-visible@m" uk-img>
-            </div>
-
         </div>
     </section>
     <!--Navbar-->
@@ -283,7 +304,7 @@
                 string lang = cultureInfo.TwoLetterISOLanguageName;
 
                 <div class="uk-navbar-right uk-flex-right uk-text-right">
-                    <a class="uk-navbar-toggle uk-icon" uk-search-icon="icon: icn-search"
+                    <a class="uk-navbar-toggle uk-icon uk-margin-small-right" uk-search-icon="icon: icn-search"
                        uk-toggle="target: .nav-overlay-mobile; animation: uk-animation-fade" href="#"></a>
                     <div class="uk-inline uk-width-1-3">
 
