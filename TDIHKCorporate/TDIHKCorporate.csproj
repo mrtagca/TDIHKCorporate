@@ -2314,6 +2314,7 @@
     <Content Include="Content\MainSite\assets\images\slider-2.png" />
     <Content Include="Content\MainSite\assets\images\TD-IHK Logo.svg" />
     <Content Include="Content\MainSite\assets\images\tdihk-logo.png" />
+    <Content Include="Content\MainSite\assets\images\thumbnails\banner-thumbnail.jpg" />
     <Content Include="Content\MainSite\assets\images\tobb logo footer.svg" />
     <Content Include="Content\MainSite\assets\images\TOBB2B LOGO.svg" />
     <Content Include="Content\MainSite\assets\images\trendwalker.svg" />
@@ -3223,13 +3224,16 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Management\Controllers\AdminController.cs" />
     <Compile Include="Areas\Management\Controllers\EventController.cs" />
+    <Compile Include="Areas\Management\Controllers\FileController.cs" />
     <Compile Include="Areas\Management\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Management\Controllers\ImageController.cs" />
     <Compile Include="Areas\Management\Controllers\MenuController.cs" />
     <Compile Include="Areas\Management\Controllers\PageController.cs" />
     <Compile Include="Areas\Management\Controllers\SliderController.cs" />
     <Compile Include="Areas\Management\Controllers\UrlController.cs" />
     <Compile Include="Areas\Management\ManagementAreaRegistration.cs" />
     <Compile Include="BaseControllers\MultiLanguage\SiteBaseController.cs" />
+    <Compile Include="Controllers\AboutUsController.cs" />
     <Compile Include="Controllers\CovidController.cs" />
     <Compile Include="Controllers\EventController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -3237,18 +3241,29 @@
     <Compile Include="Controllers\NewsletterController.cs" />
     <Compile Include="Controllers\PageController.cs" />
     <Compile Include="Controllers\PublicationController.cs" />
+    <Compile Include="Controllers\ServicesController.cs" />
+    <Compile Include="Enums\EntryType.cs" />
     <Compile Include="Extensions\ViewExtension.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\Extensions\DirectoryBrowser.cs" />
+    <Compile Include="Helpers\Extensions\FileBrowserEntry.cs" />
+    <Compile Include="Helpers\Extensions\ImageResizer.cs" />
+    <Compile Include="Helpers\Extensions\ImageSize.cs" />
+    <Compile Include="Helpers\Extensions\ThumbnailCreator.cs" />
     <Compile Include="Helpers\Extensions\UrlExtensions.cs" />
     <Compile Include="Models\Language\Language.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Types\ComponentTypes\ImageBrowserResponse.cs" />
     <Compile Include="Types\EventCategories.cs" />
     <Compile Include="Types\Events.cs" />
+    <Compile Include="Types\FormTypes\NewsletterFormModel.cs" />
+    <Compile Include="Types\Images.cs" />
     <Compile Include="Types\MenuItems.cs" />
     <Compile Include="Types\MenuItemsByMenuId.cs" />
     <Compile Include="Types\Menus.cs" />
+    <Compile Include="Types\NewsletterRegistrations.cs" />
     <Compile Include="Types\PageCategories.cs" />
     <Compile Include="Types\Pages.cs" />
     <Compile Include="Types\ViewTypes\PageItem.cs" />
@@ -3908,6 +3923,33 @@
     <Content Include="Views\Newsletter\Index.cshtml" />
     <Content Include="Views\Publication\Index.cshtml" />
     <Content Include="Views\Covid\Index.cshtml" />
+    <Content Include="Views\AboutUs\Index.cshtml" />
+    <Content Include="Views\Services\Dienstleistungen.cshtml" />
+    <Content Include="Views\Services\Markteintritt.cshtml" />
+    <Content Include="Views\Services\Türkei.cshtml" />
+    <Content Include="Views\Services\Deutschland.cshtml" />
+    <Content Include="Views\Services\Mustervertrage.cshtml" />
+    <Content Include="Views\Services\ForderungAndFinanzierung.cshtml" />
+    <Content Include="Views\Services\Aubenhandelsportal.cshtml" />
+    <Content Include="Views\Services\TdIhkPortal.cshtml" />
+    <Content Include="Views\Services\Tobb2b.cshtml" />
+    <Content Include="Views\Services\Konferenzraum.cshtml" />
+    <Content Include="Views\Services\Jobangebote.cshtml" />
+    <Content Include="Views\MemberShip\StandardMitgliedschaft.cshtml" />
+    <Content Include="Views\MemberShip\StandardMitgliedschaftAntragsformular.cshtml" />
+    <Content Include="Views\MemberShip\PremiumMitgliedschaft.cshtml" />
+    <Content Include="Views\MemberShip\PremiumMitgliedschaftAntragsformular.cshtml" />
+    <Content Include="Views\MemberShip\Mitgliederliste.cshtml" />
+    <Content Include="Views\Event\Kalender.cshtml" />
+    <Content Include="Views\Publication\Jahresberichte.cshtml" />
+    <Content Include="Views\Publication\Infoblatter.cshtml" />
+    <Content Include="Views\Publication\Nachrichten.cshtml" />
+    <Content Include="Views\Publication\Podcasts.cshtml" />
+    <Content Include="Views\Covid\EinUndAusreisebestimmungen.cshtml" />
+    <Content Include="Views\Covid\Mabnahmen.cshtml" />
+    <Content Include="Views\Covid\WichtigeInformationsquellen.cshtml" />
+    <Content Include="Views\Covid\CoronavirusNachrichten.cshtml" />
+    <Content Include="Views\AboutUs\Institution.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -3918,7 +3960,11 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Management\Models\" />
+    <Folder Include="Areas\Management\Views\File\" />
+    <Folder Include="Areas\Management\Views\Image\" />
     <Folder Include="Areas\Management\Views\Url\" />
+    <Folder Include="Content\MainSite\assets\files\" />
+    <Folder Include="Views\Image\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_GlobalResources\resource.resx">

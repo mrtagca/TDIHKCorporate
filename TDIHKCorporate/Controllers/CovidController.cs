@@ -27,5 +27,21 @@ namespace TDIHKCorporate.Controllers
 
             return View(pageItem);
         }
+        public ActionResult EinUndAusreisebestimmungen()
+        {
+            return View();
+        }
+        public ActionResult Mabnahmen()
+        {
+            return View();
+        }
+        public ActionResult WichtigeInformationsquellen()
+        {
+            return View();
+        }
+        public ActionResult CoronavirusNachrichten()
+        {
+            return View();
+        }
     }
 }

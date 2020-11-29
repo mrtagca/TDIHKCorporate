@@ -349,6 +349,33 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Mail zaten kayıtlı!.
+        /// </summary>
+        internal static string MailAdresiKayitli {
+            get {
+                return ResourceManager.GetString("MailAdresiKayitli", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mail listesine eklendi..
+        /// </summary>
+        internal static string MailListesineEklendi {
+            get {
+                return ResourceManager.GetString("MailListesineEklendi", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mail listesine eklenemedi!.
+        /// </summary>
+        internal static string MailListesineEklenemedi {
+            get {
+                return ResourceManager.GetString("MailListesineEklenemedi", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Menü Adı.
         /// </summary>
         internal static string MenuAdi {

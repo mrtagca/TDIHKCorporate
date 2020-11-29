@@ -5,11 +5,12 @@ using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TDIHKCorporate.BaseControllers.MultiLanguage;
 using TDIHKCorporate.Types;
 
 namespace TDIHKCorporate.Controllers
 {
-    public class PublicationController : Controller
+    public class PublicationController : SiteBaseController
     {
         // GET: Publication
         public ActionResult Index()
@@ -26,6 +27,26 @@ namespace TDIHKCorporate.Controllers
 
 
             return View(pageItem);
+        }
+
+        public ActionResult Jahresberichte()
+        {
+            return View();
+        }
+
+        public ActionResult Infoblatter()
+        {
+            return View();
+        }
+
+        public ActionResult Nachrichten()
+        {
+            return View();
+        }
+
+        public ActionResult Podcasts()
+        {
+            return View();
         }
     }
 }

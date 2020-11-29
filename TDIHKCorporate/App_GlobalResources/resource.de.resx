@@ -213,6 +213,15 @@
   <data name="Login" xml:space="preserve">
     <value>Anmeldung</value>
   </data>
+  <data name="MailAdresiKayitli" xml:space="preserve">
+    <value>Mail bereits registriert!</value>
+  </data>
+  <data name="MailListesineEklendi" xml:space="preserve">
+    <value>zur Mailingliste hinzugefügt.</value>
+  </data>
+  <data name="MailListesineEklenemedi" xml:space="preserve">
+    <value>Konnte nicht zur Mailingliste hinzugefügt werden!</value>
+  </data>
   <data name="MenuAdi" xml:space="preserve">
     <value>Menüname</value>
   </data>

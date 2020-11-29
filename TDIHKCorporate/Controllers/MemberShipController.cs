@@ -23,8 +23,32 @@ namespace TDIHKCorporate.Controllers
             Pages pageItem = page.Get(@"SELECT * FROM Pages (NOLOCK)
                                             where[Language] = @language and PageIdentifier = @pageIdentifier", new { language = name, pageIdentifier = "MemberShip" });
 
-
             return View(pageItem);
         }
+
+        public ActionResult StandardMitgliedschaft()
+        {
+            return View();
+        }
+
+        public ActionResult StandardMitgliedschaftAntragsformular()
+        {
+            return View();
+        }
+
+        public ActionResult PremiumMitgliedschaft()
+        {
+            return View();
+        }
+        public ActionResult PremiumMitgliedschaftAntragsformular()
+        {
+            return View();
+        }
+
+        public ActionResult Mitgliederliste()
+        {
+            return View();
+        }
+
     }
 }

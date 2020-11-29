@@ -29,13 +29,17 @@ namespace TDIHKCorporate.Controllers
             return View(pageItem);
         }
 
-
         public ActionResult FutureEvents()
         {
             return View();
         }
 
         public ActionResult LastEvents()
+        {
+            return View();
+        }
+
+        public ActionResult Kalender()
         {
             return View();
         }

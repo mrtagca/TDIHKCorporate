@@ -17,8 +17,6 @@ namespace TDIHKCorporate
             string language = System.Threading.Thread.CurrentThread.CurrentUICulture.Name;
             language = language.Substring(0, 2);
 
-
-
             #region Sayfalar
 
             //Sayfalar Almanca Routing
