@@ -3241,6 +3241,7 @@
     <Compile Include="Controllers\NewsletterController.cs" />
     <Compile Include="Controllers\PageController.cs" />
     <Compile Include="Controllers\PublicationController.cs" />
+    <Compile Include="Controllers\ServicesController.cs" />
     <Compile Include="Enums\EntryType.cs" />
     <Compile Include="Extensions\ViewExtension.cs" />
     <Compile Include="Global.asax.cs">
@@ -3923,6 +3924,32 @@
     <Content Include="Views\Publication\Index.cshtml" />
     <Content Include="Views\Covid\Index.cshtml" />
     <Content Include="Views\AboutUs\Index.cshtml" />
+    <Content Include="Views\Services\Dienstleistungen.cshtml" />
+    <Content Include="Views\Services\Markteintritt.cshtml" />
+    <Content Include="Views\Services\Türkei.cshtml" />
+    <Content Include="Views\Services\Deutschland.cshtml" />
+    <Content Include="Views\Services\Mustervertrage.cshtml" />
+    <Content Include="Views\Services\ForderungAndFinanzierung.cshtml" />
+    <Content Include="Views\Services\Aubenhandelsportal.cshtml" />
+    <Content Include="Views\Services\TdIhkPortal.cshtml" />
+    <Content Include="Views\Services\Tobb2b.cshtml" />
+    <Content Include="Views\Services\Konferenzraum.cshtml" />
+    <Content Include="Views\Services\Jobangebote.cshtml" />
+    <Content Include="Views\MemberShip\StandardMitgliedschaft.cshtml" />
+    <Content Include="Views\MemberShip\StandardMitgliedschaftAntragsformular.cshtml" />
+    <Content Include="Views\MemberShip\PremiumMitgliedschaft.cshtml" />
+    <Content Include="Views\MemberShip\PremiumMitgliedschaftAntragsformular.cshtml" />
+    <Content Include="Views\MemberShip\Mitgliederliste.cshtml" />
+    <Content Include="Views\Event\Kalender.cshtml" />
+    <Content Include="Views\Publication\Jahresberichte.cshtml" />
+    <Content Include="Views\Publication\Infoblatter.cshtml" />
+    <Content Include="Views\Publication\Nachrichten.cshtml" />
+    <Content Include="Views\Publication\Podcasts.cshtml" />
+    <Content Include="Views\Covid\EinUndAusreisebestimmungen.cshtml" />
+    <Content Include="Views\Covid\Mabnahmen.cshtml" />
+    <Content Include="Views\Covid\WichtigeInformationsquellen.cshtml" />
+    <Content Include="Views\Covid\CoronavirusNachrichten.cshtml" />
+    <Content Include="Views\AboutUs\Institution.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
