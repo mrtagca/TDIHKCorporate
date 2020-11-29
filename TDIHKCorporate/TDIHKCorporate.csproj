@@ -2311,6 +2311,10 @@
     <Content Include="Content\MainSite\assets\images\mitgliedschaft-banner.jpg" />
     <Content Include="Content\MainSite\assets\images\Monster.svg" />
     <Content Include="Content\MainSite\assets\images\Nachrichten.png" />
+    <Content Include="Content\MainSite\assets\images\uber\nalan.png" />
+    <Content Include="Content\MainSite\assets\images\uber\okan.png" />
+    <Content Include="Content\MainSite\assets\images\uber\president.png" />
+    <Content Include="Content\MainSite\assets\images\uber\satzung.png" />
     <Content Include="Content\MainSite\assets\images\slider-2.png" />
     <Content Include="Content\MainSite\assets\images\TD-IHK Logo.svg" />
     <Content Include="Content\MainSite\assets\images\tdihk-logo.png" />
@@ -2323,7 +2327,9 @@
     <Content Include="Content\MainSite\assets\images\turkei\turkei-bg.png" />
     <Content Include="Content\MainSite\assets\images\Turkey-icon.png" />
     <Content Include="Content\MainSite\assets\images\Turkish Airlines.svg" />
+    <Content Include="Content\MainSite\assets\images\uber\uber-uns-background.png" />
     <Content Include="Content\MainSite\assets\images\USA-icon.png" />
+    <Content Include="Content\MainSite\assets\images\uber\vice.png" />
     <Content Include="Content\MainSite\assets\uikit\.eslintrc.js" />
     <Content Include="Content\MainSite\assets\uikit\.webstorm.js" />
     <Content Include="Content\MainSite\assets\uikit\build\.eslintrc.js" />
