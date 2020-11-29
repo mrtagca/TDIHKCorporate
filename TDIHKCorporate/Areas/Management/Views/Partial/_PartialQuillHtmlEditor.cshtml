@@ -4,10 +4,11 @@
 
 
 <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.3.1017/styles/kendo.common-material.min.css" />
-<link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.3.1017/styles/kendo.material.min.css" />
-<link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.3.1017/styles/kendo.material.mobile.min.css" />
-<script src="https://kendo.cdn.telerik.com/2018.3.1017/js/jquery.min.js"></script>
-<script src="https://kendo.cdn.telerik.com/2018.3.1017/js/kendo.all.min.js"></script>
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.3.1017/styles/kendo.material.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.3.1017/styles/kendo.material.mobile.min.css" />
+    <script src="https://kendo.cdn.telerik.com/2018.3.1017/js/jquery.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2018.3.1017/js/kendo.all.min.js"></script>
+ 
 
 
 
@@ -106,44 +107,52 @@
                         top: 20
                     }
                 },
-                stylesheets: [
-                    "../content/shared/styles/editor.css",
-                ],
                 imageBrowser: {
                     messages: {
                         dropFilesHere: "Drop files here"
                     },
                     transport: {
-                        read: "/kendo-ui/service/ImageBrowser/Read", //dizin okuyabileceği bir metot verilecek.
+                        read:
+                        {
+                            url: "/Management/Image/ImageBrowserRead",
+                            dataType: "json",
+                            type: "POST"
+                        },
                         destroy: {
-                            url: "/kendo-ui/service/ImageBrowser/Destroy", //dosya silebileceği bir metot verilecek
+                            url: "/Management/Image/ImageBrowserDestroy", 
                             type: "POST"
                         },
                         create: {
-                            url: "/kendo-ui/service/ImageBrowser/Create", //image yükleyebileceği bir metot verilecek
+                            url: "/Management/Image/ImageBrowserCreate", 
                             type: "POST"
                         },
-                        thumbnailUrl: "/kendo-ui/service/ImageBrowser/Thumbnail",
-                        uploadUrl: "/kendo-ui/service/ImageBrowser/Upload",
-                        imageUrl: "/kendo-ui/service/ImageBrowser/Image?path={0}"
+                        thumbnailUrl: "/Management/Image/ThumbnailRead",
+                        uploadUrl: "/Management/Image/ImageBrowserUpload",
+                        imageUrl: "/Content/MainSite/assets/images/{0}"
                     }
-                },
+                }
+                ,
                 fileBrowser: {
                     messages: {
                         dropFilesHere: "Drop files here"
                     },
                     transport: {
-                        read: "/kendo-ui/service/FileBrowser/Read", //dosya okuyabileceği bir metot verilecek
+                        read:
+                        {
+                            url: "/Management/File/FileBrowserRead",
+                            dataType: "json",
+                            type: "POST"
+                        },
                         destroy: {
-                            url: "/kendo-ui/service/FileBrowser/Destroy", //dosya silebileceği bir metot verilecek.
+                            url: "/Management/File/FileBrowserDestroy", 
                             type: "POST"
                         },
                         create: {
-                            url: "/kendo-ui/service/FileBrowser/Create", //dosya oluşturabileceği bir metot verilecek.
+                            url: "/Management/File/FileBrowserCreate", 
                             type: "POST"
                         },
-                        uploadUrl: "/kendo-ui/service/FileBrowser/Upload",
-                        fileUrl: "/kendo-ui/service/FileBrowser/File?fileName={0}"
+                        uploadUrl: "/Management/File/FileBrowserUpload",
+                        fileUrl: "/Content/MainSite/assets/files/{0}"
                     }
                 }
 
