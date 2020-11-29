@@ -3233,6 +3233,7 @@
     <Compile Include="Areas\Management\Controllers\UrlController.cs" />
     <Compile Include="Areas\Management\ManagementAreaRegistration.cs" />
     <Compile Include="BaseControllers\MultiLanguage\SiteBaseController.cs" />
+    <Compile Include="Controllers\AboutUsController.cs" />
     <Compile Include="Controllers\CovidController.cs" />
     <Compile Include="Controllers\EventController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -3921,6 +3922,7 @@
     <Content Include="Views\Newsletter\Index.cshtml" />
     <Content Include="Views\Publication\Index.cshtml" />
     <Content Include="Views\Covid\Index.cshtml" />
+    <Content Include="Views\AboutUs\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
