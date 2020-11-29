@@ -16,13 +16,13 @@ namespace TDIHKCorporate.Controllers
 
         public ActionResult ChangeLanguage(string language)
         {
-           
+
             new SiteLanguage().SetLanguage(language);
             string controllerName = this.ControllerContext.RouteData.Values["controller"].ToString();
 
             string url = Request.UrlReferrer.ToString();
 
-            return RedirectToAction("Index","Home");
+            return RedirectToAction("Index", "Home");
             //return Redirect(url);
         }
 
@@ -51,6 +51,33 @@ namespace TDIHKCorporate.Controllers
 
 
             return PartialView("_PartialInvestData", menuItems);
+        }
+
+        public ActionResult ShowHomePageSlider()
+        {
+            //DapperRepository<MenuItems> getPageCategories = new DapperRepository<MenuItems>();
+
+            //CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+
+            //string name = cultureInfo.TwoLetterISOLanguageName;
+
+            //List<MenuItems> menuItems = getPageCategories.GetList(@"select mi.*,p.PageSeoLink from MenuItems mi (NOLOCK)
+            //                            inner join Menus m (NOLOCK)
+            //                            on mi.MenuID = m.ID
+            //                            left join Pages p (NOLOCK)
+            //                            on mi.PageID = p.PageID
+
+            //                            where m.ID = 1 and mi.[Language] = @lang", new { lang = name }).OrderBy(x => x.MenuItemPriority).ToList();
+
+            DapperRepository<SliderContent> sliderContent = new DapperRepository<SliderContent>();
+            CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+            string name = cultureInfo.TwoLetterISOLanguageName;
+
+            List<SliderContent> sliderItems = sliderContent.GetList(@"SELECT * FROM SliderContent (NOLOCK) where SliderID = 1 and [Language] = @lang order by SliderPriority", new { lang = name });
+
+
+
+            return PartialView("_PartialHomePageSlider",sliderItems);
         }
     }
 }

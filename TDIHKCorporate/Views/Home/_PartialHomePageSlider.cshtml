@@ -1,0 +1,23 @@
+﻿@model List<TDIHKCorporate.Types.SliderContent>
+
+<section>
+    <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1"
+         uk-slider="autoplay: true; autoplay-interval: 1500">
+
+        <ul class="uk-slider-items uk-child-width-1-1">
+
+            @foreach (var item in Model)
+            {
+                <li>
+                    <img src="@item.ImagePath" alt="">
+
+                </li>
+            }
+        </ul>
+        <a class="uk-position-center-left uk-position-small slide-arrow" href="#" uk-icon="icon:icn-arrow-left"
+           uk-slider-item="previous"></a>
+        <a class="uk-position-center-right uk-position-small slide-arrow" href="#" uk-icon="icon:icn-arrow-right"
+           uk-slider-item="next"></a>
+    </div>
+</section>
+

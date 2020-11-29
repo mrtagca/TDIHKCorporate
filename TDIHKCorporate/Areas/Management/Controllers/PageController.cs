@@ -43,8 +43,10 @@ namespace TDIHKCorporate.Areas.Management.Controllers
 
             string name = cultureInfo.TwoLetterISOLanguageName;
 
-            var result = getPageCategories.GetList(@"SELECT * FROM [IHK].[dbo].[PageCategories] (NOLOCK)
-                                        WHERE [Language] = @lang", new { lang = name }).OrderBy(x => x.PageCategoryName);
+            //var result = getPageCategories.GetList(@"SELECT * FROM [IHK].[dbo].[PageCategories] (NOLOCK)
+            //                            WHERE [Language] = @lang", new { lang = name }).OrderBy(x => x.PageCategoryName);
+
+            var result = getPageCategories.GetList(@"SELECT * FROM [IHK].[dbo].[PageCategories] (NOLOCK)", null).OrderBy(x => x.PageCategoryName);
 
             return Newtonsoft.Json.JsonConvert.SerializeObject(result);
 

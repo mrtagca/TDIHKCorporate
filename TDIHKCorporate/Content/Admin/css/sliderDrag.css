@@ -1,0 +1,37 @@
+﻿* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Verdana;
+}
+
+.slide {
+    width: 500px;
+    height: 50px;
+    border: 1px solid #ccc;
+    margin: 2px;
+    background-color: white;
+    padding: 1em;
+    transition: all 0.3s linear;
+}
+
+.sort-stop .slide {
+    transition: none;
+}
+
+.sorting .sortable-placeholder {
+    transition: height 0.3s linear;
+}
+
+.sortable-placeholder {
+    height: 60px;
+}
+
+.slide.ui-sortable-helper {
+    transition: none;
+}
+
+.sortable-placeholder ~ .slide:not(.ui-sortable-helper) {
+    transform: translateY(60px);
+}

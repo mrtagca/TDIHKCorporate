@@ -14,5 +14,10 @@ namespace TDIHKCorporate.Areas.Management.Controllers
         {
             return View();
         }
+
+        public ActionResult EditSlider(int id)
+        {
+            return View();
+        }
     }
 }

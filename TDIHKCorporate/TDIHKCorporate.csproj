@@ -100,6 +100,7 @@
   <ItemGroup>
     <Content Include="Content\Admin\css\sb-admin-2.css" />
     <Content Include="Content\Admin\css\sb-admin-2.min.css" />
+    <Content Include="Content\Admin\css\sliderDrag.css" />
     <Content Include="Content\Admin\img\germany-flag-icon-32.png" />
     <Content Include="Content\Admin\img\td_ihk_logo.jpg" />
     <Content Include="Content\Admin\img\turkey-flag-icon-32.png" />
@@ -2278,6 +2279,7 @@
     <Content Include="Content\Admin\vendor\jquery-easing\jquery.easing.compatibility.js" />
     <Content Include="Content\Admin\vendor\jquery-easing\jquery.easing.js" />
     <Content Include="Content\Admin\vendor\jquery-easing\jquery.easing.min.js" />
+    <Content Include="Content\Admin\vendor\jquery\jquery-3.5.1.min.js" />
     <Content Include="Content\Admin\vendor\jquery\jquery.js" />
     <Content Include="Content\Admin\vendor\jquery\jquery.min.js" />
     <Content Include="Content\Admin\vendor\jquery\jquery.slim.js" />
@@ -2792,6 +2794,7 @@
     <Content Include="Global.asax" />
     <Content Include="Areas\Management\Views\Page\Edit.cshtml" />
     <Content Include="Areas\Management\Views\Page\PageList.cshtml" />
+    <Content Include="Areas\Management\Views\Slider\EditSlider.cshtml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
@@ -3274,6 +3277,8 @@
     <Compile Include="Types\NewsletterRegistrations.cs" />
     <Compile Include="Types\PageCategories.cs" />
     <Compile Include="Types\Pages.cs" />
+    <Compile Include="Types\SliderContent.cs" />
+    <Compile Include="Types\Sliders.cs" />
     <Compile Include="Types\ViewTypes\PageItem.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -3958,6 +3963,7 @@
     <Content Include="Views\Covid\WichtigeInformationsquellen.cshtml" />
     <Content Include="Views\Covid\CoronavirusNachrichten.cshtml" />
     <Content Include="Views\AboutUs\Institution.cshtml" />
+    <Content Include="Views\Home\_PartialHomePageSlider.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
