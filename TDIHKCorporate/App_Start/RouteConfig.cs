@@ -99,6 +99,24 @@ namespace TDIHKCorporate
                 );
             #endregion
 
+            #region Hakkımızda / Uber Uns
+            routes.MapRoute(
+                       name: "UberUnsGerman",
+                       url: "uber-uns",
+                       defaults: new { controller = "AboutUs", action = "Index" },
+                    new[] { "TDIHKCorporate.Controllers" }
+                   );
+
+            routes.MapRoute(
+                      name: "UberUnsTurkish",
+                      url: "hakkimizda",
+                      defaults: new { controller = "AboutUs", action = "Index" },
+                   new[] { "TDIHKCorporate.Controllers" }
+                  );
+
+
+            #endregion
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
