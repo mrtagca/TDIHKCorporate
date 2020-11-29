@@ -1,8 +1,9 @@
-﻿
+﻿@model TDIHKCorporate.Types.Pages
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_layoutMaster.cshtml";
 }
 
-<h2>Index</h2>
-
+<main class="uk-container" uk-scrollspy="cls: uk-animation-fade; target: > section; delay: 250">
+  @Html.Raw(Model.PageContent)
+</main>
