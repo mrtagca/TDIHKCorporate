@@ -7,23 +7,23 @@
 // Variables
 // ========================================================================
 
-@accordion-item-margin-top:                    @global-margin;
+@accordion-item-margin-top:                    3px;
 
-@accordion-title-font-size:                    @global-medium-font-size;
+@accordion-title-font-size:                    20px;
 @accordion-title-line-height:                  1.4;
-@accordion-title-color:                        @global-emphasis-color;
+@accordion-title-color:                        @dark-grey;
 @accordion-title-hover-color:                  @global-color;
 
-@accordion-content-margin-top:                 @global-margin;
+@accordion-content-margin-top:                 0;
 
 //
 // New
 //
 
 @accordion-icon-margin-left:                   10px;
-@accordion-icon-color:                         @global-color;
-@internal-accordion-open-image:                "../../images/backgrounds/accordion-open.svg";
-@internal-accordion-close-image:               "../../images/backgrounds/accordion-close.svg";
+@accordion-icon-color:                         @dark-grey;
+@internal-accordion-open-image:                "../../src/images/icons/close.svg";
+@internal-accordion-close-image:               "../../src/images/icons/plus.svg";
 
 
 // Component
@@ -44,13 +44,16 @@
 .hook-accordion-title() {
 
     overflow: hidden;
+    background-color: @light-grey;
+    padding: 20px 10px;
 
     &::before {
         content: "";
         width: (@accordion-title-line-height * 1em);
         height: (@accordion-title-line-height * 1em);
         margin-left: @accordion-icon-margin-left;
-        float: right;
+        float: left;
+        margin-right: @accordion-icon-margin-left;
         .svg-fill(@internal-accordion-close-image, "#000", @accordion-icon-color);
         background-repeat: no-repeat;
         background-position: 50% 50%;
@@ -66,7 +69,7 @@
 // Content
 // ========================================================================
 
-.hook-accordion-content() {}
+.hook-accordion-content() {padding-left: 25px;}
 
 
 // Miscellaneous

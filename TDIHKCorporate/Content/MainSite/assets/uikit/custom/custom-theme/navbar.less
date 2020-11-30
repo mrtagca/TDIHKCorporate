@@ -13,7 +13,7 @@
 @navbar-nav-item-height:                        80px;
 @navbar-nav-item-padding-horizontal:            0;
 @navbar-nav-item-color:                         @global-color;
-@navbar-nav-item-font-size:                     @global-font-size;
+@navbar-nav-item-font-size:                     @global-medium-font-size;
 @navbar-nav-item-font-family:                   @global-font-family;
 @navbar-nav-item-hover-color:                   @global-color;
 @navbar-nav-item-onclick-color:                 @global-emphasis-color;
@@ -57,7 +57,7 @@
 
 @navbar-nav-item-text-transform:                none;
 
-@navbar-dropdown-nav-font-size:                 @global-small-font-size;
+@navbar-dropdown-nav-font-size:                 @global-medium-font-size;
 
 @navbar-dropdown-box-shadow:                    0 5px 12px rgba(0,0,0,0.15);
 
@@ -92,7 +92,7 @@
 
 .hook-navbar-nav-item-onclick() {}
 
-.hook-navbar-nav-item-active() {}
+.hook-navbar-nav-item-active() {border-bottom: 3px solid @global-color;}
 
 
 // Item
@@ -130,7 +130,7 @@
 // Dropdown
 // ========================================================================
 
-.hook-navbar-dropdown() { box-shadow: @navbar-dropdown-box-shadow; }
+.hook-navbar-dropdown() { box-shadow: @navbar-dropdown-box-shadow; width: max-content;}
 
 .hook-navbar-dropdown-dropbar() { box-shadow: none; }
 
