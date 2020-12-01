@@ -44,11 +44,11 @@
 @card-primary-hover-background:                darken(@card-primary-background, 5%);
 @card-primary-color-mode:                      unset;
 
-@card-secondary-background:                    @global-secondary-background;
-@card-secondary-color:                         @global-inverse-color;
+@card-secondary-background:                    @white;
+@card-secondary-color:                         @global-color;
 @card-secondary-title-color:                   @card-secondary-color;
 @card-secondary-hover-background:              darken(@card-secondary-background, 5%);
-@card-secondary-color-mode:                    light;
+@card-secondary-color-mode:                    unset;
 
 @card-small-body-padding-horizontal:           @global-margin;
 @card-small-body-padding-vertical:             @global-margin;
@@ -162,7 +162,7 @@
 // Secondary
 //
 
-.hook-card-secondary() { box-shadow: @card-secondary-box-shadow; }
+.hook-card-secondary() {color: @global-color;}
 
 .hook-card-secondary-title() {}
 
