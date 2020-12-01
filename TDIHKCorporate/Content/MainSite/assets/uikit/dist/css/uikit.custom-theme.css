@@ -2772,13 +2772,13 @@ select.uk-form-width-xsmall {
   }
 }
 .iconless {
-  padding-left: 50px;
+  padding-left: 50px !important;
 }
 .iconless::before {
   display: none;
 }
 .accordion-title-iconless {
-  padding-left: 50px;
+  padding-left: 50px !important;
 }
 .accordion-title-iconless::before {
   display: none;
