@@ -2771,8 +2771,14 @@ select.uk-form-width-xsmall {
     font-size: 32px;
   }
 }
+.iconless {
+  padding-left: 50px;
+}
 .iconless::before {
   display: none;
+}
+.accordion-title-iconless {
+  padding-left: 50px;
 }
 .accordion-title-iconless::before {
   display: none;
