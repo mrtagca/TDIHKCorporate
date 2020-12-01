@@ -10,14 +10,6 @@
 
 <script src="~/Content/Scripts/Page.js"></script>
 
-@*<script>
-        $(document).ready(function () {
-            GetPageCategories("PageCategories");
-        });
-    </script>*@
-
-
-
 
 <div class="row">
     <div class="col-md-9 col-sm-12">
@@ -138,7 +130,7 @@
                         </div>
                         <br />
                         <div>
-                            <input id="Publish" onclick="AddPage()" type="submit" class="btn btn-primary" name="" value=" @Resources.resource.Yayimla" />
+                            <input id="Publish" onclick="AddPage()" type="submit" class="btn btn-primary" name="" value=" @Resources.resource.Guncelle" />
                         </div>
 
                     </div>
@@ -148,6 +140,7 @@
 
     </div>
 </div>
+
 
 
 <script>
@@ -164,7 +157,8 @@
 
         var html = @Html.Raw(JsonConvert.SerializeObject(Model.PageContent));
 
-        var htmlContent = html + "</br>";
-        editor.value(editor.value()+htmlContent);
+        var htmlContent = html;
+        editor.value(htmlContent + editor.value());
     });
 </script>
+

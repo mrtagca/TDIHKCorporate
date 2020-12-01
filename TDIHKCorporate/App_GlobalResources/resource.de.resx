@@ -180,6 +180,9 @@
   <data name="Eylemler" xml:space="preserve">
     <value>Aktionen</value>
   </data>
+  <data name="Guncelle" xml:space="preserve">
+    <value>Aktualisieren</value>
+  </data>
   <data name="HaberEkle" xml:space="preserve">
     <value>Nachrichten hinzufügen</value>
   </data>

@@ -34,20 +34,23 @@ function AddPage() {
     dataParams.PageCategoryID = $("#PageCategories").val();
     dataParams.PageTitle = $("#PageTitle").val();
 
-    debugger
 
-    var pageContent = document.getElementsByClassName("ql-editor");
-    dataParams.PageContent = pageContent[0].innerHTML;
+    debugger
+    var editor = $("#editor").data("kendoEditor");
+    var pageContent = editor.value();
+    var index = pageContent.indexOf("<!--HtmlHeaderEnd|-->");
+    pageContent = pageContent.substring(0,index);
+    dataParams.PageContent = pageContent;
+
+
 
 
     dataParams.PageSeoLink = $("#PageSeoLink").val();
     dataParams.PageSeoKeywords = $("#SeoKeywords").val();
 
 
-    if (pageContent[0].innerText === '' || typeof (pageContent[0].innerText) === 'undefined' || pageContent[0].innerText === null) {
+    if (pageContent === '' || typeof (pageContent) === 'undefined' || pageContent === null) {
         alert("Page Content cannot be null!");
-        var element = document.getElementById("editor");
-        element.style = "background-color:#ffffff;" + styleCss;
         return;
     }
 

@@ -180,6 +180,9 @@
   <data name="Eylemler" xml:space="preserve">
     <value>Eylemler</value>
   </data>
+  <data name="Guncelle" xml:space="preserve">
+    <value>Güncelle</value>
+  </data>
   <data name="HaberEkle" xml:space="preserve">
     <value>Haber Ekle</value>
   </data>

@@ -250,6 +250,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Güncelle.
+        /// </summary>
+        internal static string Guncelle {
+            get {
+                return ResourceManager.GetString("Guncelle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Haber Ekle.
         /// </summary>
         internal static string HaberEkle {
