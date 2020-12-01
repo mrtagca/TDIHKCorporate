@@ -117,6 +117,24 @@ namespace TDIHKCorporate
 
             #endregion
 
+            #region Toplantı Salonu / Konferenzraum
+            routes.MapRoute(
+                       name: "KonferenzraumGerman",
+                       url: "konferenzraum",
+                       defaults: new { controller = "Services", action = "Konferenzraum" },
+                    new[] { "TDIHKCorporate.Controllers" }
+                   );
+
+            routes.MapRoute(
+                      name: "KonferenzraumTurkish",
+                      url: "toplanti-salonu",
+                      defaults: new { controller = "Services", action = "Konferenzraum" },
+                   new[] { "TDIHKCorporate.Controllers" }
+                  );
+
+
+            #endregion
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
