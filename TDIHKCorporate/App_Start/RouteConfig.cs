@@ -171,6 +171,24 @@ namespace TDIHKCorporate
 
             #endregion
 
+            #region Musterverträge / Örnek Sözleşmeler
+            routes.MapRoute(
+                       name: "ContractsGerman",
+                       url: "mustervertrage",
+                       defaults: new { controller = "Services", action = "Mustervertrage" },
+                    new[] { "TDIHKCorporate.Controllers" }
+                   );
+
+            routes.MapRoute(
+                      name: "ContractsTurkish",
+                      url: "ornek-sozlesmeler",
+                      defaults: new { controller = "Services", action = "Mustervertrage" },
+                   new[] { "TDIHKCorporate.Controllers" }
+                  );
+
+
+            #endregion
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
