@@ -28,57 +28,98 @@
 
                                     @foreach (TDIHKCorporate.Types.MenuItems item in Model.Where(x => x.IsSubMenu == false).OrderBy(x => x.MenuItemPriority))
                                     {
-                                        <li>
-                                            @{
-                                                if (item.Language == "tr")
-                                                {
-                                                    <a href="/@item.PageSeoLink">@item.MenuName</a>
+                                    <li>
+                                        @{
+                                            if (item.Language == "tr")
+                                            {
+                                                <a href="/@item.PageSeoLink">@item.MenuName</a>
 
-                                                    <div class="uk-navbar-dropdown">
-                                                        <ul class="uk-nav uk-navbar-dropdown-nav">
-
-                                                            @foreach (var subMenuItem in Model.Where(x => x.ParentMenuItemID == item.ID && x.IsSubMenu == true && x.MenuLevel == 1).OrderBy(x => x.MenuItemPriority))
-                                                            {
-
-                                                                <li class="uk-active">
-                                                                    <a href="/@subMenuItem.PageSeoLink">@subMenuItem.MenuName</a>
-
-                                                                </li>
-
-                                                            }
-                                                        </ul>
-                                                    </div>
-                                                }
-                                                else if (item.Language == "de")
-                                                {
-                                                    <a href="/@item.PageSeoLink">@item.MenuName</a>
-
-                                                    <div class="uk-navbar-dropdown">
-                                                        <ul class="uk-nav uk-navbar-dropdown-nav">
-
-                                                            @foreach (var subMenuItem in Model.Where(x => x.ParentMenuItemID == item.ID && x.IsSubMenu == true && x.MenuLevel == 1).OrderBy(x => x.MenuItemPriority))
-                                                            {
-
-                                                                <li class="uk-active">
-                                                                    <a href="/@subMenuItem.PageSeoLink">@subMenuItem.MenuName</a>
-                                                                </li>
-
-                                                            }
-                                                        </ul>
-                                                    </div>
-                                                }
-                                            }
-
-
-                                            @* Sub Menuler
-                                                    <ul class="uk-list uk-link-reset uk-text-center uk-h1">
-                                                    @foreach (var secondItem in (Model.Where(s => s.ParentMenuItemID == item.ID && s.IsSubMenu == true).ToList()))
+                                                <div class="uk-navbar-dropdown">
+                                                    @if (Model.Exists(x => x.ParentMenuItemID == item.ID && x.IsSubMenu == true && x.MenuLevel == 1))
                                                     {
-                                                        <li><a href="@secondItem.PageSeoLink">@secondItem.MenuName</a></li>
+                                                        <ul class="uk-nav uk-navbar-dropdown-nav">
 
+                                                            @foreach (var subMenuItem in Model.Where(x => x.ParentMenuItemID == item.ID && x.IsSubMenu == true && x.MenuLevel == 1).OrderBy(x => x.MenuItemPriority))
+                                                            {
+
+                                                                <li class="uk-active">
+                                                                    <a href="/@subMenuItem.PageSeoLink">@subMenuItem.MenuName</a>
+
+                                                                    @if (Model.Exists(x => x.ParentMenuItemID == subMenuItem.ID && x.IsSubMenu == true && x.MenuLevel == 2))
+                                                                    {
+                                                                        <ul class="uk-nav uk-navbar-dropdown-nav">
+                                                                            @foreach (var subMenuSubItem in Model.Where(x => x.ParentMenuItemID == subMenuItem.ID && x.IsSubMenu == true && x.MenuLevel == 2).OrderBy(x => x.MenuItemPriority))
+                                                                            {
+
+                                                                                <li class="uk-active">
+                                                                                    <a href="/@subMenuSubItem.PageSeoLink">@subMenuSubItem.MenuName</a>
+
+                                                                                </li>
+
+                                                                            }
+                                                                        </ul>
+                                                                    }
+
+                                                                </li>
+
+
+
+                                                            }
+                                                        </ul>
                                                     }
-                                                </ul>*@
-                                        </li>
+                                                </div>
+                                            }
+                                            else if (item.Language == "de")
+                                            {
+                                                <a href="/@item.PageSeoLink">@item.MenuName</a>
+
+                                                <div class="uk-navbar-dropdown">
+                                                    @if (Model.Exists(x => x.ParentMenuItemID == item.ID && x.IsSubMenu == true && x.MenuLevel == 1))
+                                                    {
+                                                        <ul class="uk-nav uk-navbar-dropdown-nav">
+
+                                                            @foreach (var subMenuItem in Model.Where(x => x.ParentMenuItemID == item.ID && x.IsSubMenu == true && x.MenuLevel == 1).OrderBy(x => x.MenuItemPriority))
+                                                            {
+
+                                                                <li class="uk-active">
+                                                                    <a href="/@subMenuItem.PageSeoLink">@subMenuItem.MenuName</a>
+
+                                                                    @if (Model.Exists(x => x.ParentMenuItemID == subMenuItem.ID && x.IsSubMenu == true && x.MenuLevel == 2))
+                                                                    {
+                                                                        <ul class="uk-nav uk-navbar-dropdown-nav">
+                                                                            @foreach (var subMenuSubItem in Model.Where(x => x.ParentMenuItemID == subMenuItem.ID && x.IsSubMenu == true && x.MenuLevel == 2).OrderBy(x => x.MenuItemPriority))
+                                                                            {
+
+                                                                                <li class="uk-active">
+                                                                                    <a href="/@subMenuSubItem.PageSeoLink">@subMenuSubItem.MenuName</a>
+
+                                                                                </li>
+
+                                                                            }
+                                                                        </ul>
+                                                                    }
+
+                                                                </li>
+
+
+
+                                                            }
+                                                        </ul>
+                                                    }
+                                                </div>
+                                            }
+                                        }
+
+
+                                        @* Sub Menuler
+            <ul class="uk-list uk-link-reset uk-text-center uk-h1">
+            @foreach (var secondItem in (Model.Where(s => s.ParentMenuItemID == item.ID && s.IsSubMenu == true).ToList()))
+            {
+                <li><a href="@secondItem.PageSeoLink">@secondItem.MenuName</a></li>
+
+            }
+        </ul>*@
+                                    </li>
 
 
                                     }
@@ -196,56 +237,90 @@
 
                     @foreach (TDIHKCorporate.Types.MenuItems item in Model.Where(x => x.IsSubMenu == false).OrderBy(x => x.MenuItemPriority))
                     {
-                        <li>
-                            @{
-                                if (item.Language == "tr")
-                                {
-                                    <a href="/@item.PageSeoLink">@item.MenuName</a>
+                    <li>
+                        @{
+                            if (item.Language == "tr")
+                            {
+                                <a href="/@item.PageSeoLink">@item.MenuName</a>
 
-                                    <div class="uk-navbar-dropdown">
-                                        <ul class="uk-nav uk-navbar-dropdown-nav">
-
-                                            @foreach (var subMenuItem in Model.Where(x => x.ParentMenuItemID == item.ID && x.IsSubMenu == true && x.MenuLevel == 1).OrderBy(x => x.MenuItemPriority))
-                                            {
-
-                                                <li class="uk-active">
-                                                    <a href="/@subMenuItem.PageSeoLink">@subMenuItem.MenuName</a>
-                                                </li>
-
-                                            }
-                                        </ul>
-                                    </div>
-                                }
-                                else if (item.Language == "de")
-                                {
-                                    <a href="/@item.PageSeoLink">@item.MenuName</a>
-
-                                    <div class="uk-navbar-dropdown">
-                                        <ul class="uk-nav uk-navbar-dropdown-nav">
-
-                                            @foreach (var subMenuItem in Model.Where(x => x.ParentMenuItemID == item.ID && x.IsSubMenu == true && x.MenuLevel == 1).OrderBy(x => x.MenuItemPriority))
-                                            {
-
-                                                <li class="uk-active">
-                                                    <a href="/@subMenuItem.PageSeoLink">@subMenuItem.MenuName</a>
-                                                </li>
-
-                                            }
-                                        </ul>
-                                    </div>
-                                }
-                            }
-
-                            @* Sub Menuler
-                                    <ul class="uk-navbar-nav uk-width-expand uk-flex-between">
-                                    @foreach (var secondItem in (Model.Where(s => s.ParentMenuItemID == item.ID && s.IsSubMenu == true).ToList()))
+                                <div class="uk-navbar-dropdown">
+                                    @if (Model.Exists(x => x.ParentMenuItemID == item.ID && x.IsSubMenu == true && x.MenuLevel == 1))
                                     {
-                                        <li><a href="@secondItem.PageSeoLink">@secondItem.MenuName</a></li>
+                                        <ul class="uk-nav uk-navbar-dropdown-nav">
 
+                                            @foreach (var subMenuItem in Model.Where(x => x.ParentMenuItemID == item.ID && x.IsSubMenu == true && x.MenuLevel == 1).OrderBy(x => x.MenuItemPriority))
+                                            {
+
+                                                <li class="uk-active">
+                                                    <a href="/@subMenuItem.PageSeoLink">@subMenuItem.MenuName</a>
+
+                                                    @if (Model.Exists(x => x.ParentMenuItemID == subMenuItem.ID && x.IsSubMenu == true && x.MenuLevel == 2))
+                                                    {
+                                                        <ul class="uk-nav uk-navbar-dropdown-nav">
+                                                            @foreach (var subMenuSubItem in Model.Where(x => x.ParentMenuItemID == subMenuItem.ID && x.IsSubMenu == true && x.MenuLevel == 2).OrderBy(x => x.MenuItemPriority))
+                                                            {
+
+                                                                <li class="uk-active">
+                                                                    <a href="/@subMenuSubItem.PageSeoLink">@subMenuSubItem.MenuName</a>
+
+                                                                </li>
+
+                                                            }
+                                                        </ul>
+                                                    }
+                                                </li>
+                                            }
+                                        </ul>
                                     }
-                                </ul>*@
+                                </div>
+                            }
+                            else if (item.Language == "de")
+                            {
+                                <a href="/@item.PageSeoLink">@item.MenuName</a>
 
-                        </li>
+                                <div class="uk-navbar-dropdown">
+                                    @if (Model.Exists(x => x.ParentMenuItemID == item.ID && x.IsSubMenu == true && x.MenuLevel == 1))
+                                    {
+                                        <ul class="uk-nav uk-navbar-dropdown-nav">
+
+                                            @foreach (var subMenuItem in Model.Where(x => x.ParentMenuItemID == item.ID && x.IsSubMenu == true && x.MenuLevel == 1).OrderBy(x => x.MenuItemPriority))
+                                            {
+
+                                                <li class="uk-active">
+                                                    <a href="/@subMenuItem.PageSeoLink">@subMenuItem.MenuName</a>
+
+                                                    @if (Model.Exists(x => x.ParentMenuItemID == subMenuItem.ID && x.IsSubMenu == true && x.MenuLevel == 2))
+                                                    {
+                                                        <ul class="uk-nav uk-navbar-dropdown-nav">
+                                                            @foreach (var subMenuSubItem in Model.Where(x => x.ParentMenuItemID == subMenuItem.ID && x.IsSubMenu == true && x.MenuLevel == 2).OrderBy(x => x.MenuItemPriority))
+                                                            {
+
+                                                                <li class="uk-active">
+                                                                    <a href="/@subMenuSubItem.PageSeoLink">@subMenuSubItem.MenuName</a>
+
+                                                                </li>
+
+                                                            }
+                                                        </ul>
+                                                    }
+                                                </li>
+                                            }
+                                        </ul>
+                                    }
+                                </div>
+                            }
+                        }
+
+                        @* Sub Menuler
+            <ul class="uk-navbar-nav uk-width-expand uk-flex-between">
+            @foreach (var secondItem in (Model.Where(s => s.ParentMenuItemID == item.ID && s.IsSubMenu == true).ToList()))
+            {
+                <li><a href="@secondItem.PageSeoLink">@secondItem.MenuName</a></li>
+
+            }
+        </ul>*@
+
+                    </li>
 
                     }
 

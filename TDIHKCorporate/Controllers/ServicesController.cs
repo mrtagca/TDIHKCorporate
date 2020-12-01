@@ -25,12 +25,32 @@ namespace TDIHKCorporate.Controllers
 
         public ActionResult Türkei()
         {
-            return View();
+            DapperRepository<Pages> page = new DapperRepository<Pages>();
+
+            CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+
+            string name = cultureInfo.TwoLetterISOLanguageName;
+
+            Pages pageItem = page.Get(@"SELECT * FROM Pages (NOLOCK)
+                                            where[Language] = @language and PageIdentifier = @pageIdentifier", new { language = name, pageIdentifier = "Turkey" });
+
+
+            return View(pageItem);
         }
 
         public ActionResult Deutschland()
         {
-            return View();
+            DapperRepository<Pages> page = new DapperRepository<Pages>();
+
+            CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+
+            string name = cultureInfo.TwoLetterISOLanguageName;
+
+            Pages pageItem = page.Get(@"SELECT * FROM Pages (NOLOCK)
+                                            where[Language] = @language and PageIdentifier = @pageIdentifier", new { language = name, pageIdentifier = "Deutschland" });
+
+
+            return View(pageItem);
         }
 
         public ActionResult Mustervertrage()

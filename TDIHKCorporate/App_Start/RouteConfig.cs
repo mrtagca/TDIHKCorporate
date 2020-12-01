@@ -135,6 +135,42 @@ namespace TDIHKCorporate
 
             #endregion
 
+            #region Türkei / Türkiye
+            routes.MapRoute(
+                       name: "TurkeyGerman",
+                       url: "turkei",
+                       defaults: new { controller = "Services", action = "Türkei" },
+                    new[] { "TDIHKCorporate.Controllers" }
+                   );
+
+            routes.MapRoute(
+                      name: "TurkeyTurkish",
+                      url: "turkiye",
+                      defaults: new { controller = "Services", action = "Türkei" },
+                   new[] { "TDIHKCorporate.Controllers" }
+                  );
+
+
+            #endregion
+
+            #region Deutschland / Almanya
+            routes.MapRoute(
+                       name: "DeutschGerman",
+                       url: "deutschland",
+                       defaults: new { controller = "Services", action = "Deutschland" },
+                    new[] { "TDIHKCorporate.Controllers" }
+                   );
+
+            routes.MapRoute(
+                      name: "DeutschTurkish",
+                      url: "almanya",
+                      defaults: new { controller = "Services", action = "Deutschland" },
+                   new[] { "TDIHKCorporate.Controllers" }
+                  );
+
+
+            #endregion
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
