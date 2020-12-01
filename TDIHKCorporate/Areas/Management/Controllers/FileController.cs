@@ -31,23 +31,29 @@ namespace TDIHKCorporate.Areas.Management.Controllers
             }
         }
 
-        [HttpPost]
-        public string FileBrowserRead(string path)
+        public virtual JsonResult FileBrowserRead(string path)
         {
-            path = NormalizePath(path);
+            try
+            {
+                path = NormalizePath(path);
 
-            directoryBrowser.Server = Server;
+                directoryBrowser.Server = Server;
 
-            var result = directoryBrowser
-                .GetContent(path, DefaultFilter)
-                .Select(f => new
-                {
-                    name = f.Name,
-                    type = f.Type == EntryType.File ? "f" : "d",
-                    size = f.Size
-                });
+                var result = directoryBrowser
+                    .GetContent(path, DefaultFilter)
+                    .Select(f => new
+                    {
+                        name = f.Name,
+                        type = f.Type == EntryType.File ? "f" : "d",
+                        size = f.Size
+                    });
 
-            return JsonConvert.SerializeObject(result);
+                return Json(result, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+                throw new HttpException(404, "File Not Found");
+            }
         }
 
         private string NormalizePath(string path)
@@ -87,6 +93,7 @@ namespace TDIHKCorporate.Areas.Management.Controllers
                     DeleteDirectory(path);
                 }
 
+                return FileBrowserRead(null);
                 return Json(null);
             }
             throw new HttpException(404, "File Not Found");
@@ -152,6 +159,7 @@ namespace TDIHKCorporate.Areas.Management.Controllers
                     Directory.CreateDirectory(physicalPath);
                 }
 
+                return FileBrowserRead(null);
                 return Json(null);
             }
 
