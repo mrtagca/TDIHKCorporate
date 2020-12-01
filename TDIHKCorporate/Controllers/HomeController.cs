@@ -55,27 +55,11 @@ namespace TDIHKCorporate.Controllers
 
         public ActionResult ShowHomePageSlider()
         {
-            //DapperRepository<MenuItems> getPageCategories = new DapperRepository<MenuItems>();
-
-            //CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
-
-            //string name = cultureInfo.TwoLetterISOLanguageName;
-
-            //List<MenuItems> menuItems = getPageCategories.GetList(@"select mi.*,p.PageSeoLink from MenuItems mi (NOLOCK)
-            //                            inner join Menus m (NOLOCK)
-            //                            on mi.MenuID = m.ID
-            //                            left join Pages p (NOLOCK)
-            //                            on mi.PageID = p.PageID
-
-            //                            where m.ID = 1 and mi.[Language] = @lang", new { lang = name }).OrderBy(x => x.MenuItemPriority).ToList();
-
             DapperRepository<SliderContent> sliderContent = new DapperRepository<SliderContent>();
             CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
             string name = cultureInfo.TwoLetterISOLanguageName;
 
             List<SliderContent> sliderItems = sliderContent.GetList(@"SELECT * FROM SliderContent (NOLOCK) where SliderID = 1 and [Language] = @lang order by SliderPriority", new { lang = name });
-
-
 
             return PartialView("_PartialHomePageSlider",sliderItems);
         }
