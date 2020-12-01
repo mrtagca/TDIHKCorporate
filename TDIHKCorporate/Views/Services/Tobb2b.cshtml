@@ -4,5 +4,70 @@
     Layout = "~/Views/Shared/_layoutMaster.cshtml";
 }
 
-<h2>Tobb2b</h2>
+<main class="uk-container" uk-scrollspy="cls: uk-animation-fade; target: > section; delay: 250">
+    <section>
+        <!--Sayfa Başlığı-->
+        <div class="uk-background-secondary">
+            <h1 class="uk-h5 banner-padding uk-margin-remove">Außenhandelsportal > TOBB2B</h1>
+        </div>
+        <!--Sayfa Başlığı sonu-->
+        <!-- Banner-->
+        <div>
+            <img src="~/Content/MainSite/assets/images/TOBB2B/TOBB2B.png" alt="" uk-img>
+        </div>
+    </section>
+    <section>
+        <div>
+            <h2 class="uk-margin-medium-top">Lorem Ipsum Dolor sit Amet</h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+        </div>
+    </section>
+    <section class="uk-margin-medium-top">
+        <div class="uk-child-width-expand@s uk-text-center" uk-grid>
+            <div>
+                <div>
+                    <p style="font-size: 90pt; color: #616771; font-weight: bold; line-height: 1;">94</p>
+                    <span style="margin: 0; font-size: 25px; color: #616771; line-height: 1;">Ülke</span>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <p style="font-size: 90pt; color: #616771; font-weight: bold; line-height: 1;">3000</p>
+                    <span style="margin: 0; font-size: 25px; color: #616771; line-height: 1;">Sirket</span>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <p style="font-size: 90pt; color: #616771; font-weight: bold; line-height: 1;">1300</p>
+                    <span style="margin: 0; font-size: 25px; color: #616771; line-height: 1;">Güncel <br /> ticari is birliği ilanı</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="uk-margin-medium-top uk-margin-medium-bottom">
+        <div>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+        </div>
+    </section>
+
+    @Html.Action("Index", "Newsletter")
+</main>
 

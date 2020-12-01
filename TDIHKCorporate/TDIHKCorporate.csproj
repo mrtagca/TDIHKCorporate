@@ -2322,6 +2322,7 @@
     <Content Include="Content\MainSite\assets\images\Nachrichten.png" />
     <Content Include="Content\MainSite\assets\images\PremiumMitgliedschaft\PremiumMitgliedschaft-bg.png" />
     <Content Include="Content\MainSite\assets\images\StandardMitgliedschaft\StandardMitgliedschaft-bg.png" />
+    <Content Include="Content\MainSite\assets\images\TOBB2B\TOBB2B.png" />
     <Content Include="Content\MainSite\assets\images\uber\nalan.png" />
     <Content Include="Content\MainSite\assets\images\uber\okan.png" />
     <Content Include="Content\MainSite\assets\images\uber\president.png" />
