@@ -31,7 +31,18 @@ namespace TDIHKCorporate.Controllers
 
         public ActionResult Jahresberichte()
         {
-            return View();
+
+            DapperRepository<Pages> page = new DapperRepository<Pages>();
+
+            CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+
+            string name = cultureInfo.TwoLetterISOLanguageName;
+
+            Pages pageItem = page.Get(@"SELECT * FROM Pages (NOLOCK)
+                                            where[Language] = @language and PageIdentifier = @pageIdentifier", new { language = name, pageIdentifier = "YearReports" });
+
+
+            return View(pageItem);
         }
 
         public ActionResult Infoblatter()

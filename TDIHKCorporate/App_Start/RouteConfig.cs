@@ -248,6 +248,22 @@ namespace TDIHKCorporate
                 );
             #endregion
 
+            #region Jahresberichte / Yıllık Raporlar
+            routes.MapRoute(
+                    name: "JahresberichteGerman",
+                    url: "jahresberichte",
+                    defaults: new { controller = "Publication", action = "Jahresberichte" },
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
+
+            routes.MapRoute(
+                    name: "JahresberichteTurkey",
+                    url: "yillik-raporlar",
+                    defaults: new { controller = "Publication", action = "Jahresberichte" },
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
+            #endregion
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
