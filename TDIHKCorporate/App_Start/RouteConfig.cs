@@ -189,6 +189,24 @@ namespace TDIHKCorporate
 
             #endregion
 
+            #region Forderung and Finanzierung / Talep ve Finansman
+            routes.MapRoute(
+                       name: "FinanceGerman",
+                       url: "forderung-and-finanzierung",
+                       defaults: new { controller = "Services", action = "ForderungAndFinanzierung" },
+                    new[] { "TDIHKCorporate.Controllers" }
+                   );
+
+            routes.MapRoute(
+                      name: "FinanceTurkish",
+                      url: "talep-ve-finansman",
+                      defaults: new { controller = "Services", action = "ForderungAndFinanzierung" },
+                   new[] { "TDIHKCorporate.Controllers" }
+                  );
+
+
+            #endregion
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

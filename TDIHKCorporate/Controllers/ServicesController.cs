@@ -64,13 +64,21 @@ namespace TDIHKCorporate.Controllers
             Pages pageItem = page.Get(@"SELECT * FROM Pages (NOLOCK)
                                             where[Language] = @language and PageIdentifier = @pageIdentifier", new { language = name, pageIdentifier = "Contracts" });
 
-
             return View(pageItem);
         }
 
         public ActionResult ForderungAndFinanzierung()
         {
-            return View();
+            DapperRepository<Pages> page = new DapperRepository<Pages>();
+
+            CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+
+            string name = cultureInfo.TwoLetterISOLanguageName;
+
+            Pages pageItem = page.Get(@"SELECT * FROM Pages (NOLOCK)
+                                            where[Language] = @language and PageIdentifier = @pageIdentifier", new { language = name, pageIdentifier = "Finance" });
+
+            return View(pageItem);
         }
 
         public ActionResult Aubenhandelsportal()
