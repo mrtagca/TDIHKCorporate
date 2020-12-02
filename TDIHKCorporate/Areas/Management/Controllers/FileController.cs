@@ -5,12 +5,13 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TDIHKCorporate.BaseControllers.MultiLanguage;
 using TDIHKCorporate.Enums;
 using TDIHKCorporate.Helpers.Extensions;
 
 namespace TDIHKCorporate.Areas.Management.Controllers
 {
-    public class FileController : Controller
+    public class FileController : SiteBaseController
     {
         private const string contentFolderRoot = "~/Content/MainSite/assets";
         private const string prettyName = "files/";

@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TDIHKCorporate.BaseControllers.MultiLanguage;
 using TDIHKCorporate.Enums;
 using TDIHKCorporate.Helpers.Extensions;
 using TDIHKCorporate.Types;
@@ -13,7 +14,7 @@ using TDIHKCorporate.Types.ComponentTypes;
 
 namespace TDIHKCorporate.Areas.Management.Controllers
 {
-    public class ImageController : Controller
+    public class ImageController : SiteBaseController
     {
 
         private const string contentFolderRoot = "~/Content/MainSite/assets";
