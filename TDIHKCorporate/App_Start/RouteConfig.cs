@@ -207,6 +207,31 @@ namespace TDIHKCorporate
 
             #endregion
 
+            #region Standart Mitgliedschaft / Standart Üyelik
+            routes.MapRoute(
+                    name: "StandardMitgliedschaftGerman",
+                    url: "standard-mitgliedschaft",
+                    defaults: new { controller = "MemberShip", action = "StandardMitgliedschaft", seoLink = UrlParameter.Optional },
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
+
+            routes.MapRoute(
+                    name: "StandardMitgliedschaftTurkey",
+                    url: "standart-uyelik",
+                    defaults: new { controller = "MemberShip", action = "StandardMitgliedschaft", seoLink = UrlParameter.Optional },
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
+            #endregion
+
+            #region Tobb2b
+            routes.MapRoute(
+                    name: "tobb2b",
+                    url: "tobb2b",
+                    defaults: new { controller = "Services", action = "Tobb2b", seoLink = UrlParameter.Optional },
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
+            #endregion
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

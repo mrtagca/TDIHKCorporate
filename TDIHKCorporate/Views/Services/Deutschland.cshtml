@@ -4,11 +4,7 @@
     Layout = "~/Views/Shared/_layoutMaster.cshtml";
 }
 
-<main class="uk-container" uk-scrollspy="cls: uk-animation-fade; target: > section; delay: 250">
-    @Html.Raw(Model.PageContent)
-
-    @Html.Action("Index", "Newsletter")
-</main>
-
+@Html.Raw(Model.PageContent)
+@Html.Action("Index", "Newsletter")
 
 

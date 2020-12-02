@@ -28,7 +28,17 @@ namespace TDIHKCorporate.Controllers
 
         public ActionResult StandardMitgliedschaft()
         {
-            return View();
+            DapperRepository<Pages> page = new DapperRepository<Pages>();
+
+            CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+
+            string name = cultureInfo.TwoLetterISOLanguageName;
+
+            Pages pageItem = page.Get(@"SELECT * FROM Pages (NOLOCK)
+                                            where[Language] = @language and PageIdentifier = @pageIdentifier", new { language = name, pageIdentifier = "StandartMemberShip" });
+
+
+            return View(pageItem);
         }
 
         public ActionResult StandardMitgliedschaftAntragsformular()
