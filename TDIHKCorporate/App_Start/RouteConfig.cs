@@ -94,7 +94,7 @@ namespace TDIHKCorporate
             routes.MapRoute(
                     name: "covid",
                     url: "covid-19",
-                    defaults: new { controller = "Covid", action = "Index", seoLink = UrlParameter.Optional },
+                    defaults: new { controller = "Covid", action = "Index"},
                  new[] { "TDIHKCorporate.Controllers" }
                 );
             #endregion
@@ -207,27 +207,43 @@ namespace TDIHKCorporate
 
             #endregion
 
+            #region Tobb2b
+            routes.MapRoute(
+                    name: "tobb2b",
+                    url: "tobb2b",
+                    defaults: new { controller = "Services", action = "Tobb2b"},
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
+            #endregion
+
             #region Standart Mitgliedschaft / Standart Üyelik
             routes.MapRoute(
                     name: "StandardMitgliedschaftGerman",
                     url: "standard-mitgliedschaft",
-                    defaults: new { controller = "MemberShip", action = "StandardMitgliedschaft", seoLink = UrlParameter.Optional },
+                    defaults: new { controller = "MemberShip", action = "StandardMitgliedschaft"},
                  new[] { "TDIHKCorporate.Controllers" }
                 );
 
             routes.MapRoute(
                     name: "StandardMitgliedschaftTurkey",
                     url: "standart-uyelik",
-                    defaults: new { controller = "MemberShip", action = "StandardMitgliedschaft", seoLink = UrlParameter.Optional },
+                    defaults: new { controller = "MemberShip", action = "StandardMitgliedschaft" },
                  new[] { "TDIHKCorporate.Controllers" }
                 );
             #endregion
 
-            #region Tobb2b
+            #region Premium Mitgliedschaft / Premium Üyelik
             routes.MapRoute(
-                    name: "tobb2b",
-                    url: "tobb2b",
-                    defaults: new { controller = "Services", action = "Tobb2b", seoLink = UrlParameter.Optional },
+                    name: "PremiumMitgliedschaftGerman",
+                    url: "premium-mitgliedschaft",
+                    defaults: new { controller = "MemberShip", action = "PremiumMitgliedschaft"},
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
+
+            routes.MapRoute(
+                    name: "PremiumMitgliedschaftTurkey",
+                    url: "premium-uyelik",
+                    defaults: new { controller = "MemberShip", action = "PremiumMitgliedschaft"},
                  new[] { "TDIHKCorporate.Controllers" }
                 );
             #endregion

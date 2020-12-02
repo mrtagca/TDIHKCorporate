@@ -41,15 +41,27 @@ namespace TDIHKCorporate.Controllers
             return View(pageItem);
         }
 
+        public ActionResult PremiumMitgliedschaft()
+        {
+            DapperRepository<Pages> page = new DapperRepository<Pages>();
+
+            CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+
+            string name = cultureInfo.TwoLetterISOLanguageName;
+
+            Pages pageItem = page.Get(@"SELECT * FROM Pages (NOLOCK)
+                                            where[Language] = @language and PageIdentifier = @pageIdentifier", new { language = name, pageIdentifier = "PremiumMemberShip" });
+
+
+            return View(pageItem);
+        }
+
         public ActionResult StandardMitgliedschaftAntragsformular()
         {
             return View();
         }
 
-        public ActionResult PremiumMitgliedschaft()
-        {
-            return View();
-        }
+        
         public ActionResult PremiumMitgliedschaftAntragsformular()
         {
             return View();
