@@ -312,6 +312,23 @@ namespace TDIHKCorporate
                 );
             #endregion
 
+            #region Wichtige Informationsquellen / Önemli Bilgi Kaynakları
+            routes.MapRoute(
+                    name: "WichtigeInformationsquellenGerman",
+                    url: "wichtige-informationsquellen",
+                    defaults: new { controller = "Covid", action = "WichtigeInformationsquellen" },
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
+
+            routes.MapRoute(
+                    name: "WichtigeInformationsquellenTurkey",
+                    url: "onemli-bilgi-kaynaklari",
+                    defaults: new { controller = "Covid", action = "WichtigeInformationsquellen" },
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
+            #endregion
+
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
