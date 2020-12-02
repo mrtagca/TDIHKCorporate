@@ -296,6 +296,22 @@ namespace TDIHKCorporate
                 );
             #endregion
 
+            #region Mabnahmen / Aktiviteler
+            routes.MapRoute(
+                    name: "MabnahmenGerman",
+                    url: "Mabnahmen",
+                    defaults: new { controller = "Covid", action = "Mabnahmen" },
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
+
+            routes.MapRoute(
+                    name: "MabnahmenTurkey",
+                    url: "aktiviteler",
+                    defaults: new { controller = "Covid", action = "Mabnahmen" },
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
+            #endregion
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
