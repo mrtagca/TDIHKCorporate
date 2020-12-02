@@ -264,6 +264,22 @@ namespace TDIHKCorporate
                 );
             #endregion
 
+            #region Infoblätter / Bilgi Sayfaları
+            routes.MapRoute(
+                    name: "InfoblatterGerman",
+                    url: "infoblatter",
+                    defaults: new { controller = "Publication", action = "Infoblatter" },
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
+
+            routes.MapRoute(
+                    name: "InfoblatterTurkey",
+                    url: "bilgi-sayfalari",
+                    defaults: new { controller = "Publication", action = "Infoblatter" },
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
+            #endregion
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
