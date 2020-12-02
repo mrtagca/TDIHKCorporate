@@ -280,6 +280,22 @@ namespace TDIHKCorporate
                 );
             #endregion
 
+            #region Ein- und Ausreisebestimmungen / Giriş-Çıkış Kuralları
+            routes.MapRoute(
+                    name: "EinUndAusreisebestimmungenGerman",
+                    url: "ein-und-ausreisebestimmungen",
+                    defaults: new { controller = "Covid", action = "EinUndAusreisebestimmungen" },
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
+
+            routes.MapRoute(
+                    name: "EinUndAusreisebestimmungenTurkey",
+                    url: "giris-cikis-kurallari",
+                    defaults: new { controller = "Covid", action = "EinUndAusreisebestimmungen" },
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
+            #endregion
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
