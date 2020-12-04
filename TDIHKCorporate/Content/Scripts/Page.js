@@ -34,8 +34,6 @@ function AddPage() {
     dataParams.PageCategoryID = $("#PageCategories").val();
     dataParams.PageTitle = $("#PageTitle").val();
 
-
-    debugger
     var editor = $("#editor").data("kendoEditor");
     var pageContent = editor.value();
     var index = pageContent.indexOf("<!--HtmlHeaderEnd|-->");
@@ -104,4 +102,34 @@ function AddPage() {
     });
 
 
+}
+
+function GetPages(dropdownId,languageDropdownId) {
+
+    var callParams = {
+        endPoint: "../Page/GetPages",
+        requestType: "POST"
+    }
+
+    $("#" + dropdownId).html("");
+
+    dataParams = {};
+    dataParams.Language = $("#" + languageDropdownId).val();
+
+    RequestAjax(callParams, dataParams, function (response) {
+        response = JSON.parse(response);
+        debugger
+        var dropdown = $("#" + dropdownId);
+
+      
+
+        $.each(response, function () {
+
+            var option = document.createElement("option");
+            option.value = this.PageID;
+            option.innerText = this.PageTitle;
+
+            dropdown.append(option);
+        });
+    });
 }

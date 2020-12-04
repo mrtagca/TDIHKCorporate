@@ -2818,6 +2818,11 @@
     <Content Include="Areas\Management\Views\Page\Edit.cshtml" />
     <Content Include="Areas\Management\Views\Page\PageList.cshtml" />
     <Content Include="Areas\Management\Views\Slider\EditSlider.cshtml" />
+    <Content Include="Areas\Management\Views\Menu\AddMenuItem.cshtml" />
+    <Content Include="Areas\Management\Views\File\FileList.cshtml" />
+    <Content Include="Areas\Management\Views\File\ShowSubFileList.cshtml" />
+    <Content Include="Areas\Management\Views\File\FileCreate.cshtml" />
+    <Content Include="Areas\Management\Views\File\ShowPDFFile.cshtml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
@@ -3289,7 +3294,7 @@
     <Compile Include="Helpers\Extensions\UrlExtensions.cs" />
     <Compile Include="Models\Language\Language.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Types\ComponentTypes\ImageBrowserResponse.cs" />
+    <Compile Include="Types\ComponentTypes\FileBrowserResponse.cs" />
     <Compile Include="Types\EventCategories.cs" />
     <Compile Include="Types\Events.cs" />
     <Compile Include="Types\FormTypes\NewsletterFormModel.cs" />
@@ -3997,7 +4002,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Management\Models\" />
-    <Folder Include="Areas\Management\Views\File\" />
     <Folder Include="Areas\Management\Views\Image\" />
     <Folder Include="Areas\Management\Views\Url\" />
     <Folder Include="Content\MainSite\assets\files\" />

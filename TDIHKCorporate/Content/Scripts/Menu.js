@@ -63,5 +63,65 @@
             "pageLength": 7,
             "destroy": true
         });
+
+    });
+}
+
+function GetMenus(dropdownId) {
+    var callParams = {
+        endPoint: "../Menu/GetAllMenus",
+        requestType: "GET"
+    }
+
+    debugger;
+
+    $("#" + dropdownId).html("");
+     
+
+    RequestAjax(callParams, null, function (response) {
+        response = JSON.parse(response);
+
+        var dropdown = $("#" + dropdownId);
+
+        $.each(response, function () {
+
+            var option = document.createElement("option");
+            option.value = this.ID;
+            option.innerText = this.MenuName;
+
+            dropdown.append(option);
+
+        });
+
+    });
+}
+
+function GetMenuItems(dropdownId,languageDropdownId) {
+    var callParams = {
+        endPoint: "../Menu/GetAllMenuItems",
+        requestType: "POST"
+    }
+
+    $("#" + dropdownId).html("");
+
+    dataParams = {};
+    dataParams.Language = $("#" + languageDropdownId).val();
+
+    RequestAjax(callParams, dataParams, function (response) {
+        response = JSON.parse(response);
+
+        var dropdown = $("#" + dropdownId);
+
+        $.each(response, function () {
+
+            var option = document.createElement("option");
+            option.setAttribute("menu-level", this.MenuLevel)
+            option.value = this.ID;
+            option.innerText = this.MenuName;
+
+            dropdown.append(option);
+
+        });
+
     });
 }
