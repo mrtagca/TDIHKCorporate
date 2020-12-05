@@ -71,12 +71,17 @@
         }
     }
 
+
     .size-18 {
         font-size: 18px;
     }
 
     .size-20 {
         font-size: 20px;
+    }
+
+    .size-22 {
+        font-size: 22px;
     }
 
     .size-24-m {
@@ -102,6 +107,13 @@
         margin: 0;
     }
 
+    .size-50 {
+        font-size: 50px;
+    }
+
+    .size-60 {
+        font-size: 60px;
+    }
 
     .line-height-1 {
         line-height: 1 !important;
@@ -122,6 +134,10 @@
     .color-global {
         color: @global-color;
     }
+
+    .color-black{
+        color: black;
+        }
 
     .background-transparent {
         background-color: transparent;
@@ -174,6 +190,11 @@
             }
         }
     }
+
+    .subnav-links > li{
+        padding-left: 15px;
+        font-size: 18px;
+        }
     //Footer
     .footer-links {
         color: @white;
@@ -456,9 +477,40 @@
             font-size: 32px;
         }
     }
+    //Kalender
+    .event-banner-height {
+        height: 300px;
+
+        @media (min-width: @breakpoint-medium) {
+            height: 450px;
+        }
+    }
+    //Nachrichten
+    .news-card-title{
+        color: black;
+        font-size: 22px;
+        padding-top: 5px;
+    }
+    .news-card-subtitle{
+        color: @dark-grey;
+    }
+
+    // Sub Nachrichten
+
+    .news-detail-content{
+        p{
+            font-size: 20px;
+        }
+    }
+
+    .kalender-overlay {
+        background-color: rgba(19,44,80, 0.6);
+        padding: 50px 0 50px 50px !important;
+    }
     //From Fýrat gardaþým
     .iconless {
         padding-left: 50px !important;
+
         &::before {
             display: none;
         }
@@ -466,6 +518,7 @@
 
     .accordion-title-iconless {
         padding-left: 50px !important;
+
         &::before {
             display: none;
         }

@@ -2438,6 +2438,9 @@ select.uk-form-width-xsmall {
 .size-20 {
   font-size: 20px;
 }
+.size-22 {
+  font-size: 22px;
+}
 @media (max-width: 959px) {
   .size-24-m {
     font-size: 24px !important;
@@ -2457,6 +2460,12 @@ select.uk-form-width-xsmall {
   font-size: 30px;
   margin: 0;
 }
+.size-50 {
+  font-size: 50px;
+}
+.size-60 {
+  font-size: 60px;
+}
 .line-height-1 {
   line-height: 1 !important;
 }
@@ -2471,6 +2480,9 @@ select.uk-form-width-xsmall {
 }
 .color-global {
   color: #142C51;
+}
+.color-black {
+  color: black;
 }
 .background-transparent {
   background-color: transparent;
@@ -2513,6 +2525,10 @@ select.uk-form-width-xsmall {
   .mobile-nav-links .uk-parent a:after {
     display: none;
   }
+}
+.subnav-links > li {
+  padding-left: 15px;
+  font-size: 18px;
 }
 .footer-links {
   color: #fff;
@@ -2770,6 +2786,29 @@ select.uk-form-width-xsmall {
   .ad-question {
     font-size: 32px;
   }
+}
+.event-banner-height {
+  height: 300px;
+}
+@media (min-width: 960px) {
+  .event-banner-height {
+    height: 450px;
+  }
+}
+.news-card-title {
+  color: black;
+  font-size: 22px;
+  padding-top: 5px;
+}
+.news-card-subtitle {
+  color: #616771;
+}
+.news-detail-content p {
+  font-size: 20px;
+}
+.kalender-overlay {
+  background-color: rgba(19, 44, 80, 0.6);
+  padding: 50px 0 50px 50px !important;
 }
 .iconless {
   padding-left: 50px !important;
@@ -3497,7 +3536,7 @@ select.uk-form-width-xsmall {
   min-width: 22px;
   height: 22px;
   padding: 0 5px;
-  border-radius: 500px;
+  border-radius: 0;
   vertical-align: middle;
   /* 1 */
   background: #132C50;

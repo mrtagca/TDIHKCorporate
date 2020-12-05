@@ -2835,6 +2835,8 @@
     <Content Include="Areas\Management\Views\Image\ImageCreate.cshtml" />
     <Content Include="Areas\Management\Views\Slider\SliderList.cshtml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="HTML-1\kalender.html" />
+    <Content Include="HTML-1\nachrichten.html" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.af-ZA.min.js" />
@@ -3258,6 +3260,7 @@
     <Content Include="Scripts\kendo\2014.1.318\kendo.view.min.js" />
     <Content Include="Scripts\kendo\2014.1.318\kendo.web.min.js" />
     <Content Include="Scripts\kendo\2014.1.318\kendo.window.min.js" />
+    <Content Include="Scripts\main.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -4019,6 +4022,7 @@
     <Folder Include="Areas\Management\Models\" />
     <Folder Include="Areas\Management\Views\Url\" />
     <Folder Include="Content\MainSite\assets\files\" />
+    <Folder Include="NewFolder1\" />
     <Folder Include="Views\Image\" />
     <Folder Include="Views\Slider\" />
   </ItemGroup>
