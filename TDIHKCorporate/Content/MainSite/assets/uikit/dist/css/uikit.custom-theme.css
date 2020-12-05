@@ -2460,6 +2460,12 @@ select.uk-form-width-xsmall {
   font-size: 30px;
   margin: 0;
 }
+.size-50 {
+  font-size: 50px;
+}
+.size-60 {
+  font-size: 60px;
+}
 .line-height-1 {
   line-height: 1 !important;
 }
@@ -2773,6 +2779,18 @@ select.uk-form-width-xsmall {
   .ad-question {
     font-size: 32px;
   }
+}
+.event-banner-height {
+  height: 300px;
+}
+@media (min-width: 960px) {
+  .event-banner-height {
+    height: 450px;
+  }
+}
+.kalender-overlay {
+  background-color: rgba(19, 44, 80, 0.6);
+  padding: 50px 0 50px 50px !important;
 }
 .iconless {
   padding-left: 50px !important;

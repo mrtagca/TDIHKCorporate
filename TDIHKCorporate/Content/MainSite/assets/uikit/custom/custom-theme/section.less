@@ -71,6 +71,7 @@
         }
     }
 
+
     .size-18 {
         font-size: 18px;
     }
@@ -81,7 +82,7 @@
 
     .size-22 {
         font-size: 22px;
-        }
+    }
 
     .size-24-m {
         @media (max-width: @breakpoint-small-max) {
@@ -106,6 +107,12 @@
         margin: 0;
     }
 
+    .size-50{
+        font-size: 50px;
+        }
+    .size-60 {
+        font-size: 60px;
+    }
 
     .line-height-1 {
         line-height: 1 !important;
@@ -460,9 +467,23 @@
             font-size: 32px;
         }
     }
+    //Kalender
+    .event-banner-height {
+        height: 300px;
+
+        @media (min-width: @breakpoint-medium) {
+            height: 450px;
+        }
+    }
+
+    .kalender-overlay {
+        background-color: rgba(19,44,80, 0.6);
+        padding: 50px 0 50px 50px !important;
+    }
     //From Fýrat gardaþým
     .iconless {
         padding-left: 50px !important;
+
         &::before {
             display: none;
         }
@@ -470,6 +491,7 @@
 
     .accordion-title-iconless {
         padding-left: 50px !important;
+
         &::before {
             display: none;
         }
