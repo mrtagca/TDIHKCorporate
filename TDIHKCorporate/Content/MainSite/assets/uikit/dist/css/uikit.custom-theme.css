@@ -2523,6 +2523,10 @@ select.uk-form-width-xsmall {
     display: none;
   }
 }
+.subnav-links {
+  padding-left: 15px;
+  font-size: 18px;
+}
 .footer-links {
   color: #fff;
 }
