@@ -48,6 +48,9 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ImageResizer, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ImageResizer.4.2.8\lib\net45\ImageResizer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -98,6 +101,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\MainSite\assets\images\db-bilgileri.png" />
     <Content Include="Content\Admin\css\sb-admin-2.css" />
     <Content Include="Content\Admin\css\sb-admin-2.min.css" />
     <Content Include="Content\Admin\css\sliderDrag.css" />
@@ -2334,7 +2338,9 @@
     <Content Include="Content\MainSite\assets\images\Nachrichten.png" />
     <Content Include="Content\MainSite\assets\images\PremiumMitgliedschaft\PremiumMitgliedschaft-bg.png" />
     <Content Include="Content\MainSite\assets\images\StandardMitgliedschaft\StandardMitgliedschaft-bg.png" />
+    <Content Include="Content\MainSite\assets\images\test\db-bilgileri.png" />
     <Content Include="Content\MainSite\assets\images\TOBB2B\TOBB2B.png" />
+    <Content Include="Content\MainSite\assets\images\turkey.jpg" />
     <Content Include="Content\MainSite\assets\images\uber\nalan.png" />
     <Content Include="Content\MainSite\assets\images\uber\okan.png" />
     <Content Include="Content\MainSite\assets\images\uber\president.png" />
@@ -2813,6 +2819,7 @@
     <Content Include="Content\Scripts\Menu.js" />
     <Content Include="Content\Scripts\Page.js" />
     <Content Include="Content\Scripts\RequestHelper.js" />
+    <Content Include="Content\Scripts\Slider.js" />
     <Content Include="Content\Scripts\UrlHelper.js" />
     <Content Include="Global.asax" />
     <Content Include="Areas\Management\Views\Page\Edit.cshtml" />
@@ -2823,6 +2830,10 @@
     <Content Include="Areas\Management\Views\File\ShowSubFileList.cshtml" />
     <Content Include="Areas\Management\Views\File\FileCreate.cshtml" />
     <Content Include="Areas\Management\Views\File\ShowPDFFile.cshtml" />
+    <Content Include="Areas\Management\Views\Image\ImageList.cshtml" />
+    <Content Include="Areas\Management\Views\Image\ShowSubImageList.cshtml" />
+    <Content Include="Areas\Management\Views\Image\ImageCreate.cshtml" />
+    <Content Include="Areas\Management\Views\Slider\SliderList.cshtml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="HTML-1\kalender.html" />
     <Content Include="HTML-1\nachrichten.html" />
@@ -3298,6 +3309,7 @@
     <Compile Include="Models\Language\Language.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Types\ComponentTypes\FileBrowserResponse.cs" />
+    <Compile Include="Types\ComponentTypes\ImageBrowserResponse.cs" />
     <Compile Include="Types\EventCategories.cs" />
     <Compile Include="Types\Events.cs" />
     <Compile Include="Types\FormTypes\NewsletterFormModel.cs" />
@@ -3310,7 +3322,9 @@
     <Compile Include="Types\Pages.cs" />
     <Compile Include="Types\SliderContent.cs" />
     <Compile Include="Types\Sliders.cs" />
+    <Compile Include="Types\ViewTypes\CreateContentViewModel.cs" />
     <Compile Include="Types\ViewTypes\PageItem.cs" />
+    <Compile Include="Types\ViewTypes\UpdateSliderContent.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -3995,6 +4009,7 @@
     <Content Include="Views\Covid\CoronavirusNachrichten.cshtml" />
     <Content Include="Views\AboutUs\Institution.cshtml" />
     <Content Include="Views\Home\_PartialHomePageSlider.cshtml" />
+    <Content Include="Views\Publication\NachrichtenDetail.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -4005,11 +4020,11 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Management\Models\" />
-    <Folder Include="Areas\Management\Views\Image\" />
     <Folder Include="Areas\Management\Views\Url\" />
     <Folder Include="Content\MainSite\assets\files\" />
     <Folder Include="NewFolder1\" />
     <Folder Include="Views\Image\" />
+    <Folder Include="Views\Slider\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_GlobalResources\resource.resx">

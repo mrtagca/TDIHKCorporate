@@ -1,0 +1,214 @@
+﻿@model List<TDIHKCorporate.Types.ComponentTypes.ImageBrowserResponse>
+
+@{
+    ViewBag.Title = "ShowSubImageList";
+    Layout = "~/Areas/Management/Views/Shared/_layoutDashboard.cshtml";
+}
+
+<div>
+    <span>
+
+        <a href="@Request.UrlReferrer.ToString()">
+            <i class="fas fa-arrow-circle-left"></i>
+            Geri
+        </a>
+    </span>
+    &nbsp;
+    <span>
+        <a href="@Url.Action("ImageList","Image")">
+            <i class="fas fa-home"></i> Ana Dizin
+        </a>
+    </span>
+</div>
+<br />
+
+
+<div class="col-md-12">
+    <table id="imageSubList" class="table table-hover table-responsive">
+
+        <thead>
+            <tr>
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 234px;">Name</th>
+
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Path URL: activate to sort column descending" style="width: 234px;">Path URL</th>
+
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Type: activate to sort column descending" style="width: 234px;">Type</th>
+
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Size: activate to sort column descending" style="width: 234px;">Size (KB)</th>
+
+
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Created Time: activate to sort column descending" style="width: 234px;">Created Time</th>
+
+
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Extension: activate to sort column descending" style="width: 234px;">Extension</th>
+
+
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Eylemler: activate to sort column descending" style="width: 234px;">Eylemler</th>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>
+            @item.name
+        </td>
+
+
+        @if (item.type == "f")
+        {
+            <td>
+                @HttpContext.Current.Request.Url.Host/Content/MainSite/assets/images/@item.name
+
+            </td>
+        }
+        else
+        {
+            <td>
+                <a href="@Url.Action("ShowSubFileList","File",new { path="/Content/MainSite/assets/images/"+@ViewBag.DirectoryPath+"/"+@item.name })">@HttpContext.Current.Request.Url.Host/Content/MainSite/assets/images/@ViewBag.DirectoryPath/@item.name</a>
+            </td>
+        }
+
+
+        @if (item.type == "d")
+        {
+            <td>
+                Directory
+            </td>
+        }
+        else
+        {
+            <td>
+                File
+            </td>
+        }
+
+        <td>
+            @Decimal.Round(item.size / 1024, 0)
+        </td>
+
+        @if (item.type == "f")
+        {
+            string TimezoneId = System.Configuration.ConfigurationManager.AppSettings[System.Threading.Thread.CurrentThread.CurrentCulture.Name];
+            DateTime createdDate = TimeZoneInfo.ConvertTimeBySystemTimeZoneId(item.creationTime, TimezoneId);
+            <td>@createdDate</td>
+        }
+        else
+        {
+            <td></td>
+        }
+
+        <td>
+            @item.extension
+        </td>
+
+
+        <td>
+            @if (item.type == "d")
+            {
+                <button url-path="~/Content/MainSite/assets/images/@ViewBag.DirectoryPath/@item.name" class="btn btn-danger" onclick="DeleteDirectory()" id="DeleteDirectory"><i class="fa fa-trash" aria-hidden="true"></i></button>
+            }
+            else
+            {
+                <button url-path="~/Content/MainSite/assets/images/@ViewBag.DirectoryPath/@item.name" class="btn btn-danger" onclick="DeleteFile()" id="DeleteFile"><i class="fa fa-trash" aria-hidden="true"></i></button>
+            }
+
+            @if (item.type == "f")
+            {
+
+                <a download="@item.name" class="btn btn-outline-primary" href="/Content/MainSite/assets/images/@ViewBag.DirectoryPath/@item.name">
+                    <i class="fa fa-download" aria-hidden="true"></i>
+                </a>
+
+            }
+            @if (item.type == "f")
+            {
+
+                <a class="btn btn-outline-primary" target="_blank" href="/Content/MainSite/assets/images/@ViewBag.DirectoryPath/@item.name">
+                    <i class="fas fa-eye"></i>
+                </a>
+            }
+        </td>
+    </tr>
+        }
+    </table>
+</div>
+
+<script>
+    $(document).ready(function () {
+
+        $('#' + 'imageSubList').DataTable({
+            "oLanguage": {
+                "oPaginate": { "sPrevious": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>', "sNext": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>' },
+                "sInfo": "Showing page _PAGE_ of _PAGES_",
+                "sSearch": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>',
+                "sSearchPlaceholder": "Search...",
+                "sLengthMenu": "Results :  _MENU_",
+            },
+            "stripeClasses": [],
+            "lengthMenu": [7, 10, 20, 50],
+            "pageLength": 7,
+            "destroy": true
+        });
+
+    });
+
+
+    function DeleteDirectory() {
+        if (confirm("Are you sure for delete directory?")) {
+
+            var callParams = {
+                endPoint: "../Image/DeleteDirectory",
+                requestType: "POST"
+            }
+
+            dataParams = {};
+            dataParams.path = $("#DeleteDirectory").attr("url-path");
+
+            RequestAjax(callParams, dataParams, function (response) {
+                if (response == "True") {
+                    alert("Success : Directory deleted.");
+                    location.reload();
+                }
+                else {
+                    alert("Failed : The directory could not be deleted!");
+                }
+
+            });
+        }
+        else {
+
+        }
+    }
+
+    function DeleteFile() {
+
+        if (confirm("Are you sure for delete file?")) {
+            var callParams = {
+                endPoint: "../Image/DeleteFile",
+                requestType: "POST"
+            }
+
+            dataParams = {};
+            dataParams.path = $("#DeleteFile").attr("url-path");
+
+            RequestAjax(callParams, dataParams, function (response) {
+
+                if (response == "True") {
+                    alert("Success : File deleted.");
+                    location.reload();
+                }
+                else {
+                    alert("Failed : The file could not be deleted!");
+                }
+
+            });
+        }
+        else {
+
+        }
+    }
+</script>
+
+
+
+

@@ -49,27 +49,30 @@ namespace TDIHKCorporate.Areas.Management.Controllers
 
         public virtual JsonResult ImageBrowserRead(string path)
         {
-                try
-                {
-                    path = NormalizePath(path);
+            try
+            {
+                path = NormalizePath(path);
 
-                    directoryBrowser.Server = Server;
+                directoryBrowser.Server = Server;
 
-                    var result = directoryBrowser
-                        .GetContent(path, DefaultFilter)
-                        .Select(f => new
-                        {
-                            name = f.Name,
-                            type = f.Type == EntryType.File ? "f" : "d",
-                            size = f.Size
-                        });
+                var result = directoryBrowser
+                    .GetContent(path, DefaultFilter)
+                    .Select(f => new
+                    {
+                        name = f.Name,
+                        type = f.Type == EntryType.File ? "f" : "d",
+                        size = f.Size,
+                        creationTime = f.CreationTime,
+                        extension = f.Extension,
+                        lastAccessTime = f.LastAccessTime
+                    });
 
-                    return Json(result, JsonRequestBehavior.AllowGet);
-                }
-                catch (Exception)
-                {
-                    throw new HttpException(404, "File Not Found");
-                } 
+                return Json(result, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+                throw new HttpException(404, "File Not Found");
+            }
         }
 
         private string NormalizePath(string path)
@@ -198,33 +201,57 @@ namespace TDIHKCorporate.Areas.Management.Controllers
             return CanAccess(path);
         }
 
-        protected virtual void DeleteFile(string path)
+        public bool DeleteFile(string path)
         {
-            if (!AuthorizeDeleteFile(path))
+            try
             {
-                throw new HttpException(403, "Forbidden");
+                if (!AuthorizeDeleteFile(path))
+                {
+                    throw new HttpException(403, "Forbidden");
+                }
+
+                var physicalPath = Server.MapPath(path);
+
+                if (System.IO.File.Exists(physicalPath))
+                {
+                    System.IO.File.Delete(physicalPath);
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
-
-            var physicalPath = Server.MapPath(path);
-
-            if (System.IO.File.Exists(physicalPath))
+            catch (Exception ex)
             {
-                System.IO.File.Delete(physicalPath);
+                return false;
             }
         }
 
-        protected virtual void DeleteDirectory(string path)
+        public bool DeleteDirectory(string path)
         {
-            if (!AuthorizeDeleteDirectory(path))
+            try
             {
-                throw new HttpException(403, "Forbidden");
+                if (!AuthorizeDeleteDirectory(path))
+                {
+                    throw new HttpException(403, "Forbidden");
+                }
+
+                var physicalPath = Server.MapPath(path);
+
+                if (Directory.Exists(physicalPath))
+                {
+                    Directory.Delete(physicalPath, true);
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
-
-            var physicalPath = Server.MapPath(path);
-
-            if (Directory.Exists(physicalPath))
+            catch (Exception ex)
             {
-                Directory.Delete(physicalPath, true);
+                return false;
             }
         }
 
@@ -285,7 +312,61 @@ namespace TDIHKCorporate.Areas.Management.Controllers
             return CanAccess(path) && IsValidFile(Path.GetExtension(path));
         }
 
+        public ActionResult ImageList()
+        {
+            JsonResult fileJson = ImageBrowserRead("");
 
+            string json = JsonConvert.SerializeObject(fileJson.Data);
 
+            List<ImageBrowserResponse> imageBrowserResponses = JsonConvert.DeserializeObject<List<ImageBrowserResponse>>(json);
+
+            List<ImageBrowserResponse> assds = imageBrowserResponses.OrderBy(x => x.type).ToList();
+
+            return View(imageBrowserResponses.OrderBy(x => x.type).ToList());
+        }
+
+        public ActionResult ShowSubImageList(string path)
+        {
+            string directoryPath = path;
+            directoryPath = directoryPath.Replace("/Content/MainSite/assets/images/", "");
+            ViewBag.DirectoryPath = directoryPath;
+
+            JsonResult fileJson = ImageBrowserRead(path);
+
+            string json = JsonConvert.SerializeObject(fileJson.Data);
+
+            List<ImageBrowserResponse> imageBrowserResponses = JsonConvert.DeserializeObject<List<ImageBrowserResponse>>(json);
+
+            return View(imageBrowserResponses.OrderBy(x => x.type).ToList());
+        }
+
+        public ActionResult ImageCreate()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult ImageCreate(string path, HttpPostedFileBase file)
+        {
+            try
+            {
+                path = NormalizePath(path);
+                var fileName = Path.GetFileName(file.FileName);
+
+                if (AuthorizeUpload(path, file))
+                {
+                    file.SaveAs(Path.Combine(Server.MapPath(path), fileName));
+                }
+
+                ViewBag.Success = "Success";
+
+                return View();
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Success = "Error:" + ex.Message;
+                return View();
+            }
+        }
     }
 }

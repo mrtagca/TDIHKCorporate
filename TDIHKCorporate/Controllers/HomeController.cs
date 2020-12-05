@@ -13,7 +13,6 @@ namespace TDIHKCorporate.Controllers
 {
     public class HomeController : SiteBaseController
     {
-
         public ActionResult ChangeLanguage(string language)
         {
 
@@ -59,9 +58,15 @@ namespace TDIHKCorporate.Controllers
             CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
             string name = cultureInfo.TwoLetterISOLanguageName;
 
-            List<SliderContent> sliderItems = sliderContent.GetList(@"SELECT * FROM SliderContent (NOLOCK) where SliderID = 1 and [Language] = @lang order by SliderPriority", new { lang = name });
+            List<SliderContent> sliderItems =  sliderContent.GetList(@"SELECT sc.* FROM SliderContent sc (NOLOCK) 
+                                                                        inner join Sliders sl (NOLOCK)
+                                                                        on sc.SliderID = sl.SliderID
 
-            return PartialView("_PartialHomePageSlider",sliderItems);
+                                                                        where sl.SliderName ='Home Slider' and sl.[Language] = @lang and sc.[Language] = @lang
+                                                                        order by SliderPriority", new { lang = name });
+             
+
+            return PartialView("_PartialHomePageSlider", sliderItems);
         }
     }
 }

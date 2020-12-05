@@ -3,79 +3,100 @@
     ViewBag.Title = "CreateContent";
     Layout = "~/Areas/Management/Views/Shared/_layoutDashboard.cshtml";
 }
-<link href="~/Content/Multiselect/multiselect.css" rel="stylesheet" />
-<script src="~/Content/Multiselect/multiselect.js"></script>
 
+<script src="~/Content/Scripts/Slider.js"></script>
 
 <h5>@Resources.resource.SliderIcerikEkle</h5>
 <hr />
 
-<div class="row">
-    <div class="col-md-4">
-        <div>
-            <label>@Resources.resource.Baslik</label>
-            <input type="text" id="SliderContentTitle" placeholder="Slider İçerik Başlığı" class="form-control" name="name" value="" />
-        </div>
-        <br />
+<script>
+    $(document).ready(function () {
+        GetSliderList('SliderList');
+    });
+</script>
 
-        <div>
-            <label>@Resources.resource.Dil</label>
-            <select class="form-control" id="SliderContentLanguage">
-                <option value="tr">TR</option>
-                <option value="de">DE</option>
-            </select>
-        </div>
-        <br />
+@if (ViewBag.Success != null)
+{
+    <div class="alert alert-success" role="alert">
+        @ViewBag.Success
+    </div>
+}
+else if (ViewBag.Warning != null)
+{
+    <div class="alert alert-warning" role="alert">
+        @ViewBag.Warning
+    </div>
+}
+else if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @ViewBag.Error
+    </div>
+}
 
-        <div>
-            <label>@Resources.resource.SliderGorselYukle (1200x600)</label>
-            <br />
-            <input type="file" name="name" value="" />
-        </div>
-        <br />
-        <div>
-            <label>@Resources.resource.SliderAlaniSec</label>
+@using (Html.BeginForm("CreateContent", "Slider", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="row">
+        <div class="col-md-4">
+            <div>
+                <label>@Resources.resource.SliderAlaniSec</label>
+                <br />
+
+                <select id="SliderList" name="SliderID" type="text" class="form-control">
+                </select>
+            </div>
             <br />
 
-            <select id="SliderAreas" type="text" class="multiselect" multiple="multiple" role="multiselect">
-                <option>Photos</option>
-                <option>Link</option>
-                <option>Edit</option>
-                <option>Cart</option>
-                <option>Cart</option>
-                <option>Cart</option>
-                <option>Cart</option>
-                <option>Cart</option>
-                <option>Cart</option>
-            </select>
-        </div>
-        <br />
-        <div>
-            <label>@Resources.resource.SliderSirasi</label>
+            <div>
+                <label>@Resources.resource.Baslik</label>
+                <input type="text" id="SliderContentTitle" placeholder="Slider İçerik Başlığı" class="form-control" name="SliderContentTitle" value="" />
+            </div>
             <br />
-            <select id="SliderContentIndex" class="form-control">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-                <option>7</option>
-                <option>8</option>
-                <option>9</option>
-                <option>10</option>
-            </select>
-        </div>
-        <br />
-        <div>
-            <label>@Resources.resource.SliderUrl</label>
+
+            <div>
+                <label>@Resources.resource.Dil</label>
+                <select class="form-control" id="SliderContentLanguage" name="SliderContentLanguage">
+                    <option value="tr">TR</option>
+                    <option value="de">DE</option>
+                </select>
+            </div>
             <br />
-            <input type="text" placeholder="Content URL" class="form-control" name="name" value="" />
-        </div>
-        <br />
-        <div>
-            <button class="btn btn-success float-lg-right">Kaydet</button>
+
+            <div>
+                <label>@Resources.resource.SliderGorselYukle</label>
+                <br />
+                <input type="file" name="sliderFile" value="" />
+            </div>
+            <br />
+
+            <div>
+                <label>@Resources.resource.SliderSirasi</label>
+                <br />
+                <select id="SliderPriority" name="SliderPriority" class="form-control">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+            </div>
+            <br />
+            <div>
+                <label>@Resources.resource.SliderUrl</label>
+                <br />
+                <input type="text" placeholder="Content URL" class="form-control" name="SliderURL" value="" />
+            </div>
+            <br />
+            <div>
+                @*<button class="btn btn-success float-lg-right">Kaydet</button>*@
+                <input type="submit" name="Submit" id="btnSubmit" value="Kaydet" class="btn btn-success float-lg-right" />
+            </div>
         </div>
     </div>
-</div>
+}
 

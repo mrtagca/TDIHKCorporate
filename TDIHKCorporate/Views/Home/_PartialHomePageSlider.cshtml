@@ -9,7 +9,11 @@
             @foreach (var item in Model)
             {
                 <li>
-                    <img src="@item.ImagePath" alt="">
+                    <center>
+                        <a target="_blank" href="@item.SliderUrl">
+                            <img src="@item.ImagePath" alt="@item.SliderContentTitle">
+                        </a>
+                    </center>
 
                 </li>
             }

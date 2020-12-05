@@ -65,6 +65,11 @@ namespace TDIHKCorporate.Controllers
             return View();
         }
 
+        public ActionResult NachrichtenDetail(string seoLink)
+        {
+            return View();
+        }
+
         public ActionResult Podcasts()
         {
             return View();

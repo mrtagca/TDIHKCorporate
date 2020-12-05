@@ -6,22 +6,19 @@
     Layout = "~/Areas/Management/Views/Shared/_layoutDashboard.cshtml";
 }
 
-
-
 <script src="~/Content/Scripts/Page.js"></script>
-
 
 <div class="row">
     <div class="col-md-9 col-sm-12">
         <div>
             <h5>@Resources.resource.SayfaEkle</h5>
-            <input type="text" id="PageTitle" placeholder="@Resources.resource.Baslik" onkeyup="GenerateFriendlyUrl('PageTitle','PageSeoLink')" class="form-control" name="name" value="" />
+            <input type="text" id="PageTitle" placeholder="@Resources.resource.Baslik" onkeyup="GenerateFriendlyUrl('PageTitle','PageSeoLink')" class="form-control" name="name" value="@Model.PageTitle" />
         </div>
         <br />
 
         <div>
             <h5>Seo Link</h5>
-            <input type="text" class="form-control" id="PageSeoLink" placeholder="Seo Link" value="" />
+            <input type="text" class="form-control" id="PageSeoLink" placeholder="Seo Link" value="@Model.PageSeoLink" />
         </div>
         <br />
 
@@ -78,7 +75,7 @@
                     <div class="card-body">
                         <div>
                             <label>@Resources.resource.SeoAnahtarKelimeleri</label>
-                            <textarea id="SeoKeywords" class="form-control"></textarea>
+                            <textarea id="SeoKeywords" class="form-control">@Model.PageSeoKeywords</textarea>
                         </div>
 
                     </div>
@@ -87,28 +84,28 @@
         </div>
 
         <br />
-        <div id="PagePicture">
-            <div class="card">
+        @*<div id="PagePicture">
+                <div class="card">
 
-                <button class="btn btn-light" data-toggle="collapse" data-target="#collapsePagePicture" aria-expanded="true" aria-controls="collapsePagePicture">
-                    <div class="card-header" id="headingOne">
-                        <h5 class="mb-0">
-                            @Resources.resource.OneCikanGorsel
-                        </h5>
-                    </div>
-                </button>
-
-                <div id="collapsePagePicture" class="collapse show" aria-labelledby="headingOne" data-parent="#PagePicture">
-                    <div class="card-body">
-                        <div>
-                            <a href="#">@Resources.resource.OneCikanGorselBelirle</a>
+                    <button class="btn btn-light" data-toggle="collapse" data-target="#collapsePagePicture" aria-expanded="true" aria-controls="collapsePagePicture">
+                        <div class="card-header" id="headingOne">
+                            <h5 class="mb-0">
+                                @Resources.resource.OneCikanGorsel
+                            </h5>
                         </div>
+                    </button>
 
+                    <div id="collapsePagePicture" class="collapse show" aria-labelledby="headingOne" data-parent="#PagePicture">
+                        <div class="card-body">
+                            <div>
+                                <a href="#">@Resources.resource.OneCikanGorselBelirle</a>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <br />
+            <br />*@
 
 
         <div id="PublishTab">
@@ -130,7 +127,7 @@
                         </div>
                         <br />
                         <div>
-                            <input id="Publish" onclick="AddPage()" type="submit" class="btn btn-primary" name="" value=" @Resources.resource.Guncelle" />
+                            <input id="Publish" onclick="EditPage()" type="submit" class="btn btn-primary" name="" value=" @Resources.resource.Guncelle" />
                         </div>
 
                     </div>
@@ -144,9 +141,16 @@
 
 
 <script>
+
+
     $(document).ready(function () {
 
-            var editor = $("#editor").data("kendoEditor");
+        GetPageCategories("PageCategories");
+
+       
+
+
+        var editor = $("#editor").data("kendoEditor");
 
         @*@{
 
@@ -159,6 +163,14 @@
 
         var htmlContent = html;
         editor.value(htmlContent + editor.value());
+
+
     });
+
+    $(window).on('load', function () {
+        $('#PageCategories').val('@Model.PageCategoryID');
+        $('#PageLanguage').val('@Model.Language')
+    })
 </script>
+
 

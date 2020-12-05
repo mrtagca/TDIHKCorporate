@@ -35,6 +35,41 @@ namespace TDIHKCorporate.Areas.Management.Controllers
             return View(page);
         }
 
+        [HttpPost]
+        public string EditPage(Pages pages)
+        {
+
+            DapperRepository<Pages> addPage = new DapperRepository<Pages>();
+
+            string TimezoneId = System.Configuration.ConfigurationManager.AppSettings[System.Threading.Thread.CurrentThread.CurrentCulture.Name];
+            pages.CreatedDate = TimeZoneInfo.ConvertTimeBySystemTimeZoneId(DateTime.Now, TimezoneId);
+            pages.CreatedBy = 1;
+            pages.IsActive = true;
+
+            var result = addPage.Execute(@"update Pages set PageCategoryID = @pageCategoryID,PageTitle=@pageTitle,PageContent=@pageContent,PageSeoLink=@pageSeoLink,PageSeoKeywords=@pageSeoKeywords,[Language]=@language,CreatedDate=@createdDate,CreatedBy=@createdBy,UpdatedDate=@updatedDate,UpdatedBy=@UpdatedBy,IsActive=@isActive
+                                        where PageID = @pageID", new
+            {
+
+                PageCategoryID = pages.PageCategoryID,
+                PageImageID = "",
+                PageThumbnailPath = "",
+                PageTitle = pages.PageTitle,
+                PageContent = pages.PageContent,
+                PageSeoLink = pages.PageSeoLink,
+                PageSeoKeywords = pages.PageSeoKeywords,
+                Language = pages.Language,
+                CreatedDate = pages.CreatedDate,
+                CreatedBy = pages.CreatedBy,
+                UpdatedDate=pages.UpdatedDate,
+                UpdatedBy=pages.UpdatedBy,
+                IsActive = pages.IsActive
+
+            });
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(result);
+        }
+
+        [HttpGet]
         public string GetPageCategories()
         {
             DapperRepository<PageCategories> getPageCategories = new DapperRepository<PageCategories>();
