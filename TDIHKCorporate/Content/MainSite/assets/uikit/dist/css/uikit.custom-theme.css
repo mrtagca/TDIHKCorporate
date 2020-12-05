@@ -2481,6 +2481,9 @@ select.uk-form-width-xsmall {
 .color-global {
   color: #142C51;
 }
+.color-black {
+  color: black;
+}
 .background-transparent {
   background-color: transparent;
 }
@@ -2799,6 +2802,9 @@ select.uk-form-width-xsmall {
 }
 .news-card-subtitle {
   color: #616771;
+}
+.news-detail-content p {
+  font-size: 20px;
 }
 .kalender-overlay {
   background-color: rgba(19, 44, 80, 0.6);
