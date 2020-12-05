@@ -48,7 +48,7 @@
                     {
                         string updateTimezoneId = System.Configuration.ConfigurationManager.AppSettings[System.Threading.Thread.CurrentThread.CurrentCulture.Name];
                         DateTime updatedDate = TimeZoneInfo.ConvertTimeBySystemTimeZoneId((DateTime)row.UpdatedDate, TimezoneId);
-                        <td>@createdDate</td>
+                        <td>@updatedDate</td>
 
                     }
                     else

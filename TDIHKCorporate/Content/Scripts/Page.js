@@ -92,7 +92,7 @@ function AddPage() {
 
         response = JSON.parse(response);
 
-        if (response.success === true) {
+        if (response === true) {
             alert("Page Create successfull!");
             location.reload();
         }
@@ -134,7 +134,7 @@ function GetPages(dropdownId,languageDropdownId) {
     });
 }
 
-function EditPage() {
+function EditPage(pageID) {
 
     var callParams = {
         endPoint: "/Management/Page/EditPage",
@@ -144,6 +144,7 @@ function EditPage() {
     var styleCss = "border:solid #ff0000 1px;";
 
     var dataParams = {}
+    dataParams.PageID = pageID;
     dataParams.Language = $("#PageLanguage").val();
     dataParams.PageCategoryID = $("#PageCategories").val();
     dataParams.PageTitle = $("#PageTitle").val();
@@ -153,10 +154,6 @@ function EditPage() {
     var index = pageContent.indexOf("<!--HtmlHeaderEnd|-->");
     pageContent = pageContent.substring(0, index);
     dataParams.PageContent = pageContent;
-
-
-
-
     dataParams.PageSeoLink = $("#PageSeoLink").val();
     dataParams.PageSeoKeywords = $("#SeoKeywords").val();
 
@@ -203,10 +200,10 @@ function EditPage() {
 
 
     RequestAjax(callParams, dataParams, function (response) {
-
+        debugger
         response = JSON.parse(response);
 
-        if (response.success === true) {
+        if (response === true) {
             alert("Page Edit successfull!");
             location.reload();
         }
