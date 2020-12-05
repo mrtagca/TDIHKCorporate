@@ -86,7 +86,7 @@
 
                                                                         @if (Model.Exists(x => x.ParentMenuItemID == subMenuItem.ID && x.IsSubMenu == true && x.MenuLevel == 2))
                                                                         {
-                                                                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                                                            <ul class="uk-nav uk-navbar-dropdown-nav subnav-links">
                                                                                 @foreach (var subMenuSubItem in Model.Where(x => x.ParentMenuItemID == subMenuItem.ID && x.IsSubMenu == true && x.MenuLevel == 2).OrderBy(x => x.MenuItemPriority))
                                                                                 {
 
@@ -256,7 +256,7 @@
 
                                                         @if (Model.Exists(x => x.ParentMenuItemID == subMenuItem.ID && x.IsSubMenu == true && x.MenuLevel == 2))
                                                         {
-                                                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                                            <ul class="uk-nav uk-navbar-dropdown-nav subnav-links">
                                                                 @foreach (var subMenuSubItem in Model.Where(x => x.ParentMenuItemID == subMenuItem.ID && x.IsSubMenu == true && x.MenuLevel == 2).OrderBy(x => x.MenuItemPriority))
                                                                 {
 
@@ -291,7 +291,7 @@
 
                                                         @if (Model.Exists(x => x.ParentMenuItemID == subMenuItem.ID && x.IsSubMenu == true && x.MenuLevel == 2))
                                                         {
-                                                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                                            <ul class="uk-nav uk-navbar-dropdown-nav subnav-links">
                                                                 @foreach (var subMenuSubItem in Model.Where(x => x.ParentMenuItemID == subMenuItem.ID && x.IsSubMenu == true && x.MenuLevel == 2).OrderBy(x => x.MenuItemPriority))
                                                                 {
 
