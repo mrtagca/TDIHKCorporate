@@ -34,20 +34,21 @@ function AddPage() {
     dataParams.PageCategoryID = $("#PageCategories").val();
     dataParams.PageTitle = $("#PageTitle").val();
 
-    debugger
+    var editor = $("#editor").data("kendoEditor");
+    var pageContent = editor.value();
+    var index = pageContent.indexOf("<!--HtmlHeaderEnd|-->");
+    pageContent = pageContent.substring(0,index);
+    dataParams.PageContent = pageContent;
 
-    var pageContent = document.getElementsByClassName("ql-editor");
-    dataParams.PageContent = pageContent[0].innerHTML;
+
 
 
     dataParams.PageSeoLink = $("#PageSeoLink").val();
     dataParams.PageSeoKeywords = $("#SeoKeywords").val();
 
 
-    if (pageContent[0].innerText === '' || typeof (pageContent[0].innerText) === 'undefined' || pageContent[0].innerText === null) {
+    if (pageContent === '' || typeof (pageContent) === 'undefined' || pageContent === null) {
         alert("Page Content cannot be null!");
-        var element = document.getElementById("editor");
-        element.style = "background-color:#ffffff;" + styleCss;
         return;
     }
 
@@ -101,4 +102,34 @@ function AddPage() {
     });
 
 
+}
+
+function GetPages(dropdownId,languageDropdownId) {
+
+    var callParams = {
+        endPoint: "../Page/GetPages",
+        requestType: "POST"
+    }
+
+    $("#" + dropdownId).html("");
+
+    dataParams = {};
+    dataParams.Language = $("#" + languageDropdownId).val();
+
+    RequestAjax(callParams, dataParams, function (response) {
+        response = JSON.parse(response);
+        debugger
+        var dropdown = $("#" + dropdownId);
+
+      
+
+        $.each(response, function () {
+
+            var option = document.createElement("option");
+            option.value = this.PageID;
+            option.innerText = this.PageTitle;
+
+            dropdown.append(option);
+        });
+    });
 }

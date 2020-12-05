@@ -94,7 +94,7 @@ namespace TDIHKCorporate
             routes.MapRoute(
                     name: "covid",
                     url: "covid-19",
-                    defaults: new { controller = "Covid", action = "Index", seoLink = UrlParameter.Optional },
+                    defaults: new { controller = "Covid", action = "Index"},
                  new[] { "TDIHKCorporate.Controllers" }
                 );
             #endregion
@@ -134,6 +134,200 @@ namespace TDIHKCorporate
 
 
             #endregion
+
+            #region Türkei / Türkiye
+            routes.MapRoute(
+                       name: "TurkeyGerman",
+                       url: "turkei",
+                       defaults: new { controller = "Services", action = "Türkei" },
+                    new[] { "TDIHKCorporate.Controllers" }
+                   );
+
+            routes.MapRoute(
+                      name: "TurkeyTurkish",
+                      url: "turkiye",
+                      defaults: new { controller = "Services", action = "Türkei" },
+                   new[] { "TDIHKCorporate.Controllers" }
+                  );
+
+
+            #endregion
+
+            #region Deutschland / Almanya
+            routes.MapRoute(
+                       name: "DeutschGerman",
+                       url: "deutschland",
+                       defaults: new { controller = "Services", action = "Deutschland" },
+                    new[] { "TDIHKCorporate.Controllers" }
+                   );
+
+            routes.MapRoute(
+                      name: "DeutschTurkish",
+                      url: "almanya",
+                      defaults: new { controller = "Services", action = "Deutschland" },
+                   new[] { "TDIHKCorporate.Controllers" }
+                  );
+
+
+            #endregion
+
+            #region Musterverträge / Örnek Sözleşmeler
+            routes.MapRoute(
+                       name: "ContractsGerman",
+                       url: "mustervertrage",
+                       defaults: new { controller = "Services", action = "Mustervertrage" },
+                    new[] { "TDIHKCorporate.Controllers" }
+                   );
+
+            routes.MapRoute(
+                      name: "ContractsTurkish",
+                      url: "ornek-sozlesmeler",
+                      defaults: new { controller = "Services", action = "Mustervertrage" },
+                   new[] { "TDIHKCorporate.Controllers" }
+                  );
+
+
+            #endregion
+
+            #region Forderung and Finanzierung / Talep ve Finansman
+            routes.MapRoute(
+                       name: "FinanceGerman",
+                       url: "forderung-and-finanzierung",
+                       defaults: new { controller = "Services", action = "ForderungAndFinanzierung" },
+                    new[] { "TDIHKCorporate.Controllers" }
+                   );
+
+            routes.MapRoute(
+                      name: "FinanceTurkish",
+                      url: "talep-ve-finansman",
+                      defaults: new { controller = "Services", action = "ForderungAndFinanzierung" },
+                   new[] { "TDIHKCorporate.Controllers" }
+                  );
+
+
+            #endregion
+
+            #region Tobb2b
+            routes.MapRoute(
+                    name: "tobb2b",
+                    url: "tobb2b",
+                    defaults: new { controller = "Services", action = "Tobb2b"},
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
+            #endregion
+
+            #region Standart Mitgliedschaft / Standart Üyelik
+            routes.MapRoute(
+                    name: "StandardMitgliedschaftGerman",
+                    url: "standard-mitgliedschaft",
+                    defaults: new { controller = "MemberShip", action = "StandardMitgliedschaft"},
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
+
+            routes.MapRoute(
+                    name: "StandardMitgliedschaftTurkey",
+                    url: "standart-uyelik",
+                    defaults: new { controller = "MemberShip", action = "StandardMitgliedschaft" },
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
+            #endregion
+
+            #region Premium Mitgliedschaft / Premium Üyelik
+            routes.MapRoute(
+                    name: "PremiumMitgliedschaftGerman",
+                    url: "premium-mitgliedschaft",
+                    defaults: new { controller = "MemberShip", action = "PremiumMitgliedschaft"},
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
+
+            routes.MapRoute(
+                    name: "PremiumMitgliedschaftTurkey",
+                    url: "premium-uyelik",
+                    defaults: new { controller = "MemberShip", action = "PremiumMitgliedschaft"},
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
+            #endregion
+
+            #region Jahresberichte / Yıllık Raporlar
+            routes.MapRoute(
+                    name: "JahresberichteGerman",
+                    url: "jahresberichte",
+                    defaults: new { controller = "Publication", action = "Jahresberichte" },
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
+
+            routes.MapRoute(
+                    name: "JahresberichteTurkey",
+                    url: "yillik-raporlar",
+                    defaults: new { controller = "Publication", action = "Jahresberichte" },
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
+            #endregion
+
+            #region Infoblätter / Bilgi Sayfaları
+            routes.MapRoute(
+                    name: "InfoblatterGerman",
+                    url: "infoblatter",
+                    defaults: new { controller = "Publication", action = "Infoblatter" },
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
+
+            routes.MapRoute(
+                    name: "InfoblatterTurkey",
+                    url: "bilgi-sayfalari",
+                    defaults: new { controller = "Publication", action = "Infoblatter" },
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
+            #endregion
+
+            #region Ein- und Ausreisebestimmungen / Giriş-Çıkış Kuralları
+            routes.MapRoute(
+                    name: "EinUndAusreisebestimmungenGerman",
+                    url: "ein-und-ausreisebestimmungen",
+                    defaults: new { controller = "Covid", action = "EinUndAusreisebestimmungen" },
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
+
+            routes.MapRoute(
+                    name: "EinUndAusreisebestimmungenTurkey",
+                    url: "giris-cikis-kurallari",
+                    defaults: new { controller = "Covid", action = "EinUndAusreisebestimmungen" },
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
+            #endregion
+
+            #region Mabnahmen / Aktiviteler
+            routes.MapRoute(
+                    name: "MabnahmenGerman",
+                    url: "Mabnahmen",
+                    defaults: new { controller = "Covid", action = "Mabnahmen" },
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
+
+            routes.MapRoute(
+                    name: "MabnahmenTurkey",
+                    url: "aktiviteler",
+                    defaults: new { controller = "Covid", action = "Mabnahmen" },
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
+            #endregion
+
+            #region Wichtige Informationsquellen / Önemli Bilgi Kaynakları
+            routes.MapRoute(
+                    name: "WichtigeInformationsquellenGerman",
+                    url: "wichtige-informationsquellen",
+                    defaults: new { controller = "Covid", action = "WichtigeInformationsquellen" },
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
+
+            routes.MapRoute(
+                    name: "WichtigeInformationsquellenTurkey",
+                    url: "onemli-bilgi-kaynaklari",
+                    defaults: new { controller = "Covid", action = "WichtigeInformationsquellen" },
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
+            #endregion
+
 
             routes.MapRoute(
                 name: "Default",

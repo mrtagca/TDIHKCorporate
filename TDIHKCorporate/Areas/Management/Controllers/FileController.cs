@@ -5,12 +5,15 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
+using TDIHKCorporate.BaseControllers.MultiLanguage;
 using TDIHKCorporate.Enums;
 using TDIHKCorporate.Helpers.Extensions;
+using TDIHKCorporate.Types.ComponentTypes;
 
 namespace TDIHKCorporate.Areas.Management.Controllers
 {
-    public class FileController : Controller
+    public class FileController : SiteBaseController
     {
         private const string contentFolderRoot = "~/Content/MainSite/assets";
         private const string prettyName = "files/";
@@ -31,23 +34,34 @@ namespace TDIHKCorporate.Areas.Management.Controllers
             }
         }
 
-        [HttpPost]
-        public string FileBrowserRead(string path)
+        public virtual JsonResult FileBrowserRead(string path)
         {
-            path = NormalizePath(path);
+            try
+            {
+                path = NormalizePath(path);
 
-            directoryBrowser.Server = Server;
+                directoryBrowser.Server = Server;
+                 
 
-            var result = directoryBrowser
-                .GetContent(path, DefaultFilter)
-                .Select(f => new
-                {
-                    name = f.Name,
-                    type = f.Type == EntryType.File ? "f" : "d",
-                    size = f.Size
-                });
+                var result = directoryBrowser
+                    .GetContent(path, DefaultFilter)
+                    .Select(f => new
+                    {
+                        name = f.Name,
+                        type = f.Type == EntryType.File ? "f" : "d",
+                        size = f.Size,
+                        creationTime=f.CreationTime,
+                        extension = f.Extension,
+                        lastAccessTime = f.LastAccessTime
+                        
+                    });
 
-            return JsonConvert.SerializeObject(result);
+                return Json(result, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+                throw new HttpException(404, "File Not Found");
+            }
         }
 
         private string NormalizePath(string path)
@@ -87,7 +101,7 @@ namespace TDIHKCorporate.Areas.Management.Controllers
                     DeleteDirectory(path);
                 }
 
-                return Json(null);
+                return FileBrowserRead(null);
             }
             throw new HttpException(404, "File Not Found");
         }
@@ -107,33 +121,58 @@ namespace TDIHKCorporate.Areas.Management.Controllers
             return CanAccess(path);
         }
 
-        protected virtual void DeleteFile(string path)
+        public bool DeleteFile(string path)
         {
-            if (!AuthorizeDeleteFile(path))
+            try
             {
-                throw new HttpException(403, "Forbidden");
+                if (!AuthorizeDeleteFile(path))
+                {
+                    throw new HttpException(403, "Forbidden");
+
+                }
+
+                var physicalPath = Server.MapPath(path);
+
+                if (System.IO.File.Exists(physicalPath))
+                {
+                    System.IO.File.Delete(physicalPath);
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
-
-            var physicalPath = Server.MapPath(path);
-
-            if (System.IO.File.Exists(physicalPath))
+            catch (Exception ex)
             {
-                System.IO.File.Delete(physicalPath);
+                return false;
             }
         }
 
-        protected virtual void DeleteDirectory(string path)
+        public bool DeleteDirectory(string path)
         {
-            if (!AuthorizeDeleteDirectory(path))
+            try
             {
-                throw new HttpException(403, "Forbidden");
+                if (!AuthorizeDeleteDirectory(path))
+                {
+                    throw new HttpException(403, "Forbidden");
+                }
+
+                var physicalPath = Server.MapPath(path);
+
+                if (Directory.Exists(physicalPath))
+                {
+                    Directory.Delete(physicalPath, true);
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
-
-            var physicalPath = Server.MapPath(path);
-
-            if (Directory.Exists(physicalPath))
+            catch (Exception ex)
             {
-                Directory.Delete(physicalPath, true);
+                return false;
             }
         }
 
@@ -152,7 +191,7 @@ namespace TDIHKCorporate.Areas.Management.Controllers
                     Directory.CreateDirectory(physicalPath);
                 }
 
-                return Json(null);
+                return FileBrowserRead(null);
             }
 
             throw new HttpException(403, "Forbidden");
@@ -195,6 +234,52 @@ namespace TDIHKCorporate.Areas.Management.Controllers
             var allowedExtensions = DefaultFilter.Split(',');
 
             return allowedExtensions.Any(e => e.EndsWith(extension, StringComparison.InvariantCultureIgnoreCase));
+        }
+
+        public ActionResult FileCreate()
+        {
+            return View();
+        }
+
+        public ActionResult FileList()
+        {
+            JsonResult fileJson = FileBrowserRead("");
+
+            string json = JsonConvert.SerializeObject(fileJson.Data);
+
+            List<FileBrowserResponse> fileBrowserResponses = JsonConvert.DeserializeObject<List<FileBrowserResponse>>(json);
+
+            return View(fileBrowserResponses.OrderBy(x => x.type).ToList());
+        }
+
+        public ActionResult ShowSubFileList(string path)
+        {
+            string directoryPath = path;
+            directoryPath = directoryPath.Replace("/Content/MainSite/assets/files/","");
+            ViewBag.DirectoryPath = directoryPath;
+
+            JsonResult fileJson = FileBrowserRead(path);
+
+            string json = JsonConvert.SerializeObject(fileJson.Data);
+
+            List<FileBrowserResponse> fileBrowserResponses = JsonConvert.DeserializeObject<List<FileBrowserResponse>>(json);
+
+            return View(fileBrowserResponses.OrderBy(x => x.type).ToList());
+        }
+
+
+        public ActionResult ShowPDFFile(string pdfFilePath,string pdfFileName)
+        {
+            var path = Server.MapPath(pdfFilePath);
+            var file = Server.MapPath(pdfFilePath + pdfFileName);
+
+            if (!file.StartsWith(path))
+            {
+                // someone tried to be smart and sent 
+                // ?filename=..\..\creditcard.pdf as parameter
+                throw new HttpException(403, "Forbidden");
+            }
+            return File(file, "application/pdf");
         }
     }
 }

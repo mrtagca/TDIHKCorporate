@@ -7,7 +7,7 @@ namespace TDIHKCorporate.Types
 {
     public class Pages
     {
-        public int ID { get; set; }
+        public int PageID { get; set; }
         public int PageCategoryID { get; set; }
         public int PageImageID { get; set; }
         public string PageThumbnailPath { get; set; }

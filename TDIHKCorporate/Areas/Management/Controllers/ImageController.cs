@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TDIHKCorporate.BaseControllers.MultiLanguage;
 using TDIHKCorporate.Enums;
 using TDIHKCorporate.Helpers.Extensions;
 using TDIHKCorporate.Types;
@@ -13,7 +14,7 @@ using TDIHKCorporate.Types.ComponentTypes;
 
 namespace TDIHKCorporate.Areas.Management.Controllers
 {
-    public class ImageController : Controller
+    public class ImageController : SiteBaseController
     {
 
         private const string contentFolderRoot = "~/Content/MainSite/assets";
@@ -46,23 +47,29 @@ namespace TDIHKCorporate.Areas.Management.Controllers
             return View();
         }
 
-        [HttpPost]
-        public string ImageBrowserRead(string path)
+        public virtual JsonResult ImageBrowserRead(string path)
         {
-            path = NormalizePath(path);
-
-            directoryBrowser.Server = Server;
-
-            var result = directoryBrowser
-                .GetContent(path, DefaultFilter)
-                .Select(f => new
+                try
                 {
-                    name = f.Name,
-                    type = f.Type == EntryType.File ? "f" : "d",
-                    size = f.Size
-                });
+                    path = NormalizePath(path);
 
-            return JsonConvert.SerializeObject(result);
+                    directoryBrowser.Server = Server;
+
+                    var result = directoryBrowser
+                        .GetContent(path, DefaultFilter)
+                        .Select(f => new
+                        {
+                            name = f.Name,
+                            type = f.Type == EntryType.File ? "f" : "d",
+                            size = f.Size
+                        });
+
+                    return Json(result, JsonRequestBehavior.AllowGet);
+                }
+                catch (Exception)
+                {
+                    throw new HttpException(404, "File Not Found");
+                } 
         }
 
         private string NormalizePath(string path)
@@ -84,6 +91,12 @@ namespace TDIHKCorporate.Areas.Management.Controllers
         {
             return VirtualPathUtility.Combine(VirtualPathUtility.AppendTrailingSlash(basePath), relativePath);
         }
+
+        public virtual bool AuthorizeRead(string path)
+        {
+            return CanAccess(path);
+        }
+
         public FileContentResult ThumbnailRead(string path)
         {
             path = NormalizePath(path);
@@ -145,6 +158,7 @@ namespace TDIHKCorporate.Areas.Management.Controllers
                     Directory.CreateDirectory(physicalPath);
                 }
 
+                return ImageBrowserRead(null);
                 return Json(null);
             }
 
@@ -168,6 +182,7 @@ namespace TDIHKCorporate.Areas.Management.Controllers
                     DeleteDirectory(path);
                 }
 
+                return ImageBrowserRead(null);
                 return Json(null);
             }
             throw new HttpException(404, "File Not Found");

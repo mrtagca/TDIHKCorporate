@@ -2284,12 +2284,19 @@
     <Content Include="Content\Admin\vendor\jquery\jquery.min.js" />
     <Content Include="Content\Admin\vendor\jquery\jquery.slim.js" />
     <Content Include="Content\Admin\vendor\jquery\jquery.slim.min.js" />
+    <Content Include="Content\MainSite\assets\images\aubenhandelsportal\banner.png" />
+    <Content Include="Content\MainSite\assets\images\aubenhandelsportal\portal-big.png" />
+    <Content Include="Content\MainSite\assets\images\aubenhandelsportal\tdihk portal.png" />
+    <Content Include="Content\MainSite\assets\images\aubenhandelsportal\tobb-sm.png" />
+    <Content Include="Content\MainSite\assets\images\aubenhandelsportal\TOBB2B.png" />
+    <Content Include="Content\MainSite\assets\images\aubenhandelsportal\vorteilen.png" />
     <Content Include="Content\MainSite\assets\images\banner.png" />
     <Content Include="Content\MainSite\assets\images\bg-aubenhandelsportal.png" />
     <Content Include="Content\MainSite\assets\images\bg-info.png" />
     <Content Include="Content\MainSite\assets\images\bg-macbook.png" />
     <Content Include="Content\MainSite\assets\images\bg-podcast.png" />
     <Content Include="Content\MainSite\assets\images\BG.png" />
+    <Content Include="Content\MainSite\assets\images\covid\mask.png" />
     <Content Include="Content\MainSite\assets\images\deutschland\deutschland-bg.png" />
     <Content Include="Content\MainSite\assets\images\dihk logo footer.svg" />
     <Content Include="Content\MainSite\assets\images\Ein-undAusreisebestimmungen\Ein-undAusreisebestimmungen-bg.png" />
@@ -2315,6 +2322,11 @@
     <Content Include="Content\MainSite\assets\images\invest in turkey logo footer.svg" />
     <Content Include="Content\MainSite\assets\images\Jahresberichte.png" />
     <Content Include="Content\MainSite\assets\images\Jahresberichte\Jahresberichte.png" />
+    <Content Include="Content\MainSite\assets\images\johangebote\banner.png" />
+    <Content Include="Content\MainSite\assets\images\konferenzraum\banner.png" />
+    <Content Include="Content\MainSite\assets\images\konferenzraum\konferenzraum.png" />
+    <Content Include="Content\MainSite\assets\images\konferenzraum\meeting.jpg" />
+    <Content Include="Content\MainSite\assets\images\konferenzraum\Picture 1.png" />
     <Content Include="Content\MainSite\assets\images\Maßnahmen\Maßnahmen-bg.png" />
     <Content Include="Content\MainSite\assets\images\mitgliedschaft-banner.jpg" />
     <Content Include="Content\MainSite\assets\images\Monster.svg" />
@@ -2322,6 +2334,7 @@
     <Content Include="Content\MainSite\assets\images\Nachrichten.png" />
     <Content Include="Content\MainSite\assets\images\PremiumMitgliedschaft\PremiumMitgliedschaft-bg.png" />
     <Content Include="Content\MainSite\assets\images\StandardMitgliedschaft\StandardMitgliedschaft-bg.png" />
+    <Content Include="Content\MainSite\assets\images\TOBB2B\TOBB2B.png" />
     <Content Include="Content\MainSite\assets\images\uber\nalan.png" />
     <Content Include="Content\MainSite\assets\images\uber\okan.png" />
     <Content Include="Content\MainSite\assets\images\uber\president.png" />
@@ -2805,6 +2818,11 @@
     <Content Include="Areas\Management\Views\Page\Edit.cshtml" />
     <Content Include="Areas\Management\Views\Page\PageList.cshtml" />
     <Content Include="Areas\Management\Views\Slider\EditSlider.cshtml" />
+    <Content Include="Areas\Management\Views\Menu\AddMenuItem.cshtml" />
+    <Content Include="Areas\Management\Views\File\FileList.cshtml" />
+    <Content Include="Areas\Management\Views\File\ShowSubFileList.cshtml" />
+    <Content Include="Areas\Management\Views\File\FileCreate.cshtml" />
+    <Content Include="Areas\Management\Views\File\ShowPDFFile.cshtml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
@@ -3276,7 +3294,7 @@
     <Compile Include="Helpers\Extensions\UrlExtensions.cs" />
     <Compile Include="Models\Language\Language.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Types\ComponentTypes\ImageBrowserResponse.cs" />
+    <Compile Include="Types\ComponentTypes\FileBrowserResponse.cs" />
     <Compile Include="Types\EventCategories.cs" />
     <Compile Include="Types\Events.cs" />
     <Compile Include="Types\FormTypes\NewsletterFormModel.cs" />
@@ -3984,7 +4002,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Management\Models\" />
-    <Folder Include="Areas\Management\Views\File\" />
     <Folder Include="Areas\Management\Views\Image\" />
     <Folder Include="Areas\Management\Views\Url\" />
     <Folder Include="Content\MainSite\assets\files\" />

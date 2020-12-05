@@ -10,7 +10,7 @@ namespace TDIHKCorporate.Types
         public int ID { get; set; }
         public int MenuID { get; set; }
         public int PageID { get; set; }
-        public int ParentMenuItemID { get; set; }
+        public int? ParentMenuItemID { get; set; }
         public int MenuItemPriority { get; set; }
         public string Language { get; set; }
         public string MenuName { get; set; }

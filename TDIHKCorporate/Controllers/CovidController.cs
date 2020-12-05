@@ -29,15 +29,45 @@ namespace TDIHKCorporate.Controllers
         }
         public ActionResult EinUndAusreisebestimmungen()
         {
-            return View();
+            DapperRepository<Pages> page = new DapperRepository<Pages>();
+
+            CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+
+            string name = cultureInfo.TwoLetterISOLanguageName;
+
+            Pages pageItem = page.Get(@"SELECT * FROM Pages (NOLOCK)
+                                            where[Language] = @language and PageIdentifier = @pageIdentifier", new { language = name, pageIdentifier = "InOutRules" });
+
+
+            return View(pageItem);
         }
         public ActionResult Mabnahmen()
         {
-            return View();
+            DapperRepository<Pages> page = new DapperRepository<Pages>();
+
+            CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+
+            string name = cultureInfo.TwoLetterISOLanguageName;
+
+            Pages pageItem = page.Get(@"SELECT * FROM Pages (NOLOCK)
+                                            where[Language] = @language and PageIdentifier = @pageIdentifier", new { language = name, pageIdentifier = "Activities" });
+
+
+            return View(pageItem);
         }
         public ActionResult WichtigeInformationsquellen()
         {
-            return View();
+            DapperRepository<Pages> page = new DapperRepository<Pages>();
+
+            CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+
+            string name = cultureInfo.TwoLetterISOLanguageName;
+
+            Pages pageItem = page.Get(@"SELECT * FROM Pages (NOLOCK)
+                                            where[Language] = @language and PageIdentifier = @pageIdentifier", new { language = name, pageIdentifier = "ImportantInfoResources" });
+
+
+            return View(pageItem);
         }
         public ActionResult CoronavirusNachrichten()
         {

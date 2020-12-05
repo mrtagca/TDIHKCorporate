@@ -105,5 +105,21 @@ namespace TDIHKCorporate.Areas.Management.Controllers
 
             return View(result);
         }
+
+        public string GetPages(string language)
+        {
+            try
+            {
+                DapperRepository<Pages> page = new DapperRepository<Pages>();
+                List<Pages> pageList = page.GetList(@"select * from Pages (NOLOCK) 
+                                    where [Language] = @lang", new { lang = language });
+
+                return JsonConvert.SerializeObject(pageList);
+            }
+            catch (Exception ex)
+            {
+                return JsonConvert.SerializeObject(ex.Message);
+            }
+        }
     }
 }
