@@ -1,0 +1,63 @@
+﻿@model List<TDIHKCorporate.Types.Sliders>
+@{
+    ViewBag.Title = "SliderList";
+    Layout = "~/Areas/Management/Views/Shared/_layoutDashboard.cshtml";
+}
+
+<h5>Slider List</h5>
+<br />
+
+<div class="col-md-12">
+    <table id="SliderList" class="table table-bordered table-hover table-responsive">
+        <thead>
+            <tr>
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Slider ID: activate to sort column descending" style="width: 234px;">Slider ID</th>
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Slider Name: activate to sort column descending" style="width: 234px;">Slider Name</th>
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Slider Name: activate to sort column descending" style="width: 234px;">Slider Language</th>
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Created Date: activate to sort column descending" style="width: 234px;">Created Date</th>
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Actions: activate to sort column descending" style="width: 234px;">Actions</th>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>@item.SliderID</td>
+        <td>@item.SliderName</td>
+        <td>@item.Language</td>
+        @{
+            string TimezoneId = System.Configuration.ConfigurationManager.AppSettings[System.Threading.Thread.CurrentThread.CurrentCulture.Name];
+            DateTime createdDate = TimeZoneInfo.ConvertTimeBySystemTimeZoneId(item.CreatedDate, TimezoneId);
+            <td>@createdDate</td>
+
+        }
+        <td>
+            <button onclick="window.open(
+                         '/Management/Slider/EditSlider/' +@item.SliderID,
+                         '_blank' );" class="btn btn-dark">
+                <i class="fas fa-edit"></i>
+            </button>
+        </td>
+    </tr>
+        }
+    </table>
+</div>
+
+<script>
+    $(document).ready(function () {
+
+        $('#' + 'SliderList').DataTable({
+            "oLanguage": {
+                "oPaginate": { "sPrevious": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>', "sNext": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>' },
+                "sInfo": "Showing page _PAGE_ of _PAGES_",
+                "sSearch": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>',
+                "sSearchPlaceholder": "Search...",
+                "sLengthMenu": "Results :  _MENU_",
+            },
+            "stripeClasses": [],
+            "lengthMenu": [7, 10, 20, 50],
+            "pageLength": 7,
+            "destroy": true
+        });
+
+    });
+</script>

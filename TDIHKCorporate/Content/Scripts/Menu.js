@@ -1,4 +1,4 @@
-﻿function GetMenuItems(menuId, tableBodyId, tableId) {
+﻿function GetMenuItemsForMenuList(menuId, tableBodyId, tableId) {
     var callParams = {
         endPoint: "../Menu/GetMenuItems",
         requestType: "POST"
@@ -96,7 +96,8 @@ function GetMenus(dropdownId) {
     });
 }
 
-function GetMenuItems(dropdownId,languageDropdownId) {
+function GetMenuItems(dropdownId, languageDropdownId) {
+    debugger
     var callParams = {
         endPoint: "../Menu/GetAllMenuItems",
         requestType: "POST"

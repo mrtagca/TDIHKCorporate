@@ -41,7 +41,7 @@ namespace TDIHKCorporate.Areas.Management.Controllers
                 path = NormalizePath(path);
 
                 directoryBrowser.Server = Server;
-                 
+
 
                 var result = directoryBrowser
                     .GetContent(path, DefaultFilter)
@@ -50,10 +50,10 @@ namespace TDIHKCorporate.Areas.Management.Controllers
                         name = f.Name,
                         type = f.Type == EntryType.File ? "f" : "d",
                         size = f.Size,
-                        creationTime=f.CreationTime,
+                        creationTime = f.CreationTime,
                         extension = f.Extension,
                         lastAccessTime = f.LastAccessTime
-                        
+
                     });
 
                 return Json(result, JsonRequestBehavior.AllowGet);
@@ -236,11 +236,6 @@ namespace TDIHKCorporate.Areas.Management.Controllers
             return allowedExtensions.Any(e => e.EndsWith(extension, StringComparison.InvariantCultureIgnoreCase));
         }
 
-        public ActionResult FileCreate()
-        {
-            return View();
-        }
-
         public ActionResult FileList()
         {
             JsonResult fileJson = FileBrowserRead("");
@@ -249,13 +244,15 @@ namespace TDIHKCorporate.Areas.Management.Controllers
 
             List<FileBrowserResponse> fileBrowserResponses = JsonConvert.DeserializeObject<List<FileBrowserResponse>>(json);
 
+            List<FileBrowserResponse> assds = fileBrowserResponses.OrderBy(x => x.type).ToList();
+
             return View(fileBrowserResponses.OrderBy(x => x.type).ToList());
         }
 
         public ActionResult ShowSubFileList(string path)
         {
             string directoryPath = path;
-            directoryPath = directoryPath.Replace("/Content/MainSite/assets/files/","");
+            directoryPath = directoryPath.Replace("/Content/MainSite/assets/files/", "");
             ViewBag.DirectoryPath = directoryPath;
 
             JsonResult fileJson = FileBrowserRead(path);
@@ -268,7 +265,7 @@ namespace TDIHKCorporate.Areas.Management.Controllers
         }
 
 
-        public ActionResult ShowPDFFile(string pdfFilePath,string pdfFileName)
+        public ActionResult ShowPDFFile(string pdfFilePath, string pdfFileName)
         {
             var path = Server.MapPath(pdfFilePath);
             var file = Server.MapPath(pdfFilePath + pdfFileName);
@@ -281,5 +278,36 @@ namespace TDIHKCorporate.Areas.Management.Controllers
             }
             return File(file, "application/pdf");
         }
+
+        public ActionResult FileCreate()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult FileCreate(string path, HttpPostedFileBase file)
+        {
+            try
+            {
+                path = NormalizePath(path);
+                var fileName = Path.GetFileName(file.FileName);
+
+                if (AuthorizeUpload(path, file))
+                {
+                    file.SaveAs(Path.Combine(Server.MapPath(path), fileName));
+                }
+
+                ViewBag.Success = "Success";
+
+                return View();
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Success = "Error:"+ex.Message;
+                return View();
+            }
+        }
+
+       
     }
 }

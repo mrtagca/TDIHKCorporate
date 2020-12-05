@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "ImageCreate";
+    Layout = "~/Areas/Management/Views/Shared/_layoutDashboard.cshtml";
+}
+
+<h5>Image Create</h5>
+<hr />
+
+@if (ViewBag.Success != null)
+{
+    <div class="alert alert-success" role="alert">
+        @ViewBag.Success
+    </div>
+}
+else if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @ViewBag.Error
+    </div>
+}
+
+@using (Html.BeginForm("ImageCreate", "Image", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="col-md-12">
+        <div class="col-md-3">
+            <div>
+                <label>Dosya Seçiniz</label>
+                <input type="file" name="file" value="Dosya Yükle" />
+            </div>
+            <br />
+
+            <div>
+                <input type="submit" name="Submit" id="btnSubmit" value="Upload" class="btn btn-primary" />
+            </div>
+
+        </div>
+    </div>
+}
+

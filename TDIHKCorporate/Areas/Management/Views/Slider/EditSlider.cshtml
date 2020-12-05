@@ -1,4 +1,4 @@
-﻿
+﻿@model List<TDIHKCorporate.Types.SliderContent>
 @{
     ViewBag.Title = "EditSlider";
     Layout = "~/Areas/Management/Views/Shared/_layoutDashboard.cshtml";
@@ -13,7 +13,7 @@
         margin: 0;
         padding: 0;
         width: 60%;
-        cursor:move;
+        cursor: move;
     }
 
         #sortable li {
@@ -39,7 +39,7 @@
         border-radius: .5em;
         padding: 10px;
         cursor: move;
-    } 
+    }
 </style>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -53,14 +53,91 @@
     });
 </script>
 
-<div>
-    <ul id="sortable">
-        <li class="ui-state-default">Item 1</li>
-        <li class="ui-state-default">Item 2</li>
-        <li class="ui-state-default">Item 3</li>
-        <li class="ui-state-default">Item 4</li>
-        <li class="ui-state-default">Item 5</li>
-        <li class="ui-state-default">Item 6</li>
-        <li class="ui-state-default">Item 7</li>
-    </ul>
+<div class="row">
+
+
+    <div class="col-md-12">
+
+        <ul id="sortable">
+
+            @foreach (var item in Model)
+            {
+                string sliderGuid = Guid.NewGuid().ToString();
+
+                <li slider-content-id="@item.SliderContentID" name="SliderContentListItem" class="ui-state-default">
+                    <a data-toggle="collapse" data-parent="#sortable" href="#SliderContent_@sliderGuid">@item.SliderContentTitle</a>
+
+                    @*<div id="SliderContent_@sliderGuid" class="collapse">
+                            <img src="@item.ImagePath" alt="Alternate Text" />
+                        </div>*@
+
+                    <ul id="SliderContent_@sliderGuid" class="collapse">
+                        <li style="list-style-type:none">
+                            <div>
+                                <img src="@item.ImagePath" alt="Alternate Text" />
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            }
+
+        </ul>
+
+        <br />
+        <button id="UpdateSlider" class="btn btn-success" style="float:inherit">Kaydet</button>
+    </div>
+
+
+
+
 </div>
+
+<script>
+
+    $("#UpdateSlider").click(function () {
+        debugger
+
+        var list = $("li[name='SliderContentListItem']");
+
+        var sliderContent = [];
+
+        var counter = 0;
+
+        $.each(list, function () {
+            counter++;
+
+            var item = this;
+
+            var sliderObject = {
+                SliderContentID: item.getAttribute('slider-content-id'),
+                SliderPriority: counter
+            }
+
+            sliderContent.push(sliderObject)
+
+        });
+
+        var callParams = {
+            endPoint: "/Slider/UpdateSlider",
+            requestType: "POST"
+        }
+
+
+        var dataParams = {};
+        dataParams.updateSliderContents = [];
+        dataParams.updateSliderContents = sliderContent;
+
+        RequestAjax(callParams, dataParams, function (response) {
+            response = JSON.parse(response);
+
+            if (response === true) {
+                alert("Slider sıralaması güncellendi.");
+            }
+            else {
+                alert("Slider sıralaması güncellenemedi.");
+            }
+
+        });
+
+    });
+</script>

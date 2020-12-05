@@ -10,6 +10,8 @@ namespace TDIHKCorporate.Types
         public int SliderID { get; set; }
         public string Language { get; set; }
         public string SliderName { get; set; }
+        public int ImageWidth { get; set; }
+        public int ImageHeight { get; set; }
         public DateTime CreatedDate { get; set; }
         public int CreatedBy { get; set; }
         public DateTime UpdatedDate { get; set; }
