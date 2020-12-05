@@ -2438,6 +2438,9 @@ select.uk-form-width-xsmall {
 .size-20 {
   font-size: 20px;
 }
+.size-22 {
+  font-size: 22px;
+}
 @media (max-width: 959px) {
   .size-24-m {
     font-size: 24px !important;
