@@ -1,11 +1,16 @@
-﻿function GetEventCategories(dropdownId) {
+﻿function GetEventCategories(dropdownId,language) {
     var callParams = {
         endPoint: "../Event/GetEventCategories",
         requestType: "GET"
     }
 
-    RequestAjax(callParams, null, function (response) {
+    dataParams = {};
+    dataParams.language = language;
+
+    RequestAjax(callParams, dataParams, function (response) {
         response = JSON.parse(response);
+
+        $("#" + dropdownId).html("");
 
         var documentTypeDropdown = $("#" + dropdownId);
 
@@ -34,8 +39,8 @@ function AddEvent() {
     dataParams.EventCategoryID = $("#EventCategories").val();
     dataParams.EventTitle = $("#EventTitle").val();
 
-    var eventContent = document.getElementsByClassName("ql-editor");
-    dataParams.EventContent = eventContent[0].innerHTML;
+    //var eventContent = document.getElementsByClassName("ql-editor");
+    //dataParams.EventContent = eventContent[0].innerHTML;
 
     dataParams.EventSeoLink = $("#EventSeoLink").val();
     dataParams.EventDescription = $("#EventDescription").val();
@@ -44,14 +49,15 @@ function AddEvent() {
     dataParams.EventTime = $("#EventTime").val();
     dataParams.EventQuota = $("#EventQuota").val();
     dataParams.EventCriticalQuota = $("#EventCriticalQuota").val();
+    dataParams.EventTags = $("#SeoTags").val();
 
 
-    if (eventContent[0].innerText === '' || typeof (eventContent[0].innerText) === 'undefined' || eventContent[0].innerText === null) {
-        alert("Event Content cannot be null!");
-        var element = document.getElementById("editor");
-        element.style = "background-color:#ffffff;" + styleCss;
-        return;
-    }
+    //if (eventContent[0].innerText === '' || typeof (eventContent[0].innerText) === 'undefined' || eventContent[0].innerText === null) {
+    //    alert("Event Content cannot be null!");
+    //    var element = document.getElementById("editor");
+    //    element.style = "background-color:#ffffff;" + styleCss;
+    //    return;
+    //}
 
     if (dataParams.EventTitle === '' || typeof (dataParams.EventTitle) === 'undefined' || dataParams.EventTitle === null) {
         alert("Event Title cannot be null!");
@@ -95,6 +101,12 @@ function AddEvent() {
         return;
     }
 
+    if (dataParams.EventTags === '' || typeof (dataParams.EventTags) === 'undefined' || dataParams.EventTags === null) {
+        alert("Seo tags cannot be null!");
+        var element = document.getElementById("SeoTags");
+        element.style = styleCss;
+        return;
+    }
 
     if (dataParams.EventDate === '' || typeof (dataParams.EventDate) === 'undefined' || dataParams.EventDate === null) {
         alert("Event Date cannot be null!");

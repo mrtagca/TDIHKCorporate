@@ -5,11 +5,11 @@ using System.Linq;
 using System.Threading;
 using System.Web;
 using System.Web.Mvc;
-using TDIHKCorporate.Models.Language;
 
 namespace TDIHKCorporate.BaseControllers.MultiLanguage
 {
-    public class SiteBaseController : Controller
+
+    public class ManagementBaseController : Controller
     {
         protected override IAsyncResult BeginExecuteCore(AsyncCallback callback, object state)
         {
@@ -19,41 +19,41 @@ namespace TDIHKCorporate.BaseControllers.MultiLanguage
             {
                 if (Request.QueryString[langParameter] == "tr")
                 {
-                    HttpContext.Session["Main" + langParameter] = "tr";
-                    Session["Main" + cultureParameter] = "TR";
+                    HttpContext.Session[langParameter] = "tr";
+                    Session[cultureParameter] = "TR";
                 }
                 else if (Request.QueryString[langParameter] == "de")
                 {
-                    HttpContext.Session["Main" +langParameter] = "de";
-                    HttpContext.Session["Main" + cultureParameter] = "DE";
+                    HttpContext.Session[langParameter] = "de";
+                    HttpContext.Session[cultureParameter] = "DE";
                 }
                 else if (Request.QueryString["language"] == "en")
                 {
-                    HttpContext.Session["Main" +langParameter] = "en";
-                    HttpContext.Session["Main" + cultureParameter] = "US";
+                    HttpContext.Session[langParameter] = "en";
+                    HttpContext.Session[cultureParameter] = "US";
                 }
                 else if (Request.QueryString[langParameter] == "fr")
                 {
-                    HttpContext.Session["Main" +langParameter] = "fr";
-                    HttpContext.Session["Main" + cultureParameter] = "FR";
+                    HttpContext.Session[langParameter] = "fr";
+                    HttpContext.Session[cultureParameter] = "FR";
                 }
             }
 
             string language = "";
             string culture = "";
 
-            if (HttpContext.Session["Main" + langParameter] == null && HttpContext.Session["Main" + cultureParameter] == null)
+            if (HttpContext.Session[langParameter] == null && HttpContext.Session[cultureParameter] == null)
             {
                 language = "de";
                 culture = "DE";
 
-                HttpContext.Session["Main"+langParameter] = language;
-                HttpContext.Session["Main" + cultureParameter] = culture;
+                HttpContext.Session[langParameter] = language;
+                HttpContext.Session[cultureParameter] = culture;
             }
             else
             {
-                language = HttpContext.Session["Main" + langParameter].ToString();
-                culture = HttpContext.Session["Main" + cultureParameter].ToString();
+                language = HttpContext.Session[langParameter].ToString();
+                culture = HttpContext.Session[cultureParameter].ToString();
             }
 
 

@@ -10,7 +10,7 @@ using TDIHKCorporate.Types;
 
 namespace TDIHKCorporate.Areas.Management.Controllers
 {
-    public class MenuController : SiteBaseController
+    public class MenuController : ManagementBaseController
     {
         public ActionResult MenuList()
         {

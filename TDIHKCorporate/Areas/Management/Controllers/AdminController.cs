@@ -9,7 +9,7 @@ using TDIHKCorporate.Models.Language;
 namespace TDIHKCorporate.Areas.Management.Controllers
 {
     [RouteArea("Management")]
-    public class AdminController : SiteBaseController
+    public class AdminController : ManagementBaseController
     {
         public ActionResult ChangeLanguage(string language)
         {

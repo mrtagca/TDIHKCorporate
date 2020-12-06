@@ -13,14 +13,13 @@ using TDIHKCorporate.Types.ViewTypes;
 
 namespace TDIHKCorporate.Areas.Management.Controllers
 {
-    public class PageController : SiteBaseController
+    public class PageController : ManagementBaseController
     {
         // GET: Management/Page
         public ActionResult Create()
         {
             return View();
         }
-
         public ActionResult Edit(int id)
         {
 
@@ -124,9 +123,9 @@ namespace TDIHKCorporate.Areas.Management.Controllers
 
                 });
 
-                if (result>0)
+                if (result > 0)
                 {
-                    return Newtonsoft.Json.JsonConvert.SerializeObject(true); 
+                    return Newtonsoft.Json.JsonConvert.SerializeObject(true);
                 }
                 else
                 {
@@ -163,7 +162,6 @@ namespace TDIHKCorporate.Areas.Management.Controllers
 
             return View(result);
         }
-
         public string GetPages(string language)
         {
             try
@@ -177,6 +175,39 @@ namespace TDIHKCorporate.Areas.Management.Controllers
             catch (Exception ex)
             {
                 return JsonConvert.SerializeObject(ex.Message);
+            }
+        }
+
+        public ActionResult AddPageCategory()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AddPageCategory(PageCategories pageCategories)
+        {
+            try
+            {
+                DapperRepository<PageCategories> pageCategory = new DapperRepository<PageCategories>();
+
+                int result = pageCategory.Execute(@"insert into PageCategories (PageCategoryName,[Language],CreatedDate,CreatedBy,IsActive)
+  values (@pageCategoryName,@language,@createdDate,@createdBy,@isActive)", new { pageCategoryName = pageCategories.PageCategoryName, language = pageCategories.Language, createdDate = DateTime.Now, createdBy = 1, isActive = true });
+
+                if (result > 0)
+                {
+                    ViewBag.Success = "Success";
+                }
+                else
+                {
+                    ViewBag.Error = "Error";
+                }
+
+                return View();
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Error = "Error:" + ex.Message;
+                return View();
             }
         }
     }

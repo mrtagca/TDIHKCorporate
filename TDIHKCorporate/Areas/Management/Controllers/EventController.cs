@@ -10,7 +10,7 @@ using TDIHKCorporate.Types;
 
 namespace TDIHKCorporate.Areas.Management.Controllers
 {
-    public class EventController : SiteBaseController
+    public class EventController : ManagementBaseController
     {
         // GET: Management/Event
         public ActionResult Create()
@@ -18,16 +18,12 @@ namespace TDIHKCorporate.Areas.Management.Controllers
             return View();
         }
 
-        public string GetEventCategories()
+        public string GetEventCategories(string language)
         {
             DapperRepository<EventCategories> getEventCategories = new DapperRepository<EventCategories>();
 
-            CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
-
-            string name = cultureInfo.TwoLetterISOLanguageName;
-
             var result = getEventCategories.GetList(@"SELECT * FROM [IHK].[dbo].[EventCategories] (NOLOCK)
-                                        WHERE [Language] = @lang", new { lang = name }).OrderBy(x => x.EventCategoryName);
+                                        WHERE [Language] = @lang", new { lang = language }).OrderBy(x => x.EventCategoryName);
 
             return Newtonsoft.Json.JsonConvert.SerializeObject(result);
 
@@ -37,17 +33,13 @@ namespace TDIHKCorporate.Areas.Management.Controllers
         {
             DapperRepository<Events> addPage = new DapperRepository<Events>();
 
-            string TimezoneId = System.Configuration.ConfigurationManager.AppSettings[System.Threading.Thread.CurrentThread.CurrentCulture.Name];
-            events.CreatedDate = TimeZoneInfo.ConvertTimeBySystemTimeZoneId(DateTime.Now, TimezoneId);
-            events.CreatedBy = 1;
-            events.IsActive = true;
 
-            var result = addPage.Execute(@"INSERT INTO IHK.dbo.[Events]([Language],EventCategoryID,EventImageId,EventThumbnailPath,EventTitle,EventDate,EventTime,EventContent,EventSeoLink,EventDescription,EventSeoKeywords,EventTags,EventQuota,EventCriticalQuota,CreatedDate,CreatedBy,IsActive) values (@Language,@EventCategoryID,@EventImageId,@EventThumbnailPath,@EventTitle,@EventDate,@EventTime,@EventContent,@EventSeoLink,@EventDescription,@EventSeoKeywords,@EventTags,@EventQuota,@EventCriticalQuota,@CreatedDate,@CreatedBy,@IsActive)", new
+            var result = addPage.Execute(@"INSERT INTO IHK.dbo.[Events]([Language],EventCategoryID,EventImagePath,EventThumbnailPath,EventTitle,EventDate,EventTime,EventContent,EventSeoLink,EventDescription,EventSeoKeywords,EventTags,EventQuota,EventCriticalQuota,CreatedDate,CreatedBy,IsActive) values (@Language,@EventCategoryID,@EventImagePath,@EventThumbnailPath,@EventTitle,@EventDate,@EventTime,@EventContent,@EventSeoLink,@EventDescription,@EventSeoKeywords,@EventTags,@EventQuota,@EventCriticalQuota,@CreatedDate,@CreatedBy,@IsActive)", new
             {
 
                 Language = events.Language,
                 EventCategoryID = events.EventCategoryID,
-                EventImageId = 0,
+                EventImagePath = "",
                 EventThumbnailPath = "",
                 EventTitle = events.EventTitle,
                 EventDate = events.EventDate,
@@ -55,16 +47,18 @@ namespace TDIHKCorporate.Areas.Management.Controllers
                 EventContent = events.EventContent,
                 EventSeoLink = events.EventSeoLink,
                 EventDescription = events.EventDescription,
-                EventSeoKeywords = events.EventSeoKeywords,
-                EventTags = events.EventTags,
+                EventSeoKeywords = events.EventSeoKeywords.ToLower(),
+                EventTags = events.EventTags.ToLower(),
                 EventQuota = events.EventQuota,
                 EventCriticalQuota = events.EventCriticalQuota,
-                CreatedDate = events.CreatedDate,
-                CreatedBy = events.CreatedBy,
-                IsActive = events.IsActive
+                CreatedDate = DateTime.Now,
+                CreatedBy = 1,
+                IsActive = true
             });
 
             return Newtonsoft.Json.JsonConvert.SerializeObject(true);
         }
+
+       
     }
 }

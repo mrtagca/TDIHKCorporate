@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "AddPageCategory";
+    Layout = "~/Areas/Management/Views/Shared/_layoutDashboard.cshtml";
+}
+
+<h5>Sayfa Kategori Ekle</h5>
+<hr />
+
+@if (ViewBag.Success != null)
+{
+    <div class="alert alert-success" role="alert">
+        @ViewBag.Success
+    </div>
+}
+else if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @ViewBag.Error
+    </div>
+}
+
+@using (Html.BeginForm("AddPageCategory", "Page", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="col-md-12">
+        <div class="col-lg-3">
+            <div>
+                <label>Kategori Dili</label>
+                <select class="form-control" name="Language">
+                    <option value="tr">TR</option>
+                    <option value="de">DE</option>
+                </select>
+            </div>
+            <br />
+
+            <div>
+                <label>Kategori Adı</label>
+                <input type="text" class="form-control" placeholder="Kategori Adı" name="PageCategoryName" value="" />
+            </div>
+            <br />
+
+            <div>
+                <input style="float:right" type="submit" class="btn btn-primary" name="Submit" value="Kaydet" />
+            </div>
+        </div>
+    </div>
+}

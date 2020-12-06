@@ -7,7 +7,7 @@ using TDIHKCorporate.BaseControllers.MultiLanguage;
 
 namespace TDIHKCorporate.Areas.Management.Controllers
 {
-    public class HomeController : SiteBaseController
+    public class HomeController : ManagementBaseController
     {
         // GET: Management/Home
         public ActionResult Index()

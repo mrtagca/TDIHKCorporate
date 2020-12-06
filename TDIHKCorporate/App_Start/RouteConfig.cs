@@ -328,6 +328,21 @@ namespace TDIHKCorporate
                 );
             #endregion
 
+            #region Kalender / Etkinlik Takvimi
+            routes.MapRoute(
+                    name: "KalenderGerman",
+                    url: "kalender",
+                    defaults: new { controller = "Event", action = "Kalender" },
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
+
+            routes.MapRoute(
+                    name: "KalenderTurkey",
+                    url: "etkinlik-takvimi",
+                    defaults: new { controller = "Event", action = "Kalender" },
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
+            #endregion
 
             routes.MapRoute(
                 name: "Default",

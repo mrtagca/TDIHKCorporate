@@ -2834,6 +2834,7 @@
     <Content Include="Areas\Management\Views\Image\ShowSubImageList.cshtml" />
     <Content Include="Areas\Management\Views\Image\ImageCreate.cshtml" />
     <Content Include="Areas\Management\Views\Slider\SliderList.cshtml" />
+    <Content Include="Areas\Management\Views\Page\AddPageCategory.cshtml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="HTML-1\kalender.html" />
     <Content Include="HTML-1\nachrichten.html" />
@@ -3285,6 +3286,7 @@
     <Compile Include="Areas\Management\Controllers\SliderController.cs" />
     <Compile Include="Areas\Management\Controllers\UrlController.cs" />
     <Compile Include="Areas\Management\ManagementAreaRegistration.cs" />
+    <Compile Include="BaseControllers\MultiLanguage\ManagementBaseController.cs" />
     <Compile Include="BaseControllers\MultiLanguage\SiteBaseController.cs" />
     <Compile Include="Controllers\AboutUsController.cs" />
     <Compile Include="Controllers\CovidController.cs" />
@@ -4024,6 +4026,7 @@
     <Folder Include="Content\MainSite\assets\files\" />
     <Folder Include="NewFolder1\" />
     <Folder Include="Views\Image\" />
+    <Folder Include="Views\ManagementBase\" />
     <Folder Include="Views\Slider\" />
   </ItemGroup>
   <ItemGroup>
