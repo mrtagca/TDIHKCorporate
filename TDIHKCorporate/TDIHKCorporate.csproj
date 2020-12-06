@@ -2837,6 +2837,7 @@
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="HTML-1\kalender.html" />
     <Content Include="HTML-1\nachrichten.html" />
+    <Content Include="html\aubenhandelsportal.html" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.af-ZA.min.js" />
