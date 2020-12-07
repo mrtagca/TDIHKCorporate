@@ -1,6 +1,6 @@
 ﻿function GetEventCategories(dropdownId,language) {
     var callParams = {
-        endPoint: "../Event/GetEventCategories",
+        endPoint: "/Management/Event/GetEventCategories",
         requestType: "GET"
     }
 
@@ -39,8 +39,12 @@ function AddEvent() {
     dataParams.EventCategoryID = $("#EventCategories").val();
     dataParams.EventTitle = $("#EventTitle").val();
 
-    //var eventContent = document.getElementsByClassName("ql-editor");
-    //dataParams.EventContent = eventContent[0].innerHTML;
+    var editor = $("#editor").data("kendoEditor");
+    var eventContent = editor.value();
+    var index = eventContent.indexOf("<!--HtmlHeaderEnd|-->");
+    eventContent = eventContent.substring(0, index);
+    dataParams.EventContent = eventContent;
+     
 
     dataParams.EventSeoLink = $("#EventSeoLink").val();
     dataParams.EventDescription = $("#EventDescription").val();
@@ -52,12 +56,10 @@ function AddEvent() {
     dataParams.EventTags = $("#SeoTags").val();
 
 
-    //if (eventContent[0].innerText === '' || typeof (eventContent[0].innerText) === 'undefined' || eventContent[0].innerText === null) {
-    //    alert("Event Content cannot be null!");
-    //    var element = document.getElementById("editor");
-    //    element.style = "background-color:#ffffff;" + styleCss;
-    //    return;
-    //}
+    if (eventContent === '' || typeof (eventContent) === 'undefined' || eventContent === null) {
+        alert("Event Content cannot be null!");
+        return;
+    }
 
     if (dataParams.EventTitle === '' || typeof (dataParams.EventTitle) === 'undefined' || dataParams.EventTitle === null) {
         alert("Event Title cannot be null!");

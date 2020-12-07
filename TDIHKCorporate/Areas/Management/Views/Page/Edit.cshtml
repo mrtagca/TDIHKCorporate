@@ -17,10 +17,20 @@
         </div>
         <br />
 
-        <div>
-            <h5>Seo Link</h5>
-            <input type="text" class="form-control" id="PageSeoLink" placeholder="Seo Link" value="@Model.PageSeoLink" />
-        </div>
+        @if (Model.PageIdentifier != null)
+        {
+            <div>
+                <h5>Seo Link</h5>
+                <input type="text" class="form-control" id="PageSeoLink" placeholder="Seo Link" value="@Model.PageSeoLink" disabled />
+            </div>
+        }
+        else
+        {
+            <div>
+                <h5>Seo Link</h5>
+                <input type="text" class="form-control" id="PageSeoLink" placeholder="Seo Link" value="@Model.PageSeoLink"/>
+            </div>
+        }
         <br />
 
         @Html.Partial("~/Areas/Management/Views/Partial/_PartialQuillHtmlEditor.cshtml")
@@ -153,12 +163,6 @@
 
         var editor = $("#editor").data("kendoEditor");
 
-        @*@{
-
-            IHtmlString headerHtml = Html.Raw(Html.Partial("~/Views/Partial/_PartialHeader.cshtml"));
-        }
-
-        var header = @Html.Raw(JsonConvert.SerializeObject(headerHtml.ToHtmlString()))*@
 
         var html = @Html.Raw(JsonConvert.SerializeObject(Model.PageContent));
 

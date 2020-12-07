@@ -32,9 +32,7 @@ namespace TDIHKCorporate.Controllers
             string name = cultureInfo.TwoLetterISOLanguageName;
 
             Pages pageItem = page.Get(@"SELECT * FROM Pages (NOLOCK)
-                                            where[Language] = @language and PageIdentifier = @pageIdentifier", new { language = name, pageIdentifier = "Turkey" });
-
-
+                                            where [Language] = @language and PageIdentifier = @pageIdentifier", new { language = name, pageIdentifier = "Turkey" });
             return View(pageItem);
         }
 

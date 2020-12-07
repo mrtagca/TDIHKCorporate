@@ -2345,6 +2345,7 @@
     <Content Include="Content\MainSite\assets\images\uber\okan.png" />
     <Content Include="Content\MainSite\assets\images\uber\president.png" />
     <Content Include="Content\MainSite\assets\images\uber\satzung.png" />
+    <Content Include="Content\MainSite\assets\images\uber\uber-uns-background.png" />
     <Content Include="Content\MainSite\assets\images\uber\vice.png" />
     <Content Include="Content\MainSite\assets\images\slider-2.png" />
     <Content Include="Content\MainSite\assets\images\TD-IHK Logo.svg" />
@@ -2834,6 +2835,8 @@
     <Content Include="Areas\Management\Views\Image\ImageCreate.cshtml" />
     <Content Include="Areas\Management\Views\Slider\SliderList.cshtml" />
     <Content Include="Areas\Management\Views\Page\AddPageCategory.cshtml" />
+    <Content Include="Areas\Management\Views\Event\EventList.cshtml" />
+    <Content Include="Areas\Management\Views\Event\Edit.cshtml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="HTML-1\kalender.html" />
     <Content Include="HTML-1\nachrichten.html" />

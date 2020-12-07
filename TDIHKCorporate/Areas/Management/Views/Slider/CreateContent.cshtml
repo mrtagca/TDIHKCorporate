@@ -11,7 +11,7 @@
 
 <script>
     $(document).ready(function () {
-        GetSliderList('SliderList');
+        GetSliderList('SliderList','SliderWidthHeight');
     });
 </script>
 
@@ -63,7 +63,7 @@ else if (ViewBag.Error != null)
             <br />
 
             <div>
-                <label>@Resources.resource.SliderGorselYukle</label>
+                <label>@Resources.resource.SliderGorselYukle <span id="SliderWidthHeight"></span></label>
                 <br />
                 <input type="file" name="sliderFile" value="" />
             </div>

@@ -1,34 +1,36 @@
-﻿
+﻿@model TDIHKCorporate.Types.Events
+@using Newtonsoft.Json
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Edit";
     Layout = "~/Areas/Management/Views/Shared/_layoutDashboard.cshtml";
 }
+
 <script src="~/Content/Scripts/Event.js"></script>
 
-<script>
+@*<script>
     $(document).ready(function () {
-        GetEventCategories("EventCategories", 'tr');
+        GetEventCategories("EventCategories", '@Model.Language');
     });
-</script>
+</script>*@
 
 
 <div class="row">
     <div class="col-md-9 col-sm-12">
         <div>
             <h5>@Resources.resource.EtkinlikEkle</h5>
-            <input type="text" id="EventTitle" placeholder="@Resources.resource.Baslik" onkeyup="GenerateFriendlyUrl('EventTitle','EventSeoLink')" class="form-control" name="name" value="" />
+            <input type="text" id="EventTitle" placeholder="@Resources.resource.Baslik" onkeyup="GenerateFriendlyUrl('EventTitle','EventSeoLink')" class="form-control" name="name" value="@Model.EventTitle" />
 
             <br />
 
             <div>
                 <h5>Seo Link</h5>
-                <input type="text" class="form-control" id="EventSeoLink" placeholder="Seo Link" value="" />
+                <input type="text" class="form-control" id="EventSeoLink" placeholder="Seo Link" value="@Model.EventSeoLink" />
             </div>
             <br />
 
             <div>
                 <h5>@Resources.resource.EtkinlikAciklamasi</h5>
-                <textarea class="form-control" maxlength="500" placeholder="@Resources.resource.EtkinlikAciklamasi" id="EventDescription"></textarea>
+                <textarea class="form-control" maxlength="500" placeholder="@Resources.resource.EtkinlikAciklamasi" id="EventDescription">@Model.EventDescription</textarea>
             </div>
 
         </div>
@@ -53,12 +55,12 @@
                     <div class="card-body">
                         <div>
                             <label>@Resources.resource.SeoAnahtarKelimeleri</label>
-                            <textarea id="SeoKeywords" class="form-control"></textarea>
+                            <textarea id="SeoKeywords" class="form-control">@Model.EventSeoKeywords</textarea>
                         </div>
 
                         <div>
                             <label>Tags</label>
-                            <textarea id="SeoTags" class="form-control"></textarea>
+                            <textarea id="SeoTags" class="form-control">@Model.EventTags</textarea>
                         </div>
 
                     </div>
@@ -100,16 +102,16 @@
 
                         <div>
                             <label>@Resources.resource.EtkinlikTarihi</label>
-                            <input type="date" class="form-control" id="EventDate" name="name" value="" />
+                            <input type="date" class="form-control" id="EventDate" name="name" value="@Model.EventDate.ToString("yyyy-MM-dd")" />
                             <br />
                             <label>@Resources.resource.EtkinlikSaati</label>
-                            <input type="time" class="form-control" id="EventTime" name="name" value="" />
+                            <input type="time" class="form-control" id="EventTime" name="name" value="@Model.EventTime" />
                             <br />
                             <label>@Resources.resource.EtkinlikKontenjani</label>
-                            <input type="number" class="form-control" id="EventQuota" name="name" value="1" min="1" />
+                            <input type="number" class="form-control" id="EventQuota" name="name" value="@Model.EventQuota" min="1" />
                             <br />
                             <label>@Resources.resource.EtkinlikKritikKontenjan</label>
-                            <input type="number" class="form-control" id="EventCriticalQuota" name="name" value="1" min="1" />
+                            <input type="number" class="form-control" id="EventCriticalQuota" name="name" value="@Model.EventCriticalQuota" min="1" />
                         </div>
 
                     </div>
@@ -120,27 +122,27 @@
 
 
         @*<div id="EventPicture">
-            <div class="card">
+                <div class="card">
 
-                <button class="btn btn-light" data-toggle="collapse" data-target="#collapseEventPicture" aria-expanded="true" aria-controls="collapseEventPicture">
-                    <div class="card-header" id="headingOne">
-                        <h5 class="mb-0">
-                            @Resources.resource.OneCikanGorsel
-                        </h5>
-                    </div>
-                </button>
-
-                <div id="collapseEventPicture" class="collapse show" aria-labelledby="headingOne" data-parent="#EventPicture">
-                    <div class="card-body">
-                        <div>
-                            <a href="#">@Resources.resource.OneCikanGorselBelirle</a>
+                    <button class="btn btn-light" data-toggle="collapse" data-target="#collapseEventPicture" aria-expanded="true" aria-controls="collapseEventPicture">
+                        <div class="card-header" id="headingOne">
+                            <h5 class="mb-0">
+                                @Resources.resource.OneCikanGorsel
+                            </h5>
                         </div>
+                    </button>
 
+                    <div id="collapseEventPicture" class="collapse show" aria-labelledby="headingOne" data-parent="#EventPicture">
+                        <div class="card-body">
+                            <div>
+                                <a href="#">@Resources.resource.OneCikanGorselBelirle</a>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <br />*@
+            <br />*@
 
 
         <div id="PublishTab">
@@ -156,11 +158,11 @@
                 <div id="collapsePublish" class="collapse show" aria-labelledby="headingOne" data-parent="#PublishTab">
                     <div class="card-body">
                         @*<div>
-                            <input type="submit" class="btn btn-outline-primary" name="" value="@Resources.resource.TaslakOlarakKaydet" />
-                            &nbsp;
-                            <input type="submit" class="btn btn-outline-primary" name="" value="@Resources.resource.Onizleme" />
-                        </div>
-                        <br />*@
+                                <input type="submit" class="btn btn-outline-primary" name="" value="@Resources.resource.TaslakOlarakKaydet" />
+                                &nbsp;
+                                <input type="submit" class="btn btn-outline-primary" name="" value="@Resources.resource.Onizleme" />
+                            </div>
+                            <br />*@
                         <div class="col-lg-12">
                             <input id="Publish" onclick="AddEvent()" type="submit" class="btn btn-primary" name="" value=" @Resources.resource.Yayimla" />
                         </div>
@@ -172,10 +174,35 @@
     </div>
 </div>
 
-<script>
-    function GetLanguageCategories()
-    {
+<script> 
+
+
+    $(document).ready(function () {
+
+        GetEventCategories("EventCategories", '@Model.Language');
+
+
+
+
+        var editor = $("#editor").data("kendoEditor");
+
+
+        var html = @Html.Raw(JsonConvert.SerializeObject(Model.EventContent));
+
+        var htmlContent = html;
+        editor.value(htmlContent + editor.value());
+
+
+    });
+
+    @*$(window).on('load', function () {
+        $('#EventCategories').val('@Model.Language');
+        $('#EventLanguage').val('@Model.Language')
+    });*@
+
+    function GetLanguageCategories() {
         var lang = $("#EventLanguage").val();
-        GetEventCategories("EventCategories", lang);
+        
     }
 </script>
+ 
