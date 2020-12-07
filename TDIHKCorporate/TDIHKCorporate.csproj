@@ -2331,6 +2331,12 @@
     <Content Include="Content\MainSite\assets\images\konferenzraum\konferenzraum.png" />
     <Content Include="Content\MainSite\assets\images\konferenzraum\meeting.jpg" />
     <Content Include="Content\MainSite\assets\images\konferenzraum\Picture 1.png" />
+    <Content Include="Content\MainSite\assets\images\mark\BG.png" />
+    <Content Include="Content\MainSite\assets\images\mark\Deutschland.png" />
+    <Content Include="Content\MainSite\assets\images\mark\Förderung &amp; Finanzierung.png" />
+    <Content Include="Content\MainSite\assets\images\mark\kelly-sikkema-3-Tc_5LROrM-unsplash.jpg" />
+    <Content Include="Content\MainSite\assets\images\mark\Musterverträge.png" />
+    <Content Include="Content\MainSite\assets\images\mark\Türkei.png" />
     <Content Include="Content\MainSite\assets\images\Maßnahmen\Maßnahmen-bg.png" />
     <Content Include="Content\MainSite\assets\images\mitgliedschaft-banner.jpg" />
     <Content Include="Content\MainSite\assets\images\Monster.svg" />
@@ -2839,6 +2845,7 @@
     <Content Include="Areas\Management\Views\Event\Edit.cshtml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="HTML-1\kalender.html" />
+    <Content Include="HTML-1\Marktreinritt.html" />
     <Content Include="HTML-1\nachrichten.html" />
     <Content Include="html\aubenhandelsportal.html" />
     <Content Include="Scripts\jquery-1.9.1.js" />
