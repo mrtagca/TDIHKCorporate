@@ -97,6 +97,7 @@ namespace TDIHKCorporate.Areas.Management.Controllers
         [HttpPost]
         public string AddPage(Pages pages)
         {
+
             try
             {
                 DapperRepository<Pages> addPage = new DapperRepository<Pages>();
@@ -106,11 +107,11 @@ namespace TDIHKCorporate.Areas.Management.Controllers
                 pages.CreatedBy = 1;
                 pages.IsActive = true;
 
-                int result = addPage.Execute(@"INSERT INTO Pages([PageCategoryID],[PageImageId],[PageThumbnailPath],[PageTitle],[PageContent],[PageSeoLink],[PageSeoKeywords],[Language],[CreatedDate],[CreatedBy],[IsActive]) values(@PageCategoryID, @PageImageId, @PageThumbnailPath, @PageTitle, @PageContent, @PageSeoLink, @PageSeoKeywords, @Language, @CreatedDate, @CreatedBy,@IsActive)", new
+                int result = addPage.Execute(@"INSERT INTO Pages([PageCategoryID],[PageImagePath],[PageThumbnailPath],[PageTitle],[PageContent],[PageSeoLink],[PageSeoKeywords],[Language],[CreatedDate],[CreatedBy],[IsActive]) values(@PageCategoryID, @PageImagePath, @PageThumbnailPath, @PageTitle, @PageContent, @PageSeoLink, @PageSeoKeywords, @Language, @CreatedDate, @CreatedBy,@IsActive)", new
                 {
 
                     PageCategoryID = pages.PageCategoryID,
-                    PageImageID = "",
+                    PageImagePath= "",
                     PageThumbnailPath = "",
                     PageTitle = pages.PageTitle,
                     PageContent = pages.PageContent,
@@ -153,9 +154,9 @@ namespace TDIHKCorporate.Areas.Management.Controllers
                                             case when (pg.UpdatedBy = usr.UserID) then usr.Username else null end as Updater
 
                                             FROM Pages pg (NOLOCK)
-                                            inner join PageCategories pgc (NOLOCK)
+                                            left join PageCategories pgc (NOLOCK)
                                             on pg.PageCategoryID = pgc.ID
-                                            inner join Users usr
+                                            left join Users usr
                                             on pg.CreatedBy = usr.UserID or pg.UpdatedBy = usr.UserID
                                             ", null).OrderBy(x => x.PageTitle).ToList();
 
