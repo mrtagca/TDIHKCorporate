@@ -101,7 +101,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\MainSite\assets\images\db-bilgileri.png" />
     <Content Include="Content\Admin\css\sb-admin-2.css" />
     <Content Include="Content\Admin\css\sb-admin-2.min.css" />
     <Content Include="Content\Admin\css\sliderDrag.css" />
@@ -2327,6 +2326,7 @@
     <Content Include="Content\MainSite\assets\images\Jahresberichte.png" />
     <Content Include="Content\MainSite\assets\images\Jahresberichte\Jahresberichte.png" />
     <Content Include="Content\MainSite\assets\images\johangebote\banner.png" />
+    <Content Include="Content\MainSite\assets\images\kalender\Highlight picture.png" />
     <Content Include="Content\MainSite\assets\images\konferenzraum\banner.png" />
     <Content Include="Content\MainSite\assets\images\konferenzraum\konferenzraum.png" />
     <Content Include="Content\MainSite\assets\images\konferenzraum\meeting.jpg" />
@@ -2338,13 +2338,14 @@
     <Content Include="Content\MainSite\assets\images\Nachrichten.png" />
     <Content Include="Content\MainSite\assets\images\PremiumMitgliedschaft\PremiumMitgliedschaft-bg.png" />
     <Content Include="Content\MainSite\assets\images\StandardMitgliedschaft\StandardMitgliedschaft-bg.png" />
-    <Content Include="Content\MainSite\assets\images\test\db-bilgileri.png" />
+    <Content Include="Content\MainSite\assets\images\sub-nachrichten\BG.png" />
     <Content Include="Content\MainSite\assets\images\TOBB2B\TOBB2B.png" />
     <Content Include="Content\MainSite\assets\images\turkey.jpg" />
     <Content Include="Content\MainSite\assets\images\uber\nalan.png" />
     <Content Include="Content\MainSite\assets\images\uber\okan.png" />
     <Content Include="Content\MainSite\assets\images\uber\president.png" />
     <Content Include="Content\MainSite\assets\images\uber\satzung.png" />
+    <Content Include="Content\MainSite\assets\images\uber\vice.png" />
     <Content Include="Content\MainSite\assets\images\slider-2.png" />
     <Content Include="Content\MainSite\assets\images\TD-IHK Logo.svg" />
     <Content Include="Content\MainSite\assets\images\tdihk-logo.png" />
@@ -2357,9 +2358,7 @@
     <Content Include="Content\MainSite\assets\images\turkei\turkei-bg.png" />
     <Content Include="Content\MainSite\assets\images\Turkey-icon.png" />
     <Content Include="Content\MainSite\assets\images\Turkish Airlines.svg" />
-    <Content Include="Content\MainSite\assets\images\uber\uber-uns-background.png" />
     <Content Include="Content\MainSite\assets\images\USA-icon.png" />
-    <Content Include="Content\MainSite\assets\images\uber\vice.png" />
     <Content Include="Content\MainSite\assets\images\WichtigeInformationsquellen\WichtigeInformationsquellen.png" />
     <Content Include="Content\MainSite\assets\uikit\.eslintrc.js" />
     <Content Include="Content\MainSite\assets\uikit\.webstorm.js" />
@@ -2834,9 +2833,11 @@
     <Content Include="Areas\Management\Views\Image\ShowSubImageList.cshtml" />
     <Content Include="Areas\Management\Views\Image\ImageCreate.cshtml" />
     <Content Include="Areas\Management\Views\Slider\SliderList.cshtml" />
+    <Content Include="Areas\Management\Views\Page\AddPageCategory.cshtml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="HTML-1\kalender.html" />
     <Content Include="HTML-1\nachrichten.html" />
+    <Content Include="html\aubenhandelsportal.html" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.af-ZA.min.js" />
@@ -3285,6 +3286,7 @@
     <Compile Include="Areas\Management\Controllers\SliderController.cs" />
     <Compile Include="Areas\Management\Controllers\UrlController.cs" />
     <Compile Include="Areas\Management\ManagementAreaRegistration.cs" />
+    <Compile Include="BaseControllers\MultiLanguage\ManagementBaseController.cs" />
     <Compile Include="BaseControllers\MultiLanguage\SiteBaseController.cs" />
     <Compile Include="Controllers\AboutUsController.cs" />
     <Compile Include="Controllers\CovidController.cs" />
@@ -4022,8 +4024,10 @@
     <Folder Include="Areas\Management\Models\" />
     <Folder Include="Areas\Management\Views\Url\" />
     <Folder Include="Content\MainSite\assets\files\" />
+    <Folder Include="Content\MainSite\assets\images\test\" />
     <Folder Include="NewFolder1\" />
     <Folder Include="Views\Image\" />
+    <Folder Include="Views\ManagementBase\" />
     <Folder Include="Views\Slider\" />
   </ItemGroup>
   <ItemGroup>

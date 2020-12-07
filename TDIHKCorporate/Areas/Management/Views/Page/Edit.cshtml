@@ -10,6 +10,7 @@
 
 <div class="row">
     <div class="col-md-9 col-sm-12">
+
         <div>
             <h5>@Resources.resource.SayfaEkle</h5>
             <input type="text" id="PageTitle" placeholder="@Resources.resource.Baslik" onkeyup="GenerateFriendlyUrl('PageTitle','PageSeoLink')" class="form-control" name="name" value="@Model.PageTitle" />
@@ -127,7 +128,7 @@
                         </div>
                         <br />
                         <div>
-                            <input id="Publish" onclick="EditPage()" type="submit" class="btn btn-primary" name="" value=" @Resources.resource.Guncelle" />
+                            <input id="Publish" onclick="EditPage(@Model.PageID)" type="submit" class="btn btn-primary" name="" value=" @Resources.resource.Guncelle" />
                         </div>
 
                     </div>

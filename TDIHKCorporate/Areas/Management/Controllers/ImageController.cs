@@ -14,7 +14,7 @@ using TDIHKCorporate.Types.ComponentTypes;
 
 namespace TDIHKCorporate.Areas.Management.Controllers
 {
-    public class ImageController : SiteBaseController
+    public class ImageController : ManagementBaseController
     {
 
         private const string contentFolderRoot = "~/Content/MainSite/assets";

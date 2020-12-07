@@ -15,7 +15,7 @@ using TDIHKCorporate.Types.ViewTypes;
 
 namespace TDIHKCorporate.Areas.Management.Controllers
 {
-    public class SliderController : SiteBaseController
+    public class SliderController : ManagementBaseController
     {
         public ActionResult SliderList()
         {

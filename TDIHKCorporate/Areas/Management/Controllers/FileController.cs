@@ -13,7 +13,7 @@ using TDIHKCorporate.Types.ComponentTypes;
 
 namespace TDIHKCorporate.Areas.Management.Controllers
 {
-    public class FileController : SiteBaseController
+    public class FileController : ManagementBaseController
     {
         private const string contentFolderRoot = "~/Content/MainSite/assets";
         private const string prettyName = "files/";

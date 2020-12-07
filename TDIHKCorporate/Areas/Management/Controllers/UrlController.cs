@@ -8,7 +8,7 @@ using TDIHKCorporate.Helpers.Extensions;
 
 namespace TDIHKCorporate.Areas.Management.Controllers
 {
-    public class UrlController : SiteBaseController
+    public class UrlController : ManagementBaseController
     {
         [HttpPost]
         public string GenerateFriendlyUrl(string text)

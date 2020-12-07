@@ -15,10 +15,10 @@ namespace TDIHKCorporate.Helpers.Extensions
             if (string.IsNullOrEmpty(url)) return "";
             url = url.ToLower();
             url = url.Trim();
-            if (url.Length > 100)
-            {
-                url = url.Substring(0, 100);
-            }
+            //if (url.Length > 100)
+            //{
+            //    url = url.Substring(0, 100);
+            //}
             
             url = url.Replace("Ä", "a");
             url = url.Replace("ä", "a");

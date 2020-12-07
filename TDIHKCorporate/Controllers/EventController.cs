@@ -36,12 +36,45 @@ namespace TDIHKCorporate.Controllers
 
         public ActionResult LastEvents()
         {
+            
             return View();
         }
 
         public ActionResult Kalender()
         {
-            return View();
+            return View(GetEvents(9));
+        }
+
+        public List<Events> GetEvents(int count)
+        {
+            try
+            {
+                DapperRepository<Events> events = new DapperRepository<Events>();
+                List<Events> eventList = new List<Events>();
+
+                CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+
+                string name = cultureInfo.TwoLetterISOLanguageName;
+
+                if (count > 0)
+                {
+                    eventList = events.GetList(@"select * from [Events]
+                                            where [Language] = @lang
+                                              order by CONVERT(datetime,CONVERT(nvarchar,EventDate)+' '+CONVERT(nvarchar,EventTime)) desc", new { lang = name }).Take(count).ToList();
+                }
+                else
+                {
+                    eventList = events.GetList(@"select * from [Events]
+                                            where [Language] = @lang
+                                              order by CONVERT(datetime,CONVERT(nvarchar,EventDate)+' '+CONVERT(nvarchar,EventTime)) desc", new { lang = name });
+                }
+
+                return eventList;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
         }
     }
 }

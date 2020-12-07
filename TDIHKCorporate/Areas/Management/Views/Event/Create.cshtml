@@ -7,7 +7,7 @@
 
 <script>
     $(document).ready(function () {
-        GetEventCategories("EventCategories");
+        GetEventCategories("EventCategories", 'tr');
     });
 </script>
 
@@ -30,15 +30,10 @@
                 <h5>@Resources.resource.EtkinlikAciklamasi</h5>
                 <textarea class="form-control" maxlength="500" placeholder="@Resources.resource.EtkinlikAciklamasi" id="EventDescription"></textarea>
             </div>
-            
+
         </div>
         <br />
 
-        @Html.Partial("~/Areas/Management/Views/Partial/_PartialQuillHtmlEditor.cshtml")
-
-    </div>
-
-    <div class="col-md-3 col-sm-12">
         <div id="EventFeatures">
             <div class="card">
 
@@ -53,20 +48,23 @@
 
                 <div id="collapseEventFeatures" class="collapse show" aria-labelledby="headingOne" data-parent="#EventFeatures">
                     <div class="card-body">
+
+                        <div>
+                            <label>@Resources.resource.SayfaDili</label>
+                            <select onchange="GetLanguageCategories()" class="form-control" id="EventLanguage">
+                                <option value="tr">TR</option>
+                                <option value="de">DE</option>
+                            </select>
+                        </div>
+                        <br />
+
                         <div>
                             <label>@Resources.resource.KategoriSeciniz</label>
                             <select class="form-control" id="EventCategories">
                             </select>
                         </div>
                         <br />
-                        <div>
-                            <label>@Resources.resource.SayfaDili</label>
-                            <select class="form-control" id="EventLanguage">
-                                <option value="tr">TR</option>
-                                <option value="de">DE</option>
-                            </select>
-                        </div>
-                        <br />
+
                         <div>
                             <label>@Resources.resource.EtkinlikTarihi</label>
                             <input type="date" class="form-control" id="EventDate" name="name" value="" />
@@ -86,6 +84,10 @@
             </div>
         </div>
         <br />
+    </div>
+
+    <div class="col-md-3 col-sm-12">
+
         <div id="EventSeoOptions">
             <div class="card">
 
@@ -104,34 +106,39 @@
                             <textarea id="SeoKeywords" class="form-control"></textarea>
                         </div>
 
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <br />
-        <div id="EventPicture">
-            <div class="card">
-
-                <button class="btn btn-light" data-toggle="collapse" data-target="#collapseEventPicture" aria-expanded="true" aria-controls="collapseEventPicture">
-                    <div class="card-header" id="headingOne">
-                        <h5 class="mb-0">
-                            @Resources.resource.OneCikanGorsel
-                        </h5>
-                    </div>
-                </button>
-
-                <div id="collapseEventPicture" class="collapse show" aria-labelledby="headingOne" data-parent="#EventPicture">
-                    <div class="card-body">
                         <div>
-                            <a href="#">@Resources.resource.OneCikanGorselBelirle</a>
+                            <label>Tags</label>
+                            <textarea id="SeoTags" class="form-control"></textarea>
                         </div>
 
                     </div>
                 </div>
             </div>
         </div>
+
         <br />
+        @*<div id="EventPicture">
+                <div class="card">
+
+                    <button class="btn btn-light" data-toggle="collapse" data-target="#collapseEventPicture" aria-expanded="true" aria-controls="collapseEventPicture">
+                        <div class="card-header" id="headingOne">
+                            <h5 class="mb-0">
+                                @Resources.resource.OneCikanGorsel
+                            </h5>
+                        </div>
+                    </button>
+
+                    <div id="collapseEventPicture" class="collapse show" aria-labelledby="headingOne" data-parent="#EventPicture">
+                        <div class="card-body">
+                            <div>
+                                <a href="#">@Resources.resource.OneCikanGorselBelirle</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />*@
 
 
         <div id="PublishTab">
@@ -146,13 +153,13 @@
 
                 <div id="collapsePublish" class="collapse show" aria-labelledby="headingOne" data-parent="#PublishTab">
                     <div class="card-body">
-                        <div>
-                            <input type="submit" class="btn btn-outline-primary" name="" value="@Resources.resource.TaslakOlarakKaydet" />
-                            &nbsp;
-                            <input type="submit" class="btn btn-outline-primary" name="" value="@Resources.resource.Onizleme" />
-                        </div>
-                        <br />
-                        <div>
+                        @*<div>
+                                <input type="submit" class="btn btn-outline-primary" name="" value="@Resources.resource.TaslakOlarakKaydet" />
+                                &nbsp;
+                                <input type="submit" class="btn btn-outline-primary" name="" value="@Resources.resource.Onizleme" />
+                            </div>
+                            <br />*@
+                        <div class="col-lg-12">
                             <input id="Publish" onclick="AddEvent()" type="submit" class="btn btn-primary" name="" value=" @Resources.resource.Yayimla" />
                         </div>
                     </div>
@@ -163,3 +170,10 @@
     </div>
 </div>
 
+<script>
+    function GetLanguageCategories()
+    {
+        var lang = $("#EventLanguage").val();
+        GetEventCategories("EventCategories", lang);
+    }
+</script>
