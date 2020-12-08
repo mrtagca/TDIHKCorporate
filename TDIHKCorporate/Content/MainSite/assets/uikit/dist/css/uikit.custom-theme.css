@@ -2806,6 +2806,14 @@ select.uk-form-width-xsmall {
 .news-detail-content p {
   font-size: 20px;
 }
+.marktrein-card {
+  padding: 20px;
+}
+@media (min-width: 640px) {
+  .marktrein-card {
+    padding: 40px;
+  }
+}
 .kalender-overlay {
   background-color: rgba(19, 44, 80, 0.6);
   padding: 50px 0 50px 50px !important;
