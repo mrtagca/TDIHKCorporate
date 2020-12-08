@@ -8,11 +8,11 @@
 
 <script src="~/Content/Scripts/Page.js"></script>
 
-<script>
+@*<script>
     $(document).ready(function () {
         GetPageCategories("PageCategories");
     });
-</script>
+</script>*@
 
 
 <div class="row">
@@ -48,12 +48,12 @@
 
                 <div id="collapsePageFeatures" class="collapse show" aria-labelledby="headingOne" data-parent="#PageFeatures">
                     <div class="card-body">
-                        <div>
+                        @*<div>
                             <label>@Resources.resource.KategoriSeciniz</label>
                             <select class="form-control" id="PageCategories">
                             </select>
                         </div>
-                        <br />
+                        <br />*@
                         <div>
                             <label>@Resources.resource.SayfaDili</label>
                             <select class="form-control" id="PageLanguage">
@@ -105,7 +105,7 @@
                 <div id="collapsePagePicture" class="collapse show" aria-labelledby="headingOne" data-parent="#PagePicture">
                     <div class="card-body">
                         <div>
-                            <a href="#">@Resources.resource.OneCikanGorselBelirle</a>
+                            <input type="file" id="PageImage" value="" />
                         </div>
 
                     </div>
@@ -113,9 +113,6 @@
             </div>
         </div>
         <br />
-
-        
-
 
         <div id="PublishTab">
             <div class="card">

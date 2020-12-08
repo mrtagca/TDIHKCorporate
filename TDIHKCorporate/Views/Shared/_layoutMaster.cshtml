@@ -6,7 +6,10 @@
 <!DOCTYPE html>
 
 <html lang="@Session["language"]">
-    @Html.Partial("~/Views/Partial/_PartialHeader.cshtml")
+<head>
+    @*@Html.Partial("~/Views/Partial/_PartialHead.cshtml")*@
+</head>
+@Html.Partial("~/Views/Partial/_PartialHeader.cshtml")
 
 <body>
 
@@ -19,7 +22,7 @@
 
     <script src="~/Content/MainSite/assets/uikit/dist/js/uikit.min.js"></script>
     <script src="~/Content/MainSite/assets/uikit/dist/js/uikit-icons.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
     <script src="~/Scripts/main.js"></script>
 </body>
 
