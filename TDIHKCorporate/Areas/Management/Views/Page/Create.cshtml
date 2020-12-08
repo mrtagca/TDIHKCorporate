@@ -9,10 +9,10 @@
 <script src="~/Content/Scripts/Page.js"></script>
 
 @*<script>
-    $(document).ready(function () {
-        GetPageCategories("PageCategories");
-    });
-</script>*@
+        $(document).ready(function () {
+            GetPageCategories("PageCategories");
+        });
+    </script>*@
 
 
 <div class="row">
@@ -30,7 +30,7 @@
         <br />
 
         @Html.Partial("~/Areas/Management/Views/Partial/_PartialQuillHtmlEditor.cshtml")
-        
+
     </div>
 
     <div class="col-md-3 col-sm-12">
@@ -49,11 +49,11 @@
                 <div id="collapsePageFeatures" class="collapse show" aria-labelledby="headingOne" data-parent="#PageFeatures">
                     <div class="card-body">
                         @*<div>
-                            <label>@Resources.resource.KategoriSeciniz</label>
-                            <select class="form-control" id="PageCategories">
-                            </select>
-                        </div>
-                        <br />*@
+                                <label>@Resources.resource.KategoriSeciniz</label>
+                                <select class="form-control" id="PageCategories">
+                                </select>
+                            </div>
+                            <br />*@
                         <div>
                             <label>@Resources.resource.SayfaDili</label>
                             <select class="form-control" id="PageLanguage">
@@ -129,7 +129,9 @@
                         <div>
                             <input type="submit" class="btn btn-outline-primary" name="" value="@Resources.resource.TaslakOlarakKaydet" />
                             &nbsp;
-                            <input type="submit" class="btn btn-outline-primary" name="" value="@Resources.resource.Onizleme" />
+
+                            <a class="btn btn-outline-primary" href="#" onclick="Preview()">@Resources.resource.Onizleme</a>
+                             
                         </div>
                         <br />
                         <div>
@@ -141,5 +143,28 @@
         </div>
 
     </div>
-    </div>
+</div>
 
+<script>
+    function Preview() {
+
+        debugger
+
+        var editor = $("#editor").data("kendoEditor");
+        var pageContent = editor.value();
+        var index = pageContent.indexOf("<!--HtmlHeaderEnd|-->");
+        pageContent = pageContent.substring(0, index);
+
+        var decodedStringBtoA = pageContent;
+
+        // Encode the String
+        var encodedStringBtoA = window.btoa(decodedStringBtoA);
+         
+        window.open(
+            "/Management/Page/Preview?encodedHtml=" + encodedStringBtoA,
+            '_blank' // <- This is what makes it open in a new window.
+        );
+
+    }
+
+</script>

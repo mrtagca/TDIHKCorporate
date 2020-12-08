@@ -10,6 +10,7 @@ using System.Globalization;
 using Newtonsoft.Json;
 using TDIHKCorporate.Extensions;
 using TDIHKCorporate.Types.ViewTypes;
+using System.Text;
 
 namespace TDIHKCorporate.Areas.Management.Controllers
 {
@@ -210,6 +211,14 @@ namespace TDIHKCorporate.Areas.Management.Controllers
                 ViewBag.Error = "Error:" + ex.Message;
                 return View();
             }
+        }
+
+        public ActionResult Preview(string encodedHtml)
+        {
+            byte[] data = System.Convert.FromBase64String(encodedHtml);
+            string base64Decoded = System.Text.ASCIIEncoding.ASCII.GetString(data);
+            ViewBag.Html = base64Decoded;
+            return View();
         }
     }
 }

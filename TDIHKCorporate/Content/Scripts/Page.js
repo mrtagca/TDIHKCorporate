@@ -36,7 +36,7 @@ function AddPage() {
     var editor = $("#editor").data("kendoEditor");
     var pageContent = editor.value();
     var index = pageContent.indexOf("<!--HtmlHeaderEnd|-->");
-    pageContent = pageContent.substring(0,index);
+    pageContent = pageContent.substring(0, index);
     dataParams.PageContent = pageContent;
 
 
@@ -103,7 +103,7 @@ function AddPage() {
 
 }
 
-function GetPages(dropdownId,languageDropdownId) {
+function GetPages(dropdownId, languageDropdownId) {
 
     var callParams = {
         endPoint: "/Management/Page/GetPages",
@@ -120,7 +120,7 @@ function GetPages(dropdownId,languageDropdownId) {
         debugger
         var dropdown = $("#" + dropdownId);
 
-      
+
 
         $.each(response, function () {
 
@@ -133,7 +133,7 @@ function GetPages(dropdownId,languageDropdownId) {
     });
 }
 
-function EditPage(pageID,pageIdentifier) {
+function EditPage(pageID, pageIdentifier) {
 
     var callParams = {
         endPoint: "/Management/Page/EditPage",
@@ -214,3 +214,4 @@ function EditPage(pageID,pageIdentifier) {
 
 
 }
+ 

@@ -2843,6 +2843,7 @@
     <Content Include="Areas\Management\Views\Page\AddPageCategory.cshtml" />
     <Content Include="Areas\Management\Views\Event\EventList.cshtml" />
     <Content Include="Areas\Management\Views\Event\Edit.cshtml" />
+    <Content Include="Areas\Management\Views\Page\Preview.cshtml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="HTML-1\kalender.html" />
     <Content Include="HTML-1\Marktreinritt.html" />
@@ -3336,6 +3337,7 @@
     <Compile Include="Types\Sliders.cs" />
     <Compile Include="Types\ViewTypes\CreateContentViewModel.cs" />
     <Compile Include="Types\ViewTypes\PageItem.cs" />
+    <Compile Include="Types\ViewTypes\PagePreview.cs" />
     <Compile Include="Types\ViewTypes\UpdateSliderContent.cs" />
   </ItemGroup>
   <ItemGroup>
