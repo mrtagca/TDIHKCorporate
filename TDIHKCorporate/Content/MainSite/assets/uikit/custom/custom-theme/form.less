@@ -9,7 +9,7 @@
 
 @form-height:                                   @global-control-height;
 @form-line-height:                              @form-height;
-@form-padding-horizontal:                       10px;
+@form-padding-horizontal:                       0;
 @form-padding-vertical:                         4px;
 
 @form-background:                               @global-muted-background;
@@ -75,11 +75,11 @@
 @form-icon-color:                               @global-muted-color;
 @form-icon-hover-color:                         @global-color;
 
-@internal-form-select-image:                     "../../images/backgrounds/form-select.svg";
-@internal-form-datalist-image:                   "../../images/backgrounds/form-datalist.svg";
-@internal-form-radio-image:                      "../../images/backgrounds/form-radio.svg";
-@internal-form-checkbox-image:                   "../../images/backgrounds/form-checkbox.svg";
-@internal-form-checkbox-indeterminate-image:     "../../images/backgrounds/form-checkbox-indeterminate.svg";
+@internal-form-select-image:                     "../images/backgrounds/form-select.svg";
+@internal-form-datalist-image:                   "../images/backgrounds/form-datalist.svg";
+@internal-form-radio-image:                      "../images/backgrounds/form-radio.svg";
+@internal-form-checkbox-image:                   "../images/backgrounds/form-checkbox.svg";
+@internal-form-checkbox-indeterminate-image:     "../images/backgrounds/form-checkbox-indeterminate.svg";
 
 //
 // New
@@ -151,6 +151,7 @@
     border: @form-radio-border-width solid @form-radio-border;
     transition: 0.2s ease-in-out;
     transition-property: background-color, border;
+    margin-right: 5px;
 }
 
 .hook-form-radio-focus() { border-color: @form-radio-focus-border; }
