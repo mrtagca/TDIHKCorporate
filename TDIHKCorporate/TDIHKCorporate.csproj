@@ -2830,6 +2830,7 @@
     <Content Include="Content\Scripts\RequestHelper.js" />
     <Content Include="Content\Scripts\Slider.js" />
     <Content Include="Content\Scripts\UrlHelper.js" />
+    <Content Include="Content\Scripts\ValidateHelper.js" />
     <Content Include="Global.asax" />
     <Content Include="Areas\Management\Views\Page\Edit.cshtml" />
     <Content Include="Areas\Management\Views\Page\PageList.cshtml" />
