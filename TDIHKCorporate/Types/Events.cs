@@ -8,7 +8,7 @@ namespace TDIHKCorporate.Types
 {
     public class Events
     {
-        public int ID { get; set; }
+        public int EventID { get; set; }
         public string Language { get; set; }
         public int EventCategoryID { get; set; }
         public string EventImagePath { get; set; }

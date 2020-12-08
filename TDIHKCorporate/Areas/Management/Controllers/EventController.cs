@@ -33,7 +33,6 @@ namespace TDIHKCorporate.Areas.Management.Controllers
         {
             DapperRepository<Events> addPage = new DapperRepository<Events>();
 
-
             var result = addPage.Execute(@"INSERT INTO IHK.dbo.[Events]([Language],EventCategoryID,EventImagePath,EventThumbnailPath,EventTitle,EventDate,EventTime,EventContent,EventSeoLink,EventDescription,EventSeoKeywords,EventTags,EventQuota,EventCriticalQuota,CreatedDate,CreatedBy,IsActive) values (@Language,@EventCategoryID,@EventImagePath,@EventThumbnailPath,@EventTitle,@EventDate,@EventTime,@EventContent,@EventSeoLink,@EventDescription,@EventSeoKeywords,@EventTags,@EventQuota,@EventCriticalQuota,@CreatedDate,@CreatedBy,@IsActive)", new
             {
 
@@ -59,6 +58,21 @@ namespace TDIHKCorporate.Areas.Management.Controllers
             return Newtonsoft.Json.JsonConvert.SerializeObject(true);
         }
 
-       
+        public ActionResult EventList()
+        {
+            DapperRepository<Events> events = new DapperRepository<Events>();
+
+            List<Events> eventList = events.GetList(@"select * from [Events]
+                                            order by CONVERT(datetime,CONVERT(nvarchar,EventDate)+' '+CONVERT(nvarchar,EventTime)) desc", null);
+
+            return View(eventList);
+        }
+
+        public ActionResult Edit(int id)
+        {
+            DapperRepository<Events> events = new DapperRepository<Events>();
+            Events ev = events.Get(@"select * from [Events] where EventID = @id", new { id = id });
+            return View(ev);
+        }
     }
 }

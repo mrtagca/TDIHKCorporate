@@ -1,4 +1,4 @@
-﻿function GetSliderList(dropdownId) {
+﻿function GetSliderList(dropdownId, widthHeightElement) {
     var callParams = {
         endPoint: "../Slider/GetSliderList",
         requestType: "GET"
@@ -13,8 +13,7 @@
 
             var option = document.createElement("option");
             option.value = this.SliderID;
-            option.innerText = this.SliderName+' ('+this.ImageWidth+'x'+this.ImageHeight+')';
-
+            option.innerText = '['+this.Language+'] '+this.SliderName + ' (' + this.ImageWidth + 'x' + this.ImageHeight + ')';
             documentTypeDropdown.append(option);
         });
     });
