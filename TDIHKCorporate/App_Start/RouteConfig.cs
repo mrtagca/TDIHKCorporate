@@ -339,6 +339,21 @@ namespace TDIHKCorporate
                 );
             #endregion
 
+            #region Markteintritt / Marketing
+            routes.MapRoute(
+                    name: "MarkteintrittGerman",
+                    url: "seiten/markteintritt",
+                    defaults: new { controller = "Services", action = "Markteintritt" },
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
+
+            routes.MapRoute(
+                    name: "MarkteintrittTurkey",
+                    url: "sayfalar/marketing",
+                    defaults: new { controller = "Services", action = "Markteintritt" },
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
+            #endregion
 
             #region Sayfalar
             //Sayfalar Almanca Routing
