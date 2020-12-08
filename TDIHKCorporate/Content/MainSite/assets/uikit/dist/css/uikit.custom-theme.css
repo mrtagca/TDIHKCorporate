@@ -1515,7 +1515,7 @@ button.uk-icon:not(:disabled) {
   /* 3 */
   border: 0 none;
   /* 4 */
-  padding: 0 10px;
+  padding: 0 0;
   background: #f8f8f8;
   color: #142C51;
   border: 1px solid #e5e5e5;
@@ -1677,7 +1677,6 @@ select.uk-form-width-xsmall {
   /* 2 */
   padding-right: 20px;
   background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2224%22%20height%3D%2216%22%20viewBox%3D%220%200%2024%2016%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Cpolygon%20fill%3D%22%23142C51%22%20points%3D%2212%201%209%206%2015%206%22%20%2F%3E%0A%20%20%20%20%3Cpolygon%20fill%3D%22%23142C51%22%20points%3D%2212%2013%209%208%2015%208%22%20%2F%3E%0A%3C%2Fsvg%3E%0A");
-  background-image: url("../../images/backgrounds/form-select.svg");
   background-repeat: no-repeat;
   background-position: 100% 50%;
 }
@@ -1694,7 +1693,6 @@ select.uk-form-width-xsmall {
  */
 .uk-select:not([multiple]):not([size]):disabled {
   background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2224%22%20height%3D%2216%22%20viewBox%3D%220%200%2024%2016%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Cpolygon%20fill%3D%22%23999%22%20points%3D%2212%201%209%206%2015%206%22%20%2F%3E%0A%20%20%20%20%3Cpolygon%20fill%3D%22%23999%22%20points%3D%2212%2013%209%208%2015%208%22%20%2F%3E%0A%3C%2Fsvg%3E%0A");
-  background-image: url("../../images/backgrounds/form-select.svg");
 }
 /* Datalist
  ========================================================================== */
@@ -1709,7 +1707,6 @@ select.uk-form-width-xsmall {
 .uk-input[list]:hover,
 .uk-input[list]:focus {
   background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2224%22%20height%3D%2216%22%20viewBox%3D%220%200%2024%2016%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Cpolygon%20fill%3D%22%23142C51%22%20points%3D%2212%2012%208%206%2016%206%22%20%2F%3E%0A%3C%2Fsvg%3E%0A");
-  background-image: url("../../images/backgrounds/form-datalist.svg");
 }
 /* 1 */
 .uk-input[list]::-webkit-calendar-picker-indicator {
@@ -1748,6 +1745,7 @@ select.uk-form-width-xsmall {
   border: 1px solid #cccccc;
   transition: 0.2s ease-in-out;
   transition-property: background-color, border;
+  margin-right: 5px;
 }
 .uk-radio {
   border-radius: 50%;
@@ -1778,15 +1776,12 @@ select.uk-form-width-xsmall {
  */
 .uk-radio:checked {
   background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Ccircle%20fill%3D%22%23fff%22%20cx%3D%228%22%20cy%3D%228%22%20r%3D%222%22%20%2F%3E%0A%3C%2Fsvg%3E");
-  background-image: url("../../images/backgrounds/form-radio.svg");
 }
 .uk-checkbox:checked {
   background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2214%22%20height%3D%2211%22%20viewBox%3D%220%200%2014%2011%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Cpolygon%20fill%3D%22%23fff%22%20points%3D%2212%201%205%207.5%202%205%201%205.5%205%2010%2013%201.5%22%20%2F%3E%0A%3C%2Fsvg%3E%0A");
-  background-image: url("../../images/backgrounds/form-checkbox.svg");
 }
 .uk-checkbox:indeterminate {
   background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Crect%20fill%3D%22%23fff%22%20x%3D%223%22%20y%3D%228%22%20width%3D%2210%22%20height%3D%221%22%20%2F%3E%0A%3C%2Fsvg%3E");
-  background-image: url("../../images/backgrounds/form-checkbox-indeterminate.svg");
 }
 /*
  * Disabled
@@ -1798,15 +1793,12 @@ select.uk-form-width-xsmall {
 }
 .uk-radio:disabled:checked {
   background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Ccircle%20fill%3D%22%23999%22%20cx%3D%228%22%20cy%3D%228%22%20r%3D%222%22%20%2F%3E%0A%3C%2Fsvg%3E");
-  background-image: url("../../images/backgrounds/form-radio.svg");
 }
 .uk-checkbox:disabled:checked {
   background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2214%22%20height%3D%2211%22%20viewBox%3D%220%200%2014%2011%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Cpolygon%20fill%3D%22%23999%22%20points%3D%2212%201%205%207.5%202%205%201%205.5%205%2010%2013%201.5%22%20%2F%3E%0A%3C%2Fsvg%3E%0A");
-  background-image: url("../../images/backgrounds/form-checkbox.svg");
 }
 .uk-checkbox:disabled:indeterminate {
   background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Crect%20fill%3D%22%23999%22%20x%3D%223%22%20y%3D%228%22%20width%3D%2210%22%20height%3D%221%22%20%2F%3E%0A%3C%2Fsvg%3E");
-  background-image: url("../../images/backgrounds/form-checkbox-indeterminate.svg");
 }
 /* Legend
  ========================================================================== */
@@ -2812,6 +2804,63 @@ select.uk-form-width-xsmall {
 @media (min-width: 640px) {
   .marktrein-card {
     padding: 40px;
+  }
+}
+.msa-form {
+  border: 1px solid #585858;
+  border-radius: 5px;
+  padding: 15px 30px 15px 15px !important;
+}
+.msa-form input[type="text"],
+.msa-form input[type="email"],
+.msa-form input[type="tel"] {
+  background: transparent;
+  border: 0;
+  border-bottom: 2px solid #585858;
+  font-size: 16px;
+}
+@media (min-width: 960px) {
+  .msa-form {
+    padding: 50px 100px 50px 60px !important;
+  }
+}
+.label-font-size {
+  font-size: 16px;
+  flex-direction: column;
+}
+@media (min-width: 1200px) {
+  .label-font-size {
+    font-size: 25px;
+    flex-direction: row;
+  }
+}
+.label-font-size label {
+  margin-bottom: 10px;
+}
+.premium-form-btn {
+  color: #c6a32b;
+  border-radius: 4px;
+  border: 2px solid #c6a32b;
+  font-size: 15px;
+  background-color: transparent;
+  padding: 0 5px;
+}
+.premium-form-btn:hover {
+  color: #9c8122;
+  background-color: transparent;
+  border-color: #876f1d;
+}
+@media (min-width: 960px) {
+  .premium-form-btn {
+    font-size: 21px;
+  }
+}
+.contact-infos {
+  flex-direction: column;
+}
+@media (min-width: 960px) {
+  .contact-infos {
+    flex-direction: row;
   }
 }
 .kalender-overlay {
@@ -10529,7 +10578,6 @@ iframe.uk-cover {
 .uk-overlay-primary .uk-select:not([multiple]):not([size]),
 .uk-offcanvas-bar .uk-select:not([multiple]):not([size]) {
   background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2224%22%20height%3D%2216%22%20viewBox%3D%220%200%2024%2016%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Cpolygon%20fill%3D%22rgba%28255,%20255,%20255,%200.7%29%22%20points%3D%2212%201%209%206%2015%206%22%20%2F%3E%0A%20%20%20%20%3Cpolygon%20fill%3D%22rgba%28255,%20255,%20255,%200.7%29%22%20points%3D%2212%2013%209%208%2015%208%22%20%2F%3E%0A%3C%2Fsvg%3E%0A");
-  background-image: url("../../images/backgrounds/form-select.svg");
 }
 .uk-light .uk-input[list]:hover,
 .uk-light .uk-input[list]:focus,
@@ -10546,7 +10594,6 @@ iframe.uk-cover {
 .uk-offcanvas-bar .uk-input[list]:hover,
 .uk-offcanvas-bar .uk-input[list]:focus {
   background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2224%22%20height%3D%2216%22%20viewBox%3D%220%200%2024%2016%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Cpolygon%20fill%3D%22rgba%28255,%20255,%20255,%200.7%29%22%20points%3D%2212%2012%208%206%2016%206%22%20%2F%3E%0A%3C%2Fsvg%3E%0A");
-  background-image: url("../../images/backgrounds/form-datalist.svg");
 }
 .uk-light .uk-radio,
 .uk-light .uk-checkbox,
@@ -10636,7 +10683,6 @@ iframe.uk-cover {
 .uk-overlay-primary .uk-radio:checked,
 .uk-offcanvas-bar .uk-radio:checked {
   background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Ccircle%20fill%3D%22%23142C51%22%20cx%3D%228%22%20cy%3D%228%22%20r%3D%222%22%20%2F%3E%0A%3C%2Fsvg%3E");
-  background-image: url("../../images/backgrounds/form-radio.svg");
 }
 .uk-light .uk-checkbox:checked,
 .uk-section-primary:not(.uk-preserve-color) .uk-checkbox:checked,
@@ -10646,7 +10692,6 @@ iframe.uk-cover {
 .uk-overlay-primary .uk-checkbox:checked,
 .uk-offcanvas-bar .uk-checkbox:checked {
   background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2214%22%20height%3D%2211%22%20viewBox%3D%220%200%2014%2011%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Cpolygon%20fill%3D%22%23142C51%22%20points%3D%2212%201%205%207.5%202%205%201%205.5%205%2010%2013%201.5%22%20%2F%3E%0A%3C%2Fsvg%3E%0A");
-  background-image: url("../../images/backgrounds/form-checkbox.svg");
 }
 .uk-light .uk-checkbox:indeterminate,
 .uk-section-primary:not(.uk-preserve-color) .uk-checkbox:indeterminate,
@@ -10656,7 +10701,6 @@ iframe.uk-cover {
 .uk-overlay-primary .uk-checkbox:indeterminate,
 .uk-offcanvas-bar .uk-checkbox:indeterminate {
   background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Crect%20fill%3D%22%23142C51%22%20x%3D%223%22%20y%3D%228%22%20width%3D%2210%22%20height%3D%221%22%20%2F%3E%0A%3C%2Fsvg%3E");
-  background-image: url("../../images/backgrounds/form-checkbox-indeterminate.svg");
 }
 .uk-light .uk-form-label,
 .uk-section-primary:not(.uk-preserve-color) .uk-form-label,
