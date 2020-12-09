@@ -31,13 +31,12 @@ function AddPage() {
 
     var dataParams = {}
     dataParams.Language = $("#PageLanguage").val();
-    dataParams.PageCategoryID = $("#PageCategories").val();
     dataParams.PageTitle = $("#PageTitle").val();
 
     var editor = $("#editor").data("kendoEditor");
     var pageContent = editor.value();
     var index = pageContent.indexOf("<!--HtmlHeaderEnd|-->");
-    pageContent = pageContent.substring(0,index);
+    pageContent = pageContent.substring(0, index);
     dataParams.PageContent = pageContent;
 
 
@@ -66,12 +65,12 @@ function AddPage() {
         return;
     }
 
-    if (dataParams.PageCategoryID === '' || typeof (dataParams.PageCategoryID) === 'undefined' || dataParams.PageCategoryID === null) {
-        alert("Please select a page category!");
-        var element = document.getElementById("PageCategories");
-        element.style = styleCss;
-        return;
-    }
+    //if (dataParams.PageCategoryID === '' || typeof (dataParams.PageCategoryID) === 'undefined' || dataParams.PageCategoryID === null) {
+    //    alert("Please select a page category!");
+    //    var element = document.getElementById("PageCategories");
+    //    element.style = styleCss;
+    //    return;
+    //}
 
     if (dataParams.PageSeoLink === '' || typeof (dataParams.PageSeoLink) === 'undefined' || dataParams.PageSeoLink === null) {
         alert("Seo link cannot be null!");
@@ -104,7 +103,7 @@ function AddPage() {
 
 }
 
-function GetPages(dropdownId,languageDropdownId) {
+function GetPages(dropdownId, languageDropdownId) {
 
     var callParams = {
         endPoint: "/Management/Page/GetPages",
@@ -121,7 +120,7 @@ function GetPages(dropdownId,languageDropdownId) {
         debugger
         var dropdown = $("#" + dropdownId);
 
-      
+
 
         $.each(response, function () {
 
@@ -134,7 +133,7 @@ function GetPages(dropdownId,languageDropdownId) {
     });
 }
 
-function EditPage(pageID) {
+function EditPage(pageID, pageIdentifier) {
 
     var callParams = {
         endPoint: "/Management/Page/EditPage",
@@ -146,7 +145,7 @@ function EditPage(pageID) {
     var dataParams = {}
     dataParams.PageID = pageID;
     dataParams.Language = $("#PageLanguage").val();
-    dataParams.PageCategoryID = $("#PageCategories").val();
+    //dataParams.PageCategoryID = $("#PageCategories").val();
     dataParams.PageTitle = $("#PageTitle").val();
 
     var editor = $("#editor").data("kendoEditor");
@@ -156,6 +155,7 @@ function EditPage(pageID) {
     dataParams.PageContent = pageContent;
     dataParams.PageSeoLink = $("#PageSeoLink").val();
     dataParams.PageSeoKeywords = $("#SeoKeywords").val();
+    dataParams.PageIdentifier = pageIdentifier;
 
 
     if (pageContent === '' || typeof (pageContent) === 'undefined' || pageContent === null) {
@@ -177,12 +177,12 @@ function EditPage(pageID) {
         return;
     }
 
-    if (dataParams.PageCategoryID === '' || typeof (dataParams.PageCategoryID) === 'undefined' || dataParams.PageCategoryID === null) {
-        alert("Please select a page category!");
-        var element = document.getElementById("PageCategories");
-        element.style = styleCss;
-        return;
-    }
+    //if (dataParams.PageCategoryID === '' || typeof (dataParams.PageCategoryID) === 'undefined' || dataParams.PageCategoryID === null) {
+    //    alert("Please select a page category!");
+    //    var element = document.getElementById("PageCategories");
+    //    element.style = styleCss;
+    //    return;
+    //}
 
     if (dataParams.PageSeoLink === '' || typeof (dataParams.PageSeoLink) === 'undefined' || dataParams.PageSeoLink === null) {
         alert("Seo link cannot be null!");
@@ -214,3 +214,4 @@ function EditPage(pageID) {
 
 
 }
+ 

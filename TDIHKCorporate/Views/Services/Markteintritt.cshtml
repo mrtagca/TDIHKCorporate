@@ -1,8 +1,8 @@
-﻿
+﻿@model TDIHKCorporate.Types.Pages
 @{
     ViewBag.Title = "Markteintritt";
     Layout = "~/Views/Shared/_layoutMaster.cshtml";
 }
 
-<h2>Markteintritt</h2>
-
+@Html.Raw(Model.PageContent)
+@Html.Action("Index", "Newsletter")

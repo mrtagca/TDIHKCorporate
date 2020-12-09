@@ -2331,6 +2331,12 @@
     <Content Include="Content\MainSite\assets\images\konferenzraum\konferenzraum.png" />
     <Content Include="Content\MainSite\assets\images\konferenzraum\meeting.jpg" />
     <Content Include="Content\MainSite\assets\images\konferenzraum\Picture 1.png" />
+    <Content Include="Content\MainSite\assets\images\mark\BG.png" />
+    <Content Include="Content\MainSite\assets\images\mark\Deutschland.png" />
+    <Content Include="Content\MainSite\assets\images\mark\Förderung &amp; Finanzierung.png" />
+    <Content Include="Content\MainSite\assets\images\mark\kelly-sikkema-3-Tc_5LROrM-unsplash.jpg" />
+    <Content Include="Content\MainSite\assets\images\mark\Musterverträge.png" />
+    <Content Include="Content\MainSite\assets\images\mark\Türkei.png" />
     <Content Include="Content\MainSite\assets\images\Maßnahmen\Maßnahmen-bg.png" />
     <Content Include="Content\MainSite\assets\images\mitgliedschaft-banner.jpg" />
     <Content Include="Content\MainSite\assets\images\Monster.svg" />
@@ -2338,6 +2344,9 @@
     <Content Include="Content\MainSite\assets\images\Nachrichten.png" />
     <Content Include="Content\MainSite\assets\images\PremiumMitgliedschaft\PremiumMitgliedschaft-bg.png" />
     <Content Include="Content\MainSite\assets\images\StandardMitgliedschaft\StandardMitgliedschaft-bg.png" />
+    <Content Include="Content\MainSite\assets\images\StandartForm\letter.png" />
+    <Content Include="Content\MainSite\assets\images\StandartForm\pdf-icon.png" />
+    <Content Include="Content\MainSite\assets\images\StandartForm\print.png" />
     <Content Include="Content\MainSite\assets\images\sub-nachrichten\BG.png" />
     <Content Include="Content\MainSite\assets\images\TdIhkPortal\TdIhkPortal-bg.png" />
     <Content Include="Content\MainSite\assets\images\TOBB2B\TOBB2B.png" />
@@ -2822,6 +2831,7 @@
     <Content Include="Content\Scripts\RequestHelper.js" />
     <Content Include="Content\Scripts\Slider.js" />
     <Content Include="Content\Scripts\UrlHelper.js" />
+    <Content Include="Content\Scripts\ValidateHelper.js" />
     <Content Include="Global.asax" />
     <Content Include="Areas\Management\Views\Page\Edit.cshtml" />
     <Content Include="Areas\Management\Views\Page\PageList.cshtml" />
@@ -2838,9 +2848,12 @@
     <Content Include="Areas\Management\Views\Page\AddPageCategory.cshtml" />
     <Content Include="Areas\Management\Views\Event\EventList.cshtml" />
     <Content Include="Areas\Management\Views\Event\Edit.cshtml" />
+    <Content Include="Areas\Management\Views\Page\Preview.cshtml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="HTML-1\kalender.html" />
+    <Content Include="HTML-1\Marktreinritt.html" />
     <Content Include="HTML-1\nachrichten.html" />
+    <Content Include="HTML-1\StandartForm.html" />
     <Content Include="html\aubenhandelsportal.html" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
@@ -3330,6 +3343,7 @@
     <Compile Include="Types\Sliders.cs" />
     <Compile Include="Types\ViewTypes\CreateContentViewModel.cs" />
     <Compile Include="Types\ViewTypes\PageItem.cs" />
+    <Compile Include="Types\ViewTypes\PagePreview.cs" />
     <Compile Include="Types\ViewTypes\UpdateSliderContent.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -4016,6 +4030,7 @@
     <Content Include="Views\AboutUs\Institution.cshtml" />
     <Content Include="Views\Home\_PartialHomePageSlider.cshtml" />
     <Content Include="Views\Publication\NachrichtenDetail.cshtml" />
+    <Content Include="Views\Partial\_PartialHead.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -4031,7 +4046,6 @@
     <Folder Include="Content\MainSite\assets\images\test\" />
     <Folder Include="NewFolder1\" />
     <Folder Include="Views\Image\" />
-    <Folder Include="Views\ManagementBase\" />
     <Folder Include="Views\Slider\" />
   </ItemGroup>
   <ItemGroup>

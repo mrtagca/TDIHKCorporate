@@ -31,13 +31,13 @@ namespace TDIHKCorporate.Controllers
 
         public ActionResult FutureEvents()
         {
-            return View();
+            return View(GetFutureEvents(3));
         }
 
         public ActionResult LastEvents()
         {
             
-            return View();
+            return View(GetLastEvents(8));
         }
 
         public ActionResult Kalender()
@@ -67,6 +67,82 @@ namespace TDIHKCorporate.Controllers
                     eventList = events.GetList(@"select * from [Events]
                                             where [Language] = @lang
                                               order by CONVERT(datetime,CONVERT(nvarchar,EventDate)+' '+CONVERT(nvarchar,EventTime)) desc", new { lang = name });
+                }
+
+                return eventList;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
+        public List<Events> GetLastEvents(int count)
+        {
+            try
+            {
+                DapperRepository<Events> events = new DapperRepository<Events>();
+                List<Events> eventList = new List<Events>();
+
+                CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+
+                string name = cultureInfo.TwoLetterISOLanguageName;
+
+                if (count > 0)
+                {
+                    eventList = events.GetList(@"SELECT  evc.EventCategoryName,ev.* FROM [Events] ev
+inner join EventCategories evc
+on ev.EventCategoryID = evc.ID
+
+where ev.[Language] = @lang and CONVERT(date,EventDate) < CONVERT(date,GETDATE())
+order by CONVERT(datetime,CONVERT(nvarchar,EventDate)+' '+CONVERT(nvarchar,EventTime)) desc", new { lang = name }).Take(count).ToList();
+                }
+                else
+                {
+                    eventList = events.GetList(@"SELECT  evc.EventCategoryName,ev.* FROM [Events] ev
+inner join EventCategories evc
+on ev.EventCategoryID = evc.ID
+
+where ev.[Language] = @lang and CONVERT(date,EventDate) < CONVERT(date,GETDATE())
+order by CONVERT(datetime,CONVERT(nvarchar,EventDate)+' '+CONVERT(nvarchar,EventTime)) desc", new { lang = name });
+                }
+
+                return eventList;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
+        public List<Events> GetFutureEvents(int count)
+        {
+            try
+            {
+                DapperRepository<Events> events = new DapperRepository<Events>();
+                List<Events> eventList = new List<Events>();
+
+                CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+
+                string name = cultureInfo.TwoLetterISOLanguageName;
+
+                if (count > 0)
+                {
+                    eventList = events.GetList(@"SELECT  evc.EventCategoryName,ev.* FROM [Events] ev
+inner join EventCategories evc
+on ev.EventCategoryID = evc.ID
+
+where ev.[Language] = @lang and CONVERT(date,EventDate) >= CONVERT(date,GETDATE())
+order by CONVERT(datetime,CONVERT(nvarchar,EventDate)+' '+CONVERT(nvarchar,EventTime)) desc", new { lang = name }).Take(count).ToList();
+                }
+                else
+                {
+                    eventList = events.GetList(@"SELECT  evc.EventCategoryName,ev.* FROM [Events] ev
+inner join EventCategories evc
+on ev.EventCategoryID = evc.ID
+
+where ev.[Language] = @lang and CONVERT(date,EventDate) >= CONVERT(date,GETDATE())
+order by CONVERT(datetime,CONVERT(nvarchar,EventDate)+' '+CONVERT(nvarchar,EventTime)) desc", new { lang = name });
                 }
 
                 return eventList;
