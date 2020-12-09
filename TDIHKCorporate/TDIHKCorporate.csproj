@@ -2301,6 +2301,7 @@
     <Content Include="Content\MainSite\assets\images\BG.png" />
     <Content Include="Content\MainSite\assets\images\covid\mask.png" />
     <Content Include="Content\MainSite\assets\images\deutschland\deutschland-bg.png" />
+    <Content Include="Content\MainSite\assets\images\deutschland_Markteintritt Deutschland BG.png" />
     <Content Include="Content\MainSite\assets\images\dihk logo footer.svg" />
     <Content Include="Content\MainSite\assets\images\Ein-undAusreisebestimmungen\Ein-undAusreisebestimmungen-bg.png" />
     <Content Include="Content\MainSite\assets\images\events\events-banner.png" />
