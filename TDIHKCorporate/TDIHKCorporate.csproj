@@ -2348,6 +2348,7 @@
     <Content Include="Content\MainSite\assets\images\StandartForm\pdf-icon.png" />
     <Content Include="Content\MainSite\assets\images\StandartForm\print.png" />
     <Content Include="Content\MainSite\assets\images\sub-nachrichten\BG.png" />
+    <Content Include="Content\MainSite\assets\images\TdIhkPortal\TdIhkPortal-bg.png" />
     <Content Include="Content\MainSite\assets\images\TOBB2B\TOBB2B.png" />
     <Content Include="Content\MainSite\assets\images\turkey.jpg" />
     <Content Include="Content\MainSite\assets\images\uber\nalan.png" />
