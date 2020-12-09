@@ -1,6 +1,6 @@
 ﻿function GetSliderList(dropdownId, widthHeightElement) {
     var callParams = {
-        endPoint: "../Slider/GetSliderList",
+        endPoint: "/Management/Slider/GetSliderList",
         requestType: "GET"
     }
 

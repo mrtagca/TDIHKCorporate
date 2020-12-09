@@ -28,7 +28,7 @@
 function AddEvent() {
 
     var callParams = {
-        endPoint: "../Event/AddEvent",
+        endPoint: "/Management/Event/AddEvent",
         requestType: "POST"
     }
 

@@ -1,7 +1,7 @@
 ﻿function GenerateFriendlyUrl(elementId,targetElementId) {
 
         var callParams = {
-            endPoint: "../Url/GenerateFriendlyUrl",
+            endPoint: "/Management/Url/GenerateFriendlyUrl",
             requestType: "POST"
     }
 

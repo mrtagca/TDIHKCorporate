@@ -17,7 +17,7 @@
         </div>
         <br />
 
-        @if (Model.PageIdentifier != null)
+        @*@if (Model.PageIdentifier != null)
         {
             <div>
                 <h5>Seo Link</h5>
@@ -30,7 +30,12 @@
                 <h5>Seo Link</h5>
                 <input type="text" class="form-control" id="PageSeoLink" placeholder="Seo Link" value="@Model.PageSeoLink"/>
             </div>
-        }
+        }*@
+
+        <div>
+            <h5>Seo Link</h5>
+            <input type="text" class="form-control" id="PageSeoLink" placeholder="Seo Link" value="@Model.PageSeoLink" />
+        </div>
         <br />
 
         @Html.Partial("~/Areas/Management/Views/Partial/_PartialQuillHtmlEditor.cshtml")
