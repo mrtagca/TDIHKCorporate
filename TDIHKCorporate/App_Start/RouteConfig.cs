@@ -355,6 +355,22 @@ namespace TDIHKCorporate
                 );
             #endregion
 
+            #region TD IHK Portal 
+            routes.MapRoute(
+                    name: "TDIHKPortalGerman",
+                    url: "seiten/td-ihk-portal",
+                    defaults: new { controller = "Services", action = "TdIhkPortal" },
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
+
+            routes.MapRoute(
+                    name: "TDIHKPortalTurkey",
+                    url: "sayfalar/td-ihk-portal",
+                    defaults: new { controller = "Services", action = "TdIhkPortal" },
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
+            #endregion
+
             #region Sayfalar
             //Sayfalar Almanca Routing
             routes.MapRoute(
