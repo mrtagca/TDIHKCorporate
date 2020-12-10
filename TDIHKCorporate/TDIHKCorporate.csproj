@@ -108,6 +108,7 @@
     <Content Include="Content\Admin\img\td_ihk_logo.jpg" />
     <Content Include="Content\Admin\img\turkey-flag-icon-32.png" />
     <Content Include="Content\Admin\img\undraw_posting_photo.svg" />
+    <Content Include="Content\Admin\js\color-scheme.min.js" />
     <Content Include="Content\Admin\js\demo\chart-area-demo.js" />
     <Content Include="Content\Admin\js\demo\chart-bar-demo.js" />
     <Content Include="Content\Admin\js\demo\chart-pie-demo.js" />
@@ -2852,6 +2853,7 @@
     <Content Include="Areas\Management\Views\Event\EventList.cshtml" />
     <Content Include="Areas\Management\Views\Event\Edit.cshtml" />
     <Content Include="Areas\Management\Views\Page\Preview.cshtml" />
+    <Content Include="Areas\Management\Views\News\AddNewsCategory.cshtml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="HTML-1\kalender.html" />
     <Content Include="HTML-1\Marktreinritt.html" />
@@ -3303,6 +3305,7 @@
     <Compile Include="Areas\Management\Controllers\HomeController.cs" />
     <Compile Include="Areas\Management\Controllers\ImageController.cs" />
     <Compile Include="Areas\Management\Controllers\MenuController.cs" />
+    <Compile Include="Areas\Management\Controllers\NewsController.cs" />
     <Compile Include="Areas\Management\Controllers\PageController.cs" />
     <Compile Include="Areas\Management\Controllers\SliderController.cs" />
     <Compile Include="Areas\Management\Controllers\UrlController.cs" />
@@ -3340,6 +3343,7 @@
     <Compile Include="Types\MenuItems.cs" />
     <Compile Include="Types\MenuItemsByMenuId.cs" />
     <Compile Include="Types\Menus.cs" />
+    <Compile Include="Types\NewsCategory.cs" />
     <Compile Include="Types\NewsletterRegistrations.cs" />
     <Compile Include="Types\PageCategories.cs" />
     <Compile Include="Types\Pages.cs" />

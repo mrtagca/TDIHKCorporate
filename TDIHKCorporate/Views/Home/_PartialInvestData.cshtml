@@ -32,7 +32,7 @@
                                             @{
                                                 if (item.Language == "tr")
                                                 {
-                                                    <a href="/sayfalar/@item.PageSeoLink">@item.MenuName</a>
+                                                    <a href="/tr/sayfalar/@item.PageSeoLink">@item.MenuName</a>
 
                                                     <div class="uk-navbar-dropdown">
                                                         @if (Model.Exists(x => x.ParentMenuItemID == item.ID && x.IsSubMenu == true && x.MenuLevel == 1))
@@ -43,7 +43,7 @@
                                                                 {
 
                                                                     <li class="uk-active">
-                                                                        <a href="/sayfalar/@subMenuItem.PageSeoLink">@subMenuItem.MenuName</a>
+                                                                        <a href="/tr/sayfalar/@subMenuItem.PageSeoLink">@subMenuItem.MenuName</a>
 
                                                                         @if (Model.Exists(x => x.ParentMenuItemID == subMenuItem.ID && x.IsSubMenu == true && x.MenuLevel == 2))
                                                                         {
@@ -52,7 +52,7 @@
                                                                                 {
 
                                                                                     <li class="uk-active">
-                                                                                        <a href="/sayfalar/@subMenuSubItem.PageSeoLink">@subMenuSubItem.MenuName</a>
+                                                                                        <a href="/tr/sayfalar/@subMenuSubItem.PageSeoLink">@subMenuSubItem.MenuName</a>
 
                                                                                     </li>
 
@@ -71,7 +71,7 @@
                                                 }
                                                 else if (item.Language == "de")
                                                 {
-                                                    <a href="/seiten/@item.PageSeoLink">@item.MenuName</a>
+                                                    <a href="/de/seiten/@item.PageSeoLink">@item.MenuName</a>
 
                                                     <div class="uk-navbar-dropdown">
                                                         @if (Model.Exists(x => x.ParentMenuItemID == item.ID && x.IsSubMenu == true && x.MenuLevel == 1))
@@ -82,7 +82,7 @@
                                                                 {
 
                                                                     <li class="uk-active">
-                                                                        <a href="/seiten/@subMenuItem.PageSeoLink">@subMenuItem.MenuName</a>
+                                                                        <a href="/de/seiten/@subMenuItem.PageSeoLink">@subMenuItem.MenuName</a>
 
                                                                         @if (Model.Exists(x => x.ParentMenuItemID == subMenuItem.ID && x.IsSubMenu == true && x.MenuLevel == 2))
                                                                         {
@@ -91,7 +91,7 @@
                                                                                 {
 
                                                                                     <li class="uk-active">
-                                                                                        <a href="/seiten/@subMenuSubItem.PageSeoLink">@subMenuSubItem.MenuName</a>
+                                                                                        <a href="/de/seiten/@subMenuSubItem.PageSeoLink">@subMenuSubItem.MenuName</a>
 
                                                                                     </li>
 
@@ -241,7 +241,7 @@
                             @{
                                 if (item.Language == "tr")
                                 {
-                                    <a href="/sayfalar/@item.PageSeoLink">@item.MenuName</a>
+                                    <a href="/tr/sayfalar/@item.PageSeoLink">@item.MenuName</a>
 
                                     <div class="uk-navbar-dropdown">
                                         @if (Model.Exists(x => x.ParentMenuItemID == item.ID && x.IsSubMenu == true && x.MenuLevel == 1))
@@ -252,7 +252,7 @@
                                                 {
 
                                                     <li class="uk-active">
-                                                        <a href="/sayfalar/@subMenuItem.PageSeoLink">@subMenuItem.MenuName</a>
+                                                        <a href="/tr/sayfalar/@subMenuItem.PageSeoLink">@subMenuItem.MenuName</a>
 
                                                         @if (Model.Exists(x => x.ParentMenuItemID == subMenuItem.ID && x.IsSubMenu == true && x.MenuLevel == 2))
                                                         {
@@ -261,7 +261,7 @@
                                                                 {
 
                                                                     <li class="uk-active">
-                                                                        <a href="/sayfalar/@subMenuSubItem.PageSeoLink">@subMenuSubItem.MenuName</a>
+                                                                        <a href="/tr/sayfalar/@subMenuSubItem.PageSeoLink">@subMenuSubItem.MenuName</a>
 
                                                                     </li>
 
@@ -276,7 +276,7 @@
                                 }
                                 else if (item.Language == "de")
                                 {
-                                    <a href="/seiten/@item.PageSeoLink">@item.MenuName</a>
+                                    <a href="/de/seiten/@item.PageSeoLink">@item.MenuName</a>
 
                                     <div class="uk-navbar-dropdown">
                                         @if (Model.Exists(x => x.ParentMenuItemID == item.ID && x.IsSubMenu == true && x.MenuLevel == 1))
@@ -287,7 +287,7 @@
                                                 {
 
                                                     <li class="uk-active">
-                                                        <a href="/seiten/@subMenuItem.PageSeoLink">@subMenuItem.MenuName</a>
+                                                        <a href="/de/seiten/@subMenuItem.PageSeoLink">@subMenuItem.MenuName</a>
 
                                                         @if (Model.Exists(x => x.ParentMenuItemID == subMenuItem.ID && x.IsSubMenu == true && x.MenuLevel == 2))
                                                         {
@@ -296,7 +296,7 @@
                                                                 {
 
                                                                     <li class="uk-active">
-                                                                        <a href="/seiten/@subMenuSubItem.PageSeoLink">@subMenuSubItem.MenuName</a>
+                                                                        <a href="/de/seiten/@subMenuSubItem.PageSeoLink">@subMenuSubItem.MenuName</a>
 
                                                                     </li>
 
