@@ -371,6 +371,22 @@ namespace TDIHKCorporate
                 );
             #endregion
 
+            #region Coronavirus Nachrichten
+            routes.MapRoute(
+                    name: "CoronaNewsGerman",
+                    url: "seiten/coronavirus-nachrichten",
+                    defaults: new { controller = "Covid", action = "CoronavirusNachrichten" },
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
+
+            routes.MapRoute(
+                    name: "CoronaNewsTurkey",
+                    url: "sayfalar/korona-virus-haberleri",
+                    defaults: new { controller = "Covid", action = "CoronavirusNachrichten" },
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
+            #endregion
+
             #region Sayfalar
             //Sayfalar Almanca Routing
             routes.MapRoute(
