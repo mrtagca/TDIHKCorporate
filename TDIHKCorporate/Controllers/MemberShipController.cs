@@ -12,7 +12,6 @@ namespace TDIHKCorporate.Controllers
 {
     public class MemberShipController : SiteBaseController
     {
-        // GET: MemberShip
         public ActionResult Index()
         {
             DapperRepository<Pages> page = new DapperRepository<Pages>();
@@ -27,6 +26,7 @@ namespace TDIHKCorporate.Controllers
             return View(pageItem);
         }
 
+      
         public ActionResult StandardMitgliedschaft()
         {
             DapperRepository<Pages> page = new DapperRepository<Pages>();

@@ -17,13 +17,53 @@ namespace TDIHKCorporate.Controllers
         {
 
             new SiteLanguage().SetLanguage(language);
-            string controllerName = this.ControllerContext.RouteData.Values["controller"].ToString();
 
             string url = Request.UrlReferrer.ToString();
 
-            return RedirectToAction("Index", "Home");
-            //return Redirect(url);
+            if (url.Contains("seiten") || url.Contains("sayfalar"))
+            {
+                if (language == "tr") //change tr
+                {
+                    string seo = url.Substring(url.LastIndexOf("/") + 1);
+
+                    DapperRepository<Pages> pageRepo = new DapperRepository<Pages>();
+                    Pages page = pageRepo.Get(@"SELECT * FROM [IHK].[dbo].[Pages] (NOLOCK)
+where [Language] = @lang and PageIdentifier in (SELECT top 1 PageIdentifier FROM Pages (NOLOCK) where PageSeoLink = @seoUrl) ", new { lang = language, seoUrl = seo });
+
+
+
+                    return Redirect("https://" + Request.UrlReferrer.Authority + "/" + language + "/sayfalar/" + page.PageSeoLink + "");
+                }
+
+                if (language == "de") //change tr
+                {
+                    string seo = url.Substring(url.LastIndexOf("/") + 1);
+
+                    DapperRepository<Pages> pageRepo = new DapperRepository<Pages>();
+                    Pages page = pageRepo.Get(@"SELECT * FROM [IHK].[dbo].[Pages] (NOLOCK)
+where [Language] = @lang and PageIdentifier in (SELECT top 1 PageIdentifier FROM Pages (NOLOCK) where PageSeoLink = @seoUrl) ", new { lang = language, seoUrl = seo });
+
+
+
+                    return Redirect("https://" + Request.UrlReferrer.Authority + "/" + language + "/seiten/" + page.PageSeoLink + "");
+                }
+            }
+
+            return Redirect("");
         }
+
+        //public ActionResult ChangeLanguage(string language)
+        //{
+
+        //    new SiteLanguage().SetLanguage(language);
+        //    string controllerName = this.ControllerContext.RouteData.Values["controller"].ToString();
+
+        //    string url = Request.UrlReferrer.ToString();
+
+
+        //    return RedirectToAction("Index", "Home");
+
+        //}
 
         // GET: Home
         public ActionResult Index()
@@ -58,13 +98,13 @@ namespace TDIHKCorporate.Controllers
             CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
             string name = cultureInfo.TwoLetterISOLanguageName;
 
-            List<SliderContent> sliderItems =  sliderContent.GetList(@"SELECT sc.* FROM SliderContent sc (NOLOCK) 
+            List<SliderContent> sliderItems = sliderContent.GetList(@"SELECT sc.* FROM SliderContent sc (NOLOCK) 
                                                                         inner join Sliders sl (NOLOCK)
                                                                         on sc.SliderID = sl.SliderID
 
                                                                         where sl.SliderName ='Home Slider' and sl.[Language] = @lang and sc.[Language] = @lang
                                                                         order by SliderPriority", new { lang = name });
-             
+
 
             return PartialView("_PartialHomePageSlider", sliderItems);
         }
