@@ -2542,10 +2542,22 @@ select.uk-form-width-xsmall {
   }
 }
 .podcast-icon svg rect {
-  fill: #CEE1F6;
+  fill: #142C51;
+}
+.podcast-wrapper:first-child {
+  border-top: 2px solid #E7E8E9;
+}
+.podcast-wrapper:last-child {
+  border-bottom: 2px solid #E7E8E9;
+}
+.podcast-wrapper:not(:last-child) {
+  border-bottom: 2px solid #E7E8E9;
 }
 .podcast-wrapper div:not(:last-child) {
   padding-right: 0 !important;
+}
+.podcast-wrapper div {
+  padding: 10px;
 }
 .play-icon path {
   fill: #585858 !important;
