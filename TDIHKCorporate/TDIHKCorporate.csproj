@@ -2344,6 +2344,8 @@
     <Content Include="Content\MainSite\assets\images\Monster.svg" />
     <Content Include="Content\MainSite\assets\images\mustervertrage\mustervertrage-bg.png" />
     <Content Include="Content\MainSite\assets\images\Nachrichten.png" />
+    <Content Include="Content\MainSite\assets\images\Podcast\austin-distel-VCFxt2yT1eQ-unsplash.jpg" />
+    <Content Include="Content\MainSite\assets\images\Podcast\BG.png" />
     <Content Include="Content\MainSite\assets\images\PremiumMitgliedschaft\PremiumMitgliedschaft-bg.png" />
     <Content Include="Content\MainSite\assets\images\StandardMitgliedschaft\StandardMitgliedschaft-bg.png" />
     <Content Include="Content\MainSite\assets\images\StandartForm\letter.png" />
@@ -2860,6 +2862,7 @@
     <Content Include="HTML-1\kalender.html" />
     <Content Include="HTML-1\Marktreinritt.html" />
     <Content Include="HTML-1\nachrichten.html" />
+    <Content Include="HTML-1\podcast.html" />
     <Content Include="HTML-1\StandartForm.html" />
     <Content Include="html\aubenhandelsportal.html" />
     <Content Include="Scripts\jquery-1.9.1.js" />

@@ -221,14 +221,26 @@
     .podcast-icon {
         svg {
             rect {
-                fill: @light-blue;
+                fill: @global-color;
             }
         }
     }
 
     .podcast-wrapper {
+        &:first-child {
+            border-top: 2px solid @light-grey;
+        }
+        &:last-child{
+            border-bottom: 2px solid @light-grey;
+        }
+        &:not(:last-child){
+            border-bottom: 2px solid @light-grey;
+        }
         div:not(:last-child) {
             padding-right: 0 !important;
+        }
+        div{
+            padding: 10px;
         }
     }
 
@@ -561,13 +573,13 @@
         }
     }
 
-    .contact-infos{
+    .contact-infos {
         flex-direction: column;
+
         @media (min-width: @breakpoint-medium) {
             flex-direction: row;
         }
     }
-
     //Kalender
     .kalender-overlay {
         background-color: rgba(19,44,80, 0.6);
