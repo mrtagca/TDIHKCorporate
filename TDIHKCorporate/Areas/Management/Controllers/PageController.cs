@@ -108,11 +108,12 @@ namespace TDIHKCorporate.Areas.Management.Controllers
                 pages.CreatedBy = 1;
                 pages.IsActive = true;
 
-                int result = addPage.Execute(@"INSERT INTO Pages([PageCategoryID],[PageImagePath],[PageThumbnailPath],[PageTitle],[PageContent],[PageSeoLink],[PageSeoKeywords],[Language],[CreatedDate],[CreatedBy],[IsActive]) values(@PageCategoryID, @PageImagePath, @PageThumbnailPath, @PageTitle, @PageContent, @PageSeoLink, @PageSeoKeywords, @Language, @CreatedDate, @CreatedBy,@IsActive)", new
+                int result = addPage.Execute(@"INSERT INTO Pages([PageCategoryID],[PageIdentifier],[PageImagePath],[PageThumbnailPath],[PageTitle],[PageContent],[PageSeoLink],[PageSeoKeywords],[Language],[CreatedDate],[CreatedBy],[IsActive]) values(@PageCategoryID,@PageIdentifier, @PageImagePath, @PageThumbnailPath, @PageTitle, @PageContent, @PageSeoLink, @PageSeoKeywords, @Language, @CreatedDate, @CreatedBy,@IsActive)", new
                 {
 
                     PageCategoryID = pages.PageCategoryID,
-                    PageImagePath= "",
+                    PageIdentifier = pages.PageIdentifier,
+                    PageImagePath = "",
                     PageThumbnailPath = "",
                     PageTitle = pages.PageTitle,
                     PageContent = pages.PageContent,
@@ -219,6 +220,30 @@ namespace TDIHKCorporate.Areas.Management.Controllers
             string base64Decoded = System.Text.ASCIIEncoding.ASCII.GetString(data);
             ViewBag.Html = base64Decoded;
             return View();
+        }
+
+        [HttpPost]
+        public string GetPageIdentifiers(string lang)
+        {
+            DapperRepository<PageIdentifier> getPageIdentifiers = new DapperRepository<PageIdentifier>();
+
+            List<PageIdentifier> result = new List<PageIdentifier>();
+
+            if (lang == "tr")
+            {
+                result = getPageIdentifiers.GetList(@"SELECT distinct CreatedDate,PageIdentifier as IdentifierName,PageTitle FROM Pages (NOLOCK)
+where [Language] = @lang
+order by CreatedDate desc", new { lang = "de" });
+            }
+            else if (lang == "de")
+            {
+                result = getPageIdentifiers.GetList(@"SELECT distinct CreatedDate,PageIdentifier as IdentifierName,PageTitle FROM Pages (NOLOCK)
+where [Language] = @lang
+order by CreatedDate desc", new { lang = "tr" });
+            }
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(result);
+
         }
     }
 }

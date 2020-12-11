@@ -13,4 +13,16 @@
 </head>
 
 
-@Html.Raw(Model.PageContent)
+@if (Model.PageContent.StartsWith("<main>"))
+{
+    @Html.Raw(Model.PageContent)
+}
+else
+{
+    <main class="uk-container">
+        @Html.Raw(Model.PageContent)
+    </main>
+}
+
+
+

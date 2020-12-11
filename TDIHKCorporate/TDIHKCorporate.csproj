@@ -3347,6 +3347,7 @@
     <Compile Include="Types\SliderContent.cs" />
     <Compile Include="Types\Sliders.cs" />
     <Compile Include="Types\ViewTypes\CreateContentViewModel.cs" />
+    <Compile Include="Types\ViewTypes\PageIdentifier.cs" />
     <Compile Include="Types\ViewTypes\PageItem.cs" />
     <Compile Include="Types\ViewTypes\PagePreview.cs" />
     <Compile Include="Types\ViewTypes\UpdateSliderContent.cs" />

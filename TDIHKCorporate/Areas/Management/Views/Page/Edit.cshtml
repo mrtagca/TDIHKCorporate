@@ -17,20 +17,6 @@
         </div>
         <br />
 
-        @*@if (Model.PageIdentifier != null)
-        {
-            <div>
-                <h5>Seo Link</h5>
-                <input type="text" class="form-control" id="PageSeoLink" placeholder="Seo Link" value="@Model.PageSeoLink" disabled />
-            </div>
-        }
-        else
-        {
-            <div>
-                <h5>Seo Link</h5>
-                <input type="text" class="form-control" id="PageSeoLink" placeholder="Seo Link" value="@Model.PageSeoLink"/>
-            </div>
-        }*@
 
         <div>
             <h5>Seo Link</h5>
@@ -65,12 +51,22 @@
                         <br />
                         <div>
                             <label>@Resources.resource.SayfaDili</label>
-                            <select class="form-control" id="PageLanguage">
+                            <select class="form-control" onchange="GetLanguageToIdentifiers()" id="PageLanguage">
                                 <option value="tr">TR</option>
                                 <option value="de">DE</option>
                             </select>
                         </div>
-
+                        <br />
+                        <div>
+                            <label>Page Identifier</label>
+                            <input type="text" class="form-control" id="PageIdentifierTxt" placeholder="Enter Identifier" value="" />
+                        </div>
+                        <br />
+                        <div>
+                            <label><input type="checkbox" onchange="DisableIdentifierInputs()" id="IdentifierCheckbox" name="name" value="" /> Select Identifier</label>
+                            <select class="form-control" id="PageIdentifierDropdown" disabled="disabled">
+                            </select>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -159,12 +155,13 @@
 <script>
 
 
+
     $(document).ready(function () {
 
         GetPageCategories("PageCategories");
 
-       
 
+        GetPageIdentifier('PageIdentifierDropdown', '@Model.Language');
 
         var editor = $("#editor").data("kendoEditor");
 
@@ -180,7 +177,33 @@
     $(window).on('load', function () {
         $('#PageCategories').val('@Model.PageCategoryID');
         $('#PageLanguage').val('@Model.Language')
+
+        $('#PageIdentifierDropdown').val('@Model.PageIdentifier')
     })
+
+
+    function DisableIdentifierInputs() {
+        debugger
+        var element = document.getElementById("IdentifierCheckbox")
+        var dropdown = document.getElementById("PageIdentifierDropdown");
+        var txt = document.getElementById("PageIdentifierTxt");
+
+        if (element.checked === true) {
+
+            txt.setAttribute("disabled", "disabled");
+            dropdown.removeAttribute("disabled");
+        }
+        else {
+            dropdown.setAttribute("disabled", "disabled");
+            txt.removeAttribute("disabled");
+        }
+    }
+
+    function GetLanguageToIdentifiers() {
+        var lang = $("#PageLanguage").val();
+
+        GetPageIdentifier("PageIdentifierDropdown", lang);
+    }
 </script>
 
 

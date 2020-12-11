@@ -8,11 +8,11 @@
 
 <script src="~/Content/Scripts/Page.js"></script>
 
-@*<script>
-        $(document).ready(function () {
-            GetPageCategories("PageCategories");
-        });
-    </script>*@
+<script>
+    $(document).ready(function () {
+        GetPageIdentifier("PageIdentifierDropdown", "tr");
+    });
+</script>
 
 
 <div class="row">
@@ -56,9 +56,20 @@
                             <br />*@
                         <div>
                             <label>@Resources.resource.SayfaDili</label>
-                            <select class="form-control" id="PageLanguage">
+                            <select class="form-control" onchange="GetLanguageToIdentifiers()" id="PageLanguage">
                                 <option value="tr">TR</option>
                                 <option value="de">DE</option>
+                            </select>
+                        </div>
+                        <br />
+                        <div>
+                            <label>Page Identifier</label>
+                            <input type="text" class="form-control" id="PageIdentifierTxt" placeholder="Enter Identifier" value="" />
+                        </div>
+                        <br />
+                        <div>
+                            <label><input type="checkbox" onchange="DisableIdentifierInputs()" id="IdentifierCheckbox" name="name" value="" /> Select Identifier</label>
+                            <select class="form-control" id="PageIdentifierDropdown" disabled="disabled">
                             </select>
                         </div>
 
@@ -131,7 +142,7 @@
                             &nbsp;
 
                             <a class="btn btn-outline-primary" href="#" onclick="Preview()">@Resources.resource.Onizleme</a>
-                             
+
                         </div>
                         <br />
                         <div>
@@ -159,12 +170,36 @@
 
         // Encode the String
         var encodedStringBtoA = window.btoa(decodedStringBtoA);
-         
+
         window.open(
             "/Management/Page/Preview?encodedHtml=" + encodedStringBtoA,
             '_blank' // <- This is what makes it open in a new window.
         );
 
+    }
+
+    function DisableIdentifierInputs() {
+        debugger
+        var element = document.getElementById("IdentifierCheckbox")
+        var dropdown = document.getElementById("PageIdentifierDropdown");
+        var txt = document.getElementById("PageIdentifierTxt");
+
+        if (element.checked === true) {
+
+            txt.setAttribute("disabled", "disabled");
+            dropdown.removeAttribute("disabled");
+        }
+        else {
+            dropdown.setAttribute("disabled", "disabled");
+            txt.removeAttribute("disabled");
+        }
+    }
+
+    function GetLanguageToIdentifiers()
+    {
+        var lang = $("#PageLanguage").val();
+
+        GetPageIdentifier("PageIdentifierDropdown", lang);
     }
 
 </script>

@@ -39,11 +39,19 @@ function AddPage() {
     pageContent = pageContent.substring(0, index);
     dataParams.PageContent = pageContent;
 
-
-
-
     dataParams.PageSeoLink = $("#PageSeoLink").val();
     dataParams.PageSeoKeywords = $("#SeoKeywords").val();
+
+    var identifierElement = document.getElementById("IdentifierCheckbox");
+
+    if (identifierElement.checked === true)
+    {
+        dataParams.PageIdentifier = $("#PageIdentifierDropdown").val();
+    }
+    else
+    {
+        dataParams.PageIdentifier = $("#PageIdentifierTxt").val();
+    }
 
 
     if (pageContent === '' || typeof (pageContent) === 'undefined' || pageContent === null) {
@@ -62,6 +70,11 @@ function AddPage() {
         alert("Please select a language!");
         var element = document.getElementById("PageLanguage");
         element.style = styleCss;
+        return;
+    }
+
+    if (dataParams.PageIdentifier === '' || typeof (dataParams.PageIdentifier) === 'undefined' || dataParams.PageIdentifier === null) {
+        alert("Please select or enter Identifier!");
         return;
     }
 
@@ -155,7 +168,16 @@ function EditPage(pageID, pageIdentifier) {
     dataParams.PageContent = pageContent;
     dataParams.PageSeoLink = $("#PageSeoLink").val();
     dataParams.PageSeoKeywords = $("#SeoKeywords").val();
-    dataParams.PageIdentifier = pageIdentifier;
+
+
+    var identifierElement = document.getElementById("IdentifierCheckbox");
+
+    if (identifierElement.checked === true) {
+        dataParams.PageIdentifier = $("#PageIdentifierDropdown").val();
+    }
+    else {
+        dataParams.PageIdentifier = $("#PageIdentifierTxt").val();
+    }
 
 
     if (pageContent === '' || typeof (pageContent) === 'undefined' || pageContent === null) {
@@ -174,6 +196,11 @@ function EditPage(pageID, pageIdentifier) {
         alert("Please select a language!");
         var element = document.getElementById("PageLanguage");
         element.style = styleCss;
+        return;
+    }
+
+    if (dataParams.PageIdentifier === '' || typeof (dataParams.PageIdentifier) === 'undefined' || dataParams.PageIdentifier === null) {
+        alert("Please select or enter Identifier!");
         return;
     }
 
@@ -214,4 +241,33 @@ function EditPage(pageID, pageIdentifier) {
 
 
 }
- 
+
+
+function GetPageIdentifier(identifierDropdown, lang) {
+    var callParams = {
+        endPoint: "/Management/Page/GetPageIdentifiers",
+        requestType: "POST"
+    }
+
+    dataParams = {};
+    dataParams.lang = lang;
+
+    RequestAjax(callParams, dataParams, function (response) {
+        response = JSON.parse(response);
+
+        $("#" + identifierDropdown).html("");
+
+        var identifyDropdown = $("#" + identifierDropdown);
+
+        $.each(response, function () {
+
+            var option = document.createElement("option");
+            option.value = this.IdentifierName;
+            option.innerText = this.PageTitle;
+
+            identifyDropdown.append(option);
+        });
+    });
+}
+
+
