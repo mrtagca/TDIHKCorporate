@@ -2544,14 +2544,13 @@ select.uk-form-width-xsmall {
 .podcast-icon svg rect {
   fill: #142C51;
 }
-.podcast-wrapper:first-child {
-  border-top: 2px solid #E7E8E9;
-}
 .podcast-wrapper:last-child {
+  border-top: 2px solid #E7E8E9;
   border-bottom: 2px solid #E7E8E9;
+  margin-top: 0;
 }
 .podcast-wrapper:not(:last-child) {
-  border-bottom: 2px solid #E7E8E9;
+  border-top: 2px solid #E7E8E9;
 }
 .podcast-wrapper div:not(:last-child) {
   padding-right: 0 !important;
@@ -11036,8 +11035,8 @@ iframe.uk-cover {
 .uk-tile-secondary:not(.uk-preserve-color) .uk-badge,
 .uk-overlay-primary .uk-badge,
 .uk-offcanvas-bar .uk-badge {
-  background-color: #fff;
-  color: #142C51;
+  background-color: #132C50;
+  color: #fff;
 }
 .uk-light .uk-badge:hover,
 .uk-light .uk-badge:focus,
