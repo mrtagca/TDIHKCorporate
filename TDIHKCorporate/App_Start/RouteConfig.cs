@@ -407,7 +407,7 @@ namespace TDIHKCorporate
             #region Etkinliklerimiz / Veranstaltungen
             routes.MapRoute(
                        name: "EventsGerman",
-                       url: "{lang}/seiten/veranstaltungen",
+                       url: "{lang}/seiten/events",
                        defaults: new { controller = "Event", action = "Index", lang = language },
                     new[] { "TDIHKCorporate.Controllers" }
                    );
