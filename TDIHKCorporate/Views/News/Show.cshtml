@@ -1,0 +1,28 @@
+﻿@model TDIHKCorporate.Types.News
+
+@{
+    ViewBag.Title = "Show";
+    Layout = "~/Views/Shared/_layoutMaster.cshtml";
+}
+
+<head>
+    <meta name="description" content="@Model.NewsTitle">
+    <meta name="keywords" content="@Model.NewsSeoKeywords">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+
+@if (Model.NewsContent.StartsWith("<main>"))
+{
+    @Html.Raw(Model.NewsContent)
+}
+else
+{
+    <main class="uk-container">
+        @Html.Raw(Model.NewsContent)
+    </main>
+}
+
+
+
+

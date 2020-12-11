@@ -20,7 +20,7 @@ namespace TDIHKCorporate.Controllers
 
             string url = Request.UrlReferrer.ToString();
 
-            if (url.Contains("seiten") || url.Contains("sayfalar"))
+            if (url.Contains("seiten/") || url.Contains("sayfalar/"))
             {
                 if (language == "tr") //change tr
                 {
@@ -46,6 +46,35 @@ where [Language] = @lang and PageIdentifier in (SELECT top 1 PageIdentifier FROM
 
 
                     return Redirect("https://" + Request.UrlReferrer.Authority + "/" + language + "/seiten/" + page.PageSeoLink + "");
+                }
+            }
+
+            if (url.Contains("nachrichten/") || url.Contains("haberler/"))
+            {
+                if (language == "tr") //change tr
+                {
+                    string seo = url.Substring(url.LastIndexOf("/") + 1);
+
+                    DapperRepository<News> newsRepo = new DapperRepository<News>();
+                    News news = newsRepo.Get(@"SELECT * FROM  News (NOLOCK)
+where [Language] = @lang and NewsIdentifier in (SELECT top 1 NewsIdentifier FROM News (NOLOCK) where NewsSeoLink = @seoUrl) ", new { lang = language, seoUrl = seo });
+
+
+
+                    return Redirect("https://" + Request.UrlReferrer.Authority + "/" + language + "/haberler/" + news.NewsSeoLink+ "");
+                }
+
+                if (language == "de") //change tr
+                {
+                    string seo = url.Substring(url.LastIndexOf("/") + 1);
+
+                    DapperRepository<News> newsRepo = new DapperRepository<News>();
+                    News news = newsRepo.Get(@"SELECT * FROM  News (NOLOCK)
+where [Language] = @lang and NewsIdentifier in (SELECT top 1 NewsIdentifier FROM News (NOLOCK) where NewsSeoLink = @seoUrl) ", new { lang = language, seoUrl = seo });
+
+
+
+                    return Redirect("https://" + Request.UrlReferrer.Authority + "/" + language + "/nachrichten/" + news.NewsSeoLink+ "");
                 }
             }
 

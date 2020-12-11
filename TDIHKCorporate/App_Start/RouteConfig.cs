@@ -420,6 +420,25 @@ namespace TDIHKCorporate
                   );
             #endregion
 
+            #region Haberler
+            //Sayfalar Almanca Routing
+            routes.MapRoute(
+                   name: "NewsGerman",
+                   url: "{lang}/nachrichten/{seolink}",
+                   defaults: new { controller = "News", action = "Show", lang = language },
+                   new[] { "TDIHKCorporate.Controllers" }
+               );
+
+
+            //Sayfalar Türkçe Routing
+            routes.MapRoute(
+                   name: "NewsTurkish",
+                   url: "{lang}/haberler/{seoLink}",
+                   defaults: new { controller = "News", action = "Show", seoLink = UrlParameter.Optional, lang = language },
+                new[] { "TDIHKCorporate.Controllers" }
+               );
+            #endregion
+
             #region Sayfalar
             //Sayfalar Almanca Routing
             routes.MapRoute(
