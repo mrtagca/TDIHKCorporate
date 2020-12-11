@@ -78,7 +78,7 @@ where [Language] = @lang and NewsIdentifier in (SELECT top 1 NewsIdentifier FROM
                 }
             }
 
-            return Redirect("");
+            return Redirect(Request.UrlReferrer.ToString());
         }
 
         //public ActionResult ChangeLanguage(string language)
