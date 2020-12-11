@@ -276,6 +276,33 @@ namespace TDIHKCorporate.Areas.Management.Controllers
             throw new HttpException(403, "Forbidden");
         }
 
+        [HttpPost]
+        public virtual string ImageBrowserUploadForNews(string path, HttpPostedFileBase file)
+        {
+
+            file = Request.Files[0];
+            path = NormalizePath(path);
+            var fileName = Path.GetFileName(file.FileName);
+
+            if (AuthorizeUpload(path, file))
+            {
+                file.SaveAs(Path.Combine(Server.MapPath(path), fileName));
+
+                //return Json(new
+                //{
+                //    size = file.ContentLength,
+                //    name = fileName,
+                //    type = "f"
+                //}, "text/plain");
+
+                string pathNewsImageFile = Path.Combine(Server.MapPath(path), fileName);
+
+                return path+fileName;
+            }
+
+            throw new HttpException(403, "Forbidden");
+        }
+
         public virtual bool AuthorizeUpload(string path, HttpPostedFileBase file)
         {
             return CanAccess(path) && IsValidFile(file.FileName);

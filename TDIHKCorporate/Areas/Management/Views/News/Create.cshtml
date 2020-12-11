@@ -4,7 +4,8 @@
     ViewBag.Title = "Create";
     Layout = "~/Areas/Management/Views/Shared/_layoutDashboard.cshtml";
 }
-
+<link href="~/Content/Admin/plugins/uploadify/css/uploadify.css" rel="stylesheet" />
+<script src="~/Content/Admin/plugins/uploadify/js/jquery.uploadify.js"></script>
 <script src="~/Content/Scripts/News.js"></script>
 
 <script>
@@ -13,6 +14,8 @@
         GetNewsCategories("NewsCategories");
     });
 </script>
+
+
 
 
 <div class="row">
@@ -49,11 +52,11 @@
                 <div id="collapseNewsFeatures" class="collapse show" aria-labelledby="headingOne" data-parent="#NewsFeatures">
                     <div class="card-body">
                         <div>
-                                <label>@Resources.resource.KategoriSeciniz</label>
-                                <select class="form-control" id="NewsCategories">
-                                </select>
-                            </div>
-                            <br />
+                            <label>@Resources.resource.KategoriSeciniz</label>
+                            <select class="form-control" id="NewsCategories">
+                            </select>
+                        </div>
+                        <br />
                         <div>
                             <label>@Resources.resource.SayfaDili</label>
                             <select class="form-control" onchange="GetLanguageToIdentifiers()" id="NewsLanguage">
@@ -116,7 +119,7 @@
                 <div id="collapseNewsPicture" class="collapse show" aria-labelledby="headingOne" data-parent="#NewsPicture">
                     <div class="card-body">
                         <div>
-                            <input type="file" id="NewsImage" value="" />
+                            <input type="file" id="NewsImage" image-path="" value="" />
                         </div>
 
                     </div>
@@ -179,7 +182,7 @@
     }
 
     function DisableIdentifierInputs() {
-        
+
         var element = document.getElementById("IdentifierCheckbox")
         var dropdown = document.getElementById("NewsIdentifierDropdown");
         var txt = document.getElementById("NewsIdentifierTxt");
@@ -204,3 +207,38 @@
 
 </script>
 
+<script type="text/javascript">
+    $('#NewsImage').change(function (event) {
+        if (window.FormData !== undefined) {
+
+            var fileUpload = $("#NewsImage").get(0);
+            var files = fileUpload.files;
+
+            // Create FormData object  
+            var fileData = new FormData();
+
+            // Looping over all files and add it to FormData object  
+            for (var i = 0; i < files.length; i++) {
+                fileData.append(files[i].name, files[i]);
+            }
+
+
+            $.ajax({
+                url: '/Management/Image/ImageBrowserUploadForNews',
+                type: "POST",
+                contentType: false, // Not to set any content header  
+                processData: false, // Not to process data  
+                data: fileData,
+                success: function (result) {
+                    debugger
+                    $("#NewsImage").attr("image-path", result);
+                },
+                error: function (err) {
+                    alert(err.statusText);
+                }
+            });
+        } else {
+            alert("FormData is not supported.");
+        }  
+    });
+</script>
