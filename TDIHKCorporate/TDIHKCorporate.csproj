@@ -2829,6 +2829,7 @@
     <Content Include="Content\quill\js\quill.min.js" />
     <Content Include="Content\Scripts\Event.js" />
     <Content Include="Content\Scripts\Menu.js" />
+    <Content Include="Content\Scripts\News.js" />
     <Content Include="Content\Scripts\Page.js" />
     <Content Include="Content\Scripts\RequestHelper.js" />
     <Content Include="Content\Scripts\Slider.js" />
@@ -2852,6 +2853,9 @@
     <Content Include="Areas\Management\Views\Event\Edit.cshtml" />
     <Content Include="Areas\Management\Views\Page\Preview.cshtml" />
     <Content Include="Areas\Management\Views\News\AddNewsCategory.cshtml" />
+    <Content Include="Areas\Management\Views\News\Create.cshtml" />
+    <Content Include="Areas\Management\Views\News\Edit.cshtml" />
+    <Content Include="Areas\Management\Views\News\NewsList.cshtml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="HTML-1\kalender.html" />
     <Content Include="HTML-1\Marktreinritt.html" />
@@ -3340,6 +3344,7 @@
     <Compile Include="Types\MenuItems.cs" />
     <Compile Include="Types\MenuItemsByMenuId.cs" />
     <Compile Include="Types\Menus.cs" />
+    <Compile Include="Types\News.cs" />
     <Compile Include="Types\NewsCategories.cs" />
     <Compile Include="Types\NewsCategory.cs" />
     <Compile Include="Types\NewsletterRegistrations.cs" />
@@ -3348,6 +3353,8 @@
     <Compile Include="Types\SliderContent.cs" />
     <Compile Include="Types\Sliders.cs" />
     <Compile Include="Types\ViewTypes\CreateContentViewModel.cs" />
+    <Compile Include="Types\ViewTypes\NewsIdentifier.cs" />
+    <Compile Include="Types\ViewTypes\NewsItem.cs" />
     <Compile Include="Types\ViewTypes\PageIdentifier.cs" />
     <Compile Include="Types\ViewTypes\PageItem.cs" />
     <Compile Include="Types\ViewTypes\PagePreview.cs" />

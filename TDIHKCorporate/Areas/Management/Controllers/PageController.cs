@@ -78,18 +78,11 @@ namespace TDIHKCorporate.Areas.Management.Controllers
         }
 
         [HttpGet]
-        public string GetPageCategories()
+        public string GetPageCategories(string Language)
         {
             DapperRepository<PageCategories> getPageCategories = new DapperRepository<PageCategories>();
 
-            CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
-
-            string name = cultureInfo.TwoLetterISOLanguageName;
-
-            //var result = getPageCategories.GetList(@"SELECT * FROM [IHK].[dbo].[PageCategories] (NOLOCK)
-            //                            WHERE [Language] = @lang", new { lang = name }).OrderBy(x => x.PageCategoryName);
-
-            var result = getPageCategories.GetList(@"SELECT * FROM [IHK].[dbo].[PageCategories] (NOLOCK)", null).OrderBy(x => x.PageCategoryName);
+            var result = getPageCategories.GetList(@"SELECT * FROM [IHK].[dbo].[PageCategories] (NOLOCK) where [Language]=@lang", new { lang=Language}).OrderBy(x => x.PageCategoryName);
 
             return Newtonsoft.Json.JsonConvert.SerializeObject(result);
 

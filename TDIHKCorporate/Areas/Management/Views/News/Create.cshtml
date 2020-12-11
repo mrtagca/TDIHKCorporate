@@ -1,0 +1,206 @@
+﻿@model TDIHKCorporate.Types.News
+@using Newtonsoft.Json
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Management/Views/Shared/_layoutDashboard.cshtml";
+}
+
+<script src="~/Content/Scripts/News.js"></script>
+
+<script>
+    $(document).ready(function () {
+        GetNewsIdentifier("NewsIdentifierDropdown", "tr");
+        GetNewsCategories("NewsCategories");
+    });
+</script>
+
+
+<div class="row">
+    <div class="col-md-9 col-sm-12">
+        <div>
+            <h5>Haber Ekle</h5>
+            <input type="text" id="NewsTitle" placeholder="@Resources.resource.Baslik" onkeyup="GenerateFriendlyUrl('NewsTitle','NewsSeoLink')" class="form-control" name="name" value="" />
+        </div>
+        <br />
+
+        <div>
+            <h5>Seo Link</h5>
+            <input type="text" class="form-control" id="NewsSeoLink" placeholder="Seo Link" value="" />
+        </div>
+        <br />
+
+        @Html.Partial("~/Areas/Management/Views/Partial/_PartialQuillHtmlEditor.cshtml")
+
+    </div>
+
+    <div class="col-md-3 col-sm-12">
+        <div id="NewsFeatures">
+            <div class="card">
+
+                <button class="btn btn-light" data-toggle="collapse" data-target="#collapseNewsFeatures" aria-expanded="true" aria-controls="collapseNewsFeatures">
+                    <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                            @Resources.resource.SayfaOzellikleri
+                        </h5>
+
+                    </div>
+                </button>
+
+                <div id="collapseNewsFeatures" class="collapse show" aria-labelledby="headingOne" data-parent="#NewsFeatures">
+                    <div class="card-body">
+                        <div>
+                                <label>@Resources.resource.KategoriSeciniz</label>
+                                <select class="form-control" id="NewsCategories">
+                                </select>
+                            </div>
+                            <br />
+                        <div>
+                            <label>@Resources.resource.SayfaDili</label>
+                            <select class="form-control" onchange="GetLanguageToIdentifiers()" id="NewsLanguage">
+                                <option value="tr">TR</option>
+                                <option value="de">DE</option>
+                            </select>
+                        </div>
+                        <br />
+                        <div>
+                            <label>Page Identifier</label>
+                            <input type="text" class="form-control" id="NewsIdentifierTxt" placeholder="Enter Identifier" value="" />
+                        </div>
+                        <br />
+                        <div>
+                            <label><input type="checkbox" onchange="DisableIdentifierInputs()" id="IdentifierCheckbox" name="name" value="" /> Select Identifier</label>
+                            <select class="form-control" id="NewsIdentifierDropdown" disabled="disabled">
+                            </select>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div id="NewsSeoOptions">
+            <div class="card">
+
+                <button class="btn btn-light" data-toggle="collapse" data-target="#collapseNewsSeoOptions" aria-expanded="true" aria-controls="collapseNewsSeoOptions">
+                    <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                            @Resources.resource.SeoAyarlari
+                        </h5>
+                    </div>
+                </button>
+
+                <div id="collapseNewsSeoOptions" class="collapse show" aria-labelledby="headingOne" data-parent="#NewsSeoOptions">
+                    <div class="card-body">
+                        <div>
+                            <label>@Resources.resource.SeoAnahtarKelimeleri</label>
+                            <textarea id="NewsSeoKeywords" class="form-control"></textarea>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br />
+        <div id="NewsPicture">
+            <div class="card">
+
+                <button class="btn btn-light" data-toggle="collapse" data-target="#collapseNewsPicture" aria-expanded="true" aria-controls="collapseNewsPicture">
+                    <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                            @Resources.resource.OneCikanGorsel
+                        </h5>
+                    </div>
+                </button>
+
+                <div id="collapseNewsPicture" class="collapse show" aria-labelledby="headingOne" data-parent="#NewsPicture">
+                    <div class="card-body">
+                        <div>
+                            <input type="file" id="NewsImage" value="" />
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+
+        <div id="PublishTab">
+            <div class="card">
+                <button class="btn btn-light" data-toggle="collapse" data-target="#collapsePublish" aria-expanded="true" aria-controls="collapsePublish">
+                    <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                            @Resources.resource.Yayimla
+                        </h5>
+                    </div>
+                </button>
+
+                <div id="collapsePublish" class="collapse show" aria-labelledby="headingOne" data-parent="#PublishTab">
+                    <div class="card-body">
+                        <div>
+                            <input type="submit" class="btn btn-outline-primary" name="" value="@Resources.resource.TaslakOlarakKaydet" />
+                            &nbsp;
+
+                            <a class="btn btn-outline-primary" href="#" onclick="Preview()">@Resources.resource.Onizleme</a>
+
+                        </div>
+                        <br />
+                        <div>
+                            <input id="Publish" onclick="AddNews()" type="submit" class="btn btn-primary" name="" value=" @Resources.resource.Yayimla" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    function Preview() {
+
+        debugger
+
+        var editor = $("#editor").data("kendoEditor");
+        var pageContent = editor.value();
+        var index = pageContent.indexOf("<!--HtmlHeaderEnd|-->");
+        pageContent = pageContent.substring(0, index);
+
+        var decodedStringBtoA = pageContent;
+
+        // Encode the String
+        var encodedStringBtoA = window.btoa(decodedStringBtoA);
+
+        window.open(
+            "/Management/Page/Preview?encodedHtml=" + encodedStringBtoA,
+            '_blank' // <- This is what makes it open in a new window.
+        );
+
+    }
+
+    function DisableIdentifierInputs() {
+        
+        var element = document.getElementById("IdentifierCheckbox")
+        var dropdown = document.getElementById("NewsIdentifierDropdown");
+        var txt = document.getElementById("NewsIdentifierTxt");
+
+        if (element.checked === true) {
+
+            txt.setAttribute("disabled", "disabled");
+            dropdown.removeAttribute("disabled");
+        }
+        else {
+            dropdown.setAttribute("disabled", "disabled");
+            txt.removeAttribute("disabled");
+        }
+    }
+
+    function GetLanguageToIdentifiers() {
+        var lang = $("#NewsLanguage").val();
+
+        GetNewsIdentifier("NewsIdentifierDropdown", lang);
+        GetNewsCategories("NewsCategories");
+    }
+
+</script>
+

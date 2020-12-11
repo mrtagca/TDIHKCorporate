@@ -1,56 +1,38 @@
-﻿@model TDIHKCorporate.Types.Pages
+﻿@model TDIHKCorporate.Types.News
 @using Newtonsoft.Json
-
 @{
     ViewBag.Title = "Edit";
     Layout = "~/Areas/Management/Views/Shared/_layoutDashboard.cshtml";
 }
 
-<script src="~/Content/Scripts/Page.js"></script>
+<script src="~/Content/Scripts/News.js"></script>
 
 <div class="row">
     <div class="col-md-9 col-sm-12">
 
-        @if (!Model.IsDynamicPage)
-        {
-            <div>
-                <h5>@Resources.resource.SayfaEkle</h5>
-                <input type="text" id="PageTitle" placeholder="@Resources.resource.Baslik" onkeyup="GenerateFriendlyUrl('PageTitle','PageSeoLink')" class="form-control" name="name" value="@Model.PageTitle" />
-            </div>
-            <br />
+        <div>
+            <h5>@Resources.resource.SayfaEkle</h5>
+            <input type="text" id="NewsTitle" placeholder="@Resources.resource.Baslik" onkeyup="GenerateFriendlyUrl('NewsTitle','NewsSeoLink')" class="form-control" name="name" value="@Model.NewsTitle" />
+        </div>
+        <br />
 
 
-            <div>
-                <h5>Seo Link</h5>
-                <input type="text" class="form-control" id="PageSeoLink" placeholder="Seo Link" value="@Model.PageSeoLink" />
-            </div>
-            <br />
-        }
-        else
-        {
-            <div>
-                <h5>@Resources.resource.SayfaEkle</h5>
-                <input type="text" id="PageTitle" placeholder="@Resources.resource.Baslik" class="form-control" name="name" value="@Model.PageTitle" />
-            </div>
-            <br />
+        <div>
+            <h5>Seo Link</h5>
+            <input type="text" class="form-control" id="NewsSeoLink" placeholder="Seo Link" value="@Model.NewsSeoLink" />
+        </div>
+        <br />
 
-
-            <div>
-                <h5>Seo Link</h5>
-                <input type="text" class="form-control" id="PageSeoLink" placeholder="Seo Link" value="@Model.PageSeoLink"  disabled/>
-            </div>
-            <br />
-        }
 
         @Html.Partial("~/Areas/Management/Views/Partial/_PartialQuillHtmlEditor.cshtml")
 
     </div>
 
     <div class="col-md-3 col-sm-12">
-        <div id="PageFeatures">
+        <div id="NewsFeatures">
             <div class="card">
 
-                <button class="btn btn-light" data-toggle="collapse" data-target="#collapsePageFeatures" aria-expanded="true" aria-controls="collapsePageFeatures">
+                <button class="btn btn-light" data-toggle="collapse" data-target="#collapseNewsFeatures" aria-expanded="true" aria-controls="collapseNewsFeatures">
                     <div class="card-header" id="headingOne">
                         <h5 class="mb-0">
                             @Resources.resource.SayfaOzellikleri
@@ -59,30 +41,30 @@
                     </div>
                 </button>
 
-                <div id="collapsePageFeatures" class="collapse show" aria-labelledby="headingOne" data-parent="#PageFeatures">
+                <div id="collapseNewsFeatures" class="collapse show" aria-labelledby="headingOne" data-parent="#NewsFeatures">
                     <div class="card-body">
-                        @*<div>
+                        <div>
                             <label>@Resources.resource.KategoriSeciniz</label>
-                            <select class="form-control" id="PageCategories">
+                            <select class="form-control" id="NewsCategories">
                             </select>
                         </div>
-                        <br />*@
+                        <br />
                         <div>
                             <label>@Resources.resource.SayfaDili</label>
-                            <select class="form-control" onchange="GetLanguageToIdentifiers()" id="PageLanguage">
+                            <select class="form-control" onchange="GetLanguageToIdentifiers()" id="NewsLanguage">
                                 <option value="tr">TR</option>
                                 <option value="de">DE</option>
                             </select>
                         </div>
                         <br />
                         <div>
-                            <label>Page Identifier</label>
-                            <input type="text" class="form-control" id="PageIdentifierTxt" placeholder="Enter Identifier" value="" />
+                            <label>News Identifier</label>
+                            <input type="text" class="form-control" id="NewsIdentifierTxt" placeholder="Enter Identifier" value="@Model.NewsIdentifier" />
                         </div>
                         <br />
                         <div>
                             <label><input type="checkbox" onchange="DisableIdentifierInputs()" id="IdentifierCheckbox" name="name" value="" /> Select Identifier</label>
-                            <select class="form-control" id="PageIdentifierDropdown" disabled="disabled">
+                            <select class="form-control" id="NewsIdentifierDropdown" disabled="disabled">
                             </select>
                         </div>
                     </div>
@@ -90,10 +72,10 @@
             </div>
         </div>
         <br />
-        <div id="PageSeoOptions">
+        <div id="NewsSeoOptions">
             <div class="card">
 
-                <button class="btn btn-light" data-toggle="collapse" data-target="#collapsePageSeoOptions" aria-expanded="true" aria-controls="collapsePageSeoOptions">
+                <button class="btn btn-light" data-toggle="collapse" data-target="#collapseNewsSeoOptions" aria-expanded="true" aria-controls="collapseNewsSeoOptions">
                     <div class="card-header" id="headingOne">
                         <h5 class="mb-0">
                             @Resources.resource.SeoAyarlari
@@ -101,11 +83,11 @@
                     </div>
                 </button>
 
-                <div id="collapsePageSeoOptions" class="collapse show" aria-labelledby="headingOne" data-parent="#PageSeoOptions">
+                <div id="collapseNewsSeoOptions" class="collapse show" aria-labelledby="headingOne" data-parent="#NewsSeoOptions">
                     <div class="card-body">
                         <div>
                             <label>@Resources.resource.SeoAnahtarKelimeleri</label>
-                            <textarea id="SeoKeywords" class="form-control">@Model.PageSeoKeywords</textarea>
+                            <textarea id="NewsSeoKeywords" class="form-control">@Model.NewsSeoKeywords</textarea>
                         </div>
 
                     </div>
@@ -157,7 +139,7 @@
                         </div>
                         <br />
                         <div>
-                            <input id="Publish" onclick="EditPage(@Model.PageID,'@Model.PageIdentifier')" type="submit" class="btn btn-primary" name="" value=" @Resources.resource.Guncelle" />
+                            <input id="Publish" onclick="EditNews(@Model.NewsID, '@Model.NewsIdentifier')" type="submit" class="btn btn-primary" name="" value=" @Resources.resource.Guncelle" />
                         </div>
 
                     </div>
@@ -174,15 +156,17 @@
 
     $(document).ready(function () {
 
-        //GetPageCategories("PageCategories");
+        debugger
+
+        GetNewsCategories("NewsCategories");
 
 
-        GetPageIdentifier('PageIdentifierDropdown', '@Model.Language');
+        GetNewsIdentifier('NewsIdentifierDropdown', '@Model.Language');
 
         var editor = $("#editor").data("kendoEditor");
 
 
-        var html = @Html.Raw(JsonConvert.SerializeObject(Model.PageContent));
+        var html = @Html.Raw(JsonConvert.SerializeObject(Model.NewsContent));
 
         var htmlContent = html;
         editor.value(htmlContent + editor.value());
@@ -190,11 +174,14 @@
 
     });
 
+
+
+
     function DisableIdentifierInputs() {
         debugger
         var element = document.getElementById("IdentifierCheckbox")
-        var dropdown = document.getElementById("PageIdentifierDropdown");
-        var txt = document.getElementById("PageIdentifierTxt");
+        var dropdown = document.getElementById("NewsIdentifierDropdown");
+        var txt = document.getElementById("NewsIdentifierTxt");
 
         if (element.checked === true) {
 
@@ -208,20 +195,16 @@
     }
 
     function GetLanguageToIdentifiers() {
-        var lang = $("#PageLanguage").val();
+        var lang = $("#NewsLanguage").val();
 
-        GetPageIdentifier("PageIdentifierDropdown", lang);
+        GetNewsIdentifier("NewsIdentifierDropdown", lang);
+        GetNewsCategories("NewsCategories",'@Model.Language');
     }
 
-    $(window).on('loaded', function () {
-        //$('#PageCategories').val('@Model.PageCategoryID');
-        $('#PageLanguage').val('@Model.Language')
+       $(window).on('load', function () {
+       // $('#NewsCategories').val('@Model.NewsCategoryID');
+        $('#NewsLanguage').val('@Model.Language')
 
-        $('#PageIdentifierDropdown').val('@Model.PageIdentifier')
+        $('#NewsIdentifierDropdown').val('@Model.NewsIdentifier')
     })
-
-
-   
 </script>
-
-

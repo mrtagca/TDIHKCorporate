@@ -1,11 +1,12 @@
-﻿function GetPageCategories(dropdownId) {
+﻿function GetNewsCategories(dropdownId) {
     var callParams = {
-        endPoint: "/Management/Page/GetPageCategories",
+        endPoint: "/Management/News/GetNewsCategories",
         requestType: "GET"
     }
 
+
     dataParams = {};
-    dataParams.Language = $("#PageLanguage").val();
+    dataParams.Language = $("#NewsLanguage").val();
 
     RequestAjax(callParams, dataParams, function (response) {
         response = JSON.parse(response);
@@ -17,88 +18,88 @@
 
             var option = document.createElement("option");
             option.value = this.ID;
-            option.innerText = this.PageCategoryName;
+            option.innerText = this.NewsCategoryName;
 
             documentTypeDropdown.append(option);
         });
     });
 }
 
-function AddPage() {
+function AddNews() {
 
     var callParams = {
-        endPoint: "/Management/Page/AddPage",
+        endPoint: "/Management/News/AddNews",
         requestType: "POST"
     }
 
     var styleCss = "border:solid #ff0000 1px;";
 
     var dataParams = {}
-    dataParams.Language = $("#PageLanguage").val();
-    dataParams.PageTitle = $("#PageTitle").val();
+    dataParams.Language = $("#NewsLanguage").val();
+    dataParams.NewsTitle = $("#NewsTitle").val();
+    dataParams.NewsCategoryID = $("#NewsCategories").val();
 
     var editor = $("#editor").data("kendoEditor");
     var pageContent = editor.value();
     var index = pageContent.indexOf("<!--HtmlHeaderEnd|-->");
     pageContent = pageContent.substring(0, index);
-    dataParams.PageContent = pageContent;
+    dataParams.NewsContent = pageContent;
 
-    dataParams.PageSeoLink = $("#PageSeoLink").val();
-    dataParams.PageSeoKeywords = $("#SeoKeywords").val();
+    dataParams.NewsSeoLink = $("#NewsSeoLink").val();
+    dataParams.NewsSeoKeywords = $("#NewsSeoKeywords").val();
+     
 
     var identifierElement = document.getElementById("IdentifierCheckbox");
 
-    if (identifierElement.checked === true)
-    {
-        dataParams.PageIdentifier = $("#PageIdentifierDropdown").val();
+    if (identifierElement.checked === true) {
+        dataParams.NewsIdentifier = $("#NewsIdentifierDropdown").val();
     }
-    else
-    {
-        dataParams.PageIdentifier = $("#PageIdentifierTxt").val();
+    else {
+        dataParams.NewsIdentifier = $("#NewsIdentifierTxt").val();
     }
 
 
     if (pageContent === '' || typeof (pageContent) === 'undefined' || pageContent === null) {
-        alert("Page Content cannot be null!");
+        alert("News Content cannot be null!");
         return;
     }
 
-    if (dataParams.PageTitle === '' || typeof (dataParams.PageTitle) === 'undefined' || dataParams.PageTitle === null) {
-        alert("Page Title cannot be null!");
-        var element = document.getElementById("PageTitle");
+    if (dataParams.NewsTitle === '' || typeof (dataParams.NewsTitle) === 'undefined' || dataParams.NewsTitle === null) {
+        alert("News Title cannot be null!");
+        var element = document.getElementById("NewsTitle");
         element.style = styleCss;
         return;
     }
 
     if (dataParams.Language === '' || typeof (dataParams.Language) === 'undefined' || dataParams.Language === null) {
         alert("Please select a language!");
-        var element = document.getElementById("PageLanguage");
+        var element = document.getElementById("NewsLanguage");
         element.style = styleCss;
         return;
     }
 
-    if (dataParams.PageIdentifier === '' || typeof (dataParams.PageIdentifier) === 'undefined' || dataParams.PageIdentifier === null) {
+    if (dataParams.NewsIdentifier === '' || typeof (dataParams.NewsIdentifier) === 'undefined' || dataParams.NewsIdentifier === null) {
         alert("Please select or enter Identifier!");
         return;
     }
 
-    //if (dataParams.PageCategoryID === '' || typeof (dataParams.PageCategoryID) === 'undefined' || dataParams.PageCategoryID === null) {
-    //    alert("Please select a page category!");
-    //    var element = document.getElementById("PageCategories");
-    //    element.style = styleCss;
-    //    return;
-    //}
-
-    if (dataParams.PageSeoLink === '' || typeof (dataParams.PageSeoLink) === 'undefined' || dataParams.PageSeoLink === null) {
-        alert("Seo link cannot be null!");
-        var element = document.getElementById("PageSeoLink");
+    if (dataParams.NewsCategoryID === '' || typeof (dataParams.NewsCategoryID) === 'undefined' || dataParams.NewsCategoryID === null) {
+        alert("Please select a news category!");
+        var element = document.getElementById("NewsCategories");
         element.style = styleCss;
         return;
     }
 
-    if (dataParams.PageSeoKeywords === '' || typeof (dataParams.PageSeoKeywords) === 'undefined' || dataParams.PageSeoKeywords === null) {
+    if (dataParams.NewsSeoLink === '' || typeof (dataParams.NewsSeoLink) === 'undefined' || dataParams.NewsSeoLink === null) {
+        alert("Seo link cannot be null!");
+        var element = document.getElementById("NewsSeoLink");
+        element.style = styleCss;
+        return;
+    }
+
+    if (dataParams.NewsSeoKeywords === '' || typeof (dataParams.NewsSeoKeywords) === 'undefined' || dataParams.NewsSeoKeywords === null) {
         alert("Seo keywords cannot be null!");
-        var element = document.getElementById("SeoKeywords");
+        var element = document.getElementById("NewsSeoKeywords");
         element.style = styleCss;
         return;
     }
@@ -109,7 +110,7 @@ function AddPage() {
         response = JSON.parse(response);
 
         if (response === true) {
-            alert("Page Create successfull!");
+            alert("News Create successfull!");
             location.reload();
         }
         else {
@@ -120,10 +121,10 @@ function AddPage() {
 
 }
 
-function GetPages(dropdownId, languageDropdownId) {
+function GetNews(dropdownId, languageDropdownId) {
 
     var callParams = {
-        endPoint: "/Management/Page/GetPages",
+        endPoint: "/Management/News/GetNews",
         requestType: "POST"
     }
 
@@ -142,89 +143,90 @@ function GetPages(dropdownId, languageDropdownId) {
         $.each(response, function () {
 
             var option = document.createElement("option");
-            option.value = this.PageID;
-            option.innerText = this.PageTitle;
+            option.value = this.NewsID;
+            option.innerText = this.NewsTitle;
 
             dropdown.append(option);
         });
     });
 }
 
-function EditPage(pageID, pageIdentifier) {
+function EditNews(newsID, newsIdentifier) {
 
     var callParams = {
-        endPoint: "/Management/Page/EditPage",
+        endPoint: "/Management/News/EditNews",
         requestType: "POST"
     }
 
     var styleCss = "border:solid #ff0000 1px;";
 
     var dataParams = {}
-    dataParams.PageID = pageID;
-    dataParams.Language = $("#PageLanguage").val();
-    //dataParams.PageCategoryID = $("#PageCategories").val();
-    dataParams.PageTitle = $("#PageTitle").val();
+    dataParams.NewsID = newsID;
+    dataParams.Language = $("#NewsLanguage").val();
+    dataParams.NewsCategoryID = $("#NewsCategories").val();
+    dataParams.NewsTitle = $("#NewsTitle").val();
 
     var editor = $("#editor").data("kendoEditor");
     var pageContent = editor.value();
     var index = pageContent.indexOf("<!--HtmlHeaderEnd|-->");
     pageContent = pageContent.substring(0, index);
-    dataParams.PageContent = pageContent;
-    dataParams.PageSeoLink = $("#PageSeoLink").val();
-    dataParams.PageSeoKeywords = $("#SeoKeywords").val();
+    dataParams.NewsContent = pageContent;
+    dataParams.NewsSeoLink = $("#NewsSeoLink").val();
+    dataParams.NewsSeoKeywords = $("#NewsSeoKeywords").val();
 
 
     var identifierElement = document.getElementById("IdentifierCheckbox");
 
     if (identifierElement.checked === true) {
-        dataParams.PageIdentifier = $("#PageIdentifierDropdown").val();
+        dataParams.NewsIDentifier = $("#NewsIdentifierDropdown").val();
     }
     else {
-        dataParams.PageIdentifier = $("#PageIdentifierTxt").val();
+        dataParams.NewsIDentifier = $("#NewsIdentifierTxt").val();
     }
 
 
     if (pageContent === '' || typeof (pageContent) === 'undefined' || pageContent === null) {
-        alert("Page Content cannot be null!");
+        alert("News Content cannot be null!");
         return;
     }
 
-    if (dataParams.PageTitle === '' || typeof (dataParams.PageTitle) === 'undefined' || dataParams.PageTitle === null) {
-        alert("Page Title cannot be null!");
-        var element = document.getElementById("PageTitle");
+    if (dataParams.NewsTitle === '' || typeof (dataParams.NewsTitle) === 'undefined' || dataParams.NewsTitle === null) {
+        alert("News Title cannot be null!");
+        var element = document.getElementById("NewsTitle");
         element.style = styleCss;
         return;
     }
 
     if (dataParams.Language === '' || typeof (dataParams.Language) === 'undefined' || dataParams.Language === null) {
         alert("Please select a language!");
-        var element = document.getElementById("PageLanguage");
+        var element = document.getElementById("NewsLanguage");
         element.style = styleCss;
         return;
     }
 
-    if (dataParams.PageIdentifier === '' || typeof (dataParams.PageIdentifier) === 'undefined' || dataParams.PageIdentifier === null) {
+    if (dataParams.NewsIDentifier === '' || typeof (dataParams.NewsIDentifier) === 'undefined' || dataParams.NewsIDentifier === null) {
         alert("Please select or enter Identifier!");
         return;
     }
 
-    //if (dataParams.PageCategoryID === '' || typeof (dataParams.PageCategoryID) === 'undefined' || dataParams.PageCategoryID === null) {
-    //    alert("Please select a page category!");
-    //    var element = document.getElementById("PageCategories");
-    //    element.style = styleCss;
-    //    return;
-    //}
-
-    if (dataParams.PageSeoLink === '' || typeof (dataParams.PageSeoLink) === 'undefined' || dataParams.PageSeoLink === null) {
-        alert("Seo link cannot be null!");
-        var element = document.getElementById("PageSeoLink");
+    if (dataParams.NewsCategoryID === '' || typeof (dataParams.NewsCategoryID) === 'undefined' || dataParams.NewsCategoryID === null) {
+        alert("Please select a news category!");
+        var element = document.getElementById("NewsCategories");
         element.style = styleCss;
         return;
     }
 
-    if (dataParams.PageSeoKeywords === '' || typeof (dataParams.PageSeoKeywords) === 'undefined' || dataParams.PageSeoKeywords === null) {
+
+    if (dataParams.NewsSeoLink === '' || typeof (dataParams.NewsSeoLink) === 'undefined' || dataParams.NewsSeoLink === null) {
+        alert("Seo link cannot be null!");
+        var element = document.getElementById("NewsSeoLink");
+        element.style = styleCss;
+        return;
+    }
+
+    if (dataParams.NewsSeoKeywords === '' || typeof (dataParams.NewsSeoKeywords) === 'undefined' || dataParams.NewsSeoKeywords === null) {
         alert("Seo keywords cannot be null!");
-        var element = document.getElementById("SeoKeywords");
+        var element = document.getElementById("NewsSeoKeywords");
         element.style = styleCss;
         return;
     }
@@ -235,7 +237,7 @@ function EditPage(pageID, pageIdentifier) {
         response = JSON.parse(response);
 
         if (response === true) {
-            alert("Page Edit successfull!");
+            alert("News Edit successfull!");
             location.reload();
         }
         else {
@@ -246,9 +248,9 @@ function EditPage(pageID, pageIdentifier) {
 
 }
 
-function GetPageIdentifier(identifierDropdown, lang) {
+function GetNewsIdentifier(identifierDropdown, lang) {
     var callParams = {
-        endPoint: "/Management/Page/GetPageIdentifiers",
+        endPoint: "/Management/News/GetNewsIdentifiers",
         requestType: "POST"
     }
 
@@ -266,11 +268,9 @@ function GetPageIdentifier(identifierDropdown, lang) {
 
             var option = document.createElement("option");
             option.value = this.IdentifierName;
-            option.innerText = this.PageTitle;
+            option.innerText = this.NewsTitle;
 
             identifyDropdown.append(option);
         });
     });
 }
-
-
