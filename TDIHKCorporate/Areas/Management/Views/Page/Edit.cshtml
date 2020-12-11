@@ -11,18 +11,36 @@
 <div class="row">
     <div class="col-md-9 col-sm-12">
 
-        <div>
-            <h5>@Resources.resource.SayfaEkle</h5>
-            <input type="text" id="PageTitle" placeholder="@Resources.resource.Baslik" onkeyup="GenerateFriendlyUrl('PageTitle','PageSeoLink')" class="form-control" name="name" value="@Model.PageTitle" />
-        </div>
-        <br />
+        @if (!Model.IsDynamicPage)
+        {
+            <div>
+                <h5>@Resources.resource.SayfaEkle</h5>
+                <input type="text" id="PageTitle" placeholder="@Resources.resource.Baslik" onkeyup="GenerateFriendlyUrl('PageTitle','PageSeoLink')" class="form-control" name="name" value="@Model.PageTitle" />
+            </div>
+            <br />
 
 
-        <div>
-            <h5>Seo Link</h5>
-            <input type="text" class="form-control" id="PageSeoLink" placeholder="Seo Link" value="@Model.PageSeoLink" />
-        </div>
-        <br />
+            <div>
+                <h5>Seo Link</h5>
+                <input type="text" class="form-control" id="PageSeoLink" placeholder="Seo Link" value="@Model.PageSeoLink" />
+            </div>
+            <br />
+        }
+        else
+        {
+            <div>
+                <h5>@Resources.resource.SayfaEkle</h5>
+                <input type="text" id="PageTitle" placeholder="@Resources.resource.Baslik" class="form-control" name="name" value="@Model.PageTitle" />
+            </div>
+            <br />
+
+
+            <div>
+                <h5>Seo Link</h5>
+                <input type="text" class="form-control" id="PageSeoLink" placeholder="Seo Link" value="@Model.PageSeoLink"  disabled/>
+            </div>
+            <br />
+        }
 
         @Html.Partial("~/Areas/Management/Views/Partial/_PartialQuillHtmlEditor.cshtml")
 

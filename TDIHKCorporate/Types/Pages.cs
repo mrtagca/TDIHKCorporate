@@ -24,6 +24,7 @@ namespace TDIHKCorporate.Types
         public DateTime UpdatedDate { get; set; }
         public int UpdatedBy { get; set; }
         public bool IsActive { get; set; }
+        public bool IsDynamicPage { get; set; }
         public HttpPostedFileBase ImageFile { get; set; }
     }
 }

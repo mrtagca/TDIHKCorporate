@@ -3340,6 +3340,7 @@
     <Compile Include="Types\MenuItems.cs" />
     <Compile Include="Types\MenuItemsByMenuId.cs" />
     <Compile Include="Types\Menus.cs" />
+    <Compile Include="Types\NewsCategories.cs" />
     <Compile Include="Types\NewsCategory.cs" />
     <Compile Include="Types\NewsletterRegistrations.cs" />
     <Compile Include="Types\PageCategories.cs" />

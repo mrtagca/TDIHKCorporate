@@ -242,7 +242,6 @@ function EditPage(pageID, pageIdentifier) {
 
 }
 
-
 function GetPageIdentifier(identifierDropdown, lang) {
     var callParams = {
         endPoint: "/Management/Page/GetPageIdentifiers",
