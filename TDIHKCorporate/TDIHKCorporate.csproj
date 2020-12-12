@@ -2290,6 +2290,8 @@
     <Content Include="Content\Admin\vendor\jquery\jquery.min.js" />
     <Content Include="Content\Admin\vendor\jquery\jquery.slim.js" />
     <Content Include="Content\Admin\vendor\jquery\jquery.slim.min.js" />
+    <Content Include="Content\MainSite\assets\files\gimme-that-money.mp3" />
+    <Content Include="Content\MainSite\assets\files\karsu-siyah.mp3" />
     <Content Include="Content\MainSite\assets\images\aubenhandelsportal\banner.png" />
     <Content Include="Content\MainSite\assets\images\aubenhandelsportal\portal-big.png" />
     <Content Include="Content\MainSite\assets\images\aubenhandelsportal\tdihk portal.png" />
@@ -4053,6 +4055,7 @@
     <Content Include="Views\Publication\NachrichtenDetail.cshtml" />
     <Content Include="Views\Partial\_PartialHead.cshtml" />
     <Content Include="Views\News\Show.cshtml" />
+    <Content Include="Views\Home\_PartialPremiumMembers.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -4064,7 +4067,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Management\Models\" />
     <Folder Include="Areas\Management\Views\Url\" />
-    <Folder Include="Content\MainSite\assets\files\" />
     <Folder Include="Content\MainSite\assets\images\test\" />
     <Folder Include="NewFolder1\" />
     <Folder Include="Views\Image\" />

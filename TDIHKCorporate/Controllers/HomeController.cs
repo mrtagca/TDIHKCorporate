@@ -137,5 +137,23 @@ where [Language] = @lang and NewsIdentifier in (SELECT top 1 NewsIdentifier FROM
 
             return PartialView("_PartialHomePageSlider", sliderItems);
         }
+
+        public ActionResult ShowPremiumMembersSlider()
+        {
+            //DapperRepository<SliderContent> sliderContent = new DapperRepository<SliderContent>();
+            //CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+            //string name = cultureInfo.TwoLetterISOLanguageName;
+
+            //List<SliderContent> sliderItems = sliderContent.GetList(@"SELECT sc.* FROM SliderContent sc (NOLOCK) 
+            //                                                            inner join Sliders sl (NOLOCK)
+            //                                                            on sc.SliderID = sl.SliderID
+
+            //                                                            where sl.SliderName ='Home Slider' and sl.[Language] = @lang and sc.[Language] = @lang
+            //                                                            order by SliderPriority", new { lang = name });
+
+
+            //return PartialView("_PartialPremiumMembers", sliderItems);
+            return PartialView("_PartialPremiumMembers");
+        }
     }
 }
