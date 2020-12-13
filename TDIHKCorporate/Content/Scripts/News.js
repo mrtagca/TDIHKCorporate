@@ -58,6 +58,9 @@ function AddNews() {
         dataParams.NewsIdentifier = $("#NewsIdentifierTxt").val();
     }
 
+    var newsImagePath = document.getElementById("NewsImage");
+    dataParams.NewsImagePath = newsImagePath.getAttribute("image-path");
+
 
     if (pageContent === '' || typeof (pageContent) === 'undefined' || pageContent === null) {
         alert("News Content cannot be null!");
@@ -100,6 +103,13 @@ function AddNews() {
     if (dataParams.NewsSeoKeywords === '' || typeof (dataParams.NewsSeoKeywords) === 'undefined' || dataParams.NewsSeoKeywords === null) {
         alert("Seo keywords cannot be null!");
         var element = document.getElementById("NewsSeoKeywords");
+        element.style = styleCss;
+        return;
+    }
+
+    if (dataParams.NewsImagePath === '' || typeof (dataParams.NewsImagePath) === 'undefined' || dataParams.NewsImagePath === null) {
+        alert("Please select a news image!");
+        var element = document.getElementById("NewsImage");
         element.style = styleCss;
         return;
     }
@@ -174,6 +184,10 @@ function EditNews(newsID, newsIdentifier) {
     dataParams.NewsSeoLink = $("#NewsSeoLink").val();
     dataParams.NewsSeoKeywords = $("#NewsSeoKeywords").val();
 
+    var newsImagePath = document.getElementById("NewsImage");
+    dataParams.NewsImagePath = newsImagePath.getAttribute("image-path");
+
+
 
     var identifierElement = document.getElementById("IdentifierCheckbox");
 
@@ -227,6 +241,13 @@ function EditNews(newsID, newsIdentifier) {
     if (dataParams.NewsSeoKeywords === '' || typeof (dataParams.NewsSeoKeywords) === 'undefined' || dataParams.NewsSeoKeywords === null) {
         alert("Seo keywords cannot be null!");
         var element = document.getElementById("NewsSeoKeywords");
+        element.style = styleCss;
+        return;
+    }
+
+    if (dataParams.NewsImagePath === '' || typeof (dataParams.NewsImagePath) === 'undefined' || dataParams.NewsImagePath === null) {
+        alert("Please select a news image!");
+        var element = document.getElementById("NewsImage");
         element.style = styleCss;
         return;
     }

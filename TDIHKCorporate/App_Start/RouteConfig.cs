@@ -372,6 +372,22 @@ namespace TDIHKCorporate
             //    );
             //#endregion
 
+            #region Jobangebote / İş teklifleri
+            routes.MapRoute(
+                    name: "JobangeboteGerman",
+                    url: "{lang}/seiten/jobangebote",
+                    defaults: new { controller = "Services", action = "Jobangebote", lang = language },
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
+
+            routes.MapRoute(
+                    name: "JobangeboteTurkey",
+                    url: "{lang}/sayfalar/is-teklifleri",
+                    defaults: new { controller = "Services", action = "Jobangebote", lang = language },
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
+            #endregion
+
             #region Coronavirus Nachrichten
             routes.MapRoute(
                     name: "CoronaNewsGerman",

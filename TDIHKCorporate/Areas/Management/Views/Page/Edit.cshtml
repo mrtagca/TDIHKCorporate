@@ -75,14 +75,14 @@
                             </select>
                         </div>
                         <br />
-                        <div>
+                        @*<div>
                             <label>Page Identifier</label>
                             <input type="text" class="form-control" id="PageIdentifierTxt" placeholder="Enter Identifier" value="" />
                         </div>
-                        <br />
+                        <br />*@
                         <div>
-                            <label><input type="checkbox" onchange="DisableIdentifierInputs()" id="IdentifierCheckbox" name="name" value="" /> Select Identifier</label>
-                            <select class="form-control" id="PageIdentifierDropdown" disabled="disabled">
+                            <label>Select Identifier</label>
+                            <select class="form-control" id="PageIdentifierDropdown">
                             </select>
                         </div>
                     </div>
@@ -174,7 +174,7 @@
 
     $(document).ready(function () {
 
-        //GetPageCategories("PageCategories");
+        $("#PageLanguage").val('@Model.Language');
 
 
         GetPageIdentifier('PageIdentifierDropdown', '@Model.Language');
@@ -191,8 +191,7 @@
     });
 
     function DisableIdentifierInputs() {
-        debugger
-        var element = document.getElementById("IdentifierCheckbox")
+        
         var dropdown = document.getElementById("PageIdentifierDropdown");
         var txt = document.getElementById("PageIdentifierTxt");
 
@@ -213,15 +212,15 @@
         GetPageIdentifier("PageIdentifierDropdown", lang);
     }
 
-    $(window).on('loaded', function () {
-        //$('#PageCategories').val('@Model.PageCategoryID');
+    $(window).on('load', function () {
+
         $('#PageLanguage').val('@Model.Language')
 
         $('#PageIdentifierDropdown').val('@Model.PageIdentifier')
     })
 
 
-   
+
 </script>
 
 

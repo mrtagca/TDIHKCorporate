@@ -69,8 +69,11 @@
         </div>
 
         <br />
-        <br />
+        <div>
+            <label><input type="checkbox" id="IsActive" name="name" value="" checked /> Aktif Mi?</label>
+        </div>
 
+        <br />
         <button style="float:right" id="SaveMenuItem" class="btn btn-primary">Kaydet</button>
 
     </div>
@@ -85,13 +88,11 @@
         var parentMenu = document.getElementById("ParentMenu");
 
         if (isSubMenu.checked === true) {
-            //menu.style.display = "none";
             parentMenu.style = "";
 
         }
         else {
             parentMenu.style.display = "none";
-            //menu.style = "";
         }
 
     }
@@ -128,7 +129,14 @@
             dataParams.IsSubMenu = false;
         }
 
-        debugger
+        var isActive = document.getElementById("IsActive");;
+
+        if (isActive.checked === true) {
+            dataParams.IsActive = true;
+        }
+        else {
+            dataParams.IsActive = false;
+        }
 
         RequestAjax(callParams, dataParams, function (response) {
             response = JSON.parse(response);

@@ -48,12 +48,10 @@ function AddPage() {
 
     var identifierElement = document.getElementById("IdentifierCheckbox");
 
-    if (identifierElement.checked === true)
-    {
+    if (identifierElement.checked === true) {
         dataParams.PageIdentifier = $("#PageIdentifierDropdown").val();
     }
-    else
-    {
+    else {
         dataParams.PageIdentifier = $("#PageIdentifierTxt").val();
     }
 
@@ -150,7 +148,7 @@ function GetPages(dropdownId, languageDropdownId) {
     });
 }
 
-function EditPage(pageID, pageIdentifier) {
+function EditPage(pageID) {
 
     var callParams = {
         endPoint: "/Management/Page/EditPage",
@@ -173,15 +171,8 @@ function EditPage(pageID, pageIdentifier) {
     dataParams.PageSeoLink = $("#PageSeoLink").val();
     dataParams.PageSeoKeywords = $("#SeoKeywords").val();
 
+    dataParams.PageIdentifier = $("#PageIdentifierDropdown").val();
 
-    var identifierElement = document.getElementById("IdentifierCheckbox");
-
-    if (identifierElement.checked === true) {
-        dataParams.PageIdentifier = $("#PageIdentifierDropdown").val();
-    }
-    else {
-        dataParams.PageIdentifier = $("#PageIdentifierTxt").val();
-    }
 
 
     if (pageContent === '' || typeof (pageContent) === 'undefined' || pageContent === null) {
@@ -236,7 +227,6 @@ function EditPage(pageID, pageIdentifier) {
 
         if (response === true) {
             alert("Page Edit successfull!");
-            location.reload();
         }
         else {
             alert("Fail!");

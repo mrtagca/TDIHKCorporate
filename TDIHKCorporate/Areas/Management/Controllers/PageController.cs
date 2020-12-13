@@ -44,13 +44,14 @@ namespace TDIHKCorporate.Areas.Management.Controllers
                 DapperRepository<Pages> addPage = new DapperRepository<Pages>();
 
 
-                int result = addPage.Execute(@"update Pages set PageCategoryID = @pageCategoryID,PageTitle=@pageTitle,PageContent=@pageContent,PageSeoLink=@pageSeoLink,PageSeoKeywords=@pageSeoKeywords,[Language]=@language,UpdatedDate=@updatedDate,UpdatedBy=@UpdatedBy,IsActive=@IsActive
+                int result = addPage.Execute(@"update Pages set PageCategoryID = @pageCategoryID,PageIdentifier=@pageIdentifier,PageTitle=@pageTitle,PageContent=@pageContent,PageSeoLink=@pageSeoLink,PageSeoKeywords=@pageSeoKeywords,[Language]=@language,UpdatedDate=@updatedDate,UpdatedBy=@UpdatedBy,IsActive=@IsActive
                                         where PageID = @pageID", new
                 {
                     pageID = pages.PageID,
                     PageCategoryID = pages.PageCategoryID,
                     PageImageID = "",
                     PageThumbnailPath = "",
+                    pageIdentifier = pages.PageIdentifier,
                     PageTitle = pages.PageTitle,
                     PageContent = pages.PageContent,
                     PageSeoLink = pages.PageSeoLink,

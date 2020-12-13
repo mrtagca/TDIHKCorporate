@@ -1,0 +1,39 @@
+﻿@model List<TDIHKCorporate.Types.SliderContent>
+
+<!--İkinci Slayt-->
+<section>
+    <h2 class="uk-text-center uk-text-bold">Lernen Sie mehr über die Vorteile einer Mitgliedschaft</h2>
+    <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1"
+         uk-slider="autoplay: true; autoplay-interval: 5000">
+
+        <ul class="uk-slider-items uk-child-width-1-1">
+
+            @foreach (var item in Model)
+            {
+                <li>
+                    <a href="@item.SliderUrl"><img src="@item.ImagePath" alt=""></a>
+
+                </li>
+            }
+            @*<li>
+                <img src="~/Content/MainSite/assets/images/slider-2.png" alt="">
+
+            </li>
+            <li>
+                <img src="~/Content/MainSite/assets/images/slider-2.png" alt="">
+
+            </li>
+            <li>
+                <img src="~/Content/MainSite/assets/images/slider-2.png" alt="">
+            </li>*@
+        </ul>
+        <a class="uk-position-center-left uk-position-small slide-arrow" href="#" uk-icon="icon:icn-arrow-left"
+           uk-slider-item="previous"></a>
+        <a class="uk-position-center-right uk-position-small slide-arrow" href="#" uk-icon="icon:icn-arrow-right"
+           uk-slider-item="next"></a>
+    </div>
+    <div class="uk-padding uk-flex uk-flex-center uk-padding-remove-horizontal"
+         uk-scrollspy="cls: uk-animation-fade; delay: 250">
+        <a href="" class="uk-button uk-button-primary uk-text-bold uk-border-rounded uk-width-1-1 uk-width-1-3@s uk-width-1-5@m">zuden Vorteilen</a>
+    </div>
+</section>

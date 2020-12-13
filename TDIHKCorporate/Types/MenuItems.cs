@@ -16,6 +16,7 @@ namespace TDIHKCorporate.Types
         public string MenuName { get; set; }
         public int MenuLevel { get; set; }
         public bool IsSubMenu { get; set; }
+        public bool IsActive { get; set; }
         public DateTime CreatedDate { get; set; }
         public int CreatedBy { get; set; }
         public DateTime UpdatedDate { get; set; }

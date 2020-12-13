@@ -4057,6 +4057,7 @@
     <Content Include="Views\Partial\_PartialHead.cshtml" />
     <Content Include="Views\News\Show.cshtml" />
     <Content Include="Views\Home\_PartialPremiumMembers.cshtml" />
+    <Content Include="Views\Home\_PartialMitgliedschaftAdvantage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

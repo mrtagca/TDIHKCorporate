@@ -26,7 +26,7 @@ namespace TDIHKCorporate.Areas.Management.Controllers
             DapperRepository<MenuItemsByMenuId> getMenuItemsByMenuId = new DapperRepository<MenuItemsByMenuId>();
 
             List<MenuItemsByMenuId> result = getMenuItemsByMenuId.GetList(@"
-                                                select p.PageTitle,mi.[Language],mi.MenuItemPriority,mi.MenuName,mi.MenuLevel,mi.IsSubMenu from [IHK].[dbo].[MenuItems] mi (nolock)
+                                                select mi.ID,p.PageTitle,mi.[Language],mi.MenuItemPriority,mi.MenuName,mi.MenuLevel,mi.IsSubMenu,mi.IsActive from [IHK].[dbo].[MenuItems] mi (nolock)
                                                 inner join  [IHK].[dbo].[Pages] p (NOLOCK)
                                                 on mi.PageID = p.PageID
                                                 where mi.MenuID = @menuId", new { menuId = menuID });
@@ -77,8 +77,40 @@ namespace TDIHKCorporate.Areas.Management.Controllers
             try
             {
                 DapperRepository<MenuItems> item = new DapperRepository<MenuItems>();
-                int result = item.Execute(@"insert into MenuItems (MenuID,PageID,ParentMenuItemID,MenuItemPriority,[Language],MenuName,MenuLevel,IsSubMenu) 
-										values (@menuID,@pageID,@parentMenuItemID,@menuItemPriority,@language,@menuName,@menuLevel,@IsSubMenu)", menuItem);
+                int result = item.Execute(@"insert into MenuItems (MenuID,PageID,ParentMenuItemID,MenuItemPriority,[Language],MenuName,MenuLevel,IsSubMenu,IsActive) 
+										values (@menuID,@pageID,@parentMenuItemID,@menuItemPriority,@language,@menuName,@menuLevel,@IsSubMenu,@IsActive)", menuItem);
+
+                return JsonConvert.SerializeObject(true);
+            }
+            catch (Exception)
+            {
+                return JsonConvert.SerializeObject(false);
+            }
+        }
+
+        [HttpPost]
+        public string PassiveMenuItem(int menuItemId)
+        {
+            try
+            {
+                DapperRepository<MenuItems> item = new DapperRepository<MenuItems>();
+                int result = item.Execute(@"update MenuItems set IsActive = 0 where ID = @id ", new { id = menuItemId });
+
+                return JsonConvert.SerializeObject(true);
+            }
+            catch (Exception)
+            {
+                return JsonConvert.SerializeObject(false);
+            }
+        }
+
+        [HttpPost]
+        public string ActivateMenuItem(int menuItemId)
+        {
+            try
+            {
+                DapperRepository<MenuItems> item = new DapperRepository<MenuItems>();
+                int result = item.Execute(@"update MenuItems set IsActive = 1 where ID = @id ", new { id = menuItemId });
 
                 return JsonConvert.SerializeObject(true);
             }

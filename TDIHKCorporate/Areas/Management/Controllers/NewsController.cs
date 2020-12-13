@@ -113,7 +113,7 @@ values (@NewsCategoryName,@Language,@CreatedDate,@CreatedBy,@IsActive)", new { N
 
                     NewsCategoryID = news.NewsCategoryID,
                     NewsIdentifier = news.NewsIdentifier,
-                    NewsImagePath = "",
+                    NewsImagePath = news.NewsImagePath,
                     NewsThumbnailPath = "",
                     NewsTitle = news.NewsTitle,
                     NewsContent = news.NewsContent,
@@ -192,12 +192,12 @@ order by CreatedDate desc", new { lang = "tr" });
                 DapperRepository<News> addNews = new DapperRepository<News>();
 
 
-                int result = addNews.Execute(@"update News set NewsCategoryID = @NewsCategoryID,NewsTitle=@NewsTitle,NewsContent=@NewsContent,NewsSeoLink=@NewsSeoLink,NewsSeoKeywords=@NewsSeoKeywords,[Language]=@language,UpdatedDate=@updatedDate,UpdatedBy=@UpdatedBy,IsActive=@IsActive
+                int result = addNews.Execute(@"update News set NewsImagePath=@NewsImagePath,NewsCategoryID = @NewsCategoryID,NewsTitle=@NewsTitle,NewsContent=@NewsContent,NewsSeoLink=@NewsSeoLink,NewsSeoKeywords=@NewsSeoKeywords,[Language]=@language,UpdatedDate=@updatedDate,UpdatedBy=@UpdatedBy,IsActive=@IsActive
                                         where NewsID = @NewsID", new
                 {
                     NewsID = news.NewsID,
                     NewsCategoryID = news.NewsCategoryID,
-                    NewsImageID = "",
+                    NewsImagePath = news.NewsImagePath,
                     NewsThumbnailPath = "",
                     NewsTitle = news.NewsTitle,
                     NewsContent = news.NewsContent,
