@@ -61,7 +61,7 @@ where [Language] = @lang and NewsIdentifier in (SELECT top 1 NewsIdentifier FROM
 
 
 
-                    return Redirect("https://" + Request.UrlReferrer.Authority + "/" + language + "/haberler/" + news.NewsSeoLink+ "");
+                    return Redirect("https://" + Request.UrlReferrer.Authority + "/" + language + "/haberler/" + news.NewsSeoLink + "");
                 }
 
                 if (language == "de") //change tr
@@ -74,7 +74,7 @@ where [Language] = @lang and NewsIdentifier in (SELECT top 1 NewsIdentifier FROM
 
 
 
-                    return Redirect("https://" + Request.UrlReferrer.Authority + "/" + language + "/nachrichten/" + news.NewsSeoLink+ "");
+                    return Redirect("https://" + Request.UrlReferrer.Authority + "/" + language + "/nachrichten/" + news.NewsSeoLink + "");
                 }
             }
 
@@ -151,7 +151,7 @@ where [Language] = @lang and NewsIdentifier in (SELECT top 1 NewsIdentifier FROM
                                                                         where sl.SliderName ='Premium Mitglieder' and sl.[Language] = @lang and sc.[Language] = @lang
                                                                         order by SliderPriority", new { lang = name });
 
-             
+
             return PartialView("_PartialPremiumMembers", sliderItems);
         }
 
@@ -169,6 +169,45 @@ where [Language] = @lang and NewsIdentifier in (SELECT top 1 NewsIdentifier FROM
 
 
             return PartialView("_PartialMitgliedschaftAdvantage", sliderItems);
+        }
+
+        public ActionResult ShowHomePageKalender()
+        {
+            List<Events> eventList = GetEvents(8);
+
+            return PartialView("_PartialShowHomePageKalender", eventList);
+        }
+
+        public List<Events> GetEvents(int count)
+        {
+            try
+            {
+                DapperRepository<Events> events = new DapperRepository<Events>();
+                List<Events> eventList = new List<Events>();
+
+                CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+
+                string name = cultureInfo.TwoLetterISOLanguageName;
+
+                if (count > 0)
+                {
+                    eventList = events.GetList(@"select * from [Events]
+                                            where [Language] = @lang
+                                              order by CONVERT(datetime,CONVERT(nvarchar,EventDate)+' '+CONVERT(nvarchar,EventTime)) desc", new { lang = name }).Take(count).ToList();
+                }
+                else
+                {
+                    eventList = events.GetList(@"select * from [Events]
+                                            where [Language] = @lang
+                                              order by CONVERT(datetime,CONVERT(nvarchar,EventDate)+' '+CONVERT(nvarchar,EventTime)) desc", new { lang = name });
+                }
+
+                return eventList;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
         }
     }
 }

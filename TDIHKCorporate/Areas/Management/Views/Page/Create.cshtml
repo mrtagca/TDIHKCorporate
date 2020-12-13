@@ -116,7 +116,7 @@
                 <div id="collapsePagePicture" class="collapse show" aria-labelledby="headingOne" data-parent="#PagePicture">
                     <div class="card-body">
                         <div>
-                            <input type="file" id="PageImage" value="" />
+                            <input type="file" id="PageImage" image-path="" value="" accept="image/x-png,image/gif,image/jpeg" />
                         </div>
 
                     </div>
@@ -202,4 +202,40 @@
         GetPageIdentifier("PageIdentifierDropdown", lang);
     }
 
+</script>
+
+<script type="text/javascript">
+    $('#PageImage').change(function (event) {
+        if (window.FormData !== undefined) {
+
+            var fileUpload = $("#PageImage").get(0);
+            var files = fileUpload.files;
+
+            // Create FormData object
+            var fileData = new FormData();
+
+            // Looping over all files and add it to FormData object
+            for (var i = 0; i < files.length; i++) {
+                fileData.append(files[i].name, files[i]);
+            }
+
+
+            $.ajax({
+                url: '/Management/Image/ImageBrowserUploadForNews',
+                type: "POST",
+                contentType: false, // Not to set any content header
+                processData: false, // Not to process data
+                data: fileData,
+                success: function (result) {
+                    debugger
+                    $("#PageImage").attr("image-path", result);
+                },
+                error: function (err) {
+                    alert(err.statusText);
+                }
+            });
+        } else {
+            alert("FormData is not supported.");
+        }
+    });
 </script>

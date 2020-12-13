@@ -8,10 +8,10 @@
 <script src="~/Content/Scripts/Event.js"></script>
 
 @*<script>
-    $(document).ready(function () {
-        GetEventCategories("EventCategories", '@Model.Language');
-    });
-</script>*@
+        $(document).ready(function () {
+            GetEventCategories("EventCategories", '@Model.Language');
+        });
+    </script>*@
 
 
 <div class="row">
@@ -86,9 +86,15 @@
 
                         <div>
                             <label>@Resources.resource.SayfaDili</label>
-                            <select onchange="GetLanguageCategories()" class="form-control" id="EventLanguage">
+                            <select onchange="GetLanguageToIdentifiers()" class="form-control" id="EventLanguage">
                                 <option value="tr">TR</option>
                                 <option value="de">DE</option>
+                            </select>
+                        </div>
+                        <br />
+                        <div>
+                            <label>Select Identifier</label>
+                            <select class="form-control" id="EventIdentifierDropdown">
                             </select>
                         </div>
                         <br />
@@ -121,28 +127,36 @@
         <br />
 
 
-        @*<div id="EventPicture">
-                <div class="card">
+        <div id="EventPicture">
+            <div class="card">
 
-                    <button class="btn btn-light" data-toggle="collapse" data-target="#collapseEventPicture" aria-expanded="true" aria-controls="collapseEventPicture">
-                        <div class="card-header" id="headingOne">
-                            <h5 class="mb-0">
-                                @Resources.resource.OneCikanGorsel
-                            </h5>
+                <button class="btn btn-light" data-toggle="collapse" data-target="#collapseEventPicture" aria-expanded="true" aria-controls="collapseEventPicture">
+                    <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                            @Resources.resource.OneCikanGorsel
+                        </h5>
+                    </div>
+                </button>
+
+                <div id="collapseEventPicture" class="collapse show" aria-labelledby="headingOne" data-parent="#EventPicture">
+                    <div class="card-body">
+                        <div>
+                            <center>
+                                <img id="ImagePreview" style="width:100%;height:100%;" src="@Model.EventImagePath" alt="Alternate Text" />
+                            </center>
                         </div>
-                    </button>
-
-                    <div id="collapseEventPicture" class="collapse show" aria-labelledby="headingOne" data-parent="#EventPicture">
-                        <div class="card-body">
-                            <div>
-                                <a href="#">@Resources.resource.OneCikanGorselBelirle</a>
-                            </div>
-
+                        <br />
+                        <div>
+                            <center>
+                                <input type="file" id="EventImage" image-path="@Model.EventImagePath" value="@Server.MapPath(Model.EventImagePath)" accept="image/x-png,image/gif,image/jpeg" />
+                            </center>
                         </div>
+
                     </div>
                 </div>
             </div>
-            <br />*@
+        </div>
+        <br />
 
 
         <div id="PublishTab">
@@ -164,7 +178,7 @@
                             </div>
                             <br />*@
                         <div class="col-lg-12">
-                            <input id="Publish" onclick="AddEvent()" type="submit" class="btn btn-primary" name="" value=" @Resources.resource.Yayimla" />
+                            <input id="Publish" onclick="EditEvent(@Model.EventID)" type="submit" class="btn btn-primary" name="" value=" @Resources.resource.Yayimla" />
                         </div>
                     </div>
                 </div>
@@ -174,35 +188,70 @@
     </div>
 </div>
 
-<script> 
+<script>
+
 
 
     $(document).ready(function () {
 
         GetEventCategories("EventCategories", '@Model.Language');
-
-
-
+        GetEventIdentifier('EventIdentifierDropdown', '@Model.Language');
 
         var editor = $("#editor").data("kendoEditor");
-
-
         var html = @Html.Raw(JsonConvert.SerializeObject(Model.EventContent));
-
         var htmlContent = html;
         editor.value(htmlContent + editor.value());
 
 
     });
 
-    @*$(window).on('load', function () {
-        $('#EventCategories').val('@Model.Language');
-        $('#EventLanguage').val('@Model.Language')
-    });*@
-
-    function GetLanguageCategories() {
+    function GetLanguageToIdentifiers() {
         var lang = $("#EventLanguage").val();
-        
+
+        GetEventIdentifier('EventIdentifierDropdown', lang);
     }
+
+     $(window).on('load', function () {
+
+        $('#EventLanguage').val('@Model.Language')
+
+        $('#EventIdentifierDropdown').val('@Model.EventIdentifier')
+    })
 </script>
- 
+
+<script type="text/javascript">
+    $('#EventImage').change(function (event) {
+        if (window.FormData !== undefined) {
+
+            var fileUpload = $("#EventImage").get(0);
+            var files = fileUpload.files;
+
+            // Create FormData object
+            var fileData = new FormData();
+
+            // Looping over all files and add it to FormData object
+            for (var i = 0; i < files.length; i++) {
+                fileData.append(files[i].name, files[i]);
+            }
+
+
+            $.ajax({
+                url: '/Management/Image/ImageBrowserUploadForNews',
+                type: "POST",
+                contentType: false, // Not to set any content header
+                processData: false, // Not to process data
+                data: fileData,
+                success: function (result) {
+                    debugger
+                    $("#EventImage").attr("image-path", result);
+                    $("#ImagePreview").attr("src", result);
+                },
+                error: function (err) {
+                    alert(err.statusText);
+                }
+            });
+        } else {
+            alert("FormData is not supported.");
+        }
+    });
+</script>

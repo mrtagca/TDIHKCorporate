@@ -55,6 +55,9 @@ function AddPage() {
         dataParams.PageIdentifier = $("#PageIdentifierTxt").val();
     }
 
+    var pageImagePath = document.getElementById("PageImage");
+    dataParams.PageImagePath = pageImagePath.getAttribute("image-path");
+
 
     if (pageContent === '' || typeof (pageContent) === 'undefined' || pageContent === null) {
         alert("Page Content cannot be null!");
@@ -97,6 +100,13 @@ function AddPage() {
     if (dataParams.PageSeoKeywords === '' || typeof (dataParams.PageSeoKeywords) === 'undefined' || dataParams.PageSeoKeywords === null) {
         alert("Seo keywords cannot be null!");
         var element = document.getElementById("SeoKeywords");
+        element.style = styleCss;
+        return;
+    }
+
+    if (dataParams.PageImagePath === '' || typeof (dataParams.PageImagePath) === 'undefined' || dataParams.PageImagePath === null) {
+        alert("Please select a page image!");
+        var element = document.getElementById("PageImage");
         element.style = styleCss;
         return;
     }
@@ -173,7 +183,8 @@ function EditPage(pageID) {
 
     dataParams.PageIdentifier = $("#PageIdentifierDropdown").val();
 
-
+    var pageImagePath = document.getElementById("PageImage");
+    dataParams.PageImagePath = pageImagePath.getAttribute("image-path");
 
     if (pageContent === '' || typeof (pageContent) === 'undefined' || pageContent === null) {
         alert("Page Content cannot be null!");
@@ -216,6 +227,13 @@ function EditPage(pageID) {
     if (dataParams.PageSeoKeywords === '' || typeof (dataParams.PageSeoKeywords) === 'undefined' || dataParams.PageSeoKeywords === null) {
         alert("Seo keywords cannot be null!");
         var element = document.getElementById("SeoKeywords");
+        element.style = styleCss;
+        return;
+    }
+
+    if (dataParams.PageImagePath === '' || typeof (dataParams.PageImagePath) === 'undefined' || dataParams.PageImagePath === null) {
+        alert("Please select a page image!");
+        var element = document.getElementById("PageImage");
         element.style = styleCss;
         return;
     }

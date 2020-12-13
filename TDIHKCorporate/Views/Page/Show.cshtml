@@ -19,17 +19,28 @@
 }
 else
 {
-<main class="uk-container" uk-scrollspy="cls: uk-animation-fade; target: > section; delay: 100">
-    <!--Sayfa Başlığı-->
-    <div class="uk-background-secondary">
-        <h1 class="uk-h5 banner-padding uk-margin-remove">@Model.PageTitle</h1>
-    </div><!--Sayfa Başlığı sonu-->
-    <!--Banner: Eklenen imajın en boy oranı korunur.-->
+    <main class="uk-container" uk-scrollspy="cls: uk-animation-fade; target: > section; delay: 100">
+        <!--Sayfa Başlığı-->
+        <div class="uk-background-secondary">
+            <h1 class="uk-h5 banner-padding uk-margin-remove">@Model.PageTitle</h1>
+        </div><!--Sayfa Başlığı sonu-->
+        <!--Banner: Eklenen imajın en boy oranı korunur.-->
 
-    <div><img src="@Model.PageImagePath" alt="" uk-img="" /></div><!--Banner sonu-->
-    <br />
-    @Html.Raw(Model.PageContent)
-</main>
+        <div><img style="width:1140px;height:463px;" src="@Model.PageImagePath" alt="" uk-img="" /></div><!--Banner sonu-->
+        <br />
+
+        @Html.Raw(Model.PageContent)
+
+        @if (Model.PageIdentifier == "PremiumMemberShip")
+        {
+            @Html.Action("ShowPremiumMembersSlider", "Home")
+            <br />
+            <br />
+            <section><div class="uk-margin-medium-bottom"><button class="uk-button uk-button-primary uk-button-large uk-border-rounded uk-align-center">Zum Antragsformular</button></div></section>
+        }
+
+        <br />
+    </main>
 }
 
 

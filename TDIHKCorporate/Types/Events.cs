@@ -11,6 +11,7 @@ namespace TDIHKCorporate.Types
         public string EventCategoryName { get; set; }
         public int EventID { get; set; }
         public string Language { get; set; }
+        public string EventIdentifier { get; set; }
         public int EventCategoryID { get; set; }
         public string EventImagePath { get; set; }
         public string EventThumbnailPath { get; set; }

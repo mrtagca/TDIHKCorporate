@@ -3363,6 +3363,7 @@
     <Compile Include="Types\SliderContent.cs" />
     <Compile Include="Types\Sliders.cs" />
     <Compile Include="Types\ViewTypes\CreateContentViewModel.cs" />
+    <Compile Include="Types\ViewTypes\EventIdentifier.cs" />
     <Compile Include="Types\ViewTypes\NewsIdentifier.cs" />
     <Compile Include="Types\ViewTypes\NewsItem.cs" />
     <Compile Include="Types\ViewTypes\PageIdentifier.cs" />
@@ -4058,6 +4059,7 @@
     <Content Include="Views\News\Show.cshtml" />
     <Content Include="Views\Home\_PartialPremiumMembers.cshtml" />
     <Content Include="Views\Home\_PartialMitgliedschaftAdvantage.cshtml" />
+    <Content Include="Views\Home\_PartialShowHomePageKalender.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

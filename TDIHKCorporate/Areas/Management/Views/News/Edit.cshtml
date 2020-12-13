@@ -117,7 +117,7 @@
                         <br />
                         <div>
                             <center>
-                                <input type="file" name="test.txt" id="NewsImage" image-path="@Model.NewsImagePath" value="@Server.MapPath(Model.NewsImagePath)" accept="image/x-png,image/gif,image/jpeg" />
+                                <input type="file" id="NewsImage" image-path="@Model.NewsImagePath" value="@Server.MapPath(Model.NewsImagePath)" accept="image/x-png,image/gif,image/jpeg" />
                             </center>
                         </div>
 
@@ -160,8 +160,6 @@
 
 <script>
 
-
-
     $(document).ready(function () {
 
         GetNewsCategories("NewsCategories");
@@ -175,10 +173,6 @@
 
 
     });
-
-
-
-
 
     function DisableIdentifierInputs() {
         debugger
@@ -206,9 +200,9 @@
 
        $(window).on('load', function () {
        // $('#NewsCategories').val('@Model.NewsCategoryID');
-        $('#NewsLanguage').val('@Model.Language')
+           $('#NewsLanguage').val('@Model.Language');
 
-           $('#NewsIdentifierDropdown').val('@Model.NewsIdentifier')
+           $('#NewsIdentifierDropdown').val('@Model.NewsIdentifier');
 
     })
 </script>
