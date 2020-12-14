@@ -109,7 +109,7 @@ where [Language] = @lang and NewsIdentifier in (SELECT top 1 NewsIdentifier FROM
 
             string name = cultureInfo.TwoLetterISOLanguageName;
 
-            List<MenuItems> menuItems = getPageCategories.GetList(@"select mi.*,p.PageSeoLink from MenuItems mi (NOLOCK)
+            List<MenuItems> menuItems = getPageCategories.GetList(@"select mi.*,p.PageSeoLink,p.IsActive as PageIsActive from MenuItems mi (NOLOCK)
                                         inner join Menus m (NOLOCK)
                                         on mi.MenuID = m.ID
                                         left join Pages p (NOLOCK)

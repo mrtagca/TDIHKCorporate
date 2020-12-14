@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
@@ -190,7 +191,6 @@ namespace TDIHKCorporate.Areas.Management.Controllers
                 {
                     Directory.CreateDirectory(physicalPath);
                 }
-
                 return FileBrowserRead(null);
             }
 
@@ -306,11 +306,11 @@ namespace TDIHKCorporate.Areas.Management.Controllers
             }
             catch (Exception ex)
             {
-                ViewBag.Success = "Error:"+ex.Message;
+                ViewBag.Success = "Error:" + ex.Message;
                 return View();
             }
         }
 
-       
+
     }
 }

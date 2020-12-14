@@ -281,4 +281,59 @@ function GetPageIdentifier(identifierDropdown, lang) {
     });
 }
 
+function PassivePage(pageID) {
+
+    if (confirm("Are you sure for delete this page?")) {
+        var callParams = {
+            endPoint: "/Management/Page/PassivePage",
+            requestType: "POST"
+        }
+
+        var dataParams = {};
+        dataParams.pageID = pageID;
+
+        RequestAjax(callParams, dataParams, function (response) {
+            debugger
+            response = JSON.parse(response);
+
+            if (response === true) {
+                alert("Page is passive now.");
+                location.reload();
+            }
+            else {
+                alert("Fail!");
+            }
+        });
+    }
+
+
+}
+
+function ActivatePage(pageID) {
+
+    if (confirm("Are you sure for activate this page?")) {
+        var callParams = {
+            endPoint: "/Management/Page/ActivatePage",
+            requestType: "POST"
+        }
+
+        var dataParams = {};
+        dataParams.pageID = pageID;
+
+        RequestAjax(callParams, dataParams, function (response) {
+            debugger
+            response = JSON.parse(response);
+
+            if (response === true) {
+                alert("Page is active now.");
+                location.reload();
+            }
+            else {
+                alert("Fail!");
+            }
+        });
+    }
+
+
+}
 

@@ -3,14 +3,19 @@
 
 
 
+
+@*<script src="https://kendo.cdn.telerik.com/2018.3.1017/js/jquery.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2018.3.1017/js/kendo.all.min.js"></script>*@
+
+@*<link href="~/Scripts/kendo/css/kendo.common-material.min.css" rel="stylesheet" />
+    <link href="~/Scripts/kendo/css/kendo.material.min.css" rel="stylesheet" />
+    <link href="~/Scripts/kendo/css/kendo.material.mobile.min.css" rel="stylesheet" />*@
+
 <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.3.1017/styles/kendo.common-material.min.css" />
 <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.3.1017/styles/kendo.material.min.css" />
 <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.3.1017/styles/kendo.material.mobile.min.css" />
-<script src="https://kendo.cdn.telerik.com/2018.3.1017/js/jquery.min.js"></script>
-<script src="https://kendo.cdn.telerik.com/2018.3.1017/js/kendo.all.min.js"></script>
-
-
-
+<script src="~/Scripts/kendo/js/jquery.min.js"></script>
+<script src="~/Scripts/kendo/js/kendo.all.min.js"></script>
 
 
 <!-- Modal -->
@@ -73,16 +78,15 @@
                 //    ev.html = $(ev.html).text().replace(/<p[^>]*>/g, "").replace(/<\/p>/g, "");
                 //},
                 pasteCleanup: {
-                    all: true,
-                    css: true,
+                    all: false,
+                    css: false,
                     keepNewLines: true,
                     msAllFormatting: true,
                     msConvertLists: true,
-                    msTags: true,
+                    msTags: false,
                     none: true,
                     span: true
                 },
-                encoded: false,
                 tools: [
                     {
                         name: "fontName",
@@ -186,7 +190,7 @@
                         {
                             url: "/Management/Image/ImageBrowserRead",
                             dataType: "json",
-                            type: "POST"
+                            type: "GET"
                         },
                         destroy: {
                             url: "/Management/Image/ImageBrowserDestroy",
@@ -198,7 +202,7 @@
                         },
                         thumbnailUrl: "/Management/Image/ThumbnailRead",
                         uploadUrl: "/Management/Image/ImageBrowserUpload",
-                        //imageUrl: "/Content/MainSite/assets/images/{0}"
+                        imageUrl: "/Content/MainSite/assets/images/{0}"
                     }
                 }
                 ,
@@ -211,7 +215,8 @@
                         {
                             url: "/Management/File/FileBrowserRead",
                             dataType: "json",
-                            type: "POST"
+                            type: "GET",
+                            data: {path:"{0}"}
                         },
                         destroy: {
                             url: "/Management/File/FileBrowserDestroy",

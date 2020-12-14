@@ -170,14 +170,14 @@
                                 </button>
 
                                 @*<div uk-dropdown="mode: click">
-                                    <ul class="uk-nav uk-dropdown-nav">
-                                        <li>
-                                            <a href="~/Home/ChangeLanguage?language=tr" type="button" class="uk-width-1-1 uk-margin-small-left" style="background: transparent; border: none;">
-                                                <img src="~/Content/MainSite/assets/images/Turkey-icon.png" alt="">
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>*@
+                                        <ul class="uk-nav uk-dropdown-nav">
+                                            <li>
+                                                <a href="~/Home/ChangeLanguage?language=tr" type="button" class="uk-width-1-1 uk-margin-small-left" style="background: transparent; border: none;">
+                                                    <img src="~/Content/MainSite/assets/images/Turkey-icon.png" alt="">
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>*@
                             }
                             else
                             {
@@ -186,14 +186,14 @@
                                 </button>
 
                                 @*<div uk-dropdown="mode: click">
-                                    <ul class="uk-nav uk-dropdown-nav">
-                                        <li>
-                                            <a href="~/Home/ChangeLanguage?language=de" type="button" class="uk-width-1-1 uk-margin-small-left" style="background: transparent; border: none;">
-                                                <img src="~/Content/MainSite/assets/images/Germany-icon.png" alt="">
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>*@
+                                        <ul class="uk-nav uk-dropdown-nav">
+                                            <li>
+                                                <a href="~/Home/ChangeLanguage?language=de" type="button" class="uk-width-1-1 uk-margin-small-left" style="background: transparent; border: none;">
+                                                    <img src="~/Content/MainSite/assets/images/Germany-icon.png" alt="">
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>*@
                             }
 
 
@@ -230,187 +230,196 @@
     </section>
     <!--Navbar-->
     <div class="uk-container">
-		<nav class="uk-navbar uk-navbar-container uk-text-bold" uk-navbar>
-			<!--Navbar linkleri (masaüstü)-->
-			<div class="nav-overlay uk-navbar-left uk-visible@m uk-width-expand">
-				<ul class="uk-navbar-nav uk-width-expand uk-flex-between">
+        <nav class="uk-navbar uk-navbar-container uk-text-bold" uk-navbar>
+            <!--Navbar linkleri (masaüstü)-->
+            <div class="nav-overlay uk-navbar-left uk-visible@m uk-width-expand">
+                <ul class="uk-navbar-nav uk-width-expand uk-flex-between">
 
-					@foreach (TDIHKCorporate.Types.MenuItems item in Model.Where(x => x.IsSubMenu == false).OrderBy(x => x.MenuItemPriority))
-					{
-						<li>
-							@{
-								if (item.Language == "tr")
-								{
-									<a href="/tr/sayfalar/@item.PageSeoLink">@item.MenuName</a>
+                    @foreach (TDIHKCorporate.Types.MenuItems item in Model.Where(x => x.IsSubMenu == false).OrderBy(x => x.MenuItemPriority))
+                    {
+                        <li>
+                            @{
+                                if (item.Language == "tr")
+                                {
 
-									<div class="uk-navbar-dropdown">
-										@if (Model.Exists(x => x.ParentMenuItemID == item.ID && x.IsSubMenu == true && x.MenuLevel == 1))
-										{
-											<ul class="uk-nav uk-navbar-dropdown-nav">
-
-												@foreach (var subMenuItem in Model.Where(x => x.ParentMenuItemID == item.ID && x.IsSubMenu == true && x.MenuLevel == 1).OrderBy(x => x.MenuItemPriority))
-												{
-
-													<li class="uk-active">
-														<a href="/tr/sayfalar/@subMenuItem.PageSeoLink">@subMenuItem.MenuName</a>
-
-														@if (Model.Exists(x => x.ParentMenuItemID == subMenuItem.ID && x.IsSubMenu == true && x.MenuLevel == 2))
-														{
-															<ul class="uk-nav uk-navbar-dropdown-nav subnav-links">
-																@foreach (var subMenuSubItem in Model.Where(x => x.ParentMenuItemID == subMenuItem.ID && x.IsSubMenu == true && x.MenuLevel == 2).OrderBy(x => x.MenuItemPriority))
-																{
-
-																	<li class="uk-active">
-																		<a href="/tr/sayfalar/@subMenuSubItem.PageSeoLink">@subMenuSubItem.MenuName</a>
-
-																	</li>
-
-																}
-															</ul>
-														}
-													</li>
-												}
-											</ul>
-										}
-									</div>
-								}
-								else if (item.Language == "de")
-								{
-									<a href="/de/seiten/@item.PageSeoLink">@item.MenuName</a>
-
-									<div class="uk-navbar-dropdown">
-										@if (Model.Exists(x => x.ParentMenuItemID == item.ID && x.IsSubMenu == true && x.MenuLevel == 1))
-										{
-											<ul class="uk-nav uk-navbar-dropdown-nav">
-
-												@foreach (var subMenuItem in Model.Where(x => x.ParentMenuItemID == item.ID && x.IsSubMenu == true && x.MenuLevel == 1).OrderBy(x => x.MenuItemPriority))
-												{
-
-													<li class="uk-active">
-														<a href="/de/seiten/@subMenuItem.PageSeoLink">@subMenuItem.MenuName</a>
-
-														@if (Model.Exists(x => x.ParentMenuItemID == subMenuItem.ID && x.IsSubMenu == true && x.MenuLevel == 2))
-														{
-															<ul class="uk-nav uk-navbar-dropdown-nav subnav-links">
-																@foreach (var subMenuSubItem in Model.Where(x => x.ParentMenuItemID == subMenuItem.ID && x.IsSubMenu == true && x.MenuLevel == 2).OrderBy(x => x.MenuItemPriority))
-																{
-
-																	<li class="uk-active">
-																		<a href="/de/seiten/@subMenuSubItem.PageSeoLink">@subMenuSubItem.MenuName</a>
-
-																	</li>
-
-																}
-															</ul>
-														}
-													</li>
-												}
-											</ul>
-										}
-									</div>
-								}
-							}
-
-							@* Sub Menuler
-							<ul class="uk-navbar-nav uk-width-expand uk-flex-between">
-							@foreach (var secondItem in (Model.Where(s => s.ParentMenuItemID == item.ID && s.IsSubMenu == true).ToList()))
-							{
-								<li><a href="@secondItem.PageSeoLink">@secondItem.MenuName</a></li>
-
-							}
-						</ul>*@
-
-						</li>
-
-					}
-
-					@*<li><a href="" class="uk-padding-small-left">@Resources.resource.Hizmetlerimiz</a></li>
-				<li><a href="">@Resources.resource.Uyelik</a></li>
-				<li><a href="">@Resources.resource.Etkinliklerimiz</a></li>
-				<li><a href="">@Resources.resource.Yayinlarimiz</a></li>
-				<li><a href="">@Resources.resource.Covid19</a></li>
-				<li><a href="">@Resources.resource.Hakkimizda</a></li>*@
-				</ul>
-			</div>
-			<!--Navbar searchbar ve dil-->
-			@*<div class="nav-overlay uk-navbar-right uk-visible@m uk-width-auto uk-flex-right uk-text-right">
-
-			<a class="uk-navbar-toggle uk-icon" uk-search-icon="icon: icn-search"
-			   uk-toggle="target: .nav-overlay; animation: uk-animation-fade" href="#"></a>
-			<div class="uk-inline uk-width-1-3">
-				<a href="~/Home/ChangeLanguage?language=tr" type="button" class="uk-width-1-1 uk-margin-small-left" style="background: transparent; border: none;"><img src="~/Content/MainSite/assets/images/Turkey-icon.png" alt=""></a>
-				<div uk-dropdown="mode: click">
-					<ul class="uk-nav uk-dropdown-nav">
-						<li><a href="~/Home/ChangeLanguage?language=de"><img src="~/Content/MainSite/assets/images/Germany-icon.png" alt=""></a></li>
-					</ul>
-				</div>
-			</div>
-		</div>*@
+                                    if (item.IsActive)
+                                    {
+                                        if (item.PageIsActive)
+                                        {
+                                            <a href="/tr/sayfalar/@item.PageSeoLink">@item.MenuName</a>
+                                        }
+                                        else
+                                        {
+                                            <a href="#">@item.MenuName</a>
+                                        }
 
 
+                                        if (Model.Exists(x => x.ParentMenuItemID == item.ID && x.IsSubMenu == true && x.MenuLevel == 1 && x.IsActive==true))
+                                        {
+                                            <div class="uk-navbar-dropdown">
+                                                <ul class="uk-nav uk-navbar-dropdown-nav">
 
-			<div class="nav-overlay uk-navbar-right uk-visible@m uk-width-auto uk-flex-right uk-text-right">
+                                                    @foreach (var subMenuItem in Model.Where(x => x.ParentMenuItemID == item.ID && x.IsSubMenu == true && x.MenuLevel == 1 && x.IsActive==true).OrderBy(x => x.MenuItemPriority))
+                                                    {
 
+                                                    <li class="uk-active">
+                                                        @if (subMenuItem.PageIsActive)
+                                                        {
+                                                            <a href="/tr/sayfalar/@subMenuItem.PageSeoLink">@subMenuItem.MenuName</a>
+                                                        }
+                                                        else
+                                                        {
+                                                            <a href="#">@subMenuItem.MenuName</a>
+                                                        }
 
-				@{
-					CultureInfo ci = System.Threading.Thread.CurrentThread.CurrentCulture;
+                                                        @if (Model.Exists(x => x.ParentMenuItemID == subMenuItem.ID && x.IsSubMenu == true && x.MenuLevel == 2 && x.IsActive==true))
+                                                        {
+                                                            <ul class="uk-nav uk-navbar-dropdown-nav subnav-links">
+                                                                @foreach (var subMenuSubItem in Model.Where(x => x.ParentMenuItemID == subMenuItem.ID && x.IsSubMenu == true && x.MenuLevel == 2).OrderBy(x => x.MenuItemPriority))
+                                                                {
 
-					string lang = cultureInfo.TwoLetterISOLanguageName;
+                                                                <li class="uk-active">
+                                                                    @if (subMenuSubItem.PageIsActive)
+                                                                    {
+                                                                        <a href="/tr/sayfalar/@subMenuSubItem.PageSeoLink">@subMenuSubItem.MenuName</a>
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <a href="#">@subMenuSubItem.MenuName</a>
+                                                                    }
+                                                                </li>
 
-					<div class="uk-navbar-right uk-flex-right uk-text-right">
-						<a class="uk-navbar-toggle uk-icon" uk-search-icon="icon: icn-search"
-						   uk-toggle="target: .nav-overlay; animation: uk-animation-fade" href="#"></a>
-						<div class="uk-inline uk-width-1-3">
+                                                                }
+                                                            </ul>
+                                                        }
+                                                    </li>
+                                                    }
+                                                </ul>
+                                            </div>
+                                        }
 
-							@if (lang == "tr")
-							{
-								<button type="button" onclick="location.href='/Home/ChangeLanguage?language=de'" class="uk-width-1-1 uk-margin-small-left" style="background: transparent; border: none;">
-									<img src="~/Content/MainSite/assets/images/Germany-icon.png" alt="">
-								</button>
+                                    }
+                                }
+                                else if (item.Language == "de")
+                                {
+                                    <a href="/de/seiten/@item.PageSeoLink">@item.MenuName</a>
 
-								@*<div uk-dropdown="mode: click">
-									<ul class="uk-nav uk-dropdown-nav">
-										<li>
-											<a href="~/Home/ChangeLanguage?language=tr" type="button" class="uk-width-1-1 uk-margin-small-left" style="background: transparent; border: none;">
-												<img src="~/Content/MainSite/assets/images/Turkey-icon.png" alt="">
-											</a>
-										</li>
-									</ul>
-								</div>*@
-							}
-							else
-							{
-								<button type="button" onclick="location.href='/Home/ChangeLanguage?language=tr'" class="uk-width-1-1 uk-margin-small-left" style="background: transparent; border: none;">
-									<img src="~/Content/MainSite/assets/images/Turkey-icon.png" alt="">
-								</button>
+                                    <div class="uk-navbar-dropdown">
+                                        @if (Model.Exists(x => x.ParentMenuItemID == item.ID && x.IsSubMenu == true && x.MenuLevel == 1))
+                                        {
+                                            <ul class="uk-nav uk-navbar-dropdown-nav">
 
-								@*<div uk-dropdown="mode: click">
-									<ul class="uk-nav uk-dropdown-nav">
-										<li>
-											<a href="~/Home/ChangeLanguage?language=de" type="button" class="uk-width-1-1 uk-margin-small-left" style="background: transparent; border: none;">
-												<img src="~/Content/MainSite/assets/images/Germany-icon.png" alt="">
-											</a>
-										</li>
-									</ul>
-								</div>*@
-							}
+                                                @foreach (var subMenuItem in Model.Where(x => x.ParentMenuItemID == item.ID && x.IsSubMenu == true && x.MenuLevel == 1).OrderBy(x => x.MenuItemPriority))
+                                                {
+
+                                                    <li class="uk-active">
+                                                        <a href="/de/seiten/@subMenuItem.PageSeoLink">@subMenuItem.MenuName</a>
+
+                                                        @if (Model.Exists(x => x.ParentMenuItemID == subMenuItem.ID && x.IsSubMenu == true && x.MenuLevel == 2))
+                                                        {
+                                                            <ul class="uk-nav uk-navbar-dropdown-nav subnav-links">
+                                                                @foreach (var subMenuSubItem in Model.Where(x => x.ParentMenuItemID == subMenuItem.ID && x.IsSubMenu == true && x.MenuLevel == 2).OrderBy(x => x.MenuItemPriority))
+                                                                {
+
+                                                                    <li class="uk-active">
+                                                                        <a href="/de/seiten/@subMenuSubItem.PageSeoLink">@subMenuSubItem.MenuName</a>
+
+                                                                    </li>
+
+                                                                }
+                                                            </ul>
+                                                        }
+                                                    </li>
+                                                }
+                                            </ul>
+                                        }
+                                    </div>
+                                }
+                            }
+
+                            @* Sub Menuler
+                                    <ul class="uk-navbar-nav uk-width-expand uk-flex-between">
+                                    @foreach (var secondItem in (Model.Where(s => s.ParentMenuItemID == item.ID && s.IsSubMenu == true).ToList()))
+                                    {
+                                        <li><a href="@secondItem.PageSeoLink">@secondItem.MenuName</a></li>
+
+                                    }
+                                </ul>*@
+
+                        </li>
+
+                    }
 
 
 
-						</div>
-					</div>
-				}
-			</div>
-			<div class="nav-overlay uk-navbar-left uk-flex-1" hidden>
+                </ul>
+            </div>
 
-				<div class="uk-navbar-item uk-width-expand">
-					<form class="uk-search uk-search-navbar uk-width-1-1">
-						<input class="uk-search-input" type="search" placeholder="Search..." autofocus>
-					</form>
-				</div>
-				<a class="uk-navbar-toggle" uk-close uk-toggle="target: .nav-overlay; animation: uk-animation-fade" href="#"></a>
-			</div>
-</div>
+
+
+
+            <div class="nav-overlay uk-navbar-right uk-visible@m uk-width-auto uk-flex-right uk-text-right">
+
+
+                @{
+                    CultureInfo ci = System.Threading.Thread.CurrentThread.CurrentCulture;
+
+                    string lang = cultureInfo.TwoLetterISOLanguageName;
+
+                    <div class="uk-navbar-right uk-flex-right uk-text-right">
+                        <a class="uk-navbar-toggle uk-icon" uk-search-icon="icon: icn-search"
+                           uk-toggle="target: .nav-overlay; animation: uk-animation-fade" href="#"></a>
+                        <div class="uk-inline uk-width-1-3">
+
+                            @if (lang == "tr")
+                            {
+                                <button type="button" onclick="location.href='/Home/ChangeLanguage?language=de'" class="uk-width-1-1 uk-margin-small-left" style="background: transparent; border: none;">
+                                    <img src="~/Content/MainSite/assets/images/Germany-icon.png" alt="">
+                                </button>
+
+                                @*<div uk-dropdown="mode: click">
+                                        <ul class="uk-nav uk-dropdown-nav">
+                                            <li>
+                                                <a href="~/Home/ChangeLanguage?language=tr" type="button" class="uk-width-1-1 uk-margin-small-left" style="background: transparent; border: none;">
+                                                    <img src="~/Content/MainSite/assets/images/Turkey-icon.png" alt="">
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>*@
+                            }
+                            else
+                            {
+                                <button type="button" onclick="location.href='/Home/ChangeLanguage?language=tr'" class="uk-width-1-1 uk-margin-small-left" style="background: transparent; border: none;">
+                                    <img src="~/Content/MainSite/assets/images/Turkey-icon.png" alt="">
+                                </button>
+
+                                @*<div uk-dropdown="mode: click">
+                                        <ul class="uk-nav uk-dropdown-nav">
+                                            <li>
+                                                <a href="~/Home/ChangeLanguage?language=de" type="button" class="uk-width-1-1 uk-margin-small-left" style="background: transparent; border: none;">
+                                                    <img src="~/Content/MainSite/assets/images/Germany-icon.png" alt="">
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>*@
+                            }
+
+
+
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="nav-overlay uk-navbar-left uk-flex-1" hidden>
+
+                <div class="uk-navbar-item uk-width-expand">
+                    <form class="uk-search uk-search-navbar uk-width-1-1">
+                        <input class="uk-search-input" type="search" placeholder="Search..." autofocus>
+                    </form>
+                </div>
+                <a class="uk-navbar-toggle" uk-close uk-toggle="target: .nav-overlay; animation: uk-animation-fade" href="#"></a>
+            </div>
+    </div>
     </nav>
     </div>
 </header>

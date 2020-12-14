@@ -8,6 +8,22 @@
 
 <script src="~/Content/Scripts/Page.js"></script>
 
+<script>
+        $(document).ready(function () {
+
+        $("#PageLanguage").val('@Model.Language');
+
+         GetPageIdentifier('PageIdentifierDropdown', '@Model.Language');
+
+        var editor = $("#editor").data("kendoEditor");
+        var html = @Html.Raw(JsonConvert.SerializeObject(Model.PageContent));
+        var htmlContent = html;
+        editor.value(htmlContent + editor.value());
+
+
+    });
+</script>
+
 <div class="row">
     <div class="col-md-9 col-sm-12">
 
@@ -177,18 +193,7 @@
 </div>
 
 <script>
-    $(document).ready(function () {
 
-        $("#PageLanguage").val('@Model.Language');
-        GetPageIdentifier('PageIdentifierDropdown', '@Model.Language');
-
-        var editor = $("#editor").data("kendoEditor");
-        var html = @Html.Raw(JsonConvert.SerializeObject(Model.PageContent));
-        var htmlContent = html;
-        editor.value(htmlContent + editor.value());
-
-
-    });
 
 
     function GetLanguageToIdentifiers() {
@@ -200,9 +205,10 @@
     $(window).on('load', function () {
 
         $('#PageLanguage').val('@Model.Language')
-
         $('#PageIdentifierDropdown').val('@Model.PageIdentifier')
     })
+
+
 
 </script>
 

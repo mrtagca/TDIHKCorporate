@@ -2340,9 +2340,6 @@
     <Content Include="Content\MainSite\assets\images\Jahresberichte\Jahresberichte.png" />
     <Content Include="Content\MainSite\assets\images\johangebote\banner.png" />
     <Content Include="Content\MainSite\assets\images\kalender\Highlight picture.png" />
-    <Content Include="Content\MainSite\assets\images\konferenzraum\banner.png" />
-    <Content Include="Content\MainSite\assets\images\konferenzraum\Konferenzraum 1.JPG" />
-    <Content Include="Content\MainSite\assets\images\konferenzraum\Konferenzraum 2.JPG" />
     <Content Include="Content\MainSite\assets\images\konferenzraum\Konferenzraum 3.JPG" />
     <Content Include="Content\MainSite\assets\images\konferenzraum\Konferenzraum 4.JPG" />
     <Content Include="Content\MainSite\assets\images\konferenzraum\Konferenzraum 5.JPG" />
@@ -2907,6 +2904,11 @@
     <Content Include="html\aubenhandelsportal.html" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
+    <Content Include="Scripts\kendo\js\jquery.min.js" />
+    <Content Include="Scripts\kendo\js\kendo.all.min.js" />
+    <Content Include="Scripts\kendo\css\kendo.common-material.min.css" />
+    <Content Include="Scripts\kendo\css\kendo.material.min.css" />
+    <Content Include="Scripts\kendo\css\kendo.material.mobile.min.css" />
     <Content Include="Scripts\main.js" />
     <Content Include="Web.config" />
   </ItemGroup>

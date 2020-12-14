@@ -3,6 +3,7 @@
     ViewBag.Title = "PageList";
     Layout = "~/Areas/Management/Views/Shared/_layoutDashboard.cshtml";
 }
+<script src="~/Content/Scripts/Page.js"></script>
 
 <h5>Sayfa Listesi</h5>
 <br />
@@ -57,10 +58,18 @@
                     }
                     <td>@row.Updater</td>
                     <td>
-                        <input type="submit" onclick="
-                           window.open(
+                        <button onclick="window.open(
                          '/Management/Page/Edit/' +@row.PageID,
-                         '_blank' );" class="btn btn-primary" name="name" value="Edit" />
+                         '_blank' );" class="btn btn-primary"><i class="fa fa-edit"></i></button>
+
+                        @if (row.IsActive)
+                        {
+                            <button onclick="PassivePage(@row.PageID)" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                        }
+                        else
+                        {
+                            <button onclick="ActivatePage(@row.PageID)" class="btn btn-success"><i class="fa fa-check"></i></button>
+                        }
                     </td>
                 </tr>
             }
@@ -90,3 +99,4 @@
     });
 
 </script>
+

@@ -22,5 +22,6 @@ namespace TDIHKCorporate.Types
         public DateTime UpdatedDate { get; set; }
         public int UpdatedBy { get; set; }
         public string PageSeoLink { get; set; }
+        public bool PageIsActive { get; set; }
     }
 }
