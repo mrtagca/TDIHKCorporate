@@ -20,7 +20,7 @@ namespace TDIHKCorporate.Areas.Management.Controllers
 
         private readonly DirectoryBrowser directoryBrowser;
 
-        private const string DefaultFilter = "*.pdf,*.csv,*.xls,*.xlsx,*.zip,*.rar";
+        private const string DefaultFilter = "*.pdf,*.csv,*.xls,*.xlsx,*.zip,*.rar,*.mp3,*.mp4,*.mp5";
         public FileController()
         {
             directoryBrowser = new DirectoryBrowser();

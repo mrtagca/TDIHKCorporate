@@ -25,7 +25,7 @@ namespace TDIHKCorporate.Controllers
             string name = cultureInfo.TwoLetterISOLanguageName;
 
             Pages pageItem = page.Get(@"SELECT * FROM Pages (NOLOCK)
-            where PageSeoLink = @pageSeoLink", new { pageSeoLink = seoLink });
+            where PageSeoLink = @pageSeoLink and [Language]=@lang", new { pageSeoLink = seoLink, lang = name });
 
             //Pages pageItem = page.Get(@"SELECT * FROM Pages (NOLOCK)
             //where[Language] = @language and PageSeoLink = @pageSeoLink", new { language = name, pageSeoLink = seoLink });

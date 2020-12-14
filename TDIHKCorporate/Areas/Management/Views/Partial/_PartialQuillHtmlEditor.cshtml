@@ -56,10 +56,10 @@
             return e.html;
         }
 
-        var defaultTools = kendo.ui.Editor.defaultTools;
+        //var defaultTools = kendo.ui.Editor.defaultTools;
 
-        defaultTools["insertLineBreak"].options.shift = true;
-        delete defaultTools["insertParagraph"].options;
+        //defaultTools["insertLineBreak"].options.shift = true;
+        //delete defaultTools["insertParagraph"].options;
 
 
         $("#editor").kendoEditor(
@@ -186,7 +186,7 @@
                         {
                             url: "/Management/Image/ImageBrowserRead",
                             dataType: "json",
-                            type: "GET"
+                            type: "POST"
                         },
                         destroy: {
                             url: "/Management/Image/ImageBrowserDestroy",
@@ -198,7 +198,7 @@
                         },
                         thumbnailUrl: "/Management/Image/ThumbnailRead",
                         uploadUrl: "/Management/Image/ImageBrowserUpload",
-                        imageUrl: "/Content/MainSite/assets/images/{0}"
+                        //imageUrl: "/Content/MainSite/assets/images/{0}"
                     }
                 }
                 ,
