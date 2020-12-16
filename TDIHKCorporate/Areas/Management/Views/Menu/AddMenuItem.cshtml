@@ -122,7 +122,7 @@
 
             dataParams.IsSubMenu = true;
             dataParams.ParentMenuItemID = $("#ParentMenuDropdown").val();
-            dataParams.MenuLevel = $("#ParentMenuDropdown").find(':selected').attr('menu-level') + 1;
+            dataParams.MenuLevel = parseInt($("#ParentMenuDropdown").find(':selected').attr('menu-level')) + 1;
         }
         else {
             dataParams.MenuLevel = 0;
@@ -143,6 +143,7 @@
 
             if (response === true) {
                 alert("Menü elemanı eklendi!");
+                location.reload();
             }
             else {
                 alert("Menü elemanı eklenemedi!");
