@@ -313,6 +313,10 @@
         background-color: #CEE1F6;
     }
 
+    .bg-dark-grey {
+        background-color: @dark-grey;
+    }
+
     .mitglied-section {
         min-height: max-content;
         margin-top: 20px;
@@ -718,7 +722,8 @@
         float: left;
         position: relative;
         z-index: 1;
-        @media(min-width: @breakpoint-medium){
+
+        @media(min-width: @breakpoint-medium) {
             padding: 12px;
         }
     }
@@ -914,5 +919,28 @@
             bottom: auto;
             left: 10px;
         }
+    }
+
+    .dienstleistungen-card{
+        padding: 15px 20px 10px 15px;
+        @media (min-width: @breakpoint-medium){
+            padding: 30px 40px 20px 30px;
+        }
+        }
+    .weiterlesen-card{
+        padding: 10px 20px 10px 15px;
+        @media(min-width: @breakpoint-medium){
+            padding: 15px 40px 20px 30px;
+        }
+        &:hover{
+            transition: .5s;
+            background: rgba(179, 179, 186, 0.70);
+            }
+    }
+
+    .card-link-white{
+            span{
+                color: white !important;
+            }
     }
 }

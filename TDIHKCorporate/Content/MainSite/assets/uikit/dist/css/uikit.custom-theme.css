@@ -2614,6 +2614,9 @@ select.uk-form-width-xsmall {
 .bg-light-blue {
   background-color: #CEE1F6;
 }
+.bg-dark-grey {
+  background-color: #616771;
+}
 .mitglied-section {
   min-height: max-content;
   margin-top: 20px;
@@ -3153,6 +3156,29 @@ select.uk-form-width-xsmall {
     bottom: auto;
     left: 10px;
   }
+}
+.dienstleistungen-card {
+  padding: 15px 20px 10px 15px;
+}
+@media (min-width: 960px) {
+  .dienstleistungen-card {
+    padding: 30px 40px 20px 30px;
+  }
+}
+.weiterlesen-card {
+  padding: 10px 20px 10px 15px;
+}
+@media (min-width: 960px) {
+  .weiterlesen-card {
+    padding: 15px 40px 20px 30px;
+  }
+}
+.weiterlesen-card:hover {
+  transition: .5s;
+  background: rgba(179, 179, 186, 0.7);
+}
+.card-link-white span {
+  color: white !important;
 }
 /* ========================================================================
    Component: Container
