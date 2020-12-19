@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 using TDIHKCorporate.BaseControllers.MultiLanguage;
@@ -15,69 +16,75 @@ namespace TDIHKCorporate.Controllers
     {
         public ActionResult ChangeLanguage(string language)
         {
-
             new SiteLanguage().SetLanguage(language);
 
-            string url = Request.UrlReferrer.ToString();
-
-            if (url.Contains("seiten/") || url.Contains("sayfalar/"))
+            if (Request.UrlReferrer!=null)
             {
-                if (language == "tr") //change tr
-                {
-                    string seo = url.Substring(url.LastIndexOf("/") + 1);
+                string url = Request.UrlReferrer.ToString();
 
-                    DapperRepository<Pages> pageRepo = new DapperRepository<Pages>();
-                    Pages page = pageRepo.Get(@"SELECT * FROM [IHK].[dbo].[Pages] (NOLOCK)
+                if (url.Contains("seiten/") || url.Contains("sayfalar/"))
+                {
+                    if (language == "tr") //change tr
+                    {
+                        string seo = url.Substring(url.LastIndexOf("/") + 1);
+
+                        DapperRepository<Pages> pageRepo = new DapperRepository<Pages>();
+                        Pages page = pageRepo.Get(@"SELECT * FROM [IHK].[dbo].[Pages] (NOLOCK)
 where [Language] = @lang and PageIdentifier in (SELECT top 1 PageIdentifier FROM Pages (NOLOCK) where PageSeoLink = @seoUrl) ", new { lang = language, seoUrl = seo });
 
 
 
-                    return Redirect("https://" + Request.UrlReferrer.Authority + "/" + language + "/sayfalar/" + page.PageSeoLink + "");
-                }
+                        return Redirect("https://" + Request.UrlReferrer.Authority + "/" + language + "/sayfalar/" + page.PageSeoLink + "");
+                    }
 
-                if (language == "de") //change tr
-                {
-                    string seo = url.Substring(url.LastIndexOf("/") + 1);
+                    if (language == "de") //change tr
+                    {
+                        string seo = url.Substring(url.LastIndexOf("/") + 1);
 
-                    DapperRepository<Pages> pageRepo = new DapperRepository<Pages>();
-                    Pages page = pageRepo.Get(@"SELECT * FROM [IHK].[dbo].[Pages] (NOLOCK)
+                        DapperRepository<Pages> pageRepo = new DapperRepository<Pages>();
+                        Pages page = pageRepo.Get(@"SELECT * FROM [IHK].[dbo].[Pages] (NOLOCK)
 where [Language] = @lang and PageIdentifier in (SELECT top 1 PageIdentifier FROM Pages (NOLOCK) where PageSeoLink = @seoUrl) ", new { lang = language, seoUrl = seo });
 
 
 
-                    return Redirect("https://" + Request.UrlReferrer.Authority + "/" + language + "/seiten/" + page.PageSeoLink + "");
+                        return Redirect("https://" + Request.UrlReferrer.Authority + "/" + language + "/seiten/" + page.PageSeoLink + "");
+                    }
                 }
-            }
 
-            if (url.Contains("nachrichten/") || url.Contains("haberler/"))
+                if (url.Contains("nachrichten/") || url.Contains("haberler/"))
+                {
+                    if (language == "tr") //change tr
+                    {
+                        string seo = url.Substring(url.LastIndexOf("/") + 1);
+
+                        DapperRepository<News> newsRepo = new DapperRepository<News>();
+                        News news = newsRepo.Get(@"SELECT * FROM  News (NOLOCK)
+where [Language] = @lang and NewsIdentifier in (SELECT top 1 NewsIdentifier FROM News (NOLOCK) where NewsSeoLink = @seoUrl) ", new { lang = language, seoUrl = seo });
+
+
+
+                        return Redirect("https://" + Request.UrlReferrer.Authority + "/" + language + "/haberler/" + news.NewsSeoLink + "");
+                    }
+
+                    if (language == "de") //change tr
+                    {
+                        string seo = url.Substring(url.LastIndexOf("/") + 1);
+
+                        DapperRepository<News> newsRepo = new DapperRepository<News>();
+                        News news = newsRepo.Get(@"SELECT * FROM  News (NOLOCK)
+where [Language] = @lang and NewsIdentifier in (SELECT top 1 NewsIdentifier FROM News (NOLOCK) where NewsSeoLink = @seoUrl) ", new { lang = language, seoUrl = seo });
+
+
+
+                        return Redirect("https://" + Request.UrlReferrer.Authority + "/" + language + "/nachrichten/" + news.NewsSeoLink + "");
+                    }
+                } 
+            }
+            else
             {
-                if (language == "tr") //change tr
-                {
-                    string seo = url.Substring(url.LastIndexOf("/") + 1);
-
-                    DapperRepository<News> newsRepo = new DapperRepository<News>();
-                    News news = newsRepo.Get(@"SELECT * FROM  News (NOLOCK)
-where [Language] = @lang and NewsIdentifier in (SELECT top 1 NewsIdentifier FROM News (NOLOCK) where NewsSeoLink = @seoUrl) ", new { lang = language, seoUrl = seo });
-
-
-
-                    return Redirect("https://" + Request.UrlReferrer.Authority + "/" + language + "/haberler/" + news.NewsSeoLink + "");
-                }
-
-                if (language == "de") //change tr
-                {
-                    string seo = url.Substring(url.LastIndexOf("/") + 1);
-
-                    DapperRepository<News> newsRepo = new DapperRepository<News>();
-                    News news = newsRepo.Get(@"SELECT * FROM  News (NOLOCK)
-where [Language] = @lang and NewsIdentifier in (SELECT top 1 NewsIdentifier FROM News (NOLOCK) where NewsSeoLink = @seoUrl) ", new { lang = language, seoUrl = seo });
-
-
-
-                    return Redirect("https://" + Request.UrlReferrer.Authority + "/" + language + "/nachrichten/" + news.NewsSeoLink + "");
-                }
+                
+                return Redirect(Request.Url.ToString());
             }
-
             return Redirect(Request.UrlReferrer.ToString());
         }
 
@@ -97,6 +104,40 @@ where [Language] = @lang and NewsIdentifier in (SELECT top 1 NewsIdentifier FROM
         // GET: Home
         public ActionResult Index()
         {
+            string lang = "";
+            string cult = "";
+
+            if (Request.Url.ToString().Contains("de"))
+            {
+                lang = "de";
+                cult = "DE";
+
+            }
+            else if (Request.Url.ToString().Contains("tr"))
+            {
+                lang = "tr";
+                cult = "TR";
+            }
+            else
+            {
+                if (HttpContext.Session["Mainlanguage"] == null && HttpContext.Session["Mainculture"] == null)
+                {
+                    lang = "de";
+                    cult = "DE";
+                }
+                else
+                {
+                    lang = HttpContext.Session["Mainlanguage"].ToString();
+                    cult = HttpContext.Session["Mainculture"].ToString();
+                }
+                
+            }
+
+            HttpContext.Session["Mainlanguage"] = lang;
+            HttpContext.Session["Mainculture"] = cult;
+            Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo($"{lang}-{cult}");
+            Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo($"{lang}-{cult}");
+
 
             return View();
         }
@@ -173,12 +214,12 @@ where [Language] = @lang and NewsIdentifier in (SELECT top 1 NewsIdentifier FROM
 
         public ActionResult ShowHomePageKalender()
         {
-            List<Events> eventList = GetEvents(8);
+            List<Events> eventList = GetFutureEvents(8);
 
             return PartialView("_PartialShowHomePageKalender", eventList);
         }
 
-        public List<Events> GetEvents(int count)
+        public List<Events> GetFutureEvents(int count)
         {
             try
             {
@@ -191,15 +232,21 @@ where [Language] = @lang and NewsIdentifier in (SELECT top 1 NewsIdentifier FROM
 
                 if (count > 0)
                 {
-                    eventList = events.GetList(@"select * from [Events]
-                                            where [Language] = @lang
-                                              order by CONVERT(datetime,CONVERT(nvarchar,EventDate)+' '+CONVERT(nvarchar,EventTime)) desc", new { lang = name }).Take(count).ToList();
+                    eventList = events.GetList(@"SELECT  evc.EventCategoryName,ev.* FROM [Events] ev
+inner join EventCategories evc
+on ev.EventCategoryID = evc.ID
+
+where ev.[Language] = @lang and CONVERT(date,EventDate) >= CONVERT(date,GETDATE())
+order by CONVERT(datetime,CONVERT(nvarchar,EventDate)+' '+CONVERT(nvarchar,EventTime)) desc", new { lang = name }).Take(count).ToList();
                 }
                 else
                 {
-                    eventList = events.GetList(@"select * from [Events]
-                                            where [Language] = @lang
-                                              order by CONVERT(datetime,CONVERT(nvarchar,EventDate)+' '+CONVERT(nvarchar,EventTime)) desc", new { lang = name });
+                    eventList = events.GetList(@"SELECT  evc.EventCategoryName,ev.* FROM [Events] ev
+inner join EventCategories evc
+on ev.EventCategoryID = evc.ID
+
+where ev.[Language] = @lang and CONVERT(date,EventDate) >= CONVERT(date,GETDATE())
+order by CONVERT(datetime,CONVERT(nvarchar,EventDate)+' '+CONVERT(nvarchar,EventTime)) desc", new { lang = name });
                 }
 
                 return eventList;

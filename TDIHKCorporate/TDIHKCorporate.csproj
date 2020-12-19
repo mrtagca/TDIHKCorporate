@@ -2866,6 +2866,7 @@
     <Content Include="Content\quill\js\quill.core.js" />
     <Content Include="Content\quill\js\quill.min.js" />
     <Content Include="Content\Scripts\Event.js" />
+    <Content Include="Content\Scripts\Institution.js" />
     <Content Include="Content\Scripts\Menu.js" />
     <Content Include="Content\Scripts\News.js" />
     <Content Include="Content\Scripts\Page.js" />
@@ -2895,6 +2896,10 @@
     <Content Include="Areas\Management\Views\News\Edit.cshtml" />
     <Content Include="Areas\Management\Views\News\NewsList.cshtml" />
     <Content Include="Content\MainSite\assets\files\Bilgi Notu 1- Almanya%27da Yeni Ambalaj Yasası.pdf" />
+    <Content Include="Areas\Management\Views\Menu\EditMenuItem.cshtml" />
+    <Content Include="Areas\Management\Views\Institution\Create.cshtml" />
+    <Content Include="Areas\Management\Views\Institution\InstitutionList.cshtml" />
+    <Content Include="Areas\Management\Views\Institution\Edit.cshtml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="HTML-1\kalender.html" />
     <Content Include="HTML-1\Marktreinritt.html" />
@@ -2929,6 +2934,7 @@
     <Compile Include="Areas\Management\Controllers\FileController.cs" />
     <Compile Include="Areas\Management\Controllers\HomeController.cs" />
     <Compile Include="Areas\Management\Controllers\ImageController.cs" />
+    <Compile Include="Areas\Management\Controllers\InstitutionController.cs" />
     <Compile Include="Areas\Management\Controllers\MenuController.cs" />
     <Compile Include="Areas\Management\Controllers\NewsController.cs" />
     <Compile Include="Areas\Management\Controllers\PageController.cs" />
@@ -2979,6 +2985,7 @@
     <Compile Include="Types\Sliders.cs" />
     <Compile Include="Types\ViewTypes\CreateContentViewModel.cs" />
     <Compile Include="Types\ViewTypes\EventIdentifier.cs" />
+    <Compile Include="Types\ViewTypes\Institution.cs" />
     <Compile Include="Types\ViewTypes\NewsIdentifier.cs" />
     <Compile Include="Types\ViewTypes\NewsItem.cs" />
     <Compile Include="Types\ViewTypes\PageIdentifier.cs" />
@@ -3609,6 +3616,7 @@
     <Content Include="Views\Home\_PartialPremiumMembers.cshtml" />
     <Content Include="Views\Home\_PartialMitgliedschaftAdvantage.cshtml" />
     <Content Include="Views\Home\_PartialShowHomePageKalender.cshtml" />
+    <Content Include="Views\AboutUs\_PartialInstitutionTimeline.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

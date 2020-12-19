@@ -1,7 +1,8 @@
 ﻿function GetPageCategories(dropdownId) {
     var callParams = {
         endPoint: "/Management/Page/GetPageCategories",
-        requestType: "GET"
+        requestType: "GET",
+        async: false
     }
 
     dataParams = {};
@@ -156,6 +157,7 @@ function GetPages(dropdownId, languageDropdownId) {
             dropdown.append(option);
         });
     });
+
 }
 
 function EditPage(pageID) {
@@ -257,7 +259,8 @@ function EditPage(pageID) {
 function GetPageIdentifier(identifierDropdown, lang) {
     var callParams = {
         endPoint: "/Management/Page/GetPageIdentifiers",
-        requestType: "POST"
+        requestType: "POST",
+        async: false
     }
 
     dataParams = {};

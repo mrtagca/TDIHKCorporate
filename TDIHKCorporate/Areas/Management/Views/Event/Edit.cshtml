@@ -7,11 +7,22 @@
 
 <script src="~/Content/Scripts/Event.js"></script>
 
-@*<script>
-        $(document).ready(function () {
-            GetEventCategories("EventCategories", '@Model.Language');
-        });
-    </script>*@
+<script>
+    var lang = "@Model.Language";
+    var eventCategoryId = "@Model.EventCategoryID";
+    var eventIdentifier = "@Model.EventIdentifier";
+
+      
+
+
+    $(document).ready(function () {
+        
+        GetEventIdentifier("EventIdentifierDropdown", lang);
+        GetEventCategories("EventCategories", lang);
+    });
+
+
+</script>
 
 
 <div class="row">
@@ -190,33 +201,23 @@
 
 <script>
 
+    function GetLanguageToIdentifiers() {
+        GetEventIdentifier("EventIdentifierDropdown", $("#EventLanguage").val());
+        GetEventCategories("EventCategories", $("#EventLanguage").val());
+    }
 
+    window.onload = function () {
 
-    $(document).ready(function () {
-
-        GetEventCategories("EventCategories", '@Model.Language');
-        GetEventIdentifier('EventIdentifierDropdown', '@Model.Language');
+       document.getElementById("EventLanguage").value = lang;
+       document.getElementById("EventIdentifierDropdown").value = eventIdentifier;
+       document.getElementById("EventCategories").value = eventCategoryId;
 
         var editor = $("#editor").data("kendoEditor");
         var html = @Html.Raw(JsonConvert.SerializeObject(Model.EventContent));
         var htmlContent = html;
         editor.value(htmlContent + editor.value());
-
-
-    });
-
-    function GetLanguageToIdentifiers() {
-        var lang = $("#EventLanguage").val();
-
-        GetEventIdentifier('EventIdentifierDropdown', lang);
-    }
-
-     $(window).on('load', function () {
-
-        $('#EventLanguage').val('@Model.Language')
-
-        $('#EventIdentifierDropdown').val('@Model.EventIdentifier')
-    })
+    };
+     
 </script>
 
 <script type="text/javascript">
@@ -255,3 +256,4 @@
         }
     });
 </script>
+ 

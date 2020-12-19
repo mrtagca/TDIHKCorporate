@@ -1,0 +1,164 @@
+﻿@model TDIHKCorporate.Types.MenuItems
+
+@{
+    ViewBag.Title = "EditMenuItem";
+    Layout = "~/Areas/Management/Views/Shared/_layoutDashboard.cshtml";
+}
+
+<script src="~/Content/Scripts/Page.js"></script>
+<script src="~/Content/Scripts/Menu.js"></script>
+
+<script>
+    $(document).ready(function () {
+
+        @*$("#MenuName").val("@Model.MenuName");
+         $("#MenuLanguage").val("@Model.Language").change();
+        GetMenus("MenuList");
+        GetPages("PageSelect", "MenuLanguage");*@
+
+        LanguageManipulationDropdowns()
+
+    });
+</script>
+
+<h5>Menü Elemanı Düzenle</h5>
+<hr />
+<div class="col-lg-12">
+
+
+    <div class="col-lg-4">
+        <div>
+            <label>Menü Seçiniz</label>
+            <select class="form-control" id="MenuList">
+            </select>
+        </div>
+        <br />
+
+        <div>
+            <label>Menü Dili Seçiniz</label>
+            <select onchange="" class="form-control" id="MenuLanguage">
+                <option value="de">DE</option>
+                <option value="tr">TR</option>
+            </select>
+        </div>
+        <br />
+
+        <div>
+            <label><input type="checkbox" onchange="SubMenuShow()" name="name" id="IsSubMenu" value="" /> Alt Menü Mü?</label>
+        </div>
+
+        <div id="Menu">
+            <label>Menü Adı Giriniz</label>
+            <input type="text" class="form-control" placeholder="Menu Adı Giriniz" id="MenuName" name="name" value="" />
+        </div>
+        <br />
+
+        <div id="ParentMenu" style="display:none">
+            <label>Parent Menü Seçiniz</label>
+            <select class="form-control" id="ParentMenuDropdown">
+            </select>
+        </div>
+        <br />
+
+        <div>
+            <label>Menü Sırası</label>
+            <input type="number" class="form-control" min="1" id="MenuOrder" name="name" value="1" />
+        </div>
+        <br />
+
+        <div id="SubMenuDiv">
+            <label>Sayfa Seçiniz</label>
+            <select class="form-control" id="PageSelect">
+            </select>
+        </div>
+
+        <br />
+        <div>
+            <label><input type="checkbox" id="IsActive" name="name" value="" checked /> Aktif Mi?</label>
+        </div>
+
+        <br />
+        <button style="float:right" id="SaveMenuItem" class="btn btn-primary">Kaydet</button>
+
+    </div>
+</div>
+<script>
+    function SubMenuShow() {
+
+        var isSubMenu = document.getElementById("IsSubMenu");
+
+        var menu = document.getElementById("Menu");
+        var parentMenu = document.getElementById("ParentMenu");
+
+        if (isSubMenu.checked === true) {
+            parentMenu.style = "";
+
+        }
+        else {
+            parentMenu.style.display = "none";
+        }
+
+    }
+
+    function LanguageManipulationDropdowns() {
+        GetPages("PageSelect", "MenuLanguage");
+        GetMenuItems("ParentMenuDropdown", "MenuLanguage");
+    }
+
+    $("#SaveMenuItem").click(function () {
+
+        var callParams = {
+            endPoint: "../Menu/AddMenuItem",
+            requestType: "POST"
+        }
+
+        dataParams = {};
+        dataParams.MenuID = $("#MenuList").val();
+        dataParams.Language = $("#MenuLanguage").val();
+        dataParams.MenuName = $("#MenuName").val();
+        dataParams.MenuItemPriority = $("#MenuOrder").val();
+        dataParams.PageID = $("#PageSelect").val();
+
+        var isSubMenu = document.getElementById("IsSubMenu");
+
+        if (isSubMenu.checked === true) {
+
+            dataParams.IsSubMenu = true;
+            dataParams.ParentMenuItemID = $("#ParentMenuDropdown").val();
+            dataParams.MenuLevel = parseInt($("#ParentMenuDropdown").find(':selected').attr('menu-level')) + 1;
+        }
+        else {
+            dataParams.MenuLevel = 0;
+            dataParams.IsSubMenu = false;
+        }
+
+        var isActive = document.getElementById("IsActive");;
+
+        if (isActive.checked === true) {
+            dataParams.IsActive = true;
+        }
+        else {
+            dataParams.IsActive = false;
+        }
+
+        RequestAjax(callParams, dataParams, function (response) {
+            response = JSON.parse(response);
+
+            if (response === true) {
+                alert("Menü elemanı eklendi!");
+                location.reload();
+            }
+            else {
+                alert("Menü elemanı eklenemedi!");
+            }
+
+        });
+
+
+    });
+
+    $(document).ready(function () {
+         $("#PageSelect").val("@Model.PageID");
+    });
+
+</script>

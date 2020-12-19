@@ -39,6 +39,14 @@ namespace TDIHKCorporate.Areas.Management.Controllers
             return View();
         }
 
+        public ActionResult EditMenuItem(int id)
+        {
+            DapperRepository<MenuItems> menuItems = new DapperRepository<MenuItems>();
+            MenuItems mi = menuItems.Get(@"select * from MenuItems (NOLOCK) where ID = @menuItemId", new { menuItemId = id });
+
+            return View(mi);
+        }
+
         public string GetAllMenus()
         {
             try

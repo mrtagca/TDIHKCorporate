@@ -23,8 +23,8 @@ namespace TDIHKCorporate.Areas.Management.Controllers
         {
             DapperRepository<EventCategories> getEventCategories = new DapperRepository<EventCategories>();
 
-            var result = getEventCategories.GetList(@"SELECT * FROM [IHK].[dbo].[EventCategories] (NOLOCK)
-                                        WHERE [Language] = @lang", new { lang = language }).OrderBy(x => x.EventCategoryName);
+            var result = getEventCategories.GetList(@"select * from EventCategories WITH(NOLOCK,INDEX=IX_EventCategories_Language)
+WHERE [Language] = @lang order by EventCategoryName", new { lang = language });
 
             return Newtonsoft.Json.JsonConvert.SerializeObject(result);
 
@@ -34,11 +34,23 @@ namespace TDIHKCorporate.Areas.Management.Controllers
         {
             DapperRepository<Events> addPage = new DapperRepository<Events>();
 
+
+            string identifier = "";
+
+            if (string.IsNullOrWhiteSpace(events.EventIdentifier))
+            {
+                identifier = Guid.NewGuid().ToString().ToUpper();
+            }
+            else
+            {
+                identifier = events.EventIdentifier;
+            }
+
             var result = addPage.Execute(@"INSERT INTO IHK.dbo.[Events]([Language],EventIdentifier,EventCategoryID,EventImagePath,EventThumbnailPath,EventTitle,EventDate,EventTime,EventContent,EventSeoLink,EventDescription,EventSeoKeywords,EventTags,EventQuota,EventCriticalQuota,CreatedDate,CreatedBy,IsActive) values (@Language,@EventIdentifier,@EventCategoryID,@EventImagePath,@EventThumbnailPath,@EventTitle,@EventDate,@EventTime,@EventContent,@EventSeoLink,@EventDescription,@EventSeoKeywords,@EventTags,@EventQuota,@EventCriticalQuota,@CreatedDate,@CreatedBy,@IsActive)", new
             {
 
                 Language = events.Language,
-                EventIdentifier = events.EventIdentifier,
+                EventIdentifier = identifier,
                 EventCategoryID = events.EventCategoryID,
                 EventImagePath = events.EventImagePath,
                 EventThumbnailPath = "",
@@ -85,7 +97,7 @@ namespace TDIHKCorporate.Areas.Management.Controllers
             var result = addPage.Execute(@"update [Events] set [Language]=@Language,EventCategoryID=@EventCategoryID,EventImagePath=@EventImagePath,EventDescription=@EventDescription,EventTitle=@EventTitle,EventDate=@EventDate,EventTime=@EventTime,EventContent=@EventContent,EventSeoLink=@EventSeoLink,EventSeoKeywords=@EventSeoKeywords,EventTags=@EventTags,EventQuota=@EventQuota,EventCriticalQuota=@EventCriticalQuota,CreatedDate=@CreatedDate,CreatedBy=@CreatedBy,IsActive=@IsActive
                 where EventID = @EventID", new
             {
-                EventID=events.EventID,
+                EventID = events.EventID,
                 Language = events.Language,
                 EventCategoryID = events.EventCategoryID,
                 EventImagePath = events.EventImagePath,
@@ -115,18 +127,11 @@ namespace TDIHKCorporate.Areas.Management.Controllers
 
             List<EventIdentifier> result = new List<EventIdentifier>();
 
-            if (lang == "tr")
-            {
-                result = getEventIdentifiers.GetList(@"SELECT distinct CreatedDate,EventIdentifier as IdentifierName,EventTitle FROM [Events] (NOLOCK)
-where [Language] = @lang and EventIdentifier is not null and EventIdentifier<>''
-order by CreatedDate desc", new { lang = "de" });
-            }
-            else if (lang == "de")
-            {
-                result = getEventIdentifiers.GetList(@"SELECT distinct CreatedDate,EventIdentifier as IdentifierName,EventTitle FROM [Events] (NOLOCK)
-where [Language] = @lang and EventIdentifier is not null and EventIdentifier<>''
-order by CreatedDate desc", new { lang = "tr" });
-            }
+            lang = (lang == "tr") ? "de" : "tr";
+
+            result = getEventIdentifiers.GetList(@"SELECT distinct CreatedDate,EventIdentifier as IdentifierName,EventTitle FROM [Events] WITH(NOLOCK)
+where [Language] = @lang and EventIdentifier<>''
+order by CreatedDate desc", new { lang = lang });
 
             return Newtonsoft.Json.JsonConvert.SerializeObject(result);
 

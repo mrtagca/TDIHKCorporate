@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Management/Views/Shared/_layoutDashboard.cshtml";
+}
+
+@if (ViewBag.Success != null)
+{
+    <div class="alert alert-success" role="alert">
+        @ViewBag.Success
+    </div>
+}
+else if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @ViewBag.Error
+    </div>
+}
+
+<h5>Institution Create</h5>
+<hr />
+
+@using (Html.BeginForm("Create", "Institution", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="col-lg-12">
+        <div class="col-lg-4">
+            <label>Language</label>
+            <select name="Language" class="form-control" required>
+                <option value="tr">TR</option>
+                <option value="de">DE</option>
+            </select>
+            <br />
+            <label>Instution Title</label>
+            <input type="text" class="form-control" placeholder="Institution Title" name="InstitutionTitle" value="" required />
+            <br />
+            <label>Institution Description</label>
+            <textarea name="InstitutionDescription" class="form-control" placeholder="Institution Description" rows="3" required></textarea>
+            <br />
+            <label>Institution Date</label>
+            <input type="date" class="form-control" name="InstitutionDate" value="" required />
+            <br />
+            <input style="float:right" type="submit" class="btn btn-primary" name="name" value="Save" />
+        </div>
+    </div>
+}
+

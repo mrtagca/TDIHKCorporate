@@ -1,4 +1,4 @@
-﻿
+﻿@model TDIHKCorporate.Types.Pages
 @{
     ViewBag.Title = "Institution";
     Layout = "~/Views/Shared/_layoutMaster.cshtml";
@@ -8,68 +8,19 @@
 	<section>
 		<!-- Banner-->
 		<div>
-			<img src="~/Content/MainSite/assets/images/Institution/bg.jpg" />
+			<img src="@Model.PageImagePath" />
 		</div>
 	</section>
 	<!-- Text- Content-->
 	<section>
 		<div class="uk-margin-medium-top">
-			<div class="uk-h2">Lorem Ipsum</div>
-			<p>Lorem ipsum dolor sit amet</p>
+			@*<div class="uk-h2">Lorem Ipsum</div>
+			<p>Lorem ipsum dolor sit amet</p>*@
+            @Html.Raw(Model.PageContent)
 		</div>
 	</section>
-	<!-- Timeline-->
-	<section>
-		@*<div class="timeline">
-			<div class="days uk-width-5-6 uk-width-3-4@s uk-width-2-3@m uk-margin-auto">
-				<div class="day">
-					<div class="events">
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius perferendis vitae, facere accusantium magni, explicabo mollitia quidem odio autem, iste optio? Consequuntur ratione dolorum velit maiores quam odit odio suscipit.</p>
-						<div class="date">2000</div>
-					</div>
-				</div>
-				<div class="day">
-					<div class="events">
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius perferendis vitae, facere accusantium magni, explicabo mollitia quidem odio autem, iste optio? Consequuntur ratione dolorum velit maiores quam odit odio suscipit.</p>
-						<div class="date">2000</div>
-					</div>
-				</div>
-				<div class="day">
-					<div class="events">
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius perferendis vitae, facere accusantium magni, explicabo mollitia quidem odio autem, iste optio? Consequuntur ratione dolorum velit maiores quam odit odio suscipit.</p>
-						<div class="date">2000</div>
-					</div>
-				</div>
-				<div class="day">
-					<div class="events">
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius perferendis vitae, facere accusantium magni, explicabo mollitia quidem odio autem, iste optio? Consequuntur ratione dolorum velit maiores quam odit odio suscipit.</p>
-						<div class="date">2000</div>
-					</div>
-				</div>
-			</div>
-		</div>*@
-		<div class="uk-width-1-1 uk-margin-auto">
-			<div class="main-timeline">
-				<div class="timeline">
-					<div class="timeline-content">
-						<div class="timeline-year">2020</div>
-						<h3 class="title">Lorem</h3>
-						<p class="description">
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer males uada tellus lorem, et condimentum neque commodo Integer males uada tellus lorem, et condimentum neque commodo
-						</p>
-					</div>
-				</div>
-				<div class="timeline">
-					<div class="timeline-content">
-						<div class="timeline-year">2019</div>
-						<h3 class="title">Lorem</h3>
-						<p class="description">
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer males uada tellus lorem, et condimentum neque commodo Integer males uada tellus lorem, et condimentum neque commodo
-						</p>
-						<div class="timeline-icon"><i class="fa fa-rocket"></i></div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+    <br />
+	
+	@Html.Action("GetInstitutionTimeline", "AboutUs")
 </main>
+<br />

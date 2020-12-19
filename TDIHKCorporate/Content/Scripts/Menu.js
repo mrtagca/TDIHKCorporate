@@ -93,9 +93,9 @@ function GetMenuItemsForMenuList(menuId, tableBodyId, tableId) {
     });
 }
 
-function GetMenus(dropdownId) {
+function GetMenus(dropdownId,value) {
     var callParams = {
-        endPoint: "../Menu/GetAllMenus",
+        endPoint: "/Management/Menu/GetAllMenus",
         requestType: "GET"
     }
 
@@ -123,7 +123,7 @@ function GetMenus(dropdownId) {
 function GetMenuItems(dropdownId, languageDropdownId) {
     debugger
     var callParams = {
-        endPoint: "../Menu/GetAllMenuItems",
+        endPoint: "/Management/Menu/GetAllMenuItems",
         requestType: "POST"
     }
 

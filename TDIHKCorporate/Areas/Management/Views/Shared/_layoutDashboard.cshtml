@@ -26,11 +26,11 @@
 
 
     @*<script src="~/Content/Admin/vendor/jquery/jquery.min.js"></script>*@
+    <script src="~/Content/Admin/vendor/jquery/jquery-3.5.1.min.js"></script>
 
-<script src="~/Content/Admin/vendor/jquery/jquery-3.5.1.min.js"></script>
-   
     <script src="~/Content/Scripts/RequestHelper.js"></script>
-    <script src="~/Content/Scripts/UrlHelper.js"></script>
+   
+
 
 </head>
 
@@ -151,6 +151,20 @@
                 </div>
             </li>
 
+            <!--Institution-->
+            <li class="nav-item">
+                <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseInstitution" aria-expanded="true" aria-controls="collapseInstitution">
+                    <i class="fas fa-fw fa-building"></i>
+                    <span>Institution</span>
+                </a>
+                <div id="collapseInstitution" class="collapse" aria-labelledby="collapseInstitution" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="~/Management/Institution/Create">Institution Ekle</a>
+                        <a class="collapse-item" href="~/Management/Institution/InstitutionList">Institution List</a>
+                    </div>
+                </div>
+            </li>
+
             <!-- İletişim -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseContacts" aria-expanded="true" aria-controls="">
@@ -163,6 +177,7 @@
                     </div>
                 </div>
             </li>
+
 
             <!--File-->
             <li class="nav-item">
@@ -334,6 +349,10 @@
             </div>
         </div>
     </div>
+
+
+
+    <script src="~/Content/Scripts/UrlHelper.js"></script>
 
     <script src="~/Content/Admin/plugins/table/datatable/datatables.js"></script>
 

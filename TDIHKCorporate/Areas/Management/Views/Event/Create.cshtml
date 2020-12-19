@@ -8,6 +8,7 @@
 <script>
     $(document).ready(function () {
         GetEventCategories("EventCategories", 'tr');
+        GetEventIdentifier("EventIdentifierDropdown", 'tr');
     });
 </script>
 
@@ -90,11 +91,11 @@
                             </select>
                         </div>
                         <br />
-                        <div>
+                        @*<div>
                             <label>Event Identifier</label>
                             <input type="text" class="form-control" id="EventIdentifierTxt" placeholder="Enter Identifier" value="" />
                         </div>
-                        <br />
+                        <br />*@
                         <div>
                             <label><input type="checkbox" onchange="DisableIdentifierInputs()" id="IdentifierCheckbox" name="name" value="" /> Select Identifier</label>
                             <select class="form-control" id="EventIdentifierDropdown" disabled="disabled">
@@ -187,17 +188,13 @@
     function DisableIdentifierInputs() {
         debugger
         var element = document.getElementById("IdentifierCheckbox")
-        var dropdown = document.getElementById("EventIdentifierDropdown");
-        var txt = document.getElementById("EventIdentifierTxt");
+        var dropdown = document.getElementById("EventIdentifierDropdown"); 
 
         if (element.checked === true) {
-
-            txt.setAttribute("disabled", "disabled");
             dropdown.removeAttribute("disabled");
         }
         else {
             dropdown.setAttribute("disabled", "disabled");
-            txt.removeAttribute("disabled");
         }
     }
 
@@ -206,6 +203,8 @@
         var lang = $("#EventLanguage").val();
 
         GetEventIdentifier("EventIdentifierDropdown", lang);
+        GetEventCategories("EventCategories", lang);
+
     }
 
 </script>

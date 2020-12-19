@@ -1,7 +1,8 @@
 ﻿function GetEventCategories(dropdownId,language) {
     var callParams = {
         endPoint: "/Management/Event/GetEventCategories",
-        requestType: "GET"
+        requestType: "GET",
+        async: false
     }
 
     dataParams = {};
@@ -61,7 +62,7 @@ function AddEvent() {
         dataParams.EventIdentifier = $("#EventIdentifierDropdown").val();
     }
     else {
-        dataParams.EventIdentifier = $("#EventIdentifierTxt").val();
+        dataParams.EventIdentifier = null;
     }
 
     var eventImagePath = document.getElementById("EventImage");
@@ -356,7 +357,8 @@ function EditEvent(eventID) {
 function GetEventIdentifier(identifierDropdown, lang) {
     var callParams = {
         endPoint: "/Management/Event/GetEventIdentifiers",
-        requestType: "POST"
+        requestType: "POST",
+        async: true
     }
 
     dataParams = {};
