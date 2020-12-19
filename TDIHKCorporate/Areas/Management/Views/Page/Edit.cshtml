@@ -8,6 +8,22 @@
 
 <script src="~/Content/Scripts/Page.js"></script>
 
+<script>
+        $(document).ready(function () {
+
+        $("#PageLanguage").val('@Model.Language');
+
+         GetPageIdentifier('PageIdentifierDropdown', '@Model.Language');
+
+        var editor = $("#editor").data("kendoEditor");
+        var html = @Html.Raw(JsonConvert.SerializeObject(Model.PageContent));
+        var htmlContent = html;
+        editor.value(htmlContent + editor.value());
+
+
+    });
+</script>
+
 <div class="row">
     <div class="col-md-9 col-sm-12">
 
@@ -37,7 +53,7 @@
 
             <div>
                 <h5>Seo Link</h5>
-                <input type="text" class="form-control" id="PageSeoLink" placeholder="Seo Link" value="@Model.PageSeoLink"  disabled/>
+                <input type="text" class="form-control" id="PageSeoLink" placeholder="Seo Link" value="@Model.PageSeoLink" disabled />
             </div>
             <br />
         }
@@ -62,11 +78,11 @@
                 <div id="collapsePageFeatures" class="collapse show" aria-labelledby="headingOne" data-parent="#PageFeatures">
                     <div class="card-body">
                         @*<div>
-                            <label>@Resources.resource.KategoriSeciniz</label>
-                            <select class="form-control" id="PageCategories">
-                            </select>
-                        </div>
-                        <br />*@
+                                <label>@Resources.resource.KategoriSeciniz</label>
+                                <select class="form-control" id="PageCategories">
+                                </select>
+                            </div>
+                            <br />*@
                         <div>
                             <label>@Resources.resource.SayfaDili</label>
                             <select class="form-control" onchange="GetLanguageToIdentifiers()" id="PageLanguage">
@@ -75,14 +91,14 @@
                             </select>
                         </div>
                         <br />
+                        @*<div>
+                                <label>Page Identifier</label>
+                                <input type="text" class="form-control" id="PageIdentifierTxt" placeholder="Enter Identifier" value="" />
+                            </div>
+                            <br />*@
                         <div>
-                            <label>Page Identifier</label>
-                            <input type="text" class="form-control" id="PageIdentifierTxt" placeholder="Enter Identifier" value="" />
-                        </div>
-                        <br />
-                        <div>
-                            <label><input type="checkbox" onchange="DisableIdentifierInputs()" id="IdentifierCheckbox" name="name" value="" /> Select Identifier</label>
-                            <select class="form-control" id="PageIdentifierDropdown" disabled="disabled">
+                            <label>Select Identifier</label>
+                            <select class="form-control" id="PageIdentifierDropdown">
                             </select>
                         </div>
                     </div>
@@ -114,28 +130,36 @@
         </div>
 
         <br />
-        @*<div id="PagePicture">
-                <div class="card">
+        <div id="PagePicture">
+            <div class="card">
 
-                    <button class="btn btn-light" data-toggle="collapse" data-target="#collapsePagePicture" aria-expanded="true" aria-controls="collapsePagePicture">
-                        <div class="card-header" id="headingOne">
-                            <h5 class="mb-0">
-                                @Resources.resource.OneCikanGorsel
-                            </h5>
+                <button class="btn btn-light" data-toggle="collapse" data-target="#collapsePagePicture" aria-expanded="true" aria-controls="collapsePagePicture">
+                    <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                            @Resources.resource.OneCikanGorsel
+                        </h5>
+                    </div>
+                </button>
+
+                <div id="collapsePagePicture" class="collapse show" aria-labelledby="headingOne" data-parent="#PagePicture">
+                    <div class="card-body">
+                        <div>
+                            <center>
+                                <img id="ImagePreview" style="width:100%;height:100%;" src="@Model.PageImagePath" alt="Alternate Text" />
+                            </center>
                         </div>
-                    </button>
-
-                    <div id="collapsePagePicture" class="collapse show" aria-labelledby="headingOne" data-parent="#PagePicture">
-                        <div class="card-body">
-                            <div>
-                                <a href="#">@Resources.resource.OneCikanGorselBelirle</a>
-                            </div>
-
+                        <br />
+                        <div>
+                            <center>
+                                <input type="file" id="PageImage" image-path="@Model.PageImagePath" value="@Server.MapPath(Model.PageImagePath)" accept="image/x-png,image/gif,image/jpeg" />
+                            </center>
                         </div>
+
                     </div>
                 </div>
             </div>
-            <br />*@
+        </div>
+        <br />
 
 
         <div id="PublishTab">
@@ -157,7 +181,7 @@
                         </div>
                         <br />
                         <div>
-                            <input id="Publish" onclick="EditPage(@Model.PageID,'@Model.PageIdentifier')" type="submit" class="btn btn-primary" name="" value=" @Resources.resource.Guncelle" />
+                            <input id="Publish" onclick="EditPage(@Model.PageID)" type="submit" class="btn btn-primary" name="" value=" @Resources.resource.Guncelle" />
                         </div>
 
                     </div>
@@ -172,56 +196,58 @@
 
 
 
-    $(document).ready(function () {
-
-        //GetPageCategories("PageCategories");
-
-
-        GetPageIdentifier('PageIdentifierDropdown', '@Model.Language');
-
-        var editor = $("#editor").data("kendoEditor");
-
-
-        var html = @Html.Raw(JsonConvert.SerializeObject(Model.PageContent));
-
-        var htmlContent = html;
-        editor.value(htmlContent + editor.value());
-
-
-    });
-
-    function DisableIdentifierInputs() {
-        debugger
-        var element = document.getElementById("IdentifierCheckbox")
-        var dropdown = document.getElementById("PageIdentifierDropdown");
-        var txt = document.getElementById("PageIdentifierTxt");
-
-        if (element.checked === true) {
-
-            txt.setAttribute("disabled", "disabled");
-            dropdown.removeAttribute("disabled");
-        }
-        else {
-            dropdown.setAttribute("disabled", "disabled");
-            txt.removeAttribute("disabled");
-        }
-    }
-
     function GetLanguageToIdentifiers() {
         var lang = $("#PageLanguage").val();
 
         GetPageIdentifier("PageIdentifierDropdown", lang);
     }
 
-    $(window).on('loaded', function () {
-        //$('#PageCategories').val('@Model.PageCategoryID');
-        $('#PageLanguage').val('@Model.Language')
+    $(window).on('load', function () {
 
+        $('#PageLanguage').val('@Model.Language')
         $('#PageIdentifierDropdown').val('@Model.PageIdentifier')
     })
 
 
-   
+
+</script>
+
+
+<script type="text/javascript">
+    $('#PageImage').change(function (event) {
+        if (window.FormData !== undefined) {
+
+            var fileUpload = $("#PageImage").get(0);
+            var files = fileUpload.files;
+
+            // Create FormData object
+            var fileData = new FormData();
+
+            // Looping over all files and add it to FormData object
+            for (var i = 0; i < files.length; i++) {
+                fileData.append(files[i].name, files[i]);
+            }
+
+
+            $.ajax({
+                url: '/Management/Image/ImageBrowserUploadForNews',
+                type: "POST",
+                contentType: false, // Not to set any content header
+                processData: false, // Not to process data
+                data: fileData,
+                success: function (result) {
+                    debugger
+                    $("#PageImage").attr("image-path", result);
+                    $("#ImagePreview").attr("src", result);
+                },
+                error: function (err) {
+                    alert(err.statusText);
+                }
+            });
+        } else {
+            alert("FormData is not supported.");
+        }
+    });
 </script>
 
 

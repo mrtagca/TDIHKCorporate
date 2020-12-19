@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
@@ -20,7 +21,7 @@ namespace TDIHKCorporate.Areas.Management.Controllers
 
         private readonly DirectoryBrowser directoryBrowser;
 
-        private const string DefaultFilter = "*.pdf,*.csv,*.xls,*.xlsx,*.zip,*.rar";
+        private const string DefaultFilter = "*.pdf,*.csv,*.xls,*.xlsx,*.zip,*.rar,*.mp3,*.mp4,*.mp5";
         public FileController()
         {
             directoryBrowser = new DirectoryBrowser();
@@ -190,7 +191,6 @@ namespace TDIHKCorporate.Areas.Management.Controllers
                 {
                     Directory.CreateDirectory(physicalPath);
                 }
-
                 return FileBrowserRead(null);
             }
 
@@ -285,16 +285,19 @@ namespace TDIHKCorporate.Areas.Management.Controllers
         }
 
         [HttpPost]
-        public ActionResult FileCreate(string path, HttpPostedFileBase file)
+        public ActionResult FileCreate(string path, HttpPostedFileBase[] file)
         {
             try
             {
-                path = NormalizePath(path);
-                var fileName = Path.GetFileName(file.FileName);
-
-                if (AuthorizeUpload(path, file))
+                foreach (var item in file)
                 {
-                    file.SaveAs(Path.Combine(Server.MapPath(path), fileName));
+                    path = NormalizePath(path);
+                    var fileName = Path.GetFileName(item.FileName);
+
+                    if (AuthorizeUpload(path, item))
+                    {
+                        item.SaveAs(Path.Combine(Server.MapPath(path), fileName));
+                    }
                 }
 
                 ViewBag.Success = "Success";
@@ -303,11 +306,11 @@ namespace TDIHKCorporate.Areas.Management.Controllers
             }
             catch (Exception ex)
             {
-                ViewBag.Success = "Error:"+ex.Message;
+                ViewBag.Success = "Error:" + ex.Message;
                 return View();
             }
         }
 
-       
+
     }
 }

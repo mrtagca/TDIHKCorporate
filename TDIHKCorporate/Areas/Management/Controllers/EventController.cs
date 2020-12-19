@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using TDIHKCorporate.BaseControllers.MultiLanguage;
 using TDIHKCorporate.Types;
+using TDIHKCorporate.Types.ViewTypes;
 
 namespace TDIHKCorporate.Areas.Management.Controllers
 {
@@ -22,8 +23,8 @@ namespace TDIHKCorporate.Areas.Management.Controllers
         {
             DapperRepository<EventCategories> getEventCategories = new DapperRepository<EventCategories>();
 
-            var result = getEventCategories.GetList(@"SELECT * FROM [IHK].[dbo].[EventCategories] (NOLOCK)
-                                        WHERE [Language] = @lang", new { lang = language }).OrderBy(x => x.EventCategoryName);
+            var result = getEventCategories.GetList(@"select * from EventCategories WITH(NOLOCK,INDEX=IX_EventCategories_Language)
+WHERE [Language] = @lang order by EventCategoryName", new { lang = language });
 
             return Newtonsoft.Json.JsonConvert.SerializeObject(result);
 
@@ -33,12 +34,25 @@ namespace TDIHKCorporate.Areas.Management.Controllers
         {
             DapperRepository<Events> addPage = new DapperRepository<Events>();
 
-            var result = addPage.Execute(@"INSERT INTO IHK.dbo.[Events]([Language],EventCategoryID,EventImagePath,EventThumbnailPath,EventTitle,EventDate,EventTime,EventContent,EventSeoLink,EventDescription,EventSeoKeywords,EventTags,EventQuota,EventCriticalQuota,CreatedDate,CreatedBy,IsActive) values (@Language,@EventCategoryID,@EventImagePath,@EventThumbnailPath,@EventTitle,@EventDate,@EventTime,@EventContent,@EventSeoLink,@EventDescription,@EventSeoKeywords,@EventTags,@EventQuota,@EventCriticalQuota,@CreatedDate,@CreatedBy,@IsActive)", new
+
+            string identifier = "";
+
+            if (string.IsNullOrWhiteSpace(events.EventIdentifier))
+            {
+                identifier = Guid.NewGuid().ToString().ToUpper();
+            }
+            else
+            {
+                identifier = events.EventIdentifier;
+            }
+
+            var result = addPage.Execute(@"INSERT INTO IHK.dbo.[Events]([Language],EventIdentifier,EventCategoryID,EventImagePath,EventThumbnailPath,EventTitle,EventDate,EventTime,EventContent,EventSeoLink,EventDescription,EventSeoKeywords,EventTags,EventQuota,EventCriticalQuota,CreatedDate,CreatedBy,IsActive) values (@Language,@EventIdentifier,@EventCategoryID,@EventImagePath,@EventThumbnailPath,@EventTitle,@EventDate,@EventTime,@EventContent,@EventSeoLink,@EventDescription,@EventSeoKeywords,@EventTags,@EventQuota,@EventCriticalQuota,@CreatedDate,@CreatedBy,@IsActive)", new
             {
 
                 Language = events.Language,
+                EventIdentifier = identifier,
                 EventCategoryID = events.EventCategoryID,
-                EventImagePath = "",
+                EventImagePath = events.EventImagePath,
                 EventThumbnailPath = "",
                 EventTitle = events.EventTitle,
                 EventDate = events.EventDate,
@@ -73,6 +87,54 @@ namespace TDIHKCorporate.Areas.Management.Controllers
             DapperRepository<Events> events = new DapperRepository<Events>();
             Events ev = events.Get(@"select * from [Events] where EventID = @id", new { id = id });
             return View(ev);
+        }
+
+        [HttpPost]
+        public string EditEvent(Events events)
+        {
+            DapperRepository<Events> addPage = new DapperRepository<Events>();
+
+            var result = addPage.Execute(@"update [Events] set [Language]=@Language,EventCategoryID=@EventCategoryID,EventImagePath=@EventImagePath,EventDescription=@EventDescription,EventTitle=@EventTitle,EventDate=@EventDate,EventTime=@EventTime,EventContent=@EventContent,EventSeoLink=@EventSeoLink,EventSeoKeywords=@EventSeoKeywords,EventTags=@EventTags,EventQuota=@EventQuota,EventCriticalQuota=@EventCriticalQuota,CreatedDate=@CreatedDate,CreatedBy=@CreatedBy,IsActive=@IsActive
+                where EventID = @EventID", new
+            {
+                EventID = events.EventID,
+                Language = events.Language,
+                EventCategoryID = events.EventCategoryID,
+                EventImagePath = events.EventImagePath,
+                EventThumbnailPath = "",
+                EventTitle = events.EventTitle,
+                EventDate = events.EventDate,
+                EventTime = events.EventTime,
+                EventContent = events.EventContent,
+                EventSeoLink = events.EventSeoLink,
+                EventDescription = events.EventDescription,
+                EventSeoKeywords = events.EventSeoKeywords.ToLower(),
+                EventTags = events.EventTags.ToLower(),
+                EventQuota = events.EventQuota,
+                EventCriticalQuota = events.EventCriticalQuota,
+                CreatedDate = DateTime.Now,
+                CreatedBy = 1,
+                IsActive = true
+            });
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(true);
+        }
+
+        [HttpPost]
+        public string GetEventIdentifiers(string lang)
+        {
+            DapperRepository<EventIdentifier> getEventIdentifiers = new DapperRepository<EventIdentifier>();
+
+            List<EventIdentifier> result = new List<EventIdentifier>();
+
+            lang = (lang == "tr") ? "de" : "tr";
+
+            result = getEventIdentifiers.GetList(@"SELECT distinct CreatedDate,EventIdentifier as IdentifierName,EventTitle FROM [Events] WITH(NOLOCK)
+where [Language] = @lang and EventIdentifier<>''
+order by CreatedDate desc", new { lang = lang });
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(result);
+
         }
     }
 }

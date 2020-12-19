@@ -1,0 +1,81 @@
+﻿@model List<TDIHKCorporate.Types.ViewTypes.Institution>
+@{
+    ViewBag.Title = "InstitutionList";
+    Layout = "~/Areas/Management/Views/Shared/_layoutDashboard.cshtml";
+}
+
+<script src="~/Content/Scripts/Institution.js"></script>
+
+<h5>Institution List</h5>
+<hr />
+
+
+<div class="col-md-12">
+    <table id="institutionList" class="table table-hover table-responsive">
+        <thead>
+            <tr>
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 234px;">Language</th>
+
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Path URL: activate to sort column descending" style="width: 234px;">Institution Title</th>
+
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Type: activate to sort column descending" style="width: 234px;">Institution Description</th>
+
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Size: activate to sort column descending" style="width: 234px;">Institution Date</th>
+
+
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Created Time: activate to sort column descending" style="width: 234px;">Created Date</th>
+
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Eylemler: activate to sort column descending" style="width: 234px;">Eylemler</th>
+            </tr>
+        </thead>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Language</td>
+                <td>@item.InstitutionTitle</td>
+                <td>@item.InstitutionDescription</td>
+                <td>@item.InstitutionDate</td>
+                <td>@item.CreatedDate</td>
+                <td>
+                    <button onclick="window.open(
+                         '/Management/Institution/Edit/' +@item.ID,
+                         '_blank' );" class="btn btn-outline-primary">
+                        <i class="fa fa-edit"></i>
+                    </button>
+                    @if (item.IsActive)
+                    {
+                        <button onclick="DeleteInstitution(@item.ID)" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                    }
+                    else
+                    {
+                        <button onclick="ActivateInstitution(@item.ID)" class="btn btn-success"><i class="fa fa-check"></i></button>
+                    }
+
+                </td>
+            </tr>
+        }
+
+
+    </table>
+</div>
+
+<script>
+    $(document).ready(function () {
+
+        $('#' + 'institutionList').DataTable({
+            "oLanguage": {
+                "oPaginate": { "sPrevious": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>', "sNext": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>' },
+                "sInfo": "Showing page _PAGE_ of _PAGES_",
+                "sSearch": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>',
+                "sSearchPlaceholder": "Search...",
+                "sLengthMenu": "Results :  _MENU_",
+            },
+            "stripeClasses": [],
+            "lengthMenu": [7, 10, 20, 50],
+            "pageLength": 7,
+            "destroy": true
+        });
+
+    });
+</script>

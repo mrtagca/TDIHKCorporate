@@ -7,11 +7,13 @@ namespace TDIHKCorporate.Types
 {
     public class MenuItemsByMenuId
     {
+        public int ID { get; set; }
         public string PageTitle { get; set; }
         public string Language { get; set; }
         public int MenuItemPriority { get; set; }
         public string MenuName { get; set; }
         public int MenuLevel { get; set; }
         public bool IsSubMenu { get; set; }
+        public bool IsActive { get; set; }
     }
 }

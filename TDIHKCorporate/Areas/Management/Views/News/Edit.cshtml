@@ -96,28 +96,36 @@
         </div>
 
         <br />
-        @*<div id="PagePicture">
-                <div class="card">
+        <div id="NewsPicture">
+            <div class="card">
 
-                    <button class="btn btn-light" data-toggle="collapse" data-target="#collapsePagePicture" aria-expanded="true" aria-controls="collapsePagePicture">
-                        <div class="card-header" id="headingOne">
-                            <h5 class="mb-0">
-                                @Resources.resource.OneCikanGorsel
-                            </h5>
+                <button class="btn btn-light" data-toggle="collapse" data-target="#collapseNewsPicture" aria-expanded="true" aria-controls="collapseNewsPicture">
+                    <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                            @Resources.resource.OneCikanGorsel
+                        </h5>
+                    </div>
+                </button>
+
+                <div id="collapseNewsPicture" class="collapse show" aria-labelledby="headingOne" data-parent="#NewsPicture">
+                    <div class="card-body">
+                        <div>
+                            <center>
+                                <img id="ImagePreview" style="width:100%;height:100%;" src="@Model.NewsImagePath" alt="Alternate Text" />
+                            </center>
                         </div>
-                    </button>
-
-                    <div id="collapsePagePicture" class="collapse show" aria-labelledby="headingOne" data-parent="#PagePicture">
-                        <div class="card-body">
-                            <div>
-                                <a href="#">@Resources.resource.OneCikanGorselBelirle</a>
-                            </div>
-
+                        <br />
+                        <div>
+                            <center>
+                                <input type="file" id="NewsImage" image-path="@Model.NewsImagePath" value="@Server.MapPath(Model.NewsImagePath)" accept="image/x-png,image/gif,image/jpeg" />
+                            </center>
                         </div>
+
                     </div>
                 </div>
             </div>
-            <br />*@
+        </div>
+        <br />
 
 
         <div id="PublishTab">
@@ -152,30 +160,19 @@
 
 <script>
 
-
-
     $(document).ready(function () {
 
-        debugger
-
         GetNewsCategories("NewsCategories");
-
-
         GetNewsIdentifier('NewsIdentifierDropdown', '@Model.Language');
 
         var editor = $("#editor").data("kendoEditor");
-
-
         var html = @Html.Raw(JsonConvert.SerializeObject(Model.NewsContent));
-
         var htmlContent = html;
         editor.value(htmlContent + editor.value());
 
 
+
     });
-
-
-
 
     function DisableIdentifierInputs() {
         debugger
@@ -203,8 +200,46 @@
 
        $(window).on('load', function () {
        // $('#NewsCategories').val('@Model.NewsCategoryID');
-        $('#NewsLanguage').val('@Model.Language')
+           $('#NewsLanguage').val('@Model.Language');
 
-        $('#NewsIdentifierDropdown').val('@Model.NewsIdentifier')
+           $('#NewsIdentifierDropdown').val('@Model.NewsIdentifier');
+
     })
+</script>
+
+<script type="text/javascript">
+    $('#NewsImage').change(function (event) {
+        if (window.FormData !== undefined) {
+
+            var fileUpload = $("#NewsImage").get(0);
+            var files = fileUpload.files;
+
+            // Create FormData object
+            var fileData = new FormData();
+
+            // Looping over all files and add it to FormData object
+            for (var i = 0; i < files.length; i++) {
+                fileData.append(files[i].name, files[i]);
+            }
+
+
+            $.ajax({
+                url: '/Management/Image/ImageBrowserUploadForNews',
+                type: "POST",
+                contentType: false, // Not to set any content header
+                processData: false, // Not to process data
+                data: fileData,
+                success: function (result) {
+                    debugger
+                    $("#NewsImage").attr("image-path", result);
+                    $("#ImagePreview").attr("src", result);
+                },
+                error: function (err) {
+                    alert(err.statusText);
+                }
+            });
+        } else {
+            alert("FormData is not supported.");
+        }
+    });
 </script>

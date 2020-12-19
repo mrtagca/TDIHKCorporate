@@ -371,6 +371,51 @@ namespace TDIHKCorporate
             //     new[] { "TDIHKCorporate.Controllers" }
             //    );
             //#endregion
+             
+
+
+            #region Anasayfa / Homepage
+            routes.MapRoute(
+                    name: "HomePageLanguage",
+                    url: "{lang}/",
+                    defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+                    new[] { "TDIHKCorporate.Controllers" }
+                ); 
+            #endregion
+
+
+            #region Institution / Kurum
+            routes.MapRoute(
+                    name: "InstitutionGerman",
+                    url: "{lang}/seiten/institution",
+                    defaults: new { controller = "AboutUs", action = "Institution", lang = language },
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
+
+            routes.MapRoute(
+                    name: "InstitutionTurkey",
+                    url: "{lang}/sayfalar/kurum",
+                    defaults: new { controller = "AboutUs", action = "Institution", lang = language },
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
+            #endregion
+
+
+            #region Jobangebote / İş teklifleri
+            routes.MapRoute(
+                    name: "JobangeboteGerman",
+                    url: "{lang}/seiten/jobangebote",
+                    defaults: new { controller = "Services", action = "Jobangebote", lang = language },
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
+
+            routes.MapRoute(
+                    name: "JobangeboteTurkey",
+                    url: "{lang}/sayfalar/is-teklifleri",
+                    defaults: new { controller = "Services", action = "Jobangebote", lang = language },
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
+            #endregion
 
             #region Coronavirus Nachrichten
             routes.MapRoute(

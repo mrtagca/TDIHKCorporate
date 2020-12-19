@@ -8,6 +8,7 @@
 <script>
     $(document).ready(function () {
         GetEventCategories("EventCategories", 'tr');
+        GetEventIdentifier("EventIdentifierDropdown", 'tr');
     });
 </script>
 
@@ -84,13 +85,23 @@
 
                         <div>
                             <label>@Resources.resource.SayfaDili</label>
-                            <select onchange="GetLanguageCategories()" class="form-control" id="EventLanguage">
+                            <select onchange="GetLanguageToIdentifiers()" class="form-control" id="EventLanguage">
                                 <option value="tr">TR</option>
                                 <option value="de">DE</option>
                             </select>
                         </div>
                         <br />
-
+                        @*<div>
+                            <label>Event Identifier</label>
+                            <input type="text" class="form-control" id="EventIdentifierTxt" placeholder="Enter Identifier" value="" />
+                        </div>
+                        <br />*@
+                        <div>
+                            <label><input type="checkbox" onchange="DisableIdentifierInputs()" id="IdentifierCheckbox" name="name" value="" /> Select Identifier</label>
+                            <select class="form-control" id="EventIdentifierDropdown" disabled="disabled">
+                            </select>
+                        </div>
+                        <br />
                         <div>
                             <label>@Resources.resource.KategoriSeciniz</label>
                             <select class="form-control" id="EventCategories">
@@ -119,7 +130,7 @@
         <br />
 
 
-        @*<div id="EventPicture">
+        <div id="EventPicture">
             <div class="card">
 
                 <button class="btn btn-light" data-toggle="collapse" data-target="#collapseEventPicture" aria-expanded="true" aria-controls="collapseEventPicture">
@@ -133,14 +144,14 @@
                 <div id="collapseEventPicture" class="collapse show" aria-labelledby="headingOne" data-parent="#EventPicture">
                     <div class="card-body">
                         <div>
-                            <a href="#">@Resources.resource.OneCikanGorselBelirle</a>
+                            <input type="file" id="EventImage" image-path="" value="" accept="image/x-png,image/gif,image/jpeg" />
                         </div>
 
                     </div>
                 </div>
             </div>
         </div>
-        <br />*@
+        <br />
 
 
         <div id="PublishTab">
@@ -156,11 +167,11 @@
                 <div id="collapsePublish" class="collapse show" aria-labelledby="headingOne" data-parent="#PublishTab">
                     <div class="card-body">
                         @*<div>
-                            <input type="submit" class="btn btn-outline-primary" name="" value="@Resources.resource.TaslakOlarakKaydet" />
-                            &nbsp;
-                            <input type="submit" class="btn btn-outline-primary" name="" value="@Resources.resource.Onizleme" />
-                        </div>
-                        <br />*@
+                                <input type="submit" class="btn btn-outline-primary" name="" value="@Resources.resource.TaslakOlarakKaydet" />
+                                &nbsp;
+                                <input type="submit" class="btn btn-outline-primary" name="" value="@Resources.resource.Onizleme" />
+                            </div>
+                            <br />*@
                         <div class="col-lg-12">
                             <input id="Publish" onclick="AddEvent()" type="submit" class="btn btn-primary" name="" value=" @Resources.resource.Yayimla" />
                         </div>
@@ -173,9 +184,64 @@
 </div>
 
 <script>
-    function GetLanguageCategories()
-    {
-        var lang = $("#EventLanguage").val();
-        GetEventCategories("EventCategories", lang);
+
+    function DisableIdentifierInputs() {
+        debugger
+        var element = document.getElementById("IdentifierCheckbox")
+        var dropdown = document.getElementById("EventIdentifierDropdown"); 
+
+        if (element.checked === true) {
+            dropdown.removeAttribute("disabled");
+        }
+        else {
+            dropdown.setAttribute("disabled", "disabled");
+        }
     }
+
+    function GetLanguageToIdentifiers() {
+        debugger
+        var lang = $("#EventLanguage").val();
+
+        GetEventIdentifier("EventIdentifierDropdown", lang);
+        GetEventCategories("EventCategories", lang);
+
+    }
+
+</script>
+
+
+<script type="text/javascript">
+    $('#EventImage').change(function (event) {
+        if (window.FormData !== undefined) {
+
+            var fileUpload = $("#EventImage").get(0);
+            var files = fileUpload.files;
+
+            // Create FormData object
+            var fileData = new FormData();
+
+            // Looping over all files and add it to FormData object
+            for (var i = 0; i < files.length; i++) {
+                fileData.append(files[i].name, files[i]);
+            }
+
+
+            $.ajax({
+                url: '/Management/Image/ImageBrowserUploadForNews',
+                type: "POST",
+                contentType: false, // Not to set any content header
+                processData: false, // Not to process data
+                data: fileData,
+                success: function (result) {
+                    debugger
+                    $("#EventImage").attr("image-path", result);
+                },
+                error: function (err) {
+                    alert(err.statusText);
+                }
+            });
+        } else {
+            alert("FormData is not supported.");
+        }
+    });
 </script>

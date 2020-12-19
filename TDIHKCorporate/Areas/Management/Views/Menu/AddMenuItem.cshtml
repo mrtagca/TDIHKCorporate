@@ -69,8 +69,11 @@
         </div>
 
         <br />
-        <br />
+        <div>
+            <label><input type="checkbox" id="IsActive" name="name" value="" checked /> Aktif Mi?</label>
+        </div>
 
+        <br />
         <button style="float:right" id="SaveMenuItem" class="btn btn-primary">Kaydet</button>
 
     </div>
@@ -85,13 +88,11 @@
         var parentMenu = document.getElementById("ParentMenu");
 
         if (isSubMenu.checked === true) {
-            //menu.style.display = "none";
             parentMenu.style = "";
 
         }
         else {
             parentMenu.style.display = "none";
-            //menu.style = "";
         }
 
     }
@@ -121,20 +122,28 @@
 
             dataParams.IsSubMenu = true;
             dataParams.ParentMenuItemID = $("#ParentMenuDropdown").val();
-            dataParams.MenuLevel = $("#ParentMenuDropdown").find(':selected').attr('menu-level') + 1;
+            dataParams.MenuLevel = parseInt($("#ParentMenuDropdown").find(':selected').attr('menu-level')) + 1;
         }
         else {
             dataParams.MenuLevel = 0;
             dataParams.IsSubMenu = false;
         }
 
-        debugger
+        var isActive = document.getElementById("IsActive");;
+
+        if (isActive.checked === true) {
+            dataParams.IsActive = true;
+        }
+        else {
+            dataParams.IsActive = false;
+        }
 
         RequestAjax(callParams, dataParams, function (response) {
             response = JSON.parse(response);
 
             if (response === true) {
                 alert("Menü elemanı eklendi!");
+                location.reload();
             }
             else {
                 alert("Menü elemanı eklenemedi!");

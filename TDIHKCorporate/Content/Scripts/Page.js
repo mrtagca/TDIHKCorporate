@@ -1,7 +1,8 @@
 ﻿function GetPageCategories(dropdownId) {
     var callParams = {
         endPoint: "/Management/Page/GetPageCategories",
-        requestType: "GET"
+        requestType: "GET",
+        async: false
     }
 
     dataParams = {};
@@ -48,14 +49,15 @@ function AddPage() {
 
     var identifierElement = document.getElementById("IdentifierCheckbox");
 
-    if (identifierElement.checked === true)
-    {
+    if (identifierElement.checked === true) {
         dataParams.PageIdentifier = $("#PageIdentifierDropdown").val();
     }
-    else
-    {
+    else {
         dataParams.PageIdentifier = $("#PageIdentifierTxt").val();
     }
+
+    var pageImagePath = document.getElementById("PageImage");
+    dataParams.PageImagePath = pageImagePath.getAttribute("image-path");
 
 
     if (pageContent === '' || typeof (pageContent) === 'undefined' || pageContent === null) {
@@ -99,6 +101,13 @@ function AddPage() {
     if (dataParams.PageSeoKeywords === '' || typeof (dataParams.PageSeoKeywords) === 'undefined' || dataParams.PageSeoKeywords === null) {
         alert("Seo keywords cannot be null!");
         var element = document.getElementById("SeoKeywords");
+        element.style = styleCss;
+        return;
+    }
+
+    if (dataParams.PageImagePath === '' || typeof (dataParams.PageImagePath) === 'undefined' || dataParams.PageImagePath === null) {
+        alert("Please select a page image!");
+        var element = document.getElementById("PageImage");
         element.style = styleCss;
         return;
     }
@@ -148,9 +157,10 @@ function GetPages(dropdownId, languageDropdownId) {
             dropdown.append(option);
         });
     });
+
 }
 
-function EditPage(pageID, pageIdentifier) {
+function EditPage(pageID) {
 
     var callParams = {
         endPoint: "/Management/Page/EditPage",
@@ -173,16 +183,10 @@ function EditPage(pageID, pageIdentifier) {
     dataParams.PageSeoLink = $("#PageSeoLink").val();
     dataParams.PageSeoKeywords = $("#SeoKeywords").val();
 
+    dataParams.PageIdentifier = $("#PageIdentifierDropdown").val();
 
-    var identifierElement = document.getElementById("IdentifierCheckbox");
-
-    if (identifierElement.checked === true) {
-        dataParams.PageIdentifier = $("#PageIdentifierDropdown").val();
-    }
-    else {
-        dataParams.PageIdentifier = $("#PageIdentifierTxt").val();
-    }
-
+    var pageImagePath = document.getElementById("PageImage");
+    dataParams.PageImagePath = pageImagePath.getAttribute("image-path");
 
     if (pageContent === '' || typeof (pageContent) === 'undefined' || pageContent === null) {
         alert("Page Content cannot be null!");
@@ -229,6 +233,13 @@ function EditPage(pageID, pageIdentifier) {
         return;
     }
 
+    if (dataParams.PageImagePath === '' || typeof (dataParams.PageImagePath) === 'undefined' || dataParams.PageImagePath === null) {
+        alert("Please select a page image!");
+        var element = document.getElementById("PageImage");
+        element.style = styleCss;
+        return;
+    }
+
 
     RequestAjax(callParams, dataParams, function (response) {
         debugger
@@ -236,7 +247,6 @@ function EditPage(pageID, pageIdentifier) {
 
         if (response === true) {
             alert("Page Edit successfull!");
-            location.reload();
         }
         else {
             alert("Fail!");
@@ -249,7 +259,8 @@ function EditPage(pageID, pageIdentifier) {
 function GetPageIdentifier(identifierDropdown, lang) {
     var callParams = {
         endPoint: "/Management/Page/GetPageIdentifiers",
-        requestType: "POST"
+        requestType: "POST",
+        async: false
     }
 
     dataParams = {};
@@ -273,4 +284,59 @@ function GetPageIdentifier(identifierDropdown, lang) {
     });
 }
 
+function PassivePage(pageID) {
+
+    if (confirm("Are you sure for delete this page?")) {
+        var callParams = {
+            endPoint: "/Management/Page/PassivePage",
+            requestType: "POST"
+        }
+
+        var dataParams = {};
+        dataParams.pageID = pageID;
+
+        RequestAjax(callParams, dataParams, function (response) {
+            debugger
+            response = JSON.parse(response);
+
+            if (response === true) {
+                alert("Page is passive now.");
+                location.reload();
+            }
+            else {
+                alert("Fail!");
+            }
+        });
+    }
+
+
+}
+
+function ActivatePage(pageID) {
+
+    if (confirm("Are you sure for activate this page?")) {
+        var callParams = {
+            endPoint: "/Management/Page/ActivatePage",
+            requestType: "POST"
+        }
+
+        var dataParams = {};
+        dataParams.pageID = pageID;
+
+        RequestAjax(callParams, dataParams, function (response) {
+            debugger
+            response = JSON.parse(response);
+
+            if (response === true) {
+                alert("Page is active now.");
+                location.reload();
+            }
+            else {
+                alert("Fail!");
+            }
+        });
+    }
+
+
+}
 

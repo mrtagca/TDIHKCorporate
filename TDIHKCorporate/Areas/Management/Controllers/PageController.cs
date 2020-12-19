@@ -44,13 +44,14 @@ namespace TDIHKCorporate.Areas.Management.Controllers
                 DapperRepository<Pages> addPage = new DapperRepository<Pages>();
 
 
-                int result = addPage.Execute(@"update Pages set PageCategoryID = @pageCategoryID,PageTitle=@pageTitle,PageContent=@pageContent,PageSeoLink=@pageSeoLink,PageSeoKeywords=@pageSeoKeywords,[Language]=@language,UpdatedDate=@updatedDate,UpdatedBy=@UpdatedBy,IsActive=@IsActive
+                int result = addPage.Execute(@"update Pages set PageImagePath=@PageImagePath,PageCategoryID = @pageCategoryID,PageIdentifier=@pageIdentifier,PageTitle=@pageTitle,PageContent=@pageContent,PageSeoLink=@pageSeoLink,PageSeoKeywords=@pageSeoKeywords,[Language]=@language,UpdatedDate=@updatedDate,UpdatedBy=@UpdatedBy,IsActive=@IsActive
                                         where PageID = @pageID", new
                 {
                     pageID = pages.PageID,
                     PageCategoryID = pages.PageCategoryID,
-                    PageImageID = "",
+                    PageImagePath = pages.PageImagePath,
                     PageThumbnailPath = "",
+                    pageIdentifier = pages.PageIdentifier,
                     PageTitle = pages.PageTitle,
                     PageContent = pages.PageContent,
                     PageSeoLink = pages.PageSeoLink,
@@ -82,7 +83,7 @@ namespace TDIHKCorporate.Areas.Management.Controllers
         {
             DapperRepository<PageCategories> getPageCategories = new DapperRepository<PageCategories>();
 
-            var result = getPageCategories.GetList(@"SELECT * FROM [IHK].[dbo].[PageCategories] (NOLOCK) where [Language]=@lang", new { lang=Language}).OrderBy(x => x.PageCategoryName);
+            var result = getPageCategories.GetList(@"SELECT * FROM [IHK].[dbo].[PageCategories] (NOLOCK) where [Language]=@lang", new { lang = Language }).OrderBy(x => x.PageCategoryName);
 
             return Newtonsoft.Json.JsonConvert.SerializeObject(result);
 
@@ -106,7 +107,7 @@ namespace TDIHKCorporate.Areas.Management.Controllers
 
                     PageCategoryID = pages.PageCategoryID,
                     PageIdentifier = pages.PageIdentifier,
-                    PageImagePath = "",
+                    PageImagePath = pages.PageImagePath,
                     PageThumbnailPath = "",
                     PageTitle = pages.PageTitle,
                     PageContent = pages.PageContent,
@@ -146,7 +147,8 @@ namespace TDIHKCorporate.Areas.Management.Controllers
                                             convert(nvarchar,pg.CreatedDate,120) as CreatedDate,
                                             case when (pg.CreatedBy = usr.UserID) then usr.Username else null end as Creator,
                                             convert(nvarchar,pg.UpdatedDate,120) as UpdatedDate,
-                                            case when (pg.UpdatedBy = usr.UserID) then usr.Username else null end as Updater
+                                            case when (pg.UpdatedBy = usr.UserID) then usr.Username else null end as Updater,
+                                            pg.IsActive
 
                                             FROM Pages pg (NOLOCK)
                                             left join PageCategories pgc (NOLOCK)
@@ -237,6 +239,40 @@ order by CreatedDate desc", new { lang = "tr" });
 
             return Newtonsoft.Json.JsonConvert.SerializeObject(result);
 
+        }
+
+        public string PassivePage(int pageID)
+        {
+            try
+            {
+                DapperRepository<Pages> page = new DapperRepository<Pages>();
+
+                int result = page.Execute(@"update Pages set IsActive = 0 where PageID = @pageID", new { pageID = pageID });
+
+
+                return JsonConvert.SerializeObject(true);
+            }
+            catch (Exception ex)
+            {
+                return JsonConvert.SerializeObject(false);
+            }
+        }
+
+        public string ActivatePage(int pageID)
+        {
+            try
+            {
+                DapperRepository<Pages> page = new DapperRepository<Pages>();
+
+                int result = page.Execute(@"update Pages set IsActive = 1 where PageID = @pageID", new { pageID = pageID });
+
+
+                return JsonConvert.SerializeObject(true);
+            }
+            catch (Exception ex)
+            {
+                return JsonConvert.SerializeObject(false);
+            }
         }
     }
 }

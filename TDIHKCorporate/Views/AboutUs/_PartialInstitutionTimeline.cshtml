@@ -1,0 +1,22 @@
+﻿@model List<TDIHKCorporate.Types.ViewTypes.Institution>
+<!-- Timeline-->
+<section>
+    <div class="uk-width-1-1 uk-margin-auto">
+        <div class="main-timeline">
+
+            @foreach (var item in Model)
+            {
+                <div class="timeline">
+                    <div class="timeline-content">
+                        <div class="timeline-year">@item.InstitutionDate.Year</div>
+                        <h3 class="title">@item.InstitutionTitle</h3>
+                        <p class="description">
+                           @item.InstitutionDescription
+                        </p>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</section>

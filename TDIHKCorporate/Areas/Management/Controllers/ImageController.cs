@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 using TDIHKCorporate.BaseControllers.MultiLanguage;
@@ -373,18 +374,21 @@ namespace TDIHKCorporate.Areas.Management.Controllers
         }
 
         [HttpPost]
-        public ActionResult ImageCreate(string path, HttpPostedFileBase file)
+        public ActionResult ImageCreate(string path, HttpPostedFileBase[] file)
         {
             try
             {
-                path = NormalizePath(path);
-                var fileName = Path.GetFileName(file.FileName);
-
-                if (AuthorizeUpload(path, file))
+                foreach (var item in file)
                 {
-                    file.SaveAs(Path.Combine(Server.MapPath(path), fileName));
-                }
+                    path = NormalizePath(path);
+                    var fileName = Path.GetFileName(item.FileName);
 
+                    if (AuthorizeUpload(path, item))
+                    {
+                        item.SaveAs(Path.Combine(Server.MapPath(path), fileName));
+                    }
+
+                }
                 ViewBag.Success = "Success";
 
                 return View();

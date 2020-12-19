@@ -1,16 +1,12 @@
 ﻿@using Newtonsoft.Json
 
 
-
-
 <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.3.1017/styles/kendo.common-material.min.css" />
 <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.3.1017/styles/kendo.material.min.css" />
 <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.3.1017/styles/kendo.material.mobile.min.css" />
-<script src="https://kendo.cdn.telerik.com/2018.3.1017/js/jquery.min.js"></script>
-<script src="https://kendo.cdn.telerik.com/2018.3.1017/js/kendo.all.min.js"></script>
 
-
-
+@*<script src="~/Content/Admin/vendor/jquery/jquery-3.5.1.min.js"></script>*@
+<script src="/Scripts/kendo/js/kendo.all.min.js"></script>
 
 
 <!-- Modal -->
@@ -39,7 +35,7 @@
 
 <div class="col-lg-12">
     <div id="example">
-        <textarea id="editor" style="width:100%; height:1000px">
+        <textarea id="editor" style="width:100%; height:1000px;font-family:Calibri;">
 
 </textarea>
     </div>
@@ -56,12 +52,58 @@
             return e.html;
         }
 
+        //var defaultTools = kendo.ui.Editor.defaultTools;
+
+        //defaultTools["insertLineBreak"].options.shift = true;
+        //delete defaultTools["insertParagraph"].options;
+
 
         $("#editor").kendoEditor(
             {
-                paste: onPaste,
+                //paste: function (e) {
+                //    $(".text-editor").find("*").not("strong,ul,li,ol,p").each(function () {
+                //        $(this).replaceWith(this.innerHTML);
+                //    });
+                //},
+                //paste: function (ev) {
+                //    ev.html = $(ev.html).text().replace(/<p[^>]*>/g, "").replace(/<\/p>/g, "");
+                //},
+                pasteCleanup: {
+                    all: false,
+                    css: false,
+                    keepNewLines: true,
+                    msAllFormatting: true,
+                    msConvertLists: true,
+                    msTags: false,
+                    none: true,
+                    span: true
+                },
                 tools: [
-
+                    {
+                        name: "fontName",
+                        items: [
+                            //{ text: "Andale Mono", value: "Andale Mono" },
+                            //{text: "Avenir", value: "AvenirNextCondensed-Bold" },
+                            //{ text: "Arial", value: "Arial" },
+                            //{ text: "Arial Black", value: "Arial Black" },
+                            //{ text: "Book Antiqua", value: "Book Antiqua" },
+                            { text: "Calibri", value: "Calibri" }
+                            //,
+                            //{ text: "Comic Sans MS", value: "Comic Sans MS" },
+                            //{ text: "Courier New", value: "Courier New" },
+                            //{ text: "Georgia", value: "Georgia" },
+                            //{ text: "Helvetica", value: "Helvetica" },
+                            //{ text: "Impact", value: "Impact" },
+                            //{ text: "Symbol", value: "Symbol" },
+                            //{ text: "Tahoma", value: "Tahoma" },
+                            //{ text: "Terminal", value: "Terminal" },
+                            //{ text: "Times New Roman", value: "Times New Roman" },
+                            //{ text: "Trebuchet MS", value: "Trebuchet MS" },
+                            //{ text: "Verdana", value: "Verdana" },
+                            //{ text: "Webdings", value: "Webdings" },
+                            //{ text: "Wingdings", value: "Wingdings" }
+                        ]
+                    },
                     {
                         name: "foreColor",
                         palette: ["#132C50", "#AEC9E9", "#E7E8E9", "#616771", "#e28639", "#000000", "#FFFFFF"]
@@ -164,7 +206,8 @@
                         {
                             url: "/Management/File/FileBrowserRead",
                             dataType: "json",
-                            type: "POST"
+                            type: "GET",
+                            data: {path:"{0}"}
                         },
                         destroy: {
                             url: "/Management/File/FileBrowserDestroy",

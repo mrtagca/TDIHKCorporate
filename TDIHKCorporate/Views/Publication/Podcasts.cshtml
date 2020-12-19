@@ -5,35 +5,78 @@
 }
 
 <main class="uk-container" uk-scrollspy="cls: uk-animation-fade; target: > section; delay: 250">
-	<section>
-		<div>
-			<img src="~/Content/MainSite/assets/images/Podcast/BG.png" alt="" uk-img>
-		</div>
-	</section>
-	<section>
-		<div class="uk-margin-medium-top">
-			<div class="uk-h2">Lorem Ipsum</div>
-			<p>Lorem ipsum dolor sit amet</p>
-		</div>
-	</section>
-	<section>
-		<div class="podcast-container">
-				<!-- Mert podcast linkleri için for döngüsüne buradan başlayabiliriz-->
-				<div class="uk-grid uk-grid-medium podcast-wrapper" uk-grid>
-					<div class="uk-width-1-4 uk-width-1-6@s">
-						<span class="uk-preserve uk-margin-small-left podcast-icon uk-icon" uk-icon="icon: icn-podcast"></span>
-					</div>
-					<div class="uk-width-1-2 uk-width-2-3@s">
-						<div class="uk-text-large uk-text-truncate line-height-1 uk-text-bold">Podcast Theme Creation</div>
-						<div class="uk-text-small line-height-1">THIDK</div>
-					</div>
-					<div class="uk-width-1-4 uk-width-1-6@s">
-						<a href="" class="uk-link-reset">
-							<span class="uk-preserve uk-icon" uk-icon="icon:icn-play; ratio: 2.3334"></span>
-						</a>
-					</div>
-				</div>
-				<!--For burada bitebilir-->
-		</div>
-	</section>
-    </main>
+    @*<iframe style="background-image:#ffffff" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX4Y4RhrZqHhr" width="100%" height="600" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>*@
+
+    <section>
+            <div>
+                <img src="~/Content/MainSite/assets/images/Podcast/BG.png" alt="" uk-img>
+            </div>
+        </section>
+        <section>
+            <div class="uk-margin-medium-top">
+                <div class="uk-h2">Lorem Ipsum</div>
+                <p>Lorem ipsum dolor sit amet</p>
+            </div>
+        </section>
+
+        <audio id="audio1">
+            <source src="/Content/MainSite/assets/files/gimme-that-money.mp3" type="audio/mpeg">
+
+        </audio>
+
+        <audio id="audio2">
+            <source src="/Content/MainSite/assets/files/karsu-siyah.mp3" type="audio/mpeg">
+        </audio>
+
+        <section>
+            <div class="podcast-container">
+                <div class="uk-grid uk-grid-medium podcast-wrapper" uk-grid>
+                    <div class="uk-width-1-4 uk-width-1-6@s">
+                        <span class="uk-preserve uk-margin-small-left podcast-icon uk-icon" uk-icon="icon: icn-podcast"></span>
+                    </div>
+                    <div class="uk-width-1-2 uk-width-2-3@s">
+                        <div class="uk-text-large uk-text-truncate line-height-1 uk-text-bold">Podcast Theme Creation</div>
+                        <div class="uk-text-small line-height-1">THIDK</div>
+                    </div>
+
+
+                    <div class="uk-width-1-4 uk-width-1-6@s">
+                        <a href="#" onclick="playAudio('audio1','audioIcon1','btnAudio1')" id="btnAudio1" class="uk-link-reset">
+                            <span class="uk-preserve uk-icon" id="audioIcon1" uk-icon="icon:icn-play; ratio: 2.3334"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    <br />
+    <br />
+</main>
+
+<script>
+     
+    function playAudio(audioId,iconId,btnId) {
+        var x = document.getElementById(audioId);
+        x.play();
+
+        var icon = document.getElementById(iconId);
+        icon.setAttribute("uk-icon", "icon:icn-pause; ratio: 2.3334")
+
+        var btn = document.getElementById(btnId);
+        btn.setAttribute("onclick", " pauseAudio('" + audioId + "', '" + iconId + "', '" + btnId + "')")
+
+        
+
+    }
+
+    function pauseAudio(audioId, iconId, btnId) {
+        var x = document.getElementById(audioId);
+        x.pause();
+
+        var icon = document.getElementById(iconId);
+        icon.setAttribute("uk-icon", "icon:icn-play; ratio: 2.3334")
+
+        var btn = document.getElementById(btnId);
+        btn.setAttribute("onclick", " playAudio('" + audioId + "', '" + iconId + "', '" + btnId + "')")
+    } 
+
+</script>

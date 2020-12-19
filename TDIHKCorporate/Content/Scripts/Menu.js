@@ -1,10 +1,10 @@
-﻿function GetMenuItemsForMenuList(menuId, tableBodyId, tableId) {
+﻿
+function GetMenuItemsForMenuList(menuId, tableBodyId, tableId) {
     var callParams = {
         endPoint: "../Menu/GetMenuItems",
-        requestType: "POST"
+        requestType: "POST",
+        cache: false
     }
-
-    debugger;
 
     $("#" + tableBodyId).html("");
 
@@ -45,7 +45,32 @@
                 isSubMenu.innerText = "Main Menu Item";
             }
 
-            row.append(pageTitle, language, menuItemPriority, menuName, menuLevel, isSubMenu)
+            var isActive = document.createElement("td");
+
+            var actions = document.createElement("button");
+            var actionIcon = document.createElement("i")
+            
+            if (this.IsActive) {
+                actions.setAttribute("class", "btn btn-danger");
+                actions.setAttribute("value", "Passive");
+                actions.setAttribute("onclick", "PassiveMenuItem('" + this.ID + "','" + menuId + "','" + tableBodyId + "','" + tableId+"')");
+                actionIcon.setAttribute("class", "fa fa-trash");
+                actionIcon.setAttribute("aria-hidden", "true");
+                actions.append(actionIcon);
+            }
+            else {
+                actions.setAttribute("class", "btn btn-success");
+                actions.setAttribute("value", "Activate");
+                actions.setAttribute("onclick", "ActivateMenuItem('" + this.ID + "','" + menuId + "','" + tableBodyId + "','" + tableId +"')");
+                actionIcon.setAttribute("class", "fa fa-check");
+                actionIcon.setAttribute("aria-hidden", "true");
+                actions.append(actionIcon);
+            }
+
+            isActive.append(actions);
+            
+
+            row.append(pageTitle, language, menuItemPriority, menuName, menuLevel, isSubMenu, isActive)
             tableBody.append(row);
 
         });
@@ -61,19 +86,18 @@
             "stripeClasses": [],
             "lengthMenu": [7, 10, 20, 50],
             "pageLength": 7,
-            "destroy": true
+            "destroy": true,
+            "cache": false
         });
 
     });
 }
 
-function GetMenus(dropdownId) {
+function GetMenus(dropdownId,value) {
     var callParams = {
-        endPoint: "../Menu/GetAllMenus",
+        endPoint: "/Management/Menu/GetAllMenus",
         requestType: "GET"
     }
-
-    debugger;
 
     $("#" + dropdownId).html("");
      
@@ -99,7 +123,7 @@ function GetMenus(dropdownId) {
 function GetMenuItems(dropdownId, languageDropdownId) {
     debugger
     var callParams = {
-        endPoint: "../Menu/GetAllMenuItems",
+        endPoint: "/Management/Menu/GetAllMenuItems",
         requestType: "POST"
     }
 
@@ -125,4 +149,69 @@ function GetMenuItems(dropdownId, languageDropdownId) {
         });
 
     });
+}
+
+function PassiveMenuItem(menuItemId, menuId, tableBodyId, tableId) {
+
+    if (confirm("Are you sure menuItem Passive?"))
+    {
+        var callParams = {
+            endPoint: "../Menu/PassiveMenuItem",
+            requestType: "POST"
+        }
+
+        dataParams = {};
+        dataParams.menuItemId = menuItemId;
+
+        RequestAjax(callParams, dataParams, function (response) {
+            debugger
+            response = JSON.parse(response);
+
+            if (response === true)
+            {
+                alert("Menu item is passive now.")
+
+                $("#" + tableId).DataTable().destroy();
+                GetMenuItemsForMenuList(menuId, tableBodyId, tableId);
+            }
+            else
+            {
+                alert("Fail!");
+
+            }
+
+         
+        });
+    }
+}
+
+function ActivateMenuItem(menuItemId,menuId, tableBodyId, tableId) {
+
+    if (confirm("Are you sure menuItem activate?")) {
+        var callParams = {
+            endPoint: "../Menu/ActivateMenuItem",
+            requestType: "POST"
+        }
+
+        dataParams = {};
+        dataParams.menuItemId = menuItemId;
+
+        RequestAjax(callParams, dataParams, function (response) {
+            debugger
+            response = JSON.parse(response);
+
+            if (response === true) {
+                alert("Menu item is active now.")
+
+                $("#" + tableId).DataTable().destroy();
+                GetMenuItemsForMenuList(menuId, tableBodyId, tableId);
+            }
+            else {
+                alert("Fail!");
+
+            }
+
+
+        });
+    }
 }

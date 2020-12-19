@@ -56,6 +56,8 @@ namespace TDIHKCorporate.BaseControllers.MultiLanguage
                 culture = HttpContext.Session["Main" + cultureParameter].ToString();
             }
 
+            
+
 
             Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo($"{language}-{culture}");
             Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo($"{language}-{culture}");

@@ -1,0 +1,40 @@
+﻿@model TDIHKCorporate.Types.ViewTypes.Institution
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Management/Views/Shared/_layoutDashboard.cshtml";
+}
+
+<script src="~/Content/Scripts/Institution.js"></script>
+
+<h5>Institution Edit</h5>
+<hr />
+
+<script>
+    $(document).ready(function () {
+        $("#Language").val("@Model.Language");
+        $("#InstitutionTitle").val("@Model.InstitutionTitle");
+        $("#InstitutionDescription").val("@Model.InstitutionDescription");
+        $("#InstitutionDate").val("@Model.InstitutionDate.ToString("yyyy-MM-dd")")
+    });
+</script>
+
+<div class="col-lg-12">
+    <div class="col-lg-4">
+        <label>Language</label>
+        <select name="Language" id="Language" class="form-control" required>
+            <option value="tr">TR</option>
+            <option value="de">DE</option>
+        </select>
+        <br />
+        <label>Instution Title</label>
+        <input type="text" class="form-control" placeholder="Institution Title" id="InstitutionTitle" name="InstitutionTitle" value="" required />
+        <br />
+        <label>Institution Description</label>
+        <textarea name="InstitutionDescription" class="form-control" id="InstitutionDescription" placeholder="Institution Description" rows="3" required></textarea>
+        <br />
+        <label>Institution Date</label>
+        <input type="date" class="form-control" id="InstitutionDate" name="InstitutionDate" value="" required />
+        <br />
+        <input style="float:right" onclick="EditInstitution(@Model.ID)" type="submit" class="btn btn-primary" name="name" value="Save" />
+    </div>
+</div>
