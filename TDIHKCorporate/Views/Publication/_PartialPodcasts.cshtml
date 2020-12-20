@@ -1,0 +1,60 @@
+﻿@model List<TDIHKCorporate.Types.Podcasts>
+
+<section>
+    <div class="podcast-container">
+
+        @foreach (var item in Model)
+        {
+            <audio id="audio_@item.ID">
+                <source src="@item.PodcastFilePath" type="audio/mpeg">
+            </audio>
+
+            <div class="uk-grid uk-grid-medium podcast-wrapper" uk-grid>
+                <div class="uk-width-1-4 uk-width-1-6@s">
+                    <span class="uk-preserve uk-margin-small-left podcast-icon uk-icon" uk-icon="icon: icn-podcast"></span>
+                </div>
+                <div class="uk-width-1-2 uk-width-2-3@s">
+                    <div class="uk-text-large uk-text-truncate line-height-1 uk-text-bold">@item.PodcastTitle</div>
+                    <div class="uk-text-small line-height-1">@item.PodcastDescription</div>
+                </div>
+
+
+                <div class="uk-width-1-4 uk-width-1-6@s">
+                    <a href="#" onclick="playAudio('audio_@item.ID','audioIcon_@item.ID','btnAudio_@item.ID')" id="btnAudio_@item.ID" class="uk-link-reset">
+                        <span class="uk-preserve uk-icon" id="audioIcon_@item.ID" uk-icon="icon:icn-play; ratio: 2.3334"></span>
+                    </a>
+                </div>
+            </div>
+        }
+
+    </div>
+</section>
+
+<script>
+
+    function playAudio(audioId, iconId, btnId) {
+        var x = document.getElementById(audioId);
+        x.play();
+
+        var icon = document.getElementById(iconId);
+        icon.setAttribute("uk-icon", "icon:icn-pause; ratio: 2.3334")
+
+        var btn = document.getElementById(btnId);
+        btn.setAttribute("onclick", " pauseAudio('" + audioId + "', '" + iconId + "', '" + btnId + "')")
+
+
+
+    }
+
+    function pauseAudio(audioId, iconId, btnId) {
+        var x = document.getElementById(audioId);
+        x.pause();
+
+        var icon = document.getElementById(iconId);
+        icon.setAttribute("uk-icon", "icon:icn-play; ratio: 2.3334")
+
+        var btn = document.getElementById(btnId);
+        btn.setAttribute("onclick", " playAudio('" + audioId + "', '" + iconId + "', '" + btnId + "')")
+    }
+
+</script>

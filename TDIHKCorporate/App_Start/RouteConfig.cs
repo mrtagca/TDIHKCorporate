@@ -498,9 +498,26 @@ namespace TDIHKCorporate
 
             #endregion
 
-            
+            #region Podcast
+            routes.MapRoute(
+                    name: "PodcastGerman",
+                    url: "{lang}/seiten/podcasts/",
+                    defaults: new { controller = "Publication", action = "Podcasts", lang = language },
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
 
-           
+            routes.MapRoute(
+                    name: "PodcastTurkey",
+                    url: "{lang}/sayfalar/podcastler/",
+                    defaults: new { controller = "Publication", action = "Podcasts", lang = language },
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
+
+            #endregion
+
+
+
+
 
             #region Sayfalar
             //Sayfalar Almanca Routing

@@ -129,7 +129,29 @@ namespace TDIHKCorporate.Controllers
 
         public ActionResult Podcasts()
         {
-            return View();
+            DapperRepository<Pages> page = new DapperRepository<Pages>();
+
+            CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+
+            string name = cultureInfo.TwoLetterISOLanguageName;
+
+            Pages pageItem = page.Get(@"SELECT * FROM Pages (NOLOCK)
+                                            where[Language] = @language and PageIdentifier = @pageIdentifier", new { language = name, pageIdentifier = "Podcasts" });
+
+            return View(pageItem);
+        }
+
+        public ActionResult GetPodcasts()
+        {
+            DapperRepository<Podcasts> podcastRepo = new DapperRepository<Podcasts>();
+            CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+            string name = cultureInfo.TwoLetterISOLanguageName;
+
+            List<Podcasts> podcastList = podcastRepo.GetList(@"select * from Podcasts (NOLOCK) where [Language] = @Language order by CreatedDate desc", new
+            {
+                Language = name
+            });
+            return PartialView("_PartialPodcasts", podcastList);
         }
 
 

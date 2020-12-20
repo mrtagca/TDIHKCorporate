@@ -5,22 +5,28 @@
     Layout = "~/Areas/Management/Views/Shared/_layoutDashboard.cshtml";
 }
 
+
 <script src="~/Content/Scripts/Event.js"></script>
 
 <script>
     var lang = "@Model.Language";
-    var eventCategoryId = "@Model.EventCategoryID";
-    var eventIdentifier = "@Model.EventIdentifier";
-
-      
 
 
     $(document).ready(function () {
-        
+
         GetEventIdentifier("EventIdentifierDropdown", lang);
         GetEventCategories("EventCategories", lang);
+
+        var editor = $("#editor").data("kendoEditor");
+        var html = @Html.Raw(JsonConvert.SerializeObject(Model.EventContent));
+        var htmlContent = html;
+        editor.value(htmlContent + editor.value());
+
+
     });
 
+
+    setTimeout(100000);
 
 </script>
 
@@ -206,18 +212,18 @@
         GetEventCategories("EventCategories", $("#EventLanguage").val());
     }
 
-    window.onload = function () {
+    var eventCategoryId = @Model.EventCategoryID;
+    document.getElementById("EventLanguage").value = lang;
 
-       document.getElementById("EventLanguage").value = lang;
-       document.getElementById("EventIdentifierDropdown").value = eventIdentifier;
-       document.getElementById("EventCategories").value = eventCategoryId;
+     setTimeout(() => {
+         document.getElementById("EventIdentifierDropdown").value = "@Model.EventIdentifier";
+    }, 2500);
 
-        var editor = $("#editor").data("kendoEditor");
-        var html = @Html.Raw(JsonConvert.SerializeObject(Model.EventContent));
-        var htmlContent = html;
-        editor.value(htmlContent + editor.value());
-    };
-     
+
+     setTimeout(() => {
+         document.getElementById("EventCategories").value = eventCategoryId;
+     }, 2500);
+
 </script>
 
 <script type="text/javascript">
@@ -256,4 +262,6 @@
         }
     });
 </script>
- 
+
+
+

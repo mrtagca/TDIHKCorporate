@@ -2,7 +2,7 @@
     var callParams = {
         endPoint: "/Management/Event/GetEventCategories",
         requestType: "GET",
-        async: false
+        async: true
     }
 
     dataParams = {};

@@ -53,11 +53,13 @@
                     }
 
                     <td>
-                        <button onclick="window.open(
+                        @*<button onclick="window.open(
                          '/Management/Event/Edit/' +@row.EventID,
                          '_blank' );" class="btn btn-dark">
                             <i class="fas fa-edit"></i>
-                        </button>
+                        </button>*@
+
+                        <a target="_blank" href="/Management/Event/Edit/@row.EventID" class="btn btn-dark"><i class="fas fa-edit"></i></a>
                     </td>
                 </tr>
             }
