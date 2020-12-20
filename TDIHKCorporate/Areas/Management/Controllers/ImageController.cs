@@ -286,7 +286,7 @@ namespace TDIHKCorporate.Areas.Management.Controllers
 
 
         [HttpPost]
-        public virtual string ImageBrowserUploadForNews(string path, FileResizeInfos formDataTest, HttpPostedFileBase file)
+        public virtual string ImageBrowserUploadForNews(string path, FileResizeInfos formData, HttpPostedFileBase file)
         {
 
             file = Request.Files[0];
@@ -300,23 +300,49 @@ namespace TDIHKCorporate.Areas.Management.Controllers
 
                 file.SaveAs(filePath);
 
-                if (formDataTest.Width != null && formDataTest.Height != null)
+                if (formData.Width != null && formData.Height != null)
                 {
                     ResizeSettings resizeSetting = new ResizeSettings
                     {
-                        Width = int.Parse(formDataTest.Width),
-                        Height = int.Parse(formDataTest.Height)
+                        Width = int.Parse(formData.Width),
+                        Height = int.Parse(formData.Height)
                     };
                     ImageBuilder.Current.Build(filePath, filePath, resizeSetting);
                 }
-               
+                string pathNewsImageFile = Path.Combine(Server.MapPath(path), fileName);
 
-                //return Json(new
-                //{
-                //    size = file.ContentLength,
-                //    name = fileName,
-                //    type = "f"
-                //}, "text/plain");
+                return path + fileName;
+            }
+
+            throw new HttpException(403, "Forbidden");
+        }
+
+        [HttpPost]
+        public virtual string ImageBrowserUploadForNewsThumbnail(string path, FileResizeInfos formData, HttpPostedFileBase file)
+        {
+
+            file = Request.Files[0];
+            path = NormalizePath(path + "news/thumbnail/");
+            var fileName = Path.GetFileName(file.FileName);
+
+            if (AuthorizeUpload(path, file))
+            {
+
+                string filePath = filePath = Path.Combine(Server.MapPath(path), fileName);
+                 
+
+
+                file.SaveAs(filePath);
+
+                if (formData.Width != null && formData.Height != null)
+                {
+                    ResizeSettings resizeSetting = new ResizeSettings
+                    {
+                        Width = int.Parse(formData.Width),
+                        Height = int.Parse(formData.Height)
+                    };
+                    ImageBuilder.Current.Build(filePath, filePath, resizeSetting);
+                }
 
                 string pathNewsImageFile = Path.Combine(Server.MapPath(path), fileName);
 

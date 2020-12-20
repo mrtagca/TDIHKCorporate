@@ -47,6 +47,7 @@ function AddNews() {
 
     dataParams.NewsSeoLink = $("#NewsSeoLink").val();
     dataParams.NewsSeoKeywords = $("#NewsSeoKeywords").val();
+    dataParams.NewsDescription = $("#NewsDescription").val();
      
 
     var identifierElement = document.getElementById("IdentifierCheckbox");
@@ -60,6 +61,7 @@ function AddNews() {
 
     var newsImagePath = document.getElementById("NewsImage");
     dataParams.NewsImagePath = newsImagePath.getAttribute("image-path");
+    dataParams.NewsThumbnailPath = newsImagePath.getAttribute("thumbnail-path");
 
 
     if (pageContent === '' || typeof (pageContent) === 'undefined' || pageContent === null) {
@@ -182,6 +184,7 @@ function EditNews(newsID, newsIdentifier) {
 
     var newsImagePath = document.getElementById("NewsImage");
     dataParams.NewsImagePath = newsImagePath.getAttribute("image-path");
+    dataParams.NewsThumbnailPath = newsImagePath.getAttribute("thumbnail-path");
 
 
 

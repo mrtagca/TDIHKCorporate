@@ -1,8 +1,27 @@
-﻿
+﻿@model TDIHKCorporate.Types.News
 @{
     ViewBag.Title = "NachrichtenDetail";
     Layout = "~/Views/Shared/_layoutMaster.cshtml";
 }
 
-<h2>NachrichtenDetail</h2>
+<main class="uk-container" uk-scrollspy="cls: uk-animation-fade; target: > section; delay: 250">
+
+
+    <section>
+    <div class="uk-text-right color-dark-grey size-20" id="today"></div><div class="uk-margin-medium-bottom">
+        <img src="@Model.NewsImagePath" />
+            </div>
+        </section>
+    <section>
+    <div class="size-20 color-black uk-text-bold uk-margin-small-bottom">@Model.NewsDescription</div>
+        </section>
+    <section>
+    <div class="news-detail-content uk-margin-medium-bottom">
+        @Html.Raw(Model.NewsContent)
+        </div>
+    </section>
+
+    @Html.Action("GetNewsForNewsDetail")
+</main>
+
 

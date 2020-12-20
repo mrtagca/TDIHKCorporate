@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace TDIHKCorporate.Types
 {
@@ -13,6 +14,8 @@ namespace TDIHKCorporate.Types
         public string NewsThumbnailPath { get; set; }
         public string NewsIdentifier { get; set; }
         public string NewsTitle { get; set; }
+        public string NewsDescription { get; set; }
+        [AllowHtml]
         public string NewsContent { get; set; }
         public string NewsSeoLink { get; set; }
         public string NewsSeoKeywords { get; set; }

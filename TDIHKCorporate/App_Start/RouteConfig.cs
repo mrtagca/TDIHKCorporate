@@ -464,39 +464,41 @@ namespace TDIHKCorporate
                   );
             #endregion
 
+            #region Nachrichten Detail / Haberler Detau
+            routes.MapRoute(
+                    name: "NewsDetailGerman",
+                    url: "{lang}/nachrichten/{seolink}",
+                    defaults: new { controller = "Publication", action = "NachrichtenDetail", seolink = UrlParameter.Optional, lang = language },
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
+
+            routes.MapRoute(
+                    name: "NewsDetailTurkey",
+                    url: "{lang}/haberler/{seolink}",
+                    defaults: new { controller = "Publication", action = "NachrichtenDetail", seolink = UrlParameter.Optional, lang = language },
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
+
+            #endregion
+
             #region Nachrichten / Haberler
             routes.MapRoute(
                     name: "NewsGerman",
-                    url: "{lang}/nachrichten/",
+                    url: "{lang}/seiten/nachrichten/",
                     defaults: new { controller = "Publication", action = "Nachrichten", lang = language },
                  new[] { "TDIHKCorporate.Controllers" }
                 );
 
             routes.MapRoute(
                     name: "NewsTurkey",
-                    url: "{lang}/haberler/",
+                    url: "{lang}/sayfalar/haberler/",
                     defaults: new { controller = "Publication", action = "Nachrichten", lang = language },
                  new[] { "TDIHKCorporate.Controllers" }
                 );
 
             #endregion
 
-            #region Haberler Detay 
-            routes.MapRoute(
-                   name: "NewsDetailGerman",
-                   url: "{lang}/nachrichten/{category}/{seolink}",
-                   defaults: new { controller = "News", action = "Show", category = UrlParameter.Optional, seolink = UrlParameter.Optional, lang = language },
-                   new[] { "TDIHKCorporate.Controllers" }
-               );
-             
-            routes.MapRoute(
-                   name: "NewsDetailTurkish",
-                   url: "{lang}/haberler/{category}/{seolink}",
-                   defaults: new { controller = "News", action = "Show", category = UrlParameter.Optional,seolink = UrlParameter.Optional, lang = language },
-                new[] { "TDIHKCorporate.Controllers" }
-               );
-            #endregion
-
+            
 
            
 

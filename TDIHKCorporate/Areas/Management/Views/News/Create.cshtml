@@ -22,13 +22,19 @@
     <div class="col-md-9 col-sm-12">
         <div>
             <h5>Haber Ekle</h5>
-            <input type="text" id="NewsTitle" placeholder="@Resources.resource.Baslik" onkeyup="GenerateFriendlyUrl('NewsTitle','NewsSeoLink')" class="form-control" name="name" value="" />
+            <input type="text" id="NewsTitle" placeholder="@Resources.resource.Baslik" onkeyup="GenerateFriendlyUrl('NewsTitle','NewsSeoLink')" class="form-control" name="name" value="" required />
         </div>
         <br />
 
         <div>
             <h5>Seo Link</h5>
-            <input type="text" class="form-control" id="NewsSeoLink" placeholder="Seo Link" value="" />
+            <input type="text" class="form-control" id="NewsSeoLink" placeholder="Seo Link" value="" required/>
+        </div>
+        <br />
+
+        <div>
+            <h5>Haber Açıklaması</h5>
+            <input type="text" class="form-control" id="NewsDescription" placeholder="News Description" value="" required/>
         </div>
         <br />
 
@@ -53,13 +59,13 @@
                     <div class="card-body">
                         <div>
                             <label>@Resources.resource.KategoriSeciniz</label>
-                            <select class="form-control" id="NewsCategories">
+                            <select class="form-control" id="NewsCategories" required>
                             </select>
                         </div>
                         <br />
                         <div>
                             <label>@Resources.resource.SayfaDili</label>
-                            <select class="form-control" onchange="GetLanguageToIdentifiers()" id="NewsLanguage">
+                            <select class="form-control" onchange="GetLanguageToIdentifiers()" id="NewsLanguage" required>
                                 <option value="tr">TR</option>
                                 <option value="de">DE</option>
                             </select>
@@ -96,7 +102,7 @@
                     <div class="card-body">
                         <div>
                             <label>@Resources.resource.SeoAnahtarKelimeleri</label>
-                            <textarea id="NewsSeoKeywords" class="form-control"></textarea>
+                            <textarea id="NewsSeoKeywords" class="form-control" required></textarea>
                         </div>
 
                     </div>
@@ -119,7 +125,7 @@
                 <div id="collapseNewsPicture" class="collapse show" aria-labelledby="headingOne" data-parent="#NewsPicture">
                     <div class="card-body">
                         <div>
-                            <input type="file" id="NewsImage" image-path="" value="" accept="image/x-png,image/gif,image/jpeg"  />
+                            <input type="file" id="NewsImage" image-path="" thumbnail-path="" value="" accept="image/x-png,image/gif,image/jpeg"  required/>
                         </div>
 
                     </div>
@@ -212,22 +218,46 @@
             var files = fileUpload.files;
 
             // Create FormData object  
-            var fileData = new FormData();
+            var thumbnail = new FormData();
 
             // Looping over all files and add it to FormData object  
             for (var i = 0; i < files.length; i++) {
-                fileData.append(files[i].name, files[i]);
+                thumbnail.append(files[i].name, files[i]);
             }
 
-            fileData.append("Width", "500");
-            fileData.append("Height", "300");
+            thumbnail.append("Width", "500");
+            thumbnail.append("Height", "300");
+
+            $.ajax({
+                url: '/Management/Image/ImageBrowserUploadForNewsThumbnail',
+                type: "POST",
+                contentType: false, // Not to set any content header  
+                processData: false, // Not to process data  
+                data: thumbnail,
+                success: function (result) {
+                    debugger
+                    $("#NewsImage").attr("thumbnail-path", result);
+                },
+                error: function (err) {
+                    alert(err.statusText);
+                }
+            });
+
+
+            // Create FormData object  
+            var file = new FormData();
+
+            // Looping over all files and add it to FormData object  
+            for (var i = 0; i < files.length; i++) {
+                file.append(files[i].name, files[i]);
+            }
 
             $.ajax({
                 url: '/Management/Image/ImageBrowserUploadForNews',
                 type: "POST",
                 contentType: false, // Not to set any content header  
                 processData: false, // Not to process data  
-                data: fileData,
+                data: file,
                 success: function (result) {
                     debugger
                     $("#NewsImage").attr("image-path", result);
@@ -236,7 +266,10 @@
                     alert(err.statusText);
                 }
             });
-        } else {
+
+
+        }
+        else {
             alert("FormData is not supported.");
         }  
     });

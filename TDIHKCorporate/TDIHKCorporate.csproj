@@ -3627,6 +3627,7 @@
     <Content Include="Views\Home\_PartialShowHomePageKalender.cshtml" />
     <Content Include="Views\AboutUs\_PartialInstitutionTimeline.cshtml" />
     <Content Include="Views\Publication\_PartialNachrichtenHead.cshtml" />
+    <Content Include="Views\Publication\_PartialNewsForNewsDetail.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -3638,7 +3639,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Management\Models\" />
     <Folder Include="Areas\Management\Views\Url\" />
-    <Folder Include="Content\MainSite\assets\images\news\" />
+    <Folder Include="Content\MainSite\assets\images\news\thumbnail\" />
     <Folder Include="Content\MainSite\assets\images\test\" />
     <Folder Include="NewFolder1\" />
     <Folder Include="Views\Image\" />

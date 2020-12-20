@@ -73,10 +73,16 @@ where [Language] = @lang and NewsIdentifier in (SELECT top 1 NewsIdentifier FROM
                         DapperRepository<News> newsRepo = new DapperRepository<News>();
                         News news = newsRepo.Get(@"SELECT * FROM  News (NOLOCK)
 where [Language] = @lang and NewsIdentifier in (SELECT top 1 NewsIdentifier FROM News (NOLOCK) where NewsSeoLink = @seoUrl) ", new { lang = language, seoUrl = seo });
+                        if (news!=null)
+                        {
+                            return Redirect("https://" + Request.UrlReferrer.Authority + "/" + language + "/nachrichten/" + news.NewsSeoLink + "");
+                        }
+                        else
+                        {
+                            return Redirect(Request.UrlReferrer.ToString());
+                        }
 
-
-
-                        return Redirect("https://" + Request.UrlReferrer.Authority + "/" + language + "/nachrichten/" + news.NewsSeoLink + "");
+                        
                     }
                 } 
             }
