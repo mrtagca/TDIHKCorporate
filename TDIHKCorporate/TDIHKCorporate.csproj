@@ -2911,6 +2911,7 @@
     <Content Include="HTML-1\dienstleistungen.html" />
     <Content Include="HTML-1\kalender.html" />
     <Content Include="HTML-1\Marktreinritt.html" />
+    <Content Include="HTML-1\mitgliederliste.html" />
     <Content Include="HTML-1\nachrichten.html" />
     <Content Include="HTML-1\podcast.html" />
     <Content Include="HTML-1\StandartForm.html" />
