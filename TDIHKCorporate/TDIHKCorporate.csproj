@@ -2309,6 +2309,7 @@
     <Content Include="Content\MainSite\assets\images\deutschland\deutschland-bg.png" />
     <Content Include="Content\MainSite\assets\images\deutschland\Markteintritt Deutschland BG.png" />
     <Content Include="Content\MainSite\assets\images\deutschland_Markteintritt Deutschland BG.png" />
+    <Content Include="Content\MainSite\assets\images\dienstleintungen\bg-dien.png" />
     <Content Include="Content\MainSite\assets\images\dihk logo footer.svg" />
     <Content Include="Content\MainSite\assets\images\Ein-undAusreisebestimmungen\Ein-undAusreisebestimmungen-bg.png" />
     <Content Include="Content\MainSite\assets\images\events\ArbeitskreisZoll_25052018.jpg" />
@@ -2426,6 +2427,8 @@
     <Content Include="Content\MainSite\assets\uikit\build\wrapper\icons.js" />
     <Content Include="Content\MainSite\assets\uikit\custom\icons\icn-arrow-left.svg" />
     <Content Include="Content\MainSite\assets\uikit\custom\icons\icn-arrow-right.svg" />
+    <Content Include="Content\MainSite\assets\uikit\custom\icons\icn-chevron-mid-white.svg" />
+    <Content Include="Content\MainSite\assets\uikit\custom\icons\icn-chevron-mid.svg" />
     <Content Include="Content\MainSite\assets\uikit\custom\icons\icn-chevron-right.svg" />
     <Content Include="Content\MainSite\assets\uikit\custom\icons\icn-clock.svg" />
     <Content Include="Content\MainSite\assets\uikit\custom\icons\icn-de.svg" />
@@ -2901,6 +2904,7 @@
     <Content Include="Areas\Management\Views\Institution\InstitutionList.cshtml" />
     <Content Include="Areas\Management\Views\Institution\Edit.cshtml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="HTML-1\dienstleistungen.html" />
     <Content Include="HTML-1\kalender.html" />
     <Content Include="HTML-1\Marktreinritt.html" />
     <Content Include="HTML-1\nachrichten.html" />
