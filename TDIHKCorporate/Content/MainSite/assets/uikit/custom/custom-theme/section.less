@@ -921,26 +921,69 @@
         }
     }
 
-    .dienstleistungen-card{
+    .dienstleistungen-card {
         padding: 15px 20px 10px 15px;
-        @media (min-width: @breakpoint-medium){
+
+        @media (min-width: @breakpoint-medium) {
             padding: 30px 40px 20px 30px;
         }
-        }
-    .weiterlesen-card{
-        padding: 10px 20px 10px 15px;
-        @media(min-width: @breakpoint-medium){
-            padding: 15px 40px 20px 30px;
-        }
-        &:hover{
-            transition: .5s;
-            background: rgba(179, 179, 186, 0.70);
-            }
     }
 
-    .card-link-white{
-            span{
-                color: white !important;
+    .weiterlesen-card {
+        padding: 10px 20px 10px 15px;
+
+        @media(min-width: @breakpoint-medium) {
+            padding: 15px 40px 20px 30px;
+        }
+
+        &:hover {
+            transition: .5s;
+            background: rgba(179, 179, 186, 0.70);
+        }
+    }
+
+    .card-link-white {
+        span {
+            color: white !important;
+        }
+    }
+
+    .mitgliederliste-banner {
+        padding: 30px;
+
+        &--title {
+            font-size: 28px;
+            color: white;
+            font-weight: 400;
+        }
+
+        @media(min-width: @breakpoint-medium) {
+            padding: 60px;
+
+            &--title {
+                font-size: 72px;
             }
+        }
+    }
+
+    .words-subnav {
+        margin-left: -10px !important;
+    }
+
+    .words-subnav > * {
+        padding-left: 10px !important;
+    }
+
+    .company-filter-title {
+        border-bottom: 2px solid @global-color;
+        font-size: 20px;
+        font-weight: 700;
+    }
+
+    .icon-size-24 {
+        svg {
+            width: 24px;
+            height: 24px;
+        }
     }
 }

@@ -2358,6 +2358,8 @@
     <Content Include="Content\MainSite\assets\images\mark\Musterverträge.png" />
     <Content Include="Content\MainSite\assets\images\mark\Türkei.png" />
     <Content Include="Content\MainSite\assets\images\Maßnahmen\Maßnahmen-bg.png" />
+    <Content Include="Content\MainSite\assets\images\mitgliederliste\BG.png" />
+    <Content Include="Content\MainSite\assets\images\mitgliederliste\logo-placeholder.svg" />
     <Content Include="Content\MainSite\assets\images\mitgliedschaft-banner.jpg" />
     <Content Include="Content\MainSite\assets\images\Monster.svg" />
     <Content Include="Content\MainSite\assets\images\mustervertrage\mustervertrage-bg.png" />
@@ -2433,6 +2435,7 @@
     <Content Include="Content\MainSite\assets\uikit\custom\icons\icn-clock.svg" />
     <Content Include="Content\MainSite\assets\uikit\custom\icons\icn-de.svg" />
     <Content Include="Content\MainSite\assets\uikit\custom\icons\icn-facebook.svg" />
+    <Content Include="Content\MainSite\assets\uikit\custom\icons\icn-globe.svg" />
     <Content Include="Content\MainSite\assets\uikit\custom\icons\icn-instagram.svg" />
     <Content Include="Content\MainSite\assets\uikit\custom\icons\icn-linkedin.svg" />
     <Content Include="Content\MainSite\assets\uikit\custom\icons\icn-menu.svg" />
@@ -2442,6 +2445,7 @@
     <Content Include="Content\MainSite\assets\uikit\custom\icons\icn-search.svg" />
     <Content Include="Content\MainSite\assets\uikit\custom\icons\icn-tr.svg" />
     <Content Include="Content\MainSite\assets\uikit\custom\icons\icn-twitter.svg" />
+    <Content Include="Content\MainSite\assets\uikit\custom\icons\icn-world.svg" />
     <Content Include="Content\MainSite\assets\uikit\dist\css\uikit-core-rtl.css" />
     <Content Include="Content\MainSite\assets\uikit\dist\css\uikit-core-rtl.min.css" />
     <Content Include="Content\MainSite\assets\uikit\dist\css\uikit-core.css" />
@@ -2907,6 +2911,7 @@
     <Content Include="HTML-1\dienstleistungen.html" />
     <Content Include="HTML-1\kalender.html" />
     <Content Include="HTML-1\Marktreinritt.html" />
+    <Content Include="HTML-1\mitgliederliste.html" />
     <Content Include="HTML-1\nachrichten.html" />
     <Content Include="HTML-1\podcast.html" />
     <Content Include="HTML-1\StandartForm.html" />
