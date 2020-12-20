@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Management/Views/Shared/_layoutDashboard.cshtml";
+}
+
+<h5>Podcast Ekle</h5>
+<br />
+
+@if (ViewBag.Success != null)
+{
+    <div class="alert alert-success" role="alert">
+        @ViewBag.Success
+    </div>
+}
+else if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @ViewBag.Error
+    </div>
+}
+
+@using (Html.BeginForm("Create", "Podcast", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="col-lg-12">
+        <div class="col-lg-4">
+            <label>Podcast Dili</label>
+            <select class="form-control" name="Language" required>
+                <option value="tr">TR</option>
+                <option value="de">DE</option>
+            </select>
+            <br />
+            <label>Podcast Dosyası</label><br />
+            <input type="file" name="file" value="Dosya Yükle" accept="audio/*" required />
+            <br />
+            <br />
+            <label>Podcast Title</label>
+            <input type="text" name="PodcastTitle" class="form-control" placeholder="Podcast Title" value="" required />
+            <br />
+            <label>Podcast Description</label>
+            <input type="text" class="form-control" placeholder="Podcast Description" name="PodcastDescription" value="" required />
+            <br />
+            <input type="submit" class="btn btn-success" style="float:right" name="name" value="Kaydet" />
+        </div>
+    </div>
+}

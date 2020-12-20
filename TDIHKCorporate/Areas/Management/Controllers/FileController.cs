@@ -310,7 +310,28 @@ namespace TDIHKCorporate.Areas.Management.Controllers
                 return View();
             }
         }
+         
+        [HttpPost]
+        public virtual string FileCreateForPodcast(string path, HttpPostedFileBase file)
+        {
 
+            file = Request.Files[0];
+            path = NormalizePath(path + "podcasts/");
+            var fileName = Path.GetFileName(file.FileName);
 
+            if (AuthorizeUpload(path, file))
+            {
+
+                string filePath = Path.Combine(Server.MapPath(path), fileName);
+
+                file.SaveAs(filePath);
+
+                string pathNewsImageFile = Path.Combine(Server.MapPath(path), fileName);
+
+                return path + fileName;
+            }
+
+            throw new HttpException(403, "Forbidden");
+        }
     }
 }

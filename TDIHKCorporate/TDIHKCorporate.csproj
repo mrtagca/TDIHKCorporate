@@ -2877,6 +2877,7 @@
     <Content Include="Content\Scripts\Menu.js" />
     <Content Include="Content\Scripts\News.js" />
     <Content Include="Content\Scripts\Page.js" />
+    <Content Include="Content\Scripts\Podcast.js" />
     <Content Include="Content\Scripts\RequestHelper.js" />
     <Content Include="Content\Scripts\Slider.js" />
     <Content Include="Content\Scripts\UrlHelper.js" />
@@ -2907,6 +2908,9 @@
     <Content Include="Areas\Management\Views\Institution\Create.cshtml" />
     <Content Include="Areas\Management\Views\Institution\InstitutionList.cshtml" />
     <Content Include="Areas\Management\Views\Institution\Edit.cshtml" />
+    <Content Include="Areas\Management\Views\Podcast\Create.cshtml" />
+    <Content Include="Areas\Management\Views\Podcast\PodcastList.cshtml" />
+    <Content Include="Areas\Management\Views\Podcast\Edit.cshtml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="HTML-1\dienstleistungen.html" />
     <Content Include="HTML-1\kalender.html" />
@@ -2947,6 +2951,7 @@
     <Compile Include="Areas\Management\Controllers\MenuController.cs" />
     <Compile Include="Areas\Management\Controllers\NewsController.cs" />
     <Compile Include="Areas\Management\Controllers\PageController.cs" />
+    <Compile Include="Areas\Management\Controllers\PodcastController.cs" />
     <Compile Include="Areas\Management\Controllers\SliderController.cs" />
     <Compile Include="Areas\Management\Controllers\UrlController.cs" />
     <Compile Include="Areas\Management\ManagementAreaRegistration.cs" />
@@ -2990,6 +2995,7 @@
     <Compile Include="Types\NewsletterRegistrations.cs" />
     <Compile Include="Types\PageCategories.cs" />
     <Compile Include="Types\Pages.cs" />
+    <Compile Include="Types\Podcasts.cs" />
     <Compile Include="Types\SliderContent.cs" />
     <Compile Include="Types\Sliders.cs" />
     <Compile Include="Types\ViewTypes\CreateContentViewModel.cs" />
@@ -3000,6 +3006,7 @@
     <Compile Include="Types\ViewTypes\PageIdentifier.cs" />
     <Compile Include="Types\ViewTypes\PageItem.cs" />
     <Compile Include="Types\ViewTypes\PagePreview.cs" />
+    <Compile Include="Types\ViewTypes\PodcastCreateViewModel.cs" />
     <Compile Include="Types\ViewTypes\UpdateSliderContent.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -3639,6 +3646,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Management\Models\" />
     <Folder Include="Areas\Management\Views\Url\" />
+    <Folder Include="Content\MainSite\assets\files\podcasts\" />
     <Folder Include="Content\MainSite\assets\images\news\thumbnail\" />
     <Folder Include="Content\MainSite\assets\images\test\" />
     <Folder Include="NewFolder1\" />
