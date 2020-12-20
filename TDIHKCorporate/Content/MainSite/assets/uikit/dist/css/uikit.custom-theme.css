@@ -3180,6 +3180,37 @@ select.uk-form-width-xsmall {
 .card-link-white span {
   color: white !important;
 }
+.mitgliederliste-banner {
+  padding: 30px;
+}
+.mitgliederliste-banner--title {
+  font-size: 28px;
+  color: white;
+  font-weight: 400;
+}
+@media (min-width: 960px) {
+  .mitgliederliste-banner {
+    padding: 60px;
+  }
+  .mitgliederliste-banner--title {
+    font-size: 72px;
+  }
+}
+.words-subnav {
+  margin-left: -10px !important;
+}
+.words-subnav > * {
+  padding-left: 10px !important;
+}
+.company-filter-title {
+  border-bottom: 2px solid #142C51;
+  font-size: 20px;
+  font-weight: 700;
+}
+.icon-size-24 svg {
+  width: 24px;
+  height: 24px;
+}
 /* ========================================================================
    Component: Container
  ========================================================================== */
@@ -6383,7 +6414,7 @@ ul.uk-nav-sub {
 .uk-subnav-pill > * > :first-child {
   padding: 5px 10px;
   background: transparent;
-  color: #999;
+  color: #142C51;
 }
 /* Hover + Focus */
 .uk-subnav-pill > * > a:hover,
