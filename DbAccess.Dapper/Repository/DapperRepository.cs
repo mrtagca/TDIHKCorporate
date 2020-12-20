@@ -14,7 +14,7 @@ namespace DbAccess.Dapper.Repository
         public DapperRepository()
         {
 			_connection = new System.Data.SqlClient.SqlConnection(@"Server=178.18.193.121;Database=IHK;User Id=tdihknew;Password=Ik!r66x7");
-			//_connection = new System.Data.SqlClient.SqlConnection(@"Server=DESKTOP-IUFI4CJ\SQLEXPRESS;Database=IHK;Trusted_Connection=True;");
+			///_connection = new System.Data.SqlClient.SqlConnection(@"Server=DESKTOP-IUFI4CJ\SQLEXPRESS;Database=IHK;Trusted_Connection=True;");
 
 		}
 
