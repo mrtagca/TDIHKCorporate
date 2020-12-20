@@ -62,7 +62,39 @@ namespace TDIHKCorporate.Controllers
 
         public ActionResult Nachrichten()
         {
-            return View();
+            DapperRepository<News> page = new DapperRepository<News>();
+
+            CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+
+            string name = cultureInfo.TwoLetterISOLanguageName;
+
+            List<News> newsList = page.GetList(@"select nw.* from News nw (NOLOCK)
+                                                inner join NewsCategories nwc (NOLOCK)
+                                                on nw.NewsCategoryID = nwc.ID
+
+                                                where nw.[Language] = @language and nwc.[Language] = @language order by CreatedDate desc", new { language = name });
+
+
+            return View(newsList);
+        }
+
+        public ActionResult GetNachrichtenHead()
+        {
+            DapperRepository<News> news = new DapperRepository<News>();
+
+            CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+
+            string name = cultureInfo.TwoLetterISOLanguageName;
+
+            List<News> newsList = news.GetList(@"select top 5 nwc.NewsCategoryName,nw.* from News nw (NOLOCK)
+                                                inner join NewsCategories nwc (NOLOCK)
+                                                on nw.NewsCategoryID = nwc.ID
+
+                                                where nw.[Language] = @language and nwc.[Language] = @language
+                                                order by CreatedDate desc", new { language = name });
+
+
+            return PartialView("_PartialNachrichtenHead", newsList);
         }
 
         public ActionResult NachrichtenDetail(string seoLink)

@@ -373,7 +373,6 @@ namespace TDIHKCorporate
             //#endregion
              
 
-
             #region Anasayfa / Homepage
             routes.MapRoute(
                     name: "HomePageLanguage",
@@ -465,24 +464,41 @@ namespace TDIHKCorporate
                   );
             #endregion
 
-            #region Haberler
-            //Sayfalar Almanca Routing
+            #region Nachrichten / Haberler
             routes.MapRoute(
-                   name: "NewsGerman",
-                   url: "{lang}/nachrichten/{seolink}",
-                   defaults: new { controller = "News", action = "Show", lang = language },
+                    name: "NewsGerman",
+                    url: "{lang}/nachrichten/",
+                    defaults: new { controller = "Publication", action = "Nachrichten", lang = language },
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
+
+            routes.MapRoute(
+                    name: "NewsTurkey",
+                    url: "{lang}/haberler/",
+                    defaults: new { controller = "Publication", action = "Nachrichten", lang = language },
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
+
+            #endregion
+
+            #region Haberler Detay 
+            routes.MapRoute(
+                   name: "NewsDetailGerman",
+                   url: "{lang}/nachrichten/{category}/{seolink}",
+                   defaults: new { controller = "News", action = "Show", category = UrlParameter.Optional, seolink = UrlParameter.Optional, lang = language },
                    new[] { "TDIHKCorporate.Controllers" }
                );
-
-
-            //Sayfalar Türkçe Routing
+             
             routes.MapRoute(
-                   name: "NewsTurkish",
-                   url: "{lang}/haberler/{seoLink}",
-                   defaults: new { controller = "News", action = "Show", seoLink = UrlParameter.Optional, lang = language },
+                   name: "NewsDetailTurkish",
+                   url: "{lang}/haberler/{category}/{seolink}",
+                   defaults: new { controller = "News", action = "Show", category = UrlParameter.Optional,seolink = UrlParameter.Optional, lang = language },
                 new[] { "TDIHKCorporate.Controllers" }
                );
             #endregion
+
+
+           
 
             #region Sayfalar
             //Sayfalar Almanca Routing
