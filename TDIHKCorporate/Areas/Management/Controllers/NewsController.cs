@@ -101,6 +101,16 @@ values (@NewsCategoryName,@Language,@CreatedDate,@CreatedBy,@IsActive)", new { N
 
             try
             {
+                string pageIdentifier = "";
+
+                if (string.IsNullOrWhiteSpace(news.NewsIdentifier))
+                {
+                    pageIdentifier = Guid.NewGuid().ToString().ToUpper();
+                }
+                else
+                {
+                    pageIdentifier = news.NewsIdentifier;
+                }
                 DapperRepository<News> addNews = new DapperRepository<News>();
 
                 string TimezoneId = System.Configuration.ConfigurationManager.AppSettings[System.Threading.Thread.CurrentThread.CurrentCulture.Name];
@@ -112,7 +122,7 @@ values (@NewsCategoryName,@Language,@CreatedDate,@CreatedBy,@IsActive)", new { N
                 {
 
                     NewsCategoryID = news.NewsCategoryID,
-                    NewsIdentifier = news.NewsIdentifier,
+                    NewsIdentifier = pageIdentifier,
                     NewsImagePath = news.NewsImagePath,
                     NewsThumbnailPath = "",
                     NewsTitle = news.NewsTitle,

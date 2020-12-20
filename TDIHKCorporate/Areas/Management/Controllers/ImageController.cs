@@ -1,4 +1,5 @@
 ﻿using DbAccess.Dapper.Repository;
+using ImageResizer;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -277,17 +278,38 @@ namespace TDIHKCorporate.Areas.Management.Controllers
             throw new HttpException(403, "Forbidden");
         }
 
+        public class FileResizeInfos
+        {
+            public string Width { get; set; }
+            public string Height { get; set; }
+        }
+
+
         [HttpPost]
-        public virtual string ImageBrowserUploadForNews(string path, HttpPostedFileBase file)
+        public virtual string ImageBrowserUploadForNews(string path, FileResizeInfos formDataTest, HttpPostedFileBase file)
         {
 
             file = Request.Files[0];
-            path = NormalizePath(path);
+            path = NormalizePath(path + "news/");
             var fileName = Path.GetFileName(file.FileName);
 
             if (AuthorizeUpload(path, file))
             {
-                file.SaveAs(Path.Combine(Server.MapPath(path), fileName));
+
+                string filePath = Path.Combine(Server.MapPath(path), fileName);
+
+                file.SaveAs(filePath);
+
+                if (formDataTest.Width != null && formDataTest.Height != null)
+                {
+                    ResizeSettings resizeSetting = new ResizeSettings
+                    {
+                        Width = int.Parse(formDataTest.Width),
+                        Height = int.Parse(formDataTest.Height)
+                    };
+                    ImageBuilder.Current.Build(filePath, filePath, resizeSetting);
+                }
+               
 
                 //return Json(new
                 //{
@@ -298,7 +320,7 @@ namespace TDIHKCorporate.Areas.Management.Controllers
 
                 string pathNewsImageFile = Path.Combine(Server.MapPath(path), fileName);
 
-                return path+fileName;
+                return path + fileName;
             }
 
             throw new HttpException(403, "Forbidden");

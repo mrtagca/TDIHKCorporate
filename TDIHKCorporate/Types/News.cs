@@ -23,5 +23,7 @@ namespace TDIHKCorporate.Types
         public int UpdatedBy { get; set; }
         public bool IsActive { get; set; }
 
+        public string NewsCategoryName { get; set; }
+
     }
 }

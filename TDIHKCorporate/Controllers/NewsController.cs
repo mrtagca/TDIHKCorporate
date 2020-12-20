@@ -13,7 +13,7 @@ namespace TDIHKCorporate.Controllers
     public class NewsController : SiteBaseController
     {
         // GET: News
-        public ActionResult Show(string seoLink)
+        public ActionResult Show(string lang,string category,string seolink)
         {
 
             DapperRepository<News> news = new DapperRepository<News>();
@@ -23,7 +23,7 @@ namespace TDIHKCorporate.Controllers
             string name = cultureInfo.TwoLetterISOLanguageName;
 
             News newsItem = news.Get(@"SELECT * FROM News (NOLOCK)
-            where NewsSeoLink = @newsSeoLink", new { newsSeoLink = seoLink });
+            where NewsSeoLink = @newsSeoLink", new { newsSeoLink = seolink });
 
             return View(newsItem);
         }

@@ -65,11 +65,11 @@
                             </select>
                         </div>
                         <br />
-                        <div>
+                        @*<div>
                             <label>Page Identifier</label>
                             <input type="text" class="form-control" id="NewsIdentifierTxt" placeholder="Enter Identifier" value="" />
                         </div>
-                        <br />
+                        <br />*@
                         <div>
                             <label><input type="checkbox" onchange="DisableIdentifierInputs()" id="IdentifierCheckbox" name="name" value="" /> Select Identifier</label>
                             <select class="form-control" id="NewsIdentifierDropdown" disabled="disabled">
@@ -185,16 +185,13 @@
 
         var element = document.getElementById("IdentifierCheckbox")
         var dropdown = document.getElementById("NewsIdentifierDropdown");
-        var txt = document.getElementById("NewsIdentifierTxt");
 
         if (element.checked === true) {
 
-            txt.setAttribute("disabled", "disabled");
             dropdown.removeAttribute("disabled");
         }
         else {
             dropdown.setAttribute("disabled", "disabled");
-            txt.removeAttribute("disabled");
         }
     }
 
@@ -222,6 +219,8 @@
                 fileData.append(files[i].name, files[i]);
             }
 
+            fileData.append("Width", "500");
+            fileData.append("Height", "300");
 
             $.ajax({
                 url: '/Management/Image/ImageBrowserUploadForNews',
