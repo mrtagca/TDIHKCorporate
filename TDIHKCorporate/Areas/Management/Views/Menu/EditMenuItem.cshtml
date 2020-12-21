@@ -9,14 +9,34 @@
 <script src="~/Content/Scripts/Menu.js"></script>
 
 <script>
+
+
     $(document).ready(function () {
 
-        @*$("#MenuName").val("@Model.MenuName");
-         $("#MenuLanguage").val("@Model.Language").change();
         GetMenus("MenuList");
-        GetPages("PageSelect", "MenuLanguage");*@
+        document.getElementById("MenuLanguage").value = "@Model.Language";
+        LanguageManipulationDropdowns();
 
-        LanguageManipulationDropdowns()
+        setTimeout(() => {
+            document.getElementById("PageSelect").value = "@Model.PageID";
+
+             var isSub = "@Model.IsSubMenu";
+
+        if (isSub === "True") {
+
+            var parentId = @Model.ParentMenuItemID;
+            document.getElementById("IsSubMenu").checked = true;
+            SubMenuShow();
+
+            //setTimeout(() => {
+                document.getElementById("ParentMenuDropdown").value = parentId;
+            //}, 250);
+
+
+        }
+        }, 1500);
+
+
 
     });
 </script>
@@ -36,7 +56,7 @@
 
         <div>
             <label>Menü Dili Seçiniz</label>
-            <select onchange="" class="form-control" id="MenuLanguage">
+            <select onchange="LanguageManipulationDropdowns()" class="form-control" id="MenuLanguage">
                 <option value="de">DE</option>
                 <option value="tr">TR</option>
             </select>
@@ -45,11 +65,12 @@
 
         <div>
             <label><input type="checkbox" onchange="SubMenuShow()" name="name" id="IsSubMenu" value="" /> Alt Menü Mü?</label>
+
         </div>
 
         <div id="Menu">
             <label>Menü Adı Giriniz</label>
-            <input type="text" class="form-control" placeholder="Menu Adı Giriniz" id="MenuName" name="name" value="" />
+            <input type="text" class="form-control" placeholder="Menu Adı Giriniz" id="MenuName" name="name" value="@Model.MenuName" />
         </div>
         <br />
 
@@ -62,7 +83,7 @@
 
         <div>
             <label>Menü Sırası</label>
-            <input type="number" class="form-control" min="1" id="MenuOrder" name="name" value="1" />
+            <input type="number" class="form-control" min="1" id="MenuOrder" name="name" value="@Model.MenuItemPriority" />
         </div>
         <br />
 
@@ -105,60 +126,11 @@
         GetMenuItems("ParentMenuDropdown", "MenuLanguage");
     }
 
-    $("#SaveMenuItem").click(function () {
-
-        var callParams = {
-            endPoint: "../Menu/AddMenuItem",
-            requestType: "POST"
-        }
-
-        dataParams = {};
-        dataParams.MenuID = $("#MenuList").val();
-        dataParams.Language = $("#MenuLanguage").val();
-        dataParams.MenuName = $("#MenuName").val();
-        dataParams.MenuItemPriority = $("#MenuOrder").val();
-        dataParams.PageID = $("#PageSelect").val();
-
-        var isSubMenu = document.getElementById("IsSubMenu");
-
-        if (isSubMenu.checked === true) {
-
-            dataParams.IsSubMenu = true;
-            dataParams.ParentMenuItemID = $("#ParentMenuDropdown").val();
-            dataParams.MenuLevel = parseInt($("#ParentMenuDropdown").find(':selected').attr('menu-level')) + 1;
-        }
-        else {
-            dataParams.MenuLevel = 0;
-            dataParams.IsSubMenu = false;
-        }
-
-        var isActive = document.getElementById("IsActive");;
-
-        if (isActive.checked === true) {
-            dataParams.IsActive = true;
-        }
-        else {
-            dataParams.IsActive = false;
-        }
-
-        RequestAjax(callParams, dataParams, function (response) {
-            response = JSON.parse(response);
-
-            if (response === true) {
-                alert("Menü elemanı eklendi!");
-                location.reload();
-            }
-            else {
-                alert("Menü elemanı eklenemedi!");
-            }
-
-        });
-
-
-    });
-
     $(document).ready(function () {
-         $("#PageSelect").val("@Model.PageID");
+
+        $("#PageSelect").val("@Model.PageID");
     });
+
+
 
 </script>
