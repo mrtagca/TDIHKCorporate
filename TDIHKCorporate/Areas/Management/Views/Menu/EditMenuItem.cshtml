@@ -99,7 +99,7 @@
         </div>
 
         <br />
-        <button style="float:right" id="SaveMenuItem" class="btn btn-primary">Kaydet</button>
+        <button style="float:right" id="SaveMenuItem" menu-id="@Model.ID" class="btn btn-primary">Kaydet</button>
 
     </div>
 </div>
@@ -131,6 +131,59 @@
         $("#PageSelect").val("@Model.PageID");
     });
 
+
+    $("#SaveMenuItem").click(function () {
+
+        var callParams = {
+            endPoint: "/Management/Menu/EditMenuItem",
+            requestType: "POST"
+        }
+
+        dataParams = {};
+        dataParams.ID = document.getElementById("SaveMenuItem").getAttribute("menu-id");
+        dataParams.MenuID = $("#MenuList").val();
+        dataParams.Language = $("#MenuLanguage").val();
+        dataParams.MenuName = $("#MenuName").val();
+        dataParams.MenuItemPriority = $("#MenuOrder").val();
+        dataParams.PageID = $("#PageSelect").val();
+
+        var isSubMenu = document.getElementById("IsSubMenu");
+
+        if (isSubMenu.checked === true) {
+
+            dataParams.IsSubMenu = true;
+            dataParams.ParentMenuItemID = $("#ParentMenuDropdown").val();
+            dataParams.MenuLevel = parseInt($("#ParentMenuDropdown").find(':selected').attr('menu-level')) + 1;
+        }
+        else {
+            dataParams.MenuLevel = 0;
+            dataParams.IsSubMenu = false;
+        }
+
+        var isActive = document.getElementById("IsActive");;
+
+        if (isActive.checked === true) {
+            dataParams.IsActive = true;
+        }
+        else {
+            dataParams.IsActive = false;
+        }
+
+        RequestAjax(callParams, dataParams, function (response) {
+            response = JSON.parse(response);
+
+            if (response === true) {
+                alert("Menü elemanı güncellendi!");
+                location.reload();
+            }
+            else {
+                alert("Menü elemanı güncellenemedi!");
+            }
+
+        });
+
+
+    });
 
 
 </script>

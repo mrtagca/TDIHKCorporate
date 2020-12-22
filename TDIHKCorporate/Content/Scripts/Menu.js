@@ -47,8 +47,17 @@ function GetMenuItemsForMenuList(menuId, tableBodyId, tableId) {
 
             var isActive = document.createElement("td");
 
+            var edit = document.createElement("a");
+            edit.setAttribute("class", "btn btn-primary");
+            edit.setAttribute("href", "/Management/Menu/EditMenuItem/" + this.ID);
+            var editIcon = document.createElement("i");
+            editIcon.setAttribute("class", "fa fa-edit");
+            editIcon.setAttribute("aria-hidden", "true");
+            edit.append(editIcon)
+           
             var actions = document.createElement("button");
-            var actionIcon = document.createElement("i")
+            var actionIcon = document.createElement("i");
+
             
             if (this.IsActive) {
                 actions.setAttribute("class", "btn btn-danger");
@@ -67,8 +76,8 @@ function GetMenuItemsForMenuList(menuId, tableBodyId, tableId) {
                 actions.append(actionIcon);
             }
 
+            isActive.append(edit);
             isActive.append(actions);
-            
 
             row.append(pageTitle, language, menuItemPriority, menuName, menuLevel, isSubMenu, isActive)
             tableBody.append(row);
