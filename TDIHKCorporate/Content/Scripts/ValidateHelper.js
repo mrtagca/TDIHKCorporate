@@ -27,7 +27,7 @@ function validateText(evt) {
         var key = theEvent.keyCode || theEvent.which;
         key = String.fromCharCode(key);
     }
-    var regex = /^[a-zA-Z0-9@]+$/;
+    var regex = /^[a-zA-Z0-9ğüşöçİĞÜŞÖÇ ]+$/;
     if (!regex.test(key)) {
         theEvent.returnValue = false;
         if (theEvent.preventDefault) theEvent.preventDefault();
@@ -45,7 +45,7 @@ function validateOnlyText(evt) {
         var key = theEvent.keyCode || theEvent.which;
         key = String.fromCharCode(key);
     }
-    var regex = /^[a-zA@]+$/;
+    var regex = /^[a-zA-ZğüşöçİĞÜŞÖÇ ]+$/;
     if (!regex.test(key)) {
         theEvent.returnValue = false;
         if (theEvent.preventDefault) theEvent.preventDefault();

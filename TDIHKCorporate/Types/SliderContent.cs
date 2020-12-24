@@ -18,5 +18,6 @@ namespace TDIHKCorporate.Types
         public int CreatedBy { get; set; }
         public DateTime UpdatedDate { get; set; }
         public int UpdatedBy { get; set; }
+        public bool IsActive { get; set; }
     }
 }

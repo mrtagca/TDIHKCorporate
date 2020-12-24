@@ -7,6 +7,8 @@
 
 <html lang="@Session["language"]">
 <head>
+    <script src="~/Content/Admin/vendor/jquery/jquery-3.5.1.min.js"></script>
+
     @*@Html.Partial("~/Views/Partial/_PartialHead.cshtml")*@
 </head>
 @Html.Partial("~/Views/Partial/_PartialHeader.cshtml")
@@ -19,6 +21,8 @@
     @RenderBody()
 
     @Html.Partial("~/Views/Partial/_PartialFooter.cshtml")
+
+  
 
     <script src="~/Content/MainSite/assets/uikit/dist/js/uikit.min.js"></script>
     <script src="~/Content/MainSite/assets/uikit/dist/js/uikit-icons.min.js"></script>

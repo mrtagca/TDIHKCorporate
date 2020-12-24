@@ -1,4 +1,5 @@
 ﻿using DbAccess.Dapper.Repository;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -62,7 +63,32 @@ namespace TDIHKCorporate.Controllers
             return View();
         }
 
-        
+        [HttpPost]
+        public string StandardMitgliedschaftAntragsformular(MemberShipForm memberShipForm)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    DapperRepository<MemberShipForm> memberRepo = new DapperRepository<MemberShipForm>();
+                    memberShipForm.CreatedDate = DateTime.Now;
+                    memberShipForm.IPAdress = Request.UserHostAddress;
+
+                    //Mail Gönderme methodu
+
+                    int result = memberRepo.Execute(@" insert into MemberShipForm  ([IPAdress],[IsCorporate],[MemberType],[Name],[Street],[HomePhone],[PostalCode],[City],[Email],[PhoneNumber],[WebSite],[Fax],[ResponsiblePersonel],[PersonelPosition],[CorporationIncome],[CorporationLogoPath],[MemberSuggestion1],[MemberSuggestion2],[MemberSuggestion3],[SuggestionInfo],[SuggestionLocationAndTime],[CreatedDate]) values (@IPAdress,@IsCorporate,@MemberType,@Name,@Street,@HomePhone,@PostalCode,@City,@Email,@PhoneNumber,@WebSite,@Fax,@ResponsiblePersonel,@PersonelPosition,@CorporationIncome,@CorporationLogoPath,@MemberSuggestion1,@MemberSuggestion2,@MemberSuggestion3,@SuggestionInfo,@SuggestionLocationAndTime,@CreatedDate)", memberShipForm);
+
+                }
+
+                return JsonConvert.SerializeObject(true);
+            }
+            catch (Exception ex)
+            {
+                return JsonConvert.SerializeObject(false);
+            }
+        }
+
+
         public ActionResult PremiumMitgliedschaftAntragsformular()
         {
             return View();

@@ -1,0 +1,82 @@
+﻿@model List<TDIHKCorporate.Types.SliderContent>
+@{
+    ViewBag.Title = "SliderItems";
+    Layout = "~/Areas/Management/Views/Shared/_layoutDashboard.cshtml";
+}
+<script src="~/Content/Scripts/Slider.js"></script>
+
+<h2>Slider Items</h2>
+<hr />
+
+<div class="col-lg-12">
+    <div class="accordion" id="accordionExample">
+
+
+        @foreach (var item in Model)
+        {
+            <div class="card">
+
+                <div class="card-header" id="headingOne">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse_@item.SliderContentID" aria-expanded="true" aria-controls="collapse_@item.SliderContentID">
+                            @item.SliderPriority - @item.SliderContentTitle
+                        </button>
+
+
+
+                        <span style="float:right">
+
+                            <button onclick="window.open(
+                         '/Management/Slider/EditSliderItem/' +@item.SliderContentID,
+'_self');" class="btn btn-primary">
+                                <i class="fa fa-edit"></i>
+                            </button>
+
+
+                            @if (item.IsActive)
+                            {
+                                <button onclick="PassiveSliderItem(@item.SliderContentID)" class="btn btn-danger">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            }
+                            else
+                            {
+                                <button onclick="ActivateSliderItem(@item.SliderContentID)" class="btn btn-success">
+                                    <i class="fa fa-check"></i>
+                                </button>
+                            }
+
+                        </span>
+
+
+                    </h2>
+                </div>
+
+                <div id="collapse_@item.SliderContentID" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <center>
+                            <div>
+
+                                <img src="@item.ImagePath" alt="Alternate Text" />
+
+                            </div>
+                        </center>
+                        <br />
+                        <div>
+                            <label>Slider URL</label>
+                            <input class="form-control" type="text" disabled name="name" value="@item.SliderUrl" />
+                        </div>
+                        <br />
+                        <div>
+                            <label>Slider Priority</label>
+                            <input type="number" class="form-control" min="1" value="@item.SliderPriority" disabled />
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        }
+
+    </div>
+</div>
