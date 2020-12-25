@@ -4,9 +4,12 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 using TDIHKCorporate.BaseControllers.MultiLanguage;
+using TDIHKCorporate.Helpers.Mail;
 using TDIHKCorporate.Types;
 
 namespace TDIHKCorporate.Controllers
@@ -27,7 +30,7 @@ namespace TDIHKCorporate.Controllers
             return View(pageItem);
         }
 
-      
+
         public ActionResult StandardMitgliedschaft()
         {
             DapperRepository<Pages> page = new DapperRepository<Pages>();
@@ -76,7 +79,14 @@ namespace TDIHKCorporate.Controllers
 
                     //Mail Gönderme methodu
 
-                    int result = memberRepo.Execute(@" insert into MemberShipForm  ([IPAdress],[IsCorporate],[MemberType],[Name],[Street],[HomePhone],[PostalCode],[City],[Email],[PhoneNumber],[WebSite],[Fax],[ResponsiblePersonel],[PersonelPosition],[CorporationIncome],[CorporationLogoPath],[MemberSuggestion1],[MemberSuggestion2],[MemberSuggestion3],[SuggestionInfo],[SuggestionLocationAndTime],[CreatedDate]) values (@IPAdress,@IsCorporate,@MemberType,@Name,@Street,@HomePhone,@PostalCode,@City,@Email,@PhoneNumber,@WebSite,@Fax,@ResponsiblePersonel,@PersonelPosition,@CorporationIncome,@CorporationLogoPath,@MemberSuggestion1,@MemberSuggestion2,@MemberSuggestion3,@SuggestionInfo,@SuggestionLocationAndTime,@CreatedDate)", memberShipForm);
+                    int result = memberRepo.Execute(@"insert into MemberShipForm  ([IPAdress],[IsCorporate],[MemberType],[Name],[Street],[HomePhone],[PostalCode],[City],[Email],[PhoneNumber],[WebSite],[Fax],[ResponsiblePersonel],[PersonelPosition],[CorporationIncome],[CorporationLogoPath],[MemberSuggestion1],[MemberSuggestion2],[MemberSuggestion3],[SuggestionInfo],[SuggestionLocationAndTime],[CreatedDate]) values (@IPAdress,@IsCorporate,@MemberType,@Name,@Street,@HomePhone,@PostalCode,@City,@Email,@PhoneNumber,@WebSite,@Fax,@ResponsiblePersonel,@PersonelPosition,@CorporationIncome,@CorporationLogoPath,@MemberSuggestion1,@MemberSuggestion2,@MemberSuggestion3,@SuggestionInfo,@SuggestionLocationAndTime,@CreatedDate)", memberShipForm);
+
+
+                    CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+                    string lang = cultureInfo.TwoLetterISOLanguageName;
+
+                    MailSender mailSender = new MailSender("MemberShip");
+                    mailSender.SendMailStandardMembership(memberShipForm, lang);
 
                 }
 

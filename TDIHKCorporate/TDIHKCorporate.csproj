@@ -48,12 +48,28 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.6.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.6.1\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
     <Reference Include="ImageResizer, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ImageResizer.4.2.8\lib\net45\ImageResizer.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.2, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Bin\itextsharp.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NReco.PdfGenerator, Version=1.2.0.0, Culture=neutral, PublicKeyToken=231663d50a41b451, processorArchitecture=MSIL">
+      <HintPath>..\packages\NReco.PdfGenerator.1.2.0\lib\net45\NReco.PdfGenerator.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp, Version=1.50.5147.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.1.50.5147\lib\net20\PdfSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.Charting, Version=1.50.5147.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.1.50.5147\lib\net20\PdfSharp.Charting.dll</HintPath>
     </Reference>
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data.SqlClient, Version=4.6.1.2, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -68,6 +84,7 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
@@ -3061,14 +3078,17 @@
     <Compile Include="Helpers\Extensions\ImageSize.cs" />
     <Compile Include="Helpers\Extensions\ThumbnailCreator.cs" />
     <Compile Include="Helpers\Extensions\UrlExtensions.cs" />
+    <Compile Include="Helpers\Mail\MailSender.cs" />
     <Compile Include="Models\Language\Language.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Types\ComponentTypes\FileBrowserResponse.cs" />
     <Compile Include="Types\ComponentTypes\ImageBrowserResponse.cs" />
+    <Compile Include="Types\EmailTemplates.cs" />
     <Compile Include="Types\EventCategories.cs" />
     <Compile Include="Types\Events.cs" />
     <Compile Include="Types\FormTypes\NewsletterFormModel.cs" />
     <Compile Include="Types\Images.cs" />
+    <Compile Include="Types\MailOptions.cs" />
     <Compile Include="Types\MemberShipForm.cs" />
     <Compile Include="Types\MenuItems.cs" />
     <Compile Include="Types\MenuItemsByMenuId.cs" />
@@ -3743,6 +3763,7 @@
     <Folder Include="Content\MainSite\assets\images\New folder deneme\" />
     <Folder Include="Content\MainSite\assets\images\news\thumbnail\" />
     <Folder Include="Content\MainSite\assets\images\test\" />
+    <Folder Include="Content\MainSite\assets\memberShipFiles\" />
     <Folder Include="Views\Image\" />
     <Folder Include="Views\Slider\" />
   </ItemGroup>
