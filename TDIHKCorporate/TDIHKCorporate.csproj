@@ -2434,6 +2434,9 @@
     <Content Include="Content\MainSite\assets\uikit\custom\icons\icn-chevron-right.svg" />
     <Content Include="Content\MainSite\assets\uikit\custom\icons\icn-clock.svg" />
     <Content Include="Content\MainSite\assets\uikit\custom\icons\icn-de.svg" />
+    <Content Include="Content\MainSite\assets\uikit\custom\icons\icn-down-chevron.svg" />
+    <Content Include="Content\MainSite\assets\uikit\custom\icons\icn-down-chevronn.svg" />
+    <Content Include="Content\MainSite\assets\uikit\custom\icons\icn-down-chv.svg" />
     <Content Include="Content\MainSite\assets\uikit\custom\icons\icn-facebook.svg" />
     <Content Include="Content\MainSite\assets\uikit\custom\icons\icn-globe.svg" />
     <Content Include="Content\MainSite\assets\uikit\custom\icons\icn-instagram.svg" />
@@ -2445,6 +2448,9 @@
     <Content Include="Content\MainSite\assets\uikit\custom\icons\icn-search.svg" />
     <Content Include="Content\MainSite\assets\uikit\custom\icons\icn-tr.svg" />
     <Content Include="Content\MainSite\assets\uikit\custom\icons\icn-twitter.svg" />
+    <Content Include="Content\MainSite\assets\uikit\custom\icons\icn-up-chevron.svg" />
+    <Content Include="Content\MainSite\assets\uikit\custom\icons\icn-up-chevronn.svg" />
+    <Content Include="Content\MainSite\assets\uikit\custom\icons\icn-up-chv.svg" />
     <Content Include="Content\MainSite\assets\uikit\custom\icons\icn-world.svg" />
     <Content Include="Content\MainSite\assets\uikit\dist\css\uikit-core-rtl.css" />
     <Content Include="Content\MainSite\assets\uikit\dist\css\uikit-core-rtl.min.css" />
