@@ -66,5 +66,10 @@ namespace TDIHKCorporate.Controllers
                 return false;
             }
         }
+
+        public ActionResult Vorteille()
+        {
+            return View();
+        }
     }
 }
