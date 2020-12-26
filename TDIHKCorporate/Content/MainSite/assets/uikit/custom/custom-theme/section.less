@@ -230,10 +230,9 @@
         border-bottom: 2px solid @light-grey;
         margin-top: 0;
 
-        span.uk-icon{
-            svg{
+        span.uk-icon {
+            svg {
                 width: 70px !important;
-                
             }
         }
 
@@ -984,6 +983,15 @@
         svg {
             width: 24px;
             height: 24px;
+        }
+    }
+
+    .register-form {
+        input {
+            text-align: center;
+            &::-webkit-input-placeholder, &::-moz-placeholder, &:-ms-input-placeholder, &::-moz-placeholder {
+                text-align: center;
+            }
         }
     }
 }

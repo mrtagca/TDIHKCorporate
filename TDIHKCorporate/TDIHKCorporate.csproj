@@ -2472,6 +2472,7 @@
     <Content Include="Content\MainSite\assets\images\StandartForm\print.png" />
     <Content Include="Content\MainSite\assets\images\stromma_logo.jpg" />
     <Content Include="Content\MainSite\assets\images\sub-nachrichten\BG.png" />
+    <Content Include="Content\MainSite\assets\images\Subregister\BG.png" />
     <Content Include="Content\MainSite\assets\images\surf.jpg" />
     <Content Include="Content\MainSite\assets\images\TdIhkPortal\TdIhkPortal-bg.png" />
     <Content Include="Content\MainSite\assets\images\TOBB Logo.png" />
@@ -2533,6 +2534,7 @@
     <Content Include="Content\MainSite\assets\uikit\custom\icons\icn-menu.svg" />
     <Content Include="Content\MainSite\assets\uikit\custom\icons\icn-pause.svg" />
     <Content Include="Content\MainSite\assets\uikit\custom\icons\icn-play.svg" />
+    <Content Include="Content\MainSite\assets\uikit\custom\icons\icn-play1.svg" />
     <Content Include="Content\MainSite\assets\uikit\custom\icons\icn-podcast.svg" />
     <Content Include="Content\MainSite\assets\uikit\custom\icons\icn-search.svg" />
     <Content Include="Content\MainSite\assets\uikit\custom\icons\icn-tr.svg" />
