@@ -1,7 +1,4 @@
 ﻿using DbAccess.Dapper.Repository;
-using iTextSharp.text;
-using iTextSharp.text.html.simpleparser;
-using iTextSharp.text.pdf;
 using PdfSharp;
 using System;
 using System.Collections.Generic;
