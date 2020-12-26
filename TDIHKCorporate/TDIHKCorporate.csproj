@@ -2533,6 +2533,7 @@
     <Content Include="Content\MainSite\assets\uikit\custom\icons\icn-menu.svg" />
     <Content Include="Content\MainSite\assets\uikit\custom\icons\icn-pause.svg" />
     <Content Include="Content\MainSite\assets\uikit\custom\icons\icn-play.svg" />
+    <Content Include="Content\MainSite\assets\uikit\custom\icons\icn-play1.svg" />
     <Content Include="Content\MainSite\assets\uikit\custom\icons\icn-podcast.svg" />
     <Content Include="Content\MainSite\assets\uikit\custom\icons\icn-search.svg" />
     <Content Include="Content\MainSite\assets\uikit\custom\icons\icn-tr.svg" />
