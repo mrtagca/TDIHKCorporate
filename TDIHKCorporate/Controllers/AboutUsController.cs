@@ -52,7 +52,7 @@ namespace TDIHKCorporate.Controllers
 
             string name = cultureInfo.TwoLetterISOLanguageName;
 
-            List<Institution> institutionList = inst.GetList("select * from Institutions (NOLOCK) where IsActive = 1 order by InstitutionDate desc",null);
+            List<Institution> institutionList = inst.GetList("select * from Institutions (NOLOCK) where IsActive = 1 and [Language] = @Language order by InstitutionDate desc",new { Language =name });
 
 
             return PartialView("_PartialInstitutionTimeline", institutionList);
