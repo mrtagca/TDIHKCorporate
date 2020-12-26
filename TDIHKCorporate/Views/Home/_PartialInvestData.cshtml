@@ -24,7 +24,7 @@
                         <button class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
                         <div class="uk-flex-middle uk-flex-center" uk-grid uk-height-viewport="offset-top: true">
 							<div class="uk-padding-large">
-								@*<ul class="uk-nav-default uk-nav-parent-icon" uk-nav>
+								<ul class="uk-nav-default uk-nav-parent-icon" uk-nav>
 									<li class="uk-active"><a href="#">Active</a></li>
 									<li class="uk-parent">
 										<a href="#">Parent</a>
@@ -50,7 +50,7 @@
 											<li><a href="#">Sub item</a></li>
 										</ul>
 									</li>
-								</ul>*@
+								</ul>
 								<ul class="uk-list uk-link-reset uk-text-center uk-h1">
 
 									@foreach (TDIHKCorporate.Types.MenuItems item in Model.Where(x => x.IsSubMenu == false).OrderBy(x => x.MenuItemPriority))
@@ -292,23 +292,21 @@
 							<div class="uk-navbar-dropdown-grid uk-child-width-1-2" uk-grid>
 								<div>
 									<ul class="uk-nav uk-navbar-dropdown-nav">
-										<li class="uk-active"><a href="#">Active</a></li>
+										<li class="uk-active" uk-toggle="target:.sub-menu; mode: hover; animation: uk-animation-fade; queued: true; cls:uk-hidden"><a href="#">Active</a></li>
 										<li><a href="#">Item</a></li>
 										<li class="uk-nav-header">Header</li>
 										<li><a href="#">Item</a></li>
 										<li><a href="#">Item</a></li>
-										<li class="uk-nav-divider"></li>
 										<li><a href="#">Item</a></li>
 									</ul>
 								</div>
 								<div>
-									<ul class="uk-nav uk-navbar-dropdown-nav">
+									<ul class="uk-nav uk-navbar-dropdown-nav sub-menu uk-hidden">
 										<li class="uk-active"><a href="#">Active</a></li>
 										<li><a href="#">Item</a></li>
 										<li class="uk-nav-header">Header</li>
 										<li><a href="#">Item</a></li>
 										<li><a href="#">Item</a></li>
-										<li class="uk-nav-divider"></li>
 										<li><a href="#">Item</a></li>
 									</ul>
 								</div>
