@@ -296,6 +296,7 @@ order by CONVERT(datetime,CONVERT(nvarchar,EventDate)+' '+CONVERT(nvarchar,Event
 
         public ActionResult GetHomepagePodcasts()
         {
+            //
             DapperRepository<Podcasts> podcastRepo = new DapperRepository<Podcasts>();
             CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
             string name = cultureInfo.TwoLetterISOLanguageName;
