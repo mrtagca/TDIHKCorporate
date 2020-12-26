@@ -2544,13 +2544,9 @@ select.uk-form-width-xsmall {
 .podcast-icon svg rect {
   fill: #142C51;
 }
-.podcast-wrapper:last-child {
-  border-top: 2px solid #E7E8E9;
+.podcast-wrapper {
   border-bottom: 2px solid #E7E8E9;
   margin-top: 0;
-}
-.podcast-wrapper:not(:last-child) {
-  border-top: 2px solid #E7E8E9;
 }
 .podcast-wrapper div:not(:last-child) {
   padding-right: 0 !important;
