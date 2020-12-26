@@ -52,10 +52,16 @@
     <!--Kare şeklindeki etkinlikler-->
     @Html.Action("LastEvents", "Event")
 
-    <section>
-        <div class="uk-h2 uk-text-center">Melden Sie sich für unseren Newsletter an um die neusten Nachrichten und Angebote zu erhalten.</div>
-    </section>
+    
 
-    @Html.Action("Index", "Newsletter")
+    @if (Model.NewsletterPart)
+    {
+        @Html.Action("Index", "Newsletter")
+    }
+
+    @if (Model.VorteillePart)
+    {
+        @Html.Action("Vorteille", "Newsletter")
+    }
 
 </main>

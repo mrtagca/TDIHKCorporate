@@ -26,5 +26,7 @@ namespace TDIHKCorporate.Types
         public bool IsActive { get; set; }
         public bool IsDynamicPage { get; set; }
         public HttpPostedFileBase ImageFile { get; set; }
+        public bool NewsletterPart { get; set; }
+        public bool VorteillePart { get; set; }
     }
 }

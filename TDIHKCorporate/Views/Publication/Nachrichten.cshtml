@@ -1,14 +1,14 @@
 ﻿@model List<TDIHKCorporate.Types.News>
 
 @{
-	ViewBag.Title = "Nachrichten";
-	Layout = "~/Views/Shared/_layoutMaster.cshtml";
+    ViewBag.Title = "Nachrichten";
+    Layout = "~/Views/Shared/_layoutMaster.cshtml";
 }
 
 <main class="uk-container" uk-scrollspy="cls: uk-animation-fade; target: > section; delay: 250">
 
     @Html.Action("GetNachrichtenHead")
-    
+
 
     <!--Alt kısım-->
     <section>
@@ -18,30 +18,32 @@
 
             @foreach (var item in Model)
             {
-            <div>
-                @if (item.Language == "tr")
-                {
-                    <a href="/tr/haberler/@item.NewsSeoLink" class="uk-link-reset">
-                        <div class="uk-inline-clip uk-transition-toggle">
-                            <img src="@item.NewsThumbnailPath" class="uk-width-1-1 uk-height-1-1 uk-transition-opaque uk-transition-scale-up" />
-                        </div>
-                        <div class="news-card-title line-height-1">@item.NewsTitle</div>
-                        <div class="news-card-subtitle">@item.NewsDescription</div>
-                    </a>
-                }
-                else
-                {
-                    <a href="/de/nachrichten/@item.NewsSeoLink" class="uk-link-reset">
-                        <div class="uk-inline-clip uk-transition-toggle">
-                            <img src="@item.NewsThumbnailPath" class="uk-width-1-1 uk-height-1-1 uk-transition-opaque uk-transition-scale-up" />
-                        </div>
-                        <div class="news-card-title line-height-1">@item.NewsTitle</div>
-                        <div class="news-card-subtitle">@item.NewsDescription</div>
-                    </a>
-                }
+                <div>
+                    @if (item.Language == "tr")
+                    {
+                        <a href="/tr/haberler/@item.NewsSeoLink" class="uk-link-reset">
+                            <div class="uk-inline-clip uk-transition-toggle">
+                                <img src="@item.NewsThumbnailPath" class="uk-width-1-1 uk-height-1-1 uk-transition-opaque uk-transition-scale-up" />
+                            </div>
+                            <div class="news-card-title line-height-1">@item.NewsTitle</div>
+                            <div class="news-card-subtitle">@item.NewsDescription</div>
+                        </a>
+                    }
+                    else
+                    {
+                        <a href="/de/nachrichten/@item.NewsSeoLink" class="uk-link-reset">
+                            <div class="uk-inline-clip uk-transition-toggle">
+                                <img src="@item.NewsThumbnailPath" class="uk-width-1-1 uk-height-1-1 uk-transition-opaque uk-transition-scale-up" />
+                            </div>
+                            <div class="news-card-title line-height-1">@item.NewsTitle</div>
+                            <div class="news-card-subtitle">@item.NewsDescription</div>
+                        </a>
+                    }
 
-            </div>
+                </div>
             }
         </div>
     </section>
 </main>
+
+@Html.Action("Index", "Newsletter")
