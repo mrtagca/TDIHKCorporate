@@ -2315,11 +2315,9 @@
     <Content Include="Content\MainSite\assets\images\4. Bilgi Notu 2-Sirket Kurulusu.jpg" />
     <Content Include="Content\MainSite\assets\images\4.-Bilgi-Notu-2-Sirket-Kurulusu.jpg" />
     <Content Include="Content\MainSite\assets\images\4.-Corona-Hilfspakete.jpg" />
-    <Content Include="Content\MainSite\assets\images\5. Sirketler İcin Yardim Paketi.jpg" />
     <Content Include="Content\MainSite\assets\images\5.-Wichtige-Infos-fuer-Unternehmer.jpg" />
     <Content Include="Content\MainSite\assets\images\50510780885815.jpg" />
     <Content Include="Content\MainSite\assets\images\6.-Corona-Hilfspakete.jpg" />
-    <Content Include="Content\MainSite\assets\images\6.-Coronavirüse-Karsi-Avrupada-Alinan-Ekonomik-Tedbirler.jpg" />
     <Content Include="Content\MainSite\assets\images\7. Bilgi Notu 3-Nitelikli Isgucu Goc Yasasi.jpg" />
     <Content Include="Content\MainSite\assets\images\7.-Wirtschaftsfoerderungen.jpg" />
     <Content Include="Content\MainSite\assets\images\8. Ekonominin desteklenmesi, acil durum fonlari ve sirketler icin yardim paketleri.jpg" />
@@ -3013,7 +3011,6 @@
     <Content Include="Areas\Management\Views\Slider\SliderItems.cshtml" />
     <Content Include="Areas\Management\Views\Slider\EditSliderItem.cshtml" />
     <Content Include="Content\MainSite\assets\images\4. Bilgi Notu 2-Sirket Kurulusu" />
-    <Content Include="Content\MainSite\assets\images\5. Sirketler İcin Yardim Paketi" />
     <Content Include="Content\MainSite\assets\images\7. Bilgi Notu 3-Nitelikli Isgucu Goc Yasasi" />
     <Content Include="Content\MainSite\assets\images\8. Ekonominin desteklenmesi, acil durum fonlari ve sirketler icin yardim paketleri" />
     <Content Include="Areas\Management\Views\MemberShip\Create.cshtml" />
