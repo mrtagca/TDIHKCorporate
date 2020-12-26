@@ -29,6 +29,11 @@ namespace TDIHKCorporate.Controllers
             return View(pageItem);
         }
 
+        public ActionResult EventRegister()
+        {
+            return View();
+        }
+
         public ActionResult FutureEvents()
         {
             return View(GetFutureEvents(3));
