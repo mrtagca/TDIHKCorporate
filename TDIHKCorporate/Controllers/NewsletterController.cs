@@ -69,7 +69,7 @@ namespace TDIHKCorporate.Controllers
 
         public ActionResult Vorteille()
         {
-            return View();
+            return PartialView("_PartialVorteille");
         }
     }
 }
