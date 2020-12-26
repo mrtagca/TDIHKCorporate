@@ -3109,11 +3109,11 @@ select.uk-form-width-xsmall {
 .main-timeline .timeline:nth-child(4n+3) .timeline-content:before,
 .main-timeline .timeline:nth-child(4n+3) .timeline-content:after,
 .main-timeline .timeline:nth-child(4n+3) .timeline-year {
-  background: #2E475D;
+  background: #0a1628;
 }
 .main-timeline .timeline:nth-child(4n+3) .timeline-icon,
 .main-timeline .timeline:nth-child(4n+3) .title {
-  color: #2E475D;
+  color: #142C51;
 }
 .main-timeline .timeline:nth-child(4n+3) .timeline-year:before {
   background: linear-gradient(to top right, #0a1628 49%, transparent 50%);
@@ -3121,11 +3121,11 @@ select.uk-form-width-xsmall {
 .main-timeline .timeline:nth-child(4n+4) .timeline-content:before,
 .main-timeline .timeline:nth-child(4n+4) .timeline-content:after,
 .main-timeline .timeline:nth-child(4n+4) .timeline-year {
-  background: #5ca51c;
+  background: #0a1628;
 }
 .main-timeline .timeline:nth-child(4n+4) .timeline-icon,
 .main-timeline .timeline:nth-child(4n+4) .title {
-  color: #5ca51c;
+  color: #142C51;
 }
 .main-timeline .timeline:nth-child(4n+4) .timeline-year:before {
   background: linear-gradient(to top right, #0a1628 49%, transparent 50%);
