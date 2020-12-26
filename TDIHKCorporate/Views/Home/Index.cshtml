@@ -9,7 +9,7 @@
 
     @Html.Action("ShowHomePageSlider", "Home")
     @Html.Action("ShowPremiumMembersSlider", "Home")
-   
+
     <section>
         @Html.Action("ShowHomePageKalender", "Home")
 
@@ -88,49 +88,7 @@
         </div>
     </section>
     <!--Podcast-->
-    <section>
-        <h2>Podcasts</h2>
-        <div class="podcast-container">
-            <div>
-                <div class="uk-grid uk-grid-medium podcast-wrapper" uk-grid>
-                    <div class="uk-width-1-4 uk-width-1-6@s uk-padding-small ">
-                        <a href="" class="uk-link-reset"><span class="uk-preserve uk-margin-small-left podcast-icon" uk-icon="icon: icn-podcast"></span></a>
-                    </div>
-                    <div class="uk-width-expand uk-width-3-4@s uk-padding-small">
-                        <a href="" class="uk-link-reset">
-                            <div class="uk-text-large uk-text-truncate line-height-1">Podcast Theme Creation</div>
-                            <div class="uk-text-small line-height-1">THIDK</div>
-                        </a>
-                    </div>
-                    <div class="uk-width-auto uk-padding-small">
-                        <a href="" class="uk-link-reset">
-                            <span class="uk-preserve" uk-icon="icon:icn-play; ratio: 2.3334"></span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div class="uk-grid uk-grid-medium podcast-wrapper" uk-grid>
-                    <div class="uk-width-1-4 uk-width-1-6@s uk-padding-small">
-                        <a href="" class="uk-link-reset"><span class="uk-preserve uk-margin-small-left podcast-icon" uk-icon="icon: icn-podcast"></span></a>
-                    </div>
-                    <div class="uk-width-expand uk-width-3-4@s uk-padding-small">
-                        <a href="" class="uk-link-reset">
-                            <div class="uk-text-large uk-text-truncate line-height-1">Podcast Theme Creation</div>
-                            <div class="uk-text-small line-height-1">THIDK</div>
-                        </a>
-                    </div>
-                    <div class="uk-width-auto uk-padding-small">
-                        <a href="" class="uk-link-reset">
-                            <span class="uk-preserve" uk-icon="icon:icn-play; ratio: 2.3334"></span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-    </section>
+    @Html.Action("GetHomepagePodcasts")
     <br />
     @Html.Action("ShowPremiumAdvantageSlider", "Home")
     <!--Haberler-->
