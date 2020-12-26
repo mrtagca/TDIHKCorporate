@@ -7,6 +7,19 @@
 <h5>Üye Logo</h5>
 <hr />
 
+@if (ViewBag.Success != null)
+{
+    <div class="alert alert-success" role="alert">
+        @ViewBag.Success
+    </div>
+}
+else if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @ViewBag.Error
+    </div>
+}
+
 @using (Html.BeginForm("Create", "MemberShip", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
 

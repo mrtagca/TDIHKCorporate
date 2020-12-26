@@ -3768,7 +3768,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Management\Models\" />
-    <Folder Include="Areas\Management\Views\MemberSj\" />
     <Folder Include="Areas\Management\Views\Url\" />
     <Folder Include="Content\MainSite\assets\files\podcasts\" />
     <Folder Include="Content\MainSite\assets\images\members\" />

@@ -28,8 +28,14 @@ namespace TDIHKCorporate.Areas.Management.Controllers
 
                     members.file.SaveAs(path);
 
-                    DapperRepository<Members> podcastRepo = new DapperRepository<Members>();
-                    var result = podcastRepo.Execute(@" insert into Podcasts ([Language],PodcastFilePath,PodcastTitle,PodcastDescription,CreatedDate,CreatedBy,IsActive) values (@Language,@PodcastFilePath,@PodcastTitle,@PodcastDescription,@CreatedDate,@CreatedBy,@IsActive)", members);
+                    members.MemberLogoPath = path;
+                    members.CreatedDate = DateTime.Now;
+                    members.CreatedBy = 1;
+                    members.IsActive = true;
+
+                    DapperRepository<Members> memberRepo = new DapperRepository<Members>();
+                    var result = memberRepo.Execute(@"insert into  Members (MemberLogoPath,MemberTitle,MemberAddress,MemberWebSite,MemberPhone1,MemberPhone2,MemberEmailAddress,CreatedDate,CreatedBy) 
+values (@MemberLogoPath,@MemberTitle,@MemberAddress,@MemberWebSite,@MemberPhone1,@MemberPhone2,@MemberEmailAddress,@CreatedDate,@CreatedBy)", members);
 
                     ViewBag.Success = "Success";
                     return View();
