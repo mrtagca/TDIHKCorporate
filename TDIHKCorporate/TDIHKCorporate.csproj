@@ -3016,6 +3016,7 @@
     <Content Include="Content\MainSite\assets\images\5. Sirketler İcin Yardim Paketi" />
     <Content Include="Content\MainSite\assets\images\7. Bilgi Notu 3-Nitelikli Isgucu Goc Yasasi" />
     <Content Include="Content\MainSite\assets\images\8. Ekonominin desteklenmesi, acil durum fonlari ve sirketler icin yardim paketleri" />
+    <Content Include="Areas\Management\Views\MemberShip\Create.cshtml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="HTML-1\dienstleistungen.html" />
     <Content Include="HTML-1\kalender.html" />
@@ -3052,6 +3053,7 @@
     <Compile Include="Areas\Management\Controllers\HomeController.cs" />
     <Compile Include="Areas\Management\Controllers\ImageController.cs" />
     <Compile Include="Areas\Management\Controllers\InstitutionController.cs" />
+    <Compile Include="Areas\Management\Controllers\MemberShipController.cs" />
     <Compile Include="Areas\Management\Controllers\MenuController.cs" />
     <Compile Include="Areas\Management\Controllers\NewsController.cs" />
     <Compile Include="Areas\Management\Controllers\PageController.cs" />
@@ -3093,6 +3095,7 @@
     <Compile Include="Types\FormTypes\NewsletterFormModel.cs" />
     <Compile Include="Types\Images.cs" />
     <Compile Include="Types\MailOptions.cs" />
+    <Compile Include="Types\Members.cs" />
     <Compile Include="Types\MemberShipForm.cs" />
     <Compile Include="Types\MenuItems.cs" />
     <Compile Include="Types\MenuItemsByMenuId.cs" />
@@ -3765,8 +3768,10 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Management\Models\" />
+    <Folder Include="Areas\Management\Views\MemberSj\" />
     <Folder Include="Areas\Management\Views\Url\" />
     <Folder Include="Content\MainSite\assets\files\podcasts\" />
+    <Folder Include="Content\MainSite\assets\images\members\" />
     <Folder Include="Content\MainSite\assets\images\New folder deneme\" />
     <Folder Include="Content\MainSite\assets\images\news\thumbnail\" />
     <Folder Include="Content\MainSite\assets\images\test\" />

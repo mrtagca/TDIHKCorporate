@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Management/Views/Shared/_layoutDashboard.cshtml";
+}
+
+<h5>Üye Logo</h5>
+<hr />
+
+@using (Html.BeginForm("Create", "MemberShip", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    <div class="col-lg-12">
+        <div class="col-lg-4">
+            <label>Üye Logo</label> <br />
+            <input type="file" name="file" value="" accept="image/x-png,image/gif,image/jpeg" required />
+            <br />
+            <br />
+
+            <label>Üye Unvan</label>
+            <input type="text" class="form-control" placeholder="Üye Unvan" name="MemberTitle" value="" required />
+            <br />
+
+            <label>Üye Email</label>
+            <input type="email" class="form-control" placeholder="Üye Email" name="MemberEmailAddress" value="" required />
+            <br />
+
+            <label>Üye Adres</label>
+            <textarea class="form-control" name="MemberAddress" placeholder="Üye Adres" required></textarea>
+            <br />
+
+            <label>Üye Website</label>
+            <input type="text" class="form-control" placeholder="Website" name="MemberWebSite" value="" required />
+            <br />
+
+            <label>Üye Telefon 1</label>
+            <input type="text" class="form-control" placeholder="Üye Telefon 1" name="MemberPhone1" value="" required />
+            <br />
+
+            <label>Üye Telefon 2</label>
+            <input type="text" class="form-control" placeholder="Üye Telefon 1" name="MemberPhone2" value="" />
+            <br />
+
+            <button class=" btn btn-success" style="float:right">Kaydet</button>
+        </div>
+    </div>
+}

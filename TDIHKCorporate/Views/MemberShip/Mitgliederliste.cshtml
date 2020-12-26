@@ -17,6 +17,7 @@
             </div>
         </div>
     </section>
+
     <section class="uk-section">
         <h1 class="uk-h3">Mitgliederliste</h1>
         <div class="" uk-filter="target: .companies">
@@ -49,27 +50,30 @@
                 <li uk-filter-control="[data-word='Z']"><a href="#">Z</a></li>
                 <li uk-filter-control=""><a href="#" style="text-transform: none;">Alle anzeigen</a></li>
             </ul>
-            <div class="uk-h3">Premium Members</div>
-            <div tabindex="-1" uk-slider="autoplay: true; autoplay-interval: 2000">
-                <ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-4@m uk-flex-middle">
+            @*<div class="uk-h3">Premium Members</div>
+                <div tabindex="-1" uk-slider="autoplay: true; autoplay-interval: 2000">
+                    <ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-4@m uk-flex-middle">
 
-                    <li class="" tabindex="-1" style="order: 1;">
-                        <a class="uk-flex uk-flex-center"><img src="/Content/MainSite/assets/images/Turkish Airlines.svg" alt="" class="uk-width-3-4 uk-width-3-4@s" uk-img=""></a>
-                    </li>
-                    <li class="uk-active" tabindex="-1" style="">
-                        <a class="uk-flex uk-flex-center"><img src="/Content/MainSite/assets/images/Hugo Boss.svg" alt="" class="uk-width-3-4 uk-width-3-4@s" uk-img=""></a>
-                    </li>
-                    <li class="uk-active" tabindex="-1" style="">
-                        <a class="uk-flex uk-flex-center"><img src="/Content/MainSite/assets/images/Inal Consulting.svg" alt="" class="uk-width-3-4 uk-width-3-4@s" uk-img=""></a>
-                    </li>
-                    <li class="uk-active" tabindex="-1" style="">
-                        <a class="uk-flex uk-flex-center"><img src="/Content/MainSite/assets/images/Monster.svg" alt="" class="uk-width-3-4 uk-width-3-4@s" uk-img=""></a>
-                    </li>
-                    <li class="uk-active" tabindex="-1">
-                        <a class="uk-flex uk-flex-center"><img src="/Content/MainSite/assets/images/trenkwalker.jpg" alt="" class="uk-width-3-4 uk-width-3-4@s" uk-img=""></a>
-                    </li>
-                </ul>
-            </div>
+                        <li class="" tabindex="-1" style="order: 1;">
+                            <a class="uk-flex uk-flex-center"><img src="/Content/MainSite/assets/images/Turkish Airlines.svg" alt="" class="uk-width-3-4 uk-width-3-4@s" uk-img=""></a>
+                        </li>
+                        <li class="uk-active" tabindex="-1" style="">
+                            <a class="uk-flex uk-flex-center"><img src="/Content/MainSite/assets/images/Hugo Boss.svg" alt="" class="uk-width-3-4 uk-width-3-4@s" uk-img=""></a>
+                        </li>
+                        <li class="uk-active" tabindex="-1" style="">
+                            <a class="uk-flex uk-flex-center"><img src="/Content/MainSite/assets/images/Inal Consulting.svg" alt="" class="uk-width-3-4 uk-width-3-4@s" uk-img=""></a>
+                        </li>
+                        <li class="uk-active" tabindex="-1" style="">
+                            <a class="uk-flex uk-flex-center"><img src="/Content/MainSite/assets/images/Monster.svg" alt="" class="uk-width-3-4 uk-width-3-4@s" uk-img=""></a>
+                        </li>
+                        <li class="uk-active" tabindex="-1">
+                            <a class="uk-flex uk-flex-center"><img src="/Content/MainSite/assets/images/trenkwalker.jpg" alt="" class="uk-width-3-4 uk-width-3-4@s" uk-img=""></a>
+                        </li>
+                    </ul>
+                </div>*@
+
+
+
             <div class="companies">
                 <!-- ilk örnek: Filtrelenecek öğeler data-word attr altında basılıyor-->
                 <div data-word="A">
@@ -81,7 +85,7 @@
                         <div>
                             <div class="uk-child-width-1-2 uk-grid-medium uk-flex-middle" uk-grid>
                                 <div class="uk-flex uk-flex-center uk-flex-middle" style="height: 100px;">
-                                    <img src="~/Content/MainSite/assets/images/mitgliederliste/logo-placeholder.svg" class="uk-height-1-1" />
+                                    <img src="https://picsum.photos/300/150" class="uk-height-1-1" />
                                 </div>
                                 <div>
                                     <div class="size-18 size-15-m uk-text-bold">AD 55 ÇAKIRLAR Unternehmungsgruppe</div>
@@ -93,7 +97,7 @@
                         <div>
                             <div class="uk-child-width-1-2 uk-grid-medium uk-flex-middle" uk-grid>
                                 <div class="uk-flex uk-flex-center uk-flex-middle" style="height: 100px;">
-                                    <img src="https://picsum.photos/200/300" class="uk-height-1-1" />
+                                    <img src="https://picsum.photos/300/150" class="uk-height-1-1" />
                                 </div>
                                 <div>
                                     <div class="size-18 size-15-m uk-text-bold">AD 55 ÇAKIRLAR Unternehmungsgruppe</div>
@@ -104,7 +108,7 @@
                         <div>
                             <div class="uk-child-width-1-2 uk-grid-medium uk-flex-middle" uk-grid>
                                 <div class="uk-flex uk-flex-center uk-flex-middle" style="height: 100px;">
-                                    <img src="https://picsum.photos/250/100" class="uk-height-1-1" />
+                                    <img src="https://picsum.photos/300/150" class="uk-height-1-1" />
                                 </div>
                                 <div>
                                     <div class="size-18 size-15-m uk-text-bold">AD 55 ÇAKIRLAR Unternehmungsgruppe</div>
@@ -117,6 +121,9 @@
             </div>
         </div>
     </section>
+
+    @Html.Action("ShowPremiumMembersSlider", "Home")
+
 
     @Html.Action("Vorteille", "Newsletter")
 </main>
