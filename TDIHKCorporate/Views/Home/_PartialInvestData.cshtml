@@ -284,37 +284,6 @@
         <nav class="uk-navbar uk-navbar-container uk-text-bold" uk-navbar>
             <!--Navbar linkleri (masaüstü)-->
 			<div class="nav-overlay uk-navbar-left uk-visible@m uk-width-expand">
-
-				<ul class="uk-navbar-nav">
-					<li>
-						<a href="#">Two Columns</a>
-						<div class="uk-navbar-dropdown uk-navbar-dropdown-width-2">
-							<div class="uk-navbar-dropdown-grid uk-child-width-1-2" uk-grid>
-								<div>
-									<ul class="uk-nav uk-navbar-dropdown-nav">
-										<li class="uk-active" uk-toggle="target:.sub-menu; mode: hover; animation: uk-animation-fade; queued: true; cls:uk-hidden"><a href="#">Active</a></li>
-										<li><a href="#">Item</a></li>
-										<li class="uk-nav-header">Header</li>
-										<li><a href="#">Item</a></li>
-										<li><a href="#">Item</a></li>
-										<li><a href="#">Item</a></li>
-									</ul>
-								</div>
-								<div>
-									<ul class="uk-nav uk-navbar-dropdown-nav sub-menu uk-hidden">
-										<li class="uk-active"><a href="#">Active</a></li>
-										<li><a href="#">Item</a></li>
-										<li class="uk-nav-header">Header</li>
-										<li><a href="#">Item</a></li>
-										<li><a href="#">Item</a></li>
-										<li><a href="#">Item</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</li>
-				</ul>
-
 				<ul class="uk-navbar-nav uk-width-expand uk-flex-between">
 
 					@foreach (TDIHKCorporate.Types.MenuItems item in Model.Where(x => x.IsSubMenu == false).OrderBy(x => x.MenuItemPriority))
@@ -344,7 +313,7 @@
 													@foreach (var subMenuItem in Model.Where(x => x.ParentMenuItemID == item.ID && x.IsSubMenu == true && x.MenuLevel == 1 && x.IsActive == true).OrderBy(x => x.MenuItemPriority))
 													{
 
-														<li class="uk-active">
+														<li class="uk-parent" uk-toggle="target: .subnav-link; mode: hover; cls: uk-hidden">
 															@if (subMenuItem.PageIsActive)
 															{
 																<a href="/tr/sayfalar/@subMenuItem.PageSeoLink">@subMenuItem.MenuName</a>
@@ -356,11 +325,11 @@
 
 															@if (Model.Exists(x => x.ParentMenuItemID == subMenuItem.ID && x.IsSubMenu == true && x.MenuLevel == 2 && x.IsActive == true))
 															{
-																<ul class="uk-nav uk-navbar-dropdown-nav subnav-links">
+																<ul class="uk-nav uk-navbar-dropdown-nav subnav-links uk-hidden">
 																	@foreach (var subMenuSubItem in Model.Where(x => x.ParentMenuItemID == subMenuItem.ID && x.IsSubMenu == true && x.MenuLevel == 2 && x.IsActive == true).OrderBy(x => x.MenuItemPriority))
 																	{
 
-																		<li class="uk-active">
+																		<li>
 																			@if (subMenuSubItem.PageIsActive)
 																			{
 																				<a href="/tr/sayfalar/@subMenuSubItem.PageSeoLink">@subMenuSubItem.MenuName</a>
@@ -437,7 +406,7 @@
 													@foreach (var subMenuItem in Model.Where(x => x.ParentMenuItemID == item.ID && x.IsSubMenu == true && x.MenuLevel == 1 && x.IsActive == true).OrderBy(x => x.MenuItemPriority))
 													{
 
-														<li class="uk-active">
+														<li class="uk-active" uk-toggle="target: .subnav-links; mode: hover; cls: uk-hidden; queued: true">
 															@if (subMenuItem.PageIsActive)
 															{
 																<a href="/de/seiten/@subMenuItem.PageSeoLink">@subMenuItem.MenuName</a>
@@ -449,11 +418,11 @@
 
 															@if (Model.Exists(x => x.ParentMenuItemID == subMenuItem.ID && x.IsSubMenu == true && x.MenuLevel == 2 && x.IsActive == true))
 															{
-																<ul class="uk-nav uk-navbar-dropdown-nav subnav-links">
+																<ul class="uk-nav uk-navbar-dropdown-nav subnav-links uk-hidden">
 																	@foreach (var subMenuSubItem in Model.Where(x => x.ParentMenuItemID == subMenuItem.ID && x.IsSubMenu == true && x.MenuLevel == 2 && x.IsActive == true).OrderBy(x => x.MenuItemPriority))
 																	{
 
-																		<li class="uk-active">
+																		<li class="">
 																			@if (subMenuSubItem.PageIsActive)
 																			{
 																				<a href="/de/seiten/@subMenuSubItem.PageSeoLink">@subMenuSubItem.MenuName</a>
