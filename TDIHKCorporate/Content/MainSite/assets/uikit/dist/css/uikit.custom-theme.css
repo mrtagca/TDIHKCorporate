@@ -3210,6 +3210,15 @@ select.uk-form-width-xsmall {
   width: 24px;
   height: 24px;
 }
+.register-form input {
+  text-align: center;
+}
+.register-form input::-webkit-input-placeholder,
+.register-form input::-moz-placeholder,
+.register-form input:-ms-input-placeholder,
+.register-form input::-moz-placeholder {
+  text-align: center;
+}
 /* ========================================================================
    Component: Container
  ========================================================================== */
