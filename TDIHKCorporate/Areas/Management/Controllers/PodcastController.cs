@@ -66,7 +66,7 @@ namespace TDIHKCorporate.Areas.Management.Controllers
                 }
                 else
                 {
-                    ViewBag.Success = "Fail";
+                    ViewBag.Success = "Please check the values!";
                     return View();
                 }
             }

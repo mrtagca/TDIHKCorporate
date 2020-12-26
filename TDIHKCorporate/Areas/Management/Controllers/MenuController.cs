@@ -97,6 +97,27 @@ namespace TDIHKCorporate.Areas.Management.Controllers
         }
 
         [HttpPost]
+        public string EditMenuItem(MenuItems menuItem)
+        {
+
+            try
+            {
+                DapperRepository<MenuItems> item = new DapperRepository<MenuItems>();
+                menuItem.UpdatedDate = DateTime.Now;
+                menuItem.UpdatedBy = 1;
+
+                int result = item.Execute(@"update MenuItems set MenuID=@MenuID,PageID=@PageID,ParentMenuItemID=@ParentMenuItemID,MenuItemPriority=@MenuItemPriority,[Language]=@Language,MenuName=@MenuName,MenuLevel=@MenuLevel,IsSubMenu=@IsSubMenu,IsActive=@IsActive,UpdatedDate=@UpdatedDate,UpdatedBy=@UpdatedBy 
+                where ID = @ID", menuItem);
+
+                return JsonConvert.SerializeObject(true);
+            }
+            catch (Exception)
+            {
+                return JsonConvert.SerializeObject(false);
+            }
+        }
+
+        [HttpPost]
         public string PassiveMenuItem(int menuItemId)
         {
             try

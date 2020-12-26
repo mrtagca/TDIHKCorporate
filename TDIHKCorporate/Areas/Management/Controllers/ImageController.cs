@@ -318,6 +318,38 @@ namespace TDIHKCorporate.Areas.Management.Controllers
         }
 
         [HttpPost]
+        public virtual string ImageBrowserUploadForStandardMemberShip(string path, FileResizeInfos formData, HttpPostedFileBase file)
+        {
+
+            file = Request.Files[0];
+            path = NormalizePath(path + "StandardMitgliedschaft/");
+            var fileName = Path.GetFileName(file.FileName);
+
+            if (AuthorizeUpload(path, file))
+            {
+
+                string filePath = Path.Combine(Server.MapPath(path), fileName);
+
+                file.SaveAs(filePath);
+
+                if (formData.Width != null && formData.Height != null)
+                {
+                    ResizeSettings resizeSetting = new ResizeSettings
+                    {
+                        Width = int.Parse(formData.Width),
+                        Height = int.Parse(formData.Height)
+                    };
+                    ImageBuilder.Current.Build(filePath, filePath, resizeSetting);
+                }
+                string pathNewsImageFile = Path.Combine(Server.MapPath(path), fileName);
+
+                return path + fileName;
+            }
+
+            throw new HttpException(403, "Forbidden");
+        }
+
+        [HttpPost]
         public virtual string ImageBrowserUploadForNewsThumbnail(string path, FileResizeInfos formData, HttpPostedFileBase file)
         {
 

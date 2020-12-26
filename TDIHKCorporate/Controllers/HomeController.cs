@@ -178,7 +178,7 @@ where [Language] = @lang and NewsIdentifier in (SELECT top 1 NewsIdentifier FROM
                                                                         inner join Sliders sl (NOLOCK)
                                                                         on sc.SliderID = sl.SliderID
 
-                                                                        where sl.SliderName ='Home Slider' and sl.[Language] = @lang and sc.[Language] = @lang
+                                                                        where sl.SliderName ='Home Slider' and sl.[Language] = @lang and sc.[Language] = @lang and sc.IsActive=1
                                                                         order by SliderPriority", new { lang = name });
 
 
@@ -195,7 +195,7 @@ where [Language] = @lang and NewsIdentifier in (SELECT top 1 NewsIdentifier FROM
                                                                         inner join Sliders sl (NOLOCK)
                                                                         on sc.SliderID = sl.SliderID
 
-                                                                        where sl.SliderName ='Premium Mitglieder' and sl.[Language] = @lang and sc.[Language] = @lang
+                                                                        where sl.SliderName ='Premium Mitglieder' and sl.[Language] = @lang and sc.[Language] = @lang and sc.IsActive=1
                                                                         order by SliderPriority", new { lang = name });
 
 
@@ -211,7 +211,7 @@ where [Language] = @lang and NewsIdentifier in (SELECT top 1 NewsIdentifier FROM
             List<SliderContent> sliderItems = sliderContent.GetList(@"SELECT sc.* FROM SliderContent sc (NOLOCK) 
                                                              inner join Sliders sl (NOLOCK)
                                                              on sc.SliderID = sl.SliderID
-                                                             where sl.SliderName ='MitgliedschaftAdvantage' and sl.[Language] = @lang and sc.[Language] = @lang
+                                                             where sl.SliderName ='MitgliedschaftAdvantage' and sl.[Language] = @lang and sc.[Language] = @lang and sc.IsActive=1
                                                              order by SliderPriority", new { lang = name });
 
 

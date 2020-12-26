@@ -4,6 +4,8 @@
     Layout = "~/Areas/Management/Views/Shared/_layoutDashboard.cshtml";
 }
 
+<script src="~/Content/Scripts/Slider.js"></script>
+
 <h5>Slider List</h5>
 <br />
 
@@ -20,32 +22,39 @@
         </thead>
         @foreach (var item in Model)
         {
-    <tr>
-        <td>@item.SliderID</td>
-        <td>@item.SliderName</td>
-        <td>@item.Language</td>
-        @{
-            string TimezoneId = System.Configuration.ConfigurationManager.AppSettings[System.Threading.Thread.CurrentThread.CurrentCulture.Name];
-            DateTime createdDate = TimeZoneInfo.ConvertTimeBySystemTimeZoneId(item.CreatedDate, TimezoneId);
-            <td>@createdDate</td>
+            <tr>
+                <td>@item.SliderID</td>
+                <td>@item.SliderName</td>
+                <td>@item.Language</td>
+                @{
+                    string TimezoneId = System.Configuration.ConfigurationManager.AppSettings[System.Threading.Thread.CurrentThread.CurrentCulture.Name];
+                    DateTime createdDate = TimeZoneInfo.ConvertTimeBySystemTimeZoneId(item.CreatedDate, TimezoneId);
+                    <td>@createdDate</td>
 
-        }
-        <td>
-            <button onclick="window.open(
+                }
+                <td>
+                    <button onclick="window.open(
+    '/Management/Slider/SliderItems/' +@item.SliderID,
+'_self' );" class="btn btn-primary">
+                        @Resources.resource.Sec
+                    </button>
+                    <button onclick="window.open(
                          '/Management/Slider/EditSlider/' +@item.SliderID,
-                         '_blank' );" class="btn btn-dark">
-                <i class="fas fa-edit"></i>
-            </button>
-        </td>
-    </tr>
+                         '_blank' );" class="btn btn-outline-primary">
+                        <i class="fas fa-fw fa-sliders-h"></i>
+                    </button>
+                </td>
+            </tr>
         }
     </table>
 </div>
+ 
 
 <script>
     $(document).ready(function () {
 
-        $('#' + 'SliderList').DataTable({
+         $('#' + 'SliderList').DataTable({
+
             "oLanguage": {
                 "oPaginate": { "sPrevious": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>', "sNext": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>' },
                 "sInfo": "Showing page _PAGE_ of _PAGES_",
@@ -56,8 +65,13 @@
             "stripeClasses": [],
             "lengthMenu": [7, 10, 20, 50],
             "pageLength": 7,
-            "destroy": true
-        });
+            "processing": true,
+             "destroy": true,
+            "cache":false
+        }); 
 
     });
 </script>
+ 
+
+

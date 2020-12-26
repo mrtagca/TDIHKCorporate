@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +14,7 @@ namespace DbAccess.Dapper.Repository
 
         public DapperRepository()
         {
-			_connection = new System.Data.SqlClient.SqlConnection(@"Server=178.18.193.121;Database=IHK;User Id=tdihknew;Password=Ik!r66x7");
+			_connection = new System.Data.SqlClient.SqlConnection(ConfigurationManager.ConnectionStrings["dbConnection"].ConnectionString);
 			////_connection = new System.Data.SqlClient.SqlConnection(@"Server=DESKTOP-IUFI4CJ\SQLEXPRESS;Database=IHK;Trusted_Connection=True;");
 
 		}

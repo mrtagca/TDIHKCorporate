@@ -147,7 +147,7 @@ namespace TDIHKCorporate.Controllers
             CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
             string name = cultureInfo.TwoLetterISOLanguageName;
 
-            List<Podcasts> podcastList = podcastRepo.GetList(@"select * from Podcasts (NOLOCK) where [Language] = @Language order by CreatedDate desc", new
+            List<Podcasts> podcastList = podcastRepo.GetList(@"select * from Podcasts (NOLOCK) where IsActive=1 and [Language] = @Language order by CreatedDate desc", new
             {
                 Language = name
             });

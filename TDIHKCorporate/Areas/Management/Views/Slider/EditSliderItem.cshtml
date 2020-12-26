@@ -1,0 +1,144 @@
+﻿@model TDIHKCorporate.Types.SliderContent
+
+@{
+    ViewBag.Title = "EditSliderItem";
+    Layout = "~/Areas/Management/Views/Shared/_layoutDashboard.cshtml";
+}
+
+<script src="~/Content/Scripts/Slider.js"></script>
+
+<h5>Slider İçerik Düzenle</h5>
+<hr />
+
+@if (ViewBag.Success != null)
+{
+    <div class="alert alert-success" role="alert">
+        @ViewBag.Success
+    </div>
+}
+else if (ViewBag.Warning != null)
+{
+    <div class="alert alert-warning" role="alert">
+        @ViewBag.Warning
+    </div>
+}
+else if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @ViewBag.Error
+    </div>
+}
+
+<script>
+
+    GetSliderList('SliderList', 'SliderWidthHeight');
+
+
+    $(document).ready(function () {
+
+        setTimeout(() => {
+            document.getElementById("SliderList").value = '@Model.SliderID';
+            document.getElementById("SliderContentLanguage").value = '@Model.Language';
+        }, 1000);
+
+    });
+
+</script>
+
+@using (Html.BeginForm("EditSliderItem", "Slider", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="row">
+        <div class="col-md-4">
+            <input type="text" name="SliderContentID" value="@Model.SliderContentID" style="display:none" />
+            <div>
+                <label>@Resources.resource.SliderAlaniSec</label>
+                <br />
+
+                <select id="SliderList" name="SliderID" type="text" class="form-control">
+                </select>
+            </div>
+            <br />
+
+            <div>
+                <label>@Resources.resource.Baslik</label>
+                <input type="text" id="SliderContentTitle" placeholder="Slider İçerik Başlığı" class="form-control" name="SliderContentTitle" value="@Model.SliderContentTitle" />
+            </div>
+            <br />
+
+            <div>
+                <label>@Resources.resource.Dil</label>
+                <select class="form-control" id="SliderContentLanguage" name="SliderContentLanguage">
+                    <option value="tr">TR</option>
+                    <option value="de">DE</option>
+                </select>
+            </div>
+            <br />
+
+            <div>
+                <label>@Resources.resource.SliderGorselYukle <span id="SliderWidthHeight"></span></label>
+                <br />
+                <img id="ImagePreview" width="300" height="150" src="@Model.ImagePath" />
+                <br />
+                <br />
+                <input id="PageImage" type="file" image-path="@Model.ImagePath" name="sliderFile" value="" accept="image/x-png,image/gif,image/jpeg" />
+            </div>
+            <br />
+
+            <div>
+                <label>@Resources.resource.SliderSirasi</label>
+                <br />
+
+                <input type="number" class="form-control" id="SliderPriority" name="SliderPriority" min="1" value="@Model.SliderPriority" />
+            </div>
+            <br />
+            <div>
+                <label>@Resources.resource.SliderUrl</label>
+                <br />
+                <input type="text" placeholder="Content URL" class="form-control" name="SliderURL" value="@Model.SliderUrl" />
+            </div>
+            <br />
+            <div>
+                @*<button class="btn btn-success float-lg-right">Kaydet</button>*@
+                <input type="submit" name="Submit" id="btnSubmit" value="Güncelle" class="btn btn-success float-lg-right" />
+            </div>
+        </div>
+    </div>
+}
+
+<script>
+    $('#PageImage').change(function (event) {
+        if (window.FormData !== undefined) {
+
+            var fileUpload = $("#PageImage").get(0);
+            var files = fileUpload.files;
+
+            // Create FormData object
+            var fileData = new FormData();
+
+            // Looping over all files and add it to FormData object
+            for (var i = 0; i < files.length; i++) {
+                fileData.append(files[i].name, files[i]);
+            }
+
+            $.ajax({
+                url: '/Management/Image/ImageBrowserUploadForNews',
+                type: "POST",
+                contentType: false, // Not to set any content header
+                processData: false, // Not to process data
+                data: fileData,
+                success: function (result) {
+                    debugger
+                    $("#PageImage").attr("image-path", result);
+                    $("#ImagePreview").attr("src", result);
+                },
+                error: function (err) {
+                    alert(err.statusText);
+                }
+            });
+        } else {
+            alert("FormData is not supported.");
+        }
+    });
+
+   
+</script>
