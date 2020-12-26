@@ -60,7 +60,8 @@ namespace TDIHKCorporate.Areas.Management.Controllers
                         SliderPriority = createContentViewModel.SliderPriority,
                         SliderUrl = createContentViewModel.SliderURL,
                         CreatedDate = DateTime.Now,
-                        CreatedBy = 1
+                        CreatedBy = 1,
+                        IsActive = true
                     };
 
                     createContentViewModel.sliderFile.SaveAs(path);
