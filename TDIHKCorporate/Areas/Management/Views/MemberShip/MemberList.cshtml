@@ -3,6 +3,8 @@
     ViewBag.Title = "MemberList";
     Layout = "~/Areas/Management/Views/Shared/_layoutDashboard.cshtml";
 }
+<script src="~/Content/Scripts/Member.js"></script>
+
 
 <h5>Üye Listesi</h5>
 <hr />
@@ -41,13 +43,22 @@
                     string TimezoneId = System.Configuration.ConfigurationManager.AppSettings[System.Threading.Thread.CurrentThread.CurrentCulture.Name];
                     DateTime createdDate = TimeZoneInfo.ConvertTimeBySystemTimeZoneId((DateTime)row.CreatedDate, TimezoneId);
                     <td>@createdDate</td>
-                }
-
+                } 
                 <td>
-                    <input type="submit" onclick="
-                           window.open(
-                         '/Management/Members/Edit/' +@row.MemberID,
-                         '_blank' );" class="btn btn-primary" name="name" value="Edit" />
+                    <button onclick="window.open(
+                         '/Management/MemberShip/Edit/' +@row.MemberID,
+                         '_blank' );" class="btn btn-primary">
+                        <i class="fa fa-edit"></i>
+                    </button>
+
+                    @if (row.IsActive)
+                    {
+                        <button onclick="PassiveMember(@row.MemberID)" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                    }
+                    else
+                    {
+                        <button onclick="ActivateMember(@row.MemberID)" class="btn btn-success"><i class="fa fa-check"></i></button>
+                    }
                 </td>
             </tr>
             }
