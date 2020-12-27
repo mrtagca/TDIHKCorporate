@@ -313,7 +313,7 @@
 													@foreach (var subMenuItem in Model.Where(x => x.ParentMenuItemID == item.ID && x.IsSubMenu == true && x.MenuLevel == 1 && x.IsActive == true).OrderBy(x => x.MenuItemPriority))
 													{
 
-														<li class="uk-parent" uk-toggle="target: .subnav-links; mode: hover; queued: true;">
+														<li class="uk-active" uk-toggle="target: .subnav-links; mode: hover; queued: true; cls: uk-hidden">
 															@if (subMenuItem.PageIsActive)
 															{
 																<a href="/tr/sayfalar/@subMenuItem.PageSeoLink">@subMenuItem.MenuName</a>
@@ -325,7 +325,7 @@
 
 															@if (Model.Exists(x => x.ParentMenuItemID == subMenuItem.ID && x.IsSubMenu == true && x.MenuLevel == 2 && x.IsActive == true))
 															{
-																<ul class="uk-nav uk-navbar-dropdown-nav subnav-links">
+																<ul class="uk-nav uk-navbar-dropdown-nav subnav-links uk-hidden">
 																	@foreach (var subMenuSubItem in Model.Where(x => x.ParentMenuItemID == subMenuItem.ID && x.IsSubMenu == true && x.MenuLevel == 2 && x.IsActive == true).OrderBy(x => x.MenuItemPriority))
 																	{
 
