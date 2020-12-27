@@ -133,7 +133,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to DahaFazla.
+        ///   Looks up a localized string similar to Daha Fazla.
         /// </summary>
         internal static string DahaFazla {
             get {
