@@ -17,7 +17,7 @@ html {
   /* 2 */
   -webkit-text-size-adjust: 100%;
   /* 3 */
-  background: #fff;
+  background: #F5F5F5;
   color: #142C51;
 }
 /*
@@ -407,7 +407,7 @@ pre {
   padding: 10px;
   border: 1px solid #e5e5e5;
   border-radius: 3px;
-  background: #fff;
+  background: #F5F5F5;
 }
 pre code {
   font-family: Consolas, monaco, monospace;
@@ -1326,7 +1326,7 @@ button.uk-icon:not(:disabled) {
   height: 15px;
   width: 15px;
   border-radius: 500px;
-  background: #fff;
+  background: #F5F5F5;
   border: 1px solid #cccccc;
 }
 /* Firefox */
@@ -1337,7 +1337,7 @@ button.uk-icon:not(:disabled) {
   height: 15px;
   width: 15px;
   border-radius: 500px;
-  background: #fff;
+  background: #F5F5F5;
   border: 1px solid #cccccc;
 }
 /* Edge */
@@ -1353,7 +1353,7 @@ button.uk-icon:not(:disabled) {
   height: 15px;
   width: 15px;
   border-radius: 500px;
-  background: #fff;
+  background: #F5F5F5;
   border: 1px solid #cccccc;
 }
 /* Edge + IE11 */
@@ -2383,7 +2383,7 @@ select.uk-form-width-xsmall {
  * Default
  */
 .uk-section-default {
-  background: #fff;
+  background: #F5F5F5;
 }
 /*
  * Muted
@@ -3455,7 +3455,7 @@ select.uk-form-width-xsmall {
  * Default
  */
 .uk-tile-default {
-  background: #fff;
+  background: #F5F5F5;
 }
 /*
  * Muted
@@ -4015,7 +4015,7 @@ select.uk-form-width-xsmall {
  * Default
  */
 .uk-overlay-default {
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(245, 245, 245, 0.8);
 }
 /*
  * Primary
@@ -4618,7 +4618,7 @@ select.uk-form-width-xsmall {
   /* 3 */
   max-width: calc(100% - 0.01px) !important;
   /* 4 */
-  background: #fff;
+  background: #F5F5F5;
   /* 5 */
   opacity: 0;
   transform: translateY(-100px);
@@ -4741,7 +4741,7 @@ select.uk-form-width-xsmall {
   top: 0;
   right: 0;
   padding: 20px;
-  background: #fff;
+  background: #F5F5F5;
 }
 /* ========================================================================
    Component: Slideshow
@@ -5980,7 +5980,7 @@ ul.uk-nav-sub {
 /* Container
  ========================================================================== */
 .uk-navbar-container:not(.uk-navbar-transparent) {
-  background: #fff;
+  background: #F5F5F5;
 }
 /*
  * Remove pseudo elements created by micro clearfix as precaution (if Container component is used)
@@ -6869,7 +6869,7 @@ ul.uk-nav-sub {
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(245, 245, 245, 0.4);
   transition: background-color 0.1s ease-in-out;
 }
 /* Hover + Focus */
@@ -8463,7 +8463,7 @@ iframe.uk-cover {
 /* Color
  ========================================================================== */
 .uk-background-default {
-  background-color: #fff;
+  background-color: #F5F5F5;
 }
 .uk-background-muted {
   background-color: #f8f8f8;
