@@ -283,8 +283,8 @@
     <div class="uk-container">
         <nav class="uk-navbar uk-navbar-container uk-text-bold" uk-navbar>
             <!--Navbar linkleri (masaüstü)-->
-			<div class="nav-overlay uk-navbar-left uk-visible@m uk-width-expand">
-				<ul class="uk-navbar-nav uk-width-expand uk-flex-between">
+			<div class="nav-overlay uk-navbar-left uk-visible@m">
+				<ul class="uk-navbar-nav">
 
 					@foreach (TDIHKCorporate.Types.MenuItems item in Model.Where(x => x.IsSubMenu == false).OrderBy(x => x.MenuItemPriority))
 					{
