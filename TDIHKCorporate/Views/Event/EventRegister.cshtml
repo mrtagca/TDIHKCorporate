@@ -1,51 +1,112 @@
-﻿
+﻿@model TDIHKCorporate.Types.Events
 @{
     ViewBag.Title = "EventRegister";
     Layout = "~/Views/Shared/_layoutMaster.cshtml";
 }
 
+
+
 <main class="uk-container" uk-scrollspy="cls: uk-animation-fade; target: > section; delay: 250">
     <section>
         <div class="uk-position-relative">
-            <img class="uk-width-1-1" src="~/Content/MainSite/assets/images/Subregister/BG.png" uk-img/>
+            @*<img class="uk-width-1-1" src="~/Content/MainSite/assets/images/Subregister/BG.png" uk-img/>*@
+            <img class="uk-width-1-1" src="@Model.EventImagePath" uk-img />
             <div class="uk-position-cover uk-flex uk-flex-middle">
                 <div class="uk-h1 uk-light uk-padding-large">Register</div>
             </div>
         </div>
     </section>
-    <section class="uk-section">
-        <h1 class="uk-h2 uk-text-center">Registrierung</h1>
-		<div class="uk-width-1-2@m uk-margin-auto">
-			<form class="uk-form-stacked uk-grid-medium register-form" uk-grid>
-				<div class="uk-width-1-2@m">
-					<label class="uk-form-label uk-hidden" for="firstName"></label>
-					<div class="uk-form-controls">
-						<input class="uk-input uk-border-rounded" id="firstName" type="text" placeholder="Nachname*" required>
-					</div>
-				</div>
-				<div class="uk-width-1-2@m">
-					<label class="uk-form-label uk-hidden" for="lastName"></label>
-					<div class="uk-form-controls">
-						<input class="uk-input uk-border-rounded" id="lastName" type="text" placeholder="Vorname*" required>
-					</div>
-				</div>
-				<div class="uk-width-1-1">
-					<label class="uk-form-label uk-hidden" for="email"></label>
-					<div class="uk-form-controls">
-						<input class="uk-input uk-border-rounded" id="email" type="email" placeholder="E-mail Adresse*" required>
-					</div>
-				</div>
-				<div class="uk-width-1-1">
-					<label class="uk-form-label uk-hidden" for="company"></label>
-					<div class="uk-form-controls">
-						<input class="uk-input uk-border-rounded" id="company" type="text" placeholder="Firma" required>
-					</div>
-				</div>
-				<div class="uk-width-1-1">
-					<button class="uk-button uk-button-primary uk-width-1-1 uk-border-rounded" type="submit">Registrieren Sie</button>
-				</div>
-			</form>
-			<div class="uk-width-3-5@m uk-margin-auto uk-margin-medium-top"> Informationen dazu, wie TD-IHK mit deinen Daten umgeht, findest du in unserer<b>Datenschutzerklärung.</b></div>
-		</div>
-    </section>
+
+    @Html.Raw(Model.EventContent)
+
+    @if (Convert.ToDateTime(Model.EventDate.ToString("yyyy-MM-dd")) >= Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd")))
+    {
+        <section class="uk-section">
+            <h1 class="uk-h2 uk-text-center">Registrierung</h1>
+            <div class="uk-width-1-2@m uk-margin-auto">
+                <div class="uk-form-stacked uk-grid-medium register-form" uk-grid>
+
+                    <div class="uk-width-1-2@m">
+                        <label class="uk-form-label uk-hidden" for="firstName"></label>
+                        <div class="uk-form-controls">
+                            <input class="uk-input uk-border-rounded" id="firstName" type="text" placeholder="Vorname*" required>
+                        </div>
+                    </div>
+
+                    <div class="uk-width-1-2@m">
+                        <label class="uk-form-label uk-hidden" for="lastName"></label>
+                        <div class="uk-form-controls">
+                            <input class="uk-input uk-border-rounded" id="lastName" type="text" placeholder="Nachname*" required>
+                        </div>
+                    </div>
+
+                    <div class="uk-width-1-1">
+                        <label class="uk-form-label uk-hidden" for="email"></label>
+                        <div class="uk-form-controls">
+                            <input class="uk-input uk-border-rounded" id="email" type="email" placeholder="E-mail Adresse*" required>
+                        </div>
+                    </div>
+                    <div class="uk-width-1-1">
+                        <label class="uk-form-label uk-hidden" for="company"></label>
+                        <div class="uk-form-controls">
+                            <input class="uk-input uk-border-rounded" id="company" type="text" placeholder="Firma" required>
+                        </div>
+                    </div>
+                    <div class="uk-width-1-1">
+                        <button onclick="RegisterEvent('@Model.EventIdentifier')" class="uk-button uk-button-primary uk-width-1-1 uk-border-rounded" type="submit">Registrieren Sie</button>
+                    </div>
+                </div>
+                <div class="uk-width-3-5@m uk-margin-auto uk-margin-medium-top"> Informationen dazu, wie TD-IHK mit deinen Daten umgeht, findest du in unserer<b>Datenschutzerklärung.</b></div>
+            </div>
+        </section>
+    }
 </main>
+
+<script>
+    function RegisterEvent(EventIdentifier) {
+
+        var callParams = {
+            endPoint: "/Event/EventRegisterForm",
+            requestType: "POST"
+        }
+
+        var dataParams = {}
+        dataParams.EventIdentifier = EventIdentifier;
+        dataParams.Name = document.getElementById("firstName").value;
+        dataParams.Surname = document.getElementById("lastName").value;
+        dataParams.EmailAddress = document.getElementById("email").value;
+        dataParams.CorporationName = document.getElementById("company").value;
+
+        if (dataParams.Name === '' || typeof (dataParams.Name) === 'undefined' || dataParams.Name === null) {
+            alert("Name cannot be null!");
+            var element = document.getElementById("firstName");
+            return;
+        }
+
+        if (dataParams.Surname === '' || typeof (dataParams.Surname) === 'undefined' || dataParams.Surname === null) {
+            alert("Surname cannot be null!");
+            var element = document.getElementById("lastName");
+            return;
+        }
+
+        if (dataParams.EmailAddress === '' || typeof (dataParams.EmailAddress) === 'undefined' || dataParams.EmailAddress === null) {
+            alert("Email cannot be null!");
+            var element = document.getElementById("email");
+            return;
+        }
+
+        RequestAjax(callParams, dataParams, function (response) {
+
+            response = JSON.parse(response);
+
+            if (response === true) {
+                alert("Event Registration successfull!");
+                location.reload();
+            }
+            else {
+                alert("Fail!");
+            }
+        });
+
+    }
+</script>

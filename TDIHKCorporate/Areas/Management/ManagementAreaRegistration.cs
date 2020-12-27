@@ -15,11 +15,17 @@ namespace TDIHKCorporate.Areas.Management
         public override void RegisterArea(AreaRegistrationContext context)
         {
 
-          //  context.MapRoute(
-          //    name: "Management",
-          //    url: "management",
-          //    defaults: new { controller = "Admin", action = "Login", id = UrlParameter.Optional }
-          //);
+            //  context.MapRoute(
+            //    name: "Management",
+            //    url: "management",
+            //    defaults: new { controller = "Admin", action = "Login", id = UrlParameter.Optional }
+            //);
+
+            context.MapRoute(
+             name: "eventregister",
+             url: "Management/{controller}/{action}/{eventIdentifier}",
+             defaults: new { controller = "Event", action = "EventRegistrations", eventIdentifier = UrlParameter.Optional }
+         );
 
             context.MapRoute(
               name: "management",

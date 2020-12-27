@@ -629,6 +629,7 @@
     <Content Include="Content\Admin\plugins\table\datatable\button-ext\buttons.print.min.js" />
     <Content Include="Content\Admin\plugins\table\datatable\button-ext\dataTables.buttons.min.js" />
     <Content Include="Content\Admin\plugins\table\datatable\button-ext\jszip.min.js" />
+    <Content Include="Content\Admin\plugins\table\datatable\buttons.dataTables.min.css" />
     <Content Include="Content\Admin\plugins\table\datatable\custom_dt_custom.css" />
     <Content Include="Content\Admin\plugins\table\datatable\custom_dt_html5.css" />
     <Content Include="Content\Admin\plugins\table\datatable\custom_dt_miscellaneous.css" />
@@ -3140,6 +3141,7 @@
     <Content Include="Content\MainSite\assets\images\7. Bilgi Notu 3-Nitelikli Isgucu Goc Yasasi" />
     <Content Include="Content\MainSite\assets\images\8. Ekonominin desteklenmesi, acil durum fonlari ve sirketler icin yardim paketleri" />
     <Content Include="Content\MainSite\assets\images\news\turkiye-ab-gumruk-isbirligi.jpg_x" />
+    <Content Include="Areas\Management\Views\Event\EventRegistrations.cshtml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="HTML-1\dienstleistungen.html" />
     <Content Include="HTML-1\kalender.html" />
@@ -3214,6 +3216,7 @@
     <Compile Include="Types\ComponentTypes\ImageBrowserResponse.cs" />
     <Compile Include="Types\EmailTemplates.cs" />
     <Compile Include="Types\EventCategories.cs" />
+    <Compile Include="Types\EventRegistrations.cs" />
     <Compile Include="Types\Events.cs" />
     <Compile Include="Types\FormTypes\NewsletterFormModel.cs" />
     <Compile Include="Types\Images.cs" />

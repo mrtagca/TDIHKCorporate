@@ -382,6 +382,22 @@ namespace TDIHKCorporate
                 );
             #endregion
 
+            #region Üye Listesi / Mitgliederliste
+            routes.MapRoute(
+                    name: "EventDetailGerman",
+                    url: "{lang}/events/{seolink}",
+                    defaults: new { controller = "Event", action = "EventRegister", seolink = UrlParameter.Optional, lang = language },
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
+
+            routes.MapRoute(
+                    name: "EventDetailTurkey",
+                    url: "{lang}/etkinlikler/{seolink}",
+                    defaults: new { controller = "Event", action = "EventRegister", seolink = UrlParameter.Optional, lang = language },
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
+            #endregion
+
 
             #region Üye Listesi / Mitgliederliste
             routes.MapRoute(
