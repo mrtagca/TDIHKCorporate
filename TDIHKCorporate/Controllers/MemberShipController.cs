@@ -127,7 +127,7 @@ namespace TDIHKCorporate.Controllers
 
             if (!string.IsNullOrWhiteSpace(search))
             {
-                memberRepo.GetList(@"select 
+                members = memberRepo.GetList(@"select 
                                     case SUBSTRING(MemberTitle,1,1) 
                                     when 'Ç' then 'C'
                                     when 'İ' then 'I'
@@ -142,7 +142,7 @@ namespace TDIHKCorporate.Controllers
             }
             else
             {
-                memberRepo.GetList(@"select 
+                members =  memberRepo.GetList(@"select 
                                                         case SUBSTRING(MemberTitle,1,1) 
                                                         when 'Ç' then 'C'
                                                         when 'İ' then 'I'
