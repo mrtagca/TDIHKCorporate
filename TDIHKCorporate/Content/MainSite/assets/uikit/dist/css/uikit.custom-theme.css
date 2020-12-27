@@ -415,7 +415,7 @@ pre code {
 /* Selection pseudo-element
  ========================================================================== */
 ::selection {
-  background: #39f;
+  background: #142C51;
   color: #fff;
   text-shadow: none;
 }
