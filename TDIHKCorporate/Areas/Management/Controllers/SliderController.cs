@@ -65,12 +65,16 @@ namespace TDIHKCorporate.Areas.Management.Controllers
                     };
 
                     createContentViewModel.sliderFile.SaveAs(path);
-                    ResizeSettings resizeSetting = new ResizeSettings
+
+                    if (slider.ImageWidth > 0 && slider.ImageHeight > 0)
                     {
-                        Width = slider.ImageWidth,
-                        Height = slider.ImageHeight
-                    };
-                    ImageBuilder.Current.Build(path, path, resizeSetting);
+                        ResizeSettings resizeSetting = new ResizeSettings
+                        {
+                            Width = slider.ImageWidth,
+                            Height = slider.ImageHeight
+                        };
+                        ImageBuilder.Current.Build(path, path, resizeSetting);
+                    }
 
                     DapperRepository<SliderContent> sliderContentRepo = new DapperRepository<SliderContent>();
                     var result = sliderContentRepo.Execute(@"insert into SliderContent (SliderContentTitle,[Language],ImagePath,SliderID,SliderUrl,SliderPriority,CreatedDate,CreatedBy,IsActive)
@@ -110,7 +114,7 @@ namespace TDIHKCorporate.Areas.Management.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    
+
 
                     DapperRepository<Sliders> sliderRepo = new DapperRepository<Sliders>();
                     Sliders slider = sliderRepo.Get("select * from Sliders where SliderID = @sliderID", new { sliderID = editContentViewModel.SliderID });
@@ -129,7 +133,7 @@ namespace TDIHKCorporate.Areas.Management.Controllers
                     DapperRepository<SliderContent> sliderContentRepo = new DapperRepository<SliderContent>();
                     string sqlCommand = "";
 
-                    if (editContentViewModel.sliderFile!=null)
+                    if (editContentViewModel.sliderFile != null)
                     {
                         string pic = System.IO.Path.GetFileName(editContentViewModel.sliderFile.FileName);
                         string path = System.IO.Path.Combine(Server.MapPath("~/Content/MainSite/assets/images"), pic);
@@ -141,7 +145,7 @@ namespace TDIHKCorporate.Areas.Management.Controllers
                     {
                         sqlCommand = @"update SliderContent set SliderContentTitle=@sliderContentTitle,[Language]=@language,SliderID=@sliderID,SliderUrl=@sliderUrl,SliderPriority=@sliderPriority,UpdatedDate=@updatedDate,UpdatedBy =@updatedBy where SliderContentID = @SliderContentID";
                     }
-                    
+
                     var result = sliderContentRepo.Execute(sqlCommand, sliderContent);
 
                     ViewBag.Success = "Success";
@@ -150,13 +154,13 @@ namespace TDIHKCorporate.Areas.Management.Controllers
                 else
                 {
                     ViewBag.Warning = "Boş bırakılan alanlar var!";
-                   
+
                     return View(sc);
                 }
             }
             catch (Exception ex)
             {
-                ViewBag.Error = "Error:" + ex.Message; 
+                ViewBag.Error = "Error:" + ex.Message;
                 return View(sc);
             }
         }
