@@ -1,4 +1,5 @@
 ﻿using DbAccess.Dapper.Repository;
+using ImageResizer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,14 +29,21 @@ namespace TDIHKCorporate.Areas.Management.Controllers
 
                     members.file.SaveAs(path);
 
-                    members.MemberLogoPath = path;
+                    ResizeSettings resizeSetting = new ResizeSettings
+                    {
+                        Width = 300,
+                        Height = 150
+                    };
+                    ImageBuilder.Current.Build(path, path, resizeSetting);
+
+                    members.MemberLogoPath = "/Content/MainSite/assets/images/members/"+members.file.FileName;
                     members.CreatedDate = DateTime.Now;
                     members.CreatedBy = 1;
                     members.IsActive = true;
 
                     DapperRepository<Members> memberRepo = new DapperRepository<Members>();
-                    var result = memberRepo.Execute(@"insert into  Members (MemberLogoPath,MemberTitle,MemberAddress,MemberWebSite,MemberPhone1,MemberPhone2,MemberEmailAddress,CreatedDate,CreatedBy) 
-values (@MemberLogoPath,@MemberTitle,@MemberAddress,@MemberWebSite,@MemberPhone1,@MemberPhone2,@MemberEmailAddress,@CreatedDate,@CreatedBy)", members);
+                    var result = memberRepo.Execute(@"insert into  Members (MemberLogoPath,MemberTitle,MemberAddress,MemberWebSite,MemberPhone1,MemberPhone2,MemberEmailAddress,CreatedDate,CreatedBy,IsActive) 
+values (@MemberLogoPath,@MemberTitle,@MemberAddress,@MemberWebSite,@MemberPhone1,@MemberPhone2,@MemberEmailAddress,@CreatedDate,@CreatedBy,@IsActive)", members);
 
                     ViewBag.Success = "Success";
                     return View();

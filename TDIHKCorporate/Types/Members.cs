@@ -9,6 +9,8 @@ namespace TDIHKCorporate.Types
     public class Members
     {
         public int MemberID { get; set; }
+        public char AlphabetStarter { get; set; }
+        public char RealAlphabetStarter { get; set; }
 
         [Required]
         public HttpPostedFileBase file { get; set; }

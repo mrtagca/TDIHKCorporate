@@ -2419,7 +2419,6 @@
     <Content Include="Content\MainSite\assets\images\news\2. Kisa Calisma Odenegi.jpg" />
     <Content Include="Content\MainSite\assets\images\news\4. Bilgi Notu 2-Sirket Kurulusu.jpg" />
     <Content Include="Content\MainSite\assets\images\news\4.-Bilgi-Notu-2-Sirket-Kurulusu.jpg" />
-    <Content Include="Content\MainSite\assets\images\news\5. Sirketler İcin Yardim Paketi.jpg" />
     <Content Include="Content\MainSite\assets\images\news\7. Bilgi Notu 3-Nitelikli Isgucu Goc Yasasi.jpg" />
     <Content Include="Content\MainSite\assets\images\news\8. Ekonominin desteklenmesi, acil durum fonlari ve sirketler icin yardim paketleri.jpg" />
     <Content Include="Content\MainSite\assets\images\news\Aussenhandelsportal-header-de-tr.jpg" />
@@ -2969,6 +2968,7 @@
     <Content Include="Content\quill\js\quill.min.js" />
     <Content Include="Content\Scripts\Event.js" />
     <Content Include="Content\Scripts\Institution.js" />
+    <Content Include="Content\Scripts\Member.js" />
     <Content Include="Content\Scripts\Menu.js" />
     <Content Include="Content\Scripts\News.js" />
     <Content Include="Content\Scripts\Page.js" />

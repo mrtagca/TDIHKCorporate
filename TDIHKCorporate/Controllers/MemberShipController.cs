@@ -104,9 +104,58 @@ namespace TDIHKCorporate.Controllers
             return View();
         }
 
-        public ActionResult Mitgliederliste()
+        //public ActionResult Mitgliederliste()
+        //{
+        //    DapperRepository<Members> memberRepo = new DapperRepository<Members>();
+        //    List<Members> members = memberRepo.GetList(@"select 
+        //                                                case SUBSTRING(MemberTitle,1,1) 
+        //                                                when 'Ç' then 'C'
+        //                                                when 'İ' then 'I'
+        //                                                when 'Ö' then 'O'
+        //                                                when 'Ş' then 'S'
+        //                                                when 'Ü' then 'U'
+        //                                                else
+        //                                                SUBSTRING(MemberTitle,1,1) 
+        //                                                end as AlphabetStarter,SUBSTRING(MemberTitle,1,1) as RealAlphabetStarter,* from Members (nolock) where IsActive = 1 order by AlphabetStarter", null);
+        //    return View(members);
+        //}
+
+        public ActionResult Mitgliederliste(string search)
         {
-            return View();
+            DapperRepository<Members> memberRepo = new DapperRepository<Members>();
+            List<Members> members = new List<Members>();
+
+            if (!string.IsNullOrWhiteSpace(search))
+            {
+                memberRepo.GetList(@"select 
+                                    case SUBSTRING(MemberTitle,1,1) 
+                                    when 'Ç' then 'C'
+                                    when 'İ' then 'I'
+                                    when 'Ö' then 'O'
+                                    when 'Ş' then 'S'
+                                    when 'Ü' then 'U'
+                                    else
+                                    SUBSTRING(MemberTitle,1,1) 
+                                    end as AlphabetStarter,SUBSTRING(MemberTitle,1,1) as RealAlphabetStarter,* from Members (nolock) 
+                                    where IsActive = 1 and MemberTitle like '%'+@Search+'%'
+                                    order by AlphabetStarter", new { Search = search });
+            }
+            else
+            {
+                memberRepo.GetList(@"select 
+                                                        case SUBSTRING(MemberTitle,1,1) 
+                                                        when 'Ç' then 'C'
+                                                        when 'İ' then 'I'
+                                                        when 'Ö' then 'O'
+                                                        when 'Ş' then 'S'
+                                                        when 'Ü' then 'U'
+                                                        else
+                                                        SUBSTRING(MemberTitle,1,1) 
+                                                        end as AlphabetStarter,SUBSTRING(MemberTitle,1,1) as RealAlphabetStarter,* from Members (nolock) where IsActive = 1 order by AlphabetStarter", null);
+            }
+
+
+            return View(members);
         }
 
     }

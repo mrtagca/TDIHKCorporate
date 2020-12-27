@@ -379,9 +379,25 @@ namespace TDIHKCorporate
                     url: "{lang}/",
                     defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
                     new[] { "TDIHKCorporate.Controllers" }
-                ); 
+                );
             #endregion
 
+
+            #region Üye Listesi / Mitgliederliste
+            routes.MapRoute(
+                    name: "MemberListGerman",
+                    url: "{lang}/seiten/mitgliederliste",
+                    defaults: new { controller = "MemberShip", action = "Mitgliederliste", lang = language },
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
+
+            routes.MapRoute(
+                    name: "MemberListTurkey",
+                    url: "{lang}/sayfalar/uye-listesi",
+                    defaults: new { controller = "MemberShip", action = "Mitgliederliste", lang = language },
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
+            #endregion
 
             #region Institution / Kurum
             routes.MapRoute(
