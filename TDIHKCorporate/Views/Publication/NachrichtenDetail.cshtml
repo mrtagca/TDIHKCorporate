@@ -1,4 +1,5 @@
 ﻿@model TDIHKCorporate.Types.News
+@using System.Globalization
 @{
     ViewBag.Title = "NachrichtenDetail";
     Layout = "~/Views/Shared/_layoutMaster.cshtml";
@@ -8,7 +9,15 @@
 
 
     <section>
-    <div class="uk-text-right color-dark-grey size-20" id="today"></div><div class="uk-margin-medium-bottom">
+    <div class="uk-text-right color-dark-grey size-20" @*id="today"*@>@*@Model.CreatedDate*@
+        
+        @{ 
+            CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+
+                <span>@cultureInfo.DateTimeFormat.GetDayName(Model.CreatedDate.DayOfWeek).ToString(), @Model.CreatedDate.Day @cultureInfo.DateTimeFormat.GetMonthName(Model.CreatedDate.Month)</span>
+        }
+        </div>
+        <div class="uk-margin-medium-bottom">
         <img style="width:1140px;height:460px;"src="@Model.NewsImagePath" />
             </div>
         </section>
