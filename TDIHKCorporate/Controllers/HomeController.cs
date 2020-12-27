@@ -22,6 +22,7 @@ namespace TDIHKCorporate.Controllers
             {
                 string url = Request.UrlReferrer.ToString();
 
+                #region Sayfalar
                 if (url.Contains("seiten/") || url.Contains("sayfalar/"))
                 {
                     if (language == "tr") //change tr
@@ -68,7 +69,9 @@ where [Language] = @lang and PageIdentifier in (SELECT top 1 PageIdentifier FROM
                         }
                     }
                 }
+                #endregion
 
+                #region Haberler
                 if (url.Contains("nachrichten/") || url.Contains("haberler/"))
                 {
                     if (language == "tr") //change tr
@@ -116,6 +119,57 @@ where [Language] = @lang and NewsIdentifier in (SELECT top 1 NewsIdentifier FROM
 
                     }
                 }
+                #endregion
+
+                #region Etkinlikler
+                if (url.Contains("etkinlikler/") || url.Contains("events/"))
+                {
+                    if (language == "tr") //change tr
+                    {
+                        string seo = url.Substring(url.LastIndexOf("/") + 1);
+
+                        DapperRepository<Events> eventRepo = new DapperRepository<Events>();
+                        Events evt = eventRepo.Get(@"SELECT * FROM  [Events] (NOLOCK)
+where [Language] = @lang and EventIdentifier in (SELECT top 1 EventIdentifier FROM [Events] (NOLOCK) where EventSeoLink = @seoUrl) and IsActive=1 ", new { lang = language, seoUrl = seo });
+
+                        if (evt != null)
+                        {
+                            return Redirect("https://" + Request.UrlReferrer.Authority + "/" + language + "/etkinlikler/" + evt.EventSeoLink + "");
+                        }
+                        else
+                        {
+                            HttpContext.Session["Mainlanguage"] = "de";
+                            Session["Mainculture"] = "DE";
+                            return Redirect(Request.UrlReferrer.ToString());
+                        }
+
+
+                    }
+
+                    if (language == "de") //change tr
+                    {
+                        string seo = url.Substring(url.LastIndexOf("/") + 1);
+
+                        DapperRepository<Events> eventRepo = new DapperRepository<Events>();
+                        Events evt = eventRepo.Get(@"SELECT * FROM  [Events] (NOLOCK)
+where [Language] = @lang and EventIdentifier in (SELECT top 1 EventIdentifier FROM [Events] (NOLOCK) where EventSeoLink = @seoUrl) and IsActive=1 ", new { lang = language, seoUrl = seo });
+
+
+                        if (evt != null)
+                        {
+                            return Redirect("https://" + Request.UrlReferrer.Authority + "/" + language + "/events/" + evt.EventSeoLink+ "");
+                        }
+                        else
+                        {
+                            HttpContext.Session["Mainlanguage"] = "tr";
+                            Session["Mainculture"] = "TR";
+                            return Redirect(Request.UrlReferrer.ToString());
+                        }
+
+
+                    }
+                }
+                #endregion
             }
             else
             {

@@ -1,0 +1,83 @@
+﻿@model List<TDIHKCorporate.Types.EventRegistrations>
+@{
+    ViewBag.Title = "EventRegistrations";
+    Layout = "~/Areas/Management/Views/Shared/_layoutDashboard.cshtml";
+}
+
+
+
+<h5>Etkinlik Kayıt Listesi</h5>
+<hr />
+<div class="col-sm-12">
+    <table id="eventRegisterTable" class="table table-hover dataTable" style="width:100%" role="grid" aria-describedby="zero-config_info">
+        <thead>
+            <tr role="row">
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 250px;">Event Register ID</th>
+
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 250px;">Name</th>
+
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 250px;">Surname</th>
+
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 250px;">Email Address</th>
+
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 250px;">Corporation Name</th>
+
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 250px;">Created Date</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var row in Model)
+            {
+            <tr>
+                <td class="sorting_1">@row.EventRegisterID</td>
+                <td class="sorting_1">@row.Name</td>
+                <td class="sorting_1">@row.Surname</td>
+                <td class="sorting_1">@row.EmailAddress</td>
+                <td class="sorting_1">@row.CorporationName</td>
+
+
+
+                @{
+                    string createdTimezoneId = System.Configuration.ConfigurationManager.AppSettings[System.Threading.Thread.CurrentThread.CurrentCulture.Name];
+                    DateTime createdDate = TimeZoneInfo.ConvertTimeBySystemTimeZoneId((DateTime)row.CreatedDate, createdTimezoneId);
+                    <td>@createdDate</td>
+                }
+            </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+
+        $('#' + 'eventRegisterTable').DataTable({
+            buttons: [
+                'copyHtml5',
+                'excelHtml5',
+                'csvHtml5',
+                'pdfHtml5'
+            ],
+            "oLanguage": {
+                "oPaginate": { "sPrevious": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>', "sNext": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>' },
+                "sInfo": "Showing page _PAGE_ of _PAGES_",
+                "sSearch": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>',
+                "sSearchPlaceholder": "Search...",
+                "sLengthMenu": "Results :  _MENU_",
+            },
+            "stripeClasses": [],
+            "lengthMenu": [7, 10, 20, 50],
+            "pageLength": 7,
+            "destroy": true
+            
+        });
+
+
+    });
+
+</script>
+
+

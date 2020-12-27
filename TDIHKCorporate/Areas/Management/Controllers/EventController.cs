@@ -209,6 +209,13 @@ order by CreatedDate desc", new { lang = lang });
             }
         }
 
+        public ActionResult EventRegistrations(string eventIdentifier)
+        {
+            DapperRepository<EventRegistrations> evReg = new DapperRepository<EventRegistrations>();
+            List<EventRegistrations> evRegList = evReg.GetList(@"SELECT * FROM EventRegistrations (NOLOCK) where EventIdentifier = @EventIdentifier order by [Name]", new { EventIdentifier = eventIdentifier });
+            return View(evRegList);
+        }
+
 
     }
 }

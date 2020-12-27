@@ -1,4 +1,5 @@
 ﻿using DbAccess.Dapper.Repository;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -29,9 +30,46 @@ namespace TDIHKCorporate.Controllers
             return View(pageItem);
         }
 
-        public ActionResult EventRegister()
+        public ActionResult EventRegister(string seolink)
         {
-            return View();
+            CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+            string name = cultureInfo.TwoLetterISOLanguageName;
+
+            DapperRepository<Events> events = new DapperRepository<Events>();
+            Events evt = events.Get(@"select * from [Events] (nolock) where [Language] = @Language and EventSeoLink = @EventSeoLink", new
+            {
+                Language = name,
+                EventSeoLink = seolink
+            });
+
+            return View(evt);
+        }
+        [HttpPost]
+        public string EventRegisterForm(EventRegistrations eventRegistrations)
+        {
+            try
+            {
+                eventRegistrations.CreatedDate = DateTime.Now;
+                eventRegistrations.CreatedBy = 1;
+
+                DapperRepository<EventRegistrations> evtReg = new DapperRepository<EventRegistrations>();
+                int result = evtReg.Execute(@"insert into EventRegistrations (EventIdentifier,[Name],Surname,EmailAddress,CorporationName,CreatedDate,CreatedBy) values (@EventIdentifier,@Name,@Surname,@EmailAddress,@CorporationName,@CreatedDate,@CreatedBy)
+", eventRegistrations );
+
+                if (result > 0)
+                {
+                    return JsonConvert.SerializeObject(true);
+
+                }
+                else
+                {
+                    return JsonConvert.SerializeObject(false);
+                }
+            }
+            catch (Exception ex)
+            {
+                return JsonConvert.SerializeObject(false);
+            }
         }
 
         public ActionResult FutureEvents()
@@ -41,7 +79,7 @@ namespace TDIHKCorporate.Controllers
 
         public ActionResult LastEvents()
         {
-            
+
             return View(GetLastEvents(8));
         }
 
