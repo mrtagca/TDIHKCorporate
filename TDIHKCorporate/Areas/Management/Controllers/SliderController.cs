@@ -231,7 +231,7 @@ namespace TDIHKCorporate.Areas.Management.Controllers
             try
             {
                 DapperRepository<SliderContent> item = new DapperRepository<SliderContent>();
-                int result = item.Execute(@"update SliderContent set IsActive = 0 where SliderContentID = @SliderContentID ", new { SliderContentID = sliderItemId });
+                int result = item.Execute(@"delete from SliderContent where SliderContentID = @SliderContentID ", new { SliderContentID = sliderItemId });
 
                 return JsonConvert.SerializeObject(true);
             }

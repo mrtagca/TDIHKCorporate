@@ -121,7 +121,7 @@
 
 function PassiveSliderItem(sliderItemId) {
 
-    if (confirm("Are you sure sliderItem Passive?")) {
+    if (confirm("Are you sure sliderItem delete?")) {
         var callParams = {
             endPoint: "/Management/Slider/PassiveSliderItem",
             requestType: "POST"
@@ -135,7 +135,7 @@ function PassiveSliderItem(sliderItemId) {
             response = JSON.parse(response);
 
             if (response === true) {
-                alert("Slider item is passive now.")
+                alert("Slider item is deleted.")
 
                 location.reload();
             }
