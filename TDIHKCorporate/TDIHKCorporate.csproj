@@ -3014,6 +3014,7 @@
     <Content Include="Content\MainSite\assets\images\7. Bilgi Notu 3-Nitelikli Isgucu Goc Yasasi" />
     <Content Include="Content\MainSite\assets\images\8. Ekonominin desteklenmesi, acil durum fonlari ve sirketler icin yardim paketleri" />
     <Content Include="Areas\Management\Views\MemberShip\Create.cshtml" />
+    <Content Include="Areas\Management\Views\MemberShip\MemberList.cshtml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="HTML-1\dienstleistungen.html" />
     <Content Include="HTML-1\kalender.html" />

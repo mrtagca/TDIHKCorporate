@@ -60,5 +60,14 @@ values (@MemberLogoPath,@MemberTitle,@MemberAddress,@MemberWebSite,@MemberPhone1
                 return View();
             }
         }
+
+        public ActionResult MemberList()
+        {
+            DapperRepository<Members> memberList = new DapperRepository<Members>();
+            var result = memberList.GetList(@"select * from Members (nolock) order by MemberTitle", null).ToList();
+
+
+            return View(result);
+        }
     }
 }
