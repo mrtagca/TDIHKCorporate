@@ -172,6 +172,43 @@ order by CreatedDate desc", new { lang = lang });
             }
         }
 
+        public ActionResult AddEventCategory()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AddEventCategory(EventCategories eventCategories)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    eventCategories.CreatedDate = DateTime.Now;
+                    eventCategories.CreatedBy = 1;
+                    eventCategories.IsActive = true;
+
+                    DapperRepository<EventCategories> evcRepo = new DapperRepository<EventCategories>();
+
+                    var result = evcRepo.Execute(@"insert into EventCategories ([Language],EventCategoryName,CreatedDate,CreatedBy,IsActive) values (@Language,@EventCategoryName,@CreatedDate,@CreatedBy,@IsActive)", eventCategories);
+
+
+                    ViewBag.Success = "Success";
+                    return View(); 
+                }
+                else
+                {
+                    ViewBag.Error = "Please check the values!";
+                    return View();
+                }
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Error = "Fail: "+ex.Message;
+                return View();
+            }
+        }
+
 
     }
 }

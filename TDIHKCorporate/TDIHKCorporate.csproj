@@ -3016,6 +3016,7 @@
     <Content Include="Areas\Management\Views\MemberShip\Create.cshtml" />
     <Content Include="Areas\Management\Views\MemberShip\MemberList.cshtml" />
     <Content Include="Areas\Management\Views\MemberShip\Edit.cshtml" />
+    <Content Include="Areas\Management\Views\Event\AddEventCategory.cshtml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="HTML-1\dienstleistungen.html" />
     <Content Include="HTML-1\kalender.html" />
