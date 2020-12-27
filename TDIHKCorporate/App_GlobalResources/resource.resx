@@ -126,14 +126,23 @@
   <data name="Ara" xml:space="preserve">
     <value>Ara</value>
   </data>
+  <data name="Avantajlar" xml:space="preserve">
+    <value>Avantajlar</value>
+  </data>
   <data name="Baslik" xml:space="preserve">
     <value>Başlık</value>
   </data>
   <data name="BeniHatirla" xml:space="preserve">
     <value>Beni Hatırla</value>
   </data>
+  <data name="BultenSonGelismeler" xml:space="preserve">
+    <value>En son gelismelerden ve firsatlardan haberdar olmak için bültenimize kaydolun.</value>
+  </data>
   <data name="Covid19" xml:space="preserve">
     <value>COVID-19</value>
+  </data>
+  <data name="DahaFazla" xml:space="preserve">
+    <value>DahaFazla</value>
   </data>
   <data name="Dashboard" xml:space="preserve">
     <value>Yönetim Paneli</value>
@@ -213,6 +222,9 @@
   <data name="KategoriSeciniz" xml:space="preserve">
     <value>Kategori Seçiniz</value>
   </data>
+  <data name="Kaydol" xml:space="preserve">
+    <value>Kaydol</value>
+  </data>
   <data name="Login" xml:space="preserve">
     <value>Giriş Yap</value>
   </data>
@@ -269,6 +281,12 @@
   </data>
   <data name="Ozet" xml:space="preserve">
     <value>Özet</value>
+  </data>
+  <data name="PremiumUyeAvantajlariDetayliBilgi" xml:space="preserve">
+    <value>Üyelik avantajlari hakkinda daha fazla bilgi edinin</value>
+  </data>
+  <data name="PremiumUyeler" xml:space="preserve">
+    <value>Premium Üyeler</value>
   </data>
   <data name="RaporOlustur" xml:space="preserve">
     <value>Rapor Oluştur</value>
@@ -347,6 +365,12 @@
   </data>
   <data name="UyeListesi" xml:space="preserve">
     <value>Üye Listesi</value>
+  </data>
+  <data name="VeriGizlilik" xml:space="preserve">
+    <value>Veri Gizliliği</value>
+  </data>
+  <data name="VeriIsleme" xml:space="preserve">
+    <value>TD-IHK'nın verilerinizi nasıl işlediğine ilişkin bilgiler aşağıdaki sayfalarda bulunabilir</value>
   </data>
   <data name="Yayimla" xml:space="preserve">
     <value>Yayımla</value>
