@@ -1,0 +1,50 @@
+﻿@model List<TDIHKCorporate.Types.News> 
+@using System.Globalization
+ 
+<!--Haberler-->
+<section>
+    <h2 class="uk-text-bold">Nachrichten</h2>
+
+    @foreach (var item in Model)
+    {
+        <div class="uk-grid uk-grid-medium uk-margin-large-bottom" uk-grid>
+            <div class="uk-width-1-4 uk-width-1-6@s">
+                <div class="uk-grid uk-child-width-1-2 uk-grid-small" uk-grid>
+                    <div class="uk-flex">
+                        @{
+                            CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+                        }
+
+                        <div class="uk-margin-small-right event-day" style="line-height: .7;">
+                            @item.CreatedDate.ToString("dd", cultureInfo).ToUpper()
+                        </div>
+
+                        <div class="uk-flex uk-flex-column event-date">
+
+                            <span class="line-height-1">@item.CreatedDate.ToString("MMM", cultureInfo).ToUpper()</span>
+
+
+                            <span class="line-height-1">@item.CreatedDate.ToString("yyyy", cultureInfo).ToUpper()</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="uk-width-3-4 uk-width-expand@s">
+                <div class="size-20 uk-width-1-1 uk-width-3-4@s">
+                    @item.NewsDescription
+                </div>
+                <div>
+                    <a href="/de/nachrichten/@item.NewsSeoLink" class="uk-link-reset">
+                        <div class="uk-flex uk-flex-middle">
+                            <span class="uk-icon uk-margin-small-right" uk-icon="icon: icn-chevron-right"></span>
+                            <span class="uk-h2 uk-margin-remove uk-text-bold">Weiterlesen</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    }
+
+    @Html.Action("Index", "Newsletter")
+
+</section>

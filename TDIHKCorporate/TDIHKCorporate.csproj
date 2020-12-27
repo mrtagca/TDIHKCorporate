@@ -3757,6 +3757,7 @@
     <Content Include="Views\Home\_PartialHomePodcasts.cshtml" />
     <Content Include="Views\Event\EventRegister.cshtml" />
     <Content Include="Views\Newsletter\_PartialVorteille.cshtml" />
+    <Content Include="Views\Home\_PartialShowHomePageNachrichten.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

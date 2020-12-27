@@ -118,7 +118,7 @@ values (@NewsCategoryName,@Language,@CreatedDate,@CreatedBy,@IsActive)", new { N
                 news.CreatedBy = 1;
                 news.IsActive = true;
 
-                int result = addNews.Execute(@"INSERT INTO News ([NewsCategoryID],[NewsIdentifier],[NewsImagePath],[NewsThumbnailPath],[NewsTitle],[NewsContent],[NewsSeoLink],[NewsSeoKeywords],[Language],[CreatedDate],[CreatedBy],[IsActive]) values(@NewsCategoryID,@NewsIdentifier, @NewsImagePath, @NewsThumbnailPath, @NewsTitle, @NewsContent, @NewsSeoLink, @NewsSeoKeywords, @Language, @CreatedDate, @CreatedBy,@IsActive)", new
+                int result = addNews.Execute(@"INSERT INTO News ([NewsCategoryID],[NewsIdentifier],[NewsImagePath],[NewsThumbnailPath],[NewsTitle],[NewsDescription],[NewsContent],[NewsSeoLink],[NewsSeoKeywords],[Language],[CreatedDate],[CreatedBy],[IsActive]) values(@NewsCategoryID,@NewsIdentifier, @NewsImagePath, @NewsThumbnailPath, @NewsTitle,@NewsDescription, @NewsContent, @NewsSeoLink, @NewsSeoKeywords, @Language, @CreatedDate, @CreatedBy,@IsActive)", new
                 {
 
                     NewsCategoryID = news.NewsCategoryID,
@@ -126,6 +126,7 @@ values (@NewsCategoryName,@Language,@CreatedDate,@CreatedBy,@IsActive)", new { N
                     NewsImagePath = news.NewsImagePath,
                     NewsThumbnailPath = news.NewsThumbnailPath,
                     NewsTitle = news.NewsTitle,
+                    NewsDescription = news.NewsDescription,
                     NewsContent = news.NewsContent,
                     NewsSeoLink = news.NewsSeoLink,
                     NewsSeoKeywords = news.NewsSeoKeywords,
@@ -202,7 +203,7 @@ order by CreatedDate desc", new { lang = "tr" });
                 DapperRepository<News> addNews = new DapperRepository<News>();
 
 
-                int result = addNews.Execute(@"update News set NewsImagePath=@NewsImagePath,NewsCategoryID = @NewsCategoryID,NewsTitle=@NewsTitle,NewsContent=@NewsContent,NewsSeoLink=@NewsSeoLink,NewsSeoKeywords=@NewsSeoKeywords,[Language]=@language,UpdatedDate=@updatedDate,UpdatedBy=@UpdatedBy,IsActive=@IsActive
+                int result = addNews.Execute(@"update News set NewsImagePath=@NewsImagePath,NewsCategoryID = @NewsCategoryID,NewsTitle=@NewsTitle,NewsContent=@NewsContent,NewsSeoLink=@NewsSeoLink,NewsSeoKeywords=@NewsSeoKeywords,[Language]=@language,UpdatedDate=@updatedDate,UpdatedBy=@UpdatedBy,IsActive=@IsActive,NewsDescription=@NewsDescription
                                         where NewsID = @NewsID", new
                 {
                     NewsID = news.NewsID,
@@ -210,6 +211,7 @@ order by CreatedDate desc", new { lang = "tr" });
                     NewsImagePath = news.NewsImagePath,
                     NewsThumbnailPath = news.NewsThumbnailPath,
                     NewsTitle = news.NewsTitle,
+                    NewsDescription = news.NewsDescription,
                     NewsContent = news.NewsContent,
                     NewsSeoLink = news.NewsSeoLink,
                     NewsSeoKeywords = news.NewsSeoKeywords,

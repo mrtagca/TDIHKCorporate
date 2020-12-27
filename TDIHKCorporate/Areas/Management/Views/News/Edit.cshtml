@@ -12,17 +12,22 @@
 
         <div>
             <h5>@Resources.resource.SayfaEkle</h5>
-            <input type="text" id="NewsTitle" placeholder="@Resources.resource.Baslik" onkeyup="GenerateFriendlyUrl('NewsTitle','NewsSeoLink')" class="form-control" name="name" value="@Model.NewsTitle" required/>
+            <input type="text" id="NewsTitle" placeholder="@Resources.resource.Baslik" onkeyup="GenerateFriendlyUrl('NewsTitle','NewsSeoLink')" class="form-control" name="name" value="@Model.NewsTitle" required />
         </div>
         <br />
 
 
         <div>
             <h5>Seo Link</h5>
-            <input type="text" class="form-control" id="NewsSeoLink" placeholder="Seo Link" value="@Model.NewsSeoLink" required/>
+            <input type="text" class="form-control" id="NewsSeoLink" placeholder="Seo Link" value="@Model.NewsSeoLink" required />
         </div>
         <br />
 
+        <div>
+            <h5>Haber Açıklaması</h5>
+            <input type="text" class="form-control" id="NewsDescription" placeholder="News Description" maxlength="360" value="" required />
+        </div>
+        <br />
 
         @Html.Partial("~/Areas/Management/Views/Partial/_PartialQuillHtmlEditor.cshtml")
 

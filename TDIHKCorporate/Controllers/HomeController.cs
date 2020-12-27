@@ -18,7 +18,7 @@ namespace TDIHKCorporate.Controllers
         {
             new SiteLanguage().SetLanguage(language);
 
-            if (Request.UrlReferrer!=null)
+            if (Request.UrlReferrer != null)
             {
                 string url = Request.UrlReferrer.ToString();
 
@@ -32,7 +32,7 @@ namespace TDIHKCorporate.Controllers
                         Pages page = pageRepo.Get(@"SELECT * FROM [IHK].[dbo].[Pages] (NOLOCK)
 where [Language] = @lang and PageIdentifier in (SELECT top 1 PageIdentifier FROM Pages (NOLOCK) where PageSeoLink = @seoUrl) and IsActive = 1 ", new { lang = language, seoUrl = seo });
 
-                        
+
 
                         if (page != null)
                         {
@@ -45,7 +45,7 @@ where [Language] = @lang and PageIdentifier in (SELECT top 1 PageIdentifier FROM
                             return Redirect(Request.UrlReferrer.ToString());
                         }
 
-                        
+
                     }
 
                     if (language == "de") //change tr
@@ -65,7 +65,7 @@ where [Language] = @lang and PageIdentifier in (SELECT top 1 PageIdentifier FROM
                             HttpContext.Session["Mainlanguage"] = "tr";
                             Session["Mainculture"] = "TR";
                             return Redirect(Request.UrlReferrer.ToString());
-                        } 
+                        }
                     }
                 }
 
@@ -90,7 +90,7 @@ where [Language] = @lang and NewsIdentifier in (SELECT top 1 NewsIdentifier FROM
                             return Redirect(Request.UrlReferrer.ToString());
                         }
 
-                        
+
                     }
 
                     if (language == "de") //change tr
@@ -100,7 +100,7 @@ where [Language] = @lang and NewsIdentifier in (SELECT top 1 NewsIdentifier FROM
                         DapperRepository<News> newsRepo = new DapperRepository<News>();
                         News news = newsRepo.Get(@"SELECT * FROM  News (NOLOCK)
 where [Language] = @lang and NewsIdentifier in (SELECT top 1 NewsIdentifier FROM News (NOLOCK) where NewsSeoLink = @seoUrl) ", new { lang = language, seoUrl = seo });
-                       
+
 
                         if (news != null)
                         {
@@ -115,11 +115,11 @@ where [Language] = @lang and NewsIdentifier in (SELECT top 1 NewsIdentifier FROM
 
 
                     }
-                } 
+                }
             }
             else
             {
-                
+
                 return Redirect(Request.Url.ToString());
             }
             return Redirect(Request.UrlReferrer.ToString());
@@ -167,7 +167,7 @@ where [Language] = @lang and NewsIdentifier in (SELECT top 1 NewsIdentifier FROM
                     lang = HttpContext.Session["Mainlanguage"].ToString();
                     cult = HttpContext.Session["Mainculture"].ToString();
                 }
-                
+
             }
 
             HttpContext.Session["Mainlanguage"] = lang;
@@ -306,6 +306,29 @@ order by CONVERT(datetime,CONVERT(nvarchar,EventDate)+' '+CONVERT(nvarchar,Event
                 Language = name
             });
             return PartialView("_PartialHomePodcasts", podcastList);
+        }
+
+        public ActionResult ShowHomePageNachrichten()
+        {
+
+            try
+            {
+                DapperRepository<News> news = new DapperRepository<News>();
+
+                CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+
+                string name = cultureInfo.TwoLetterISOLanguageName;
+
+                List<News> newsList = news.GetList(@"select top 3 * from News (nolock) where [Language] = @Language order by CreatedDate desc", new { Language = name });
+
+                return PartialView("_PartialShowHomePageNachrichten", newsList);
+            }
+            catch (Exception ex)
+            {
+                return PartialView("_PartialShowHomePageNachrichten", null);
+            }
+
+
         }
     }
 }
