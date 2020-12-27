@@ -128,30 +128,30 @@ namespace TDIHKCorporate.Controllers
             if (!string.IsNullOrWhiteSpace(search))
             {
                 members = memberRepo.GetList(@"select 
-                                    case SUBSTRING(MemberTitle,1,1) 
-                                    when 'Ç' then 'C'
-                                    when 'İ' then 'I'
-                                    when 'Ö' then 'O'
-                                    when 'Ş' then 'S'
-                                    when 'Ü' then 'U'
-                                    else
-                                    SUBSTRING(MemberTitle,1,1) 
-                                    end as AlphabetStarter,SUBSTRING(MemberTitle,1,1) as RealAlphabetStarter,* from Members (nolock) 
-                                    where IsActive = 1 and MemberTitle like '%'+@Search+'%'
-                                    order by AlphabetStarter", new { Search = search });
+                                                case UPPER(SUBSTRING(MemberTitle,1,1))
+                                                when 'Ç' then 'C'
+                                                when 'İ' then 'I'
+                                                when 'Ö' then 'O'
+                                                when 'Ş' then 'S'
+                                                when 'Ü' then 'U'
+                                                else
+                                                UPPER(SUBSTRING(MemberTitle,1,1)) 
+                                                end as AlphabetStarter,UPPER(SUBSTRING(MemberTitle,1,1)) as RealAlphabetStarter,* from Members (nolock) 
+                                                where IsActive = 1 and MemberTitle like '%'+@Search+'%'
+                                                order by MemberTitle", new { Search = search });
             }
             else
             {
                 members =  memberRepo.GetList(@"select 
-                                                        case SUBSTRING(MemberTitle,1,1) 
-                                                        when 'Ç' then 'C'
-                                                        when 'İ' then 'I'
-                                                        when 'Ö' then 'O'
-                                                        when 'Ş' then 'S'
-                                                        when 'Ü' then 'U'
-                                                        else
-                                                        SUBSTRING(MemberTitle,1,1) 
-                                                        end as AlphabetStarter,SUBSTRING(MemberTitle,1,1) as RealAlphabetStarter,* from Members (nolock) where IsActive = 1 order by AlphabetStarter", null);
+                                                case UPPER(SUBSTRING(MemberTitle,1,1))
+                                                when 'Ç' then 'C'
+                                                when 'İ' then 'I'
+                                                when 'Ö' then 'O'
+                                                when 'Ş' then 'S'
+                                                when 'Ü' then 'U'
+                                                else
+                                                UPPER(SUBSTRING(MemberTitle,1,1))
+                                                end as AlphabetStarter,UPPER(SUBSTRING(MemberTitle,1,1)) as RealAlphabetStarter,* from Members (nolock) where IsActive = 1 order by MemberTitle", null);
             }
 
 

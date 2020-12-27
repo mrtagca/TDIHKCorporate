@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "AddEventCategory";
+    Layout = "~/Areas/Management/Views/Shared/_layoutDashboard.cshtml";
+}
+
+<h5>Etkinlik Kategori Ekle</h5>
+<hr />
+
+@if (ViewBag.Success != null)
+{
+    <div class="alert alert-success" role="alert">
+        @ViewBag.Success
+    </div>
+}
+else if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @ViewBag.Error
+    </div>
+}
+
+
+@using (Html.BeginForm("AddEventCategory", "Event", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+
+    <div class="col-lg-12">
+        <div class="col-lg-4">
+            <div>
+                <label>Kategori Dili</label>
+                <select class="form-control" name="Language" required>
+                    <option value="tr">TR</option>
+                    <option value="de">DE</option>
+                </select>
+            </div>
+            <br />
+            <div>
+                <label>Kategori Adı</label>
+                <input type="text" class="form-control" name="EventCategoryName" placeholder="Kategori Adı" value="" required />
+            </div>
+            <br />
+            <input type="submit" class="btn btn-success" style="float:right" value="Kaydet" />
+        </div>
+    </div>
+
+}

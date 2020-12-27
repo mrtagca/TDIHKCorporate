@@ -381,3 +381,59 @@ function GetEventIdentifier(identifierDropdown, lang) {
         });
     });
 }
+
+function PassiveEvent(eventID) {
+
+    if (confirm("Are you sure for delete this event?")) {
+        var callParams = {
+            endPoint: "/Management/Event/PassiveEvent",
+            requestType: "POST"
+        }
+
+        var dataParams = {};
+        dataParams.eventID = eventID;
+
+        RequestAjax(callParams, dataParams, function (response) {
+            debugger
+            response = JSON.parse(response);
+
+            if (response === true) {
+                alert("Event is passive now.");
+                location.reload();
+            }
+            else {
+                alert("Fail!");
+            }
+        });
+    }
+
+
+}
+
+function ActivateEvent(eventID) {
+
+    if (confirm("Are you sure for activate this event?")) {
+        var callParams = {
+            endPoint: "/Management/Event/ActivateEvent",
+            requestType: "POST"
+        }
+
+        var dataParams = {};
+        dataParams.eventID = eventID;
+
+        RequestAjax(callParams, dataParams, function (response) {
+            debugger
+            response = JSON.parse(response);
+
+            if (response === true) {
+                alert("Event is active now.");
+                location.reload();
+            }
+            else {
+                alert("Fail!");
+            }
+        });
+    }
+
+
+}
