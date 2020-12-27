@@ -1,4 +1,5 @@
 ﻿using DbAccess.Dapper.Repository;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -136,5 +137,41 @@ order by CreatedDate desc", new { lang = lang });
             return Newtonsoft.Json.JsonConvert.SerializeObject(result);
 
         }
+
+        public string PassiveEvent(int eventID)
+        {
+            try
+            {
+                DapperRepository<Pages> page = new DapperRepository<Pages>();
+
+                int result = page.Execute(@"update Events set IsActive = 0,UpdatedDate=@UpdatedDate,UpdatedBy=@UpdatedBy where EventID = @EventID", new { EventID = eventID,UpdatedDate=DateTime.Now,UpdatedBy=1 });
+
+
+                return JsonConvert.SerializeObject(true);
+            }
+            catch (Exception ex)
+            {
+                return JsonConvert.SerializeObject(false);
+            }
+        }
+
+        public string ActivateEvent(int eventID)
+        {
+            try
+            {
+                DapperRepository<Pages> page = new DapperRepository<Pages>();
+
+                int result = page.Execute(@"update Events set IsActive = 1,UpdatedDate=@UpdatedDate,UpdatedBy=@UpdatedBy where EventID = @EventID", new { EventID = eventID, UpdatedDate = DateTime.Now, UpdatedBy = 1 });
+
+
+                return JsonConvert.SerializeObject(true);
+            }
+            catch (Exception ex)
+            {
+                return JsonConvert.SerializeObject(false);
+            }
+        }
+
+
     }
 }

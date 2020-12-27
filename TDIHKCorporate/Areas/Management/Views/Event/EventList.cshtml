@@ -4,6 +4,7 @@
     ViewBag.Title = "EventList";
     Layout = "~/Areas/Management/Views/Shared/_layoutDashboard.cshtml";
 }
+<script src="~/Content/Scripts/Event.js"></script>
 
 <h5>Event List</h5>
 <hr />
@@ -52,15 +53,24 @@
                         <td>@createdDate</td>
                     }
 
-                    <td>
-                        @*<button onclick="window.open(
-                         '/Management/Event/Edit/' +@row.EventID,
-                         '_blank' );" class="btn btn-dark">
-                            <i class="fas fa-edit"></i>
-                        </button>*@
+                <td>
+                    @*<button onclick="window.open(
+         '/Management/Event/Edit/' +@row.EventID,
+         '_blank' );" class="btn btn-dark">
+            <i class="fas fa-edit"></i>
+        </button>*@
 
-                        <a target="_blank" href="/Management/Event/Edit/@row.EventID" class="btn btn-dark"><i class="fas fa-edit"></i></a>
-                    </td>
+                    <a target="_blank" href="/Management/Event/Edit/@row.EventID" class="btn btn-dark"><i class="fas fa-edit"></i></a>
+
+                    @if (row.IsActive)
+                    {
+                        <button onclick="PassiveEvent(@row.EventID)" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                    }
+                    else
+                    {
+                        <button onclick="ActivateEvent(@row.EventID)" class="btn btn-success"><i class="fa fa-check"></i></button>
+                    }
+                </td>
                 </tr>
             }
 

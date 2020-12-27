@@ -4,19 +4,18 @@
     Layout = "~/Views/Shared/_layoutMaster.cshtml";
 }
 
-
-
-
 <main class="uk-container" uk-scrollspy="cls: uk-animation-fade; target: > section; delay: 250">
 
     <section class="uk-position-relative">
         <img class="uk-width-1-1" src="~/Content/MainSite/assets/images/mitgliederliste/BG.png" />
         <div class="uk-position-cover uk-flex uk-flex-middle mitgliederliste-banner">
             <div class="uk-flex uk-flex-column uk-width-1-1">
-                <form action="/" method="post">
+                <form action="/MemberShip/Mitgliederliste" method="get">
                     <div class="mitgliederliste-banner--title">Mitglieder</div>
                     <input type="text" id="MemberSearchText" placeholder="Nach Mitglieder suchen" name="search" class="uk-input uk-border-rounded uk-width-1-2">
-                    <button id="SearchMember" onclick="SearchMember()" type="button" class="background-transparent uk-margin-small-left uk-preserve uk-icon" uk-icon="icn-white-search"></button>
+                    <button id="SearchMember" type="submit" class="background-transparent uk-margin-small-left uk-preserve uk-icon" uk-icon="icn-white-search"></button>
+
+                    @*<input type="submit" class="background-transparent uk-margin-small-left uk-preserve uk-icon" uk-icon="icn-white-search" name="Search" value="SearchMember" />*@
                 </form>
             </div>
         </div>
@@ -56,62 +55,22 @@
                 <li uk-filter-control=""><a href="#" style="text-transform: none;">Alle anzeigen</a></li>
             </ul>
 
+            @Html.Action("ShowPremiumMembersSlider", "Home")
 
 
             <div class="companies">
-                <!-- ilk örnek: Filtrelenecek öğeler data-word attr altında basılıyor-->
-                <!--<div data-word="A">-->
-                <!--Filtre başlığı-->
-                <!--<div class="company-filter-title uk-width-1-1 uk-margin-medium-top">A</div>-->
-                <!-- Şirket kartları-->
-                <!--<div class="uk-child-width-1-2@m uk-margin-medium-top" uk-grid>-->
-                <!-- Şirket Kartı-->
-                <!--<div>
-                    <div class="uk-child-width-1-2 uk-grid-medium uk-flex-middle" uk-grid>
-                        <div class="uk-flex uk-flex-center uk-flex-middle" style="height: 100px;">
-                            <img src="https://picsum.photos/300/150" class="uk-height-1-1" />
-                        </div>
-                        <div>
-                            <div class="size-18 size-15-m uk-text-bold">AD 55 ÇAKIRLAR Unternehmungsgruppe</div>
-                            <div><a href="#" target="_blank" class="uk-link-reset">www.cakirlar.de</a></div>
-                        </div>
-                    </div>
-                </div>-->
-                <!-- Şirket kartı örneği sonu-->
-                <!--<div>
-                            <div class="uk-child-width-1-2 uk-grid-medium uk-flex-middle" uk-grid>
-                                <div class="uk-flex uk-flex-center uk-flex-middle" style="height: 100px;">
-                                    <img src="https://picsum.photos/300/150" class="uk-height-1-1" />
-                                </div>
-                                <div>
-                                    <div class="size-18 size-15-m uk-text-bold">AD 55 ÇAKIRLAR Unternehmungsgruppe</div>
-                                    <div><a href="#" target="_blank" class="uk-link-reset">www.cakirlar.de</a></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="uk-child-width-1-2 uk-grid-medium uk-flex-middle" uk-grid>
-                                <div class="uk-flex uk-flex-center uk-flex-middle" style="height: 100px;">
-                                    <img src="https://picsum.photos/300/150" class="uk-height-1-1" />
-                                </div>
-                                <div>
-                                    <div class="size-18 size-15-m uk-text-bold">AD 55 ÇAKIRLAR Unternehmungsgruppe</div>
-                                    <div><a href="#" target="_blank" class="uk-link-reset">www.cakirlar.de</a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>-->
 
                 @foreach (char charachter in Model.Select(x => x.AlphabetStarter).Distinct().ToList())
                 {
-                    foreach (var item in Model.Where(x => x.AlphabetStarter == charachter).ToList())
-                    {
-                        <div data-word="@item.AlphabetStarter">
-                            <!--Filtre başlığı-->
-                            <div class="company-filter-title uk-width-1-1 uk-margin-medium-top">@item.RealAlphabetStarter</div>
-                            <!-- Şirket kartları-->
-                            <div class="uk-child-width-1-2@m uk-margin-medium-top" uk-grid>
+                    <div data-word="@charachter">
+                        <!--Filtre başlığı-->
+                        <div class="company-filter-title uk-width-1-1 uk-margin-medium-top">@charachter</div>
+                        <!-- Şirket kartları-->
+                        <div class="uk-child-width-1-2@m uk-margin-medium-top" uk-grid>
+                            @foreach (var item in Model.Where(x => x.AlphabetStarter == charachter).ToList())
+                            {
+
+
                                 <!-- Şirket Kartı-->
                                 <div>
                                     <div class="uk-child-width-1-2 uk-grid-medium uk-flex-middle" uk-grid>
@@ -120,43 +79,31 @@
                                         </div>
                                         <div>
                                             <div class="size-18 size-15-m uk-text-bold">@item.MemberTitle</div>
-                                            <div><a href="@item.MemberWebSite" target="_blank" class="uk-link-reset">@item.MemberWebSite</a></div>
+                                            <div>
+                                                @if (item.MemberWebSite.StartsWith("http"))
+                                                {
+                                                    <a href="@item.MemberWebSite" target="_blank" class="uk-link-reset">@item.MemberWebSite</a>
+                                                }
+                                                else
+                                                {
+                                                    <a href="http://@item.MemberWebSite" target="_blank" class="uk-link-reset">@item.MemberWebSite</a>
+                                                }
+
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- Şirket kartı örneği sonu-->
-                                <!--<div>
-                                    <div class="uk-child-width-1-2 uk-grid-medium uk-flex-middle" uk-grid>
-                                        <div class="uk-flex uk-flex-center uk-flex-middle" style="height: 100px;">
-                                            <img src="https://picsum.photos/300/150" class="uk-height-1-1" />
-                                        </div>
-                                        <div>
-                                            <div class="size-18 size-15-m uk-text-bold">AD 55 ÇAKIRLAR Unternehmungsgruppe</div>
-                                            <div><a href="#" target="_blank" class="uk-link-reset">www.cakirlar.de</a></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="uk-child-width-1-2 uk-grid-medium uk-flex-middle" uk-grid>
-                                        <div class="uk-flex uk-flex-center uk-flex-middle" style="height: 100px;">
-                                            <img src="https://picsum.photos/300/150" class="uk-height-1-1" />
-                                        </div>
-                                        <div>
-                                            <div class="size-18 size-15-m uk-text-bold">AD 55 ÇAKIRLAR Unternehmungsgruppe</div>
-                                            <div><a href="#" target="_blank" class="uk-link-reset">www.cakirlar.de</a></div>
-                                        </div>
-                                    </div>
-                                </div>-->
-                            </div>
+                            }
                         </div>
-                    }
+                    </div>
                 }
             </div>
         </div>
     </section>
 
-    @Html.Action("ShowPremiumMembersSlider", "Home")
+    
 
 
     @Html.Action("Vorteille", "Newsletter")
 </main>
+ 
