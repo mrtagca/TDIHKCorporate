@@ -26,7 +26,7 @@
         <h1 class="uk-h3">Mitgliederliste</h1>
         <div class="" uk-filter="target: .companies">
             <ul class="uk-subnav uk-subnav-pill words-subnav">
-                <li class="uk-active" uk-filter-control="[data-word='A']"><a href="#">A</a></li>
+                <li uk-filter-control="[data-word='A']"><a href="#">A</a></li>
                 <li uk-filter-control="[data-word='B']"><a href="#">B</a></li>
                 <li uk-filter-control="[data-word='C']"><a href="#">C</a></li>
                 <li uk-filter-control="[data-word='D']"><a href="#">D</a></li>
@@ -52,7 +52,7 @@
                 <li uk-filter-control="[data-word='X']"><a href="#">X</a></li>
                 <li uk-filter-control="[data-word='Y']"><a href="#">Y</a></li>
                 <li uk-filter-control="[data-word='Z']"><a href="#">Z</a></li>
-                <li uk-filter-control=""><a href="#" style="text-transform: none;">Alle anzeigen</a></li>
+                <li class="uk-active" uk-filter-control=""><a href="#" style="text-transform: none;">Alle anzeigen</a></li>
             </ul>
 
             @Html.Action("ShowPremiumMembersSlider", "Home")
@@ -62,9 +62,9 @@
 
                 @foreach (char charachter in Model.Select(x => x.AlphabetStarter).Distinct().ToList())
                 {
-                    <div data-word="@charachter">
+                    <div data-word="@Convert.ToString(charachter).ToUpper()">
                         <!--Filtre başlığı-->
-                        <div class="company-filter-title uk-width-1-1 uk-margin-medium-top">@charachter</div>
+                        <div class="company-filter-title uk-width-1-1 uk-margin-medium-top">@Convert.ToString(charachter).ToUpper()</div>
                         <!-- Şirket kartları-->
                         <div class="uk-child-width-1-2@m uk-margin-medium-top" uk-grid>
                             @foreach (var item in Model.Where(x => x.AlphabetStarter == charachter).ToList())

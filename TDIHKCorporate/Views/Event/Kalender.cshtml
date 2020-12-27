@@ -11,7 +11,8 @@
     <section>
         <!--Highlight Event-->
         <div class="uk-inline uk-width-1-1 uk-margin-small-bottom">
-            <img src="/Content/MainSite/assets/images/kalender/Highlight picture.png" class="uk-width-1-1 event-banner-height fit-cover" alt="">
+            <img src="@Model[0].EventImagePath" class="uk-width-1-1 event-banner-height fit-cover" alt="">
+            @*<img src="/Content/MainSite/assets/images/kalender/Highlight picture.png" class="uk-width-1-1 event-banner-height fit-cover" alt="">*@
             <div class="uk-overlay kalender-overlay uk-light uk-position-top uk-height-1-1">
                 <div class="uk-flex uk-flex-column uk-flex-between uk-height-1-1">
                     <div>
@@ -31,7 +32,22 @@
                         <h3>@Model[0].EventDescription</h3>
                     </div>
                     <div>
-                        <a href="#" class="uk-button uk-button-primary uk-border-rounded">Registrierung</a>
+                        @{
+
+                            string lang = cultureInfo.TwoLetterISOLanguageName;
+
+                            if (lang == "tr")
+                            {
+                                <a href="/etkinlikler/@Model[0].EventSeoLink" class="uk-button uk-button-primary uk-border-rounded">Registrierung</a>
+                            }
+                            else
+                            {
+                                <a href="/events/@Model[0].EventSeoLink" class="uk-button uk-button-primary uk-border-rounded">Registrierung</a>
+                            }
+
+                        }
+
+
                     </div>
                 </div>
             </div>
@@ -65,7 +81,20 @@
                                         TimeSpan tsp = new TimeSpan(item.EventTime.Hours, item.EventTime.Minutes, item.EventTime.Seconds);
                                         <div class="uk-flex uk-flex-middle"><span class="uk-icon uk-margin-small-right" uk-icon="icon: icn-clock"></span><span class="size-20">@String.Format("{0:hh\\:mm}", tsp)</span></div>
                                     }
-                                    <a href="#" class="uk-button uk-width-1-1 uk-button-secondary uk-margin-small-top uk-border-rounded color-global">Registrierung</a>
+
+                                    @{
+
+                                        if (lang == "tr")
+                                        {
+                                            <a href="/etkinlikler/@item.EventSeoLink" class="uk-button uk-width-1-1 uk-button-secondary uk-margin-small-top uk-border-rounded color-global">Registrierung</a>
+                                        }
+                                        else
+                                        {
+                                            <a href="/events/@item.EventSeoLink" class="uk-button uk-width-1-1 uk-button-secondary uk-margin-small-top uk-border-rounded color-global">Registrierung</a>
+                                        }
+
+                                    }
+
                                 </div>
                             </div>
                         </div>
