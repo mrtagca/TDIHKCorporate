@@ -73,8 +73,8 @@ namespace TDIHKCorporate.Areas.Management.Controllers
                     ImageBuilder.Current.Build(path, path, resizeSetting);
 
                     DapperRepository<SliderContent> sliderContentRepo = new DapperRepository<SliderContent>();
-                    var result = sliderContentRepo.Execute(@"insert into SliderContent (SliderContentTitle,[Language],ImagePath,SliderID,SliderUrl,SliderPriority,CreatedDate,CreatedBy)
-  values (@sliderContentTitle,@language,@ImagePath,@sliderID,@sliderUrl,@sliderPriority,@createdDate,@createdBy)", sliderContent);
+                    var result = sliderContentRepo.Execute(@"insert into SliderContent (SliderContentTitle,[Language],ImagePath,SliderID,SliderUrl,SliderPriority,CreatedDate,CreatedBy,IsActive)
+  values (@sliderContentTitle,@language,@ImagePath,@sliderID,@sliderUrl,@sliderPriority,@createdDate,@createdBy,@IsActive)", sliderContent);
 
                     ViewBag.Success = "Success";
                     return View();
