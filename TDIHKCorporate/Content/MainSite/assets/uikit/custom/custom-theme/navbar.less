@@ -86,9 +86,25 @@
     text-transform: @navbar-nav-item-text-transform;
     transition: 0.1s ease-in-out;
     transition-property: color, background-color;
+
+    &:after {
+        content: '';
+        display: block;
+        bottom: 0;
+        position: absolute;
+        height: 0;
+        width: 0;
+        background-color: @global-color;
+        transition: .3s;
+    }
 }
 
-.hook-navbar-nav-item-hover() {border-bottom: 3px solid @global-color;}
+.hook-navbar-nav-item-hover() {
+    &:after {
+        height: 3px;
+        width: 100px;
+    }
+}
 
 .hook-navbar-nav-item-onclick() {}
 
