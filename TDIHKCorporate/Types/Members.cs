@@ -17,14 +17,14 @@ namespace TDIHKCorporate.Types
         public string MemberLogoPath { get; set; }
         [Required]
         public string MemberTitle { get; set; }
-        [Required]
+       
         public string MemberAddress { get; set; }
         [Required]
         public string MemberWebSite { get; set; }
-        [Required]
+       
         public string MemberPhone1 { get; set; }
         public string MemberPhone2 { get; set; }
-        [Required]
+        
         public string MemberEmailAddress { get; set; }
         public DateTime CreatedDate { get; set; }
         public int CreatedBy { get; set; }
