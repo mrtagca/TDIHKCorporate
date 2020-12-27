@@ -271,20 +271,20 @@
         </div>
         <div class="uk-flex uk-flex-between uk-container">
             <div>
-                <img src="~/Content/MainSite/assets/images/tdihk-logo.png" alt="" width="813" height="87">
+                <img src="~/Content/MainSite/assets/images/tdihk-logo.png" alt="" class="uk-width-1-1" uk-img>
             </div>
             <div>
-                <img src="~/Content/MainSite/assets/images/TOBB2B LOGO.svg" alt="" class="uk-width-1-1 uk-visible@m" uk-img>
+                <img src="~/Content/MainSite/assets/images/TOBB2B LOGO.png" alt="" class="uk-width-1-1 uk-visible@m" uk-img>
             </div>
 
         </div>
     </section>
     <!--Navbar-->
     <div class="uk-container">
-        <nav class="uk-navbar uk-navbar-container uk-text-bold" uk-navbar>
+        <nav class="uk-navbar uk-navbar-container" uk-navbar>
             <!--Navbar linkleri (masaüstü)-->
-			<div class="nav-overlay uk-navbar-left uk-visible@m">
-				<ul class="uk-navbar-nav">
+			<div class="nav-overlay uk-navbar-left uk-visible@m uk-width-expand">
+				<ul class="uk-navbar-nav uk-flex uk-flex-between uk-width-1-1">
 
 					@foreach (TDIHKCorporate.Types.MenuItems item in Model.Where(x => x.IsSubMenu == false).OrderBy(x => x.MenuItemPriority))
 					{
@@ -313,7 +313,7 @@
 													@foreach (var subMenuItem in Model.Where(x => x.ParentMenuItemID == item.ID && x.IsSubMenu == true && x.MenuLevel == 1 && x.IsActive == true).OrderBy(x => x.MenuItemPriority))
 													{
 
-														<li class="uk-parent" uk-toggle="target: .subnav-links; mode: hover; cls: uk-hidden; queued: true">
+														<li class="uk-parent" uk-toggle="target: .subnav-links; mode: hover; queued: true;">
 															@if (subMenuItem.PageIsActive)
 															{
 																<a href="/tr/sayfalar/@subMenuItem.PageSeoLink">@subMenuItem.MenuName</a>
@@ -325,7 +325,7 @@
 
 															@if (Model.Exists(x => x.ParentMenuItemID == subMenuItem.ID && x.IsSubMenu == true && x.MenuLevel == 2 && x.IsActive == true))
 															{
-																<ul class="uk-nav uk-navbar-dropdown-nav subnav-links uk-hidden">
+																<ul class="uk-nav uk-navbar-dropdown-nav subnav-links">
 																	@foreach (var subMenuSubItem in Model.Where(x => x.ParentMenuItemID == subMenuItem.ID && x.IsSubMenu == true && x.MenuLevel == 2 && x.IsActive == true).OrderBy(x => x.MenuItemPriority))
 																	{
 
@@ -461,7 +461,7 @@
 
 
 
-            <div class="nav-overlay uk-navbar-right uk-visible@m uk-width-auto uk-flex-right uk-text-right">
+            <div class="nav-overlay uk-navbar-right uk-visible@m uk-flex-right uk-text-right" style="width: 126px;">
 
 
                 @{
@@ -472,7 +472,7 @@
                     <div class="uk-navbar-right uk-flex-right uk-text-right">
                         <a class="uk-navbar-toggle uk-icon" uk-search-icon="icon: icn-search"
                            uk-toggle="target: .nav-overlay; animation: uk-animation-fade" href="#"></a>
-                        <div class="uk-inline uk-width-1-3">
+                        <div class="uk-inline uk-width-1-2">
 
                             @if (lang == "tr")
                             {

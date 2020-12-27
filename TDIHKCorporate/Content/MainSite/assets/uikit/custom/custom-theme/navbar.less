@@ -86,7 +86,6 @@
     text-transform: @navbar-nav-item-text-transform;
     transition: 0.1s ease-in-out;
     transition-property: color, background-color;
-    margin-right: 25px;
     position: relative;
     font-weight: 600;
     &:after {
@@ -97,7 +96,8 @@
         height: 0;
         width: 0;
         background-color: @global-color;
-        transition: .3s;
+        transition: .5s;
+        transition-timing-function: ease-in-out;
     }
 }
 

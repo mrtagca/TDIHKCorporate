@@ -17,7 +17,7 @@ html {
   /* 2 */
   -webkit-text-size-adjust: 100%;
   /* 3 */
-  background: #F5F5F5;
+  background: #FFF;
   color: #142C51;
 }
 /*
@@ -407,7 +407,7 @@ pre {
   padding: 10px;
   border: 1px solid #e5e5e5;
   border-radius: 3px;
-  background: #F5F5F5;
+  background: #FFF;
 }
 pre code {
   font-family: Consolas, monaco, monospace;
@@ -1326,7 +1326,7 @@ button.uk-icon:not(:disabled) {
   height: 15px;
   width: 15px;
   border-radius: 500px;
-  background: #F5F5F5;
+  background: #FFF;
   border: 1px solid #cccccc;
 }
 /* Firefox */
@@ -1337,7 +1337,7 @@ button.uk-icon:not(:disabled) {
   height: 15px;
   width: 15px;
   border-radius: 500px;
-  background: #F5F5F5;
+  background: #FFF;
   border: 1px solid #cccccc;
 }
 /* Edge */
@@ -1353,7 +1353,7 @@ button.uk-icon:not(:disabled) {
   height: 15px;
   width: 15px;
   border-radius: 500px;
-  background: #F5F5F5;
+  background: #FFF;
   border: 1px solid #cccccc;
 }
 /* Edge + IE11 */
@@ -2383,7 +2383,7 @@ select.uk-form-width-xsmall {
  * Default
  */
 .uk-section-default {
-  background: #F5F5F5;
+  background: #FFF;
 }
 /*
  * Muted
@@ -2573,7 +2573,6 @@ select.uk-form-width-xsmall {
 }
 .subscription-email::placeholder {
   text-align: center;
-  font-size: 1.5rem;
 }
 .podcast-container > div:hover {
   background-color: #f8f8f8;
@@ -3455,7 +3454,7 @@ select.uk-form-width-xsmall {
  * Default
  */
 .uk-tile-default {
-  background: #F5F5F5;
+  background: #FFF;
 }
 /*
  * Muted
@@ -4015,7 +4014,7 @@ select.uk-form-width-xsmall {
  * Default
  */
 .uk-overlay-default {
-  background: rgba(245, 245, 245, 0.8);
+  background: rgba(255, 255, 255, 0.8);
 }
 /*
  * Primary
@@ -4618,7 +4617,7 @@ select.uk-form-width-xsmall {
   /* 3 */
   max-width: calc(100% - 0.01px) !important;
   /* 4 */
-  background: #F5F5F5;
+  background: #FFF;
   /* 5 */
   opacity: 0;
   transform: translateY(-100px);
@@ -4741,7 +4740,7 @@ select.uk-form-width-xsmall {
   top: 0;
   right: 0;
   padding: 20px;
-  background: #F5F5F5;
+  background: #FFF;
 }
 /* ========================================================================
    Component: Slideshow
@@ -5980,7 +5979,7 @@ ul.uk-nav-sub {
 /* Container
  ========================================================================== */
 .uk-navbar-container:not(.uk-navbar-transparent) {
-  background: #F5F5F5;
+  background: #FFF;
 }
 /*
  * Remove pseudo elements created by micro clearfix as precaution (if Container component is used)
@@ -6101,7 +6100,6 @@ ul.uk-nav-sub {
   text-transform: none;
   transition: 0.1s ease-in-out;
   transition-property: color, background-color;
-  margin-right: 25px;
   position: relative;
   font-weight: 600;
 }
@@ -6113,7 +6111,8 @@ ul.uk-nav-sub {
   height: 0;
   width: 0;
   background-color: #142C51;
-  transition: .3s;
+  transition: .5s;
+  transition-timing-function: ease-in-out;
 }
 /*
  * Hover
@@ -6869,7 +6868,7 @@ ul.uk-nav-sub {
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(245, 245, 245, 0.4);
+  background: rgba(255, 255, 255, 0.4);
   transition: background-color 0.1s ease-in-out;
 }
 /* Hover + Focus */
@@ -8463,7 +8462,7 @@ iframe.uk-cover {
 /* Color
  ========================================================================== */
 .uk-background-default {
-  background-color: #F5F5F5;
+  background-color: #FFF;
 }
 .uk-background-muted {
   background-color: #f8f8f8;
