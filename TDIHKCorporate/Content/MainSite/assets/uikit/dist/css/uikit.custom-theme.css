@@ -6101,6 +6101,16 @@ ul.uk-nav-sub {
   transition: 0.1s ease-in-out;
   transition-property: color, background-color;
 }
+.uk-navbar-nav > li > a:after {
+  content: '';
+  display: block;
+  bottom: 0;
+  position: absolute;
+  height: 0;
+  width: 0;
+  background-color: #142C51;
+  transition: .3s;
+}
 /*
  * Hover
  * Apply hover style also to focus state and if dropdown is opened
@@ -6110,7 +6120,12 @@ ul.uk-nav-sub {
 .uk-navbar-nav > li > a.uk-open {
   color: #142C51;
   outline: none;
-  border-bottom: 3px solid #142C51;
+}
+.uk-navbar-nav > li:hover > a:after,
+.uk-navbar-nav > li > a:focus:after,
+.uk-navbar-nav > li > a.uk-open:after {
+  height: 3px;
+  width: 100px;
 }
 /* OnClick */
 .uk-navbar-nav > li > a:active {
