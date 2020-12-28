@@ -105,12 +105,12 @@ function AddPage() {
         return;
     }
 
-    if (dataParams.PageImagePath === '' || typeof (dataParams.PageImagePath) === 'undefined' || dataParams.PageImagePath === null) {
-        alert("Please select a page image!");
-        var element = document.getElementById("PageImage");
-        element.style = styleCss;
-        return;
-    }
+    //if (dataParams.PageImagePath === '' || typeof (dataParams.PageImagePath) === 'undefined' || dataParams.PageImagePath === null) {
+    //    alert("Please select a page image!");
+    //    var element = document.getElementById("PageImage");
+    //    element.style = styleCss;
+    //    return;
+    //}
 
 
     RequestAjax(callParams, dataParams, function (response) {
@@ -233,12 +233,12 @@ function EditPage(pageID) {
         return;
     }
 
-    if (dataParams.PageImagePath === '' || typeof (dataParams.PageImagePath) === 'undefined' || dataParams.PageImagePath === null) {
-        alert("Please select a page image!");
-        var element = document.getElementById("PageImage");
-        element.style = styleCss;
-        return;
-    }
+    //if (dataParams.PageImagePath === '' || typeof (dataParams.PageImagePath) === 'undefined' || dataParams.PageImagePath === null) {
+    //    alert("Please select a page image!");
+    //    var element = document.getElementById("PageImage");
+    //    element.style = styleCss;
+    //    return;
+    //}
 
 
     RequestAjax(callParams, dataParams, function (response) {
