@@ -300,11 +300,19 @@ namespace TDIHKCorporate.Areas.Management.Controllers
 
                 file.SaveAs(filePath);
 
-                if (formData.Width != null && formData.Height != null)
+                if (formData.Width != null)
                 {
                     ResizeSettings resizeSetting = new ResizeSettings
                     {
-                        Width = int.Parse(formData.Width),
+                        Width = int.Parse(formData.Width)
+                    };
+                    ImageBuilder.Current.Build(filePath, filePath, resizeSetting);
+                }
+
+                if (formData.Height != null)
+                {
+                    ResizeSettings resizeSetting = new ResizeSettings
+                    {
                         Height = int.Parse(formData.Height)
                     };
                     ImageBuilder.Current.Build(filePath, filePath, resizeSetting);
@@ -398,11 +406,19 @@ namespace TDIHKCorporate.Areas.Management.Controllers
 
                 file.SaveAs(filePath);
 
-                if (formData.Width != null && formData.Height != null)
+                if (formData.Width != null)
                 {
                     ResizeSettings resizeSetting = new ResizeSettings
                     {
-                        Width = int.Parse(formData.Width),
+                        Width = int.Parse(formData.Width)
+                    };
+                    ImageBuilder.Current.Build(filePath, filePath, resizeSetting);
+                }
+
+                if (formData.Height != null)
+                {
+                    ResizeSettings resizeSetting = new ResizeSettings
+                    {
                         Height = int.Parse(formData.Height)
                     };
                     ImageBuilder.Current.Build(filePath, filePath, resizeSetting);

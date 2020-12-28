@@ -25,7 +25,7 @@
 
         <div>
             <h5>Haber Açıklaması</h5>
-            <input type="text" class="form-control" id="NewsDescription" placeholder="News Description" maxlength="360" value="" required />
+            <input type="text" class="form-control" id="NewsDescription" placeholder="News Description" maxlength="360" value="@Model.NewsDescription" required />
         </div>
         <br />
 
@@ -167,7 +167,8 @@
 
     $(document).ready(function () {
 
-        GetNewsCategories("NewsCategories");
+        //GetNewsCategories("NewsCategories");
+
         GetNewsIdentifier('NewsIdentifierDropdown', '@Model.Language');
 
         var editor = $("#editor").data("kendoEditor");
@@ -204,10 +205,21 @@
     }
 
        $(window).on('load', function () {
-       // $('#NewsCategories').val('@Model.NewsCategoryID');
+           //$('#NewsCategories').val('@Model.NewsCategoryID');
+
+           setTimeout(() => {
+               GetNewsCategories("NewsCategories");
+            }, 500);
+
+            setTimeout(() => {
+           $('#NewsCategories').val('@Model.NewsCategoryID');
+           }, 1000);
+
            $('#NewsLanguage').val('@Model.Language');
 
            $('#NewsIdentifierDropdown').val('@Model.NewsIdentifier');
+
+
 
     })
 </script>
@@ -227,8 +239,8 @@
                 thumbnail.append(files[i].name, files[i]);
             }
 
-            thumbnail.append("Width", "500");
-            thumbnail.append("Height", "300");
+            //thumbnail.append("Width", "500");
+            //thumbnail.append("Height", "300");
 
             $.ajax({
                 url: '/Management/Image/ImageBrowserUploadForNewsThumbnail',
