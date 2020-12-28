@@ -2831,6 +2831,7 @@ select.uk-form-width-xsmall {
   border: 0;
   border-bottom: 2px solid #585858;
   font-size: 16px;
+  padding-left: 5px;
 }
 @media (min-width: 960px) {
   .msa-form {
