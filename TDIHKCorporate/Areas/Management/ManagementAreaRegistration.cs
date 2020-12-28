@@ -21,11 +21,7 @@ namespace TDIHKCorporate.Areas.Management
             //    defaults: new { controller = "Admin", action = "Login", id = UrlParameter.Optional }
             //);
 
-            context.MapRoute(
-             name: "eventregister",
-             url: "Management/{controller}/{action}/{eventIdentifier}",
-             defaults: new { controller = "Event", action = "EventRegistrations", eventIdentifier = UrlParameter.Optional }
-         );
+            
 
             context.MapRoute(
               name: "management",
@@ -38,6 +34,12 @@ namespace TDIHKCorporate.Areas.Management
                 "Management/{controller}/{action}/{id}",
                 new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+            context.MapRoute(
+             name: "eventregister",
+             url: "Management/{controller}/{action}/{eventIdentifier}",
+             defaults: new { controller = "Event", action = "EventRegistrations", eventIdentifier = UrlParameter.Optional }
+         );
         }
     }
 }
