@@ -203,7 +203,7 @@ order by CreatedDate desc", new { lang = "tr" });
                 DapperRepository<News> addNews = new DapperRepository<News>();
 
 
-                int result = addNews.Execute(@"update News set NewsImagePath=@NewsImagePath,NewsCategoryID = @NewsCategoryID,NewsTitle=@NewsTitle,NewsContent=@NewsContent,NewsSeoLink=@NewsSeoLink,NewsSeoKeywords=@NewsSeoKeywords,[Language]=@language,UpdatedDate=@updatedDate,UpdatedBy=@UpdatedBy,IsActive=@IsActive,NewsDescription=@NewsDescription
+                int result = addNews.Execute(@"update News set NewsImagePath=@NewsImagePath,NewsThumbnailPath=@NewsThumbnailPath,NewsDescription=@NewsDescription,NewsCategoryID = @NewsCategoryID,NewsTitle=@NewsTitle,NewsContent=@NewsContent,NewsSeoLink=@NewsSeoLink,NewsSeoKeywords=@NewsSeoKeywords,[Language]=@language,UpdatedDate=@updatedDate,UpdatedBy=@UpdatedBy,IsActive=@IsActive
                                         where NewsID = @NewsID", new
                 {
                     NewsID = news.NewsID,
