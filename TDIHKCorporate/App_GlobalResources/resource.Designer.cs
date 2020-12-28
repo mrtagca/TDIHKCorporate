@@ -88,6 +88,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Avantajlar.
+        /// </summary>
+        internal static string Avantajlar {
+            get {
+                return ResourceManager.GetString("Avantajlar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Başlık.
         /// </summary>
         internal static string Baslik {
@@ -106,11 +115,29 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to En son gelismelerden ve firsatlardan haberdar olmak için bültenimize kaydolun..
+        /// </summary>
+        internal static string BultenSonGelismeler {
+            get {
+                return ResourceManager.GetString("BultenSonGelismeler", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to COVID-19.
         /// </summary>
         internal static string Covid19 {
             get {
                 return ResourceManager.GetString("Covid19", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Daha Fazla.
+        /// </summary>
+        internal static string DahaFazla {
+            get {
+                return ResourceManager.GetString("DahaFazla", resourceCulture);
             }
         }
         
@@ -349,6 +376,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Kaydol.
+        /// </summary>
+        internal static string Kaydol {
+            get {
+                return ResourceManager.GetString("Kaydol", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Giriş Yap.
         /// </summary>
         internal static string Login {
@@ -516,6 +552,24 @@ namespace Resources {
         internal static string Ozet {
             get {
                 return ResourceManager.GetString("Ozet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Üyelik avantajlari hakkinda daha fazla bilgi edinin.
+        /// </summary>
+        internal static string PremiumUyeAvantajlariDetayliBilgi {
+            get {
+                return ResourceManager.GetString("PremiumUyeAvantajlariDetayliBilgi", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Premium Üyeler.
+        /// </summary>
+        internal static string PremiumUyeler {
+            get {
+                return ResourceManager.GetString("PremiumUyeler", resourceCulture);
             }
         }
         
@@ -750,6 +804,24 @@ namespace Resources {
         internal static string UyeListesi {
             get {
                 return ResourceManager.GetString("UyeListesi", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Veri Gizliliği.
+        /// </summary>
+        internal static string VeriGizlilik {
+            get {
+                return ResourceManager.GetString("VeriGizlilik", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TD-IHK&apos;nın verilerinizi nasıl işlediğine ilişkin bilgiler aşağıdaki sayfalarda bulunabilir.
+        /// </summary>
+        internal static string VeriIsleme {
+            get {
+                return ResourceManager.GetString("VeriIsleme", resourceCulture);
             }
         }
         
