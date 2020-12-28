@@ -26,7 +26,23 @@
                                 TimeSpan tsp = new TimeSpan(item.EventTime.Hours, item.EventTime.Minutes, item.EventTime.Seconds);
                                 <div class="uk-flex uk-flex-middle"><span class="uk-icon uk-margin-small-right" uk-icon="icon: icn-clock"></span><span class="size-20">@String.Format("{0:hh\\:mm}", tsp)</span></div>
                             }
-                            <a href="#" class="uk-button uk-width-1-1 uk-button-secondary uk-margin-small-top uk-border-rounded color-global">Registrierung</a>
+
+                            @{
+
+                                string lang = ci.TwoLetterISOLanguageName;
+
+                                if (lang == "tr")
+                                {
+                                    <a href="/tr/etkinlikler/@item.EventSeoLink" class="uk-button uk-width-1-1 uk-button-secondary uk-margin-small-top uk-border-rounded color-global">Registrierung</a>
+                                }
+                                else
+                                {
+                                    <a href="/de/events/@item.EventSeoLink" class="uk-button uk-width-1-1 uk-button-secondary uk-margin-small-top uk-border-rounded color-global">Registrierung</a>
+                                }
+
+                            }
+
+
                         </div>
                     </div>
                 </div>
