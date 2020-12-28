@@ -167,7 +167,8 @@
 
     $(document).ready(function () {
 
-        GetNewsCategories("NewsCategories");
+        //GetNewsCategories("NewsCategories");
+
         GetNewsIdentifier('NewsIdentifierDropdown', '@Model.Language');
 
         var editor = $("#editor").data("kendoEditor");
@@ -204,10 +205,21 @@
     }
 
        $(window).on('load', function () {
-       // $('#NewsCategories').val('@Model.NewsCategoryID');
+           //$('#NewsCategories').val('@Model.NewsCategoryID');
+
+           setTimeout(() => {
+               GetNewsCategories("NewsCategories");
+            }, 500);
+
+            setTimeout(() => {
+           $('#NewsCategories').val('@Model.NewsCategoryID');
+           }, 1000);
+
            $('#NewsLanguage').val('@Model.Language');
 
            $('#NewsIdentifierDropdown').val('@Model.NewsIdentifier');
+
+
 
     })
 </script>
