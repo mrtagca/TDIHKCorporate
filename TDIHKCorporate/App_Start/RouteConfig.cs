@@ -401,14 +401,14 @@ namespace TDIHKCorporate
             #region Premium Mitgliedschaft Form / Premiuum Üyelik Formu
             routes.MapRoute(
                     name: "PremiumMitgliedschaftFormGerman",
-                    url: "{lang}/seiten/premium-mitgliedschaft-form",
+                    url: "{lang}/mitgliedschaft/premium-mitgliedschaft-form",
                     defaults: new { controller = "MemberShip", action = "PremiumMitgliedschaftAntragsformular", lang = language },
                  new[] { "TDIHKCorporate.Controllers" }
                 );
 
             routes.MapRoute(
                     name: "PremiumMitgliedschaftFormTurkey",
-                    url: "{lang}/sayfalar/premium-uyelik-formu",
+                    url: "{lang}/uyelik/premium-uyelik-formu",
                     defaults: new { controller = "MemberShip", action = "PremiumMitgliedschaftAntragsformular", lang = language },
                  new[] { "TDIHKCorporate.Controllers" }
                 );

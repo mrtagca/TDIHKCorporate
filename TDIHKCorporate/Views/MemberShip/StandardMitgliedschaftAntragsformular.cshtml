@@ -1,4 +1,5 @@
-﻿
+﻿@using System.Globalization
+ 
 @{
     ViewBag.Title = "StandardMitgliedschaftAntragsformular";
     Layout = "~/Views/Shared/_layoutMaster.cshtml";
@@ -7,6 +8,12 @@
 <script src="~/Content/Scripts/RequestHelper.js"></script>
 <script src="~/Content/Scripts/ValidateHelper.js"></script>
 <script src="~/Content/Scripts/StandartMemberShip.js"></script>
+
+@{
+    CultureInfo ci = System.Threading.Thread.CurrentThread.CurrentCulture;
+    string lang = ci.TwoLetterISOLanguageName;
+
+}
 
 <main class="uk-container" uk-scrollspy="cls: uk-animation-fade; target: > section; delay: 250">
     <section class="uk-margin-medium-top">
@@ -97,7 +104,14 @@
                 </div>
             </div>
             <div class="uk-margin">
-                <a class="uk-button uk-button-default premium-form-btn uk-width-1-1">@Resources.resource.OnKoltuktanBirisiniIsterMisiniz <u>@Resources.resource.PremiumUyelik</u> @Resources.resource.Almak?</a>
+                @if (lang == "tr")
+                {
+                    <a target="_blank" href="/tr/uyelik/premium-uyelik-formu" class="uk-button uk-button-default premium-form-btn uk-width-1-1">@Resources.resource.OnKoltuktanBirisiniIsterMisiniz? <u>@Resources.resource.PremiumUyelik</u></a>
+                }
+                else
+                {
+                    <a target="_blank" href="/de/mitgliedschaft/premium-mitgliedschaft-form" class="uk-button uk-button-default premium-form-btn uk-width-1-1">@Resources.resource.OnKoltuktanBirisiniIsterMisiniz <u>@Resources.resource.PremiumUyelik</u> @Resources.resource.Almak?</a>
+                }
             </div>
             <div class="uk-text-large">@Resources.resource.LutfenSırketLogonuzuBurayaYukleyin</div>
             <div class="uk-margin">
