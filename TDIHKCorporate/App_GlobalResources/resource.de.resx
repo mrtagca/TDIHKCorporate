@@ -117,6 +117,24 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="10BinEuroYillik" xml:space="preserve">
+    <value>10.000 €/Jahr</value>
+  </data>
+  <data name="10KoltuktanBirisiniIsterMisiniz" xml:space="preserve">
+    <value>Möchten Sie einen der 10 Sitze der</value>
+  </data>
+  <data name="20MilyonEuroKadar" xml:space="preserve">
+    <value>bis 20 mio. €</value>
+  </data>
+  <data name="20MilyonEuroUzerinde" xml:space="preserve">
+    <value>über 20 Mio. €</value>
+  </data>
+  <data name="5MilyonEuroKadar" xml:space="preserve">
+    <value>bis 5 mio. € (1.200 €/Jahr)</value>
+  </data>
+  <data name="Almak" xml:space="preserve">
+    <value>einnehmen</value>
+  </data>
   <data name="Alman" xml:space="preserve">
     <value>German</value>
   </data>
@@ -135,8 +153,17 @@
   <data name="BeniHatirla" xml:space="preserve">
     <value>Erinnere dich an mich</value>
   </data>
+  <data name="BilgiNotlari" xml:space="preserve">
+    <value>Infoblatter</value>
+  </data>
+  <data name="BireyselBasvuru" xml:space="preserve">
+    <value>als Privatperson</value>
+  </data>
   <data name="BultenSonGelismeler" xml:space="preserve">
     <value>Melden Sie sich für unseren Newsletter an um die neusten Nachrichten und Angebote zu erhalten.</value>
+  </data>
+  <data name="BurayaTiklayarakKabulEdebilirsiniz" xml:space="preserve">
+    <value>Wenn Sie hier klicken, akzeptieren Sie den</value>
   </data>
   <data name="Covid19" xml:space="preserve">
     <value>COVID-19</value>
@@ -149,6 +176,18 @@
   </data>
   <data name="Dil" xml:space="preserve">
     <value>Sprache</value>
+  </data>
+  <data name="DisTicaretPortali" xml:space="preserve">
+    <value>Außenhandelsportal</value>
+  </data>
+  <data name="DosyaSeciniz" xml:space="preserve">
+    <value>Choose File</value>
+  </data>
+  <data name="ElektronikImza" xml:space="preserve">
+    <value>Digital Unterschrift</value>
+  </data>
+  <data name="EmailAdres" xml:space="preserve">
+    <value>E-mail Adresse</value>
   </data>
   <data name="EmailKullaniciAdi" xml:space="preserve">
     <value>E-Mail Adresse oder Benutzername</value>
@@ -183,11 +222,38 @@
   <data name="EtkinlikSaati" xml:space="preserve">
     <value>Ereigniszeit</value>
   </data>
+  <data name="EtkinlikTakvimi" xml:space="preserve">
+    <value>Kalender</value>
+  </data>
   <data name="EtkinlikTarihi" xml:space="preserve">
     <value>Veranstaltungsdatum</value>
   </data>
+  <data name="EvNumarasi" xml:space="preserve">
+    <value>Hausnummer</value>
+  </data>
   <data name="Eylemler" xml:space="preserve">
     <value>Aktionen</value>
+  </data>
+  <data name="Fax" xml:space="preserve">
+    <value>Fax</value>
+  </data>
+  <data name="FirmaAdi" xml:space="preserve">
+    <value>Name der Firma</value>
+  </data>
+  <data name="GecmisEtkinlikler" xml:space="preserve">
+    <value>Vergangene Events</value>
+  </data>
+  <data name="GelecekEtkinlikler" xml:space="preserve">
+    <value>Zukünftige Events</value>
+  </data>
+  <data name="GirisCikisKurallari" xml:space="preserve">
+    <value>Ein - und Ausreisebestimmungen</value>
+  </data>
+  <data name="GizlilikPolitikasiveEsasSozlesme" xml:space="preserve">
+    <value>Datenschutzerklärung und die Satzung</value>
+  </data>
+  <data name="Gonder" xml:space="preserve">
+    <value>Senden</value>
   </data>
   <data name="Guncelle" xml:space="preserve">
     <value>Aktualisieren</value>
@@ -213,6 +279,9 @@
   <data name="IletisimFormu" xml:space="preserve">
     <value>Kontakt (Formular)</value>
   </data>
+  <data name="Isim" xml:space="preserve">
+    <value>Vorname</value>
+  </data>
   <data name="IstekListesi" xml:space="preserve">
     <value>Wunschzettel</value>
   </data>
@@ -225,8 +294,20 @@
   <data name="Kaydol" xml:space="preserve">
     <value>Anmelden</value>
   </data>
+  <data name="Kayit" xml:space="preserve">
+    <value>Registrierung</value>
+  </data>
+  <data name="KayitOl" xml:space="preserve">
+    <value>Registrieren Sie</value>
+  </data>
+  <data name="KurumBasvurusu" xml:space="preserve">
+    <value>in Vertretung für Unternehmen</value>
+  </data>
   <data name="Login" xml:space="preserve">
     <value>Anmeldung</value>
+  </data>
+  <data name="LutfenSırketLogonuzuBurayaYukleyin" xml:space="preserve">
+    <value>Bitte laden Sie hier Ihr Unternehmenslogo hoch.</value>
   </data>
   <data name="MailAdresiKayitli" xml:space="preserve">
     <value>Mail bereits registriert!</value>
@@ -282,11 +363,26 @@
   <data name="Ozet" xml:space="preserve">
     <value>Zusammenfassung</value>
   </data>
+  <data name="PazaraGiris" xml:space="preserve">
+    <value>Markteintritt</value>
+  </data>
+  <data name="PostaKodu" xml:space="preserve">
+    <value>PostLeithzahl</value>
+  </data>
+  <data name="Pozisyon" xml:space="preserve">
+    <value>Position</value>
+  </data>
   <data name="PremiumUyeAvantajlariDetayliBilgi" xml:space="preserve">
     <value>Lernen Sie mehr über die Vorteile einer Mitgliedschaft</value>
   </data>
   <data name="PremiumUyeler" xml:space="preserve">
     <value>Premium Mitglieder</value>
+  </data>
+  <data name="PremiumUyelik" xml:space="preserve">
+    <value>Premium-Mitgliedschaft</value>
+  </data>
+  <data name="PremiumUyelikUcreti" xml:space="preserve">
+    <value>Premium Mitgliedschaftsbeitrag</value>
   </data>
   <data name="RaporOlustur" xml:space="preserve">
     <value>Bericht erstellen</value>
@@ -324,6 +420,9 @@
   <data name="SifremiUnuttum" xml:space="preserve">
     <value>Passwort vergessen</value>
   </data>
+  <data name="Sirket" xml:space="preserve">
+    <value>Firma</value>
+  </data>
   <data name="Slider" xml:space="preserve">
     <value>Schieberegler</value>
   </data>
@@ -348,11 +447,35 @@
   <data name="SliderUrl" xml:space="preserve">
     <value>Schieberegler URL</value>
   </data>
+  <data name="Sokak" xml:space="preserve">
+    <value>Strabe</value>
+  </data>
   <data name="Sonuclar" xml:space="preserve">
     <value>Ergebnisse</value>
   </data>
+  <data name="Soyadi" xml:space="preserve">
+    <value>Nachname</value>
+  </data>
   <data name="TaslakOlarakKaydet" xml:space="preserve">
     <value>Als Entwurf Speichern</value>
+  </data>
+  <data name="TavsiyeEdeceginizDigerOdaUyeleri" xml:space="preserve">
+    <value>Empfehlung weiterer Kammermitglieder</value>
+  </data>
+  <data name="TDIHKUyeligineBasvuruyorum" xml:space="preserve">
+    <value>Ich beantrage die Mitgliedschaft in der TD-IHK</value>
+  </data>
+  <data name="Telefon" xml:space="preserve">
+    <value>Telefon</value>
+  </data>
+  <data name="Temsilci" xml:space="preserve">
+    <value>Vertreter</value>
+  </data>
+  <data name="TumunuGoster" xml:space="preserve">
+    <value>Alle anzeigen</value>
+  </data>
+  <data name="UyeAra" xml:space="preserve">
+    <value>Nach Mitglieder suchen</value>
   </data>
   <data name="UyeEkle" xml:space="preserve">
     <value>Mitglied Hinzufügen</value>
@@ -363,6 +486,9 @@
   <data name="Uyelik" xml:space="preserve">
     <value>Mitgliedschaft</value>
   </data>
+  <data name="UyelikBasvurusu" xml:space="preserve">
+    <value>Mitgliedschaftsantrag</value>
+  </data>
   <data name="UyeListesi" xml:space="preserve">
     <value>Mitgliederliste</value>
   </data>
@@ -372,11 +498,26 @@
   <data name="VeriIsleme" xml:space="preserve">
     <value>Informationen dazu, wie TD-IHK mit deinen Daten umgeht, findest du in unserer</value>
   </data>
+  <data name="Website" xml:space="preserve">
+    <value>Website</value>
+  </data>
+  <data name="Yalnizca" xml:space="preserve">
+    <value>Nür Noch</value>
+  </data>
   <data name="Yayimla" xml:space="preserve">
     <value>Veröffentlichen</value>
   </data>
   <data name="Yayinlarimiz" xml:space="preserve">
     <value>Veröffentlichungen</value>
+  </data>
+  <data name="Yer" xml:space="preserve">
+    <value>Ort</value>
+  </data>
+  <data name="YerKaldi" xml:space="preserve">
+    <value>Platze Vervügbar</value>
+  </data>
+  <data name="YerZaman" xml:space="preserve">
+    <value>Ort, Datum</value>
   </data>
   <data name="YonetimPaneli" xml:space="preserve">
     <value>Management Panel</value>

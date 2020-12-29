@@ -11,8 +11,8 @@
         <div class="uk-position-cover uk-flex uk-flex-middle mitgliederliste-banner">
             <div class="uk-flex uk-flex-column uk-width-1-1">
                 <form action="/MemberShip/Mitgliederliste" method="get">
-                    <div class="mitgliederliste-banner--title">Mitglieder</div>
-                    <input type="text" id="MemberSearchText" placeholder="Nach Mitglieder suchen" name="search" class="uk-input uk-border-rounded uk-width-1-2">
+                    <div class="mitgliederliste-banner--title">@Resources.resource.Uyeler</div>
+                    <input type="text" id="MemberSearchText" placeholder="@Resources.resource.UyeAra" name="search" class="uk-input uk-border-rounded uk-width-1-2">
                     <button id="SearchMember" type="submit" class="background-transparent uk-margin-small-left uk-preserve uk-icon" uk-icon="icn-white-search"></button>
 
                     @*<input type="submit" class="background-transparent uk-margin-small-left uk-preserve uk-icon" uk-icon="icn-white-search" name="Search" value="SearchMember" />*@
@@ -23,7 +23,7 @@
 
 
     <section class="uk-section">
-        <h1 class="uk-h3">Mitgliederliste</h1>
+        <h1 class="uk-h3">@Resources.resource.UyeListesi</h1>
         <div class="" uk-filter="target: .companies">
             <ul class="uk-subnav uk-subnav-pill words-subnav">
                 <li uk-filter-control="[data-word='A']"><a href="#">A</a></li>
@@ -52,7 +52,7 @@
                 <li uk-filter-control="[data-word='X']"><a href="#">X</a></li>
                 <li uk-filter-control="[data-word='Y']"><a href="#">Y</a></li>
                 <li uk-filter-control="[data-word='Z']"><a href="#">Z</a></li>
-                <li class="uk-active" uk-filter-control=""><a href="#" style="text-transform: none;">Alle anzeigen</a></li>
+                <li class="uk-active" uk-filter-control=""><a href="#" style="text-transform: none;">@Resources.resource.TumunuGoster</a></li>
             </ul>
 
             @Html.Action("ShowPremiumMembersSlider", "Home")
@@ -69,8 +69,6 @@
                         <div class="uk-child-width-1-2@m uk-margin-medium-top" uk-grid>
                             @foreach (var item in Model.Where(x => x.AlphabetStarter == charachter).ToList())
                             {
-
-
                                 <!-- Şirket Kartı-->
                                 <div>
                                     <div class="uk-child-width-1-2 uk-grid-medium uk-flex-middle" uk-grid>

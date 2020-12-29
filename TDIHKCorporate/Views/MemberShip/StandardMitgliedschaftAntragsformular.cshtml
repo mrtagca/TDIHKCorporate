@@ -11,7 +11,7 @@
 <main class="uk-container" uk-scrollspy="cls: uk-animation-fade; target: > section; delay: 250">
     <section class="uk-margin-medium-top">
         <div class="uk-text-center">
-            <div class="uk-h2">MITGLIEDSCHAFTSANTRAG</div>
+            <div class="uk-h2">@Resources.resource.UyelikBasvurusu</div>
             <p>Lorem ipsum dolor sit amet</p>
         </div>
     </section>
@@ -19,146 +19,122 @@
         <form class="uk-form-stacked uk-child-width-1-1 uk-width-3-4@s uk-margin-auto msa-form uk-box-shadow-medium" uk-grid>
             <div>
                 <div class="uk-margin">
-                    <div class="uk-text-large">Ich beantrage die Mitgliedschaft in der TH-IDK</div>
+                    <div class="uk-text-large">@Resources.resource.TDIHKUyeligineBasvuruyorum</div>
                 </div>
             </div>
-
-
-            @*<div class="uk-margin  color-dark-grey uk-width-1-2@s size-22 size-15-m">
-                    <label><input class="uk-radio" type="radio" checked>in Vertretung für Unternehmen</label>
-                </div>
-                <div class="uk-margin color-dark-grey uk-width-1-2@s size-22 size-15-m">
-                    <label><input class="uk-radio" type="radio">als Privatperson</label>
-                </div>*@
 
             <div id="MemberTypeArea" class="uk-margin">
                 <div class="uk-form-label uk-hidden">Radio</div>
                 <div class="uk-form-controls  label-font-size">
                     <label>
-                        <input class="uk-radio" type="radio" name="radio1" id="IsCorporate">in Vertretung für Unternehmen
+                        <input class="uk-radio" type="radio" name="radio1" id="IsCorporate">@Resources.resource.KurumBasvurusu
                     </label>
-                    <label><input class="uk-radio" type="radio" name="radio1" id="IsPrivate">als Privatperson</label>
+                    <label><input class="uk-radio" type="radio" name="radio1" id="IsPrivate">@Resources.resource.BireyselBasvuru</label>
                 </div>
             </div>
 
             <div class="uk-margin">
-                <label class="uk-form-label uk-hidden" for="form-stacked-text">Text</label>
                 <div class="uk-form-controls">
-                    <input class="uk-input" name="Name" id="Name" onkeypress="validateText(event)" type="text" placeholder="Name der Firma*" required>
+                    <input class="uk-input" name="Name" id="Name" onkeypress="validateText(event)" type="text" placeholder="@Resources.resource.FirmaAdi*" required>
                 </div>
             </div>
             <div class="uk-margin uk-width-1-2@s">
-                <label class="uk-form-label uk-hidden" for="form-stacked-text">Strabe</label>
                 <div class="uk-form-controls">
-                    <input class="uk-input" id="Street" onkeypress="validateText(event)" type="text" placeholder="Strabe*" required>
+                    <input class="uk-input" id="Street" onkeypress="validateText(event)" type="text" placeholder="@Resources.resource.Sokak*" required>
                 </div>
             </div>
             <div class="uk-margin uk-width-1-2@s">
-                <label class="uk-form-label uk-hidden" for="form-stacked-text">Text</label>
                 <div class="uk-form-controls">
-                    <input class="uk-input" id="HomePhone" onkeypress="validateNumber(event)" type="text" placeholder="Hausnummer*" required>
+                    <input class="uk-input" id="HomePhone" onkeypress="validateNumber(event)" type="text" placeholder="@Resources.resource.EvNumarasi*" required>
                 </div>
             </div>
             <div class="uk-margin uk-width-1-2@s">
-                <label class="uk-form-label uk-hidden" for="form-stacked-text">Text</label>
                 <div class="uk-form-controls">
-                    <input class="uk-input" id="PostalCode" onkeypress="validateNumber(event)" type="text" placeholder="PostLeithzahl*" required>
+                    <input class="uk-input" id="PostalCode" onkeypress="validateNumber(event)" type="text" placeholder="@Resources.resource.PostaKodu*" required>
                 </div>
             </div>
             <div class="uk-margin uk-width-1-2@s">
-                <label class="uk-form-label uk-hidden" for="form-stacked-text">Text</label>
                 <div class="uk-form-controls">
-                    <input class="uk-input" id="City" onkeypress="validateOnlyText(event)" type="text" placeholder="Ort*" required>
+                    <input class="uk-input" id="City" onkeypress="validateOnlyText(event)" type="text" placeholder="@Resources.resource.Yer*" required>
                 </div>
             </div>
             <div class="uk-margin uk-width-1-2@s">
-                <label class="uk-form-label uk-hidden" for="form-stacked-text">E-mail</label>
                 <div class="uk-form-controls">
-                    <input class="uk-input" id="Email" pattern="^[a-zA-Z0-9._+-]+&#64;[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$" type="email" placeholder="Email*" required>
+                    <input class="uk-input" id="Email" pattern="^[a-zA-Z0-9._+-]+&#64;[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$" type="email" placeholder="@Resources.resource.EmailAdres*" required>
                 </div>
             </div>
             <div class="uk-margin uk-width-1-2@s">
-                <label class="uk-form-label uk-hidden" for="form-stacked-text">Text</label>
                 <div class="uk-form-controls">
-                    <input class="uk-input" id="PhoneNumber" onkeypress="validateNumber(event)" type="tel" placeholder="Telefon*" required>
+                    <input class="uk-input" id="PhoneNumber" onkeypress="validateNumber(event)" type="tel" placeholder="@Resources.resource.Telefon*" required>
                 </div>
             </div>
             <div class="uk-margin uk-width-1-2@s">
-                <label class="uk-form-label uk-hidden" for="form-stacked-text">Text</label>
                 <div class="uk-form-controls">
-                    <input class="uk-input" id="WebSite" type="text" placeholder="Website*" required>
+                    <input class="uk-input" id="WebSite" type="text" placeholder="@Resources.resource.Website*" required>
                 </div>
             </div>
             <div class="uk-margin uk-width-1-2@s">
-                <label class="uk-form-label uk-hidden" for="form-stacked-text">Fax</label>
                 <div class="uk-form-controls">
-                    <input class="uk-input" id="Fax" onkeypress="validateNumber(event)" type="tel" placeholder="Fax*" required>
+                    <input class="uk-input" id="Fax" onkeypress="validateNumber(event)" type="tel" placeholder="@Resources.resource.Fax*" required>
                 </div>
             </div>
             <div class="uk-margin uk-width-1-2@s">
-                <label class="uk-form-label uk-hidden" for="form-stacked-text">Text</label>
                 <div class="uk-form-controls">
-                    <input class="uk-input" id="ResponsiblePersonel" onkeypress="validateOnlyText(event)" type="text" placeholder="Vertreter*" required>
+                    <input class="uk-input" id="ResponsiblePersonel" onkeypress="validateOnlyText(event)" type="text" placeholder="@Resources.resource.Temsilci*" required>
                 </div>
             </div>
             <div class="uk-margin uk-width-1-2@s">
-                <label class="uk-form-label uk-hidden" for="form-stacked-text">Text</label>
                 <div class="uk-form-controls">
-                    <input class="uk-input" id="PersonelPosition" onkeypress="validateOnlyText(event)" type="text" placeholder="Position*" required>
+                    <input class="uk-input" id="PersonelPosition" onkeypress="validateOnlyText(event)" type="text" placeholder="@Resources.resource.Pozisyon*" required>
                 </div>
             </div>
             <div id="MemberPacketArea" class="uk-margin">
                 <div class="uk-form-label uk-hidden">Radio</div>
                 <div class="uk-form-controls uk-flex uk-flex-between label-font-size">
-                    <label><input class="uk-radio" type="radio" value="bis 5 mio. € (1.200 €/Jahr)" id="MemberPacket1">bis 5 mio. € (1.200 €/Jahr)</label>
-                    <label><input class="uk-radio" type="radio" value="bis 20 mio. €" id="MemberPacket2">bis 20 mio. €</label>
-                    <label><input class="uk-radio" type="radio" value="über 20 Mio. €" id="MemberPacket3">über 20 Mio. €</label>
+                    <label><input class="uk-radio" type="radio" value="bis 5 mio. € (1.200 €/Jahr)" id="MemberPacket1">@Resources.resource.5MilyonEuroKadar</label>
+                    <label><input class="uk-radio" type="radio" value="bis 20 mio. €" id="MemberPacket2">@Resources.resource.20MilyonEuroKadar</label>
+                    <label><input class="uk-radio" type="radio" value="über 20 Mio. €" id="MemberPacket3">@Resources.resource.20MilyonEuroUzerinde</label>
                 </div>
             </div>
             <div class="uk-margin">
-                <a class="uk-button uk-button-default premium-form-btn uk-width-1-1">Möchten Sie einen der 10 Sitze der <u>Premium-Mitgliedschaft</u> einnehmen?</a>
+                <a class="uk-button uk-button-default premium-form-btn uk-width-1-1">@Resources.resource.10KoltuktanBirisiniIsterMisiniz <u>@Resources.resource.PremiumUyelik</u> @Resources.resource.Almak?</a>
             </div>
-            <div class="uk-text-large">Bitte laden Sie hier Ihr Unternehmenslogo hoch</div>
+            <div class="uk-text-large">@Resources.resource.LutfenSırketLogonuzuBurayaYukleyin</div>
             <div class="uk-margin">
                 <div uk-form-custom>
                     <input id="FileUpload" name="file" image-path="" accept="image/x-png,image/gif,image/jpeg" type="file">
-                    <button class="uk-button uk-button-secondary uk-border-rounded" type="button" tabindex="-1">Choose File</button>
+                    <button class="uk-button uk-button-secondary uk-border-rounded" type="button" tabindex="-1">@Resources.resource.DosyaSeciniz</button>
                 </div>
             </div>
-            <div class="uk-text-large">Empfehlung weiterer Kammermitglieder:</div>
+            <div class="uk-text-large">@Resources.resource.TavsiyeEdeceginizDigerOdaUyeleri:</div>
             <div class="uk-margin">
-                <label class="uk-form-label uk-hidden" for="form-stacked-text">Text</label>
                 <div class="uk-form-controls">
-                    <input class="uk-input" id="MemberSuggestion1" onkeypress="validateOnlyText(event)" type="text" placeholder="Name der Firma">
-                </div>
-            </div>
-            <div class="uk-margin">
-                <label class="uk-form-label uk-hidden" for="form-stacked-text">Text</label>
-                <div class="uk-form-controls">
-                    <input class="uk-input" id="MemberSuggestion2" onkeypress="validateOnlyText(event)" type="text" placeholder="Name der Firma">
+                    <input class="uk-input" id="MemberSuggestion1" onkeypress="validateOnlyText(event)" type="text" placeholder="@Resources.resource.FirmaAdi">
                 </div>
             </div>
             <div class="uk-margin">
-                <label class="uk-form-label uk-hidden" for="form-stacked-text">Text</label>
                 <div class="uk-form-controls">
-                    <input class="uk-input" id="MemberSuggestion3" onkeypress="validateOnlyText(event)" type="text" placeholder="Name der Firma">
+                    <input class="uk-input" id="MemberSuggestion2" onkeypress="validateOnlyText(event)" type="text" placeholder="@Resources.resource.FirmaAdi">
+                </div>
+            </div>
+            <div class="uk-margin">
+                <div class="uk-form-controls">
+                    <input class="uk-input" id="MemberSuggestion3" onkeypress="validateOnlyText(event)" type="text" placeholder="@Resources.resource.FirmaAdi">
                 </div>
             </div>
             <div class="uk-text-large">Die Kammer ist mir bekannt durch Empfehlung/Informationen von:</div>
             <div class="uk-margin">
-                <label class="uk-form-label uk-hidden" for="form-stacked-text">Text</label>
                 <div class="uk-form-controls">
                     <input class="uk-input" id="SuggestionInfo" onkeypress="validateOnlyText(event)" type="text" placeholder="">
                 </div>
             </div>
             <div class="uk-margin uk-width-1-2@s">
-                <label class="uk-form-label uk-hidden" for="form-stacked-text">Text</label>
                 <div class="uk-form-controls">
-                    <input class="uk-input" id="LocationAndTime" onkeypress="validateText(event)" type="text" placeholder="Ort, Datum">
+                    <input class="uk-input" id="LocationAndTime" onkeypress="validateText(event)" type="text" placeholder="@Resources.resource.YerZaman">
                 </div>
             </div>
             <div class="uk-margin uk-width-1-2@s size-22 size-15-m">
-                <label><input class="uk-checkbox" id="DigitalSignature" type="checkbox">Digital Unterschrift</label>
+                <label><input class="uk-checkbox" id="DigitalSignature" type="checkbox">@Resources.resource.ElektronikImza</label>
             </div>
             <div class="uk-margin size-18 size-15-m color-dark-grey line-height-1">
                 Für die Aufnahme in die Kammer ist gem. § 7 Abs.1 der Satzung der Antrag und die Zahlung des
@@ -180,11 +156,11 @@
             </div>
             <div class="uk-margin size-22 size-15-m">
                 <label>
-                    <input class="uk-checkbox" id="PrivacyPolicy" type="checkbox">Wenn Sie hier klicken, akzeptieren Sie den <a href="#" class="uk-link-reset" target="_blank"><u>Datenschutzerklärung und die Satzung.</u></a>
+                    <input class="uk-checkbox" id="PrivacyPolicy" type="checkbox">@Resources.resource.BurayaTiklayarakKabulEdebilirsiniz <a href="#" class="uk-link-reset" target="_blank"><u>@Resources.resource.GizlilikPolitikasiveEsasSozlesme.</u></a>
                 </label>
             </div>
             <div onclick="SaveMember()" class="uk-margin uk-width-2-5@s uk-margin-auto">
-                <button type="submit" class="uk-button uk-button-primary uk-width-1-1 uk-border-rounded">Senden</button>
+                <button type="submit" class="uk-button uk-button-primary uk-width-1-1 uk-border-rounded">@Resources.resource.Gonder</button>
             </div>
             <div class="uk-width-1-1">
                 <div class="uk-width-1-3@s uk-margin-auto uk-flex uk-flex-around">
