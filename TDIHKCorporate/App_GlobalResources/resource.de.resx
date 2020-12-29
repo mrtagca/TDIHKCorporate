@@ -117,21 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="10BinEuroYillik" xml:space="preserve">
-    <value>10.000 €/Jahr</value>
-  </data>
-  <data name="10KoltuktanBirisiniIsterMisiniz" xml:space="preserve">
-    <value>Möchten Sie einen der 10 Sitze der</value>
-  </data>
-  <data name="20MilyonEuroKadar" xml:space="preserve">
-    <value>bis 20 mio. €</value>
-  </data>
-  <data name="20MilyonEuroUzerinde" xml:space="preserve">
-    <value>über 20 Mio. €</value>
-  </data>
-  <data name="5MilyonEuroKadar" xml:space="preserve">
-    <value>bis 5 mio. € (1.200 €/Jahr)</value>
-  </data>
   <data name="Almak" xml:space="preserve">
     <value>einnehmen</value>
   </data>
@@ -155,6 +140,9 @@
   </data>
   <data name="BeniHatirla" xml:space="preserve">
     <value>Erinnere dich an mich</value>
+  </data>
+  <data name="BesMilyonEuroKadar" xml:space="preserve">
+    <value>bis 5 mio. € (1.200 €/Jahr)</value>
   </data>
   <data name="BilgiNotlari" xml:space="preserve">
     <value>Infoblatter</value>
@@ -372,6 +360,9 @@
   <data name="OlusturulmaTarihi" xml:space="preserve">
     <value>Erstellungsdatum</value>
   </data>
+  <data name="OnBinEuroYillik" xml:space="preserve">
+    <value>10.000 €/Jahr</value>
+  </data>
   <data name="OneCikanGorsel" xml:space="preserve">
     <value>Ausgewähltes Bild</value>
   </data>
@@ -380,6 +371,9 @@
   </data>
   <data name="Onizleme" xml:space="preserve">
     <value>Vorschau</value>
+  </data>
+  <data name="OnKoltuktanBirisiniIsterMisiniz" xml:space="preserve">
+    <value>Möchten Sie einen der 10 Sitze der</value>
   </data>
   <data name="Ozet" xml:space="preserve">
     <value>Zusammenfassung</value>
@@ -548,6 +542,12 @@
   </data>
   <data name="YerZaman" xml:space="preserve">
     <value>Ort, Datum</value>
+  </data>
+  <data name="YirmiMilyonEuroKadar" xml:space="preserve">
+    <value>bis 20 mio. €</value>
+  </data>
+  <data name="YirmiMilyonEuroUzerinde" xml:space="preserve">
+    <value>über 20 Mio. €</value>
   </data>
   <data name="YonetimPaneli" xml:space="preserve">
     <value>Management Panel</value>

@@ -133,6 +133,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 5 Milyon € kadar (1,200 € / yıl).
+        /// </summary>
+        internal static string BesMilyonEuroKadar {
+            get {
+                return ResourceManager.GetString("BesMilyonEuroKadar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bilgi Notları.
         /// </summary>
         internal static string BilgiNotlari {
@@ -781,6 +790,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 10.000 € / yıl.
+        /// </summary>
+        internal static string OnBinEuroYillik {
+            get {
+                return ResourceManager.GetString("OnBinEuroYillik", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Öne Çıkan Görsel.
         /// </summary>
         internal static string OneCikanGorsel {
@@ -804,6 +822,15 @@ namespace Resources {
         internal static string Onizleme {
             get {
                 return ResourceManager.GetString("Onizleme", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 10 koltuktan birini ister misiniz.
+        /// </summary>
+        internal static string OnKoltuktanBirisiniIsterMisiniz {
+            get {
+                return ResourceManager.GetString("OnKoltuktanBirisiniIsterMisiniz", resourceCulture);
             }
         }
         
@@ -1312,56 +1339,29 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Yonetim Paneli.
-        /// </summary>
-        internal static string YonetimPaneli {
-            get {
-                return ResourceManager.GetString("YonetimPaneli", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 10.000 € / yıl.
-        /// </summary>
-        internal static string _10BinEuroYillik {
-            get {
-                return ResourceManager.GetString("10BinEuroYillik", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 10 koltuktan birini ister misiniz.
-        /// </summary>
-        internal static string _10KoltuktanBirisiniIsterMisiniz {
-            get {
-                return ResourceManager.GetString("10KoltuktanBirisiniIsterMisiniz", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to 20 Milyon € kadar.
         /// </summary>
-        internal static string _20MilyonEuroKadar {
+        internal static string YirmiMilyonEuroKadar {
             get {
-                return ResourceManager.GetString("20MilyonEuroKadar", resourceCulture);
+                return ResourceManager.GetString("YirmiMilyonEuroKadar", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to 20 Milyon € üzerinde.
         /// </summary>
-        internal static string _20MilyonEuroUzerinde {
+        internal static string YirmiMilyonEuroUzerinde {
             get {
-                return ResourceManager.GetString("20MilyonEuroUzerinde", resourceCulture);
+                return ResourceManager.GetString("YirmiMilyonEuroUzerinde", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 5 Milyon € kadar (1,200 € / yıl).
+        ///   Looks up a localized string similar to Yonetim Paneli.
         /// </summary>
-        internal static string _5MilyonEuroKadar {
+        internal static string YonetimPaneli {
             get {
-                return ResourceManager.GetString("5MilyonEuroKadar", resourceCulture);
+                return ResourceManager.GetString("YonetimPaneli", resourceCulture);
             }
         }
     }
