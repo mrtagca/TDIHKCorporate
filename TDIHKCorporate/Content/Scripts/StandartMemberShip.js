@@ -196,7 +196,7 @@
             if (response === true) {
 
                 alert("Success!");
-                //location.reload();
+                location.reload();
             }
             else {
                 alert("Fail");

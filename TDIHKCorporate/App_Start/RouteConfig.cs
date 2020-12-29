@@ -382,6 +382,38 @@ namespace TDIHKCorporate
                 );
             #endregion
 
+            #region Standart Mitgliedschaft Form / Standart Üyelik Formu
+            routes.MapRoute(
+                    name: "StandardMitgliedschaftFormGerman",
+                    url: "{lang}/mitgliedschaft/standard-mitgliedschaft-form",
+                    defaults: new { controller = "MemberShip", action = "StandardMitgliedschaftAntragsformular", lang = language },
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
+
+            routes.MapRoute(
+                    name: "StandardMitgliedschaftFormTurkey",
+                    url: "{lang}/uyelik/standart-uyelik-formu",
+                    defaults: new { controller = "MemberShip", action = "StandardMitgliedschaftAntragsformular", lang = language },
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
+            #endregion
+
+            #region Premium Mitgliedschaft Form / Premiuum Üyelik Formu
+            routes.MapRoute(
+                    name: "PremiumMitgliedschaftFormGerman",
+                    url: "{lang}/seiten/premium-mitgliedschaft-form",
+                    defaults: new { controller = "MemberShip", action = "PremiumMitgliedschaftAntragsformular", lang = language },
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
+
+            routes.MapRoute(
+                    name: "PremiumMitgliedschaftFormTurkey",
+                    url: "{lang}/sayfalar/premium-uyelik-formu",
+                    defaults: new { controller = "MemberShip", action = "PremiumMitgliedschaftAntragsformular", lang = language },
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
+            #endregion
+
             #region Üye Listesi / Mitgliederliste
             routes.MapRoute(
                     name: "EventDetailGerman",
@@ -397,7 +429,6 @@ namespace TDIHKCorporate
                  new[] { "TDIHKCorporate.Controllers" }
                 );
             #endregion
-
 
             #region Üye Listesi / Mitgliederliste
             routes.MapRoute(
@@ -430,7 +461,6 @@ namespace TDIHKCorporate
                  new[] { "TDIHKCorporate.Controllers" }
                 );
             #endregion
-
 
             #region Jobangebote / İş teklifleri
             routes.MapRoute(
@@ -546,10 +576,6 @@ namespace TDIHKCorporate
                 );
 
             #endregion
-
-
-
-
 
             #region Sayfalar
             //Sayfalar Almanca Routing
