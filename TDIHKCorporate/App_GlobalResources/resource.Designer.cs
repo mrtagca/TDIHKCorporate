@@ -79,6 +79,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ALMANYA TİCARET VE YATIRIM RAPORU 2020.
+        /// </summary>
+        internal static string AlmanyaYatirimveTicaretRaporu2020 {
+            get {
+                return ResourceManager.GetString("AlmanyaYatirimveTicaretRaporu2020", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Anasayfa.
         /// </summary>
         internal static string Anasayfa {
@@ -412,6 +421,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Gizlilik.
+        /// </summary>
+        internal static string Gizlilik {
+            get {
+                return ResourceManager.GetString("Gizlilik", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Gizlilik Politikası ve Esas Sözleşme.
         /// </summary>
         internal static string GizlilikPolitikasiveEsasSozlesme {
@@ -493,6 +511,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to İletişim.
+        /// </summary>
+        internal static string Iletisim {
+            get {
+                return ResourceManager.GetString("Iletisim", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to İletişim (Form).
         /// </summary>
         internal static string IletisimFormu {
@@ -511,11 +538,29 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to İş Teklifine Git.
+        /// </summary>
+        internal static string IsTeklifi {
+            get {
+                return ResourceManager.GetString("IsTeklifi", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to İstek Listesi.
         /// </summary>
         internal static string IstekListesi {
             get {
                 return ResourceManager.GetString("IstekListesi", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to İsterseniz üye olabilir veya üye olmadan yayın ücretinin ne kadar olduğunu sorabilirsiniz..
+        /// </summary>
+        internal static string JobageboteMetin {
+            get {
+                return ResourceManager.GetString("JobageboteMetin", resourceCulture);
             }
         }
         
@@ -565,6 +610,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Künye.
+        /// </summary>
+        internal static string Kunye {
+            get {
+                return ResourceManager.GetString("Kunye", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Kurum için Başvuru.
         /// </summary>
         internal static string KurumBasvurusu {
@@ -579,6 +633,15 @@ namespace Resources {
         internal static string Login {
             get {
                 return ResourceManager.GetString("Login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Logonuz buraya gelecek.
+        /// </summary>
+        internal static string LogonuzBurayaGelecek {
+            get {
+                return ResourceManager.GetString("LogonuzBurayaGelecek", resourceCulture);
             }
         }
         
@@ -1087,6 +1150,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ücretsizdir.
+        /// </summary>
+        internal static string Ucretsizdir {
+            get {
+                return ResourceManager.GetString("Ucretsizdir", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Üye Ara.
         /// </summary>
         internal static string UyeAra {
@@ -1110,6 +1182,15 @@ namespace Resources {
         internal static string Uyeler {
             get {
                 return ResourceManager.GetString("Uyeler", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Üyelerimiz için bu.
+        /// </summary>
+        internal static string UyelerimizIcinBu {
+            get {
+                return ResourceManager.GetString("UyelerimizIcinBu", resourceCulture);
             }
         }
         
@@ -1155,6 +1236,15 @@ namespace Resources {
         internal static string VeriIsleme {
             get {
                 return ResourceManager.GetString("VeriIsleme", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to İş ortağımız GTAI&apos;den iş bilgileri alın. Üyeliğin avantajları hakkında daha fazla bilgi edinin..
+        /// </summary>
+        internal static string VorteilleMetin {
+            get {
+                return ResourceManager.GetString("VorteilleMetin", resourceCulture);
             }
         }
         

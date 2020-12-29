@@ -138,6 +138,9 @@
   <data name="Alman" xml:space="preserve">
     <value>Alman</value>
   </data>
+  <data name="AlmanyaYatirimveTicaretRaporu2020" xml:space="preserve">
+    <value>ALMANYA TİCARET VE YATIRIM RAPORU 2020</value>
+  </data>
   <data name="Anasayfa" xml:space="preserve">
     <value>Anasayfa</value>
   </data>
@@ -249,6 +252,9 @@
   <data name="GirisCikisKurallari" xml:space="preserve">
     <value>Giriş-Çıkış Kuralları</value>
   </data>
+  <data name="Gizlilik" xml:space="preserve">
+    <value>Gizlilik</value>
+  </data>
   <data name="GizlilikPolitikasiveEsasSozlesme" xml:space="preserve">
     <value>Gizlilik Politikası ve Esas Sözleşme</value>
   </data>
@@ -276,14 +282,23 @@
   <data name="Hosgeldiniz" xml:space="preserve">
     <value>Hoşgeldiniz</value>
   </data>
+  <data name="Iletisim" xml:space="preserve">
+    <value>İletişim</value>
+  </data>
   <data name="IletisimFormu" xml:space="preserve">
     <value>İletişim (Form)</value>
   </data>
   <data name="Isim" xml:space="preserve">
     <value>İsim</value>
   </data>
+  <data name="IsTeklifi" xml:space="preserve">
+    <value>İş Teklifine Git</value>
+  </data>
   <data name="IstekListesi" xml:space="preserve">
     <value>İstek Listesi</value>
+  </data>
+  <data name="JobageboteMetin" xml:space="preserve">
+    <value>İsterseniz üye olabilir veya üye olmadan yayın ücretinin ne kadar olduğunu sorabilirsiniz.</value>
   </data>
   <data name="KategoriAyarlari" xml:space="preserve">
     <value>Kategori Ayarları</value>
@@ -300,11 +315,17 @@
   <data name="KayitOl" xml:space="preserve">
     <value>Kayıt Ol</value>
   </data>
+  <data name="Kunye" xml:space="preserve">
+    <value>Künye</value>
+  </data>
   <data name="KurumBasvurusu" xml:space="preserve">
     <value>Kurum için Başvuru</value>
   </data>
   <data name="Login" xml:space="preserve">
     <value>Giriş Yap</value>
+  </data>
+  <data name="LogonuzBurayaGelecek" xml:space="preserve">
+    <value>Logonuz buraya gelecek</value>
   </data>
   <data name="LutfenSırketLogonuzuBurayaYukleyin" xml:space="preserve">
     <value>Lütfen Şirket logonuzu buraya yükleyin.</value>
@@ -474,6 +495,9 @@
   <data name="TumunuGoster" xml:space="preserve">
     <value>Tümünü Göster</value>
   </data>
+  <data name="Ucretsizdir" xml:space="preserve">
+    <value>ücretsizdir</value>
+  </data>
   <data name="UyeAra" xml:space="preserve">
     <value>Üye Ara</value>
   </data>
@@ -482,6 +506,9 @@
   </data>
   <data name="Uyeler" xml:space="preserve">
     <value>Üyeler</value>
+  </data>
+  <data name="UyelerimizIcinBu" xml:space="preserve">
+    <value>Üyelerimiz için bu</value>
   </data>
   <data name="Uyelik" xml:space="preserve">
     <value>Üyelik</value>
@@ -497,6 +524,9 @@
   </data>
   <data name="VeriIsleme" xml:space="preserve">
     <value>TD-IHK'nın verilerinizi nasıl işlediğine ilişkin bilgiler aşağıdaki sayfalarda bulunabilir</value>
+  </data>
+  <data name="VorteilleMetin" xml:space="preserve">
+    <value>İş ortağımız GTAI'den iş bilgileri alın. Üyeliğin avantajları hakkında daha fazla bilgi edinin.</value>
   </data>
   <data name="Website" xml:space="preserve">
     <value>Website</value>

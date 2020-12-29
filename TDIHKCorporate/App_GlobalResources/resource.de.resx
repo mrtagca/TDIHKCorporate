@@ -138,6 +138,9 @@
   <data name="Alman" xml:space="preserve">
     <value>German</value>
   </data>
+  <data name="AlmanyaYatirimveTicaretRaporu2020" xml:space="preserve">
+    <value>GERMANY TRADE AND INVEST REPORT 2020</value>
+  </data>
   <data name="Anasayfa" xml:space="preserve">
     <value>Startseite</value>
   </data>
@@ -249,6 +252,9 @@
   <data name="GirisCikisKurallari" xml:space="preserve">
     <value>Ein - und Ausreisebestimmungen</value>
   </data>
+  <data name="Gizlilik" xml:space="preserve">
+    <value>Datenschutz</value>
+  </data>
   <data name="GizlilikPolitikasiveEsasSozlesme" xml:space="preserve">
     <value>Datenschutzerklärung und die Satzung</value>
   </data>
@@ -276,14 +282,23 @@
   <data name="Hosgeldiniz" xml:space="preserve">
     <value>Herzlich Willkommen</value>
   </data>
+  <data name="Iletisim" xml:space="preserve">
+    <value>Kontakt</value>
+  </data>
   <data name="IletisimFormu" xml:space="preserve">
     <value>Kontakt (Formular)</value>
   </data>
   <data name="Isim" xml:space="preserve">
     <value>Vorname</value>
   </data>
+  <data name="IsTeklifi" xml:space="preserve">
+    <value>Zu den Jobangeboten</value>
+  </data>
   <data name="IstekListesi" xml:space="preserve">
     <value>Wunschzettel</value>
+  </data>
+  <data name="JobageboteMetin" xml:space="preserve">
+    <value>Wenn Sie möchten können Sie Mitglied werden, oder fragen Sie an was die Veröffentlichung ohne Mitgliedschaft kostet</value>
   </data>
   <data name="KategoriAyarlari" xml:space="preserve">
     <value>Kategorieeinstellungen</value>
@@ -300,11 +315,17 @@
   <data name="KayitOl" xml:space="preserve">
     <value>Registrieren Sie</value>
   </data>
+  <data name="Kunye" xml:space="preserve">
+    <value>Impressum</value>
+  </data>
   <data name="KurumBasvurusu" xml:space="preserve">
     <value>in Vertretung für Unternehmen</value>
   </data>
   <data name="Login" xml:space="preserve">
     <value>Anmeldung</value>
+  </data>
+  <data name="LogonuzBurayaGelecek" xml:space="preserve">
+    <value>Ihr Logo hier</value>
   </data>
   <data name="LutfenSırketLogonuzuBurayaYukleyin" xml:space="preserve">
     <value>Bitte laden Sie hier Ihr Unternehmenslogo hoch.</value>
@@ -474,6 +495,9 @@
   <data name="TumunuGoster" xml:space="preserve">
     <value>Alle anzeigen</value>
   </data>
+  <data name="Ucretsizdir" xml:space="preserve">
+    <value>kostenlos</value>
+  </data>
   <data name="UyeAra" xml:space="preserve">
     <value>Nach Mitglieder suchen</value>
   </data>
@@ -482,6 +506,9 @@
   </data>
   <data name="Uyeler" xml:space="preserve">
     <value>Mitglieder</value>
+  </data>
+  <data name="UyelerimizIcinBu" xml:space="preserve">
+    <value>Für unsere Mitglieder ist dies auf dieser Seite</value>
   </data>
   <data name="Uyelik" xml:space="preserve">
     <value>Mitgliedschaft</value>
@@ -497,6 +524,9 @@
   </data>
   <data name="VeriIsleme" xml:space="preserve">
     <value>Informationen dazu, wie TD-IHK mit deinen Daten umgeht, findest du in unserer</value>
+  </data>
+  <data name="VorteilleMetin" xml:space="preserve">
+    <value>Erhalten Sie Wirtschaftsinformationen von unserem Partner GTAI. Lernen Sie mehr über die Vorteile einer Mitgliedschaft.</value>
   </data>
   <data name="Website" xml:space="preserve">
     <value>Website</value>
