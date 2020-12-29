@@ -34,7 +34,7 @@ namespace TDIHKCorporate.Helpers.Mail
                 (sender, certificate, chain, sslPolicyErrors) => true;
                 MailMessage ePosta = new MailMessage();
                 ePosta.From = new MailAddress(_mailOptions.CredentialUsername);
-                ePosta.To.Add("mertagca58@gmail.com");
+                ePosta.To.Add(memberShipForm.Email);
                 ePosta.Subject = emailTemplates.Subject;
                 ePosta.Body = emailTemplates.TemplateHtml;
                 ePosta.IsBodyHtml = true;

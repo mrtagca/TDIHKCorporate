@@ -62,11 +62,11 @@
                             </select>
                         </div>
                         <br />
-                        <div>
+                        @*<div>
                             <label>News Identifier</label>
                             <input type="text" class="form-control" id="NewsIdentifierTxt" placeholder="Enter Identifier" value="@Model.NewsIdentifier" required/>
                         </div>
-                        <br />
+                        <br />*@
                         <div>
                             <label><input type="checkbox" onchange="DisableIdentifierInputs()" id="IdentifierCheckbox" name="name" value="" /> Select Identifier</label>
                             <select class="form-control" id="NewsIdentifierDropdown" disabled="disabled" required>
@@ -184,16 +184,16 @@
         debugger
         var element = document.getElementById("IdentifierCheckbox")
         var dropdown = document.getElementById("NewsIdentifierDropdown");
-        var txt = document.getElementById("NewsIdentifierTxt");
+        //var txt = document.getElementById("NewsIdentifierTxt");
 
         if (element.checked === true) {
 
-            txt.setAttribute("disabled", "disabled");
+            //txt.setAttribute("disabled", "disabled");
             dropdown.removeAttribute("disabled");
         }
         else {
             dropdown.setAttribute("disabled", "disabled");
-            txt.removeAttribute("disabled");
+            //txt.removeAttribute("disabled");
         }
     }
 

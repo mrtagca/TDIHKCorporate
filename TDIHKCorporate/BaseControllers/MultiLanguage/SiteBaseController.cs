@@ -13,6 +13,8 @@ namespace TDIHKCorporate.BaseControllers.MultiLanguage
     {
         protected override IAsyncResult BeginExecuteCore(AsyncCallback callback, object state)
         {
+            
+
             string langParameter = "language";
             string cultureParameter = "culture";
             if (Request.QueryString[langParameter] != null)
@@ -56,7 +58,27 @@ namespace TDIHKCorporate.BaseControllers.MultiLanguage
                 culture = HttpContext.Session["Main" + cultureParameter].ToString();
             }
 
-            
+            if (Request.FilePath!=null)
+            {
+                if (Request.FilePath.ToString().Contains("/tr"))
+                {
+                    language = "tr";
+                    culture = "TR";
+
+                    HttpContext.Session["Main" + langParameter] = language;
+                    HttpContext.Session["Main" + cultureParameter] = culture;
+                }
+                else if (Request.FilePath.ToString().Contains("/de"))
+                {
+                    language = "de";
+                    culture = "DE";
+
+                    HttpContext.Session["Main" + langParameter] = language;
+                    HttpContext.Session["Main" + cultureParameter] = culture;
+                }
+
+            }
+
 
 
             Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo($"{language}-{culture}");
