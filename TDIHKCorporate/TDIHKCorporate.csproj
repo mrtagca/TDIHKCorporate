@@ -3087,6 +3087,7 @@
     <Content Include="Content\quill\js\quill.min.js" />
     <Content Include="Content\Scripts\Event.js" />
     <Content Include="Content\Scripts\Institution.js" />
+    <Content Include="Content\Scripts\JobOffers.js" />
     <Content Include="Content\Scripts\Member.js" />
     <Content Include="Content\Scripts\Menu.js" />
     <Content Include="Content\Scripts\News.js" />
@@ -3143,6 +3144,7 @@
     <Content Include="Content\MainSite\assets\images\8. Ekonominin desteklenmesi, acil durum fonlari ve sirketler icin yardim paketleri" />
     <Content Include="Content\MainSite\assets\images\news\turkiye-ab-gumruk-isbirligi.jpg_x" />
     <Content Include="Areas\Management\Views\Event\EventRegistrations.cshtml" />
+    <Content Include="Areas\Management\Views\JobOffer\AddJobOffer.cshtml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="HTML-1\dienstleistungen.html" />
     <Content Include="HTML-1\kalender.html" />
@@ -3179,6 +3181,7 @@
     <Compile Include="Areas\Management\Controllers\HomeController.cs" />
     <Compile Include="Areas\Management\Controllers\ImageController.cs" />
     <Compile Include="Areas\Management\Controllers\InstitutionController.cs" />
+    <Compile Include="Areas\Management\Controllers\JobOfferController.cs" />
     <Compile Include="Areas\Management\Controllers\MemberShipController.cs" />
     <Compile Include="Areas\Management\Controllers\MenuController.cs" />
     <Compile Include="Areas\Management\Controllers\NewsController.cs" />
@@ -3221,6 +3224,7 @@
     <Compile Include="Types\Events.cs" />
     <Compile Include="Types\FormTypes\NewsletterFormModel.cs" />
     <Compile Include="Types\Images.cs" />
+    <Compile Include="Types\JobOffers.cs" />
     <Compile Include="Types\MailOptions.cs" />
     <Compile Include="Types\Members.cs" />
     <Compile Include="Types\MemberShipForm.cs" />
