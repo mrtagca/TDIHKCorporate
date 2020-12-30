@@ -9,56 +9,54 @@
 <hr />
 
 
-@using (Html.BeginForm("AddJobOffer", "JobOffer", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
-    <div class="col-lg-12">
-        <div class="col-lg-4">
-            <label>
-                <input type="radio" id="IsMember"  value=""/> Üye Mi?
-            </label>
-            <br />
-            <label>Üye Seçiniz</label>
-            <select class="form-control" name="MemberID" id="Members" disabled>
-            </select>
-            <br />
-            <label>Logo</label>
-            <br />
-            <input type="file" name="file" value="Logo Seçiniz" id="JobOfferLogo" />
-            <br />
-            <br />
-            <label>Pozisyon</label>
-            <input type="text" class="form-control" name="Position" value="" id="Position" placeholder="Pozisyon" />
-            <br />
-            <label>Pozisyon Açıklaması</label>
-            <textarea class="form-control" name="PositionDescription" id="PositionDescription" placeholder="Pozisyon Açıklaması"></textarea>
-            <br />
-            <label>Lokasyon</label>
-            <input type="text" class="form-control" name="Location" value="" id="Location" placeholder="Lokasyon" />
-            <br />
-            <button onclick="SaveJobOffer()" class="btn btn-success" style="float:right">Kaydet</button>
+<div class="col-lg-12">
+    <div class="col-lg-4">
+        <label>
+            <input type="checkbox" id="IsMember" value="" /> Üye Mi?
+        </label>
+        <br />
+        <label>Üye Seçiniz</label>
+        <select class="form-control" name="MemberID" id="Members" disabled>
+        </select>
+        <br />
+        <label>Logo</label>
+        <br />
+        <input type="file" name="file" value="Logo Seçiniz" id="JobOfferLogo" />
+        <br />
+        <br />
+        <label>Pozisyon</label>
+        <input type="text" class="form-control" name="Position" value="" id="Position" placeholder="Pozisyon" />
+        <br />
+        <label>Pozisyon Açıklaması</label>
+        <textarea class="form-control" name="PositionDescription" id="PositionDescription" placeholder="Pozisyon Açıklaması"></textarea>
+        <br />
+        <label>Lokasyon</label>
+        <input type="text" class="form-control" name="Location" value="" id="Location" placeholder="Lokasyon" />
+        <br />
+        <button onclick="SaveJobOffer()" class="btn btn-success" style="float:right">Kaydet</button>
 
-        </div>
     </div>
-}
+</div>
 
 
-    <script>
-        $("#IsMember").change(function () {
 
-            var memberCheckbox = document.getElementById("IsMember");
-            var membersDropdown = document.getElementById("Members");
-            var logo = document.getElementById("JobOfferLogo");
+<script>
+    $("#IsMember").change(function () {
 
-            if (memberCheckbox.checked === true) {
-                GetMembers("Members");
-                membersDropdown.removeAttribute("disabled");
-                logo.setAttribute("disabled", "disabled");
-            }
-            else {
-                membersDropdown.setAttribute("disabled", "disabled");
-                logo.removeAttribute("disabled");
+        var memberCheckbox = document.getElementById("IsMember");
+        var membersDropdown = document.getElementById("Members");
+        var logo = document.getElementById("JobOfferLogo");
 
-            }
+        if (memberCheckbox.checked === true) {
+            GetMembers("Members");
+            membersDropdown.removeAttribute("disabled");
+            logo.setAttribute("disabled", "disabled");
+        }
+        else {
+            membersDropdown.setAttribute("disabled", "disabled");
+            logo.removeAttribute("disabled");
 
-        });
-    </script>
+        }
+
+    });
+</script>

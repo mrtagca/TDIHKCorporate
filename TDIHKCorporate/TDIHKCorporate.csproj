@@ -3884,6 +3884,7 @@
     <Folder Include="Areas\Management\Models\" />
     <Folder Include="Areas\Management\Views\Url\" />
     <Folder Include="Content\MainSite\assets\files\podcasts\" />
+    <Folder Include="Content\MainSite\assets\images\joboffers\" />
     <Folder Include="Content\MainSite\assets\images\New folder %282%29\" />
     <Folder Include="Content\MainSite\assets\images\New folder %283%29\" />
     <Folder Include="Content\MainSite\assets\images\New folder %284%29\" />

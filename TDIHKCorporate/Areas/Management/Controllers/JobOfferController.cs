@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -26,13 +27,35 @@ namespace TDIHKCorporate.Areas.Management.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddJobOffer(JobOffers jobOffers) 
+        public ActionResult AddJobOffer(JobOffers jobOffers)
         {
-
-            bool isMember = Convert.ToBoolean(Request.Form["IsMember"].ToString());
             jobOffers.CreatedDate = DateTime.Now;
             jobOffers.CreatedBy = 1;
             jobOffers.IsActive = true;
+
+            string path = "/Content/MainSite/assets/images/joboffers/";
+
+            if (!jobOffers.IsMember)
+            {
+                string filePath = Path.Combine(Server.MapPath(path), jobOffers.file.FileName);
+                jobOffers.file.SaveAs(filePath);
+
+                jobOffers.LogoPath = "/Content/MainSite/assets/images/joboffer/" + jobOffers.file.FileName;
+            }
+            else
+            {
+                DapperRepository<Members> memberRepo = new DapperRepository<Members>();
+                Members members = memberRepo.Get(@"SELECT MemberLogoPath FROM Members (NOLOCK) where MemberID = @MemberID", new { MemberID = jobOffers.MemberID });
+                jobOffers.LogoPath = members.MemberLogoPath;
+            }
+
+            
+
+            DapperRepository<JobOffers> jobRepo = new DapperRepository<JobOffers>();
+
+            int result = jobRepo.Execute(@"insert into JobOffers
+(IsMember,MemberID,LogoPath,Position,PositionDescription,[Location],CreatedDate,CreatedBy,IsActive)
+ values (@IsMember,@MemberID,@LogoPath,@Position,@PositionDescription,@Location,@CreatedDate,@CreatedBy,@IsActive)", jobOffers);
 
             return View();
         }

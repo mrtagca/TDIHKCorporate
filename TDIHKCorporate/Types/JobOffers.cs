@@ -9,10 +9,8 @@ namespace TDIHKCorporate.Types
     {
         public int JobOfferID { get; set; }
 
-        public string IsMemberTxt { get; set; }
         public bool IsMember { get; set; }
         public int MemberID { get; set; }
-
         public HttpPostedFileBase file { get; set; }
         public string LogoPath { get; set; }
         public string Position { get; set; }
