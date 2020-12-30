@@ -15,8 +15,10 @@
         <section>
             @Html.Raw(Model.PageContent)
         </section>
-
-    @Html.Action("GetPodcasts")
+		<section>
+            <h2>Podcasts</h2>
+			@Html.Action("GetPodcasts")
+		</section>
     <br />
     <br />
 </main>
