@@ -12,54 +12,6 @@ namespace TDIHKCorporate.Controllers
 {
     public class PublicationController : SiteBaseController
     {
-        // GET: Publication
-        public ActionResult Index()
-        {
-
-            DapperRepository<Pages> page = new DapperRepository<Pages>();
-
-            CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
-
-            string name = cultureInfo.TwoLetterISOLanguageName;
-
-            Pages pageItem = page.Get(@"SELECT * FROM Pages (NOLOCK)
-                                            where[Language] = @language and PageIdentifier = @pageIdentifier", new { language = name, pageIdentifier = "Publications" });
-
-
-            return View(pageItem);
-        }
-
-        public ActionResult Jahresberichte()
-        {
-
-            DapperRepository<Pages> page = new DapperRepository<Pages>();
-
-            CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
-
-            string name = cultureInfo.TwoLetterISOLanguageName;
-
-            Pages pageItem = page.Get(@"SELECT * FROM Pages (NOLOCK)
-                                            where[Language] = @language and PageIdentifier = @pageIdentifier", new { language = name, pageIdentifier = "YearReports" });
-
-
-            return View(pageItem);
-        }
-
-        public ActionResult Infoblatter()
-        {
-            DapperRepository<Pages> page = new DapperRepository<Pages>();
-
-            CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
-
-            string name = cultureInfo.TwoLetterISOLanguageName;
-
-            Pages pageItem = page.Get(@"SELECT * FROM Pages (NOLOCK)
-                                            where[Language] = @language and PageIdentifier = @pageIdentifier", new { language = name, pageIdentifier = "InformationNotes" });
-
-
-            return View(pageItem);
-        }
-
         public ActionResult Nachrichten()
         {
             DapperRepository<News> page = new DapperRepository<News>();
@@ -116,7 +68,6 @@ namespace TDIHKCorporate.Controllers
 
             return PartialView("_PartialNewsForNewsDetail", newsList);
         }
-
 
         public ActionResult NachrichtenDetail(string seoLink)
         {

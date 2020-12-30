@@ -1,172 +1,156 @@
 ﻿
 @{
-	ViewBag.Title = "PremiumMitgliedschaftAntragsformular";
-	Layout = "~/Views/Shared/_layoutMaster.cshtml";
+    ViewBag.Title = "PremiumMitgliedschaftAntragsformular";
+    Layout = "~/Views/Shared/_layoutMaster.cshtml";
 }
 
 <main class="uk-container" uk-scrollspy="cls: uk-animation-fade; target: > section; delay: 250">
-	<section class="uk-margin-medium-top">
-		<div class="uk-text-center">
-			<div class="uk-h2">MITGLIEDSCHAFTSANTRAG</div>
-			<p>Lorem ipsum dolor sit amet</p>
-		</div>
-	</section>
-	<section class="uk-section">
-		<form class="uk-form-stacked uk-child-width-1-1 uk-width-3-4@s uk-margin-auto msa-form uk-box-shadow-medium" uk-grid>
+    <section class="uk-margin-medium-top">
+        <div class="uk-text-center">
+            <div class="uk-h2">@Resources.resource.UyelikBasvurusu</div>
+            <p>Lorem ipsum dolor sit amet</p>
+        </div>
+    </section>
+    <section class="uk-section">
+        <form class="uk-form-stacked uk-child-width-1-1 uk-width-3-4@s uk-margin-auto msa-form uk-box-shadow-medium" uk-grid>
 
-			<div class="uk-margin">
-				<label class="uk-form-label uk-hidden" for="form-stacked-text">Text</label>
-				<div class="uk-form-controls">
-					<input class="uk-input" id="form-stacked-text" onkeypress="validateText(event)" type="text" placeholder="Name der Firma*" required>
-				</div>
-			</div>
-			<div class="uk-margin uk-width-1-2@s">
-				<label class="uk-form-label uk-hidden" for="form-stacked-text">Strabe</label>
-				<div class="uk-form-controls">
-					<input class="uk-input" id="form-stacked-text" onkeypress="validateText(event)" type="text" placeholder="Strabe*" required>
-				</div>
-			</div>
-			<div class="uk-margin uk-width-1-2@s">
-				<label class="uk-form-label uk-hidden" for="form-stacked-text">Text</label>
-				<div class="uk-form-controls">
-					<input class="uk-input" id="form-stacked-text" onkeypress="validateNumber(event)" type="text" placeholder="Hausnummer*" required>
-				</div>
-			</div>
-			<div class="uk-margin uk-width-1-2@s">
-				<label class="uk-form-label uk-hidden" for="form-stacked-text">Text</label>
-				<div class="uk-form-controls">
-					<input class="uk-input" id="form-stacked-text" onkeypress="validateNumber(event)" type="text" placeholder="PostLeithzahl*" required>
-				</div>
-			</div>
-			<div class="uk-margin uk-width-1-2@s">
-				<label class="uk-form-label uk-hidden" for="form-stacked-text">Text</label>
-				<div class="uk-form-controls">
-					<input class="uk-input" id="form-stacked-text" onkeypress="validateOnlyText(event)" type="text" placeholder="Ort*" required>
-				</div>
-			</div>
-			<div class="uk-margin uk-width-1-2@s">
-				<label class="uk-form-label uk-hidden" for="form-stacked-text">E-mail</label>
-				<div class="uk-form-controls">
-					<input class="uk-input" id="form-stacked-text" pattern="^[a-zA-Z0-9._+-]+&#64;[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$" type="email" placeholder="Email*" required>
-				</div>
-			</div>
-			<div class="uk-margin uk-width-1-2@s">
-				<label class="uk-form-label uk-hidden" for="form-stacked-text">Text</label>
-				<div class="uk-form-controls">
-					<input class="uk-input" id="form-stacked-text" onkeypress="validateNumber(event)" type="tel" placeholder="Telefon*" required>
-				</div>
-			</div>
-			<div class="uk-margin uk-width-1-2@s">
-				<label class="uk-form-label uk-hidden" for="form-stacked-text">Text</label>
-				<div class="uk-form-controls">
-					<input class="uk-input" id="form-stacked-text" type="text" placeholder="Website*" required>
-				</div>
-			</div>
-			<div class="uk-margin uk-width-1-2@s">
-				<label class="uk-form-label uk-hidden" for="form-stacked-text">Fax</label>
-				<div class="uk-form-controls">
-					<input class="uk-input" id="form-stacked-text" onkeypress="validateNumber(event)" type="tel" placeholder="Fax*" required>
-				</div>
-			</div>
-			<div class="uk-margin uk-width-1-2@s">
-				<label class="uk-form-label uk-hidden" for="form-stacked-text">Text</label>
-				<div class="uk-form-controls">
-					<input class="uk-input" id="form-stacked-text" onkeypress="validateOnlyText(event)" type="text" placeholder="Vertreter*" required>
-				</div>
-			</div>
-			<div class="uk-margin uk-width-1-2@s">
-				<label class="uk-form-label uk-hidden" for="form-stacked-text">Text</label>
-				<div class="uk-form-controls">
-					<input class="uk-input" id="form-stacked-text" onkeypress="validateOnlyText(event)" type="text" placeholder="Position*" required>
-				</div>
-			</div>
-			<div class="uk-margin label-font-size">
-				<div>Premium Mitgliedschaftsbeitrag</div>
-				<div>10.000 €/Jahr</div>
-			</div>
-			<div class="uk-text-large">Bitte laden Sie hier Ihr Unternehmenslogo hoch</div>
-			<div class="uk-margin">
-				<div uk-form-custom>
-					<input type="file">
-					<button class="uk-button uk-button-secondary uk-border-rounded" type="button" tabindex="-1">Choose File</button>
-				</div>
-			</div>
-			<div class="uk-text-large">Empfehlung weiterer Kammermitglieder:</div>
-			<div class="uk-margin">
-				<label class="uk-form-label uk-hidden" for="form-stacked-text">Text</label>
-				<div class="uk-form-controls">
-					<input class="uk-input" id="form-stacked-text" onkeypress="validateOnlyText(event)" type="text" placeholder="Name der Firma" required>
-				</div>
-			</div>
-			<div class="uk-margin">
-				<label class="uk-form-label uk-hidden" for="form-stacked-text">Text</label>
-				<div class="uk-form-controls">
-					<input class="uk-input" id="form-stacked-text" onkeypress="validateOnlyText(event)" type="text" placeholder="Name der Firma" required>
-				</div>
-			</div>
-			<div class="uk-margin">
-				<label class="uk-form-label uk-hidden" for="form-stacked-text">Text</label>
-				<div class="uk-form-controls">
-					<input class="uk-input" id="form-stacked-text" onkeypress="validateOnlyText(event)" type="text" placeholder="Name der Firma" required>
-				</div>
-			</div>
-			<div class="uk-text-large">Die Kammer ist mir bekannt durch Empfehlung/Informationen von:</div>
-			<div class="uk-margin">
-				<label class="uk-form-label uk-hidden" for="form-stacked-text">Text</label>
-				<div class="uk-form-controls">
-					<input class="uk-input" id="form-stacked-text" onkeypress="validateOnlyText(event)" type="text" placeholder="">
-				</div>
-			</div>
-			<div class="uk-margin uk-width-1-2@s">
-				<label class="uk-form-label uk-hidden" for="form-stacked-text">Text</label>
-				<div class="uk-form-controls">
-					<input class="uk-input" id="form-stacked-text" onkeypress="validateText(event)" type="text" placeholder="Ort, Datum">
-				</div>
-			</div>
-			<div class="uk-margin uk-width-1-2@s size-22 size-15-m">
-				<label><input class="uk-checkbox" type="checkbox">Digital Unterschrift</label>
-			</div>
-			<div class="uk-margin size-18 size-15-m color-dark-grey line-height-1">
-				Für die Aufnahme in die Kammer ist gem. § 7 Abs.1 der Satzung der Antrag und die Zahlung des
-				Beitrages erforderlich. Über den schriftlichen Antrag entscheidet der Vorstand. Die Entscheidung
-				wird dem Antragsteller schriftlich mitgeteilt. Jedes Mitglied ist gem. § 8 II der Satzung berechtigt,
-				jederzeit aus der Kammer auszutreten. Die Austrittserklärung des Mitglieds ist schriftlich bei dem
-				Vorstand einzureichen. Das Mitglied ist trotz des Austritts verpflichtet, seinen Beitrag für das
-				laufende Kalenderjahr zu entrichten.
-			</div>
-			<div class="uk-margin line-height-1">
-				<p>TD-IHK Türkisch-Deutsche Industrie- und Handelskammer - Unternehmerverband e.V.</p>
-				<p>Türk Alman Ticaret ve Sanayi Odası Leipziger Platz 14, 10117 Berlin</p>
-				<div class="uk-flex contact-infos">
-					<a href="tel:+4903023329950" class="uk-link-reset uk-margin-small-bottom">+49 (0) 30 233 299 50 |</a>
-					<span class="uk-margin-small-bottom">Fax: +49 (0) 30 233 299 510 | </span>
-					<a href="mailto:info@td-ihk.de" class="uk-link-reset uk-margin-small-bottom">info@td-ihk.de | </a>
-					<span class="uk-margin-small-bottom">www.th-idk.de</span>
-				</div>
-			</div>
-			<div class="uk-margin size-22 size-15-m">
-				<label>
-					<input class="uk-checkbox" type="checkbox">Wenn Sie hier klicken, akzeptieren Sie den <a href="#" class="uk-link-reset" target="_blank"><u>Datenschutzerklärung und die Satzung.</u></a>
-				</label>
-			</div>
-			<div class="uk-margin uk-width-2-5@s uk-margin-auto">
-				<button type="submit" class="uk-button uk-button-primary uk-width-1-1 uk-border-rounded">Senden</button>
-			</div>
-			<div class="uk-width-1-1">
-				<div class="uk-width-1-3@s uk-margin-auto uk-flex uk-flex-around">
-					<div>
-						<img src="~/Content/MainSite/assets/images/StandartForm/letter.png" width="40" height="40" />
-					</div>
-					<div>
-						<img src="~/Content/MainSite/assets/images/StandartForm/pdf-icon.png" width="40" height="40" />
-					</div>
-					<div>
-						<img src="~/Content/MainSite/assets/images/StandartForm/print.png" width="40" height="40" />
-					</div>
-				</div>
-			</div>
-		</form>
-	</section>
+            <div class="uk-margin">
+                <div class="uk-form-controls">
+                    <input class="uk-input" id="form-stacked-text" onkeypress="validateText(event)" type="text" placeholder="@Resources.resource.FirmaAdi*" required>
+                </div>
+            </div>
+            <div class="uk-margin uk-width-1-2@s">
+                <div class="uk-form-controls">
+                    <input class="uk-input" id="form-stacked-text" onkeypress="validateText(event)" type="text" placeholder="@Resources.resource.Sokak*" required>
+                </div>
+            </div>
+            <div class="uk-margin uk-width-1-2@s">
+                <div class="uk-form-controls">
+                    <input class="uk-input" id="form-stacked-text" onkeypress="validateNumber(event)" type="text" placeholder="@Resources.resource.EvNumarasi*" required>
+                </div>
+            </div>
+            <div class="uk-margin uk-width-1-2@s">
+                <div class="uk-form-controls">
+                    <input class="uk-input" id="form-stacked-text" onkeypress="validateNumber(event)" type="text" placeholder="@Resources.resource.PostaKodu*" required>
+                </div>
+            </div>
+            <div class="uk-margin uk-width-1-2@s">
+                <div class="uk-form-controls">
+                    <input class="uk-input" id="form-stacked-text" onkeypress="validateOnlyText(event)" type="text" placeholder="@Resources.resource.Yer*" required>
+                </div>
+            </div>
+            <div class="uk-margin uk-width-1-2@s"> 
+                <div class="uk-form-controls">
+                    <input class="uk-input" id="form-stacked-text" pattern="^[a-zA-Z0-9._+-]+&#64;[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$" type="email" placeholder="@Resources.resource.EmailAdres*" required>
+                </div>
+            </div>
+            <div class="uk-margin uk-width-1-2@s"> 
+                <div class="uk-form-controls">
+                    <input class="uk-input" id="form-stacked-text" onkeypress="validateNumber(event)" type="tel" placeholder="@Resources.resource.Telefon*" required>
+                </div>
+            </div>
+            <div class="uk-margin uk-width-1-2@s"> 
+                <div class="uk-form-controls">
+                    <input class="uk-input" id="form-stacked-text" type="text" placeholder="@Resources.resource.Website*" required>
+                </div>
+            </div>
+            <div class="uk-margin uk-width-1-2@s">
+                <div class="uk-form-controls">
+                    <input class="uk-input" id="form-stacked-text" onkeypress="validateNumber(event)" type="tel" placeholder="@Resources.resource.Fax*" required>
+                </div>
+            </div>
+            <div class="uk-margin uk-width-1-2@s">
+                <div class="uk-form-controls">
+                    <input class="uk-input" id="form-stacked-text" onkeypress="validateOnlyText(event)" type="text" placeholder="@Resources.resource.Temsilci*" required>
+                </div>
+            </div>
+            <div class="uk-margin uk-width-1-2@s">
+                <div class="uk-form-controls">
+                    <input class="uk-input" id="form-stacked-text" onkeypress="validateOnlyText(event)" type="text" placeholder="@Resources.resource.Pozisyon*" required>
+                </div>
+            </div>
+            <div class="uk-margin label-font-size">
+                <div>@Resources.resource.PremiumUyelikUcreti</div>
+                <div>@Resources.resource.OnBinEuroYillik</div>
+            </div>
+            <div class="uk-text-large">@Resources.resource.LutfenSırketLogonuzuBurayaYukleyin</div>
+            <div class="uk-margin">
+                <div uk-form-custom>
+                    <input type="file">
+                    <button class="uk-button uk-button-secondary uk-border-rounded" type="button" tabindex="-1">@Resources.resource.DosyaSeciniz</button>
+                </div>
+            </div>
+            <div class="uk-text-large">@Resources.resource.TavsiyeEdeceginizDigerOdaUyeleri:</div>
+            <div class="uk-margin">
+                <div class="uk-form-controls">
+                    <input class="uk-input" id="form-stacked-text" onkeypress="validateOnlyText(event)" type="text" placeholder="@Resources.resource.FirmaAdi" required>
+                </div>
+            </div>
+            <div class="uk-margin">
+                <div class="uk-form-controls">
+                    <input class="uk-input" id="form-stacked-text" onkeypress="validateOnlyText(event)" type="text" placeholder="@Resources.resource.FirmaAdi" required>
+                </div>
+            </div>
+            <div class="uk-margin">
+                <div class="uk-form-controls">
+                    <input class="uk-input" id="form-stacked-text" onkeypress="validateOnlyText(event)" type="text" placeholder="@Resources.resource.FirmaAdi" required>
+                </div>
+            </div>
+            <div class="uk-text-large">Die Kammer ist mir bekannt durch Empfehlung/Informationen von:</div>
+            <div class="uk-margin">
+                <div class="uk-form-controls">
+                    <input class="uk-input" id="form-stacked-text" onkeypress="validateOnlyText(event)" type="text" placeholder="">
+                </div>
+            </div>
+            <div class="uk-margin uk-width-1-2@s">
+                <div class="uk-form-controls">
+                    <input class="uk-input" id="form-stacked-text" onkeypress="validateText(event)" type="text" placeholder="@Resources.resource.YerZaman">
+                </div>
+            </div>
+            <div class="uk-margin uk-width-1-2@s size-22 size-15-m">
+                <label><input class="uk-checkbox" type="checkbox">@Resources.resource.ElektronikImza</label>
+            </div>
+            <div class="uk-margin size-18 size-15-m color-dark-grey line-height-1">
+                Für die Aufnahme in die Kammer ist gem. § 7 Abs.1 der Satzung der Antrag und die Zahlung des
+                Beitrages erforderlich. Über den schriftlichen Antrag entscheidet der Vorstand. Die Entscheidung
+                wird dem Antragsteller schriftlich mitgeteilt. Jedes Mitglied ist gem. § 8 II der Satzung berechtigt,
+                jederzeit aus der Kammer auszutreten. Die Austrittserklärung des Mitglieds ist schriftlich bei dem
+                Vorstand einzureichen. Das Mitglied ist trotz des Austritts verpflichtet, seinen Beitrag für das
+                laufende Kalenderjahr zu entrichten.
+            </div>
+            <div class="uk-margin line-height-1">
+                <p>TD-IHK Türkisch-Deutsche Industrie- und Handelskammer - Unternehmerverband e.V.</p>
+                <p>Türk Alman Ticaret ve Sanayi Odası Leipziger Platz 14, 10117 Berlin</p>
+                <div class="uk-flex contact-infos">
+                    <a href="tel:+4903023329950" class="uk-link-reset uk-margin-small-bottom">+49 (0) 30 233 299 50 |</a>
+                    <span class="uk-margin-small-bottom">Fax: +49 (0) 30 233 299 510 | </span>
+                    <a href="mailto:info@td-ihk.de" class="uk-link-reset uk-margin-small-bottom">info@td-ihk.de | </a>
+                    <span class="uk-margin-small-bottom">www.th-idk.de</span>
+                </div>
+            </div>
+            <div class="uk-margin size-22 size-15-m">
+                <label>
+                    <input class="uk-checkbox" type="checkbox">@Resources.resource.BurayaTiklayarakKabulEdebilirsiniz <a href="#" class="uk-link-reset" target="_blank"><u>@Resources.resource.GizlilikPolitikasiveEsasSozlesme.</u></a>
+                </label>
+            </div>
+            <div class="uk-margin uk-width-2-5@s uk-margin-auto">
+                <button type="submit" class="uk-button uk-button-primary uk-width-1-1 uk-border-rounded">@Resources.resource.Gonder</button>
+            </div>
+            <div class="uk-width-1-1">
+                <div class="uk-width-1-3@s uk-margin-auto uk-flex uk-flex-around">
+                    <div>
+                        <img src="~/Content/MainSite/assets/images/StandartForm/letter.png" width="40" height="40" />
+                    </div>
+                    <div>
+                        <img src="~/Content/MainSite/assets/images/StandartForm/pdf-icon.png" width="40" height="40" />
+                    </div>
+                    <div>
+                        <img src="~/Content/MainSite/assets/images/StandartForm/print.png" width="40" height="40" />
+                    </div>
+                </div>
+            </div>
+        </form>
+    </section>
 </main>
 
 

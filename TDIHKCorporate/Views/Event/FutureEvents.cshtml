@@ -8,7 +8,7 @@
 @if (Model.Count > 0)
 {
     <section>
-        <div class="uk-text-center events-page-header">Zukünftige Events</div>
+        <div class="uk-text-center events-page-header">@Resources.resource.GelecekEtkinlikler</div>
 
         @foreach (var item in Model)
         {
@@ -30,30 +30,27 @@
                             TimeSpan tsp = new TimeSpan(item.EventTime.Hours, item.EventTime.Minutes, item.EventTime.Seconds);
                             <span>@String.Format("{0:hh\\:mm}", tsp)</span>
                         }
-
-
                     </div>
                     <div>
 
                         @if (lang == "tr")
                         {
-                            <a href="/tr/etkinlikler/@item.EventSeoLink" class="uk-button uk-button-secondary uk-width-expand  uk-border-rounded uk-padding-remove uk-text-center color-global">Registrierung</a>
+                            <a href="/tr/etkinlikler/@item.EventSeoLink" class="uk-button uk-button-secondary uk-width-expand  uk-border-rounded uk-padding-remove uk-text-center color-global">@Resources.resource.Kayit</a>
                         }
                         else
                         {
-                            <a href="/de/events/@item.EventSeoLink" class="uk-button uk-button-secondary uk-width-expand  uk-border-rounded uk-padding-remove uk-text-center color-global">Registrierung</a>
+                    <a href="/de/events/@item.EventSeoLink" class="uk-button uk-button-secondary uk-width-expand  uk-border-rounded uk-padding-remove uk-text-center color-global">@Resources.resource.Kayit</a>
                         }
 
-                        @*<a href="#" class="uk-button uk-button-secondary uk-width-expand  uk-border-rounded uk-padding-remove uk-text-center color-global">Registrierung</a>*@
                     </div>
                 </div>
                 <div class="uk-box-shadow-medium uk-width-1-1 uk-width-expand@m">
 
                     <div class="uk-background-cover height-match uk-visible@m uk-position-relative" style="        background-image: url(../Content/MainSite/assets/images/events/Upcoming-Event-Pic-1.png);">
-                        <div class="event-flag">Nür Noch <span>3</span> Platze Vervügbar</div>
+                        <div class="event-flag">@Resources.resource.Yalnizca <span>3</span> @Resources.resource.YerKaldi</div>
                     </div>
                     <div class="uk-hidden@m height-match">
-                        <div class="event-flag">Nür Noch <span>3</span> Platze Vervügbar</div>
+                        <div class="event-flag">@Resources.resource.Yalnizca <span>3</span> @Resources.resource.YerKaldi</div>
                         <img src="/Content/MainSite/assets/images/events/Past-2.png" class="uk-width-1-1" alt="">
                     </div>
                 </div>
@@ -61,32 +58,5 @@
             </div>
             <br />
         }
-
-        @*<div class="uk-grid uk-grid-collapse" uk-grid uk-height-match="target: .height-match">
-                <div class="uk-box-shadow-medium uk-width-1-4@m uk-padding-small uk-card uk-card-primary uk-card-body uk-flex uk-flex-column uk-flex-between height-match">
-                    <span class="size-h2 line-height-1 uk-margin-small-top">DEZ</span>
-                    <span class="line-height-1 uk-margin-small-bottom" style="font-size: 60px">1</span>
-                    <span class="size-h2 line-height-1">TH-IDK Business Frühstück</span>
-                    <div class="uk-margin-small-bottom">
-                        <span class="uk-icon" uk-icon="icon: icn-clock"></span>
-                        <span>10:00</span>
-                    </div>
-                    <div>
-                        <a href="#" class="uk-button uk-button-secondary uk-width-expand  uk-border-rounded uk-padding-remove uk-text-center color-global">Registrierung</a>
-                    </div>
-                </div>
-                <div class="uk-box-shadow-medium uk-width-1-1 uk-width-expand@m">
-
-                    <div class="uk-background-cover height-match uk-visible@m uk-position-relative" style="        background-image: url(../Content/MainSite/assets/images/events/Upcoming-Event-Pic-1.png);">
-                        <div class="event-flag">Nür Noch <span>3</span> Platze Vervügbar</div>
-                    </div>
-                    <div class="uk-hidden@m height-match">
-                        <div class="event-flag">Nür Noch <span>3</span> Platze Vervügbar</div>
-                        <img src="../Content/MainSite/assets/images/events/Upcoming-Event-Pic-1.png" class="uk-width-1-1" alt="">
-                    </div>
-                </div>
-
-            </div>
-            </div>*@
     </section>
 }

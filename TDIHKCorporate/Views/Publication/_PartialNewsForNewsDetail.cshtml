@@ -1,5 +1,14 @@
 ﻿@model List<TDIHKCorporate.Types.News>
 
+
+<style>
+    .cover {
+        object-fit: cover;
+        width: 500px;
+        height: 300px;
+    }
+</style>
+
 <section>
     <!--Haber kartları-->
     <div class="uk-flex uk-flex-middle uk-margin-small-bottom"><span style="height: 25px; width: 5px; background-color: black" class="uk-margin-small-right"></span><span class="size-20" style="color: black">News</span></div>
@@ -13,20 +22,20 @@
                 {
                     <a href="/tr/haberler/@item.NewsSeoLink" class="uk-link-reset">
                         <div class="uk-inline-clip uk-transition-toggle">
-                            <img src="@item.NewsThumbnailPath" class="uk-width-1-1 uk-height-1-1 uk-transition-opaque uk-transition-scale-up" />
+                            <img src="@item.NewsThumbnailPath" class="cover uk-width-1-1 uk-height-1-1 uk-transition-opaque uk-transition-scale-up" />
                         </div>
                         <div class="news-card-title line-height-1">@item.NewsDescription</div>
-                        <div class="news-card-subtitle">@item.NewsDescription</div>
+                        @*<div class="news-card-subtitle">@item.NewsDescription</div>*@
                     </a>
                 }
                 else
                 {
                     <a href="/de/nachrichten/@item.NewsSeoLink" class="uk-link-reset">
                         <div class="uk-inline-clip uk-transition-toggle">
-                            <img src="@item.NewsThumbnailPath" class="uk-width-1-1 uk-height-1-1 uk-transition-opaque uk-transition-scale-up" />
+                            <img src="@item.NewsThumbnailPath" class="cover uk-width-1-1 uk-height-1-1 uk-transition-opaque uk-transition-scale-up" />
                         </div>
                         <div class="news-card-title line-height-1">@item.NewsDescription</div>
-                        <div class="news-card-subtitle">@item.NewsDescription</div>
+                        @*<div class="news-card-subtitle">@item.NewsDescription</div>*@
                     </a>
                 }
             </div>

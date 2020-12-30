@@ -13,20 +13,7 @@ namespace TDIHKCorporate.Controllers
 {
     public class AboutUsController : SiteBaseController
     {
-        public ActionResult Index()
-        {
-            DapperRepository<Pages> page = new DapperRepository<Pages>();
-
-            CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
-
-            string name = cultureInfo.TwoLetterISOLanguageName;
-
-            Pages pageItem = page.Get(@"SELECT * FROM Pages (NOLOCK)
-                                            where[Language] = @language and PageIdentifier = @pageIdentifier", new { language = name, pageIdentifier = "Uber Uns" });
-
-
-            return View(pageItem);
-        }
+        
 
         public ActionResult Institution()
         {
