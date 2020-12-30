@@ -34,24 +34,32 @@
                     <div>
                         <img src="@item.EventImagePath" alt="" class="cover uk-transition-scale-up uk-transition-opaque uk-width-1-1" uk-img>
                     </div>
-                    <div class="uk-overlay uk-position-bottom-left uk-h2 uk-flex uk-flex-column uk-margin-remove">
+                    <div class="uk-overlay uk-position-cover uk-h2 uk-flex uk-flex-column uk-flex-right uk-margin-remove uk-visible@l" style="background-color: rgba(255,255,255, .6);">
                         <span>@item.EventCategoryName<span>:</span></span>
                         <span>@item.EventTitle</span>
+                    </div>
+                    <div class="uk-hidden@l">
+						<div>@item.EventCategoryName<span>:</span></div>
+						<div>@item.EventTitle</div>
                     </div>
                 </a>
             }
             else
             {
-                <a href="/de/events/@item.EventSeoLink" class="uk-link-reset uk-inline-clip uk-transition-toggle">
+		<a href="/de/events/@item.EventSeoLink" class="uk-link-reset uk-inline-clip uk-transition-toggle">
 
-                    <div>
-                        <img src="@item.EventImagePath" alt="" class="cover uk-transition-scale-up uk-transition-opaque uk-width-1-1" uk-img>
-                    </div>
-                    <div class="uk-overlay uk-position-bottom-left uk-h2 uk-flex uk-flex-column uk-margin-remove">
-                        <span>@item.EventCategoryName<span>:</span></span>
-                        <span>@item.EventTitle</span>
-                    </div>
-                </a>
+			<div>
+				<img src="@item.EventImagePath" alt="" class="cover uk-transition-scale-up uk-transition-opaque uk-width-1-1" uk-img>
+			</div>
+			<div class="uk-overlay uk-position-cover uk-h2 uk-flex uk-flex-column uk-flex-right uk-margin-remove uk-visible@l" style="background-color: rgba(255,255,255, .6);">
+				<span>@item.EventCategoryName<span>:</span></span>
+				<span>@item.EventTitle</span>
+			</div>
+			<div class="uk-hidden@l">
+				<div>@item.EventCategoryName<span>:</span></div>
+				<div>@item.EventTitle</div>
+			</div>
+		</a>
             }
         </div>
         }
