@@ -10,12 +10,12 @@
         <div class="uk-grid uk-grid-medium uk-margin-large-bottom" uk-grid>
             <div class="uk-width-1-4 uk-width-1-6@s">
                 <div class="uk-grid uk-child-width-1-2 uk-grid-small" uk-grid>
-                    <div class="uk-flex">
+                    <div class="uk-flex flex-column-mobile">
                         @{
                             CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
                         }
 
-                        <div class="uk-margin-small-right event-day" style="line-height: .7;">
+                        <div class="uk-margin-small-right event-day line-height-1">
                             @item.CreatedDate.ToString("dd", cultureInfo).ToUpper()
                         </div>
 
@@ -33,7 +33,7 @@
                 <div class="size-20 uk-width-1-1 uk-width-3-4@s">
                     @item.NewsDescription
                 </div>
-                <div>
+                <div class="uk-margin-small-top">
                     <a href="/de/nachrichten/@item.NewsSeoLink" class="uk-link-reset">
                         <div class="uk-flex uk-flex-middle">
                             <span class="uk-icon uk-margin-small-right" uk-icon="icon: icn-chevron-right"></span>

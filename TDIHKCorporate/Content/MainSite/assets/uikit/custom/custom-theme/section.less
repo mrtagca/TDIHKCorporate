@@ -144,13 +144,21 @@
     }
 
     .event-day {
-        font-size: 60px;
+        font-size: 40px;
 
         @media (min-width: @breakpoint-medium) {
             font-size: 80px;
+            line-height: .7 !important;
         }
     }
 
+    .flex-column-mobile{
+        flex-direction: column;
+        @media(min-width: @breakpoint-medium){
+            flex-direction: row;
+        }
+    }
+    
     .event-date {
         font-size: @base-h2-font-size-m;
 

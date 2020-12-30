@@ -2481,11 +2481,20 @@ select.uk-form-width-xsmall {
   background-color: transparent;
 }
 .event-day {
-  font-size: 60px;
+  font-size: 40px;
 }
 @media (min-width: 960px) {
   .event-day {
     font-size: 80px;
+    line-height: .7 !important;
+  }
+}
+.flex-column-mobile {
+  flex-direction: column;
+}
+@media (min-width: 960px) {
+  .flex-column-mobile {
+    flex-direction: row;
   }
 }
 .event-date {
