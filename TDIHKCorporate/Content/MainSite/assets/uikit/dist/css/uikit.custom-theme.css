@@ -2598,22 +2598,6 @@ select.uk-form-width-xsmall {
   position: relative;
   padding: 15px;
 }
-.mitglied-wrapper h2 {
-  font-size: 22px;
-}
-@media (min-width: 960px) {
-  .mitglied-wrapper h2 {
-    font-size: 25px;
-  }
-}
-.mitglied-wrapper p {
-  font-size: 16px;
-}
-@media (min-width: 960px) {
-  .mitglied-wrapper p {
-    font-size: 22px;
-  }
-}
 @media (min-width: 960px) {
   .mitglied-wrapper {
     padding: 45px;
@@ -3066,7 +3050,6 @@ select.uk-form-width-xsmall {
   color: #142C51;
   font-size: 20px;
   font-weight: 900;
-  text-transform: uppercase;
   letter-spacing: 1px;
   margin: 0 0 3px 0;
 }
