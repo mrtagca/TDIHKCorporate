@@ -1515,7 +1515,7 @@ button.uk-icon:not(:disabled) {
   /* 3 */
   border: 0 none;
   /* 4 */
-  padding: 0 0;
+  padding: 0 5px;
   background: #f8f8f8;
   color: #142C51;
   border: 1px solid #e5e5e5;
@@ -1872,7 +1872,7 @@ select.uk-form-width-xsmall {
 /* Label
  ========================================================================== */
 .uk-form-label {
-  color: #333;
+  color: #142C51;
   font-size: 0.875rem;
 }
 /* Layout

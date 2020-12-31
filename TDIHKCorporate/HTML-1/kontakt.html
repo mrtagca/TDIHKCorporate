@@ -1,0 +1,95 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../Content/MainSite/assets/uikit/dist/css/uikit.custom-theme.min.css">
+    <link rel="stylesheet" href="/Content/MainSite/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main class="uk-container" uk-scrollspy="cls: uk-animation-fade; target: > section; delay: 250">
+        <section>
+            <!-- Maps buraya-->
+        </section>
+        <section class="uk-section">
+            <div class="uk-grid uk-grid-divider uk-grid-medium" uk-grid>
+                <div class="uk-width-3-5@m">
+                    <h1>Kontaktinformationen</h1>
+                    <h2>Kontaktformular</h2>
+                    <form class="uk-form-stacked uk-width-1-1">
+                        <div class="uk-margin">
+                            <label class="uk-form-label" for="nachName">Name Nachname</label>
+                            <div class="uk-form-controls">
+                                <input class="uk-input" id="nachName" type="text" required>
+                            </div>
+                        </div>
+                        <div class="uk-margin">
+                            <label class="uk-form-label" for="email">Email</label>
+                            <div class="uk-form-controls">
+                                <input class="uk-input" id="nachName" type="email" required>
+                            </div>
+                        </div>
+                        <div class="uk-margin">
+                            <label class="uk-form-label" for="note">Ihre Nachricht an uns!</label>
+                            <div class="uk-form-controls">
+                                <textarea class="uk-textarea uk-width-1-1" id="note" rows="3" style="resize: none;" required></textarea>
+                            </div>
+                        </div>
+                        <div class="uk-margin">
+
+                        </div>
+                        <div class="uk-margin">
+                            <div class="uk-text-bold uk-margin-small-bottom">Zustimmung Datenschutzerklärung*</div>
+                            <div class="uk-form-controls">
+                                <label><input class="uk-checkbox" type="checkbox" name="acceptTerms" required>Ja, ich stimme der Datenschutzerklärung zu</label>
+                            </div>
+                        </div>
+                        <div class="uk-margin">
+                            <div class="uk-text-meta">Ich habe die Datenschutzbestimmungen unter www.tuerkei.ahk.de/datenschutzerklaerung zur Kenntnis genommen und stimme den Regelungen zu.</div>
+                        </div>
+                        <div class="uk-flex uk-flex-right">
+                            <button type="submit" class="uk-button uk-width-1-1 uk-width-auto@m uk-button-primary uk-border-rounded">Senden</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="uk-width-2-5@m">
+                    <div>
+                        <div class="uk-h3 uk-margin-remove">Türkisch-Deutsche Industrie- und Handelskammer</div>
+                        <div class="uk-h3 uk-margin-remove-top">(TD-IHK)</div>
+                        <div class="uk-h3 uk-width-5-6@m uk-margin-remove">Türk-Alman Ticaret ve Sanayi Odası</div>
+                        <div class="uk-h3 uk-margin-remove-top">(TD-IHK)</div>
+                        <div class="uk-margin">
+                            <span uk-icon="icon: location; ratio: 1.2"></span>
+                            Leipziger Platz 14, D-10117 Berlin
+                        </div>
+                        <div class="uk-margin">
+                            <span uk-icon="icon: phone; ratio: 1.2"></span>
+                            <a class="uk-link-reset" href="tel:+4903023329950">+49 (0)30 - 233 299 50</a>
+                        </div>
+                        <div class="uk-margin">
+                            <span uk-icon="icon: print; ratio: 1.2"></span>
+                            +49 (0)30 - 233 299 510
+                        </div>
+                        <div class="uk-margin">
+                            <span uk-icon="icon: mail; ratio: 1.2"></span>
+                            <a class="uk-link-reset" href="mailto:info@td-ihk.de">info@td-ihk.de</a>
+                        </div>
+                        <div class="uk-margin">
+                            <span uk-icon="icon: world; ratio: 1.2"></span>
+                            <a class="uk-link-reset" href="https://www.td-ihk.de">https://www.td-ihk.de</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="../Content/MainSite/assets/uikit/dist/js/uikit.min.js"></script>
+    <script src="../Content/MainSite/assets/uikit/dist/js/uikit-icons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
+    <script src="../Scripts/main.js"></script>
+</body>
+</html>
