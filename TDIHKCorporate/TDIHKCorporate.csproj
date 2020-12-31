@@ -3147,6 +3147,9 @@
     <Content Include="Areas\Management\Views\JobOffer\AddJobOffer.cshtml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="HTML-1\dienstleistungen.html" />
+    <Content Include="HTML-1\etkinlik-arsiv.html" />
+    <Content Include="HTML-1\gizlilik.html" />
+    <Content Include="HTML-1\impressum.html" />
     <Content Include="HTML-1\kalender.html" />
     <Content Include="HTML-1\kontakt.html" />
     <Content Include="HTML-1\Marktreinritt.html" />
