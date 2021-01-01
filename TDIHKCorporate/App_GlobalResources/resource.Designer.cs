@@ -178,6 +178,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to İletişim Formu.
+        /// </summary>
+        internal static string ContactForm {
+            get {
+                return ResourceManager.GetString("ContactForm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to İletişim Bilgileri.
+        /// </summary>
+        internal static string ContactInformation {
+            get {
+                return ResourceManager.GetString("ContactInformation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to COVID-19.
         /// </summary>
         internal static string Covid19 {
@@ -201,6 +219,33 @@ namespace Resources {
         internal static string Dashboard {
             get {
                 return ResourceManager.GetString("Dashboard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Veri koruma onayı.
+        /// </summary>
+        internal static string DataPolicyApprove {
+            get {
+                return ResourceManager.GetString("DataPolicyApprove", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Evet, gizlilik politikasını kabul ediyorum.
+        /// </summary>
+        internal static string DataPolicyApproveText {
+            get {
+                return ResourceManager.GetString("DataPolicyApproveText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ich habe die Datenschutzbestimmungen unter www.tuerkei.ahk.de/datenschutzerklaerung zur Kenntnis genommen und stimme den Regelungen zu..
+        /// </summary>
+        internal static string DataPolicyReadAndApproveText {
+            get {
+                return ResourceManager.GetString("DataPolicyReadAndApproveText", resourceCulture);
             }
         }
         
@@ -777,6 +822,15 @@ namespace Resources {
         internal static string MenuTip {
             get {
                 return ResourceManager.GetString("MenuTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ad Soyad.
+        /// </summary>
+        internal static string NameSurname {
+            get {
+                return ResourceManager.GetString("NameSurname", resourceCulture);
             }
         }
         
@@ -1362,6 +1416,15 @@ namespace Resources {
         internal static string YonetimPaneli {
             get {
                 return ResourceManager.GetString("YonetimPaneli", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mesajınız.
+        /// </summary>
+        internal static string YourMessage {
+            get {
+                return ResourceManager.GetString("YourMessage", resourceCulture);
             }
         }
     }

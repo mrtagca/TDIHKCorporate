@@ -156,6 +156,12 @@
   <data name="BurayaTiklayarakKabulEdebilirsiniz" xml:space="preserve">
     <value>Buraya tıklayarak kabul edebilirsiniz.</value>
   </data>
+  <data name="ContactForm" xml:space="preserve">
+    <value>İletişim Formu</value>
+  </data>
+  <data name="ContactInformation" xml:space="preserve">
+    <value>İletişim Bilgileri</value>
+  </data>
   <data name="Covid19" xml:space="preserve">
     <value>COVID-19</value>
   </data>
@@ -164,6 +170,15 @@
   </data>
   <data name="Dashboard" xml:space="preserve">
     <value>Yönetim Paneli</value>
+  </data>
+  <data name="DataPolicyApprove" xml:space="preserve">
+    <value>Veri koruma onayı</value>
+  </data>
+  <data name="DataPolicyApproveText" xml:space="preserve">
+    <value>Evet, gizlilik politikasını kabul ediyorum</value>
+  </data>
+  <data name="DataPolicyReadAndApproveText" xml:space="preserve">
+    <value>Ich habe die Datenschutzbestimmungen unter www.tuerkei.ahk.de/datenschutzerklaerung zur Kenntnis genommen und stimme den Regelungen zu.</value>
   </data>
   <data name="Dil" xml:space="preserve">
     <value>Dil</value>
@@ -356,6 +371,9 @@
   </data>
   <data name="MenuTip" xml:space="preserve">
     <value>Menü Tipi</value>
+  </data>
+  <data name="NameSurname" xml:space="preserve">
+    <value>Ad Soyad</value>
   </data>
   <data name="OlusturulmaTarihi" xml:space="preserve">
     <value>Oluşturulma Tarihi</value>
@@ -551,5 +569,8 @@
   </data>
   <data name="YonetimPaneli" xml:space="preserve">
     <value>Yonetim Paneli</value>
+  </data>
+  <data name="YourMessage" xml:space="preserve">
+    <value>Mesajınız</value>
   </data>
 </root>

@@ -3878,6 +3878,7 @@
     <Content Include="Views\Event\EventRegister.cshtml" />
     <Content Include="Views\Newsletter\_PartialVorteille.cshtml" />
     <Content Include="Views\Home\_PartialShowHomePageNachrichten.cshtml" />
+    <Content Include="Views\AboutUs\Contact.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

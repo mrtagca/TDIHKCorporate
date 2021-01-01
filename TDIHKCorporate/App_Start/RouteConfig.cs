@@ -382,6 +382,22 @@ namespace TDIHKCorporate
                 );
             #endregion
 
+            #region Contact / İletişim
+            routes.MapRoute(
+                    name: "ContactGerman",
+                    url: "{lang}/seiten/kontakt",
+                    defaults: new { controller = "AboutUs", action = "Contact", lang = language },
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
+
+            routes.MapRoute(
+                    name: "ContactTurkey",
+                    url: "{lang}/sayfalar/iletisim",
+                    defaults: new { controller = "AboutUs", action = "Contact", lang = language },
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
+            #endregion
+
             #region Standart Mitgliedschaft Form / Standart Üyelik Formu
             routes.MapRoute(
                     name: "StandardMitgliedschaftFormGerman",
