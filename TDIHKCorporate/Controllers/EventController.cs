@@ -30,6 +30,11 @@ namespace TDIHKCorporate.Controllers
             return View(pageItem);
         }
 
+        public ActionResult EventArchive()
+        {
+            return View(GetLastEvents(0)); //all events
+        }
+
         public ActionResult EventRegister(string seolink)
         {
             CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
