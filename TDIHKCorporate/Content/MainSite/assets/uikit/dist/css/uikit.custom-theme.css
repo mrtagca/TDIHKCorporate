@@ -1,4 +1,4 @@
-/*! UIkit 3.5.9 | https://www.getuikit.com | (c) 2014 - 2020 YOOtheme | MIT License */
+/*! UIkit 3.5.9 | https://www.getuikit.com | (c) 2014 - 2021 YOOtheme | MIT License */
 /* ========================================================================
    Component: Base
  ========================================================================== */
@@ -2497,6 +2497,14 @@ select.uk-form-width-xsmall {
     flex-direction: row;
   }
 }
+.flex-middle-event-detail {
+  align-items: flex-start;
+}
+@media (min-width: 960px) {
+  .flex-middle-event-detail {
+    align-items: center;
+  }
+}
 .event-date {
   font-size: 1.5rem;
 }
@@ -3223,6 +3231,10 @@ select.uk-form-width-xsmall {
 }
 .highlight-news-main {
   background-color: rgba(19, 44, 80, 0.6);
+}
+.day-badge {
+  background-color: #131d44;
+  border-bottom: 3px solid #616771;
 }
 /* ========================================================================
    Component: Container

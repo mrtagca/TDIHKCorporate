@@ -158,6 +158,13 @@
             flex-direction: row;
         }
     }
+
+    .flex-middle-event-detail{
+        align-items: flex-start;
+        @media(min-width: @breakpoint-medium) {
+            align-items: center;
+        }
+    }
     
     .event-date {
         font-size: @base-h2-font-size-m;
@@ -990,5 +997,10 @@
 
     .highlight-news-main {
         background-color: rgba(19,44,80,.6);
+    }
+
+    .day-badge{
+        background-color: #131d44;
+        border-bottom: 3px solid @dark-grey;
     }
 }
