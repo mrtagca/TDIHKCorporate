@@ -13,7 +13,7 @@
     $(document).ready(function () {
         GetMembers("Members");
 
-      
+
     });
 </script>
 
@@ -32,6 +32,12 @@
         <br />
         <input type="file" name="file" value="Logo Seçiniz" id="JobOfferLogo" />
         <br />
+        <br />
+        <label>Dil</label>
+        <select id="JobOfferLanguage" class="form-control">
+            <option value="tr">TR</option>
+            <option value="de">DE</option>
+        </select>
         <br />
         <label>Firma Adı</label>
         <input type="text" class="form-control" id="CorporationName" placeholder="Firma Adı" value="@Model.CorporationName" />
@@ -85,7 +91,11 @@
 
             $("#IsMember").trigger("change");
             $("#Members").val("@Model.MemberID");
+
         }
-    }, 500);
+
+        $("#JobOfferLanguage").val('@Model.Language');
+    }, 2500);
+
 
 </script>

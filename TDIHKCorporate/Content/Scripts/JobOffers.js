@@ -38,6 +38,7 @@ function SaveJobOffer()
     var positionDescription = document.getElementById("PositionDescription");
     var location = document.getElementById("Location");
     var corpName = document.getElementById("CorporationName");
+    var language = document.getElementById("JobOfferLanguage");
 
     var memberID = null;
     var logoPath = null;
@@ -62,6 +63,7 @@ function SaveJobOffer()
     jobOffer.append("PositionDescription", positionDescription.value);
     jobOffer.append("Location", location.value);
     jobOffer.append("CorporationName", corpName.value);
+    jobOffer.append("Language", language.value);
 
     $.ajax({
         url: '/Management/JobOffer/AddJobOffer',
@@ -146,6 +148,7 @@ function EditJobOffer(jobOfferID) {
     var positionDescription = document.getElementById("PositionDescription");
     var location = document.getElementById("Location");
     var corpName = document.getElementById("CorporationName");
+    var language = document.getElementById("JobOfferLanguage");
 
     var memberID = null;
     var logoPath = null;
@@ -170,6 +173,7 @@ function EditJobOffer(jobOfferID) {
     jobOffer.append("Location", location.value);
     jobOffer.append("CorporationName", corpName.value);
     jobOffer.append("JobOfferID", jobOfferID);
+    jobOffer.append("Language", language.value);
 
     $.ajax({
         url: '/Management/JobOffer/EditJobOffer',

@@ -30,6 +30,11 @@ namespace TDIHKCorporate.Controllers
         public ActionResult GetJobOffers()
         {
             DapperRepository<JobOffers> job = new DapperRepository<JobOffers>();
+
+            CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+
+            string name = cultureInfo.TwoLetterISOLanguageName;
+
             List<JobOffers> jobOfferList = job.GetList(@"select
                                                         jo.JobOfferID,
                                                         jo.IsMember,
@@ -47,8 +52,8 @@ namespace TDIHKCorporate.Controllers
                                                         from JobOffers jo (nolock)
                                                         left join Members mem (nolock)
                                                         on jo.MemberID = mem.MemberID
-														where jo.IsActive = 1
-														order by jo.CreatedDate desc", null);
+														where jo.IsActive = 1 and [Language] = @Language
+														order by jo.CreatedDate desc", new { Language= name });
             return PartialView("_JobOffers", jobOfferList);
         }
     }

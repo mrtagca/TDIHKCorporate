@@ -93,6 +93,7 @@ namespace TDIHKCorporate.Areas.Management.Controllers
                                                         jo.JobOfferID,
                                                         jo.IsMember,
                                                         jo.MemberID,
+                                                        jo.[Language],
                                                         case when jo.IsMember = 1 then mem.MemberLogoPath else jo.LogoPath end as LogoPath,
 														case when jo.IsMember = 1 then mem.MemberTitle else jo.CorporationName end as CorporationName,
                                                         jo.Position,
