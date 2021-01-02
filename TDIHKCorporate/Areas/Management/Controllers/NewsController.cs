@@ -52,7 +52,7 @@ where [Language] = @lang and NewsCategoryName = @NewsCategoryName", new { lang =
                     if (isThereCategory == null)
                     {
                         int result = newsCategory.Execute(@"insert into NewsCategories ([NewsCategoryName],[Language],[CreatedDate],[CreatedBy],[IsActive]) 
-values (@NewsCategoryName,@Language,@CreatedDate,@CreatedBy,@IsActive)", new { NewsCategoryName = newsCategories.NewsCategoryName, language = newsCategories.Language, createdDate = DateTime.Now, createdBy = 1, IsActive = true });
+values (@NewsCategoryName,@Language,@CreatedDate,@CreatedBy,@IsActive)", new { NewsCategoryName = newsCategories.NewsCategoryName, language = newsCategories.Language, createdDate = DateTime.Now, createdBy = Convert.ToInt32(Session["UserID"]), IsActive = true });
 
                         if (result > 0)
                         {
@@ -115,7 +115,7 @@ values (@NewsCategoryName,@Language,@CreatedDate,@CreatedBy,@IsActive)", new { N
 
                 string TimezoneId = System.Configuration.ConfigurationManager.AppSettings[System.Threading.Thread.CurrentThread.CurrentCulture.Name];
                 news.CreatedDate = TimeZoneInfo.ConvertTimeBySystemTimeZoneId(DateTime.Now, TimezoneId);
-                news.CreatedBy = 1;
+                news.CreatedBy = Convert.ToInt32(Session["UserID"]);
                 news.IsActive = true;
 
                 int result = addNews.Execute(@"INSERT INTO News ([NewsCategoryID],[NewsIdentifier],[NewsImagePath],[NewsThumbnailPath],[NewsTitle],[NewsDescription],[NewsContent],[NewsSeoLink],[NewsSeoKeywords],[Language],[CreatedDate],[CreatedBy],[IsActive]) values(@NewsCategoryID,@NewsIdentifier, @NewsImagePath, @NewsThumbnailPath, @NewsTitle,@NewsDescription, @NewsContent, @NewsSeoLink, @NewsSeoKeywords, @Language, @CreatedDate, @CreatedBy,@IsActive)", new
@@ -218,7 +218,7 @@ order by CreatedDate desc", new { lang = "tr" });
                     NewsSeoKeywords = news.NewsSeoKeywords,
                     Language = news.Language,
                     UpdatedDate = DateTime.Now,
-                    UpdatedBy = 1,
+                    UpdatedBy = Convert.ToInt32(Session["UserID"]),
                     IsActive = true
 
                 });

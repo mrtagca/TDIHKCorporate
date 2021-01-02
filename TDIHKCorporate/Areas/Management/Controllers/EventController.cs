@@ -66,7 +66,7 @@ WHERE [Language] = @lang order by EventCategoryName", new { lang = language });
                 EventQuota = events.EventQuota,
                 EventCriticalQuota = events.EventCriticalQuota,
                 CreatedDate = DateTime.Now,
-                CreatedBy = 1,
+                CreatedBy = Convert.ToInt32(Session["UserID"]),
                 IsActive = true
             });
 
@@ -114,7 +114,7 @@ WHERE [Language] = @lang order by EventCategoryName", new { lang = language });
                 EventQuota = events.EventQuota,
                 EventCriticalQuota = events.EventCriticalQuota,
                 CreatedDate = DateTime.Now,
-                CreatedBy = 1,
+                CreatedBy = Convert.ToInt32(Session["UserID"]),
                 IsActive = true
             });
 
@@ -185,7 +185,7 @@ order by CreatedDate desc", new { lang = lang });
                 if (ModelState.IsValid)
                 {
                     eventCategories.CreatedDate = DateTime.Now;
-                    eventCategories.CreatedBy = 1;
+                    eventCategories.CreatedBy = Convert.ToInt32(Session["UserID"]);
                     eventCategories.IsActive = true;
 
                     DapperRepository<EventCategories> evcRepo = new DapperRepository<EventCategories>();

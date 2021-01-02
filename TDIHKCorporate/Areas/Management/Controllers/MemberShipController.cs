@@ -37,9 +37,9 @@ namespace TDIHKCorporate.Areas.Management.Controllers
                     };
                     ImageBuilder.Current.Build(path, path, resizeSetting);
 
-                    members.MemberLogoPath = "/Content/MainSite/assets/images/members/"+members.file.FileName;
+                    members.MemberLogoPath = "/Content/MainSite/assets/images/members/" + members.file.FileName;
                     members.CreatedDate = DateTime.Now;
-                    members.CreatedBy = 1;
+                    members.CreatedBy = Convert.ToInt32(Session["UserID"]);
                     members.IsActive = true;
 
                     DapperRepository<Members> memberRepo = new DapperRepository<Members>();
@@ -85,54 +85,52 @@ values (@MemberLogoPath,@MemberTitle,@MemberAddress,@MemberWebSite,@MemberPhone1
         {
 
             try
-            { 
+            {
 
-                    string sql = "";
+                string sql = "";
 
-                    members.UpdatedDate = DateTime.Now;
-                    members.UpdatedBy = 1;
+                members.UpdatedDate = DateTime.Now;
+                members.UpdatedBy = Convert.ToInt32(Session["UserID"]);
 
-                int x = 0;
-                int a = 99 / x;
 
-                    if (members.file!=null)
+                if (members.file != null)
+                {
+                    string member = System.IO.Path.GetFileName(members.file.FileName);
+                    string path = System.IO.Path.Combine(Server.MapPath("~/Content/MainSite/assets/images/members/"), member);
+
+                    members.file.SaveAs(path);
+
+                    ResizeSettings resizeSetting = new ResizeSettings
                     {
-                        string member = System.IO.Path.GetFileName(members.file.FileName);
-                        string path = System.IO.Path.Combine(Server.MapPath("~/Content/MainSite/assets/images/members/"), member);
+                        Width = 300,
+                        Height = 150
+                    };
+                    ImageBuilder.Current.Build(path, path, resizeSetting);
 
-                        members.file.SaveAs(path);
+                    members.MemberLogoPath = "/Content/MainSite/assets/images/members/" + members.file.FileName;
 
-                        ResizeSettings resizeSetting = new ResizeSettings
-                        {
-                            Width = 300,
-                            Height = 150
-                        };
-                        ImageBuilder.Current.Build(path, path, resizeSetting);
-
-                        members.MemberLogoPath = "/Content/MainSite/assets/images/members/" + members.file.FileName;
-
-                        sql = @"update Members set MemberLogoPath=@MemberLogoPath,MemberTitle=@MemberTitle,MemberAddress=@MemberAddress,MemberWebSite=@MemberWebSite,MemberPhone1=@MemberPhone1,MemberPhone2=@MemberPhone2,MemberEmailAddress=@MemberEmailAddress,UpdatedDate=@UpdatedDate,UpdatedBy=@UpdatedBy
+                    sql = @"update Members set MemberLogoPath=@MemberLogoPath,MemberTitle=@MemberTitle,MemberAddress=@MemberAddress,MemberWebSite=@MemberWebSite,MemberPhone1=@MemberPhone1,MemberPhone2=@MemberPhone2,MemberEmailAddress=@MemberEmailAddress,UpdatedDate=@UpdatedDate,UpdatedBy=@UpdatedBy
 where MemberID = @MemberID";
-                    }
-                    else
-                    {
-                        sql = @"update Members set MemberTitle=@MemberTitle,MemberAddress=@MemberAddress,MemberWebSite=@MemberWebSite,MemberPhone1=@MemberPhone1,MemberPhone2=@MemberPhone2,MemberEmailAddress=@MemberEmailAddress,UpdatedDate=@UpdatedDate,UpdatedBy=@UpdatedBy
+                }
+                else
+                {
+                    sql = @"update Members set MemberTitle=@MemberTitle,MemberAddress=@MemberAddress,MemberWebSite=@MemberWebSite,MemberPhone1=@MemberPhone1,MemberPhone2=@MemberPhone2,MemberEmailAddress=@MemberEmailAddress,UpdatedDate=@UpdatedDate,UpdatedBy=@UpdatedBy
 where MemberID = @MemberID";
-                    }
-                    
+                }
 
-                    DapperRepository<Members> memberRepo = new DapperRepository<Members>();
-                    var result = memberRepo.Execute(sql, members);
 
-                    ViewBag.Success = "Success";
-                    return View(members);
-                
+                DapperRepository<Members> memberRepo = new DapperRepository<Members>();
+                var result = memberRepo.Execute(sql, members);
+
+                ViewBag.Success = "Success";
+                return View(members);
+
             }
             catch (Exception ex)
             {
-               
+
                 DapperRepository<Members> memberRepo = new DapperRepository<Members>();
-                Members result = memberRepo.Get("select * from Members (nolock) where MemberID = @MemberID", new { MemberID  = members.MemberID});
+                Members result = memberRepo.Get("select * from Members (nolock) where MemberID = @MemberID", new { MemberID = members.MemberID });
 
                 ViewBag.Error = "Fail: " + ex.Message;
 
@@ -146,7 +144,7 @@ where MemberID = @MemberID";
             {
                 DapperRepository<Members> member = new DapperRepository<Members>();
 
-                int result = member.Execute(@"update Members set IsActive = 0,UpdatedDate=@UpdatedDate,UpdatedBy=@UpdatedBy where MemberID = @MemberID", new { MemberID = memberID, UpdatedDate = DateTime.Now, UpdatedBy=1 });
+                int result = member.Execute(@"update Members set IsActive = 0,UpdatedDate=@UpdatedDate,UpdatedBy=@UpdatedBy where MemberID = @MemberID", new { MemberID = memberID, UpdatedDate = DateTime.Now, UpdatedBy = 1 });
 
 
                 return JsonConvert.SerializeObject(true);

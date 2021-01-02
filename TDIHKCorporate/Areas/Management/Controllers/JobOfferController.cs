@@ -30,7 +30,7 @@ namespace TDIHKCorporate.Areas.Management.Controllers
         public ActionResult AddJobOffer(JobOffers jobOffers)
         {
             jobOffers.CreatedDate = DateTime.Now;
-            jobOffers.CreatedBy = 1;
+            jobOffers.CreatedBy = Convert.ToInt32(Session["UserID"]);
             jobOffers.IsActive = true;
 
             string path = "/Content/MainSite/assets/images/joboffers/";
@@ -153,7 +153,7 @@ namespace TDIHKCorporate.Areas.Management.Controllers
             try
             {
                 jobOffers.UpdatedDate = DateTime.Now;
-                jobOffers.UpdatedBy = 1;
+                jobOffers.UpdatedBy = Convert.ToInt32(Session["UserID"]);
 
                 string path = "/Content/MainSite/assets/images/joboffers/";
 

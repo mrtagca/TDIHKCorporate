@@ -26,7 +26,7 @@ namespace TDIHKCorporate.Areas.Management.Controllers
             {
                 DapperRepository<Institution> inst = new DapperRepository<Institution>();
                 institution.CreatedDate = DateTime.Now;
-                institution.CreatedBy = 1;
+                institution.CreatedBy = Convert.ToInt32(Session["UserID"]);
                 institution.IsActive = true;
 
                 var result = inst.Execute(@"insert into Institutions ([Language],InstitutionTitle,InstitutionDescription,InstitutionDate,CreatedDate,CreatedBy,IsActive) values (@language,@InstitutionTitle,@InstitutionDescription,@InstitutionDate,@createdDate,@createdBy,@IsActive)", institution);
@@ -90,7 +90,7 @@ namespace TDIHKCorporate.Areas.Management.Controllers
             {
                 DapperRepository<Institution> inst = new DapperRepository<Institution>();
                 institution.UpdatedDate = DateTime.Now;
-                institution.UpdatedBy = 1; 
+                institution.UpdatedBy = Convert.ToInt32(Session["UserID"]); 
 
                 var result = inst.Execute(@"update Institutions set Language = @Language,InstitutionTitle=@InstitutionTitle,InstitutionDescription=@InstitutionDescription,InstitutionDate=@InstitutionDate,UpdatedDate=@updatedDate,UpdatedBy=@updatedBy where ID = @ID", institution);
                  

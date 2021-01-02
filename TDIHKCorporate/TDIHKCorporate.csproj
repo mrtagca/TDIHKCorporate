@@ -3197,6 +3197,7 @@
     <Compile Include="Areas\Management\Controllers\PodcastController.cs" />
     <Compile Include="Areas\Management\Controllers\SliderController.cs" />
     <Compile Include="Areas\Management\Controllers\UrlController.cs" />
+    <Compile Include="Areas\Management\Filters\AuthorizationFilter.cs" />
     <Compile Include="Areas\Management\ManagementAreaRegistration.cs" />
     <Compile Include="BaseControllers\MultiLanguage\ManagementBaseController.cs" />
     <Compile Include="BaseControllers\MultiLanguage\SiteBaseController.cs" />
@@ -3249,6 +3250,7 @@
     <Compile Include="Types\SliderContent.cs" />
     <Compile Include="Types\SliderContentBySliderId.cs" />
     <Compile Include="Types\Sliders.cs" />
+    <Compile Include="Types\Users.cs" />
     <Compile Include="Types\ViewTypes\CreateContentViewModel.cs" />
     <Compile Include="Types\ViewTypes\EditContentViewModel.cs" />
     <Compile Include="Types\ViewTypes\EventIdentifier.cs" />

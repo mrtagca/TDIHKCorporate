@@ -60,7 +60,7 @@ namespace TDIHKCorporate.Areas.Management.Controllers
                         SliderPriority = createContentViewModel.SliderPriority,
                         SliderUrl = createContentViewModel.SliderURL,
                         CreatedDate = DateTime.Now,
-                        CreatedBy = 1,
+                        CreatedBy = Convert.ToInt32(Session["UserID"]),
                         IsActive = true
                     };
 
@@ -127,7 +127,7 @@ namespace TDIHKCorporate.Areas.Management.Controllers
                         SliderPriority = editContentViewModel.SliderPriority,
                         SliderUrl = editContentViewModel.SliderURL,
                         UpdatedDate = DateTime.Now,
-                        UpdatedBy = 1
+                        UpdatedBy = Convert.ToInt32(Session["UserID"])
                     };
 
                     DapperRepository<SliderContent> sliderContentRepo = new DapperRepository<SliderContent>();
