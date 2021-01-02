@@ -11,6 +11,7 @@ using TDIHKCorporate.Types;
 
 namespace TDIHKCorporate.Areas.Management.Controllers
 {
+    
     [RouteArea("Management")]
     public class AdminController : ManagementBaseController
     {
@@ -22,6 +23,7 @@ namespace TDIHKCorporate.Areas.Management.Controllers
         }
 
         // GET: Management/Admin
+
         [AuthorizationFilter]
         public ActionResult Index()
         {
@@ -45,7 +47,7 @@ namespace TDIHKCorporate.Areas.Management.Controllers
 
             if (usr != null)
             {
-                
+
                 HttpContext.Session["RoleName"] = usr.RoleName;
                 HttpContext.Session["UserID"] = usr.UserID;
                 HttpContext.Session["RoleID"] = usr.RoleID;
