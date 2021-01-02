@@ -62,5 +62,10 @@ namespace TDIHKCorporate.Areas.Management.Controllers
 
         }
 
+        public ActionResult Logout()
+        {
+            HttpContext.Session.RemoveAll();
+            return Redirect(Request.UrlReferrer.ToString());
+        }
     }
 }
