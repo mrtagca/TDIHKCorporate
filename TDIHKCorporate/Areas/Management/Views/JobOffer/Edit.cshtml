@@ -1,12 +1,21 @@
-﻿
+﻿@model TDIHKCorporate.Types.JobOffers
 @{
-    ViewBag.Title = "AddJobOffer";
+    ViewBag.Title = "Edit";
     Layout = "~/Areas/Management/Views/Shared/_layoutDashboard.cshtml";
 }
 <script src="~/Content/Scripts/JobOffers.js"></script>
 
-<h5>İş Teklifi Ekle</h5>
+<h5>İş Teklifi Düzenle</h5>
 <hr />
+
+<script>
+
+    $(document).ready(function () {
+        GetMembers("Members");
+
+      
+    });
+</script>
 
 
 <div class="col-lg-12">
@@ -25,22 +34,27 @@
         <br />
         <br />
         <label>Firma Adı</label>
-        <input type="text" class="form-control" id="CorporationName" placeholder="Firma Adı" value="" />
+        <input type="text" class="form-control" id="CorporationName" placeholder="Firma Adı" value="@Model.CorporationName" />
         <br />
         <label>Pozisyon</label>
-        <input type="text" class="form-control" name="Position" value="" id="Position" placeholder="Pozisyon" />
+        <input type="text" class="form-control" name="Position" value="@Model.Position" id="Position" placeholder="Pozisyon" />
         <br />
         <label>Pozisyon Açıklaması</label>
-        <textarea class="form-control" name="PositionDescription" id="PositionDescription" placeholder="Pozisyon Açıklaması"></textarea>
+        <textarea class="form-control" name="PositionDescription" id="PositionDescription" placeholder="Pozisyon Açıklaması">@Model.PositionDescription</textarea>
         <br />
         <label>Lokasyon</label>
-        <input type="text" class="form-control" name="Location" value="" id="Location" placeholder="Lokasyon" />
+        <input type="text" class="form-control" name="Location" value="@Model.Location" id="Location" placeholder="Lokasyon" />
         <br />
-        <button onclick="SaveJobOffer()" class="btn btn-success" style="float:right">Kaydet</button>
+        <button onclick="EditJobOffer(@Model.JobOfferID)" class="btn btn-success" style="float:right">Güncelle</button>
 
     </div>
 </div>
+
+
 <script>
+
+
+
     $("#IsMember").change(function () {
 
         var memberCheckbox = document.getElementById("IsMember");
@@ -49,7 +63,7 @@
         var corpName = document.getElementById("CorporationName");
 
         if (memberCheckbox.checked === true) {
-            GetMembers("Members");
+            //GetMembers("Members");
             membersDropdown.removeAttribute("disabled");
             logo.setAttribute("disabled", "disabled");
             corpName.setAttribute("disabled", "disabled");
@@ -62,4 +76,16 @@
         }
 
     });
+
+    setTimeout(() => {
+        var memberCheckbox = document.getElementById("IsMember");
+
+        if ('@Model.IsMember' === "True") {
+            memberCheckbox.checked = true;
+
+            $("#IsMember").trigger("change");
+            $("#Members").val("@Model.MemberID");
+        }
+    }, 500);
+
 </script>

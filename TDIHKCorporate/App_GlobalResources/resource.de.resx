@@ -297,6 +297,15 @@
   <data name="IsTeklifi" xml:space="preserve">
     <value>Zu den Jobangeboten</value>
   </data>
+  <data name="IsTeklifiEkle" xml:space="preserve">
+    <value>Stellenangebot hinzufügen</value>
+  </data>
+  <data name="IsTeklifiListesi" xml:space="preserve">
+    <value>Stellenangebotsliste</value>
+  </data>
+  <data name="IsTeklifiMetin" xml:space="preserve">
+    <value>Geschäftsvorschlag</value>
+  </data>
   <data name="IstekListesi" xml:space="preserve">
     <value>Wunschzettel</value>
   </data>

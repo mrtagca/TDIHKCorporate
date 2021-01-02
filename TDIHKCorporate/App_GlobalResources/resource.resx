@@ -297,6 +297,15 @@
   <data name="IsTeklifi" xml:space="preserve">
     <value>İş Teklifine Git</value>
   </data>
+  <data name="IsTeklifiEkle" xml:space="preserve">
+    <value>İş Teklifi Ekle</value>
+  </data>
+  <data name="IsTeklifiListesi" xml:space="preserve">
+    <value>İş Teklifi Listesi</value>
+  </data>
+  <data name="IsTeklifiMetin" xml:space="preserve">
+    <value>İş Teklifi</value>
+  </data>
   <data name="IstekListesi" xml:space="preserve">
     <value>İstek Listesi</value>
   </data>

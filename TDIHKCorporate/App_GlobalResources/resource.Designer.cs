@@ -601,6 +601,33 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to İş Teklifi Ekle.
+        /// </summary>
+        internal static string IsTeklifiEkle {
+            get {
+                return ResourceManager.GetString("IsTeklifiEkle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to İş Teklifi Listesi.
+        /// </summary>
+        internal static string IsTeklifiListesi {
+            get {
+                return ResourceManager.GetString("IsTeklifiListesi", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to İş Teklifi.
+        /// </summary>
+        internal static string IsTeklifiMetin {
+            get {
+                return ResourceManager.GetString("IsTeklifiMetin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to İstek Listesi.
         /// </summary>
         internal static string IstekListesi {

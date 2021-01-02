@@ -21,10 +21,35 @@ namespace TDIHKCorporate.Controllers
             string name = cultureInfo.TwoLetterISOLanguageName;
 
             Pages pageItem = page.Get(@"SELECT * FROM Pages (NOLOCK)
-                                            where[Language] = @language and PageIdentifier = @pageIdentifier", new { language = name, pageIdentifier = "JobOffers" });
+                                            where [Language] = @language and PageIdentifier = @pageIdentifier", new { language = name, pageIdentifier = "JobOffers" });
 
 
             return View(pageItem);
+        }
+
+        public ActionResult GetJobOffers()
+        {
+            DapperRepository<JobOffers> job = new DapperRepository<JobOffers>();
+            List<JobOffers> jobOfferList = job.GetList(@"select
+                                                        jo.JobOfferID,
+                                                        jo.IsMember,
+                                                        jo.MemberID,
+                                                        case when jo.IsMember = 1 then mem.MemberLogoPath else jo.LogoPath end as LogoPath,
+														case when jo.IsMember = 1 then mem.MemberTitle else jo.CorporationName end as CorporationName,
+                                                        jo.Position,
+                                                        jo.PositionDescription,
+                                                        jo.[Location],
+                                                        jo.CreatedDate,
+                                                        jo.CreatedBy,
+                                                        jo.UpdatedDate,
+                                                        jo.UpdatedBy,
+                                                        jo.IsActive
+                                                        from JobOffers jo (nolock)
+                                                        left join Members mem (nolock)
+                                                        on jo.MemberID = mem.MemberID
+														where jo.IsActive = 1
+														order by jo.CreatedDate desc", null);
+            return PartialView("_JobOffers", jobOfferList);
         }
     }
 }

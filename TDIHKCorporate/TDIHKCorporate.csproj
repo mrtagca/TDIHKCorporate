@@ -3145,6 +3145,8 @@
     <Content Include="Content\MainSite\assets\images\news\turkiye-ab-gumruk-isbirligi.jpg_x" />
     <Content Include="Areas\Management\Views\Event\EventRegistrations.cshtml" />
     <Content Include="Areas\Management\Views\JobOffer\AddJobOffer.cshtml" />
+    <Content Include="Areas\Management\Views\JobOffer\JobOfferList.cshtml" />
+    <Content Include="Areas\Management\Views\JobOffer\Edit.cshtml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="HTML-1\dienstleistungen.html" />
     <Content Include="HTML-1\etkinlik-detay.html" />
@@ -3880,6 +3882,7 @@
     <Content Include="Views\Home\_PartialShowHomePageNachrichten.cshtml" />
     <Content Include="Views\AboutUs\Contact.cshtml" />
     <Content Include="Views\Event\EventArchive.cshtml" />
+    <Content Include="Views\Services\_JobOffers.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
