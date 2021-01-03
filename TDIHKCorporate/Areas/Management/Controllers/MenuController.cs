@@ -84,9 +84,12 @@ namespace TDIHKCorporate.Areas.Management.Controllers
 
             try
             {
+                menuItem.CreatedDate = DateTime.Now;
+                menuItem.CreatedBy = Convert.ToInt32(Session["UserID"]);
+
                 DapperRepository<MenuItems> item = new DapperRepository<MenuItems>();
-                int result = item.Execute(@"insert into MenuItems (MenuID,PageID,ParentMenuItemID,MenuItemPriority,[Language],MenuName,MenuLevel,IsSubMenu,IsActive) 
-										values (@menuID,@pageID,@parentMenuItemID,@menuItemPriority,@language,@menuName,@menuLevel,@IsSubMenu,@IsActive)", menuItem);
+                int result = item.Execute(@"insert into MenuItems (MenuID,PageID,ParentMenuItemID,MenuItemPriority,[Language],MenuName,MenuLevel,IsSubMenu,CreatedDate,CreatedBy,IsActive) 
+										values (@menuID,@pageID,@parentMenuItemID,@menuItemPriority,@language,@menuName,@menuLevel,@IsSubMenu,@CreatedDate,@CreatedBy,@IsActive)", menuItem);
 
                 return JsonConvert.SerializeObject(true);
             }
@@ -104,7 +107,7 @@ namespace TDIHKCorporate.Areas.Management.Controllers
             {
                 DapperRepository<MenuItems> item = new DapperRepository<MenuItems>();
                 menuItem.UpdatedDate = DateTime.Now;
-                menuItem.UpdatedBy = 1;
+                menuItem.UpdatedBy = Convert.ToInt32(Session["UserID"]);
 
                 int result = item.Execute(@"update MenuItems set MenuID=@MenuID,PageID=@PageID,ParentMenuItemID=@ParentMenuItemID,MenuItemPriority=@MenuItemPriority,[Language]=@Language,MenuName=@MenuName,MenuLevel=@MenuLevel,IsSubMenu=@IsSubMenu,IsActive=@IsActive,UpdatedDate=@UpdatedDate,UpdatedBy=@UpdatedBy 
                 where ID = @ID", menuItem);

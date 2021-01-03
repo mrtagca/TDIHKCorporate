@@ -1,0 +1,101 @@
+﻿
+@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/_layoutMaster.cshtml";
+}
+
+<style>
+    .map-responsive {
+        overflow: hidden;
+        padding-bottom: 56.25%;
+        position: relative;
+        height: 0;
+    }
+
+        .map-responsive iframe {
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+        }
+</style>
+
+<main class="uk-container" uk-scrollspy="cls: uk-animation-fade; target: > section; delay: 250">
+    <br />
+    <section class="map-responsive">
+        <!-- Maps buraya-->
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2428.268605545984!2d13.376571615807086!3d52.51047787981232!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a851ced38a106b%3A0xd55de018059e34f1!2sLeipziger%20Pl.%2014%2C%2010117%20Berlin%2C%20Almanya!5e0!3m2!1str!2str!4v1609514807740!5m2!1str!2str" width="1140" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+    </section>
+    <section class="uk-section">
+        <div class="uk-grid uk-grid-divider uk-grid-medium" uk-grid>
+            <div class="uk-width-3-5@m">
+                <h1>@Resources.resource.ContactInformation</h1>
+                <h2>@Resources.resource.ContactForm</h2>
+                <form class="uk-form-stacked uk-width-1-1">
+                    <div class="uk-margin">
+                        <label class="uk-form-label" for="nachName">@Resources.resource.NameSurname</label>
+                        <div class="uk-form-controls">
+                            <input class="uk-input" id="nachName" type="text" required>
+                        </div>
+                    </div>
+                    <div class="uk-margin">
+                        <label class="uk-form-label" for="email">@Resources.resource.EmailAdres</label>
+                        <div class="uk-form-controls">
+                            <input class="uk-input" id="nachName" type="email" required>
+                        </div>
+                    </div>
+                    <div class="uk-margin">
+                        <label class="uk-form-label" for="note">@Resources.resource.YourMessage:</label>
+                        <div class="uk-form-controls">
+                            <textarea class="uk-textarea uk-width-1-1" id="note" rows="3" style="resize: none;" required></textarea>
+                        </div>
+                    </div>
+                    <div class="uk-margin">
+
+                    </div>
+                    <div class="uk-margin">
+                        <div class="uk-text-bold uk-margin-small-bottom">@Resources.resource.DataPolicyApprove*</div>
+                        <div class="uk-form-controls">
+                            <label><input class="uk-checkbox" type="checkbox" name="acceptTerms" required>@Resources.resource.DataPolicyApproveText</label>
+                        </div>
+                    </div>
+                    <div class="uk-margin">
+                        <div class="uk-text-meta">@Resources.resource.DataPolicyReadAndApproveText</div>
+                    </div>
+                    <div class="uk-flex uk-flex-right">
+                        <button type="submit" class="uk-button uk-width-1-1 uk-width-auto@m uk-button-primary uk-border-rounded">@Resources.resource.Gonder</button>
+                    </div>
+                </form>
+            </div>
+            <div class="uk-width-2-5@m">
+                <div>
+                    <div class="uk-h3 uk-margin-remove">Türkisch-Deutsche Industrie- und Handelskammer</div>
+                    <div class="uk-h3 uk-margin-remove-top">(TD-IHK)</div>
+                    <div class="uk-h3 uk-width-5-6@m uk-margin-remove">Türk-Alman Ticaret ve Sanayi Odası</div>
+                    <div class="uk-h3 uk-margin-remove-top">(TD-IHK)</div>
+                    <div class="uk-margin">
+                        <span uk-icon="icon: location; ratio: 1.2"></span>
+                        Leipziger Platz 14, D-10117 Berlin
+                    </div>
+                    <div class="uk-margin">
+                        <span uk-icon="icon: phone; ratio: 1.2"></span>
+                        <a class="uk-link-reset" href="tel:+4903023329950">+49 (0)30 - 233 299 50</a>
+                    </div>
+                    <div class="uk-margin">
+                        <span uk-icon="icon: print; ratio: 1.2"></span>
+                        +49 (0)30 - 233 299 510
+                    </div>
+                    <div class="uk-margin">
+                        <span uk-icon="icon: mail; ratio: 1.2"></span>
+                        <a class="uk-link-reset" href="mailto:info@td-ihk.de">info@td-ihk.de</a>
+                    </div>
+                    <div class="uk-margin">
+                        <span uk-icon="icon: world; ratio: 1.2"></span>
+                        <a class="uk-link-reset" href="https://www.td-ihk.de">https://www.td-ihk.de</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

@@ -58,7 +58,7 @@ namespace TDIHKCorporate.Areas.Management.Controllers
                     PageSeoKeywords = pages.PageSeoKeywords,
                     Language = pages.Language,
                     UpdatedDate = DateTime.Now,
-                    UpdatedBy = 1,
+                    UpdatedBy = Convert.ToInt32(Session["UserID"]),
                     IsActive = true
 
                 });
@@ -99,7 +99,7 @@ namespace TDIHKCorporate.Areas.Management.Controllers
 
                 string TimezoneId = System.Configuration.ConfigurationManager.AppSettings[System.Threading.Thread.CurrentThread.CurrentCulture.Name];
                 pages.CreatedDate = TimeZoneInfo.ConvertTimeBySystemTimeZoneId(DateTime.Now, TimezoneId);
-                pages.CreatedBy = 1;
+                pages.CreatedBy = Convert.ToInt32(Session["UserID"]);
                 pages.IsActive = true;
 
                 int result = addPage.Execute(@"INSERT INTO Pages([PageCategoryID],[PageIdentifier],[PageImagePath],[PageThumbnailPath],[PageTitle],[PageContent],[PageSeoLink],[PageSeoKeywords],[Language],[CreatedDate],[CreatedBy],[IsActive]) values(@PageCategoryID,@PageIdentifier, @PageImagePath, @PageThumbnailPath, @PageTitle, @PageContent, @PageSeoLink, @PageSeoKeywords, @Language, @CreatedDate, @CreatedBy,@IsActive)", new
@@ -189,7 +189,7 @@ namespace TDIHKCorporate.Areas.Management.Controllers
                 DapperRepository<PageCategories> pageCategory = new DapperRepository<PageCategories>();
 
                 int result = pageCategory.Execute(@"insert into PageCategories (PageCategoryName,[Language],CreatedDate,CreatedBy,IsActive)
-  values (@pageCategoryName,@language,@createdDate,@createdBy,@isActive)", new { pageCategoryName = pageCategories.PageCategoryName, language = pageCategories.Language, createdDate = DateTime.Now, createdBy = 1, isActive = true });
+  values (@pageCategoryName,@language,@createdDate,@createdBy,@isActive)", new { pageCategoryName = pageCategories.PageCategoryName, language = pageCategories.Language, createdDate = DateTime.Now, createdBy = Convert.ToInt32(Session["UserID"]), isActive = true });
 
                 if (result > 0)
                 {

@@ -1,0 +1,56 @@
+﻿@model List<TDIHKCorporate.Types.Events>
+@using System.Globalization
+
+
+
+@{
+    ViewBag.Title = "EventArchive";
+    Layout = "~/Views/Shared/_layoutMaster.cshtml";
+
+    CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+
+    string lang = cultureInfo.TwoLetterISOLanguageName;
+}
+
+<main class="uk-container" uk-scrollspy="cls: uk-animation-fade; target: > section; delay: 250">
+    <section class="uk-section">
+        <h1>Etkinlik Arşivi</h1>
+        <h2>Etkinlikler</h2>
+        <div class="uk-grid uk-grid-divider uk-grid-small uk-child-width-1-1" uk-grid>
+
+            @foreach (var item in Model)
+            {
+                <div>
+                    <a class="uk-link-reset">
+                        <!-- Tarih ve kategori-->
+                        <div class="uk-flex uk-flex-middle uk-margin-small-bottom">
+                            <div class="uk-text-small uk-margin-small-right">@item.EventDate.ToString("dd-MM-yyyy")</div>
+                        </div>
+
+                        @if (lang=="tr")
+                        {
+                            <div class="uk-text-large">
+                                <a style="text-decoration:none" href="/tr/etkinlikler/@item.EventSeoLink">@item.EventTitle</a>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="uk-text-large">
+                                <a style="text-decoration:none" href="/de/events/@item.EventSeoLink">@item.EventTitle</a>
+                            </div>
+                        }
+
+                    </a>
+                </div>
+            }
+
+        </div>
+        <!-- PAGINATION-->
+        <div class="uk-margin-medium-top">
+            <ul class="uk-pagination" uk-margin>
+                <li><a href="#"><span uk-pagination-previous></span></a></li>
+                <li><a href="#"><span uk-pagination-next></span></a></li>
+            </ul>
+        </div>
+    </section>
+</main>

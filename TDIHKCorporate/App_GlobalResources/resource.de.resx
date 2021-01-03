@@ -156,6 +156,12 @@
   <data name="BurayaTiklayarakKabulEdebilirsiniz" xml:space="preserve">
     <value>Wenn Sie hier klicken, akzeptieren Sie den</value>
   </data>
+  <data name="ContactForm" xml:space="preserve">
+    <value>Kontaktformular</value>
+  </data>
+  <data name="ContactInformation" xml:space="preserve">
+    <value>Kontaktinformationen</value>
+  </data>
   <data name="Covid19" xml:space="preserve">
     <value>COVID-19</value>
   </data>
@@ -164,6 +170,15 @@
   </data>
   <data name="Dashboard" xml:space="preserve">
     <value>Instrumententafel</value>
+  </data>
+  <data name="DataPolicyApprove" xml:space="preserve">
+    <value>Zustimmung Datenschutzerklärung</value>
+  </data>
+  <data name="DataPolicyApproveText" xml:space="preserve">
+    <value>Ja, ich stimme der Datenschutzerklärung zu</value>
+  </data>
+  <data name="DataPolicyReadAndApproveText" xml:space="preserve">
+    <value>Veri koruma düzenlemelerini www.tuerkei.ahk.de/datenschutzerklaerung adresinde okudum ve düzenlemeleri kabul ediyorum.</value>
   </data>
   <data name="Dil" xml:space="preserve">
     <value>Sprache</value>
@@ -282,6 +297,15 @@
   <data name="IsTeklifi" xml:space="preserve">
     <value>Zu den Jobangeboten</value>
   </data>
+  <data name="IsTeklifiEkle" xml:space="preserve">
+    <value>Stellenangebot hinzufügen</value>
+  </data>
+  <data name="IsTeklifiListesi" xml:space="preserve">
+    <value>Stellenangebotsliste</value>
+  </data>
+  <data name="IsTeklifiMetin" xml:space="preserve">
+    <value>Geschäftsvorschlag</value>
+  </data>
   <data name="IstekListesi" xml:space="preserve">
     <value>Wunschzettel</value>
   </data>
@@ -356,6 +380,9 @@
   </data>
   <data name="MenuTip" xml:space="preserve">
     <value>Menütyp</value>
+  </data>
+  <data name="NameSurname" xml:space="preserve">
+    <value>Name Nachname</value>
   </data>
   <data name="OlusturulmaTarihi" xml:space="preserve">
     <value>Erstellungsdatum</value>
@@ -551,5 +578,8 @@
   </data>
   <data name="YonetimPaneli" xml:space="preserve">
     <value>Management Panel</value>
+  </data>
+  <data name="YourMessage" xml:space="preserve">
+    <value>Ihre Nachricht an uns</value>
   </data>
 </root>

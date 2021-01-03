@@ -13,8 +13,6 @@ namespace TDIHKCorporate.Controllers
 {
     public class AboutUsController : SiteBaseController
     {
-        
-
         public ActionResult Institution()
         {
             DapperRepository<Pages> inst = new DapperRepository<Pages>();
@@ -31,7 +29,6 @@ namespace TDIHKCorporate.Controllers
 
             return View(institution);
         }
-
         public ActionResult GetInstitutionTimeline()
         {
             DapperRepository<Institution> inst = new DapperRepository<Institution>();
@@ -39,10 +36,15 @@ namespace TDIHKCorporate.Controllers
 
             string name = cultureInfo.TwoLetterISOLanguageName;
 
-            List<Institution> institutionList = inst.GetList("select * from Institutions (NOLOCK) where IsActive = 1 and [Language] = @Language order by InstitutionDate desc",new { Language =name });
+            List<Institution> institutionList = inst.GetList("select * from Institutions (NOLOCK) where IsActive = 1 and [Language] = @Language order by InstitutionDate desc", new { Language = name });
 
 
             return PartialView("_PartialInstitutionTimeline", institutionList);
+        }
+
+        public ActionResult Contact()
+        {
+            return View();
         }
     }
 }

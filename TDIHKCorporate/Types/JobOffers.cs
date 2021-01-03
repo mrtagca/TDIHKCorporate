@@ -13,9 +13,12 @@ namespace TDIHKCorporate.Types
         public int MemberID { get; set; }
         public HttpPostedFileBase file { get; set; }
         public string LogoPath { get; set; }
+        public string Language { get; set; }
+        public string CorporationName { get; set; }
         public string Position { get; set; }
         public string PositionDescription { get; set; }
         public string Location { get; set; }
+        public string JobOfferURL { get; set; }
         public DateTime CreatedDate { get; set; }
         public int CreatedBy { get; set; }
         public DateTime UpdatedDate { get; set; }

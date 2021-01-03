@@ -53,7 +53,7 @@ namespace TDIHKCorporate.Areas.Management.Controllers
                         PodcastTitle = podcastCreateViewModel.PodcastTitle,
                         PodcastDescription = podcastCreateViewModel.PodcastDescription,
                         CreatedDate = DateTime.Now,
-                        CreatedBy = 1,
+                        CreatedBy = Convert.ToInt32(Session["UserID"]),
                         IsActive = true
 
                     };
@@ -129,7 +129,7 @@ namespace TDIHKCorporate.Areas.Management.Controllers
                     PodcastTitle = podcasts.PodcastTitle,
                     PodcastDescription = podcasts.PodcastDescription,
                     UpdatedDate = DateTime.Now,
-                    UpdatedBy = 1,
+                    UpdatedBy = Convert.ToInt32(Session["UserID"]),
                     IsActive = true
 
                 });
