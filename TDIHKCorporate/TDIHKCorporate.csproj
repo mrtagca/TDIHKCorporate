@@ -3225,6 +3225,7 @@
     <Compile Include="Helpers\Mail\MailSender.cs" />
     <Compile Include="Models\Language\Language.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Types\BreadCrumb.cs" />
     <Compile Include="Types\ComponentTypes\FileBrowserResponse.cs" />
     <Compile Include="Types\ComponentTypes\ImageBrowserResponse.cs" />
     <Compile Include="Types\EmailTemplates.cs" />

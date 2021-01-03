@@ -27,10 +27,29 @@ namespace TDIHKCorporate.Controllers
             Pages pageItem = page.Get(@"SELECT * FROM Pages (NOLOCK)
             where PageSeoLink = @pageSeoLink and [Language]=@lang", new { pageSeoLink = seoLink, lang = name });
 
-            //Pages pageItem = page.Get(@"SELECT * FROM Pages (NOLOCK)
-            //where[Language] = @language and PageSeoLink = @pageSeoLink", new { language = name, pageSeoLink = seoLink });
+            try
+            {
+                ViewBag.BreadcrumbList = GetBreadCrumbs(pageItem.PageID, name);
+            }
+            catch (Exception ex)
+            {
+                 
+            }
 
             return View(pageItem);
+        }
+
+        public List<BreadCrumb> GetBreadCrumbs(int PageID, string language)
+        {
+            DapperRepository<BreadCrumb> breadCrumb = new DapperRepository<BreadCrumb>();
+            List<BreadCrumb> breadCrumbList = breadCrumb.GetList(@"select mi.MenuLevel,mi.MenuName,pg.[Language],pg.PageSeoLink from MenuItems mi(nolock)
+                                                                left join Pages pg (nolock)
+                                                                on mi.PageID = pg.PageID
+                                                                where (ID in (select distinct ParentMenuItemID from MenuItems
+                                                                where ID in (select ParentMenuItemID from MenuItems where PageID=@PageID) or PageID = @PageID) or                       mi.PageID = @PageID) and mi.[Language]=@Language
+                                                                order by mi.MenuLevel", new { PageID = PageID, Language = language });
+
+            return breadCrumbList;
         }
     }
 }
