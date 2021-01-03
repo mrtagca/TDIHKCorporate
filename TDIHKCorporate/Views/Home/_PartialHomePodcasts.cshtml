@@ -11,7 +11,7 @@
 
             <div class="uk-grid uk-grid-medium podcast-wrapper" uk-grid>
                 <div class="uk-width-1-4 uk-width-1-6@s">
-                    <span class="uk-preserve uk-margin-small-left podcast-icon uk-icon" uk-icon="icon: icn-podcast"></span>
+                    <span class="uk-preserve uk-margin-small-left podcast-icon uk-icon uk-icon-button" uk-icon="icon: rss; ratio: 1.5"></span>
                 </div>
                 <div class="uk-width-1-2 uk-width-2-3@s">
                     <div class="uk-text-large uk-text-truncate line-height-1 uk-text-bold">@item.PodcastTitle</div>
@@ -21,7 +21,7 @@
 
                 <div class="uk-width-1-4 uk-width-1-6@s">
                     <a onclick="playAudio('audio_@item.ID','audioIcon_@item.ID','btnAudio_@item.ID')" id="btnAudio_@item.ID" class="uk-link-reset">
-                        <span class="uk-preserve uk-icon" id="audioIcon_@item.ID" uk-icon="icon:icn-play; ratio: 2.3334"></span>
+                        <span class="uk-preserve uk-icon uk-icon-button" id="audioIcon_@item.ID" uk-icon="icon:icn-play-3; ratio: 2"></span>
                     </a>
                 </div>
             </div>
@@ -37,7 +37,7 @@
         x.play();
 
         var icon = document.getElementById(iconId);
-        icon.setAttribute("uk-icon", "icon:icn-pause; ratio: 2.3334")
+        icon.setAttribute("uk-icon", "icon:icn-pause-3; ratio: 0.1")
 
         var btn = document.getElementById(btnId);
         btn.setAttribute("onclick", " pauseAudio('" + audioId + "', '" + iconId + "', '" + btnId + "')")
@@ -51,7 +51,7 @@
         x.pause();
 
         var icon = document.getElementById(iconId);
-        icon.setAttribute("uk-icon", "icon:icn-play; ratio: 2.3334")
+        icon.setAttribute("uk-icon", "icon:icn-play-3; ratio: 2")
 
         var btn = document.getElementById(btnId);
         btn.setAttribute("onclick", " playAudio('" + audioId + "', '" + iconId + "', '" + btnId + "')")

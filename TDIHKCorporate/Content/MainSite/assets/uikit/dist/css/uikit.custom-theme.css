@@ -2565,9 +2565,21 @@ select.uk-form-width-xsmall {
 .podcast-wrapper {
   border-bottom: 2px solid #E7E8E9;
   margin-top: 0;
+  /*        span.uk-icon {
+            svg {
+                width: 70px !important;
+            }
+        }*/
 }
-.podcast-wrapper span.uk-icon svg {
-  width: 70px !important;
+.podcast-wrapper span.uk-icon-button {
+  width: 70px;
+  height: 70px;
+  background-color: #142C51;
+}
+.podcast-wrapper span.uk-icon-button path,
+.podcast-wrapper span.uk-icon-button polygon,
+.podcast-wrapper span.uk-icon-button circle {
+  stroke: white;
 }
 .podcast-wrapper div:not(:last-child) {
   padding-right: 0 !important;
@@ -3234,7 +3246,7 @@ select.uk-form-width-xsmall {
 }
 .uk-breadcrumb {
   margin: 0;
-  padding: 10px 5px;
+  padding: 10px 5px !important;
 }
 /* ========================================================================
    Component: Container
