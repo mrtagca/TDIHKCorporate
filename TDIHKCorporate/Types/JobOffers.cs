@@ -18,6 +18,7 @@ namespace TDIHKCorporate.Types
         public string Position { get; set; }
         public string PositionDescription { get; set; }
         public string Location { get; set; }
+        public string JobOfferURL { get; set; }
         public DateTime CreatedDate { get; set; }
         public int CreatedBy { get; set; }
         public DateTime UpdatedDate { get; set; }

@@ -53,8 +53,8 @@ namespace TDIHKCorporate.Areas.Management.Controllers
             DapperRepository<JobOffers> jobRepo = new DapperRepository<JobOffers>();
 
             int result = jobRepo.Execute(@"insert into JobOffers
-(IsMember,MemberID,LogoPath,Position,PositionDescription,[Location],CreatedDate,CreatedBy,IsActive)
- values (@IsMember,@MemberID,@LogoPath,@Position,@PositionDescription,@Location,@CreatedDate,@CreatedBy,@IsActive)", jobOffers);
+(IsMember,MemberID,LogoPath,Position,PositionDescription,[Location],JobOfferURL,[Language],CreatedDate,CreatedBy,IsActive)
+ values (@IsMember,@MemberID,@LogoPath,@Position,@PositionDescription,@Location,@JobOfferURL,@Language,@CreatedDate,@CreatedBy,@IsActive)", jobOffers);
 
             return View();
         }
@@ -175,7 +175,7 @@ namespace TDIHKCorporate.Areas.Management.Controllers
                 DapperRepository<JobOffers> jobRepo = new DapperRepository<JobOffers>();
 
                 int result = jobRepo.Execute(@"update JobOffers set
-IsMember=@IsMember,MemberID=@MemberID,LogoPath=@LogoPath,Position=@Position,PositionDescription=@PositionDescription,[Location]=@Location,UpdatedDate=@UpdatedDate,UpdatedBy=@UpdatedBy where JobOfferID = @JobOfferID", jobOffers);
+IsMember=@IsMember,MemberID=@MemberID,LogoPath=@LogoPath,Position=@Position,PositionDescription=@PositionDescription,[Location]=@Location,JobOfferURL=@JobOfferURL,[Language]=@Language,UpdatedDate=@UpdatedDate,UpdatedBy=@UpdatedBy where JobOfferID = @JobOfferID", jobOffers);
 
                 if (result > 0)
                 {

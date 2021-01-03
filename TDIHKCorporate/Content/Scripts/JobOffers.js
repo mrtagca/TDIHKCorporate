@@ -39,6 +39,7 @@ function SaveJobOffer()
     var location = document.getElementById("Location");
     var corpName = document.getElementById("CorporationName");
     var language = document.getElementById("JobOfferLanguage");
+    var url = document.getElementById("JobOfferURL");
 
     var memberID = null;
     var logoPath = null;
@@ -64,6 +65,7 @@ function SaveJobOffer()
     jobOffer.append("Location", location.value);
     jobOffer.append("CorporationName", corpName.value);
     jobOffer.append("Language", language.value);
+    jobOffer.append("JobOfferURL", url.value);
 
     $.ajax({
         url: '/Management/JobOffer/AddJobOffer',
@@ -72,7 +74,8 @@ function SaveJobOffer()
         processData: false, // Not to process data  
         data: jobOffer,
         success: function (result) {
-
+            alert("Job offer create successfull!");
+            location.reload();
         },
         error: function (err) {
             alert(err.statusText);
@@ -149,6 +152,7 @@ function EditJobOffer(jobOfferID) {
     var location = document.getElementById("Location");
     var corpName = document.getElementById("CorporationName");
     var language = document.getElementById("JobOfferLanguage");
+    var url = document.getElementById("JobOfferURL");
 
     var memberID = null;
     var logoPath = null;
@@ -174,6 +178,7 @@ function EditJobOffer(jobOfferID) {
     jobOffer.append("CorporationName", corpName.value);
     jobOffer.append("JobOfferID", jobOfferID);
     jobOffer.append("Language", language.value);
+    jobOffer.append("JobOfferURL", url.value);
 
     $.ajax({
         url: '/Management/JobOffer/EditJobOffer',
@@ -182,7 +187,8 @@ function EditJobOffer(jobOfferID) {
         processData: false, // Not to process data  
         data: jobOffer,
         success: function (result) {
-
+            alert("Job offer update successfull!");
+            location.reload();
         },
         error: function (err) {
             alert(err.statusText);

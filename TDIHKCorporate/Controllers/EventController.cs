@@ -90,7 +90,39 @@ namespace TDIHKCorporate.Controllers
 
         public ActionResult Kalender()
         {
-            return View(GetEvents(9));
+            return View(GetKalenderEvents(9));
+        }
+
+        public List<Events> GetKalenderEvents(int count)
+        {
+            try
+            {
+                DapperRepository<Events> events = new DapperRepository<Events>();
+                List<Events> eventList = new List<Events>();
+
+                CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+
+                string name = cultureInfo.TwoLetterISOLanguageName;
+
+                if (count > 0)
+                {
+                    eventList = events.GetList(@"select * from [Events]
+                                            where [Language] = 'de' and IsActive=1 and convert(date,EventDate) >= convert(date,getdate())
+                                              order by CONVERT(datetime,CONVERT(nvarchar,EventDate)+' '+CONVERT(nvarchar,EventTime)) desc", new { lang = name }).Take(count).ToList();
+                }
+                else
+                {
+                    eventList = events.GetList(@"select * from [Events]
+                                            where [Language] = 'de' and IsActive=1 and convert(date,EventDate) >= convert(date,getdate())
+                                              order by CONVERT(datetime,CONVERT(nvarchar,EventDate)+' '+CONVERT(nvarchar,EventTime)) desc", new { lang = name });
+                }
+
+                return eventList;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
         }
 
         public List<Events> GetEvents(int count)
@@ -200,5 +232,7 @@ order by CONVERT(datetime,CONVERT(nvarchar,EventDate)+' '+CONVERT(nvarchar,Event
                 return null;
             }
         }
+
+      
     }
 }
