@@ -2551,7 +2551,7 @@ select.uk-form-width-xsmall {
 }
 @media (min-width: 960px) {
   .footer-section-2 {
-    padding: 40px 0 10px 0;
+    padding: 40px 0;
   }
 }
 @media (min-width: 960px) {
@@ -3181,10 +3181,6 @@ select.uk-form-width-xsmall {
   .weiterlesen-card {
     padding: 15px 40px 20px 30px;
   }
-}
-.weiterlesen-card:hover {
-  transition: .5s;
-  background: rgba(179, 179, 186, 0.7);
 }
 .card-link-white span {
   color: white !important;
