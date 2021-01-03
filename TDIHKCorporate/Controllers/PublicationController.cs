@@ -25,7 +25,7 @@ namespace TDIHKCorporate.Controllers
                                                     on nw.NewsCategoryID = nwc.ID
                                                     where nw.[Language] = @language and nwc.[Language] = @language
                                                     order by CreatedDate desc
-                                                    OFFSET 5 ROWS", new { language = name });
+                                                    OFFSET 3 ROWS", new { language = name });
 
 
             return View(newsList);
@@ -39,7 +39,7 @@ namespace TDIHKCorporate.Controllers
 
             string name = cultureInfo.TwoLetterISOLanguageName;
 
-            List<News> newsList = news.GetList(@"select top 5 nwc.NewsCategoryName,nw.* from News nw (NOLOCK)
+            List<News> newsList = news.GetList(@"select top 3 nwc.NewsCategoryName,nw.* from News nw (NOLOCK)
                                                 inner join NewsCategories nwc (NOLOCK)
                                                 on nw.NewsCategoryID = nwc.ID
 
