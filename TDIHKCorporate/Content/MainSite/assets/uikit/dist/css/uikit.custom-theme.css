@@ -3232,6 +3232,10 @@ select.uk-form-width-xsmall {
   background-color: #131d44;
   border-bottom: 3px solid #616771;
 }
+.uk-breadcrumb {
+  margin: 0;
+  padding: 10px 5px;
+}
 /* ========================================================================
    Component: Container
  ========================================================================== */
