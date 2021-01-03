@@ -44,6 +44,7 @@ namespace TDIHKCorporate.Controllers
                                                         jo.Position,
                                                         jo.PositionDescription,
                                                         jo.[Location],
+                                                        jo.JobOfferURL,
                                                         jo.CreatedDate,
                                                         jo.CreatedBy,
                                                         jo.UpdatedDate,
