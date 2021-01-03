@@ -38,6 +38,7 @@ namespace TDIHKCorporate.Controllers
             return View(pageItem);
         }
 
+
         public List<BreadCrumb> GetBreadCrumbs(int PageID, string language)
         {
             DapperRepository<BreadCrumb> breadCrumb = new DapperRepository<BreadCrumb>();
@@ -254,6 +255,31 @@ order by CONVERT(datetime,CONVERT(nvarchar,EventDate)+' '+CONVERT(nvarchar,Event
             }
         }
 
-      
+        public List<Events> GetSearchEvents(string keyword)
+        {
+            try
+            {
+                DapperRepository<Events> events = new DapperRepository<Events>();
+                List<Events> eventList = new List<Events>();
+
+                CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+
+                string name = cultureInfo.TwoLetterISOLanguageName;
+
+                if (!string.IsNullOrWhiteSpace(keyword))
+                {
+                    eventList = events.GetList(@"SELECT * FROM [IHK].[dbo].[Events] (NOLOCK)
+WHERE (EventDescription like '%'+@search+'%' or EventTitle like '%'+@search+'%' or EventContent like '%'+@search+'%' or EventSeoKeywords like '%'+@search+'%' or  EventTags like '%'+@search+'%') and [Language] = @lang and IsActive = 1
+order by CONVERT(datetime,CONVERT(nvarchar,EventDate)+' '+CONVERT(nvarchar,EventTime)) desc", new { search = keyword, lang=name }).ToList();
+                }
+
+                return eventList;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
     }
 }
