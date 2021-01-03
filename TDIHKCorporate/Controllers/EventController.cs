@@ -129,13 +129,13 @@ namespace TDIHKCorporate.Controllers
                 if (count > 0)
                 {
                     eventList = events.GetList(@"select * from [Events]
-                                            where [Language] = 'de' and IsActive=1 and convert(date,EventDate) >= convert(date,getdate())
+                                            where [Language] = @lang and IsActive=1 and convert(date,EventDate) >= convert(date,getdate())
                                               order by CONVERT(datetime,CONVERT(nvarchar,EventDate)+' '+CONVERT(nvarchar,EventTime)) desc", new { lang = name }).Take(count).ToList();
                 }
                 else
                 {
                     eventList = events.GetList(@"select * from [Events]
-                                            where [Language] = 'de' and IsActive=1 and convert(date,EventDate) >= convert(date,getdate())
+                                            where [Language] = @lang and IsActive=1 and convert(date,EventDate) >= convert(date,getdate())
                                               order by CONVERT(datetime,CONVERT(nvarchar,EventDate)+' '+CONVERT(nvarchar,EventTime)) desc", new { lang = name });
                 }
 

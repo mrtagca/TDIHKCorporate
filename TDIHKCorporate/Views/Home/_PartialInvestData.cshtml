@@ -179,8 +179,8 @@
             <div class="nav-overlay-mobile uk-navbar-left uk-flex-1 uk-container" hidden>
 
                 <div class="uk-navbar-item uk-width-expand">
-                    <form class="uk-search uk-search-navbar uk-width-1-1">
-                        <input class="uk-search-input" type="search" placeholder="@Resources.resource.Ara..." autofocus>
+                    <form action="/Home/SearchForPages" method="post" class="uk-search uk-search-navbar uk-width-1-1">
+                        <input class="uk-search-input" name="search" type="text" placeholder="@Resources.resource.Ara..." autofocus>
                     </form>
                 </div>
 

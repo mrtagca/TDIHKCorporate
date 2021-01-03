@@ -384,5 +384,13 @@ order by CONVERT(datetime,CONVERT(nvarchar,EventDate)+' '+CONVERT(nvarchar,Event
 
 
         }
+
+        [HttpPost]
+        public ActionResult SearchForPages(string search)
+        {
+
+
+            return View();
+        }
     }
 }
