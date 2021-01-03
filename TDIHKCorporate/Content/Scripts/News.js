@@ -206,6 +206,10 @@ function EditNews(newsID, newsIdentifier) {
         dataParams.NewsIDentifier = $("#NewsIdentifierTxt").val();
     }
 
+    if (dataParams.NewsIDentifier === '' || typeof (dataParams.NewsIDentifier) === 'undefined' || dataParams.NewsIDentifier === null) {
+        dataParams.NewsIDentifier = newsIdentifier;
+    }
+
 
     if (pageContent === '' || typeof (pageContent) === 'undefined' || pageContent === null) {
         alert("News Content cannot be null!");
@@ -226,10 +230,7 @@ function EditNews(newsID, newsIdentifier) {
         return;
     }
 
-    if (dataParams.NewsIDentifier === '' || typeof (dataParams.NewsIDentifier) === 'undefined' || dataParams.NewsIDentifier === null) {
-        alert("Please select or enter Identifier!");
-        return;
-    }
+    
 
     if (dataParams.NewsCategoryID === '' || typeof (dataParams.NewsCategoryID) === 'undefined' || dataParams.NewsCategoryID === null) {
         alert("Please select a news category!");

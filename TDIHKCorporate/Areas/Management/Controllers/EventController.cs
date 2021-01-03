@@ -121,6 +121,14 @@ WHERE [Language] = @lang order by EventCategoryName", new { lang = language });
                 IsActive = true
             });
 
+            var resultQuota = addPage.Execute(@"update [Events] set EventQuota=@EventQuota,EventCriticalQuota=@EventCriticalQuota
+                where EventIdentifier = @EventIdentifier", new
+            { 
+                EventIdentifier = events.EventIdentifier,
+                EventQuota = events.EventQuota,
+                EventCriticalQuota = events.EventCriticalQuota
+            });
+
             return Newtonsoft.Json.JsonConvert.SerializeObject(true);
         }
 

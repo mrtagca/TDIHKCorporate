@@ -69,7 +69,7 @@ values (@NewsCategoryName,@Language,@CreatedDate,@CreatedBy,@IsActive)", new { N
                     }
                     else
                     {
-                        ViewBag.Error = newsCategories.Language + " dilinde "+ newsCategories.NewsCategoryName + " adında bir haber kategorisi var!";
+                        ViewBag.Error = newsCategories.Language + " dilinde " + newsCategories.NewsCategoryName + " adında bir haber kategorisi var!";
                         return View();
                     }
                 }
@@ -211,7 +211,7 @@ order by CreatedDate desc", new { lang = "tr" });
                     NewsID = news.NewsID,
                     NewsCategoryID = news.NewsCategoryID,
                     NewsImagePath = news.NewsImagePath,
-                    NewsIdentifier=news.NewsIdentifier,
+                    NewsIdentifier = (string.IsNullOrWhiteSpace(news.NewsIdentifier)) ? null : news.NewsIdentifier,
                     NewsThumbnailPath = news.NewsThumbnailPath,
                     NewsTitle = news.NewsTitle,
                     NewsDescription = news.NewsDescription,
