@@ -9,12 +9,14 @@ using System.Linq;
 using System.Web;
 using System.Web.Helpers;
 using System.Web.Mvc;
+using TDIHKCorporate.Areas.Management.Filters;
 using TDIHKCorporate.BaseControllers.MultiLanguage;
 using TDIHKCorporate.Types;
 using TDIHKCorporate.Types.ViewTypes;
 
 namespace TDIHKCorporate.Areas.Management.Controllers
 {
+    [AuthorizationFilter]
     public class SliderController : ManagementBaseController
     {
         public ActionResult SliderList()

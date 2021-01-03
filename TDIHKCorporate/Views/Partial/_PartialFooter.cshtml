@@ -13,9 +13,18 @@
                 <!--Mobil footer linkleri-->
                 <div class="uk-text-center uk-hidden@s">
                     <ul class="uk-list footer-links uk-link-reset">
-                        <li><a href="">@Resources.resource.Iletisim</a></li>
-                        <li><a href="">@Resources.resource.Kunye</a></li>
-                        <li><a href="">@Resources.resource.Gizlilik</a></li>
+                        @if (lang == "tr")
+                        {
+                            <li><a href="/tr/sayfalar/iletisim">@Resources.resource.Iletisim</a></li>
+                            <li><a href="/tr/sayfalar/kunye">@Resources.resource.Kunye</a></li>
+                            <li><a href="/tr/sayfalar/gizlilik-politikasi">@Resources.resource.Gizlilik</a></li>
+                        }
+                        else
+                        {
+                            <li><a href="/se/seiten/kontakt">@Resources.resource.Iletisim</a></li>
+                            <li><a href="/de/seiten/impressum">@Resources.resource.Kunye</a></li>
+                            <li><a href="/de/seiten/datenschutz-bestimmungen">@Resources.resource.Gizlilik</a></li>
+                        }
                     </ul>
                 </div>
                 <div class="uk-flex uk-flex-center uk-flex-between@s uk-flex-middle">

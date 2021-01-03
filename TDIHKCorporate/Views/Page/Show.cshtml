@@ -38,33 +38,34 @@
         @if (breadCrumbList != null)
         {
         <div class="uk-background-secondary">
+            <ul class="uk-breadcrumb">
 
-            @foreach (var item in breadCrumbList)
-            {
-                if (breadCrumbList.IndexOf(item) == breadCrumbList.Count - 1) //son elemansa
+                @foreach (var item in breadCrumbList)
                 {
-                    if (lang == "de")
+                    if (breadCrumbList.IndexOf(item) == breadCrumbList.Count - 1) //son elemansa
                     {
-                        <span class="uk-h5 banner-padding uk-margin-remove">@item.MenuName</span>
+                        if (lang == "de")
+                        {
+                            <li><span>@item.MenuName</span></li>
+                        }
+                        else
+                        {
+                            <li><span>@item.MenuName</span></li>
+                        }
                     }
                     else
                     {
-                        <span class="uk-h5 banner-padding uk-margin-remove">@item.MenuName</span>
+                        if (lang == "de")
+                        {
+                            <li><a href="/de/seiten/@item.PageSeoLink">@item.MenuName</a></li>
+                        }
+                        else
+                        {
+                            <li><a href="/tr/sayfalar/@item.PageSeoLink">@item.MenuName</a></li>
+                        }
                     }
                 }
-                else
-                {
-                    if (lang == "de")
-                    {
-                        <span class="uk-h5 banner-padding uk-margin-remove"><a href="/de/seiten/@item.PageSeoLink">@item.MenuName</a></span>
-                    }
-                    else
-                    {
-                        <span class="uk-h5 banner-padding uk-margin-remove"><a href="/tr/sayfalar/@item.PageSeoLink">@item.MenuName</a></span>
-                    }
-                }
-            }
-
+            </ul>
         </div>
         }
 

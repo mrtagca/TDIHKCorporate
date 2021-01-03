@@ -6,11 +6,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TDIHKCorporate.Areas.Management.Filters;
 using TDIHKCorporate.BaseControllers.MultiLanguage;
 using TDIHKCorporate.Types;
 
 namespace TDIHKCorporate.Areas.Management.Controllers
 {
+    [AuthorizationFilter]
     public class MemberShipController : ManagementBaseController
     {
         public ActionResult Create()
