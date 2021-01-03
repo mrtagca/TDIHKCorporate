@@ -10,7 +10,7 @@
             </audio>
 
             <div class="uk-grid uk-grid-medium podcast-wrapper" uk-grid>
-                <div class="uk-width-1-4 uk-width-1-6@s">
+                <div class="uk-width-1-4 uk-width-1-6@s uk-flex uk-flex-middle">
                     <span class="uk-preserve uk-margin-small-left podcast-icon uk-icon uk-icon-button" uk-icon="icon: rss; ratio: 1.5"></span>
                 </div>
                 <div class="uk-width-1-2 uk-width-2-3@s">
@@ -19,9 +19,9 @@
                 </div>
 
 
-                <div class="uk-width-1-4 uk-width-1-6@s">
-                    <a onclick="playAudio('audio_@item.ID','audioIcon_@item.ID','btnAudio_@item.ID')" id="btnAudio_@item.ID" class="uk-link-reset">
-                        <span class="uk-preserve uk-icon uk-icon-button" id="audioIcon_@item.ID" uk-icon="icon:icn-play-3; ratio: 2"></span>
+                <div class="uk-width-1-4 uk-width-1-6@s uk-flex uk-flex-middle">
+                    <a onclick="playAudio('audio_@item.ID','audioIcon_@item.ID','btnAudio_@item.ID')" id="btnAudio_@item.ID" class="uk-button uk-button-primary uk-border-rounded color-white">
+						<span class="" id="audioIcon_@item.ID">PLAY</span>
                     </a>
                 </div>
             </div>
@@ -37,7 +37,7 @@
         x.play();
 
         var icon = document.getElementById(iconId);
-        icon.setAttribute("uk-icon", "icon:icn-pause-3; ratio: 0.1")
+        icon.setAttribute("uk-icon", "icon:icn-pause-3; ratio: 0.06")
 
         var btn = document.getElementById(btnId);
         btn.setAttribute("onclick", " pauseAudio('" + audioId + "', '" + iconId + "', '" + btnId + "')")
@@ -51,7 +51,7 @@
         x.pause();
 
         var icon = document.getElementById(iconId);
-        icon.setAttribute("uk-icon", "icon:icn-play-3; ratio: 2")
+        icon.setAttribute("uk-icon", "icon:icn-play-3; ratio: 1.5")
 
         var btn = document.getElementById(btnId);
         btn.setAttribute("onclick", " playAudio('" + audioId + "', '" + iconId + "', '" + btnId + "')")
