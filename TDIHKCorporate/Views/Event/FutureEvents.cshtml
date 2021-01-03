@@ -39,20 +39,27 @@
                         }
                         else
                         {
-                    <a href="/de/events/@item.EventSeoLink" class="uk-button uk-button-secondary uk-width-expand  uk-border-rounded uk-padding-remove uk-text-center color-global">@Resources.resource.Kayit</a>
+                            <a href="/de/events/@item.EventSeoLink" class="uk-button uk-button-secondary uk-width-expand  uk-border-rounded uk-padding-remove uk-text-center color-global">@Resources.resource.Kayit</a>
                         }
 
                     </div>
                 </div>
                 <div class="uk-box-shadow-medium uk-width-1-1 uk-width-expand@m">
 
-                    <div class="uk-background-cover height-match uk-visible@m uk-position-relative" style="        background-image: url(../Content/MainSite/assets/images/events/Upcoming-Event-Pic-1.png);">
-                        <div class="event-flag">@Resources.resource.Yalnizca <span>3</span> @Resources.resource.YerKaldi</div>
+
+
+                    <div class="uk-background-cover height-match uk-visible@m uk-position-relative" style="background-image: url('@item.EventImagePath');">
+                        @if (item.RegisterCount >= (item.EventQuota - item.EventCriticalQuota))
+                        {
+                            <div class="event-flag">@Resources.resource.Yalnizca <span>@(item.EventQuota-item.RegisterCount)</span> @Resources.resource.YerKaldi</div>
+                        }
                     </div>
-                    <div class="uk-hidden@m height-match">
-                        <div class="event-flag">@Resources.resource.Yalnizca <span>3</span> @Resources.resource.YerKaldi</div>
-                        <img src="/Content/MainSite/assets/images/events/Past-2.png" class="uk-width-1-1" alt="">
-                    </div>
+
+
+                    @*<div class="uk-hidden@m height-match">
+                            <div class="event-flag">@Resources.resource.Yalnizca <span>3</span> @Resources.resource.YerKaldi</div>
+                            <img src="/Content/MainSite/assets/images/events/Past-2.png" class="uk-width-1-1" alt="">
+                        </div>*@
                 </div>
 
             </div>

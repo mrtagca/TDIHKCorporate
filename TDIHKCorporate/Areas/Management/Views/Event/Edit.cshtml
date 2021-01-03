@@ -14,8 +14,9 @@
 
     $(document).ready(function () {
 
-        GetEventIdentifier("EventIdentifierDropdown", lang);
         GetEventCategories("EventCategories", lang);
+        
+        
 
         var editor = $("#editor").data("kendoEditor");
         var html = @Html.Raw(JsonConvert.SerializeObject(Model.EventContent));
@@ -25,8 +26,7 @@
 
     });
 
-
-    setTimeout(100000);
+     
 
 </script>
 
@@ -223,6 +223,10 @@
      setTimeout(() => {
          document.getElementById("EventCategories").value = eventCategoryId;
      }, 2500);
+
+    setTimeout(() => {
+        GetEventIdentifier("EventIdentifierDropdown", lang);
+    }, 2500);
 
 </script>
 

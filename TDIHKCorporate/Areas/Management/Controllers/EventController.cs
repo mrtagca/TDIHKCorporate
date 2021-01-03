@@ -97,10 +97,11 @@ WHERE [Language] = @lang order by EventCategoryName", new { lang = language });
         {
             DapperRepository<Events> addPage = new DapperRepository<Events>();
 
-            var result = addPage.Execute(@"update [Events] set [Language]=@Language,EventCategoryID=@EventCategoryID,EventImagePath=@EventImagePath,EventDescription=@EventDescription,EventTitle=@EventTitle,EventDate=@EventDate,EventTime=@EventTime,EventContent=@EventContent,EventSeoLink=@EventSeoLink,EventSeoKeywords=@EventSeoKeywords,EventTags=@EventTags,EventQuota=@EventQuota,EventCriticalQuota=@EventCriticalQuota,CreatedDate=@CreatedDate,CreatedBy=@CreatedBy,IsActive=@IsActive
+            var result = addPage.Execute(@"update [Events] set EventIdentifier=@EventIdentifier,[Language]=@Language,EventCategoryID=@EventCategoryID,EventImagePath=@EventImagePath,EventDescription=@EventDescription,EventTitle=@EventTitle,EventDate=@EventDate,EventTime=@EventTime,EventContent=@EventContent,EventSeoLink=@EventSeoLink,EventSeoKeywords=@EventSeoKeywords,EventTags=@EventTags,EventQuota=@EventQuota,EventCriticalQuota=@EventCriticalQuota,CreatedDate=@CreatedDate,CreatedBy=@CreatedBy,IsActive=@IsActive
                 where EventID = @EventID", new
             {
                 EventID = events.EventID,
+                EventIdentifier=events.EventIdentifier,
                 Language = events.Language,
                 EventCategoryID = events.EventCategoryID,
                 EventImagePath = events.EventImagePath,

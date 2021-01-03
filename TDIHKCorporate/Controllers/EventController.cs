@@ -230,7 +230,7 @@ order by CONVERT(datetime,CONVERT(nvarchar,EventDate)+' '+CONVERT(nvarchar,Event
 
                 if (count > 0)
                 {
-                    eventList = events.GetList(@"SELECT  evc.EventCategoryName,ev.* FROM [Events] ev
+                    eventList = events.GetList(@"SELECT  evc.EventCategoryName,ev.*,(select COUNT(*) as RegisterCount from EventRegistrations (nolock) where EventIdentifier = ev.EventIdentifier) as RegisterCount FROM [Events] ev
 inner join EventCategories evc
 on ev.EventCategoryID = evc.ID
 
@@ -239,7 +239,7 @@ order by CONVERT(datetime,CONVERT(nvarchar,EventDate)+' '+CONVERT(nvarchar,Event
                 }
                 else
                 {
-                    eventList = events.GetList(@"SELECT  evc.EventCategoryName,ev.* FROM [Events] ev
+                    eventList = events.GetList(@"SELECT  evc.EventCategoryName,ev.*,(select COUNT(*) as RegisterCount from EventRegistrations (nolock) where EventIdentifier = ev.EventIdentifier) as RegisterCount FROM [Events] ev
 inner join EventCategories evc
 on ev.EventCategoryID = evc.ID
 
