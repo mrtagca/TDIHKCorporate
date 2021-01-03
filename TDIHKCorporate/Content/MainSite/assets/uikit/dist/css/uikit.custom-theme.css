@@ -6515,7 +6515,7 @@ ul.uk-nav-sub {
  * `nth-child` makes it also work without JS if it's only one row
  */
 .uk-breadcrumb > :nth-child(n+2):not(.uk-first-column)::before {
-  content: "/";
+  content: ">";
   display: inline-block;
   margin: 0 20px;
   font-size: 0.875rem;
