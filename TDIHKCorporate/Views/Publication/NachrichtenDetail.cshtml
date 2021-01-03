@@ -15,19 +15,23 @@
 <main class="uk-container" uk-scrollspy="cls: uk-animation-fade; target: > section; delay: 250">
 
 
-    <section>
-    <div class="uk-text-right color-dark-grey size-20" @*id="today"*@>@*@Model.CreatedDate*@
-        
-        @{ 
-            CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+	<section>
+		<div class="uk-text-right color-dark-grey size-20" @*id="today"*@>
+			@*@Model.CreatedDate*@
 
-                <span>@cultureInfo.DateTimeFormat.GetDayName(Model.CreatedDate.DayOfWeek).ToString(), @Model.CreatedDate.Day @cultureInfo.DateTimeFormat.GetMonthName(Model.CreatedDate.Month)</span>
-        }
-        </div>
-        <div class="uk-margin-medium-bottom">
-        <img src="@Model.NewsImagePath" class="coverNews" uk-img />
-            </div>
-        </section>
+
+	</div>
+	<div class="uk-margin-medium-bottom">
+		<img src="@Model.NewsImagePath" class="coverNews" uk-img />
+	</div>
+	<div>
+		@{
+			CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+
+			<span class="color-dark-grey size-20">@cultureInfo.DateTimeFormat.GetDayName(Model.CreatedDate.DayOfWeek).ToString(), @Model.CreatedDate.Day @cultureInfo.DateTimeFormat.GetMonthName(Model.CreatedDate.Month)</span>
+		}
+	</div>
+	</section>
     <section>
     <div class="size-20 color-black uk-text-bold uk-margin-small-bottom">@Model.NewsDescription</div>
         </section>
