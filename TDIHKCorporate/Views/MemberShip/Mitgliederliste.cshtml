@@ -1,12 +1,30 @@
 ﻿@model List<TDIHKCorporate.Types.Members>
+@using System.Globalization
+
 @{
     ViewBag.Title = "Mitgliederliste";
     Layout = "~/Views/Shared/_layoutMaster.cshtml";
+
+    CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+    string lang = cultureInfo.TwoLetterISOLanguageName;
+}
+
+@{
+    List<TDIHKCorporate.Types.BreadCrumb> breadCrumbList = new List<TDIHKCorporate.Types.BreadCrumb>();
+    try
+    {
+        breadCrumbList = (List<TDIHKCorporate.Types.BreadCrumb>)ViewBag.BreadcrumbList;
+    }
+    catch (Exception ex)
+    {
+
+    }
 }
 
 <main class="uk-container" uk-scrollspy="cls: uk-animation-fade; target: > section; delay: 250">
 
     <section class="uk-position-relative">
+        
         <img class="uk-width-1-1" src="~/Content/MainSite/assets/images/mitgliederliste/BG.png" />
         <div class="uk-position-cover uk-flex uk-flex-middle mitgliederliste-banner">
             <div class="uk-flex uk-flex-column uk-width-1-1">
@@ -72,11 +90,11 @@
                                 <!-- Şirket Kartı-->
                                 <div>
                                     <div class="uk-child-width-1-2 uk-grid-medium uk-flex-middle" uk-grid>
-										<div>
-											<div class="uk-flex uk-flex-center uk-flex-middle">
-												<img src="@item.MemberLogoPath"/>
-											</div>
-										</div>
+                                        <div>
+                                            <div class="uk-flex uk-flex-center uk-flex-middle">
+                                                <img src="@item.MemberLogoPath" />
+                                            </div>
+                                        </div>
                                         <div>
                                             <div class="size-18 size-15-m uk-text-bold">@item.MemberTitle</div>
                                             <div>
@@ -101,9 +119,9 @@
         </div>
     </section>
 
-    
+
 
 
     @Html.Action("Vorteille", "Newsletter")
 </main>
- 
+

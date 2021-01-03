@@ -11,9 +11,11 @@ using Newtonsoft.Json;
 using TDIHKCorporate.Extensions;
 using TDIHKCorporate.Types.ViewTypes;
 using System.Text;
+using TDIHKCorporate.Areas.Management.Filters;
 
 namespace TDIHKCorporate.Areas.Management.Controllers
 {
+    [AuthorizationFilter]
     public class PageController : ManagementBaseController
     {
         // GET: Management/Page
