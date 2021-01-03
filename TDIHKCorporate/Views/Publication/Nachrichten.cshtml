@@ -5,13 +5,13 @@
     Layout = "~/Views/Shared/_layoutMaster.cshtml";
 }
 
-<style>
+@*<style>
     .cover {
         object-fit: cover;
         width: 500px;
         height: 300px;
     }
-</style>
+</style>*@
 
 
 
@@ -33,7 +33,7 @@
                     {
                         <a href="/tr/haberler/@item.NewsSeoLink" class="uk-link-reset">
                             <div class="uk-inline-clip uk-transition-toggle">
-                                <img src="@item.NewsThumbnailPath" class="cover uk-width-1-1 uk-height-1-1 uk-transition-opaque uk-transition-scale-up" />
+                                <img src="@item.NewsThumbnailPath" class="uk-width-1-1 uk-height-1-1 uk-transition-opaque uk-transition-scale-up" />
                             </div>
                             <div class="news-card-title line-height-1">@item.NewsTitle</div>
                             <div class="news-card-subtitle">@item.NewsDescription</div>
@@ -43,7 +43,7 @@
                     {
                         <a href="/de/nachrichten/@item.NewsSeoLink" class="uk-link-reset">
                             <div class="uk-inline-clip uk-transition-toggle">
-                                <img src="@item.NewsThumbnailPath" class="cover uk-width-1-1 uk-height-1-1 uk-transition-opaque uk-transition-scale-up" />
+                                <img src="@item.NewsThumbnailPath" class="uk-width-1-1 uk-height-1-1 uk-transition-opaque uk-transition-scale-up" />
                             </div>
                             <div class="news-card-title line-height-1">@item.NewsTitle</div>
                             <div class="news-card-subtitle">@item.NewsDescription</div>
