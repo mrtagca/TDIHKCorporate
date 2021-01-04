@@ -12,7 +12,7 @@
 
         <div>
             <h5>@Resources.resource.SayfaEkle</h5>
-            <input type="text" id="NewsTitle" placeholder="@Resources.resource.Baslik" onkeyup="GenerateFriendlyUrl('NewsTitle','NewsSeoLink')" class="form-control" name="name" value="@Model.NewsTitle" required />
+            <input type="text" id="NewsTitle" placeholder="@Resources.resource.Baslik" onkeyup="GenerateFriendlyUrl('NewsTitle', 'NewsSeoLink', $('#NewsLanguage').val())" class="form-control" name="name" value="@Model.NewsTitle" required />
         </div>
         <br />
 

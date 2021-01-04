@@ -1,22 +1,26 @@
-﻿function GenerateFriendlyUrl(elementId,targetElementId) {
+﻿function GenerateFriendlyUrl(elementId, targetElementId, lang) {
 
-        var callParams = {
-            endPoint: "/Management/Url/GenerateFriendlyUrl",
-            requestType: "POST"
+    var callParams = {
+
+        requestType: "POST"
+    };
+
+    if (lang === 'tr') {
+        callParams.endPoint = "/Management/Url/GenerateFriendlyUrlTurkish";
     }
-
+    else {
+        callParams.endPoint = "/Management/Url/GenerateFriendlyUrlGerman";
+    }
 
     var dataParams = {}
     var element = document.getElementById(elementId);
     dataParams.text = element.value;
 
-        RequestAjax(callParams, dataParams, function (response) {
+    RequestAjax(callParams, dataParams, function (response) {
 
-            debugger
+        var target = document.getElementById(targetElementId);
+        target.value = response;
+    });
 
-            var target = document.getElementById(targetElementId);
-            target.value = response;
-        });
-    
 
 }

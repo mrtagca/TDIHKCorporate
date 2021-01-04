@@ -31,7 +31,7 @@
         {
             <div>
                 <h5>@Resources.resource.SayfaEkle</h5>
-                <input type="text" id="PageTitle" placeholder="@Resources.resource.Baslik" onkeyup="GenerateFriendlyUrl('PageTitle','PageSeoLink')" class="form-control" name="name" value="@Model.PageTitle" />
+                <input type="text" id="PageTitle" placeholder="@Resources.resource.Baslik" onkeyup="GenerateFriendlyUrl('PageTitle', 'PageSeoLink', $('#PageLanguage').val())" class="form-control" name="name" value="@Model.PageTitle" />
             </div>
             <br />
 

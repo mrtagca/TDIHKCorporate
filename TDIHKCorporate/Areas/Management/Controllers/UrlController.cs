@@ -11,9 +11,15 @@ namespace TDIHKCorporate.Areas.Management.Controllers
     public class UrlController : ManagementBaseController
     {
         [HttpPost]
-        public string GenerateFriendlyUrl(string text)
+        public string GenerateFriendlyUrlTurkish(string text)
         {
-            return UrlExtensions.FriendlyUrl(new UrlHelper(),text);
+            return UrlExtensions.FriendlyUrlTurkish(new UrlHelper(),text);
+        }
+
+        [HttpPost]
+        public string GenerateFriendlyUrlGerman(string text)
+        {
+            return UrlExtensions.FriendlyUrlGerman(new UrlHelper(), text);
         }
     }
 }
