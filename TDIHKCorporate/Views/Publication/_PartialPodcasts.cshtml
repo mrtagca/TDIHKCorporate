@@ -36,8 +36,9 @@
         var x = document.getElementById(audioId);
         x.play();
 
-        var icon = document.getElementById(iconId);
-        icon.setAttribute("uk-icon", "icon:icn-pause;")
+		var icon = document.getElementById(iconId);
+		icon.innerText = "PAUSE";
+        //icon.setAttribute("uk-icon", "icon:icn-pause-3; ratio: 0.06")
 
         var btn = document.getElementById(btnId);
         btn.setAttribute("onclick", " pauseAudio('" + audioId + "', '" + iconId + "', '" + btnId + "')")
@@ -50,8 +51,9 @@
         var x = document.getElementById(audioId);
         x.pause();
 
-        var icon = document.getElementById(iconId);
-        icon.setAttribute("uk-icon", "icon:icn-play; ratio: 2.3334")
+		var icon = document.getElementById(iconId);
+        icon.innerText = "PLAY";
+        //icon.setAttribute("uk-icon", "icon:icn-play-3; ratio: 1.5")
 
         var btn = document.getElementById(btnId);
         btn.setAttribute("onclick", " playAudio('" + audioId + "', '" + iconId + "', '" + btnId + "')")

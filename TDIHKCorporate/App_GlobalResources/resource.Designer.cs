@@ -160,7 +160,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to En son gelismelerden ve firsatlardan haberdar olmak için bültenimize kaydolun..
+        ///   Looks up a localized string similar to En son gelişmelerden ve fırsatlardan haberdar olmak için bültenimize kaydolun..
         /// </summary>
         internal static string BultenSonGelismeler {
             get {

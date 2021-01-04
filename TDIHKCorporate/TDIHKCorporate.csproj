@@ -2345,6 +2345,7 @@
     <Content Include="Content\MainSite\assets\images\aubenhandelsportal\tobb-sm.png" />
     <Content Include="Content\MainSite\assets\images\aubenhandelsportal\TOBB2B.png" />
     <Content Include="Content\MainSite\assets\images\aubenhandelsportal\vorteilen.png" />
+    <Content Include="Content\MainSite\assets\images\Aussenhandelsportal-header-de-tr_resized.jpg" />
     <Content Include="Content\MainSite\assets\images\Aussenhandelsportal-TD-IHK-header-de_v2.jpg" />
     <Content Include="Content\MainSite\assets\images\banner.png" />
     <Content Include="Content\MainSite\assets\images\bg-aubenhandelsportal.png" />
@@ -2352,6 +2353,7 @@
     <Content Include="Content\MainSite\assets\images\bg-macbook.png" />
     <Content Include="Content\MainSite\assets\images\bg-podcast.png" />
     <Content Include="Content\MainSite\assets\images\BG.png" />
+    <Content Include="Content\MainSite\assets\images\Bilgi-Notlari-header-tr_resized.jpg" />
     <Content Include="Content\MainSite\assets\images\box-Markteintritt-Deutschland-de-tr.jpg" />
     <Content Include="Content\MainSite\assets\images\box-Markteintritt-Foerderung-und-Finanzierung-de-tr.jpg" />
     <Content Include="Content\MainSite\assets\images\box-Markteintritt-Mustervertraege-de-tr.jpg" />
@@ -2370,6 +2372,7 @@
     <Content Include="Content\MainSite\assets\images\DIHK_LOGO.jpg" />
     <Content Include="Content\MainSite\assets\images\DIHK_LOGO_.jpg" />
     <Content Include="Content\MainSite\assets\images\Dis-Ticaret-Portali-TD-IHK-header-tr_v2.jpg" />
+    <Content Include="Content\MainSite\assets\images\Ein-und-Ausreisebestimmungen-tr-de_resized.jpg" />
     <Content Include="Content\MainSite\assets\images\Ein-undAusreisebestimmungen\Ein-undAusreisebestimmungen-bg.png" />
     <Content Include="Content\MainSite\assets\images\Event-BG.png" />
     <Content Include="Content\MainSite\assets\images\events\20989752002060.jpg" />
@@ -2408,6 +2411,7 @@
     <Content Include="Content\MainSite\assets\images\Home-Page-Slider2-Mitglieder-Vorteilen-5.jpg" />
     <Content Include="Content\MainSite\assets\images\Hugo Boss.svg" />
     <Content Include="Content\MainSite\assets\images\Inal Consulting.svg" />
+    <Content Include="Content\MainSite\assets\images\Infoblaetter-header-de_resized.jpg" />
     <Content Include="Content\MainSite\assets\images\Infoblatter.png" />
     <Content Include="Content\MainSite\assets\images\Infoblatter\BG_TR.png" />
     <Content Include="Content\MainSite\assets\images\Infoblatter\Infoblatt- Gesellschaftsgründung_in_der_Türkei_DE.png" />
@@ -2434,6 +2438,7 @@
     <Content Include="Content\MainSite\assets\images\Markteintritt-Foerderung-und-Finanzierung-de-tr.jpg" />
     <Content Include="Content\MainSite\assets\images\Markteintritt-Mustervertraege-de-tr.jpg" />
     <Content Include="Content\MainSite\assets\images\Markteintritt-Pazara-Giris-Header-de-tr.jpg" />
+    <Content Include="Content\MainSite\assets\images\Markteintritt-Pazara-Giris-Header-de-tr_resized.jpg" />
     <Content Include="Content\MainSite\assets\images\Markteintritt-Turkei-de-tr.jpg" />
     <Content Include="Content\MainSite\assets\images\mark\BG.png" />
     <Content Include="Content\MainSite\assets\images\mark\Deutschland.png" />
