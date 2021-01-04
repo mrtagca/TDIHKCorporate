@@ -3176,6 +3176,7 @@
     <Content Include="Content\quill\css\quillHtmlButton.css" />
     <Content Include="Content\quill\js\quill.core.js" />
     <Content Include="Content\quill\js\quill.min.js" />
+    <Content Include="Content\Scripts\Contact.js" />
     <Content Include="Content\Scripts\Event.js" />
     <Content Include="Content\Scripts\Institution.js" />
     <Content Include="Content\Scripts\JobOffers.js" />
@@ -3319,6 +3320,7 @@
     <Compile Include="Types\BreadCrumb.cs" />
     <Compile Include="Types\ComponentTypes\FileBrowserResponse.cs" />
     <Compile Include="Types\ComponentTypes\ImageBrowserResponse.cs" />
+    <Compile Include="Types\ContactForm.cs" />
     <Compile Include="Types\EmailTemplates.cs" />
     <Compile Include="Types\EventCategories.cs" />
     <Compile Include="Types\EventRegistrations.cs" />

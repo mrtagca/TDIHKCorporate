@@ -381,8 +381,8 @@
   <data name="MenuTip" xml:space="preserve">
     <value>Menütyp</value>
   </data>
-  <data name="NameSurname" xml:space="preserve">
-    <value>Name Nachname</value>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
   </data>
   <data name="OlusturulmaTarihi" xml:space="preserve">
     <value>Erstellungsdatum</value>
@@ -496,6 +496,9 @@
     <value>Ergebnisse</value>
   </data>
   <data name="Soyadi" xml:space="preserve">
+    <value>Nachname</value>
+  </data>
+  <data name="Surname" xml:space="preserve">
     <value>Nachname</value>
   </data>
   <data name="TaslakOlarakKaydet" xml:space="preserve">
