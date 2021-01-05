@@ -3248,6 +3248,9 @@ select.uk-form-width-xsmall {
   margin: 0;
   padding: 10px 5px !important;
 }
+p.change.cup {
+  margin: 0 !important;
+}
 /* ========================================================================
    Component: Container
  ========================================================================== */
