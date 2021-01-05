@@ -22,7 +22,7 @@
     <div class="col-md-9 col-sm-12">
         <div>
             <h5>Haber Ekle</h5>
-            <input type="text" id="NewsTitle" placeholder="@Resources.resource.Baslik" onkeyup="GenerateFriendlyUrl('NewsTitle','NewsSeoLink')" class="form-control" name="name" value="" required />
+            <input type="text" id="NewsTitle" placeholder="@Resources.resource.Baslik" onkeyup="GenerateFriendlyUrl('NewsTitle', 'NewsSeoLink', $('#NewsLanguage').val())" class="form-control" name="name" value="" required />
         </div>
         <br />
 
@@ -146,14 +146,6 @@
 
                 <div id="collapsePublish" class="collapse show" aria-labelledby="headingOne" data-parent="#PublishTab">
                     <div class="card-body">
-                        <div>
-                            <input type="submit" class="btn btn-outline-primary" name="" value="@Resources.resource.TaslakOlarakKaydet" />
-                            &nbsp;
-
-                            <a class="btn btn-outline-primary" href="#" onclick="Preview()">@Resources.resource.Onizleme</a>
-
-                        </div>
-                        <br />
                         <div>
                             <input id="Publish" onclick="AddNews()" type="submit" class="btn btn-primary" name="" value=" @Resources.resource.Yayimla" />
                         </div>

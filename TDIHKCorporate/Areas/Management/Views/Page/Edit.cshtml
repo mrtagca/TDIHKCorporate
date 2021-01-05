@@ -31,7 +31,7 @@
         {
             <div>
                 <h5>@Resources.resource.SayfaEkle</h5>
-                <input type="text" id="PageTitle" placeholder="@Resources.resource.Baslik" onkeyup="GenerateFriendlyUrl('PageTitle','PageSeoLink')" class="form-control" name="name" value="@Model.PageTitle" />
+                <input type="text" id="PageTitle" placeholder="@Resources.resource.Baslik" onkeyup="GenerateFriendlyUrl('PageTitle', 'PageSeoLink', $('#PageLanguage').val())" class="form-control" name="name" value="@Model.PageTitle" />
             </div>
             <br />
 
@@ -174,12 +174,7 @@
 
                 <div id="collapsePublish" class="collapse show" aria-labelledby="headingOne" data-parent="#PublishTab">
                     <div class="card-body">
-                        <div>
-                            <input type="submit" class="btn btn-outline-primary" name="" value="@Resources.resource.TaslakOlarakKaydet" />
-                            &nbsp;
-                            <input type="submit" class="btn btn-outline-primary" name="" value="@Resources.resource.Onizleme" />
-                        </div>
-                        <br />
+                        
                         <div>
                             <input id="Publish" onclick="EditPage(@Model.PageID)" type="submit" class="btn btn-primary" name="" value=" @Resources.resource.Guncelle" />
                         </div>

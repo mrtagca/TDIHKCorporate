@@ -381,8 +381,8 @@
   <data name="MenuTip" xml:space="preserve">
     <value>Menü Tipi</value>
   </data>
-  <data name="NameSurname" xml:space="preserve">
-    <value>Ad Soyad</value>
+  <data name="Name" xml:space="preserve">
+    <value>Ad</value>
   </data>
   <data name="OlusturulmaTarihi" xml:space="preserve">
     <value>Oluşturulma Tarihi</value>
@@ -497,6 +497,9 @@
   </data>
   <data name="Soyadi" xml:space="preserve">
     <value>Soyadı</value>
+  </data>
+  <data name="Surname" xml:space="preserve">
+    <value>Soyad</value>
   </data>
   <data name="TaslakOlarakKaydet" xml:space="preserve">
     <value>Taslak Olarak Kaydet</value>

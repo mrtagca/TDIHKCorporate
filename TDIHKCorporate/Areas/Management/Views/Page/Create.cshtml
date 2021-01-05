@@ -19,7 +19,7 @@
     <div class="col-md-9 col-sm-12">
         <div>
             <h5>@Resources.resource.SayfaEkle</h5>
-            <input type="text" id="PageTitle" placeholder="@Resources.resource.Baslik" onkeyup="GenerateFriendlyUrl('PageTitle','PageSeoLink')" class="form-control" name="name" value="" />
+            <input type="text" id="PageTitle" placeholder="@Resources.resource.Baslik" onkeyup="GenerateFriendlyUrl('PageTitle', 'PageSeoLink', $('#PageLanguage').val())" class="form-control" name="name" value="" />
         </div>
         <br />
 
@@ -137,14 +137,7 @@
 
                 <div id="collapsePublish" class="collapse show" aria-labelledby="headingOne" data-parent="#PublishTab">
                     <div class="card-body">
-                        <div>
-                            <input type="submit" class="btn btn-outline-primary" name="" value="@Resources.resource.TaslakOlarakKaydet" />
-                            &nbsp;
-
-                            <a class="btn btn-outline-primary" href="#" onclick="Preview()">@Resources.resource.Onizleme</a>
-
-                        </div>
-                        <br />
+                        
                         <div>
                             <input id="Publish" onclick="AddPage()" type="submit" class="btn btn-primary" name="" value=" @Resources.resource.Yayimla" />
                         </div>

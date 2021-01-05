@@ -35,7 +35,7 @@
     <div class="col-md-9 col-sm-12">
         <div>
             <h5>@Resources.resource.EtkinlikEkle</h5>
-            <input type="text" id="EventTitle" placeholder="@Resources.resource.Baslik" onkeyup="GenerateFriendlyUrl('EventTitle','EventSeoLink')" class="form-control" name="name" value="@Model.EventTitle" />
+            <input type="text" id="EventTitle" placeholder="@Resources.resource.Baslik" onkeyup="GenerateFriendlyUrl('EventTitle', 'EventSeoLink', $('#EventLanguage').val())" class="form-control" name="name" value="@Model.EventTitle" />
 
             <br />
 
@@ -188,12 +188,6 @@
 
                 <div id="collapsePublish" class="collapse show" aria-labelledby="headingOne" data-parent="#PublishTab">
                     <div class="card-body">
-                        @*<div>
-                                <input type="submit" class="btn btn-outline-primary" name="" value="@Resources.resource.TaslakOlarakKaydet" />
-                                &nbsp;
-                                <input type="submit" class="btn btn-outline-primary" name="" value="@Resources.resource.Onizleme" />
-                            </div>
-                            <br />*@
                         <div class="col-lg-12">
                             <input id="Publish" onclick="EditEvent(@Model.EventID)" type="submit" class="btn btn-primary" name="" value=" @Resources.resource.Yayimla" />
                         </div>

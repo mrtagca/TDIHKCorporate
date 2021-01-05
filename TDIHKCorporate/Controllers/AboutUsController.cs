@@ -1,4 +1,5 @@
 ﻿using DbAccess.Dapper.Repository;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -45,6 +46,32 @@ namespace TDIHKCorporate.Controllers
         public ActionResult Contact()
         {
             return View();
+        }
+
+        [HttpPost]
+        public string AddContact(ContactForm contactForm)
+        {
+            try
+            {
+                contactForm.CreatedDate = DateTime.Now;
+
+                DapperRepository<ContactForm> contact = new DapperRepository<ContactForm>();
+
+                int result = contact.Execute(@"insert into ContactForm ([Name],Surname,[Message],CreatedDate) values (@Name,@Surname,@Message,@CreatedDate)", contactForm);
+
+                if (result > 0)
+                {
+                    return JsonConvert.SerializeObject(true);
+                }
+                else
+                {
+                    return JsonConvert.SerializeObject(false);
+                }
+            }
+            catch (Exception ex)
+            {
+                return JsonConvert.SerializeObject(false);
+            }
         }
     }
 }

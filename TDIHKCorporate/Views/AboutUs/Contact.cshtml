@@ -3,6 +3,7 @@
     ViewBag.Title = "Contact";
     Layout = "~/Views/Shared/_layoutMaster.cshtml";
 }
+<script src="~/Content/Scripts/Contact.js"></script>
 
 <style>
     .map-responsive {
@@ -32,41 +33,46 @@
             <div class="uk-width-3-5@m">
                 <h1>@Resources.resource.ContactInformation</h1>
                 <h2>@Resources.resource.ContactForm</h2>
-                <form class="uk-form-stacked uk-width-1-1">
-                    <div class="uk-margin">
-                        <label class="uk-form-label" for="nachName">@Resources.resource.NameSurname</label>
-                        <div class="uk-form-controls">
-                            <input class="uk-input" id="nachName" type="text" required>
-                        </div>
-                    </div>
-                    <div class="uk-margin">
-                        <label class="uk-form-label" for="email">@Resources.resource.EmailAdres</label>
-                        <div class="uk-form-controls">
-                            <input class="uk-input" id="nachName" type="email" required>
-                        </div>
-                    </div>
-                    <div class="uk-margin">
-                        <label class="uk-form-label" for="note">@Resources.resource.YourMessage:</label>
-                        <div class="uk-form-controls">
-                            <textarea class="uk-textarea uk-width-1-1" id="note" rows="3" style="resize: none;" required></textarea>
-                        </div>
-                    </div>
-                    <div class="uk-margin">
 
+                <div class="uk-margin">
+                    <label class="uk-form-label" for="nachName">@Resources.resource.Name</label>
+                    <div class="uk-form-controls">
+                        <input class="uk-input" id="name" type="text" required>
                     </div>
-                    <div class="uk-margin">
-                        <div class="uk-text-bold uk-margin-small-bottom">@Resources.resource.DataPolicyApprove*</div>
-                        <div class="uk-form-controls">
-                            <label><input class="uk-checkbox" type="checkbox" name="acceptTerms" required>@Resources.resource.DataPolicyApproveText</label>
-                        </div>
+                </div>
+                <div class="uk-margin">
+                    <label class="uk-form-label" for="nachName">@Resources.resource.Surname</label>
+                    <div class="uk-form-controls">
+                        <input class="uk-input" id="surname" type="text" required>
                     </div>
-                    <div class="uk-margin">
-                        <div class="uk-text-meta">@Resources.resource.DataPolicyReadAndApproveText</div>
+                </div>
+                <div class="uk-margin">
+                    <label class="uk-form-label" for="email">@Resources.resource.EmailAdres</label>
+                    <div class="uk-form-controls">
+                        <input class="uk-input" id="EmailAdress" type="email" required>
                     </div>
-                    <div class="uk-flex uk-flex-right">
-                        <button type="submit" class="uk-button uk-width-1-1 uk-width-auto@m uk-button-primary uk-border-rounded">@Resources.resource.Gonder</button>
+                </div>
+                <div class="uk-margin">
+                    <label class="uk-form-label" for="note">@Resources.resource.YourMessage:</label>
+                    <div class="uk-form-controls">
+                        <textarea class="uk-textarea uk-width-1-1" id="Message" rows="3" style="resize: none;" required></textarea>
                     </div>
-                </form>
+                </div>
+                <div class="uk-margin">
+
+                </div>
+                <div class="uk-margin">
+                    <div class="uk-text-bold uk-margin-small-bottom">@Resources.resource.DataPolicyApprove*</div>
+                    <div class="uk-form-controls">
+                        <label><input id="PrivacyPolicyCheck" class="uk-checkbox" type="checkbox" name="acceptTerms" required>@Resources.resource.DataPolicyApproveText</label>
+                    </div>
+                </div>
+                <div class="uk-margin">
+                    <div class="uk-text-meta">@Resources.resource.DataPolicyReadAndApproveText</div>
+                </div>
+                <div class="uk-flex uk-flex-right">
+                    <button type="submit" onclick="AddContact()" class="uk-button uk-width-1-1 uk-width-auto@m uk-button-primary uk-border-rounded">@Resources.resource.Gonder</button>
+                </div>
             </div>
             <div class="uk-width-2-5@m">
                 <div>

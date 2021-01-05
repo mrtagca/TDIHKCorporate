@@ -853,11 +853,11 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ad Soyad.
+        ///   Looks up a localized string similar to Ad.
         /// </summary>
-        internal static string NameSurname {
+        internal static string Name {
             get {
-                return ResourceManager.GetString("NameSurname", resourceCulture);
+                return ResourceManager.GetString("Name", resourceCulture);
             }
         }
         
@@ -1200,6 +1200,15 @@ namespace Resources {
         internal static string Soyadi {
             get {
                 return ResourceManager.GetString("Soyadi", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Soyad.
+        /// </summary>
+        internal static string Surname {
+            get {
+                return ResourceManager.GetString("Surname", resourceCulture);
             }
         }
         
