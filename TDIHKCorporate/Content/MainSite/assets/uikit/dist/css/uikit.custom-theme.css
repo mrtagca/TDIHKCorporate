@@ -2895,6 +2895,9 @@ select.uk-form-width-xsmall {
   background-color: rgba(19, 44, 80, 0.6);
   padding: 50px 0 50px 50px !important;
 }
+.kalender-card-body {
+  min-height: 250px;
+}
 .iconless {
   padding-left: 50px !important;
 }
@@ -3252,7 +3255,7 @@ select.uk-form-width-xsmall {
   margin: 0;
   padding: 10px 5px !important;
 }
-p.change.cup {
+p.change {
   margin: 0 !important;
 }
 /* ========================================================================

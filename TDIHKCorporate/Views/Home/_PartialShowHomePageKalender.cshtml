@@ -11,14 +11,14 @@
 
             <div class="kalender-cart">
                 <div class="uk-card uk-card-hover uk-card-primary">
-                    <div class="uk-card-body uk-flex uk-flex-column uk-flex-between">
+                    <div class="uk-card-body uk-flex uk-flex-column uk-flex-between kalender-card-body">
                         <div>
                             @{
                                 CultureInfo ci = System.Threading.Thread.CurrentThread.CurrentCulture;
                                 <div class="size-20 size-15-m line-height-1">@item.EventDate.ToString("MMM", ci).ToUpper()</div>
                             }
                             <div class="size-50 line-height-1 uk-margin-small-bottom">@item.EventDate.Day</div>
-                            <div class="size-20 line-height-1 uk-margin-small-bottom">@item.EventTitle</div>
+                            <div>@item.EventTitle</div>
 
                         </div>
                         <div>
