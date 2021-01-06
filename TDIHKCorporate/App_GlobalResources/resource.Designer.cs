@@ -322,6 +322,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Etkinlik Arşivi.
+        /// </summary>
+        internal static string EtkinlikArsivi {
+            get {
+                return ResourceManager.GetString("EtkinlikArsivi", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Etkinlik Ekle.
         /// </summary>
         internal static string EtkinlikEkle {

@@ -204,6 +204,9 @@
   <data name="EtkinlikAciklamasi" xml:space="preserve">
     <value>Eventbeschreibung</value>
   </data>
+  <data name="EtkinlikArsivi" xml:space="preserve">
+    <value>Digital Archiv</value>
+  </data>
   <data name="EtkinlikEkle" xml:space="preserve">
     <value>Ereignis hinzufügen</value>
   </data>
