@@ -11,25 +11,15 @@
 <script>
     var lang = "@Model.Language";
 
-
     $(document).ready(function () {
 
         GetEventCategories("EventCategories", lang);
-        
-        
-
         var editor = $("#editor").data("kendoEditor");
         var html = @Html.Raw(JsonConvert.SerializeObject(Model.EventContent));
         var htmlContent = html;
         editor.value(htmlContent + editor.value());
-
-
     });
-
-     
-
 </script>
-
 
 <div class="row">
     <div class="col-md-9 col-sm-12">
@@ -40,8 +30,8 @@
             <br />
 
             <div>
-                <h5>Seo Link</h5>
-                <input type="text" class="form-control" id="EventSeoLink" placeholder="Seo Link" value="@Model.EventSeoLink" />
+                <h5>@Resources.resource.SeoLink</h5>
+                <input type="text" class="form-control" id="EventSeoLink" placeholder="@Resources.resource.SeoLink" value="@Model.EventSeoLink" />
             </div>
             <br />
 
@@ -59,7 +49,6 @@
     <div class="col-md-3 col-sm-12">
         <div id="EventSeoOptions">
             <div class="card">
-
                 <button class="btn btn-light" data-toggle="collapse" data-target="#collapseEventSeoOptions" aria-expanded="true" aria-controls="collapseEventSeoOptions">
                     <div class="card-header" id="headingOne">
                         <h5 class="mb-0">
@@ -110,7 +99,7 @@
                         </div>
                         <br />
                         <div>
-                            <label>Select Identifier</label>
+                            <label>@Resources.resource.IdentifierSec</label>
                             <select class="form-control" id="EventIdentifierDropdown">
                             </select>
                         </div>
@@ -143,10 +132,8 @@
         </div>
         <br />
 
-
         <div id="EventPicture">
             <div class="card">
-
                 <button class="btn btn-light" data-toggle="collapse" data-target="#collapseEventPicture" aria-expanded="true" aria-controls="collapseEventPicture">
                     <div class="card-header" id="headingOne">
                         <h5 class="mb-0">
@@ -159,7 +146,7 @@
                     <div class="card-body">
                         <div>
                             <center>
-                                <img id="ImagePreview" style="width:100%;height:100%;" src="@Model.EventImagePath" alt="Alternate Text" />
+                                <img id="ImagePreview" style="width:100%;height:100%;" src="@Model.EventImagePath" alt="@Model.EventTitle" />
                             </center>
                         </div>
                         <br />

@@ -4,7 +4,7 @@
     Layout = "~/Areas/Management/Views/Shared/_layoutDashboard.cshtml";
 }
 
-<h5>Sayfa Kategori Ekle</h5>
+<h5>@Resources.resource.SayfaKategoriEkle</h5>
 <hr />
 
 @if (ViewBag.Success != null)
@@ -25,7 +25,7 @@ else if (ViewBag.Error != null)
     <div class="col-md-12">
         <div class="col-lg-3">
             <div>
-                <label>Kategori Dili</label>
+                <label>@Resources.resource.KategoriDili</label>
                 <select class="form-control" name="Language">
                     <option value="tr">TR</option>
                     <option value="de">DE</option>
@@ -34,13 +34,13 @@ else if (ViewBag.Error != null)
             <br />
 
             <div>
-                <label>Kategori Adı</label>
-                <input type="text" class="form-control" placeholder="Kategori Adı" name="PageCategoryName" value="" />
+                <label>@Resources.resource.KategoriAdi</label>
+                <input type="text" class="form-control" placeholder="@Resources.resource.KategoriAdi" name="PageCategoryName" value="" />
             </div>
             <br />
 
             <div>
-                <input style="float:right" type="submit" class="btn btn-primary" name="Submit" value="Kaydet" />
+                <input style="float:right" type="submit" class="btn btn-primary" name="Submit" value="@Resources.resource.Kaydet" />
             </div>
         </div>
     </div>

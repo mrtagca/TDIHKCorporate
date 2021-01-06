@@ -6,18 +6,18 @@
 
 <script src="~/Content/Scripts/Slider.js"></script>
 
-<h5>Slider List</h5>
+<h5>@Resources.resource.SliderListesi</h5>
 <br />
 
 <div class="col-md-12">
     <table id="SliderList" class="table table-bordered table-hover table-responsive">
         <thead>
             <tr>
-                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Slider ID: activate to sort column descending" style="width: 234px;">Slider ID</th>
-                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Slider Name: activate to sort column descending" style="width: 234px;">Slider Name</th>
-                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Slider Name: activate to sort column descending" style="width: 234px;">Slider Language</th>
-                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Created Date: activate to sort column descending" style="width: 234px;">Created Date</th>
-                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Actions: activate to sort column descending" style="width: 234px;">Actions</th>
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Slider ID: activate to sort column descending" style="width: 234px;">@Resources.resource.SliderID</th>
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Slider Name: activate to sort column descending" style="width: 234px;">@Resources.resource.SliderAdi</th>
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Slider Name: activate to sort column descending" style="width: 234px;">@Resources.resource.SliderDili</th>
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Created Date: activate to sort column descending" style="width: 234px;">@Resources.resource.OlusturulmaTarihi</th>
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Actions: activate to sort column descending" style="width: 234px;">@Resources.resource.Eylemler</th>
             </tr>
         </thead>
         @foreach (var item in Model)

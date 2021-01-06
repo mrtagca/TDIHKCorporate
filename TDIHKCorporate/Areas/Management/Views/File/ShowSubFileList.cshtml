@@ -9,13 +9,13 @@
 
         <a href="@Request.UrlReferrer.ToString()">
             <i class="fas fa-arrow-circle-left"></i>
-            Geri
+            @Resources.resource.Geri
         </a>
     </span>
     &nbsp;
     <span>
         <a href="@Url.Action("FileList","File")">
-            <i class="fas fa-home"></i> Ana Dizin
+            <i class="fas fa-home"></i> @Resources.resource.AnaDizin
         </a>
     </span>
 </div>
@@ -26,22 +26,22 @@
 
         <thead>
             <tr>
-                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 234px;">Name</th>
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 234px;">@Resources.resource.Isim</th>
 
-                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Path URL: activate to sort column descending" style="width: 234px;">Path URL</th>
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Path URL: activate to sort column descending" style="width: 234px;">@Resources.resource.DosyaURL</th>
 
-                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Type: activate to sort column descending" style="width: 234px;">Type</th>
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Type: activate to sort column descending" style="width: 234px;">@Resources.resource.DosyaTipi</th>
 
-                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Size: activate to sort column descending" style="width: 234px;">Size (KB)</th>
-
-
-                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Created Time: activate to sort column descending" style="width: 234px;">Created Time</th>
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Size: activate to sort column descending" style="width: 234px;">@Resources.resource.DosyaBoyutu (KB)</th>
 
 
-                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Extension: activate to sort column descending" style="width: 234px;">Extension</th>
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Created Time: activate to sort column descending" style="width: 234px;">@Resources.resource.OlusturulmaTarihi</th>
 
 
-                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Eylemler: activate to sort column descending" style="width: 234px;">Eylemler</th>
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Extension: activate to sort column descending" style="width: 234px;">@Resources.resource.DosyaUzantisi</th>
+
+
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Eylemler: activate to sort column descending" style="width: 234px;">@Resources.resource.Eylemler</th>
             </tr>
         </thead>
         @foreach (var item in Model)
@@ -70,13 +70,13 @@
         @if (item.type == "d")
         {
             <td>
-                Directory
+                @Resources.resource.Klasor
             </td>
         }
         else
         {
             <td>
-                File
+                @Resources.resource.Dosya
             </td>
         }
 

@@ -5,15 +5,13 @@
 }
 <script src="~/Content/Scripts/JobOffers.js"></script>
 
-<h5>İş Teklifi Düzenle</h5>
+<h5>@Resources.resource.IsTeklifiDuzenle</h5>
 <hr />
 
 <script>
 
     $(document).ready(function () {
         GetMembers("Members");
-
-
     });
 </script>
 
@@ -21,40 +19,40 @@
 <div class="col-lg-12">
     <div class="col-lg-4">
         <label>
-            <input type="checkbox" id="IsMember" value="" /> Üye Mi?
+            <input type="checkbox" id="IsMember" value="" /> @Resources.resource.UyeMi?
         </label>
         <br />
-        <label>Üye Seçiniz</label>
+        <label>@Resources.resource.UyeSeciniz</label>
         <select class="form-control" name="MemberID" id="Members" disabled>
         </select>
         <br />
-        <label>Logo</label>
+        <label>@Resources.resource.Logo</label>
         <br />
         <input type="file" name="file" value="Logo Seçiniz" id="JobOfferLogo" />
         <br />
         <br />
-        <label>Dil</label>
+        <label>@Resources.resource.Dil</label>
         <select id="JobOfferLanguage" class="form-control">
             <option value="tr">TR</option>
             <option value="de">DE</option>
         </select>
         <br />
-        <label>Firma Adı</label>
-        <input type="text" class="form-control" id="CorporationName" placeholder="Firma Adı" value="@Model.CorporationName" />
+        <label>@Resources.resource.FirmaAdi</label>
+        <input type="text" class="form-control" id="CorporationName" placeholder="@Resources.resource.FirmaAdi" value="@Model.CorporationName" />
         <br />
-        <label>Pozisyon</label>
-        <input type="text" class="form-control" name="Position" value="@Model.Position" id="Position" placeholder="Pozisyon" />
+        <label>@Resources.resource.Pozisyon</label>
+        <input type="text" class="form-control" name="Position" value="@Model.Position" id="Position" placeholder="@Resources.resource.Pozisyon" />
         <br />
-        <label>Pozisyon Açıklaması</label>
-        <textarea class="form-control" name="PositionDescription" id="PositionDescription" placeholder="Pozisyon Açıklaması">@Model.PositionDescription</textarea>
+        <label>@Resources.resource.PozisyonAciklamasi</label>
+        <textarea class="form-control" name="PositionDescription" id="PositionDescription" placeholder="@Resources.resource.PozisyonAciklamasi">@Model.PositionDescription</textarea>
         <br />
-        <label>Lokasyon</label>
-        <input type="text" class="form-control" name="Location" value="@Model.Location" id="Location" placeholder="Lokasyon" />
+        <label>@Resources.resource.Lokasyon</label>
+        <input type="text" class="form-control" name="Location" value="@Model.Location" id="Location" placeholder="@Resources.resource.Lokasyon" />
         <br />
         <label>URL</label>
         <input type="text" class="form-control" name="JobOfferURL" value="" id="JobOfferURL" placeholder="URL" />
         <br />
-        <button onclick="EditJobOffer(@Model.JobOfferID)" class="btn btn-success" style="float:right">Güncelle</button>
+        <button onclick="EditJobOffer(@Model.JobOfferID)" class="btn btn-success" style="float:right">@Resources.resource.Guncelle</button>
 
     </div>
 </div>
