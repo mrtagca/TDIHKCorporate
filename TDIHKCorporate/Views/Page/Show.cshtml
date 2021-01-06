@@ -128,7 +128,7 @@ else
     <!--Sayfa Başlığı sonu-->
     <!--Banner: Eklenen imajın en boy oranı korunur.-->
 
-    <div><img @*style="width:1140px;height:463px;"*@ src="@Model.PageImagePath" alt="" uk-img="" /></div><!--Banner sonu-->
+    <div><img @*style="width:1140px;height:463px;"*@ src="@Model.PageImagePath" alt="@Model.PageTitle" uk-img="" /></div><!--Banner sonu-->
     <br />
 
     @Html.Raw(Model.PageContent)
@@ -179,10 +179,3 @@ else
 
 </main>
 }
-
-
-
-
-
-
-
