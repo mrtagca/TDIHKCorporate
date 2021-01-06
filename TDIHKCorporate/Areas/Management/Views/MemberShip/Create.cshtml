@@ -4,7 +4,7 @@
     Layout = "~/Areas/Management/Views/Shared/_layoutDashboard.cshtml";
 }
 
-<h5>Üye Ekle</h5>
+<h5>@Resources.resource.UyeEkle</h5>
 <hr />
 
 @if (ViewBag.Success != null)
@@ -25,36 +25,36 @@ else if (ViewBag.Error != null)
 
     <div class="col-lg-12">
         <div class="col-lg-4">
-            <label>Üye Logo</label> <br />
+            <label>@Resources.resource.UyeLogo</label> <br />
             <input type="file" name="file" value="" accept="image/x-png,image/gif,image/jpeg" required />
             <br />
             <br />
 
-            <label>Üye Unvan</label>
-            <input type="text" class="form-control" placeholder="Üye Unvan" name="MemberTitle" value="" required />
+            <label>@Resources.resource.UyeUnvan</label>
+            <input type="text" class="form-control" placeholder="@Resources.resource.UyeUnvan" name="MemberTitle" value="" required />
             <br />
 
-            <label>Üye Email</label>
-            <input type="email" class="form-control" placeholder="Üye Email" name="MemberEmailAddress" value="" />
+            <label>@Resources.resource.UyeEmail</label>
+            <input type="email" class="form-control" placeholder="@Resources.resource.UyeEmail" name="MemberEmailAddress" value="" />
             <br />
 
-            <label>Üye Adres</label>
-            <textarea class="form-control" name="MemberAddress" placeholder="Üye Adres"></textarea>
+            <label>@Resources.resource.UyeAdres</label>
+            <textarea class="form-control" name="MemberAddress" placeholder="@Resources.resource.UyeAdres"></textarea>
             <br />
 
-            <label>Üye Website</label>
-            <input type="text" class="form-control" placeholder="Website" name="MemberWebSite" value="" required />
+            <label>@Resources.resource.UyeWebsite</label>
+            <input type="text" class="form-control" placeholder="@Resources.resource.UyeWebsite" name="MemberWebSite" value="" required />
             <br />
 
-            <label>Üye Telefon 1</label>
-            <input type="text" class="form-control" placeholder="Üye Telefon 1" name="MemberPhone1" value="" />
+            <label>@Resources.resource.UyeTelefon 1</label>
+            <input type="text" class="form-control" placeholder="@Resources.resource.UyeTelefon 1" name="MemberPhone1" value="" />
             <br />
 
-            <label>Üye Telefon 2</label>
-            <input type="text" class="form-control" placeholder="Üye Telefon 1" name="MemberPhone2" value="" />
+            <label>@Resources.resource.UyeTelefon 2</label>
+            <input type="text" class="form-control" placeholder="@Resources.resource.UyeTelefon 1" name="MemberPhone2" value="" />
             <br />
 
-            <button class=" btn btn-success" style="float:right">Kaydet</button>
+            <button class=" btn btn-success" style="float:right">@Resources.resource.Kaydet</button>
         </div>
     </div>
 }

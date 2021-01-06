@@ -18,14 +18,14 @@
 
 
         <div>
-            <h5>Seo Link</h5>
-            <input type="text" class="form-control" id="NewsSeoLink" placeholder="Seo Link" value="@Model.NewsSeoLink" required />
+            <h5>@Resources.resource.SeoLink</h5>
+            <input type="text" class="form-control" id="NewsSeoLink" placeholder="@Resources.resource.SeoLink" value="@Model.NewsSeoLink" required />
         </div>
         <br />
 
         <div>
-            <h5>Haber Açıklaması</h5>
-            <input type="text" class="form-control" id="NewsDescription" placeholder="News Description" maxlength="360" value="@Model.NewsDescription" required />
+            <h5>@Resources.resource.HaberAciklamasi</h5>
+            <input type="text" class="form-control" id="NewsDescription" placeholder="@Resources.resource.HaberAciklamasi" maxlength="360" value="@Model.NewsDescription" required />
         </div>
         <br />
 
@@ -68,7 +68,7 @@
                         </div>
                         <br />*@
                         <div>
-                            <label><input type="checkbox" onchange="DisableIdentifierInputs()" id="IdentifierCheckbox" name="name" value="" /> Select Identifier</label>
+                            <label><input type="checkbox" onchange="DisableIdentifierInputs()" id="IdentifierCheckbox" name="name" value="" /> @Resources.resource.IdentifierSec</label>
                             <select class="form-control" id="NewsIdentifierDropdown" disabled="disabled" required>
                             </select>
                         </div>

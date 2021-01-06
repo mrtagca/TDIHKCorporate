@@ -21,20 +21,20 @@
 <div class="row">
     <div class="col-md-9 col-sm-12">
         <div>
-            <h5>Haber Ekle</h5>
+            <h5>@Resources.resource.HaberEkle</h5>
             <input type="text" id="NewsTitle" placeholder="@Resources.resource.Baslik" onkeyup="GenerateFriendlyUrl('NewsTitle', 'NewsSeoLink', $('#NewsLanguage').val())" class="form-control" name="name" value="" required />
         </div>
         <br />
 
         <div>
-            <h5>Seo Link</h5>
-            <input type="text" class="form-control" id="NewsSeoLink" placeholder="Seo Link" value="" required/>
+            <h5>@Resources.resource.SeoLink</h5>
+            <input type="text" class="form-control" id="NewsSeoLink" placeholder="@Resources.resource.SeoLink" value="" required/>
         </div>
         <br />
 
         <div>
-            <h5>Haber Açıklaması</h5>
-            <input type="text" class="form-control" id="NewsDescription" placeholder="News Description" maxlength="360" value="" required/>
+            <h5>@Resources.resource.HaberAciklamasi</h5>
+            <input type="text" class="form-control" id="NewsDescription" placeholder="@Resources.resource.HaberAciklamasi" maxlength="360" value="" required/>
         </div>
         <br />
 
@@ -77,7 +77,7 @@
                         </div>
                         <br />*@
                         <div>
-                            <label><input type="checkbox" onchange="DisableIdentifierInputs()" id="IdentifierCheckbox" name="name" value="" /> Select Identifier</label>
+                            <label><input type="checkbox" onchange="DisableIdentifierInputs()" id="IdentifierCheckbox" name="name" value="" /> @Resources.resource.IdentifierSec</label>
                             <select class="form-control" id="NewsIdentifierDropdown" disabled="disabled">
                             </select>
                         </div>
@@ -89,7 +89,6 @@
         <br />
         <div id="NewsSeoOptions">
             <div class="card">
-
                 <button class="btn btn-light" data-toggle="collapse" data-target="#collapseNewsSeoOptions" aria-expanded="true" aria-controls="collapseNewsSeoOptions">
                     <div class="card-header" id="headingOne">
                         <h5 class="mb-0">

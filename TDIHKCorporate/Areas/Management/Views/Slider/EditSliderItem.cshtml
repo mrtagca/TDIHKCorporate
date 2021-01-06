@@ -7,7 +7,7 @@
 
 <script src="~/Content/Scripts/Slider.js"></script>
 
-<h5>Slider İçerik Düzenle</h5>
+<h5>@Resources.resource.SliderIcerikDuzenle</h5>
 <hr />
 
 @if (ViewBag.Success != null)
@@ -99,7 +99,7 @@ else if (ViewBag.Error != null)
             <br />
             <div>
                 @*<button class="btn btn-success float-lg-right">Kaydet</button>*@
-                <input type="submit" name="Submit" id="btnSubmit" value="Güncelle" class="btn btn-success float-lg-right" />
+                <input type="submit" name="Submit" id="btnSubmit" value="@Resources.resource.Guncelle" class="btn btn-success float-lg-right" />
             </div>
         </div>
     </div>

@@ -4,7 +4,7 @@
     Layout = "~/Areas/Management/Views/Shared/_layoutDashboard.cshtml";
 }
 
-<h5>Image Create</h5>
+<h5>@Resources.resource.GorselYukle</h5>
 <hr />
 
 @if (ViewBag.Success != null)
@@ -25,7 +25,7 @@ else if (ViewBag.Error != null)
     <div class="col-md-12">
         <div class="col-md-3">
             <div>
-                <label>Dosya Seçiniz</label>
+                <label>@Resources.resource.GorselSeciniz</label>
                 <input type="file" name="file" value="Dosya Yükle" multiple/>
             </div>
             <br />

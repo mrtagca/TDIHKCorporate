@@ -6,7 +6,7 @@
 
 <script src="~/Content/Scripts/Institution.js"></script>
 
-<h5>Institution Edit</h5>
+<h5>@Resources.resource.KurumBilgisiDuzenle</h5>
 <hr />
 
 <script>
@@ -20,21 +20,21 @@
 
 <div class="col-lg-12">
     <div class="col-lg-4">
-        <label>Language</label>
+        <label>@Resources.resource.Dil</label>
         <select name="Language" id="Language" class="form-control" required>
             <option value="tr">TR</option>
             <option value="de">DE</option>
         </select>
         <br />
-        <label>Instution Title</label>
-        <input type="text" class="form-control" placeholder="Institution Title" id="InstitutionTitle" name="InstitutionTitle" value="" required />
+        <label>@Resources.resource.Baslik</label>
+        <input type="text" class="form-control" placeholder="@Resources.resource.Baslik" id="InstitutionTitle" name="InstitutionTitle" value="" required />
         <br />
-        <label>Institution Description</label>
-        <textarea name="InstitutionDescription" class="form-control" id="InstitutionDescription" placeholder="Institution Description" rows="3" required></textarea>
+        <label>@Resources.resource.Aciklama</label>
+        <textarea name="InstitutionDescription" class="form-control" id="InstitutionDescription" placeholder="@Resources.resource.Aciklama" rows="3" required></textarea>
         <br />
-        <label>Institution Date</label>
+        <label>@Resources.resource.Tarih</label>
         <input type="date" class="form-control" id="InstitutionDate" name="InstitutionDate" value="" required />
         <br />
-        <input style="float:right" onclick="EditInstitution(@Model.ID)" type="submit" class="btn btn-primary" name="name" value="Save" />
+        <input style="float:right" onclick="EditInstitution(@Model.ID)" type="submit" class="btn btn-primary" name="name" value="@Resources.resource.Guncelle" />
     </div>
 </div>

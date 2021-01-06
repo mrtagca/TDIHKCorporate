@@ -5,7 +5,7 @@
 }
 <script src="~/Content/Scripts/Podcast.js"></script>
 
-<h2>Podcast Düzenle</h2>
+<h2>@Resources.resource.PodcastDuzenle</h2>
 <hr />
 
 <script>
@@ -19,23 +19,23 @@
 
 <div class="col-lg-12">
     <div class="col-lg-4">
-        <label>Podcast Dili</label>
+        <label>@Resources.resource.PodcastDili</label>
         <select class="form-control" id="PodcastLanguage" name="Language" required>
             <option value="tr">TR</option>
             <option value="de">DE</option>
         </select>
         <br />
-        <label>Podcast Dosyası <span id="podcastPath">@Model.PodcastFilePath</span></label><br />
+        <label>@Resources.resource.PodcastDosyasi <span id="podcastPath">@Model.PodcastFilePath</span></label><br />
         <input type="file" name="file" id="PodcastFile" sound-path="@Model.PodcastFilePath" value="Farklı bir dosya seç" accept="audio/*" required />
         <br />
         <br />
-        <label>Podcast Title</label>
-        <input type="text" name="PodcastTitle" id="PodcastTitle" class="form-control" placeholder="Podcast Title" value="" required />
+        <label>@Resources.resource.PodcastBaslik</label>
+        <input type="text" name="PodcastTitle" id="PodcastTitle" class="form-control" placeholder="@Resources.resource.PodcastBaslik" value="" required />
         <br />
-        <label>Podcast Description</label>
-        <input type="text" class="form-control" placeholder="Podcast Description" id="PodcastDescription" name="PodcastDescription" value="" required />
+        <label>@Resources.resource.PodcastAciklamasi</label>
+        <input type="text" class="form-control" placeholder="@Resources.resource.PodcastAciklamasi" id="PodcastDescription" name="PodcastDescription" value="" required />
         <br />
-        <input type="submit" onclick="EditPodcast(@Model.ID)" class="btn btn-success" style="float:right" name="name" value="Güncelle" />
+        <input type="submit" onclick="EditPodcast(@Model.ID)" class="btn btn-success" style="float:right" name="name" value="@Resources.resource.Guncelle" />
     </div>
 </div>
 

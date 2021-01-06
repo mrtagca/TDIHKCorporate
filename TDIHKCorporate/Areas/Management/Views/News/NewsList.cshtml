@@ -4,24 +4,24 @@
     Layout = "~/Areas/Management/Views/Shared/_layoutDashboard.cshtml";
 }
 
-<h5>Sayfa Listesi</h5>
+<h5>@Resources.resource.HaberListesi</h5>
 <br />
 
 <div class="col-sm-12">
     <table id="newsTable" class="table table-hover dataTable" style="width:100%" role="grid" aria-describedby="zero-config_info">
         <thead>
             <tr role="row">
-                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 250px;">News ID</th>
-                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 250px;">News Identifier</th>
-                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 250px;">News Title</th>
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 250px;">@Resources.resource.HaberID</th>
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 250px;">@Resources.resource.HaberIdentifier</th>
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 250px;">@Resources.resource.HaberBaslik</th>
 
-                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 250px;">News Language</th>
-                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 250px;">News Seo Link</th>
-                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 250px;">Created Date</th>
-                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 250px;">Creator</th>
-                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 250px;">Updated Date</th>
-                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 250px;">Updater</th>
-                <th style="width: 234px;">Eylemler</th>
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 250px;">@Resources.resource.HaberDili</th>
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 250px;">@Resources.resource.SeoLink</th>
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 250px;">@Resources.resource.OlusturulmaTarihi</th>
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 250px;">@Resources.resource.Olusturan</th>
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 250px;">@Resources.resource.GuncellemeTarihi</th>
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 250px;">@Resources.resource.Guncelleyen</th>
+                <th style="width: 234px;">@Resources.resource.Eylemler</th>
 
             </tr>
         </thead>

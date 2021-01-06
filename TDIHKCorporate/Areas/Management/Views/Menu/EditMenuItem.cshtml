@@ -41,21 +41,21 @@
     });
 </script>
 
-<h5>Menü Elemanı Düzenle</h5>
+<h5>@Resources.resource.MenuElemaniDuzenle</h5>
 <hr />
 <div class="col-lg-12">
 
 
     <div class="col-lg-4">
         <div>
-            <label>Menü Seçiniz</label>
+            <label>@Resources.resource.MenuSeciniz</label>
             <select class="form-control" id="MenuList">
             </select>
         </div>
         <br />
 
         <div>
-            <label>Menü Dili Seçiniz</label>
+            <label>@Resources.resource.MenuDiliSeciniz</label>
             <select onchange="LanguageManipulationDropdowns()" class="form-control" id="MenuLanguage">
                 <option value="de">DE</option>
                 <option value="tr">TR</option>
@@ -64,42 +64,42 @@
         <br />
 
         <div>
-            <label><input type="checkbox" onchange="SubMenuShow()" name="name" id="IsSubMenu" value="" /> Alt Menü Mü?</label>
+            <label><input type="checkbox" onchange="SubMenuShow()" name="name" id="IsSubMenu" value="" /> @Resources.resource.AltMenuMu?</label>
 
         </div>
 
         <div id="Menu">
-            <label>Menü Adı Giriniz</label>
-            <input type="text" class="form-control" placeholder="Menu Adı Giriniz" id="MenuName" name="name" value="@Model.MenuName" />
+            <label>@Resources.resource.MenuAdiGiriniz</label>
+            <input type="text" class="form-control" placeholder="@Resources.resource.MenuAdiGiriniz" id="MenuName" name="name" value="@Model.MenuName" />
         </div>
         <br />
 
         <div id="ParentMenu" style="display:none">
-            <label>Parent Menü Seçiniz</label>
+            <label>@Resources.resource.UstMenuSeciniz</label>
             <select class="form-control" id="ParentMenuDropdown">
             </select>
         </div>
         <br />
 
         <div>
-            <label>Menü Sırası</label>
+            <label>@Resources.resource.MenuSirasi</label>
             <input type="number" class="form-control" min="1" id="MenuOrder" name="name" value="@Model.MenuItemPriority" />
         </div>
         <br />
 
         <div id="SubMenuDiv">
-            <label>Sayfa Seçiniz</label>
+            <label>@Resources.resource.SayfaSeciniz</label>
             <select class="form-control" id="PageSelect">
             </select>
         </div>
 
         <br />
         <div>
-            <label><input type="checkbox" id="IsActive" name="name" value="" checked /> Aktif Mi?</label>
+            <label><input type="checkbox" id="IsActive" name="name" value="" checked /> @Resources.resource.AktifMi?</label>
         </div>
 
         <br />
-        <button style="float:right" id="SaveMenuItem" menu-id="@Model.ID" class="btn btn-primary">Kaydet</button>
+        <button style="float:right" id="SaveMenuItem" menu-id="@Model.ID" class="btn btn-primary">@Resources.resource.Guncelle</button>
 
     </div>
 </div>
