@@ -152,20 +152,22 @@
         }
     }
 
-    .flex-column-mobile{
+    .flex-column-mobile {
         flex-direction: column;
-        @media(min-width: @breakpoint-medium){
+
+        @media(min-width: @breakpoint-medium) {
             flex-direction: row;
         }
     }
 
-    .flex-middle-event-detail{
+    .flex-middle-event-detail {
         align-items: flex-start;
+
         @media(min-width: @breakpoint-medium) {
             align-items: center;
         }
     }
-    
+
     .event-date {
         font-size: @base-h2-font-size-m;
 
@@ -244,20 +246,21 @@
     .podcast-wrapper {
         border-bottom: 2px solid @light-grey;
         margin-top: 0;
-        span.uk-icon-button{
+
+        span.uk-icon-button {
             width: 60px;
             height: 60px;
             background-color: @global-color;
-            path, polygon, circle{
+
+            path, polygon, circle {
                 stroke: white;
             }
         }
-/*        span.uk-icon {
+        /*        span.uk-icon {
             svg {
                 width: 70px !important;
             }
         }*/
-
         div:not(:last-child) {
             padding-right: 0 !important;
         }
@@ -850,8 +853,7 @@
         right: auto;
         left: 10px;
     }
-
-/*    .main-timeline .timeline:nth-child(4n+2) .timeline-content:before,
+    /*    .main-timeline .timeline:nth-child(4n+2) .timeline-content:before,
     .main-timeline .timeline:nth-child(4n+2) .timeline-content:after,
     .main-timeline .timeline:nth-child(4n+2) .timeline-year {
         background: @global-color;
@@ -895,7 +897,6 @@
     .main-timeline .timeline:nth-child(4n+4) .timeline-year:before {
         background: linear-gradient(to top right, darken(@global-color, 10%) 49%, transparent 50%);
     }*/
-
     @media screen and (max-width:767px) {
         .main-timeline .timeline,
         .main-timeline .timeline:nth-child(even) {
@@ -999,17 +1000,23 @@
 
     .highlight-news-main {
         background-color: rgba(19,44,80,.6);
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
     }
 
-    .day-badge{
+    .day-badge {
         background-color: #131d44;
         border-bottom: 3px solid @dark-grey;
     }
 
-    .uk-breadcrumb{
+    .uk-breadcrumb {
         margin: 0;
         padding: 10px 5px !important;
     }
 
-    p.change.cup{margin: 0 !important;}
+    p.change.cup {
+        margin: 0 !important;
+    }
 }
