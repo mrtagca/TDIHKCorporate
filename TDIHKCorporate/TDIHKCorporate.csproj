@@ -2345,6 +2345,7 @@
     <Content Include="Content\MainSite\assets\images\aubenhandelsportal\tobb-sm.png" />
     <Content Include="Content\MainSite\assets\images\aubenhandelsportal\TOBB2B.png" />
     <Content Include="Content\MainSite\assets\images\aubenhandelsportal\vorteilen.png" />
+    <Content Include="Content\MainSite\assets\images\Aussenhandelsportal-grid.jpg" />
     <Content Include="Content\MainSite\assets\images\Aussenhandelsportal-header-de-tr_resized.jpg" />
     <Content Include="Content\MainSite\assets\images\Aussenhandelsportal-TD-IHK-header-de_v2.jpg" />
     <Content Include="Content\MainSite\assets\images\banner.png" />
@@ -2374,6 +2375,7 @@
     <Content Include="Content\MainSite\assets\images\Dis-Ticaret-Portali-TD-IHK-header-tr_v2.jpg" />
     <Content Include="Content\MainSite\assets\images\Ein-und-Ausreisebestimmungen-tr-de_resized.jpg" />
     <Content Include="Content\MainSite\assets\images\Ein-undAusreisebestimmungen\Ein-undAusreisebestimmungen-bg.png" />
+    <Content Include="Content\MainSite\assets\images\Ein_und_ausreise-grid.jpg" />
     <Content Include="Content\MainSite\assets\images\Event-BG.png" />
     <Content Include="Content\MainSite\assets\images\events\20989752002060.jpg" />
     <Content Include="Content\MainSite\assets\images\events\28_05_2020_Header.jpg" />
@@ -2411,6 +2413,7 @@
     <Content Include="Content\MainSite\assets\images\Home-Page-Slider2-Mitglieder-Vorteilen-5.jpg" />
     <Content Include="Content\MainSite\assets\images\Hugo Boss.svg" />
     <Content Include="Content\MainSite\assets\images\Inal Consulting.svg" />
+    <Content Include="Content\MainSite\assets\images\Infoblaetter-grid.jpg" />
     <Content Include="Content\MainSite\assets\images\Infoblaetter-header-de_resized.jpg" />
     <Content Include="Content\MainSite\assets\images\Infoblatter.png" />
     <Content Include="Content\MainSite\assets\images\Infoblatter\BG_TR.png" />
@@ -2436,6 +2439,7 @@
     <Content Include="Content\MainSite\assets\images\konferenzraum\Picture 1.png" />
     <Content Include="Content\MainSite\assets\images\Markteintritt-Deutschland-de-tr.jpg" />
     <Content Include="Content\MainSite\assets\images\Markteintritt-Foerderung-und-Finanzierung-de-tr.jpg" />
+    <Content Include="Content\MainSite\assets\images\Markteintritt-grid.jpg" />
     <Content Include="Content\MainSite\assets\images\Markteintritt-Mustervertraege-de-tr.jpg" />
     <Content Include="Content\MainSite\assets\images\Markteintritt-Pazara-Giris-Header-de-tr.jpg" />
     <Content Include="Content\MainSite\assets\images\Markteintritt-Pazara-Giris-Header-de-tr_resized.jpg" />

@@ -35,100 +35,232 @@
 
     </section>
     <!--Grid Bölüm-->
-    <section>
-        <div class="uk-grid uk-grid-collapse uk-margin-medium-bottom" uk-grid="masonry: true">
-            <div class="uk-width-2-3@s uk-flex">
-                <div class="uk-width-2-3 grid-first-line">
-                    @if (name == "tr")
-                    {
-                        <a href="/tr/sayfalar/pazara-giris">
-                            <div class="uk-inline-clip uk-transition-toggle uk-width-1-1">
-                                <img src="/Content/MainSite/assets/images/Markteintritt-Pazara-Giris-Header-de-tr_resized.jpg" alt="" class="uk-transition-scale-up uk-transition-opaque uk-width-1-1" uk-img>
-                                <div class="uk-visible@m uk-overlay uk-position-bottom uk-background-primary color-white uk-transition-slide-bottom uk-h3 uk-margin-remove">@Resources.resource.PazaraGiris</div>
-                                <div class="uk-hidden@m uk-overlay uk-position-top uk-background-primary color-white  uk-h3 uk-margin-remove">@Resources.resource.PazaraGiris</div>
-                            </div>
-                        </a>
-                    }
-                    else
-                    {
-                        <a href="/de/seiten/markteintritt">
-                            <div class="uk-inline-clip uk-transition-toggle uk-width-1-1">
-                                <img src="/Content/MainSite/assets/images/Markteintritt-Pazara-Giris-Header-de-tr_resized.jpg" alt="" class="uk-transition-scale-up uk-transition-opaque uk-width-1-1" uk-img>
-                                <div class="uk-visible@m uk-overlay uk-position-bottom uk-background-primary color-white uk-transition-slide-bottom uk-h3 uk-margin-remove">@Resources.resource.PazaraGiris</div>
-                                <div class="uk-hidden@m uk-overlay uk-position-top uk-background-primary color-white  uk-h3 uk-margin-remove">@Resources.resource.PazaraGiris</div>
-                            </div>
-                        </a>
-                    }
-                </div>
-                <div class="uk-width-1-3 grid-first-line uk-inline-clip uk-transition-toggle">
-                    @if (name == "tr")
-                    {
-                        <a href="/de/seiten/aussenhandelsportal">
-                            <div class="uk-inline-clip uk-transition-toggle uk-width-1-1">
-                                <img src="/Content/MainSite/assets/images/Aussenhandelsportal-header-de-tr_resized.jpg" alt="" class="uk-transition-scale-up uk-transition-opaque uk-width-1-1" uk-img>
-                                <div class="uk-visible@m uk-overlay uk-position-center  color-white uk-transition-fade uk-h3 uk-margin-remove">@Resources.resource.DisTicaretPortali</div>
-                                <div class="uk-hidden@m uk-overlay uk-position-center  color-white uk-h6 uk-margin-remove">@Resources.resource.DisTicaretPortali</div>
-                            </div>
-                        </a>
-                    }
-                    else
-                    {
-                        <a href="/tr/sayfalar/dis-ticaret-portali">
-                            <div class="uk-inline-clip uk-transition-toggle uk-width-1-1">
-                                <img src="/Content/MainSite/assets/images/Aussenhandelsportal-header-de-tr_resized.jpg" alt="" class="uk-transition-scale-up uk-transition-opaque uk-width-1-1" uk-img>
-                                <div class="uk-visible@m uk-overlay uk-position-center  color-white uk-transition-fade uk-h3 uk-margin-remove">@Resources.resource.DisTicaretPortali</div>
-                                <div class="uk-hidden@m uk-overlay uk-position-center  color-white uk-h6 uk-margin-remove">@Resources.resource.DisTicaretPortali</div>
-                            </div>
-                        </a>
-                    }
-                </div>
-            </div>
-            <div class="uk-width-1-3@s">
-                @if (name == "tr")
-                {
-                    <a href="/tr/sayfalar/bilgi-notlari">
-                        <div class="uk-inline-clip uk-transition-toggle uk-width-1-1">
-                            <img src="/Content/MainSite/assets/images/Bilgi-Notlari-header-tr_resized_v2.jpg" alt="" class="uk-transition-scale-up uk-transition-opaque uk-width-1-1" uk-img>
-                            <div class="uk-visible@m uk-overlay uk-position-top uk-background-primary color-white uk-transition-slide-top uk-h3 uk-margin-remove">@Resources.resource.BilgiNotlari</div>
-                            <div class="uk-hidden@m uk-overlay uk-position-top uk-background-primary color-white  uk-h3 uk-margin-remove">@Resources.resource.BilgiNotlari</div>
-                        </div>
-                    </a>
-                }
-                else
-                {
-                    <a href="/de/seiten/infoblatter">
-                        <div class="uk-inline-clip uk-transition-toggle uk-width-1-1">
-                            <img src="/Content/MainSite/assets/images/Infoblaetter-header-de_resized_v2.jpg" alt="" class="uk-transition-scale-up uk-transition-opaque uk-width-1-1" uk-img>
-                            <div class="uk-visible@m uk-overlay uk-position-top uk-background-primary color-white uk-transition-slide-top uk-h3 uk-margin-remove">@Resources.resource.BilgiNotlari</div>
-                            <div class="uk-hidden@m uk-overlay uk-position-top uk-background-primary color-white  uk-h3 uk-margin-remove">@Resources.resource.BilgiNotlari</div>
-                        </div>
-                    </a>
-                }
-            </div>
-            <div class="uk-width-2-3@s">
-                @if (name == "tr")
-                {
-                    <a href="/tr/sayfalar/giris-cikis-kurallari" class="uk-link-reset">
-                        <div class="uk-inline-clip uk-transition-toggle uk-width-1-1">
-                            <img src="/Content/MainSite/assets/images/Ein-und-Ausreisebestimmungen-tr-de_resized.jpg" uk-img />
-                            <div class="uk-visible@m uk-overlay uk-position-bottom uk-background-primary color-white uk-transition-slide-bottom uk-h3 uk-margin-remove">@Resources.resource.GirisCikisKurallari</div>
-                            <div class="uk-hidden@m uk-overlay uk-position-top uk-background-primary color-white  uk-h3 uk-margin-remove">@Resources.resource.GirisCikisKurallari</div>
-                        </div>
-                    </a>
-                }
-                else
-                {
-                    <a href="/de/seiten/ein-und-ausreisebestimmungen" class="uk-link-reset">
-                        <div class="uk-inline-clip uk-transition-toggle uk-width-1-1">
-                            <img src="/Content/MainSite/assets/images/Ein-und-Ausreisebestimmungen-tr-de_resized.jpg" uk-img />
-                            <div class="uk-visible@m uk-overlay uk-position-bottom uk-background-primary color-white uk-transition-slide-bottom uk-h3 uk-margin-remove">@Resources.resource.GirisCikisKurallari</div>
-                            <div class="uk-hidden@m uk-overlay uk-position-top uk-background-primary color-white  uk-h3 uk-margin-remove">@Resources.resource.GirisCikisKurallari</div>
-                        </div>
-                    </a>
-                }
-            </div>
-        </div>
-    </section>
+	<section>
+		@*<div class="uk-grid uk-grid-collapse uk-margin-medium-bottom" uk-grid="masonry: true">
+			<div class="uk-width-2-3@s uk-flex">
+				<div class="uk-width-2-3 grid-first-line">
+					@if (name == "tr")
+					{
+						<a href="/tr/sayfalar/pazara-giris">
+							<div class="uk-inline-clip uk-transition-toggle uk-width-1-1">
+								<img src="/Content/MainSite/assets/images/Markteintritt-Pazara-Giris-Header-de-tr_resized.jpg" alt="" class="uk-transition-scale-up uk-transition-opaque uk-width-1-1" uk-img>
+								<div class="uk-visible@m uk-overlay uk-position-bottom uk-background-primary color-white uk-transition-slide-bottom uk-h3 uk-margin-remove">@Resources.resource.PazaraGiris</div>
+								<div class="uk-hidden@m uk-overlay uk-position-top uk-background-primary color-white  uk-h3 uk-margin-remove">@Resources.resource.PazaraGiris</div>
+							</div>
+						</a>
+					}
+					else
+					{
+						<a href="/de/seiten/markteintritt">
+							<div class="uk-inline-clip uk-transition-toggle uk-width-1-1">
+								<img src="/Content/MainSite/assets/images/Markteintritt-Pazara-Giris-Header-de-tr_resized.jpg" alt="" class="uk-transition-scale-up uk-transition-opaque uk-width-1-1" uk-img>
+								<div class="uk-visible@m uk-overlay uk-position-bottom uk-background-primary color-white uk-transition-slide-bottom uk-h3 uk-margin-remove">@Resources.resource.PazaraGiris</div>
+								<div class="uk-hidden@m uk-overlay uk-position-top uk-background-primary color-white  uk-h3 uk-margin-remove">@Resources.resource.PazaraGiris</div>
+							</div>
+						</a>
+					}
+				</div>
+				<div class="uk-width-1-3 grid-first-line uk-inline-clip uk-transition-toggle">
+					@if (name == "tr")
+					{
+						<a href="/de/seiten/aussenhandelsportal">
+							<div class="uk-inline-clip uk-transition-toggle uk-width-1-1">
+								<img src="/Content/MainSite/assets/images/Aussenhandelsportal-header-de-tr_resized.jpg" alt="" class="uk-transition-scale-up uk-transition-opaque uk-width-1-1" uk-img>
+								<div class="uk-visible@m uk-overlay uk-position-center  color-white uk-transition-fade uk-h3 uk-margin-remove">@Resources.resource.DisTicaretPortali</div>
+								<div class="uk-hidden@m uk-overlay uk-position-center  color-white uk-h6 uk-margin-remove">@Resources.resource.DisTicaretPortali</div>
+							</div>
+						</a>
+					}
+					else
+					{
+						<a href="/tr/sayfalar/dis-ticaret-portali">
+							<div class="uk-inline-clip uk-transition-toggle uk-width-1-1">
+								<img src="/Content/MainSite/assets/images/Aussenhandelsportal-header-de-tr_resized.jpg" alt="" class="uk-transition-scale-up uk-transition-opaque uk-width-1-1" uk-img>
+								<div class="uk-visible@m uk-overlay uk-position-center  color-white uk-transition-fade uk-h3 uk-margin-remove">@Resources.resource.DisTicaretPortali</div>
+								<div class="uk-hidden@m uk-overlay uk-position-center  color-white uk-h6 uk-margin-remove">@Resources.resource.DisTicaretPortali</div>
+							</div>
+						</a>
+					}
+				</div>
+			</div>
+			<div class="uk-width-1-3@s">
+				@if (name == "tr")
+				{
+					<a href="/tr/sayfalar/bilgi-notlari">
+						<div class="uk-inline-clip uk-transition-toggle uk-width-1-1">
+							<img src="/Content/MainSite/assets/images/Bilgi-Notlari-header-tr_resized_v2.jpg" alt="" class="uk-transition-scale-up uk-transition-opaque uk-width-1-1" uk-img>
+							<div class="uk-visible@m uk-overlay uk-position-top uk-background-primary color-white uk-transition-slide-top uk-h3 uk-margin-remove">@Resources.resource.BilgiNotlari</div>
+							<div class="uk-hidden@m uk-overlay uk-position-top uk-background-primary color-white  uk-h3 uk-margin-remove">@Resources.resource.BilgiNotlari</div>
+						</div>
+					</a>
+				}
+				else
+				{
+					<a href="/de/seiten/infoblatter">
+						<div class="uk-inline-clip uk-transition-toggle uk-width-1-1">
+							<img src="/Content/MainSite/assets/images/Infoblaetter-header-de_resized_v2.jpg" alt="" class="uk-transition-scale-up uk-transition-opaque uk-width-1-1" uk-img>
+							<div class="uk-visible@m uk-overlay uk-position-top uk-background-primary color-white uk-transition-slide-top uk-h3 uk-margin-remove">@Resources.resource.BilgiNotlari</div>
+							<div class="uk-hidden@m uk-overlay uk-position-top uk-background-primary color-white  uk-h3 uk-margin-remove">@Resources.resource.BilgiNotlari</div>
+						</div>
+					</a>
+				}
+			</div>
+			<div class="uk-width-2-3@s">
+				@if (name == "tr")
+				{
+					<a href="/tr/sayfalar/giris-cikis-kurallari" class="uk-link-reset">
+						<div class="uk-inline-clip uk-transition-toggle uk-width-1-1">
+							<img src="/Content/MainSite/assets/images/Ein-und-Ausreisebestimmungen-tr-de_resized.jpg" uk-img />
+							<div class="uk-visible@m uk-overlay uk-position-bottom uk-background-primary color-white uk-transition-slide-bottom uk-h3 uk-margin-remove">@Resources.resource.GirisCikisKurallari</div>
+							<div class="uk-hidden@m uk-overlay uk-position-top uk-background-primary color-white  uk-h3 uk-margin-remove">@Resources.resource.GirisCikisKurallari</div>
+						</div>
+					</a>
+				}
+				else
+				{
+					<a href="/de/seiten/ein-und-ausreisebestimmungen" class="uk-link-reset">
+						<div class="uk-inline-clip uk-transition-toggle uk-width-1-1">
+							<img src="/Content/MainSite/assets/images/Ein-und-Ausreisebestimmungen-tr-de_resized.jpg" uk-img />
+							<div class="uk-visible@m uk-overlay uk-position-bottom uk-background-primary color-white uk-transition-slide-bottom uk-h3 uk-margin-remove">@Resources.resource.GirisCikisKurallari</div>
+							<div class="uk-hidden@m uk-overlay uk-position-top uk-background-primary color-white  uk-h3 uk-margin-remove">@Resources.resource.GirisCikisKurallari</div>
+						</div>
+					</a>
+				}
+			</div>
+		</div>*@
+		<div class="uk-grid uk-grid-collapse uk-grid-column-small uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-4@m uk-margin-medium-bottom" uk-grid>
+			<div>
+				<div class="uk-position-relative uk-transition-toggle">
+					@if (name == "tr")
+					{
+						<a class="uk-link-reset" href="/tr/sayfalar/dis-ticaret-portali">
+							<img src="~/Content/MainSite/assets/images/Aussenhandelsportal-grid.jpg" alt="" class="uk-width-1-1">
+							<div class="uk-position-cover uk-overlay-default uk-padding-small uk-flex uk-flex-center uk-flex-middle uk-transition-fade uk-visible@l">
+								<div class="uk-h3 uk-margin-remove uk-text-center">@Resources.resource.DisTicaretPortali</div>
+							</div>
+							<div class="uk-position-cover uk-padding-small uk-flex uk-flex-center uk-flex-middle uk-hidden@l">
+								<div class="uk-h3 uk-background-primary uk-light uk-margin-remove uk-padding-small uk-padding-remove-vertical uk-text-center">@Resources.resource.DisTicaretPortali</div>
+							</div>
+						</a>
+					}
+					else
+					{
+						<a class="uk-link-reset" href="/de/seiten/aussenhandelsportal">
+							<img src="~/Content/MainSite/assets/images/Aussenhandelsportal-grid.jpg" alt="" class="uk-width-1-1">
+							<div class="uk-position-cover uk-overlay-default uk-padding-small uk-flex uk-flex-center uk-flex-middle uk-transition-fade uk-visible@l">
+								<div class="uk-h3 uk-margin-remove uk-text-center">@Resources.resource.DisTicaretPortali</div>
+							</div>
+							<div class="uk-position-cover uk-padding-small uk-flex uk-flex-center uk-flex-middle uk-hidden@l">
+								<div class="uk-h3 uk-background-primary uk-light uk-margin-remove uk-padding-small uk-padding-remove-vertical uk-text-center">@Resources.resource.DisTicaretPortali</div>
+							</div>
+						</a>
+
+					}
+				</div>
+			</div>
+			<div>
+				<div class="uk-position-relative uk-transition-toggle">
+					@if (name == "tr")
+					{
+						<a class="uk-link-reset" href="/tr/sayfalar/giris-cikis-kurallari">
+							<img src="~/Content/MainSite/assets/images/Ein_und_ausreise-grid.jpg" alt="" class="uk-width-1-1">
+							<div class="uk-position-cover uk-background-primary uk-padding-small uk-flex uk-flex-center uk-flex-middle uk-transition-fade uk-visible@l">
+								<div class="uk-h3 uk-light uk-margin-remove uk-text-center">@Resources.resource.GirisCikisKurallari</div>
+							</div>
+							<div class="uk-position-cover uk-padding-small uk-flex uk-flex-center uk-flex-middle uk-hidden@l">
+								<div class="uk-h3 uk-background-primary uk-light uk-margin-remove uk-padding-small uk-padding-remove-vertical uk-text-center">@Resources.resource.GirisCikisKurallari</div>
+							</div>
+						</a>
+					}
+					else
+					{
+						<a class="uk-link-reset" href="/de/seiten/ein-und-ausreisebestimmungen">
+							<img src="~/Content/MainSite/assets/images/Ein_und_ausreise-grid.jpg" alt="" class="uk-width-1-1">
+							<div class="uk-position-cover uk-background-primary uk-padding-small uk-flex uk-flex-center uk-flex-middle uk-transition-fade uk-visible@l">
+								<div class="uk-h3 uk-light uk-margin-remove uk-text-center">@Resources.resource.GirisCikisKurallari</div>
+							</div>
+							<div class="uk-position-cover uk-padding-small uk-flex uk-flex-center uk-flex-middle uk-hidden@l">
+								<div class="uk-h3 uk-background-primary uk-light uk-margin-remove uk-padding-small uk-padding-remove-vertical uk-text-center">@Resources.resource.GirisCikisKurallari</div>
+							</div>
+						</a>
+					}
+				</div>
+			</div>
+			<div>
+				<div class="uk-position-relative uk-transition-toggle">
+					@if (name == "tr")
+					{
+						<a class="uk-link-reset" href="/tr/sayfalar/bilgi-notlari">
+							<img src="~/Content/MainSite/assets/images/Infoblaetter-grid.jpg" alt="">
+							<div class="uk-position-cover uk-background-primary uk-padding-small uk-flex uk-flex-center uk-flex-middle uk-transition-fade uk-visible@l">
+								<div class="uk-h3 uk-light uk-margin-remove">@Resources.resource.BilgiNotlari</div>
+							</div>
+							<div class="uk-position-cover uk-padding-small uk-flex uk-flex-center uk-flex-middle uk-hidden@l">
+								<div class="uk-h3 uk-background-primary uk-light uk-margin-remove uk-padding-small uk-padding-remove-vertical uk-text-center">@Resources.resource.BilgiNotlari</div>
+							</div>
+						</a>
+					}
+					else
+					{
+						<a class="uk-link-reset" href="/de/seiten/infoblatter">
+							<img src="~/Content/MainSite/assets/images/Infoblaetter-grid.jpg" alt="">
+							<div class="uk-position-cover uk-background-primary uk-padding-small uk-flex uk-flex-center uk-flex-middle uk-transition-fade uk-visible@l">
+								<div class="uk-h3 uk-light uk-margin-remove">@Resources.resource.BilgiNotlari</div>
+							</div>
+							<div class="uk-position-cover uk-padding-small uk-flex uk-flex-center uk-flex-middle uk-hidden@l">
+								<div class="uk-h3 uk-background-primary uk-light uk-margin-remove uk-padding-small uk-padding-remove-vertical uk-text-center">@Resources.resource.BilgiNotlari</div>
+							</div>
+						</a>
+					}
+				</div>
+			</div>
+			<div>
+				<div class="uk-position-relative uk-transition-toggle">
+					@if (name == "tr")
+					{
+						<a class="uk-link-reset" href="">
+							<img src="~/Content/MainSite/assets/images/Markteintritt-grid.jpg" alt="">
+							<div class="uk-position-cover uk-background-primary uk-padding-small uk-flex uk-flex-center uk-flex-middle uk-transition-fade uk-visible@l">
+								<div class="uk-h3 uk-light uk-margin-remove">@Resources.resource.PazaraGiris</div>
+							</div>
+							<div class="uk-position-cover uk-padding-small uk-flex uk-flex-center uk-flex-middle uk-hidden@l">
+								<div class="uk-h3 uk-background-primary uk-light uk-margin-remove uk-padding-small uk-padding-remove-vertical uk-text-center">@Resources.resource.PazaraGiris</div>
+							</div>
+						</a>
+					}
+					else
+					{
+						<a class="uk-link-reset" href="">
+							<img src="~/Content/MainSite/assets/images/Markteintritt-grid.jpg" alt="">
+							<div class="uk-position-cover uk-background-primary uk-padding-small uk-flex uk-flex-center uk-flex-middle uk-transition-fade uk-visible@l">
+								<div class="uk-h3 uk-light uk-margin-remove">@Resources.resource.PazaraGiris</div>
+							</div>
+							<div class="uk-position-cover uk-padding-small uk-flex uk-flex-center uk-flex-middle uk-hidden@l">
+								<div class="uk-h3 uk-background-primary uk-light uk-margin-remove uk-padding-small uk-padding-remove-vertical uk-text-center">@Resources.resource.PazaraGiris</div>
+							</div>
+						</a>
+					}
+				</div>
+			</div>
+		</div>
+
+		@*<div class="uk-slider-container uk-position-relative uk-visible-toggle" tabindex="-1" uk-slider>
+			<ul class="uk-slider-items uk-grid">
+				<li class="uk-width-2-3 uk-width-1-4@m">
+					<img src="~/Content/MainSite/assets/images/Aussenhandelsportal-grid.jpg" alt="">
+				</li>
+				<li class="uk-width-2-3 uk-width-1-4@m">
+					<img src="~/Content/MainSite/assets/images/Ein_und_ausreise-grid.jpg" alt="">
+				</li>
+				<li class="uk-width-2-3 uk-width-1-4@m">
+					<img src="~/Content/MainSite/assets/images/Infoblaetter-grid.jpg" alt="">
+				</li>
+				<li class="uk-width-2-3 uk-width-1-4@m">
+					<img src="~/Content/MainSite/assets/images/Markteintritt-grid.jpg" alt="">
+				</li>
+			</ul>
+		</div>*@
+	</section>
     <!--Podcast-->
     @Html.Action("GetHomepagePodcasts", "Home")
     <br />

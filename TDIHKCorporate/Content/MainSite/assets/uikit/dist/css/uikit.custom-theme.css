@@ -3239,6 +3239,10 @@ select.uk-form-width-xsmall {
 }
 .highlight-news-main {
   background-color: rgba(19, 44, 80, 0.6);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 .day-badge {
   background-color: #131d44;
