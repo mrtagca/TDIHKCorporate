@@ -232,6 +232,28 @@ where [Language] = @lang and EventIdentifier in (SELECT top 1 EventIdentifier FR
 
             return View();
         }
+         
+        public ActionResult SearchForPages(string search)
+        {
+            ViewBag.SearchText = search;
+
+            CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+
+            string name = cultureInfo.TwoLetterISOLanguageName;
+
+            DapperRepository<SearchItem> searchItemList = new DapperRepository<SearchItem>();
+            List<SearchItem> searchItems = searchItemList.GetList(@"SELECT 'Pages' as [Type],PageTitle as Title,PageSeoLink as SeoLink FROM Pages  (NOLOCK)
+where  (PageTitle like '%'+@search+'%' or PageContent like '%'+@search+'%' or PageSeoLink like '%'+@search+'%' or PageSeoKeywords like '%'+@search+'%' ) and [Language] = @lang
+union
+SELECT 'News' as [Type],NewsTitle as Title,NewsSeoLink as SeoLink FROM News  (NOLOCK)
+where  (NewsTitle like '%'+@search+'%' or NewsContent like '%'+@search+'%' or NewsSeoLink like '%'+@search+'%' or NewsSeoKeywords like '%'+@search+'%' ) and [Language] = @lang
+union
+SELECT 'Events' as [Type],EventTitle as Title,EventSeoLink as SeoLink FROM [Events]  (NOLOCK)
+where  (EventTitle like '%'+@search+'%' or EventContent like '%'+@search+'%' or EventSeoLink like '%'+@search+'%' or EventSeoKeywords like '%'+@search+'%' ) and [Language] = @lang", new { search = search, lang = name });
+
+
+            return View(searchItems);
+        }
 
         public ActionResult MenuList()
         {
@@ -385,12 +407,6 @@ order by CONVERT(datetime,CONVERT(nvarchar,EventDate)+' '+CONVERT(nvarchar,Event
 
         }
 
-        [HttpPost]
-        public ActionResult SearchForPages(string search)
-        {
-
-
-            return View();
-        }
+       
     }
 }

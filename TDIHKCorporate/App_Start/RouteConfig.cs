@@ -382,6 +382,22 @@ namespace TDIHKCorporate
                 );
             #endregion
 
+            #region Home Search / Search
+            routes.MapRoute(
+                    name: "SearchGerman",
+                    url: "{lang}/suche",
+                    defaults: new { controller = "Home", action = "SearchForPages", lang = language },
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
+
+            routes.MapRoute(
+                    name: "SearchTurkey",
+                    url: "{lang}/ara",
+                    defaults: new { controller = "Home", action = "SearchForPages", lang = language },
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
+            #endregion
+
             #region Event Archive / Etkinlik Arşivi
             routes.MapRoute(
                     name: "EventArchiveGerman",

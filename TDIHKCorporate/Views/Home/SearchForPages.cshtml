@@ -1,0 +1,90 @@
+﻿@model List<TDIHKCorporate.Types.SearchItem>
+@using System.Globalization
+
+@{
+    ViewBag.Title = "SearchForPages";
+    Layout = "~/Views/Shared/_layoutMaster.cshtml";
+
+    CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+
+    string lang = cultureInfo.TwoLetterISOLanguageName;
+}
+
+
+<main class="uk-container" uk-scrollspy="cls: uk-animation-fade; target: > section; delay: 250">
+    <section class="uk-section">
+        <h1>@Resources.resource.Ara : "@ViewBag.SearchText"</h1>
+        <hr />
+        <div class="uk-grid uk-grid-divider uk-grid-small uk-child-width-1-1" uk-grid>
+
+            @foreach (var item in Model)
+            {
+                <div>
+                    <a class="uk-link-reset">
+
+                        @if (lang == "tr")
+                        {
+                            if (item.Type == "Pages")
+                            {
+                                <div class="uk-text-large">
+                                    <a style="text-decoration:none" href="/tr/sayfalar/@item.SeoLink">@item.Title</a>
+                                </div>
+                            }
+
+                            if (item.Type == "News")
+                            {
+                                <div class="uk-text-large">
+                                    <a style="text-decoration:none" href="/tr/haberler/@item.SeoLink">@item.Title</a>
+                                </div>
+
+                            }
+
+                            if (item.Type == "Events")
+                            {
+                                <div class="uk-text-large">
+                                    <a style="text-decoration:none" href="/tr/etkinlikler/@item.SeoLink">@item.Title</a>
+                                </div>
+
+                            }
+                        }
+                        else
+                        {
+                            if (item.Type == "Pages")
+                            {
+                                <div class="uk-text-large">
+                                    <a style="text-decoration:none" href="/de/seiten/@item.SeoLink">@item.Title</a>
+                                </div>
+                            }
+
+                            if (item.Type == "News")
+                            {
+                                <div class="uk-text-large">
+                                    <a style="text-decoration:none" href="/de/nachrichten/@item.SeoLink">@item.Title</a>
+                                </div>
+
+                            }
+
+                            if (item.Type == "Events")
+                            {
+                                <div class="uk-text-large">
+                                    <a style="text-decoration:none" href="/de/events/@item.SeoLink">@item.Title</a>
+                                </div>
+
+                            }
+                        }
+
+                    </a>
+                </div>
+            }
+
+        </div>
+        <!-- PAGINATION-->
+        <div class="uk-margin-medium-top">
+            <ul class="uk-pagination" uk-margin>
+                <li><a href="#"><span uk-pagination-previous></span></a></li>
+                <li><a href="#"><span uk-pagination-next></span></a></li>
+            </ul>
+        </div>
+    </section>
+</main>
+
