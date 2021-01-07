@@ -180,9 +180,18 @@
             <div class="nav-overlay-mobile uk-navbar-left uk-flex-1 uk-container" hidden>
 
                 <div class="uk-navbar-item uk-width-expand">
-                    <form action="/Home/SearchForPages" method="post" class="uk-search uk-search-navbar uk-width-1-1">
-                        <input class="uk-search-input" name="search" type="text" placeholder="@Resources.resource.Ara..." autofocus>
-                    </form>
+                    @if (name == "tr")
+                    {
+                        <form action="/tr/ara" method="get" class="uk-search uk-search-navbar uk-width-1-1">
+                            <input class="uk-search-input" name="search" type="text" placeholder="@Resources.resource.Ara..." autofocus>
+                        </form>
+                    }
+                    else
+                    {
+                        <form action="/de/suche" method="get" class="uk-search uk-search-navbar uk-width-1-1">
+                            <input class="uk-search-input" name="search" type="text" placeholder="@Resources.resource.Ara..." autofocus>
+                        </form>
+                    }
                 </div>
 
                 <a class="uk-navbar-toggle" uk-close uk-toggle="target: .nav-overlay-mobile; animation: uk-animation-fade"
@@ -387,16 +396,29 @@
                 }
             </div>
             <div class="nav-overlay uk-navbar-left uk-flex-1" hidden>
-
-                <div class="uk-navbar-item uk-width-expand">
-                    <form class="uk-search uk-search-navbar uk-width-1-1">
-                        <input class="uk-search-input" type="search" placeholder="@Resources.resource.Ara..." autofocus>
+                @if (name == "tr")
+                {
+                    <form action="/tr/ara" method="get" class="uk-search uk-search-navbar uk-width-1-1">
+                        <div class="uk-navbar-item uk-width-expand">
+                            <input class="uk-search-input" name="search" type="search" placeholder="@Resources.resource.Ara..." autofocus>
+                        </div>
+                        <input type="submit" class="uk-navbar-toggle" uk-close uk-toggle="target: .nav-overlay; animation: uk-animation-fade" />
                     </form>
-                </div>
-                <a class="uk-navbar-toggle" uk-close uk-toggle="target: .nav-overlay; animation: uk-animation-fade" href="#"></a>
+                }
+                else
+                {
+                    <form action="/de/suche" method="get" class="uk-search uk-search-navbar uk-width-1-1">
+                        <div class="uk-navbar-item uk-width-expand">
+                            <input class="uk-search-input" name="search" type="search" placeholder="@Resources.resource.Ara..." autofocus>
+                        </div>
+                        <input type="submit" class="uk-navbar-toggle" uk-close uk-toggle="target: .nav-overlay; animation: uk-animation-fade" />
+                    </form>
+                }
+
             </div>
+
     </div>
     </nav>
     </div>
 </header>
- 
+

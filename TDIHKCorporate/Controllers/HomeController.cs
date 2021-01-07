@@ -232,6 +232,22 @@ where [Language] = @lang and EventIdentifier in (SELECT top 1 EventIdentifier FR
 
             return View();
         }
+         
+        public ActionResult SearchForPages(string search)
+        {
+            ViewBag.SearchText = search;
+
+            CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+
+            string name = cultureInfo.TwoLetterISOLanguageName;
+
+            DapperRepository<Pages> pageList = new DapperRepository<Pages>();
+            List<Pages> pages = pageList.GetList(@"SELECT * FROM [IHK].[dbo].[Pages] (NOLOCK)
+where  (PageTitle like '%'+@search+'%' or PageSeoKeywords like '%'+@search+'%' or PageSeoLink like '%'+@search+'%') and [Language] = @lang", new { search = search, lang = name });
+
+
+            return View(pages);
+        }
 
         public ActionResult MenuList()
         {
@@ -385,12 +401,6 @@ order by CONVERT(datetime,CONVERT(nvarchar,EventDate)+' '+CONVERT(nvarchar,Event
 
         }
 
-        [HttpPost]
-        public ActionResult SearchForPages(string search)
-        {
-
-
-            return View();
-        }
+       
     }
 }
