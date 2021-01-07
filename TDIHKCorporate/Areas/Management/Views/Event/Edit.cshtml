@@ -197,17 +197,16 @@
     document.getElementById("EventLanguage").value = lang;
 
      setTimeout(() => {
-         document.getElementById("EventIdentifierDropdown").value = "@Model.EventIdentifier";
-    }, 2500);
-
-
-     setTimeout(() => {
          document.getElementById("EventCategories").value = eventCategoryId;
      }, 2500);
 
     setTimeout(() => {
         GetEventIdentifier("EventIdentifierDropdown", lang);
     }, 2500);
+
+    setTimeout(() => {
+         document.getElementById("EventIdentifierDropdown").value = "@Model.EventIdentifier";
+    }, 5000);
 
 </script>
 
