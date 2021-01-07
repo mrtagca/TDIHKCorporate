@@ -4,13 +4,6 @@
     ViewBag.Title = "NachrichtenDetail";
     Layout = "~/Views/Shared/_layoutMaster.cshtml";
 }
-<style>
-    .coverNews {
-        object-fit: cover;
-        width: 1140px;
-        height: 460px;
-    }
-</style>
 
 <main class="uk-container" uk-scrollspy="cls: uk-animation-fade; target: > section; delay: 250">
 
@@ -22,7 +15,7 @@
 
 	</div>
 	<div class="uk-margin-medium-bottom">
-		<img src="@Model.NewsImagePath" class="coverNews" alt="@Model.NewsTitle" uk-img />
+		<img src="@Model.NewsImagePath" alt="@Model.NewsTitle" uk-img />
 	</div>
 	<div>
 		@{
