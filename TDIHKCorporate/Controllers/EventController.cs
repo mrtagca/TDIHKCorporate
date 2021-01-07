@@ -255,10 +255,12 @@ order by CONVERT(datetime,CONVERT(nvarchar,EventDate)+' '+CONVERT(nvarchar,Event
             }
         }
 
-        public List<Events> GetSearchEvents(string keyword)
+        public ActionResult SearchEvents(string search)
         {
             try
             {
+                ViewBag.SearchKeyword = search;
+
                 DapperRepository<Events> events = new DapperRepository<Events>();
                 List<Events> eventList = new List<Events>();
 
@@ -266,14 +268,14 @@ order by CONVERT(datetime,CONVERT(nvarchar,EventDate)+' '+CONVERT(nvarchar,Event
 
                 string name = cultureInfo.TwoLetterISOLanguageName;
 
-                if (!string.IsNullOrWhiteSpace(keyword))
+                if (!string.IsNullOrWhiteSpace(search))
                 {
                     eventList = events.GetList(@"SELECT * FROM [IHK].[dbo].[Events] (NOLOCK)
 WHERE (EventDescription like '%'+@search+'%' or EventTitle like '%'+@search+'%' or EventContent like '%'+@search+'%' or EventSeoKeywords like '%'+@search+'%' or  EventTags like '%'+@search+'%') and [Language] = @lang and IsActive = 1
-order by CONVERT(datetime,CONVERT(nvarchar,EventDate)+' '+CONVERT(nvarchar,EventTime)) desc", new { search = keyword, lang=name }).ToList();
+order by CONVERT(datetime,CONVERT(nvarchar,EventDate)+' '+CONVERT(nvarchar,EventTime)) desc", new { search = search, lang=name }).ToList();
                 }
 
-                return eventList;
+                return View(eventList);
             }
             catch (Exception ex)
             {
