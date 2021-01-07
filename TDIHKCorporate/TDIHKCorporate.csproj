@@ -3346,6 +3346,7 @@
     <Compile Include="Types\Pages.cs" />
     <Compile Include="Types\Podcasts.cs" />
     <Compile Include="Types\Roles.cs" />
+    <Compile Include="Types\SearchItem.cs" />
     <Compile Include="Types\SliderContent.cs" />
     <Compile Include="Types\SliderContentBySliderId.cs" />
     <Compile Include="Types\Sliders.cs" />

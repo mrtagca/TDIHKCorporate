@@ -1,4 +1,4 @@
-﻿@model List<TDIHKCorporate.Types.Pages>
+﻿@model List<TDIHKCorporate.Types.SearchItem>
 @using System.Globalization
 
 @{
@@ -24,15 +24,53 @@
 
                         @if (lang == "tr")
                         {
-                            <div class="uk-text-large">
-                                <a style="text-decoration:none" href="/tr/sayfalar/@item.PageSeoLink">@item.PageTitle</a>
-                            </div>
+                            if (item.Type == "Pages")
+                            {
+                                <div class="uk-text-large">
+                                    <a style="text-decoration:none" href="/tr/sayfalar/@item.SeoLink">@item.Title</a>
+                                </div>
+                            }
+
+                            if (item.Type == "News")
+                            {
+                                <div class="uk-text-large">
+                                    <a style="text-decoration:none" href="/tr/haberler/@item.SeoLink">@item.Title</a>
+                                </div>
+
+                            }
+
+                            if (item.Type == "Events")
+                            {
+                                <div class="uk-text-large">
+                                    <a style="text-decoration:none" href="/tr/etkinlikler/@item.SeoLink">@item.Title</a>
+                                </div>
+
+                            }
                         }
                         else
                         {
-                            <div class="uk-text-large">
-                                <a style="text-decoration:none" href="/de/seiten/@item.PageSeoLink">@item.PageTitle</a>
-                            </div>
+                            if (item.Type == "Pages")
+                            {
+                                <div class="uk-text-large">
+                                    <a style="text-decoration:none" href="/de/seiten/@item.SeoLink">@item.Title</a>
+                                </div>
+                            }
+
+                            if (item.Type == "News")
+                            {
+                                <div class="uk-text-large">
+                                    <a style="text-decoration:none" href="/de/nachrichten/@item.SeoLink">@item.Title</a>
+                                </div>
+
+                            }
+
+                            if (item.Type == "Events")
+                            {
+                                <div class="uk-text-large">
+                                    <a style="text-decoration:none" href="/de/events/@item.SeoLink">@item.Title</a>
+                                </div>
+
+                            }
                         }
 
                     </a>
