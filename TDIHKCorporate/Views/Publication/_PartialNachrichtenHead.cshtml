@@ -7,7 +7,7 @@
     <!-- Günün tarihi-->
     <div class="uk-text-right color-dark-grey size-20" id="today"></div>
     <!-- Görseller 500px en ile 300px boy olarak yüklenmeli.-->
-    <div class="uk-grid-small uk-grid uk-margin-medium-bottom" uk-grid>
+    <div class="uk-grid-small uk-grid uk-margin-medium-bottom" uk-grid uk-height-match="target: .match">
 
 
         <!-- Soldaki Büyük haber kartı-->
@@ -21,7 +21,7 @@
 							<div class="uk-inline uk-transition-toggle uk-width-1-1 uk-height-1-1">
 								<img src="@Model[0].NewsThumbnailPath" class="uk-width-1-1 uk-height-1-1 uk-transition-opaque uk-transition-scale-up" />
 								<div class="uk-overlay uk-position-bottom uk-light uk-transition-slow">
-									<div class="size-30 line-height-1 highlight-news-main">@Model[0].NewsTitle</div>
+									<div class="size-30 size-20-m line-height-1 highlight-news-main">@Model[0].NewsTitle</div>
 									@*<div>Two countries will be asked to recount votes as Donald Trump continues to confest the election result.</div>*@
 									<div class="uk-flex uk-flex-middle uk-margin-small-top"><span class="uk-badge">@Model[0].NewsCategoryName</span></div>
 								</div>
@@ -32,9 +32,9 @@
 					{
 						<a href="/de/nachrichten/@Model[0].NewsSeoLink" class="uk-inline-clip uk-link-reset uk-width-1-1 uk-height-1-1">
 							<div class="uk-inline uk-transition-toggle uk-width-1-1 uk-height-1-1">
-								<img src="@Model[0].NewsThumbnailPath" class="uk-width-1-1 uk-height-1-1 uk-transition-opaque uk-transition-scale-up" />
+								<img src="@Model[0].NewsThumbnailPath" class="uk-width-1-1 uk-height-1-1 uk-transition-opaque uk-transition-scale-up uk-grid-match fit-cover" />
 								<div class="uk-overlay uk-position-bottom uk-light uk-transition-slow">
-									<div class="size-30 line-height-1 highlight-news-main">@Model[0].NewsTitle</div>
+									<div class="size-30 size-20-m line-height-1 highlight-news-main">@Model[0].NewsTitle</div>
 									@*<div>Two countries will be asked to recount votes as Donald Trump continues to confest the election result.</div>*@
 									<div class="uk-flex uk-flex-middle uk-margin-small-top"><span class="uk-badge">@Model[0].NewsCategoryName</span></div>
 								</div>
@@ -45,7 +45,7 @@
 			</div>
 		</div>
 			<!-- Küçük haber kartları-->
-		<div class="uk-width-1-3@m">
+		<div class="uk-width-1-3@m match">
 			<div class="uk-grid uk-grid-small" uk-grid>
 				@if (Model != null)
 				{
