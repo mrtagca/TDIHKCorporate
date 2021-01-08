@@ -3247,6 +3247,12 @@ select.uk-form-width-xsmall {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
 .day-badge {
   background-color: #131d44;
   border-bottom: 3px solid #616771;
