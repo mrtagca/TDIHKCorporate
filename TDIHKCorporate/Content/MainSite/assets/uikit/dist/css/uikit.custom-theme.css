@@ -2590,6 +2590,11 @@ select.uk-form-width-xsmall {
 .play-icon path {
   fill: #585858 !important;
 }
+.slide-arrow {
+  background-color: #999;
+  border-radius: 50%;
+  transition: .5s;
+}
 .slide-arrow svg {
   width: 32px;
   height: 32px;
@@ -2599,6 +2604,9 @@ select.uk-form-width-xsmall {
     width: 47px;
     height: 47px;
   }
+}
+.slide-arrow:hover {
+  background-color: #142C51;
 }
 .subscription-email::placeholder {
   text-align: center;
