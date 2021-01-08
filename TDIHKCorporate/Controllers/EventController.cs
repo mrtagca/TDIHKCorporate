@@ -314,7 +314,7 @@ order by CONVERT(datetime,CONVERT(nvarchar,EventDate)+' '+CONVERT(nvarchar,Event
                     eventList = events.GetList(@"select ev.* from [Events] ev (nolock)
 inner join EventCategories evc (nolock)
 on ev.EventCategoryID = evc.ID
-where ev.[Language] = @lang and evc.[Language] = @lang and evc.EventCategoryName=@category", new { category = category, lang = name }).ToList();
+where ev.[Language] = @lang and evc.[Language] = @lang and evc.EventCategoryName like '%'+@category+'%' ", new { category = category, lang = name }).ToList();
                 }
 
                 return View(eventList);

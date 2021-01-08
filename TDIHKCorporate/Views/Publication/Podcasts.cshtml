@@ -8,18 +8,20 @@
     @*<iframe style="background-image:#ffffff" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX4Y4RhrZqHhr" width="100%" height="600" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>*@
 
     <section>
-            <div>
-                <img src="@Model.PageImagePath" alt="" uk-img>
-            </div>
-        </section>
-        <section>
-            @Html.Raw(Model.PageContent)
-        </section>
-		<section>
-			@Html.Action("GetPodcasts")
-		</section>
+        <div>
+            <img src="@Model.PageImagePath" alt="" uk-img>
+        </div>
+    </section>
+    <section>
+        @Html.Raw(Model.PageContent)
+    </section>
+    <section>
+        @Html.Action("GetPodcasts")
+    </section>
     <br />
     <br />
 </main>
+
+@Html.Action("Index", "Newsletter")
 
 
