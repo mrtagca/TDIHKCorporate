@@ -191,7 +191,7 @@ function AddEvent() {
 
 }
 
-function EditEvent(eventID) {
+function EditEvent(eventID,eventIdentifier) {
 
     var callParams = {
         endPoint: "/Management/Event/EditEvent",
@@ -215,7 +215,7 @@ function EditEvent(eventID) {
     dataParams.EventSeoLink = $("#EventSeoLink").val();
     dataParams.EventDescription = $("#EventDescription").val();
     dataParams.EventSeoKeywords = $("#SeoKeywords").val();
-    dataParams.EventIdentifier = $("#EventIdentifierDropdown").val();
+    
     dataParams.EventDate = $("#EventDate").val();
     dataParams.EventTime = $("#EventTime").val();
     dataParams.EventQuota = $("#EventQuota").val();
@@ -224,6 +224,21 @@ function EditEvent(eventID) {
 
     var eventImagePath = document.getElementById("EventImage");
     dataParams.EventImagePath = eventImagePath.getAttribute("image-path");
+
+
+    var identifierElement = document.getElementById("IdentifierCheckbox");
+
+    if (identifierElement.checked === true) {
+        dataParams.EventIdentifier = $("#EventIdentifierDropdown").val();
+    }
+    else {
+        dataParams.EventIdentifier = eventIdentifier;
+    }
+
+
+    if (dataParams.EventIdentifier === '' || typeof (dataParams.EventIdentifier) === 'undefined' || dataParams.EventIdentifier === null) {
+        dataParams.EventIdentifier = eventIdentifier;
+    }
 
 
     if (eventContent === '' || typeof (eventContent) === 'undefined' || eventContent === null) {
@@ -329,12 +344,12 @@ function EditEvent(eventID) {
         return;
     }
 
-    if (dataParams.EventIdentifier === '' || typeof (dataParams.EventIdentifier) === 'undefined' || dataParams.EventIdentifier === null) {
-        alert("Please select a event identifier!");
-        var element = document.getElementById("EventIdentifier");
-        element.style = styleCss;
-        return;
-    }
+    //if (dataParams.EventIdentifier === '' || typeof (dataParams.EventIdentifier) === 'undefined' || dataParams.EventIdentifier === null) {
+    //    alert("Please select a event identifier!");
+    //    var element = document.getElementById("EventIdentifier");
+    //    element.style = styleCss;
+    //    return;
+    //}
 
 
     RequestAjax(callParams, dataParams, function (response) {
