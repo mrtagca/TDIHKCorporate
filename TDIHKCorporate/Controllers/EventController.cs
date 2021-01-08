@@ -99,6 +99,19 @@ namespace TDIHKCorporate.Controllers
             }
         }
 
+        public ActionResult GetEventCategoriesArea()
+        {
+
+            CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+
+            string name = cultureInfo.TwoLetterISOLanguageName;
+
+            DapperRepository<EventCategories> eventCategories = new DapperRepository<EventCategories>();
+            List<EventCategories> eventCategoryList = eventCategories.GetList(@"SELECT top 4 * FROM EventCategories where [Language] = @lang and IsActive = 1 order by CreatedDate desc", new { lang=name });
+
+            return View(eventCategoryList);
+        }
+
         public ActionResult FutureEvents()
         {
             return View(GetFutureEvents(3));
@@ -282,6 +295,37 @@ order by CONVERT(datetime,CONVERT(nvarchar,EventDate)+' '+CONVERT(nvarchar,Event
                 return null;
             }
         }
+
+        public ActionResult EventsByCategoryName(string category)
+        {
+            try
+            {
+                ViewBag.EventCategory = category.ToUpper();
+
+                DapperRepository<Events> events = new DapperRepository<Events>();
+                List<Events> eventList = new List<Events>();
+
+                CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+
+                string name = cultureInfo.TwoLetterISOLanguageName;
+
+                if (!string.IsNullOrWhiteSpace(category))
+                {
+                    eventList = events.GetList(@"select ev.* from [Events] ev (nolock)
+inner join EventCategories evc (nolock)
+on ev.EventCategoryID = evc.ID
+where ev.[Language] = @lang and evc.[Language] = @lang and evc.EventCategoryName=@category", new { category = category, lang = name }).ToList();
+                }
+
+                return View(eventList);
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
+      
 
     }
 }

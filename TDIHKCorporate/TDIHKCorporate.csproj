@@ -3987,6 +3987,8 @@
     <Content Include="Views\Services\_JobOffers.cshtml" />
     <Content Include="Views\Home\SearchForPages.cshtml" />
     <Content Include="Views\Event\SearchEvents.cshtml" />
+    <Content Include="Views\Event\GetEventCategoriesArea.cshtml" />
+    <Content Include="Views\Event\EventsByCategoryName.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
