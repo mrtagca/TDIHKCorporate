@@ -71,8 +71,8 @@
                 if (!localStorage.getItem('cookieconsent')) {
                     document.body.innerHTML += '\
                                             <div class="cookieconsent" style="position:fixed;padding:20px;left:0;bottom:0;background-color:#000;color:#FFF;text-align:center;width:100%;z-index:99999;">\
-                                                Diese Seite verwendet Cookies, <a id="PrivacyPolicy" href="/tr/sayfalar/gizlilik-politikasi" target="_blank" style="color:#CCCCCC;">Datenschutz-Bestimmungen</a>. Wenn Sie diese Website weiterhin nutzen, stimmen Sie deren Nutzung zu. \
-                                                <a id="Accept" href="/de/seiten/datenschutz-bestimmungen" target="_blank" style="color:#CCCCCC;">Ich verstehe, ich akzeptiere.</a>\
+                                                Diese Seite verwendet Cookies, <a id="PrivacyPolicy" href="/de/seiten/datenschutz-bestimmungen" target="_blank" style="color:#CCCCCC;">Datenschutz-Bestimmungen</a>. Wenn Sie diese Website weiterhin nutzen, stimmen Sie deren Nutzung zu. \
+                                                <a id="Accept" href="#" target="_blank" style="color:#CCCCCC;">Ich verstehe, ich akzeptiere.</a>\
                                             </div>\
 ';
                     document.querySelector('#Accept').onclick = function (e) {
@@ -82,10 +82,6 @@
                         document.querySelector('.cookieconsent').style.display = 'none';
                         localStorage.setItem('cookieconsent', true);
 
-                        window.open(
-                            el.href,
-                            '_blank'
-                        );
                     };
                 }
             })();

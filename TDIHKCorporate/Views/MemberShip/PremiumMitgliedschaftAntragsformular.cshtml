@@ -4,6 +4,9 @@
     Layout = "~/Views/Shared/_layoutMaster.cshtml";
 }
 
+<script src="~/Content/Scripts/PremiumMembership.js"></script>
+
+
 <main class="uk-container" uk-scrollspy="cls: uk-animation-fade; target: > section; delay: 250">
     <section class="uk-margin-medium-top">
         <div class="uk-text-center">
@@ -39,17 +42,17 @@
                     <input class="uk-input" id="form-stacked-text" onkeypress="validateOnlyText(event)" type="text" placeholder="@Resources.resource.Yer*" required>
                 </div>
             </div>
-            <div class="uk-margin uk-width-1-2@s"> 
+            <div class="uk-margin uk-width-1-2@s">
                 <div class="uk-form-controls">
                     <input class="uk-input" id="form-stacked-text" pattern="^[a-zA-Z0-9._+-]+&#64;[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$" type="email" placeholder="@Resources.resource.EmailAdres*" required>
                 </div>
             </div>
-            <div class="uk-margin uk-width-1-2@s"> 
+            <div class="uk-margin uk-width-1-2@s">
                 <div class="uk-form-controls">
                     <input class="uk-input" id="form-stacked-text" onkeypress="validateNumber(event)" type="tel" placeholder="@Resources.resource.Telefon*" required>
                 </div>
             </div>
-            <div class="uk-margin uk-width-1-2@s"> 
+            <div class="uk-margin uk-width-1-2@s">
                 <div class="uk-form-controls">
                     <input class="uk-input" id="form-stacked-text" type="text" placeholder="@Resources.resource.Website*" required>
                 </div>

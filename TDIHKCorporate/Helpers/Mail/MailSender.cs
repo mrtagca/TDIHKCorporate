@@ -2,6 +2,7 @@
 using PdfSharp;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -30,6 +31,9 @@ namespace TDIHKCorporate.Helpers.Mail
         {
             try
             {
+                CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+                string lang = cultureInfo.TwoLetterISOLanguageName;
+
                 ServicePointManager.ServerCertificateValidationCallback =
                 (sender, certificate, chain, sslPolicyErrors) => true;
                 MailMessage ePosta = new MailMessage();
@@ -46,7 +50,19 @@ namespace TDIHKCorporate.Helpers.Mail
                     string path = AppDomain.CurrentDomain.BaseDirectory + "Content\\MainSite\\assets\\memberShipFiles\\" + memberShipForm.MemberType + "_" + memberShipForm.Name + "_" + DateTime.Now.ToShortDateString()+"_"+Guid.NewGuid()+ ".pdf";
                     htmlToPdf.GeneratePdf(ePosta.Body, null, path);
 
+                    string tuzukPath = "";
+
+                    if (lang=="tr")
+                    {
+                        tuzukPath = AppDomain.CurrentDomain.BaseDirectory + "Content\\MainSite\\assets\\files\\Tuzuk_2015_12_07.pdf";
+                    }
+                    else
+                    {
+                        tuzukPath = AppDomain.CurrentDomain.BaseDirectory + "Content\\MainSite\\assets\\files\\Satzung_2015_12_07.pdf";
+                    }
+
                     ePosta.Attachments.Add(new Attachment(path));
+                    ePosta.Attachments.Add(new Attachment(tuzukPath));
 
                 }
 
