@@ -3243,6 +3243,8 @@
     <Content Include="Content\MainSite\assets\images\7. Bilgi Notu 3-Nitelikli Isgucu Goc Yasasi" />
     <Content Include="Content\MainSite\assets\images\8. Ekonominin desteklenmesi, acil durum fonlari ve sirketler icin yardim paketleri" />
     <Content Include="Content\MainSite\assets\images\news\turkiye-ab-gumruk-isbirligi.jpg_x" />
+    <Content Include="Areas\Management\Views\Contact\ContactFormList.cshtml" />
+    <Content Include="Areas\Management\Views\Contact\Show.cshtml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="HTML-1\dienstleistungen.html" />
     <Content Include="HTML-1\etkinlik-detay.html" />
@@ -3280,6 +3282,7 @@
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Management\Controllers\AdminController.cs" />
+    <Compile Include="Areas\Management\Controllers\ContactController.cs" />
     <Compile Include="Areas\Management\Controllers\EventController.cs" />
     <Compile Include="Areas\Management\Controllers\FileController.cs" />
     <Compile Include="Areas\Management\Controllers\HomeController.cs" />

@@ -1,0 +1,25 @@
+﻿@model TDIHKCorporate.Types.ContactForm
+@{
+    ViewBag.Title = "Show";
+    Layout = "~/Areas/Management/Views/Shared/_layoutDashboard.cshtml";
+}
+
+<h5>Show</h5>
+<hr />
+
+<div class="col-lg-12">
+    <div class="col-lg-4">
+        <label>Name</label><br />
+        <input type="text" class="form-control" name="name" value="@Model.Name" disabled /> <br />
+
+        <label>Surname</label><br />
+        <input type="text" class="form-control" name="name" value="@Model.Surname" disabled /> <br />
+
+        <label>Message</label><br />
+        <textarea class="form-control" disabled>@Model.Message</textarea> <br />
+
+        <label>IP Address</label><br />
+        <input type="text" class="form-control" name="name" value="@Model.IPAddress" disabled /> <br />
+    </div>
+</div>
+

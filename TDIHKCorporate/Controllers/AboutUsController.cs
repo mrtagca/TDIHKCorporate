@@ -53,11 +53,14 @@ namespace TDIHKCorporate.Controllers
         {
             try
             {
+                contactForm.IPAddress = Request.UserHostAddress;
                 contactForm.CreatedDate = DateTime.Now;
+                contactForm.IsRead = false;
+
 
                 DapperRepository<ContactForm> contact = new DapperRepository<ContactForm>();
 
-                int result = contact.Execute(@"insert into ContactForm ([Name],Surname,[Message],CreatedDate) values (@Name,@Surname,@Message,@CreatedDate)", contactForm);
+                int result = contact.Execute(@"insert into ContactForm ([Name],Surname,[Message],IPAdress,CreatedDate) values (@Name,@Surname,@Message,@IPAdress,@CreatedDate)", contactForm);
 
                 if (result > 0)
                 {

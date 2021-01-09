@@ -27,9 +27,7 @@
                         <button class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
                         <div class="uk-flex-middle uk-flex-center" uk-grid uk-height-viewport="offset-top: true">
                             <div class="uk-padding-large">
-
                                 <ul class="uk-nav-default uk-nav-parent-icon" uk-nav>
-
                                     @foreach (TDIHKCorporate.Types.MenuItems item in Model.Where(x => x.IsSubMenu == false).OrderBy(x => x.MenuItemPriority))
                                     {
                                         <li class="uk-parent">
@@ -138,9 +136,7 @@
                                             }
                                         </li>
                                     }
-
                                 </ul>
-
 
                             </div>
                         </div>
