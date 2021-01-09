@@ -1,4 +1,4 @@
-﻿
+﻿@using System.Globalization 
 @{
     Layout = null;
 }
@@ -9,7 +9,11 @@
 <head>
     <script src="~/Content/Admin/vendor/jquery/jquery-3.5.1.min.js"></script>
 
-   
+   @{ 
+       CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+
+       string lang = cultureInfo.TwoLetterISOLanguageName;
+   }
 
 
 
@@ -33,6 +37,67 @@
     <script src="~/Scripts/main.js"></script>
 
     <script src="~/Content/Scripts/RequestHelper.js"></script>
+
+
+
+
+
+    @if (lang == "tr")
+    {
+        <script>
+            (function () {
+                if (!localStorage.getItem('cookieconsent')) {
+                    document.body.innerHTML += '\
+                                            <div class="cookieconsent" style="position:fixed;padding:20px;left:0;bottom:0;background-color:#000;color:#FFF;text-align:center;width:100%;z-index:99999;">\
+                                                Bu web sitesi tanımlama bilgilerinizi kullanır. Bu web sitesini kullanmaya devam ederek, çerez kullanımını kabul etmiş olursunuz. \
+                                                <a href="/tr/sayfalar/gizlilik-politikasi" target="_blank" style="color:#CCCCCC;">Anladım, kabul ediyorum.</a>\
+                                            </div>\
+';
+                    document.querySelector('.cookieconsent a').onclick = function (e) {
+                        debugger
+                        var el = document.querySelector('.cookieconsent a');
+                        e.preventDefault();
+                       
+                        document.querySelector('.cookieconsent').style.display = 'none';
+                        localStorage.setItem('cookieconsent', true);
+
+                        window.open(
+                            el.href,
+                            '_blank'
+                        );
+                    };
+                }
+            })();
+        </script>
+    }
+    else
+    {
+        <script>
+            (function () {
+                if (!localStorage.getItem('cookieconsent')) {
+                    document.body.innerHTML += '\
+                                            <div class="cookieconsent" style="position:fixed;padding:20px;left:0;bottom:0;background-color:#000;color:#FFF;text-align:center;width:100%;z-index:99999;">\
+                                                Diese Seite verwendet Cookies. Wenn Sie diese Website weiterhin nutzen, stimmen Sie deren Nutzung zu. \
+                                                <a href="/de/seiten/datenschutz-bestimmungen" target="_blank" style="color:#CCCCCC;">Ich verstehe, ich akzeptiere.</a>\
+                                            </div>\
+';
+                    document.querySelector('.cookieconsent a').onclick = function (e) {
+                        debugger
+                        var el = document.querySelector('.cookieconsent a');
+                        e.preventDefault();
+                        
+                        document.querySelector('.cookieconsent').style.display = 'none';
+                        localStorage.setItem('cookieconsent', true);
+
+                        window.open(
+                            el.href,
+                            '_blank'
+                        );
+                    };
+                }
+            })();
+        </script>
+    }
 
 </body>
 
