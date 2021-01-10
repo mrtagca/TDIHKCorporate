@@ -119,8 +119,7 @@ namespace TDIHKCorporate.Controllers
 
         public ActionResult LastEvents()
         {
-
-            return View(GetLastEvents(9));
+            return View(GetLastEvents(33));
         }
 
         public ActionResult Kalender()

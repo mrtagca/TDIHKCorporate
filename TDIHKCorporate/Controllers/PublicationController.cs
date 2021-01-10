@@ -20,7 +20,7 @@ namespace TDIHKCorporate.Controllers
 
             string name = cultureInfo.TwoLetterISOLanguageName;
 
-            List<News> newsList = page.GetList(@"select top 9 * from
+            List<News> newsList = page.GetList(@"select top 33 * from
                                                 (
                                                 select nw.* from News nw (NOLOCK)
                                                 inner join NewsCategories nwc (NOLOCK)
