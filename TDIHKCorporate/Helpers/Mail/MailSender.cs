@@ -132,5 +132,47 @@ namespace TDIHKCorporate.Helpers.Mail
                 return false;
             }
         }
+
+        public bool SendMailPremiumMembership(MemberShipForm memberShipForm, string language)
+        {
+
+            try
+            {
+                DapperRepository<EmailTemplates> emailRepo = new DapperRepository<EmailTemplates>();
+                EmailTemplates emailTemplate = emailRepo.Get(@"select * from EmailTemplates (nolock) where [Language] = @Language and TemplateIdentifier = @templateIdentifier", new
+                {
+                    TemplateIdentifier = "StandardMembership",
+                    Language = language
+                });
+
+                emailTemplate.TemplateHtml =
+                    emailTemplate.TemplateHtml
+                    .Replace("<##Name##>", memberShipForm.Name)
+                    .Replace("<##Street##>", memberShipForm.Street)
+                    .Replace("<##Home_Phone##>", memberShipForm.HomePhone)
+                    .Replace("<##Postal_Code##>", memberShipForm.PostalCode.ToString())
+                    .Replace("<##City##>", memberShipForm.City)
+                    .Replace("<##Email##>", memberShipForm.Email)
+                    .Replace("<##Telephone##>", memberShipForm.PhoneNumber)
+                    .Replace("<##Website##>", memberShipForm.WebSite)
+                    .Replace("<##Fax##>", memberShipForm.Fax)
+                    .Replace("<##Responsible_Personel##>", memberShipForm.ResponsiblePersonel)
+                    .Replace("<##Personel_Position##>", memberShipForm.PersonelPosition)
+                    .Replace("<##Member_Packet_Type##>", memberShipForm.CorporationIncome)
+                    .Replace("<##MEMBER_1##>", memberShipForm.MemberSuggestion1)
+                    .Replace("<##MEMBER_2##>", memberShipForm.MemberSuggestion2)
+                    .Replace("<##MEMBER_3##>", memberShipForm.MemberSuggestion3)
+                    .Replace("<##Suggestion_Info##>", memberShipForm.SuggestionInfo)
+                    .Replace("<##SuggestionLocationAndTime##>", memberShipForm.SuggestionLocationAndTime);
+
+
+
+                return SendMail(memberShipForm, emailTemplate, true);
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
     }
 }

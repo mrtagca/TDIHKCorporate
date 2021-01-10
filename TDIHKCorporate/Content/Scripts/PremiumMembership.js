@@ -1,4 +1,4 @@
-﻿function SaveMember() {
+﻿function SaveMemberPremium() {
 
     var digitalSignature = document.getElementById("DigitalSignature");
     var privacyPolicy = document.getElementById("PrivacyPolicy");
@@ -18,7 +18,7 @@
 
     if (digitalSignature.checked === true && privacyPolicy.checked === true) {
         dataParams = {};
-        dataParams.MemberType = "StandardMitgliedschaft";
+        dataParams.MemberType = "PremiumMitgliedschaftAntragsformular";
 
 
         var isCorporate = document.getElementById("IsCorporate");
@@ -154,18 +154,10 @@
         debugger
 
         var memberPacket1 = document.getElementById("MemberPacket1");
-        var memberPacket2 = document.getElementById("MemberPacket2");
-        var memberPacket3 = document.getElementById("MemberPacket3");
 
         if (memberPacket1.checked === true) {
 
             dataParams.CorporationIncome = memberPacket1.value;
-        }
-        else if (memberPacket2.checked === true) {
-            dataParams.CorporationIncome = memberPacket2.value;
-        }
-        else if (memberPacket3.checked === true) {
-            dataParams.CorporationIncome = memberPacket3.value;
         }
         else {
             alert("Please select member packet type!");
@@ -184,7 +176,7 @@
         dataParams.SuggestionLocationAndTime = document.getElementById("LocationAndTime").value;
 
         var callParams = {
-            endPoint: "/MemberShip/StandardMitgliedschaftAntragsformular",
+            endPoint: "/MemberShip/PremiumMitgliedschaftAntragsformular",
             requestType: "POST"
         }
 
