@@ -2304,7 +2304,6 @@
     <Content Include="Content\Admin\vendor\jquery\jquery.min.js" />
     <Content Include="Content\Admin\vendor\jquery\jquery.slim.js" />
     <Content Include="Content\Admin\vendor\jquery\jquery.slim.min.js" />
-    <Content Include="Content\MainSite\assets\files\podcasts\1_saatlik_kayit_deneme.mp3" />
     <Content Include="Content\MainSite\assets\files\podcasts\ajda-pekkan-feat-volga-tamoz-ayrilik-atesi.mp3" />
     <Content Include="Content\MainSite\assets\files\podcasts\ben-fero-arkadas-official-audio.mp3" />
     <Content Include="Content\MainSite\assets\files\podcasts\ben-fero-babafingo-official-video.mp3" />
