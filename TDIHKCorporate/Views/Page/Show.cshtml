@@ -37,36 +37,36 @@
 
         @if (breadCrumbList != null)
         {
-        <div class="uk-background-secondary">
-            <ul class="uk-breadcrumb">
+            <div class="uk-background-secondary">
+                <ul class="uk-breadcrumb">
 
-                @foreach (var item in breadCrumbList)
-                {
-                    if (breadCrumbList.IndexOf(item) == breadCrumbList.Count - 1) //son elemansa
+                    @foreach (var item in breadCrumbList)
                     {
-                        if (lang == "de")
+                        if (breadCrumbList.IndexOf(item) == breadCrumbList.Count - 1) //son elemansa
                         {
-                            <li><span>@item.MenuName</span></li>
+                            if (lang == "de")
+                            {
+                                <li><span>@item.MenuName</span></li>
+                            }
+                            else
+                            {
+                                <li><span>@item.MenuName</span></li>
+                            }
                         }
                         else
                         {
-                            <li><span>@item.MenuName</span></li>
+                            if (lang == "de")
+                            {
+                                <li><a href="/de/seiten/@item.PageSeoLink">@item.MenuName</a></li>
+                            }
+                            else
+                            {
+                                <li><a href="/tr/sayfalar/@item.PageSeoLink">@item.MenuName</a></li>
+                            }
                         }
                     }
-                    else
-                    {
-                        if (lang == "de")
-                        {
-                            <li><a href="/de/seiten/@item.PageSeoLink">@item.MenuName</a></li>
-                        }
-                        else
-                        {
-                            <li><a href="/tr/sayfalar/@item.PageSeoLink">@item.MenuName</a></li>
-                        }
-                    }
-                }
-            </ul>
-        </div>
+                </ul>
+            </div>
         }
 
         @Html.Raw(Model.PageContent)
@@ -84,98 +84,107 @@
 }
 else
 {
-<main class="uk-container" uk-scrollspy="cls: uk-animation-fade; target: > section; delay: 100">
-    <!--Sayfa Başlığı-->
+    <main class="uk-container" uk-scrollspy="cls: uk-animation-fade; target: > section; delay: 100">
+        <!--Sayfa Başlığı-->
 
-    @if (breadCrumbList != null)
-    {
+        @if (breadCrumbList != null)
+        {
 
-	<div class="uk-background-secondary">
-		<ul class="uk-breadcrumb">
+            <div class="uk-background-secondary">
+                <ul class="uk-breadcrumb">
 
-			@foreach (var item in breadCrumbList)
-			{
-				if (breadCrumbList.IndexOf(item) == breadCrumbList.Count - 1) //son elemansa
-				{
-					if (lang == "de")
-					{
-			        <li><span>@item.MenuName</span></li>
-					}
-					else
-					{
-		            <li><span>@item.MenuName</span></li>
-					}
-				}
-				else
-				{
-					if (lang == "de")
-					{
-		            <li><a href="/de/seiten/@item.PageSeoLink">@item.MenuName</a></li>
-					}
-					else
-					{
-		            <li><a href="/tr/sayfalar/@item.PageSeoLink">@item.MenuName</a></li>
-					}
-				}
-			}
-		</ul>
-	</div>
-    }
+                    @foreach (var item in breadCrumbList)
+                    {
+                        if (breadCrumbList.IndexOf(item) == breadCrumbList.Count - 1) //son elemansa
+                        {
+                            if (lang == "de")
+                            {
+                                <li><span>@item.MenuName</span></li>
+                            }
+                            else
+                            {
+                                <li><span>@item.MenuName</span></li>
+                            }
+                        }
+                        else
+                        {
+                            if (lang == "de")
+                            {
+                                <li><a href="/de/seiten/@item.PageSeoLink">@item.MenuName</a></li>
+                            }
+                            else
+                            {
+                                <li><a href="/tr/sayfalar/@item.PageSeoLink">@item.MenuName</a></li>
+                            }
+                        }
+                    }
+                </ul>
+            </div>
+        }
 
-    @*<div class="uk-background-secondary">
-            <h1 class="uk-h5 banner-padding uk-margin-remove">@Model.PageTitle</h1>
-        </div>*@
-    <!--Sayfa Başlığı sonu-->
-    <!--Banner: Eklenen imajın en boy oranı korunur.-->
+        @*<div class="uk-background-secondary">
+                <h1 class="uk-h5 banner-padding uk-margin-remove">@Model.PageTitle</h1>
+            </div>*@
+        <!--Sayfa Başlığı sonu-->
+        <!--Banner: Eklenen imajın en boy oranı korunur.-->
 
-    <div><img @*style="width:1140px;height:463px;"*@ src="@Model.PageImagePath" alt="@Model.PageTitle" uk-img="" /></div><!--Banner sonu-->
-    <br />
+        <div><img @*style="width:1140px;height:463px;"*@ src="@Model.PageImagePath" alt="@Model.PageTitle" uk-img="" /></div><!--Banner sonu-->
+        <br />
 
-    @Html.Raw(Model.PageContent)
-
-
-    @if (Model.PageIdentifier == "Publications")
-    {
-        <section>
-            <div class="podcast-container">
-                <div class="uk-grid uk-grid-medium podcast-wrapper" uk-grid>
-                    <div class="uk-width-1-4 uk-width-1-6@s">
-                        <span class="uk-preserve uk-margin-small-left podcast-icon uk-icon" uk-icon="icon: icn-podcast"></span>
-                    </div>
-                    <div class="uk-width-1-2 uk-width-2-3@s">
-                        <div class="uk-text-large uk-text-truncate line-height-1 uk-text-bold">PodcastTitle</div>
-                        <div class="uk-text-small line-height-1">PodcastDescription</div>
-                    </div>
+        @Html.Raw(Model.PageContent)
 
 
-                    <div class="uk-width-1-4 uk-width-1-6@s">
-                        <a onclick="" id="btnAudio_1" class="uk-link-reset">
-                            <span class="uk-preserve uk-icon" id="audioIcon_1" uk-icon="icon:icn-play; ratio: 2.3334"></span>
-                        </a>
+        @if (Model.PageIdentifier == "Publications")
+        {
+            <section>
+                <div class="podcast-container">
+                    <div class="uk-grid uk-grid-medium podcast-wrapper" uk-grid>
+                        <div class="uk-width-1-4 uk-width-1-6@s">
+                            <span class="uk-preserve uk-margin-small-left podcast-icon uk-icon" uk-icon="icon: icn-podcast"></span>
+                        </div>
+                        <div class="uk-width-1-2 uk-width-2-3@s">
+                            <div class="uk-text-large uk-text-truncate line-height-1 uk-text-bold">PodcastTitle</div>
+                            <div class="uk-text-small line-height-1">PodcastDescription</div>
+                        </div>
+
+
+                        <div class="uk-width-1-4 uk-width-1-6@s">
+                            <a onclick="" id="btnAudio_1" class="uk-link-reset">
+                                <span class="uk-preserve uk-icon" id="audioIcon_1" uk-icon="icon:icn-play; ratio: 2.3334"></span>
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
-        <br />
-        <br />
-    }
+            </section>
+            <br />
+            <br />
+        }
 
-    @if (Model.PageIdentifier == "PremiumMemberShip")
-    {
-        @Html.Action("ShowPremiumMembersSlider", "Home")
-        <br />
-        <br />
-        <section><div class="uk-margin-medium-bottom"><button class="uk-button uk-button-primary uk-button-large uk-border-rounded uk-align-center">Zum Antragsformular</button></div></section>
-    }
+        @if (Model.PageIdentifier == "PremiumMemberShip")
+        {
+            @Html.Action("ShowPremiumMembersSlider", "Home")
+            <br />
+            <br />
+            if (lang == "tr")
+            {
+                <section><div class="uk-margin-medium-bottom"><a style="text-decoration:none;color:#fff;" href="/tr/uyelik/premium-uyelik-formu" target="_blank"><button class="uk-button uk-button-primary uk-button-large uk-border-rounded uk-align-center">Başvuru Formu</button></a></div></section>
+            }
+            else
+            {
 
-    @if (Model.NewsletterPart)
-    {
-        @Html.Action("Index", "Newsletter")
-    }
-    @if (Model.VorteillePart)
-    {
-        @Html.Action("Vorteille", "Newsletter")
-    }
+                <section><div class="uk-margin-medium-bottom"><a style="text-decoration:none;color:#fff;" href="/tr/uyelik/standart-uyelik-formu" target="_blank"><button class="uk-button uk-button-primary uk-button-large uk-border-rounded uk-align-center">Zum Antragsformular</button></a></div></section>
 
-</main>
+            }
+        }
+
+        @if (Model.NewsletterPart)
+        {
+            @Html.Action("Index", "Newsletter")
+        }
+        @if (Model.VorteillePart)
+        {
+            @Html.Action("Vorteille", "Newsletter")
+        }
+
+    </main>
 }

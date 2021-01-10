@@ -3653,6 +3653,7 @@
     <Compile Include="Types\SliderContentBySliderId.cs" />
     <Compile Include="Types\Sliders.cs" />
     <Compile Include="Types\Users.cs" />
+    <Compile Include="Types\ViewTypes\AdminPanelSummary.cs" />
     <Compile Include="Types\ViewTypes\CreateContentViewModel.cs" />
     <Compile Include="Types\ViewTypes\EditContentViewModel.cs" />
     <Compile Include="Types\ViewTypes\EventIdentifier.cs" />

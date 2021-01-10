@@ -8,6 +8,7 @@ using TDIHKCorporate.Areas.Management.Filters;
 using TDIHKCorporate.BaseControllers.MultiLanguage;
 using TDIHKCorporate.Models.Language;
 using TDIHKCorporate.Types;
+using TDIHKCorporate.Types.ViewTypes;
 
 namespace TDIHKCorporate.Areas.Management.Controllers
 {
@@ -27,6 +28,20 @@ namespace TDIHKCorporate.Areas.Management.Controllers
         [AuthorizationFilter]
         public ActionResult Index()
         {
+            DapperRepository<AdminPanelSummary> summary = new DapperRepository<AdminPanelSummary>();
+            AdminPanelSummary adminPanelSummary = summary.Get(@"declare @pageCount int,@newsCount int,@eventCount int,@contactCount int
+
+select @pageCount = COUNT(*) from Pages where IsActive = 1 
+select @newsCount = COUNT(*)  from News where IsActive = 1 
+select @eventCount = COUNT(*) from [Events] where IsActive = 1 
+select @contactCount = COUNT(*) from ContactForm 
+ 
+ select @pageCount as [PageCount],@newsCount as [NewsCount],@eventCount as [EventCount],@contactCount as [ContactCount]", null);
+
+            ViewBag.PageCount = adminPanelSummary.PageCount;
+            ViewBag.NewsCount = adminPanelSummary.NewsCount;
+            ViewBag.EventCount = adminPanelSummary.EventCount;
+            ViewBag.ContactCount = adminPanelSummary.ContactCount;
 
             return View();
         }
