@@ -20,12 +20,15 @@ namespace TDIHKCorporate.Controllers
 
             string name = cultureInfo.TwoLetterISOLanguageName;
 
-            List<News> newsList = page.GetList(@"select nw.* from News nw (NOLOCK)
-                                                    inner join NewsCategories nwc (NOLOCK)
-                                                    on nw.NewsCategoryID = nwc.ID
-                                                    where nw.[Language] = @language and nwc.[Language] = @language
-                                                    order by CreatedDate desc
-                                                    OFFSET 3 ROWS", new { language = name });
+            List<News> newsList = page.GetList(@"select top 9 * from
+                                                (
+                                                select nw.* from News nw (NOLOCK)
+                                                inner join NewsCategories nwc (NOLOCK)
+                                                on nw.NewsCategoryID = nwc.ID
+                                                where nw.[Language] = 'de' and nwc.[Language] = 'de'
+                                                order by CreatedDate desc
+                                                OFFSET 3 ROWS
+                                                ) as X", new { language = name });
 
 
             return View(newsList);

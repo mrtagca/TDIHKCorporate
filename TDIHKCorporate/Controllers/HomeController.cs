@@ -349,7 +349,7 @@ where  (EventTitle like '%'+@search+'%' or EventContent like '%'+@search+'%' or 
 inner join EventCategories evc
 on ev.EventCategoryID = evc.ID
 
-where ev.[Language] = @lang and CONVERT(date,EventDate) >= CONVERT(date,GETDATE())
+where ev.[Language] = @lang and CONVERT(date,EventDate) >= CONVERT(date,GETDATE()) and ev.IsActive = 1
 order by CONVERT(datetime,CONVERT(nvarchar,EventDate)+' '+CONVERT(nvarchar,EventTime)) desc", new { lang = name }).Take(count).ToList();
                 }
                 else
@@ -358,7 +358,7 @@ order by CONVERT(datetime,CONVERT(nvarchar,EventDate)+' '+CONVERT(nvarchar,Event
 inner join EventCategories evc
 on ev.EventCategoryID = evc.ID
 
-where ev.[Language] = @lang and CONVERT(date,EventDate) >= CONVERT(date,GETDATE())
+where ev.[Language] = @lang and CONVERT(date,EventDate) >= CONVERT(date,GETDATE())  and ev.IsActive = 1
 order by CONVERT(datetime,CONVERT(nvarchar,EventDate)+' '+CONVERT(nvarchar,EventTime)) desc", new { lang = name });
                 }
 

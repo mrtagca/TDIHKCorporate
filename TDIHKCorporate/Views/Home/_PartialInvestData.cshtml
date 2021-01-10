@@ -2,11 +2,25 @@
 @using System.Globalization
 
 
+<style>
+    @@media only screen and (max-width: 600px) {
+        #currencyBox {
+            display: none;
+        }
+    }
+
+    @@media only screen and (max-width: 900px) {
+        #currencyBox {
+            display: none;
+        }
+    }
+</style>
+
 <header>
     <!--Altın Dolar Euro Verileri-->
     <section class="uk-section-muted">
         <div class="market-wrapper uk-width-1-1 uk-overflow-auto">
-            <center style="background-color:#ffffff">
+            <center id="currencyBox" style="background-color:#ffffff">
                 <div id="currency">
                     <iframe src="https://fxpricing.com/fx-widget/ticker-tape-widget.php?id=33,10,1983&border=show&noslide&pair_weight=normal&fcs_link=hide&click_target=disable&theme=light&flags=flags-hide&column=ask,bid,spread,chg,chg_per" width="100%" height="78"></iframe>
                 </div>
