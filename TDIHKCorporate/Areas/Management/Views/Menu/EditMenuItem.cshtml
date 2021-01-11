@@ -18,13 +18,18 @@
         LanguageManipulationDropdowns();
 
         setTimeout(() => {
-            document.getElementById("PageSelect").value = "@Model.PageID";
+             document.getElementById("PageSelect").value = "@Model.PageID";
 
              var isSub = "@Model.IsSubMenu";
 
         if (isSub === "True") {
 
-            var parentId = @Model.ParentMenuItemID;
+            var parentId = '';
+
+            if (Model.ParentMenuItemID>0)
+            {
+                parentId = '@Model.ParentMenuItemID';
+            }
             document.getElementById("IsSubMenu").checked = true;
             SubMenuShow();
 
@@ -34,8 +39,7 @@
 
 
         }
-        }, 1500);
-
+        }, 1000);
 
 
     });
@@ -128,7 +132,9 @@
 
     $(document).ready(function () {
 
-        $("#PageSelect").val("@Model.PageID");
+        setTimeout(() => {
+            $("#PageSelect").val("@Model.PageID");
+        }, 500);
     });
 
 
