@@ -29,7 +29,7 @@ namespace TDIHKCorporate.Areas.Management.Controllers
 
             List<MenuItemsByMenuId> result = getMenuItemsByMenuId.GetList(@"
                                                 select mi.ID,p.PageTitle,mi.[Language],mi.MenuItemPriority,mi.MenuName,mi.MenuLevel,mi.IsSubMenu,mi.IsActive from [IHK].[dbo].[MenuItems] mi (nolock)
-                                                inner join  [IHK].[dbo].[Pages] p (NOLOCK)
+                                                left join  [IHK].[dbo].[Pages] p (NOLOCK)
                                                 on mi.PageID = p.PageID
                                                 where mi.MenuID = @menuId", new { menuId = menuID });
 
