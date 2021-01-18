@@ -9,20 +9,28 @@
 <script src="~/Content/Scripts/ValidateHelper.js"></script>
 <script src="~/Content/Scripts/StandartMemberShip.js"></script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.debug.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+
+
 @{
     CultureInfo ci = System.Threading.Thread.CurrentThread.CurrentCulture;
     string lang = ci.TwoLetterISOLanguageName;
 
 }
 
-<main class="uk-container" uk-scrollspy="cls: uk-animation-fade; target: > section; delay: 250">
-    
-    <section class="uk-section">
+
+
+
+<main  class="uk-container">
+
+    <section id="StandardForm" class="uk-section">
+
         <div class="uk-text-center">
             <div class="uk-h2">@Resources.resource.UyelikBasvurusu</div>
         </div>
 
-        <div class="uk-form-stacked uk-child-width-1-1 uk-width-3-4@s uk-margin-auto msa-form uk-box-shadow-medium" uk-grid>
+        <div id="StandardForm" class="uk-form-stacked uk-child-width-1-1 uk-width-3-4@s uk-margin-auto msa-form uk-box-shadow-medium" uk-grid>
             <div>
                 <div class="uk-margin">
                     <div class="uk-text-large">@Resources.resource.TDIHKUyeligineBasvuruyorum</div>
@@ -102,9 +110,9 @@
                 </div>
 
                 @*<div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
-                    <label><input class="uk-radio" type="radio" name="radio2" id="MemberPacket1" checked>@Resources.resource.BesMilyonEuroKadar</label>
-                    <label><input class="uk-radio" type="radio" name="radio2"> B</label>
-                </div>*@
+                        <label><input class="uk-radio" type="radio" name="radio2" id="MemberPacket1" checked>@Resources.resource.BesMilyonEuroKadar</label>
+                        <label><input class="uk-radio" type="radio" name="radio2"> B</label>
+                    </div>*@
             </div>
 
             @if (lang == "tr")
@@ -250,13 +258,10 @@
                 <div class="uk-width-1-1">
                     <div class="uk-width-1-3@s uk-margin-auto uk-flex uk-flex-around">
                         <div>
-                            <img src="~/Content/MainSite/assets/images/StandartForm/letter.png" width="40" height="40" />
-                        </div>
-                        <div>
-                            <img src="~/Content/MainSite/assets/images/StandartForm/pdf-icon.png" width="40" height="40" />
-                        </div>
-                        <div>
-                            <img src="~/Content/MainSite/assets/images/StandartForm/print.png" width="40" height="40" />
+                            <button id="ScreenShotDownload">
+                                <img src="~/Content/MainSite/assets/images/StandartForm/pdf-icon.png" width="40" height="40" />
+                            </button>
+
                         </div>
                     </div>
                 </div>
@@ -264,8 +269,11 @@
 
 
         </div>
+
     </section>
+
 </main>
+
 
 <script type="text/javascript">
     $("#IsCorporate").change(function () {
@@ -315,5 +323,23 @@
         } else {
             alert("FormData is not supported.");
         }
+    });
+</script>
+
+
+<script>
+    $('#ScreenShotDownload').click(function () {
+
+        var options = {
+            pagesplit: false
+        };
+
+        var pdf = new jsPDF('p', 'pt', 'a4');
+
+        pdf.addHTML($("StandardForm"), options, function () {
+            pdf.save('pageContent.pdf');
+        });
+         
+
     });
 </script>

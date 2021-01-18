@@ -3559,6 +3559,7 @@
     <Content Include="HTML-1\podcast.html" />
     <Content Include="HTML-1\StandartForm.html" />
     <Content Include="html\aubenhandelsportal.html" />
+    <Content Include="Scripts\html2canvas.min.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="Scripts\kendo\js\kendo.all.min.js" />
