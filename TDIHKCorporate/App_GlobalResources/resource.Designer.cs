@@ -169,7 +169,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 5 Milyon € kadar (1,200 € / yıl).
+        ///   Looks up a localized string similar to 5 Mio € kadar (1,200 € / yıl).
         /// </summary>
         internal static string BesMilyonEuroKadar {
             get {
@@ -385,6 +385,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Esas Sözleşme.
+        /// </summary>
+        internal static string EsasSozlesme {
+            get {
+                return ResourceManager.GetString("EsasSozlesme", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Etiketler.
         /// </summary>
         internal static string Etiketler {
@@ -583,6 +592,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Odaya kabul için, Ana Sözleşme&apos;nin 7 (1) Bölümüne göre, bir başvuru ve katkı payının ödenmesi gerekmektedir. Yönetim kurulu yazılı başvuruya karar verir. Başvuru sahibine karar yazılı olarak bildirilecektir. Tüzüğün § 8 II&apos;ye göre, her üye herhangi bir zamanda odadan istifa etme hakkına sahiptir. Üyenin istifa beyanının yazılı olarak yönetim kuruluna sunulması zorunludur. Üye, istifasına rağmen içinde bulunduğu takvim yılı için katkı payını ödemekle yükümlüdür..
+        /// </summary>
+        internal static string FormMetin {
+            get {
+                return ResourceManager.GetString("FormMetin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Geçmiş Etkinlikler.
         /// </summary>
         internal static string GecmisEtkinlikler {
@@ -628,11 +646,11 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Gizlilik Politikası ve Esas Sözleşme.
+        ///   Looks up a localized string similar to Gizlilik Politikası.
         /// </summary>
-        internal static string GizlilikPolitikasiveEsasSozlesme {
+        internal static string GizlilikPolitikasi {
             get {
-                return ResourceManager.GetString("GizlilikPolitikasiveEsasSozlesme", resourceCulture);
+                return ResourceManager.GetString("GizlilikPolitikasi", resourceCulture);
             }
         }
         
@@ -1294,6 +1312,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 10 koltuğundan birini almak ister misiniz.
+        /// </summary>
+        internal static string OnKoltugundanBirisiniIsterMisiniz {
+            get {
+                return ResourceManager.GetString("OnKoltugundanBirisiniIsterMisiniz", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 10 koltuktan birini ister misiniz.
         /// </summary>
         internal static string OnKoltuktanBirisiniIsterMisiniz {
@@ -1443,6 +1470,15 @@ namespace Resources {
         internal static string PremiumUyeler {
             get {
                 return ResourceManager.GetString("PremiumUyeler", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Premium Üyeliğin.
+        /// </summary>
+        internal static string PremiumUyeligin {
+            get {
+                return ResourceManager.GetString("PremiumUyeligin", resourceCulture);
             }
         }
         
@@ -1834,6 +1870,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ticaret odasından nasıl haberdar oldunuz.
+        /// </summary>
+        internal static string TicaretOdasiMetin {
+            get {
+                return ResourceManager.GetString("TicaretOdasiMetin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Tümünü Göster.
         /// </summary>
         internal static string TumunuGoster {
@@ -2104,7 +2149,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 20 Milyon € kadar.
+        ///   Looks up a localized string similar to 20 Mio € kadar.
         /// </summary>
         internal static string YirmiMilyonEuroKadar {
             get {
@@ -2113,7 +2158,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 20 Milyon € üzerinde.
+        ///   Looks up a localized string similar to 20 Mio € üzerinde.
         /// </summary>
         internal static string YirmiMilyonEuroUzerinde {
             get {

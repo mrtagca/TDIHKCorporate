@@ -77,20 +77,20 @@
                 //    ev.html = $(ev.html).text().replace(/<p[^>]*>/g, "").replace(/<\/p>/g, "");
                 //},
 
-                //pasteCleanup: {
-                //    all: false,
-                //    css: false,
-                //    keepNewLines: true,
-                //    msAllFormatting: true,
-                //    msConvertLists: true,
-                //    msTags: false,
-                //    none: true,
-                //    span: true
-                //},
-
                 pasteCleanup: {
-                  
+                    all: false,
+                    css: false,
+                    keepNewLines: false,
+                    msAllFormatting: false,
+                    msConvertLists: false,
+                    msTags: false,
+                    none: false,
+                    span: false
                 },
+
+                //pasteCleanup: {
+                  
+                //},
                 tools: [
                     //{
                     //    name: "fontName",
@@ -245,7 +245,7 @@
             IHtmlString headerHtml = Html.Raw(Html.Partial("~/Views/Partial/_PartialHeader.cshtml"));
         }
 
-        var header = '<!--HtmlHeaderEnd|-->'+ @Html.Raw(JsonConvert.SerializeObject(headerHtml.ToHtmlString()));
+        var header = '<br/><!--HtmlHeaderEnd|-->'+ @Html.Raw(JsonConvert.SerializeObject(headerHtml.ToHtmlString()));
 
         var htmlContent = header;
         editor.value(htmlContent);

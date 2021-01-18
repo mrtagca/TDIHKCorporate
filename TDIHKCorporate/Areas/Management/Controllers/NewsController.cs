@@ -243,22 +243,23 @@ order by CreatedDate desc", new { lang = "tr" });
         public ActionResult NewsList()
         {
             DapperRepository<NewsItem> newsList = new DapperRepository<NewsItem>();
-            var result = newsList.GetList(@"SELECT  
+            var result = newsList.GetList(@"SELECT  distinct
                                             nw.NewsID,
-											nw.NewsIdentifier,
+                                            nw.NewsIdentifier,
                                             nw.NewsTitle,
-											nw.[Language] as NewsLanguage,
+                                            nw.[Language] as NewsLanguage,
                                             nw.NewsSeoLink,
                                             convert(nvarchar,nw.CreatedDate,120) as CreatedDate,
-                                            case when (nw.CreatedBy = usr.UserID) then usr.Username else null end as Creator,
-                                            convert(nvarchar,nw.UpdatedDate,120) as UpdatedDate,
-                                            case when (nw.UpdatedBy = usr.UserID) then usr.Username else null end as Updater
+
+                                            usr.Username as Creator,
+                                            nw.UpdatedDate as UpdatedDate,
+                                            case when (nw.UpdatedBy=usr.UserID) then usr.Username end as Updater
 
                                             FROM News nw (NOLOCK)
-                                            left join NewsCategories nc (NOLOCK)
+                                            inner join NewsCategories nc (NOLOCK)
                                             on nw.NewsCategoryID = nc.ID
-                                            left join Users usr
-                                            on nw.CreatedBy = usr.UserID or nw.UpdatedBy = usr.UserID
+                                            inner join Users usr
+                                            on (nw.CreatedBy = usr.UserID)  
                                             ", null).OrderBy(x => x.NewsTitle).ToList();
 
 

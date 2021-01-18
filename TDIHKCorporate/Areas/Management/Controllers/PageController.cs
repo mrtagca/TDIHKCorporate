@@ -147,16 +147,15 @@ namespace TDIHKCorporate.Areas.Management.Controllers
                                             pg.PageTitle,pg.[Language] as PageLanguage,
                                             pg.PageSeoLink,
                                             convert(nvarchar,pg.CreatedDate,120) as CreatedDate,
-                                            case when (pg.CreatedBy = usr.UserID) then usr.Username else null end as Creator,
+                                            usr.Username as Creator,
                                             convert(nvarchar,pg.UpdatedDate,120) as UpdatedDate,
                                             case when (pg.UpdatedBy = usr.UserID) then usr.Username else null end as Updater,
                                             pg.IsActive
-
                                             FROM Pages pg (NOLOCK)
                                             left join PageCategories pgc (NOLOCK)
                                             on pg.PageCategoryID = pgc.ID
                                             left join Users usr
-                                            on pg.CreatedBy = usr.UserID or pg.UpdatedBy = usr.UserID
+                                            on pg.CreatedBy = usr.UserID  
                                             ", null).OrderBy(x => x.PageTitle).ToList();
 
 

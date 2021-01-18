@@ -170,6 +170,18 @@ where [Language] = @lang and EventIdentifier in (SELECT top 1 EventIdentifier FR
                     }
                 }
                 #endregion
+
+                if (url.Contains("mitgliedschaft") || url.Contains("uyelik"))
+                {
+                    if (language == "tr") //change tr
+                    {
+                        return Redirect("https://" + Request.UrlReferrer.Authority + "/tr/uyelik/standart-uyelik-formu");
+                    }
+                    else
+                    {
+                        return Redirect("https://" + Request.UrlReferrer.Authority + "/de/mitgliedschaft/standard-mitgliedschaft-form");
+                    }
+                }
             }
             else
             {

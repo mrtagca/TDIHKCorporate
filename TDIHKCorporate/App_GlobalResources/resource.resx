@@ -154,7 +154,7 @@
     <value>Beni Hatırla</value>
   </data>
   <data name="BesMilyonEuroKadar" xml:space="preserve">
-    <value>5 Milyon € kadar (1,200 € / yıl)</value>
+    <value>5 Mio € kadar (1,200 € / yıl)</value>
   </data>
   <data name="BilgiNotlari" xml:space="preserve">
     <value>Bilgi Notları</value>
@@ -225,6 +225,9 @@
   <data name="EmailKullaniciAdi" xml:space="preserve">
     <value>Email veya Kullanıcı Adı</value>
   </data>
+  <data name="EsasSozlesme" xml:space="preserve">
+    <value>Esas Sözleşme</value>
+  </data>
   <data name="Etiketler" xml:space="preserve">
     <value>Etiketler</value>
   </data>
@@ -291,6 +294,9 @@
   <data name="FirmaAdi" xml:space="preserve">
     <value>Firma Adı</value>
   </data>
+  <data name="FormMetin" xml:space="preserve">
+    <value>Odaya kabul için, Ana Sözleşme'nin 7 (1) Bölümüne göre, bir başvuru ve katkı payının ödenmesi gerekmektedir. Yönetim kurulu yazılı başvuruya karar verir. Başvuru sahibine karar yazılı olarak bildirilecektir. Tüzüğün § 8 II'ye göre, her üye herhangi bir zamanda odadan istifa etme hakkına sahiptir. Üyenin istifa beyanının yazılı olarak yönetim kuruluna sunulması zorunludur. Üye, istifasına rağmen içinde bulunduğu takvim yılı için katkı payını ödemekle yükümlüdür.</value>
+  </data>
   <data name="GecmisEtkinlikler" xml:space="preserve">
     <value>Geçmiş Etkinlikler</value>
   </data>
@@ -306,8 +312,8 @@
   <data name="Gizlilik" xml:space="preserve">
     <value>Gizlilik</value>
   </data>
-  <data name="GizlilikPolitikasiveEsasSozlesme" xml:space="preserve">
-    <value>Gizlilik Politikası ve Esas Sözleşme</value>
+  <data name="GizlilikPolitikasi" xml:space="preserve">
+    <value>Gizlilik Politikası</value>
   </data>
   <data name="Gonder" xml:space="preserve">
     <value>Gönder</value>
@@ -528,6 +534,9 @@
   <data name="Onizleme" xml:space="preserve">
     <value>Önizleme</value>
   </data>
+  <data name="OnKoltugundanBirisiniIsterMisiniz" xml:space="preserve">
+    <value>10 koltuğundan birini almak ister misiniz</value>
+  </data>
   <data name="OnKoltuktanBirisiniIsterMisiniz" xml:space="preserve">
     <value>10 koltuktan birini ister misiniz</value>
   </data>
@@ -578,6 +587,9 @@
   </data>
   <data name="PremiumUyeler" xml:space="preserve">
     <value>Premium Üyeler</value>
+  </data>
+  <data name="PremiumUyeligin" xml:space="preserve">
+    <value>Premium Üyeliğin</value>
   </data>
   <data name="PremiumUyelik" xml:space="preserve">
     <value>Premium-Üyelik</value>
@@ -708,6 +720,9 @@
   <data name="Temsilci" xml:space="preserve">
     <value>Temsilci</value>
   </data>
+  <data name="TicaretOdasiMetin" xml:space="preserve">
+    <value>Ticaret odasından nasıl haberdar oldunuz</value>
+  </data>
   <data name="TumunuGoster" xml:space="preserve">
     <value>Tümünü Göster</value>
   </data>
@@ -799,10 +814,10 @@
     <value>Yer, Zaman</value>
   </data>
   <data name="YirmiMilyonEuroKadar" xml:space="preserve">
-    <value>20 Milyon € kadar</value>
+    <value>20 Mio € kadar</value>
   </data>
   <data name="YirmiMilyonEuroUzerinde" xml:space="preserve">
-    <value>20 Milyon € üzerinde</value>
+    <value>20 Mio € üzerinde</value>
   </data>
   <data name="YonetimPaneli" xml:space="preserve">
     <value>Yonetim Paneli</value>

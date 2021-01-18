@@ -225,6 +225,9 @@
   <data name="EmailKullaniciAdi" xml:space="preserve">
     <value>E-Mail Adresse oder Benutzername</value>
   </data>
+  <data name="EsasSozlesme" xml:space="preserve">
+    <value>Satzung</value>
+  </data>
   <data name="Etiketler" xml:space="preserve">
     <value>Stichworte</value>
   </data>
@@ -291,6 +294,9 @@
   <data name="FirmaAdi" xml:space="preserve">
     <value>Name der Firma</value>
   </data>
+  <data name="FormMetin" xml:space="preserve">
+    <value>Für die Aufnahme in die Kammer ist gem. § 7 Abs.1 der Satzung der Antrag und die Zahlung des Beitrages erforderlich. Über den schriftlichen Antrag entscheidet der Vorstand. Die Entscheidung wird dem Antragsteller schriftlich mitgeteilt. Jedes Mitglied ist gem. § 8 II der Satzung berechtigt, jederzeit aus der Kammer auszutreten. Die Austrittserklärung des Mitglieds ist schriftlich bei dem Vorstand einzureichen. Das Mitglied ist trotz des Austritts verpflichtet, seinen Beitrag für das laufende Kalenderjahr zu entrichten.</value>
+  </data>
   <data name="GecmisEtkinlikler" xml:space="preserve">
     <value>Vergangene Events</value>
   </data>
@@ -306,8 +312,8 @@
   <data name="Gizlilik" xml:space="preserve">
     <value>Datenschutz</value>
   </data>
-  <data name="GizlilikPolitikasiveEsasSozlesme" xml:space="preserve">
-    <value>Datenschutzerklärung und die Satzung</value>
+  <data name="GizlilikPolitikasi" xml:space="preserve">
+    <value>Datenschutzerklärun</value>
   </data>
   <data name="Gonder" xml:space="preserve">
     <value>Senden</value>
@@ -528,6 +534,9 @@
   <data name="Onizleme" xml:space="preserve">
     <value>Vorschau</value>
   </data>
+  <data name="OnKoltugundanBirisiniIsterMisiniz" xml:space="preserve">
+    <value>10 koltuğundan birini almak ister misiniz</value>
+  </data>
   <data name="OnKoltuktanBirisiniIsterMisiniz" xml:space="preserve">
     <value>Möchten Sie einen der 10 Sitze der</value>
   </data>
@@ -578,6 +587,9 @@
   </data>
   <data name="PremiumUyeler" xml:space="preserve">
     <value>Premium Mitglieder</value>
+  </data>
+  <data name="PremiumUyeligin" xml:space="preserve">
+    <value>Premium-Mitgliedschaft</value>
   </data>
   <data name="PremiumUyelik" xml:space="preserve">
     <value>Premium-Mitgliedschaft</value>
@@ -679,7 +691,7 @@
     <value>Schieberegler URL</value>
   </data>
   <data name="Sokak" xml:space="preserve">
-    <value>Strabe</value>
+    <value>Straße</value>
   </data>
   <data name="Sonuclar" xml:space="preserve">
     <value>Ergebnisse</value>
@@ -707,6 +719,9 @@
   </data>
   <data name="Temsilci" xml:space="preserve">
     <value>Vertreter</value>
+  </data>
+  <data name="TicaretOdasiMetin" xml:space="preserve">
+    <value>Die Kammer ist mir bekannt durch Empfehlung/Informationen von</value>
   </data>
   <data name="TumunuGoster" xml:space="preserve">
     <value>Alle anzeigen</value>

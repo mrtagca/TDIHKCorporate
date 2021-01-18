@@ -1,5 +1,5 @@
 ﻿@using System.Globalization
- 
+
 @{
     ViewBag.Title = "StandardMitgliedschaftAntragsformular";
     Layout = "~/Views/Shared/_layoutMaster.cshtml";
@@ -16,13 +16,12 @@
 }
 
 <main class="uk-container" uk-scrollspy="cls: uk-animation-fade; target: > section; delay: 250">
-    <section class="uk-margin-medium-top">
+    
+    <section class="uk-section">
         <div class="uk-text-center">
             <div class="uk-h2">@Resources.resource.UyelikBasvurusu</div>
-            <p>Lorem ipsum dolor sit amet</p>
         </div>
-    </section>
-    <section class="uk-section">
+
         <div class="uk-form-stacked uk-child-width-1-1 uk-width-3-4@s uk-margin-auto msa-form uk-box-shadow-medium" uk-grid>
             <div>
                 <div class="uk-margin">
@@ -32,7 +31,7 @@
 
             <div id="MemberTypeArea" class="uk-margin">
                 <div class="uk-form-label uk-hidden">Radio</div>
-                <div class="uk-form-controls  label-font-size">
+                <div class="uk-form-controls  label-font-size uk-text-large">
                     <label>
                         <input class="uk-radio" type="radio" name="radio1" id="IsCorporate">@Resources.resource.KurumBasvurusu
                     </label>
@@ -77,7 +76,7 @@
             </div>
             <div class="uk-margin uk-width-1-2@s">
                 <div class="uk-form-controls">
-                    <input class="uk-input" id="WebSite" type="text" placeholder="@Resources.resource.Website*" required>
+                    <input class="uk-input" id="WebSite" placeholder="@Resources.resource.Website*" type="text" required>
                 </div>
             </div>
             <div class="uk-margin uk-width-1-2@s">
@@ -96,99 +95,174 @@
                 </div>
             </div>
             <div id="MemberPacketArea" class="uk-margin">
-                <div class="uk-form-label uk-hidden">Radio</div>
-                <div class="uk-form-controls uk-flex uk-flex-between label-font-size">
-                    <label><input class="uk-radio" type="radio" value="bis 5 mio. € (1.200 €/Jahr)" id="MemberPacket1">@Resources.resource.BesMilyonEuroKadar</label>
-                    <label><input class="uk-radio" type="radio" value="bis 20 mio. €" id="MemberPacket2">@Resources.resource.YirmiMilyonEuroKadar</label>
-                    <label><input class="uk-radio" type="radio" value="über 20 Mio. €" id="MemberPacket3">@Resources.resource.YirmiMilyonEuroUzerinde</label>
+                <div class="uk-form-controls uk-flex uk-flex-between label-font-size uk-text-large">
+                    <label><input class="uk-radio" type="radio" name="radio1" value="bis 5 mio. € (1.200 €/Jahr)" id="MemberPacket1" checked>@Resources.resource.BesMilyonEuroKadar</label>
+                    <label><input class="uk-radio" type="radio" name="radio1" value="bis 20 mio. €" id="MemberPacket2">@Resources.resource.YirmiMilyonEuroKadar</label>
+                    <label><input class="uk-radio" type="radio" name="radio1" value="über 20 Mio. €" id="MemberPacket3">@Resources.resource.YirmiMilyonEuroUzerinde</label>
                 </div>
+
+                @*<div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
+                    <label><input class="uk-radio" type="radio" name="radio2" id="MemberPacket1" checked>@Resources.resource.BesMilyonEuroKadar</label>
+                    <label><input class="uk-radio" type="radio" name="radio2"> B</label>
+                </div>*@
             </div>
-            <div class="uk-margin">
-                @if (lang == "tr")
-                {
-                    <a target="_blank" href="/tr/uyelik/premium-uyelik-formu" class="uk-button uk-button-default premium-form-btn uk-width-1-1">@Resources.resource.OnKoltuktanBirisiniIsterMisiniz? <u>@Resources.resource.PremiumUyelik</u></a>
-                }
-                else
-                {
-                    <a target="_blank" href="/de/mitgliedschaft/premium-mitgliedschaft-form" class="uk-button uk-button-default premium-form-btn uk-width-1-1">@Resources.resource.OnKoltuktanBirisiniIsterMisiniz <u>@Resources.resource.PremiumUyelik</u> @Resources.resource.Almak?</a>
-                }
-            </div>
-            <div class="uk-text-large">@Resources.resource.LutfenSırketLogonuzuBurayaYukleyin</div>
-            <div class="uk-margin">
-                <div uk-form-custom>
-                    <input id="FileUpload" name="file" image-path="" accept="image/x-png,image/gif,image/jpeg" type="file">
-                    <button class="uk-button uk-button-secondary uk-border-rounded" type="button" tabindex="-1">@Resources.resource.DosyaSeciniz</button>
+
+            @if (lang == "tr")
+            {
+                <div class="uk-margin">
+                    <a target="_blank" href="/tr/sayfalar/premium-uyelik" class="uk-button uk-button-default premium-form-btn uk-width-1-1"><u>@Resources.resource.PremiumUyeligin</u> @Resources.resource.OnKoltugundanBirisiniIsterMisiniz ?</a>
                 </div>
-            </div>
-            <div class="uk-text-large">@Resources.resource.TavsiyeEdeceginizDigerOdaUyeleri:</div>
-            <div class="uk-margin">
-                <div class="uk-form-controls">
-                    <input class="uk-input" id="MemberSuggestion1" onkeypress="validateOnlyText(event)" type="text" placeholder="@Resources.resource.FirmaAdi">
-                </div>
-            </div>
-            <div class="uk-margin">
-                <div class="uk-form-controls">
-                    <input class="uk-input" id="MemberSuggestion2" onkeypress="validateOnlyText(event)" type="text" placeholder="@Resources.resource.FirmaAdi">
-                </div>
-            </div>
-            <div class="uk-margin">
-                <div class="uk-form-controls">
-                    <input class="uk-input" id="MemberSuggestion3" onkeypress="validateOnlyText(event)" type="text" placeholder="@Resources.resource.FirmaAdi">
-                </div>
-            </div>
-            <div class="uk-text-large">Die Kammer ist mir bekannt durch Empfehlung/Informationen von:</div>
-            <div class="uk-margin">
-                <div class="uk-form-controls">
-                    <input class="uk-input" id="SuggestionInfo" onkeypress="validateOnlyText(event)" type="text" placeholder="">
-                </div>
-            </div>
-            <div class="uk-margin uk-width-1-2@s">
-                <div class="uk-form-controls">
-                    <input class="uk-input" id="LocationAndTime" onkeypress="validateText(event)" type="text" placeholder="@Resources.resource.YerZaman">
-                </div>
-            </div>
-            <div class="uk-margin uk-width-1-2@s size-22 size-15-m">
-                <label><input class="uk-checkbox" id="DigitalSignature" type="checkbox">@Resources.resource.ElektronikImza</label>
-            </div>
-            <div class="uk-margin size-18 size-15-m color-dark-grey line-height-1">
-                Für die Aufnahme in die Kammer ist gem. § 7 Abs.1 der Satzung der Antrag und die Zahlung des
-                Beitrages erforderlich. Über den schriftlichen Antrag entscheidet der Vorstand. Die Entscheidung
-                wird dem Antragsteller schriftlich mitgeteilt. Jedes Mitglied ist gem. § 8 II der Satzung berechtigt,
-                jederzeit aus der Kammer auszutreten. Die Austrittserklärung des Mitglieds ist schriftlich bei dem
-                Vorstand einzureichen. Das Mitglied ist trotz des Austritts verpflichtet, seinen Beitrag für das
-                laufende Kalenderjahr zu entrichten.
-            </div>
-            <div class="uk-margin line-height-1">
-                <p>TD-IHK Türkisch-Deutsche Industrie- und Handelskammer - Unternehmerverband e.V.</p>
-                <p>Türk Alman Ticaret ve Sanayi Odası Leipziger Platz 14, 10117 Berlin</p>
-                <div class="uk-flex contact-infos">
-                    <a href="tel:+4903023329950" class="uk-link-reset uk-margin-small-bottom">+49 (0) 30 233 299 50 |</a>
-                    <span class="uk-margin-small-bottom">Fax: +49 (0) 30 233 299 510 | </span>
-                    <a href="mailto:info@td-ihk.de" class="uk-link-reset uk-margin-small-bottom">info@td-ihk.de | </a>
-                    <span class="uk-margin-small-bottom">www.th-idk.de</span>
-                </div>
-            </div>
-            <div class="uk-margin size-22 size-15-m">
-                <label>
-                    <input class="uk-checkbox" id="PrivacyPolicy" type="checkbox">@Resources.resource.BurayaTiklayarakKabulEdebilirsiniz <a href="#" class="uk-link-reset" target="_blank"><u>@Resources.resource.GizlilikPolitikasiveEsasSozlesme.</u></a>
-                </label>
-            </div>
-            <div onclick="SaveMember()" class="uk-margin uk-width-2-5@s uk-margin-auto">
-                <button type="submit" class="uk-button uk-button-primary uk-width-1-1 uk-border-rounded">@Resources.resource.Gonder</button>
-            </div>
-            <div class="uk-width-1-1">
-                <div class="uk-width-1-3@s uk-margin-auto uk-flex uk-flex-around">
-                    <div>
-                        <img src="~/Content/MainSite/assets/images/StandartForm/letter.png" width="40" height="40" />
-                    </div>
-                    <div>
-                        <img src="~/Content/MainSite/assets/images/StandartForm/pdf-icon.png" width="40" height="40" />
-                    </div>
-                    <div>
-                        <img src="~/Content/MainSite/assets/images/StandartForm/print.png" width="40" height="40" />
+                <div class="uk-text-large">@Resources.resource.LutfenSırketLogonuzuBurayaYukleyin</div>
+                <div class="uk-margin">
+                    <div uk-form-custom>
+                        <input id="FileUpload" name="file" image-path="" accept="image/x-png,image/gif,image/jpeg" type="file">
+                        <button class="uk-button uk-button-secondary uk-border-rounded" type="button" tabindex="-1">@Resources.resource.DosyaSeciniz</button>
                     </div>
                 </div>
-            </div>
+                <div class="uk-text-large">@Resources.resource.TavsiyeEdeceginizDigerOdaUyeleri:</div>
+                <div class="uk-margin">
+                    <div class="uk-form-controls">
+                        <input class="uk-input" id="MemberSuggestion1" onkeypress="validateOnlyText(event)" type="text" placeholder="@Resources.resource.FirmaAdi">
+                    </div>
+                </div>
+                <div class="uk-margin">
+                    <div class="uk-form-controls">
+                        <input class="uk-input" id="MemberSuggestion2" onkeypress="validateOnlyText(event)" type="text" placeholder="@Resources.resource.FirmaAdi">
+                    </div>
+                </div>
+                <div class="uk-margin">
+                    <div class="uk-form-controls">
+                        <input class="uk-input" id="MemberSuggestion3" onkeypress="validateOnlyText(event)" type="text" placeholder="@Resources.resource.FirmaAdi">
+                    </div>
+                </div>
+                <div class="uk-text-large">@Resources.resource.TicaretOdasiMetin:</div>
+                <div class="uk-margin">
+                    <div class="uk-form-controls">
+                        <input class="uk-input" id="SuggestionInfo" onkeypress="validateOnlyText(event)" type="text" placeholder="">
+                    </div>
+                </div>
+                <div class="uk-margin uk-width-1-2@s">
+                    <div class="uk-form-controls">
+                        <input class="uk-input" id="LocationAndTime" onkeypress="validateText(event)" type="text" placeholder="@Resources.resource.YerZaman">
+                    </div>
+                </div>
+                <div class="uk-margin uk-width-1-2@s size-22 size-15-m">
+                    <label><input class="uk-checkbox" id="DigitalSignature" type="checkbox">@Resources.resource.ElektronikImza</label>
+                </div>
+                <div class="uk-margin size-10 size-3-m color-dark-grey line-height-3">
+                    @Resources.resource.FormMetin
+                </div>
+                <div class="uk-margin size-10 size-3-m line-height-3">
+                    TD-IHK Türkisch-Deutsche Industrie- und Handelskammer - Unternehmerverband e.V.<br />
+                    Türk Alman Ticaret ve Sanayi Odası Leipziger Platz 14, 10117 Berlin <br />
+                    <div class="uk-flex contact-infos">
+                        <a href="tel:+4903023329950" class="uk-link-reset uk-margin-small-bottom">+49 (0) 30 233 299 50 |</a>
+                        <span class="uk-margin-small-bottom">Fax: +49 (0) 30 233 299 510 | </span>
+                        <a href="mailto:info@td-ihk.de" class="uk-link-reset uk-margin-small-bottom">info@td-ihk.de | </a>
+                        <span class="uk-margin-small-bottom">th-idk.de</span>
+                    </div>
+                </div>
+                <div class="uk-margin size-10 size-3-m">
+                    <label>
+                        <input class="uk-checkbox" id="PrivacyPolicy" type="checkbox">@Resources.resource.BurayaTiklayarakKabulEdebilirsiniz <a href="/Content/MainSite/assets/files/Gizlilik_Politikas%C4%B1.pdf" class="uk-link-reset" target="_blank"><u>@Resources.resource.GizlilikPolitikasi</u></a> und die <a href="/Content/MainSite/assets/files/Satzung_2015_12_07.pdf" class="uk-link-reset" target="_blank"><u>@Resources.resource.EsasSozlesme</u></a>
+                    </label>
+                </div>
+                <div onclick="SaveMember()" class="uk-margin uk-width-2-5@s uk-margin-auto">
+                    <button type="submit" class="uk-button uk-button-primary uk-width-1-1 uk-border-rounded">@Resources.resource.Gonder</button>
+                </div>
+                <div class="uk-width-1-1">
+                    <div class="uk-width-1-3@s uk-margin-auto uk-flex uk-flex-around">
+                        <div>
+                            <img src="~/Content/MainSite/assets/images/StandartForm/letter.png" width="40" height="40" />
+                        </div>
+                        <div>
+                            <img src="~/Content/MainSite/assets/images/StandartForm/pdf-icon.png" width="40" height="40" />
+                        </div>
+                        <div>
+                            <img src="~/Content/MainSite/assets/images/StandartForm/print.png" width="40" height="40" />
+                        </div>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="uk-margin">
+                    <a target="_blank" href="/de/seiten/premium-mitgliedschaft" class="uk-button uk-button-default premium-form-btn uk-width-1-1">@Resources.resource.OnKoltuktanBirisiniIsterMisiniz <u>@Resources.resource.PremiumUyelik</u> @Resources.resource.Almak?</a>
+                </div>
+                <div class="uk-text-large">@Resources.resource.LutfenSırketLogonuzuBurayaYukleyin</div>
+                <div class="uk-margin">
+                    <div uk-form-custom>
+                        <input id="FileUpload" name="file" image-path="" accept="image/x-png,image/gif,image/jpeg" type="file">
+                        <button class="uk-button uk-button-secondary uk-border-rounded" type="button" tabindex="-1">@Resources.resource.DosyaSeciniz</button>
+                    </div>
+                </div>
+                <div class="uk-text-large">@Resources.resource.TavsiyeEdeceginizDigerOdaUyeleri:</div>
+                <div class="uk-margin">
+                    <div class="uk-form-controls">
+                        <input class="uk-input" id="MemberSuggestion1" onkeypress="validateOnlyText(event)" type="text" placeholder="@Resources.resource.FirmaAdi">
+                    </div>
+                </div>
+                <div class="uk-margin">
+                    <div class="uk-form-controls">
+                        <input class="uk-input" id="MemberSuggestion2" onkeypress="validateOnlyText(event)" type="text" placeholder="@Resources.resource.FirmaAdi">
+                    </div>
+                </div>
+                <div class="uk-margin">
+                    <div class="uk-form-controls">
+                        <input class="uk-input" id="MemberSuggestion3" onkeypress="validateOnlyText(event)" type="text" placeholder="@Resources.resource.FirmaAdi">
+                    </div>
+                </div>
+                <div class="uk-text-large">Die Kammer ist mir bekannt durch Empfehlung/Informationen von:</div>
+                <div class="uk-margin">
+                    <div class="uk-form-controls">
+                        <input class="uk-input" id="SuggestionInfo" onkeypress="validateOnlyText(event)" type="text" placeholder="">
+                    </div>
+                </div>
+                <div class="uk-margin uk-width-1-2@s">
+                    <div class="uk-form-controls">
+                        <input class="uk-input" id="LocationAndTime" onkeypress="validateText(event)" type="text" placeholder="@Resources.resource.YerZaman">
+                    </div>
+                </div>
+                <div class="uk-margin uk-width-1-2@s size-22 size-15-m">
+                    <label><input class="uk-checkbox" id="DigitalSignature" type="checkbox">@Resources.resource.ElektronikImza</label>
+                </div>
+                <div class="uk-margin size-10 size-3-m color-dark-grey line-height-3">
+                    @Resources.resource.FormMetin
+                </div>
+                <div class="uk-margin size-10 size-3-m line-height-3">
+                    TD-IHK Türkisch-Deutsche Industrie- und Handelskammer - Unternehmerverband e.V.<br />
+                    Türk Alman Ticaret ve Sanayi Odası Leipziger Platz 14, 10117 Berlin <br />
+                    <div class="uk-flex contact-infos">
+                        <a href="tel:+4903023329950" class="uk-link-reset uk-margin-small-bottom">+49 (0) 30 233 299 50 |</a>
+                        <span class="uk-margin-small-bottom">Fax: +49 (0) 30 233 299 510 | </span>
+                        <a href="mailto:info@td-ihk.de" class="uk-link-reset uk-margin-small-bottom">info@td-ihk.de | </a>
+                        <span class="uk-margin-small-bottom">th-idk.de</span>
+                    </div>
+                </div>
+                <div class="uk-margin size-10 size-3-m">
+                    <label>
+                        <input class="uk-checkbox" id="PrivacyPolicy" type="checkbox">@Resources.resource.BurayaTiklayarakKabulEdebilirsiniz <a href="/Content/MainSite/assets/files/DATENSCHUTZ.pdf" class="uk-link-reset" target="_blank"><u>@Resources.resource.GizlilikPolitikasi</u></a> und die <a href="/Content/MainSite/assets/files/Satzung_2015_12_07.pdf" class="uk-link-reset" target="_blank"><u>@Resources.resource.EsasSozlesme</u></a>
+                    </label>
+                </div>
+                <div onclick="SaveMember()" class="uk-margin uk-width-2-5@s uk-margin-auto">
+                    <button type="submit" class="uk-button uk-button-primary uk-width-1-1 uk-border-rounded">@Resources.resource.Gonder</button>
+                </div>
+                <div class="uk-width-1-1">
+                    <div class="uk-width-1-3@s uk-margin-auto uk-flex uk-flex-around">
+                        <div>
+                            <img src="~/Content/MainSite/assets/images/StandartForm/letter.png" width="40" height="40" />
+                        </div>
+                        <div>
+                            <img src="~/Content/MainSite/assets/images/StandartForm/pdf-icon.png" width="40" height="40" />
+                        </div>
+                        <div>
+                            <img src="~/Content/MainSite/assets/images/StandartForm/print.png" width="40" height="40" />
+                        </div>
+                    </div>
+                </div>
+            }
+
+
         </div>
     </section>
 </main>
@@ -197,11 +271,17 @@
     $("#IsCorporate").change(function () {
 
         document.getElementById("Name").setAttribute("placeholder", "Name der Firma*");
+        document.getElementById("WebSite").setAttribute("required", "required");
+        document.getElementById("WebSite").setAttribute("placeholder", 'Website*');
+
     });
 
     $("#IsPrivate").change(function () {
 
-        document.getElementById("Name").setAttribute("placeholder", "Name der Person*");
+        document.getElementById("Name").setAttribute("placeholder", "Name*");
+        document.getElementById("WebSite").removeAttribute("required");
+        document.getElementById("WebSite").setAttribute("placeholder", "Website");
+
     });
 
     $('#FileUpload').change(function (event) {

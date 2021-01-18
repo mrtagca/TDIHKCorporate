@@ -142,7 +142,7 @@ namespace TDIHKCorporate.Controllers
                 {
                     eventList = events.GetList(@"select * from [Events]
                                             where [Language] = @lang and IsActive=1 and convert(date,EventDate) >= convert(date,getdate())
-                                              order by CONVERT(datetime,CONVERT(nvarchar,EventDate)+' '+CONVERT(nvarchar,EventTime)) desc", new { lang = name }).Take(count).ToList();
+                                              order by CONVERT(datetime,CONVERT(nvarchar,EventDate)+' '+CONVERT(nvarchar,EventTime))", new { lang = name }).Take(count).ToList();
                 }
                 else
                 {
