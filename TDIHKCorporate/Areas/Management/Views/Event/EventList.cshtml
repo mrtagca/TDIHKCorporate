@@ -12,21 +12,20 @@
     <table id="eventTable" class="table table-hover dataTable" style="width:100%" role="grid" aria-describedby="zero-config_info">
         <thead>
             <tr role="row">
-                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 250px;">@Resources.resource.EtkinlikBasligi</th>
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 150px;">@Resources.resource.EtkinlikBasligi</th>
 
-                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 250px;">@Resources.resource.EtkinlikTarihi</th>
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style=" width: 150px;">@Resources.resource.EtkinlikTarihi</th>
 
-                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 250px;">@Resources.resource.EtkinlikSaati</th>
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 150px;">@Resources.resource.EtkinlikSaati</th>
 
-                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 250px;">@Resources.resource.EtkinlikDili</th>
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 150px;">@Resources.resource.EtkinlikDili</th>
 
-                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 250px;">@Resources.resource.EtkinlikKontenjani</th>
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 150px;">@Resources.resource.EtkinlikKontenjani</th>
 
-                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 250px;">@Resources.resource.EtkinlikKritikKontenjan</th>
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 150px;">@Resources.resource.EtkinlikKritikKontenjan</th>
 
-                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 250px;">@Resources.resource.OlusturulmaTarihi</th>
 
-                <th style="width: 234px;">@Resources.resource.Eylemler</th>
+                <th style="width: 150px;">@Resources.resource.Eylemler</th>
 
             </tr>
         </thead>
@@ -50,7 +49,7 @@
                     @{
                         string createdTimezoneId = System.Configuration.ConfigurationManager.AppSettings[System.Threading.Thread.CurrentThread.CurrentCulture.Name];
                         DateTime createdDate = TimeZoneInfo.ConvertTimeBySystemTimeZoneId((DateTime)row.CreatedDate, createdTimezoneId);
-                        <td>@createdDate</td>
+                       
                     }
 
                 <td>

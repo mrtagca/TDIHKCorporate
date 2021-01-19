@@ -53,6 +53,15 @@
                 <div id="collapseEventSeoOptions" class="collapse show" aria-labelledby="headingOne" data-parent="#EventSeoOptions">
                     <div class="card-body">
                         <div>
+                            <label>@Resources.resource.SayfaDili</label>
+                            <select onchange="GetLanguageToIdentifiers()" class="form-control" id="EventLanguage">
+                                <option value="tr">TR</option>
+                                <option value="de">DE</option>
+                            </select>
+                        </div>
+                        <br />
+
+                        <div>
                             <label>@Resources.resource.SeoAnahtarKelimeleri</label>
                             <textarea id="SeoKeywords" class="form-control"></textarea>
                         </div>
@@ -83,14 +92,7 @@
                 <div id="collapseEventFeatures" class="collapse show" aria-labelledby="headingOne" data-parent="#EventFeatures">
                     <div class="card-body">
 
-                        <div>
-                            <label>@Resources.resource.SayfaDili</label>
-                            <select onchange="GetLanguageToIdentifiers()" class="form-control" id="EventLanguage">
-                                <option value="tr">TR</option>
-                                <option value="de">DE</option>
-                            </select>
-                        </div>
-                        <br />
+                       
                         @*<div>
                             <label>Event Identifier</label>
                             <input type="text" class="form-control" id="EventIdentifierTxt" placeholder="Enter Identifier" value="" />
