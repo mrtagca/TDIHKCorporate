@@ -13,44 +13,75 @@
 }
 
 <main class="uk-container" uk-scrollspy="cls: uk-animation-fade; target: > section; delay: 250">
-    <section class="uk-section">
-        <h1>@Resources.resource.EtkinlikArsivi</h1>
-        <h2>@Resources.resource.Etkinlikler</h2>
-        <div class="uk-grid uk-grid-divider uk-grid-small uk-child-width-1-1" uk-grid>
+	<section class="uk-section">
+		<h1>@Resources.resource.EtkinlikArsivi</h1>
+		<h2>@Resources.resource.Etkinlikler</h2>
+		<!-- Bu div dahil tablonun içinde arşivde istediğimiz verileri döndürebiliriz-->
 
-            @foreach (var item in Model)
-            {
-                <div>
-                    <a class="uk-link-reset">
-                        <!-- Tarih ve kategori-->
-                        <div class="uk-flex uk-flex-middle uk-margin-small-bottom">
-                            <div class="uk-text-small uk-margin-small-right">@item.EventDate.ToString("dd-MM-yyyy")</div>
-                        </div>
+		@*<div class="uk-overflow-auto">
+			<table class="uk-table uk-table-hover uk-table-striped uk-table-small uk-table-justify">
+				<thead>
+					<tr>
+						<th>Tarih</th>
+						<th>Etkinlik Adı</th>
+						<th>Kategori</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Table Data</td>
+						<td>Table Data</td>
+						<td>Table Data</td>
+					</tr>
+					<tr>
+						<td>Table Data</td>
+						<td>Table Data</td>
+						<td>Table Data</td>
+					</tr>
+					<tr>
+						<td>Table Data</td>
+						<td>Table Data</td>
+						<td>Table Data</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>*@
 
-                        @if (lang=="tr")
-                        {
-                            <div class="uk-text-large">
-                                <a style="text-decoration:none" href="/tr/etkinlikler/@item.EventSeoLink">@item.EventTitle</a>
-                            </div>
-                        }
-                        else
-                        {
-                            <div class="uk-text-large">
-                                <a style="text-decoration:none" href="/de/events/@item.EventSeoLink">@item.EventTitle</a>
-                            </div>
-                        }
+		<div class="uk-grid uk-grid-divider uk-grid-small uk-child-width-1-1" uk-grid>
 
-                    </a>
-                </div>
-            }
+			@foreach (var item in Model)
+			{
+				<div>
+					<a class="uk-link-reset">
+						<!-- Tarih ve kategori-->
+						<div class="uk-flex uk-flex-middle uk-margin-small-bottom">
+							<div class="uk-text-small uk-margin-small-right">@item.EventDate.ToString("dd-MM-yyyy")</div>
+						</div>
 
-        </div>
-        <!-- PAGINATION-->
-        <div class="uk-margin-medium-top">
-            <ul class="uk-pagination" uk-margin>
-                <li><a href="#"><span uk-pagination-previous></span></a></li>
-                <li><a href="#"><span uk-pagination-next></span></a></li>
-            </ul>
-        </div>
-    </section>
+						@if (lang == "tr")
+						{
+							<div class="uk-text-large">
+								<a style="text-decoration:none" href="/tr/etkinlikler/@item.EventSeoLink">@item.EventTitle</a>
+							</div>
+						}
+						else
+						{
+							<div class="uk-text-large">
+								<a style="text-decoration:none" href="/de/events/@item.EventSeoLink">@item.EventTitle</a>
+							</div>
+						}
+
+					</a>
+				</div>
+			}
+
+		</div>
+		<!-- PAGINATION-->
+		<!-- <div class="uk-margin-medium-top">
+		<ul class="uk-pagination" uk-margin>
+			<li><a href="#"><span uk-pagination-previous></span></a></li>
+			<li><a href="#"><span uk-pagination-next></span></a></li>
+		</ul>
+	</div>-->
+	</section>
 </main>
