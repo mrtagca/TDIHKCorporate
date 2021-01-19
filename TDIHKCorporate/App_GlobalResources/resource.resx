@@ -154,7 +154,7 @@
     <value>Beni Hatırla</value>
   </data>
   <data name="BesMilyonEuroKadar" xml:space="preserve">
-    <value>5 Mio € kadar (1,200 € / yıl)</value>
+    <value>5 Mio € kadar</value>
   </data>
   <data name="BilgiNotlari" xml:space="preserve">
     <value>Bilgi Notları</value>
@@ -197,6 +197,9 @@
   </data>
   <data name="DisTicaretPortali" xml:space="preserve">
     <value>Dış Ticaret Portalı</value>
+  </data>
+  <data name="DortBinSekizYuzEuroYillik" xml:space="preserve">
+    <value>(4.800 € / Yıllık)</value>
   </data>
   <data name="Dosya" xml:space="preserve">
     <value>Dosya</value>
@@ -375,6 +378,9 @@
   <data name="IdentifierSec" xml:space="preserve">
     <value>Identifier Seç</value>
   </data>
+  <data name="IkiBinDortYuzEuroYillik" xml:space="preserve">
+    <value>(2.400 €/ Yıllık)</value>
+  </data>
   <data name="Iletisim" xml:space="preserve">
     <value>İletişim</value>
   </data>
@@ -530,6 +536,9 @@
   </data>
   <data name="OneCikanGorselBelirle" xml:space="preserve">
     <value>Öne çıkarılmış görsel belirle</value>
+  </data>
+  <data name="OnIkiBinEuroYillik" xml:space="preserve">
+    <value>(1,200 € / Yıllık)</value>
   </data>
   <data name="Onizleme" xml:space="preserve">
     <value>Önizleme</value>
