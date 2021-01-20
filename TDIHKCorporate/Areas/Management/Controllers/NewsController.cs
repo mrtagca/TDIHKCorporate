@@ -120,7 +120,7 @@ values (@NewsCategoryName,@Language,@CreatedDate,@CreatedBy,@IsActive)", new { N
                 news.CreatedBy = Convert.ToInt32(Session["UserID"]);
                 news.IsActive = true;
 
-                int result = addNews.Execute(@"INSERT INTO News ([NewsCategoryID],[NewsIdentifier],[NewsImagePath],[NewsThumbnailPath],[NewsTitle],[NewsDescription],[NewsContent],[NewsSeoLink],[NewsSeoKeywords],[Language],[CreatedDate],[CreatedBy],[IsActive]) values(@NewsCategoryID,@NewsIdentifier, @NewsImagePath, @NewsThumbnailPath, @NewsTitle,@NewsDescription, @NewsContent, @NewsSeoLink, @NewsSeoKeywords, @Language, @CreatedDate, @CreatedBy,@IsActive)", new
+                int result = addNews.Execute(@"INSERT INTO News ([NewsCategoryID],[NewsIdentifier],[NewsImagePath],[NewsThumbnailPath],[NewsTitle],[NewsDescription],[NewsContent],[NewsSeoLink],[NewsSeoKeywords],[Language],[CreatedDate],[CreatedBy],[IsEventNew],[IsActive]) values(@NewsCategoryID,@NewsIdentifier, @NewsImagePath, @NewsThumbnailPath, @NewsTitle,@NewsDescription, @NewsContent, @NewsSeoLink, @NewsSeoKeywords, @Language, @CreatedDate, @CreatedBy,@IsEventNew,@IsActive)", new
                 {
 
                     NewsCategoryID = news.NewsCategoryID,
@@ -135,6 +135,7 @@ values (@NewsCategoryName,@Language,@CreatedDate,@CreatedBy,@IsActive)", new { N
                     Language = news.Language,
                     CreatedDate = news.CreatedDate,
                     CreatedBy = news.CreatedBy,
+                    IsEventNew=news.IsEventNew,
                     IsActive = news.IsActive
 
                 });
@@ -205,7 +206,7 @@ order by CreatedDate desc", new { lang = "tr" });
                 DapperRepository<News> addNews = new DapperRepository<News>();
 
 
-                int result = addNews.Execute(@"update News set NewsImagePath=@NewsImagePath,NewsIdentifier=@NewsIdentifier,NewsThumbnailPath=@NewsThumbnailPath,NewsDescription=@NewsDescription,NewsCategoryID = @NewsCategoryID,NewsTitle=@NewsTitle,NewsContent=@NewsContent,NewsSeoLink=@NewsSeoLink,NewsSeoKeywords=@NewsSeoKeywords,[Language]=@language,UpdatedDate=@updatedDate,UpdatedBy=@UpdatedBy,IsActive=@IsActive
+                int result = addNews.Execute(@"update News set NewsImagePath=@NewsImagePath,NewsIdentifier=@NewsIdentifier,NewsThumbnailPath=@NewsThumbnailPath,NewsDescription=@NewsDescription,NewsCategoryID = @NewsCategoryID,NewsTitle=@NewsTitle,NewsContent=@NewsContent,NewsSeoLink=@NewsSeoLink,NewsSeoKeywords=@NewsSeoKeywords,[Language]=@language,UpdatedDate=@updatedDate,UpdatedBy=@UpdatedBy,IsEventNew=@IsEventNew,IsActive=@IsActive
                                         where NewsID = @NewsID", new
                 {
                     NewsID = news.NewsID,
@@ -221,6 +222,7 @@ order by CreatedDate desc", new { lang = "tr" });
                     Language = news.Language,
                     UpdatedDate = DateTime.Now,
                     UpdatedBy = Convert.ToInt32(Session["UserID"]),
+                    IsEventNew=news.IsEventNew,
                     IsActive = true
 
                 });

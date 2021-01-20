@@ -12,8 +12,8 @@
             @*<img class="uk-width-1-1" src="~/Content/MainSite/assets/images/Subregister/BG.png" uk-img/>*@
             <img class="uk-width-1-1" src="@Model.EventImagePath" alt="@Model.EventTitle" uk-img />
             @*<div class="uk-position-cover uk-flex uk-flex-middle">
-                <div class="uk-h1 uk-light uk-padding-large">Register</div>
-            </div>*@
+                    <div class="uk-h1 uk-light uk-padding-large">Register</div>
+                </div>*@
         </div>
     </section>
 
@@ -52,6 +52,22 @@
                     </div>
                 </div>
                 <div class="uk-width-3-5@m uk-margin-auto uk-margin-medium-top"> @Resources.resource.VeriIsleme<b>@Resources.resource.VeriGizlilik.</b></div>
+            </div>
+        </section>
+    }
+
+    @if (Model.IsOnlineMeeting)
+    {
+        <section class="uk-section">
+            <h1 class="uk-h2 uk-text-center">@Resources.resource.Kayit</h1>
+            <div class="uk-width-1-2@m uk-margin-auto">
+                <div class="uk-form-stacked uk-grid-medium register-form" uk-grid>
+
+
+                    <div class="uk-width-1-1">
+                        <button onclick="window.open('@Model.MeetingLink')" class="uk-button uk-button-primary uk-width-1-1 uk-border-rounded" type="submit">@Resources.resource.KayitOl</button>
+                    </div>
+                </div>
             </div>
         </section>
     }

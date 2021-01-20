@@ -25,7 +25,7 @@ namespace TDIHKCorporate.Controllers
                                                 select nw.* from News nw (NOLOCK)
                                                 inner join NewsCategories nwc (NOLOCK)
                                                 on nw.NewsCategoryID = nwc.ID
-                                                where nw.[Language] = 'de' and nwc.[Language] = 'de'
+                                                where nw.[Language] = @language and nwc.[Language] = @language and nw.IsEventNew=1
                                                 order by CreatedDate desc
                                                 OFFSET 3 ROWS
                                                 ) as X", new { language = name });
@@ -46,7 +46,7 @@ namespace TDIHKCorporate.Controllers
                                                 inner join NewsCategories nwc (NOLOCK)
                                                 on nw.NewsCategoryID = nwc.ID
 
-                                                where nw.[Language] = @language and nwc.[Language] = @language
+                                                where nw.[Language] = @language and nwc.[Language] = @language and nw.IsEventNew=1
                                                 order by CreatedDate desc", new { language = name });
 
 
@@ -108,6 +108,63 @@ namespace TDIHKCorporate.Controllers
             return PartialView("_PartialPodcasts", podcastList);
         }
 
+        public ActionResult CoronaNews()
+        {
+            DapperRepository<News> page = new DapperRepository<News>();
 
+            CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+
+            string name = cultureInfo.TwoLetterISOLanguageName;
+
+            List<News> newsList = page.GetList(@"select nw.* from News nw (NOLOCK)
+                                                inner join NewsCategories nwc (NOLOCK)
+                                                on nw.NewsCategoryID = nwc.ID
+                                                where nw.[Language] = @language and nwc.[Language] = @language and nwc.NewsCategoryName = 'COVID-19'
+                                                order by CreatedDate desc", new { language = name });
+
+
+            return View(newsList);
+        }
+
+        public ActionResult RealNachrichten()
+        {
+            DapperRepository<News> page = new DapperRepository<News>();
+
+            CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+
+            string name = cultureInfo.TwoLetterISOLanguageName;
+
+            List<News> newsList = page.GetList(@"select top 33 * from
+                                                (
+                                                select nw.* from News nw (NOLOCK)
+                                                inner join NewsCategories nwc (NOLOCK)
+                                                on nw.NewsCategoryID = nwc.ID
+                                                where nw.[Language] = @language and nwc.[Language] = @language and nw.IsEventNew=0
+                                                order by CreatedDate desc
+                                                OFFSET 3 ROWS
+                                                ) as X", new { language = name });
+
+
+            return View(newsList);
+        }
+
+        public ActionResult GetRealNachrichtenHead()
+        {
+            DapperRepository<News> news = new DapperRepository<News>();
+
+            CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+
+            string name = cultureInfo.TwoLetterISOLanguageName;
+
+            List<News> newsList = news.GetList(@"select top 3 nwc.NewsCategoryName,nw.* from News nw (NOLOCK)
+                                                inner join NewsCategories nwc (NOLOCK)
+                                                on nw.NewsCategoryID = nwc.ID
+
+                                                where nw.[Language] = @language and nwc.[Language] = @language and nw.IsEventNew=0
+                                                order by CreatedDate desc", new { language = name });
+
+
+            return PartialView("_PartialRealNachrichtenHead", newsList);
+        }
     }
 }

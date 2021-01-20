@@ -1,26 +1,13 @@
 ﻿@model List<TDIHKCorporate.Types.News>
-@using System.Globalization
+
 @{
-    ViewBag.Title = "Nachrichten";
+    ViewBag.Title = "CoronaNews";
     Layout = "~/Views/Shared/_layoutMaster.cshtml";
-
-    CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
-    string lang = cultureInfo.TwoLetterISOLanguageName;
 }
-
-@*<style>
-        .cover {
-            object-fit: cover;
-            width: 500px;
-            height: 300px;
-        }
-    </style>*@
-
-
 
 <main class="uk-container" uk-scrollspy="cls: uk-animation-fade; target: > section; delay: 250">
 
-    @Html.Action("GetNachrichtenHead")
+    @*@Html.Action("GetNachrichtenHead")*@
 
 
     <!--Alt kısım-->
@@ -59,26 +46,4 @@
     </section>
 </main>
 
-<section class="uk-section">
-    <div class="uk-width-1-2@m uk-margin-auto">
-        <div class="uk-form-stacked uk-grid-medium register-form" uk-grid>
-
-            @if (lang == "tr")
-            {
-                <div class="uk-width-1-2@s uk-margin-auto">
-                    <a class="uk-button uk-button-primary uk-width-1-1 uk-border-rounded" href="/tr/sayfalar/etkinlik-arsivi">Dijital Arşiv</a>
-                </div>
-            }
-            else
-            {
-                <div class="uk-width-1-2@s uk-margin-auto">
-                    <a class="uk-button uk-button-primary uk-width-1-1 uk-border-rounded" href="/de/seiten/event-archive">Digital Archiv</a>
-                </div>
-            }
-
-        </div>
-    </div>
-</section>
-
 @Html.Action("Index", "Newsletter")
-

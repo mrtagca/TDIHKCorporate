@@ -1,26 +1,16 @@
 ﻿@model List<TDIHKCorporate.Types.News>
 @using System.Globalization
 @{
-    ViewBag.Title = "Nachrichten";
+    ViewBag.Title = "RealNachrichten";
     Layout = "~/Views/Shared/_layoutMaster.cshtml";
 
     CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
     string lang = cultureInfo.TwoLetterISOLanguageName;
 }
 
-@*<style>
-        .cover {
-            object-fit: cover;
-            width: 500px;
-            height: 300px;
-        }
-    </style>*@
-
-
-
 <main class="uk-container" uk-scrollspy="cls: uk-animation-fade; target: > section; delay: 250">
 
-    @Html.Action("GetNachrichtenHead")
+    @Html.Action("GetRealNachrichtenHead")
 
 
     <!--Alt kısım-->
@@ -81,4 +71,5 @@
 </section>
 
 @Html.Action("Index", "Newsletter")
+
 

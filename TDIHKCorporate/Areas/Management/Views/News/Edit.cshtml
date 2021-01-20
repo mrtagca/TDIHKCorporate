@@ -4,7 +4,7 @@
     ViewBag.Title = "Edit";
     Layout = "~/Areas/Management/Views/Shared/_layoutDashboard.cshtml";
 }
-
+ 
 <script src="~/Content/Scripts/News.js"></script>
 
 <div class="row">
@@ -49,6 +49,11 @@
                 <div id="collapseNewsFeatures" class="collapse show" aria-labelledby="headingOne" data-parent="#NewsFeatures">
                     <div class="card-body">
                         <div>
+                            <label><input type="checkbox" id="IsEventNew" name="IsEventNew" value="" /> Is Event New?</label>
+
+                        </div>
+
+                        <div>
                             <label>@Resources.resource.KategoriSeciniz</label>
                             <select class="form-control" id="NewsCategories" required>
                             </select>
@@ -63,10 +68,10 @@
                         </div>
                         <br />
                         @*<div>
-                            <label>News Identifier</label>
-                            <input type="text" class="form-control" id="NewsIdentifierTxt" placeholder="Enter Identifier" value="@Model.NewsIdentifier" required/>
-                        </div>
-                        <br />*@
+            <label>News Identifier</label>
+            <input type="text" class="form-control" id="NewsIdentifierTxt" placeholder="Enter Identifier" value="@Model.NewsIdentifier" required/>
+        </div>
+        <br />*@
                         <div>
                             <label><input type="checkbox" onchange="DisableIdentifierInputs()" id="IdentifierCheckbox" name="name" value="" /> @Resources.resource.IdentifierSec</label>
                             <select class="form-control" id="NewsIdentifierDropdown" disabled="disabled" required>
@@ -170,7 +175,16 @@
         var htmlContent = html;
         editor.value(htmlContent + editor.value());
 
+        var isEventNew = '@Model.IsEventNew';
 
+        var eventNewElement = document.getElementById("IsEventNew");
+
+        if (isEventNew==="True") {
+            eventNewElement.checked = true;
+        }
+        else {
+            eventNewElement.checked = false;
+        }
 
     });
 

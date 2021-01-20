@@ -1,4 +1,4 @@
-﻿function GetEventCategories(dropdownId,language) {
+﻿function GetEventCategories(dropdownId, language) {
     var callParams = {
         endPoint: "/Management/Event/GetEventCategories",
         requestType: "GET",
@@ -45,7 +45,7 @@ function AddEvent() {
     var index = eventContent.indexOf("<!--HtmlHeaderEnd|-->");
     eventContent = eventContent.substring(0, index);
     dataParams.EventContent = eventContent;
-     
+
 
     dataParams.EventSeoLink = $("#EventSeoLink").val();
     dataParams.EventDescription = $("#EventDescription").val();
@@ -55,6 +55,16 @@ function AddEvent() {
     dataParams.EventQuota = $("#EventQuota").val();
     dataParams.EventCriticalQuota = $("#EventCriticalQuota").val();
     dataParams.EventTags = $("#SeoTags").val();
+
+    var isOnlineMeeting = document.getElementById("IsOnlineMeeting");
+
+    if (isOnlineMeeting.checked === true) {
+        dataParams.IsOnlineMeeting = true;
+        dataParams.MeetingLink = $("#MeetingLink").val();
+    }
+    else {
+        dataParams.IsOnlineMeeting = false;
+    }
 
     var identifierElement = document.getElementById("IdentifierCheckbox");
 
@@ -191,7 +201,7 @@ function AddEvent() {
 
 }
 
-function EditEvent(eventID,eventIdentifier) {
+function EditEvent(eventID, eventIdentifier) {
 
     var callParams = {
         endPoint: "/Management/Event/EditEvent",
@@ -215,7 +225,7 @@ function EditEvent(eventID,eventIdentifier) {
     dataParams.EventSeoLink = $("#EventSeoLink").val();
     dataParams.EventDescription = $("#EventDescription").val();
     dataParams.EventSeoKeywords = $("#SeoKeywords").val();
-    
+
     dataParams.EventDate = $("#EventDate").val();
     dataParams.EventTime = $("#EventTime").val();
     dataParams.EventQuota = $("#EventQuota").val();
@@ -224,6 +234,16 @@ function EditEvent(eventID,eventIdentifier) {
 
     var eventImagePath = document.getElementById("EventImage");
     dataParams.EventImagePath = eventImagePath.getAttribute("image-path");
+
+    var isOnlineMeeting = document.getElementById("IsOnlineMeeting");
+
+    if (isOnlineMeeting.checked === true) {
+        dataParams.IsOnlineMeeting = true;
+        dataParams.MeetingLink = $("#MeetingLink").val();
+    }
+    else {
+        dataParams.IsOnlineMeeting = false;
+    }
 
 
     var identifierElement = document.getElementById("IdentifierCheckbox");

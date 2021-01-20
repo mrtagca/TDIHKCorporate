@@ -4293,6 +4293,9 @@
     <Content Include="Views\Event\SearchEvents.cshtml" />
     <Content Include="Views\Event\GetEventCategoriesArea.cshtml" />
     <Content Include="Views\Event\EventsByCategoryName.cshtml" />
+    <Content Include="Views\Publication\CoronaNews.cshtml" />
+    <Content Include="Views\Publication\RealNachrichten.cshtml" />
+    <Content Include="Views\Publication\_PartialRealNachrichtenHead.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

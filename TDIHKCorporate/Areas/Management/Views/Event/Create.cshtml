@@ -65,10 +65,15 @@
                             <label>@Resources.resource.SeoAnahtarKelimeleri</label>
                             <textarea id="SeoKeywords" class="form-control"></textarea>
                         </div>
-
+                        <br />
                         <div>
                             <label>@Resources.resource.Etiketler</label>
                             <textarea id="SeoTags" class="form-control"></textarea>
+                        </div>
+                        <br />
+                        <div>
+                            <label><input id="IsOnlineMeeting" type="checkbox" name="IsOnlineMeeting" value="" /> Is Online Meeting</label>
+                            <input id="MeetingLink" type="text" class="form-control" name="MeetingLink" value="" placeholder="Meeting Link" disabled />
                         </div>
 
                     </div>
@@ -92,12 +97,12 @@
                 <div id="collapseEventFeatures" class="collapse show" aria-labelledby="headingOne" data-parent="#EventFeatures">
                     <div class="card-body">
 
-                       
+
                         @*<div>
-                            <label>Event Identifier</label>
-                            <input type="text" class="form-control" id="EventIdentifierTxt" placeholder="Enter Identifier" value="" />
-                        </div>
-                        <br />*@
+                                <label>Event Identifier</label>
+                                <input type="text" class="form-control" id="EventIdentifierTxt" placeholder="Enter Identifier" value="" />
+                            </div>
+                            <br />*@
                         <div>
                             <label><input type="checkbox" onchange="DisableIdentifierInputs()" id="IdentifierCheckbox" name="name" value="" /> @Resources.resource.IdentifierSec</label>
                             <select class="form-control" id="EventIdentifierDropdown" disabled="disabled">
@@ -184,7 +189,7 @@
     function DisableIdentifierInputs() {
         debugger
         var element = document.getElementById("IdentifierCheckbox")
-        var dropdown = document.getElementById("EventIdentifierDropdown"); 
+        var dropdown = document.getElementById("EventIdentifierDropdown");
 
         if (element.checked === true) {
             dropdown.removeAttribute("disabled");
@@ -238,6 +243,21 @@
             });
         } else {
             alert("FormData is not supported.");
+        }
+
+    });
+
+
+    $("#IsOnlineMeeting").change(function () {
+
+        var meetingLink = document.getElementById("MeetingLink");
+        var isOnlineMeeting = document.getElementById("IsOnlineMeeting");
+
+        if (isOnlineMeeting.checked === true) {
+            meetingLink.removeAttribute("disabled");
+        }
+        else {
+            meetingLink.setAttribute("disabled", "disabled");
         }
     });
 </script>

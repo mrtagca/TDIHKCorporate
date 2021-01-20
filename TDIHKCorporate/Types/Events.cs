@@ -31,6 +31,8 @@ namespace TDIHKCorporate.Types
         public int CreatedBy { get; set; }
         public DateTime UpdatedDate { get; set; }
         public int UpdatedBy { get; set; }
+        public bool IsOnlineMeeting { get; set; }
+        public string MeetingLink { get; set; }
         public bool IsActive { get; set; }
         public int RegisterCount { get; set; }
 

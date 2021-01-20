@@ -49,7 +49,7 @@ WHERE [Language] = @lang order by EventCategoryName", new { lang = language });
                 identifier = events.EventIdentifier;
             }
 
-            var result = addPage.Execute(@"INSERT INTO IHK.dbo.[Events]([Language],EventIdentifier,EventCategoryID,EventImagePath,EventThumbnailPath,EventTitle,EventDate,EventTime,EventContent,EventSeoLink,EventDescription,EventSeoKeywords,EventTags,EventQuota,EventCriticalQuota,CreatedDate,CreatedBy,IsActive) values (@Language,@EventIdentifier,@EventCategoryID,@EventImagePath,@EventThumbnailPath,@EventTitle,@EventDate,@EventTime,@EventContent,@EventSeoLink,@EventDescription,@EventSeoKeywords,@EventTags,@EventQuota,@EventCriticalQuota,@CreatedDate,@CreatedBy,@IsActive)", new
+            var result = addPage.Execute(@"INSERT INTO IHK.dbo.[Events]([Language],EventIdentifier,EventCategoryID,EventImagePath,EventThumbnailPath,EventTitle,EventDate,EventTime,EventContent,EventSeoLink,EventDescription,EventSeoKeywords,EventTags,EventQuota,EventCriticalQuota,CreatedDate,CreatedBy,IsOnlineMeeting,MeetingLink,IsActive) values (@Language,@EventIdentifier,@EventCategoryID,@EventImagePath,@EventThumbnailPath,@EventTitle,@EventDate,@EventTime,@EventContent,@EventSeoLink,@EventDescription,@EventSeoKeywords,@EventTags,@EventQuota,@EventCriticalQuota,@CreatedDate,@CreatedBy,@IsOnlineMeeting,@MeetingLink,@IsActive)", new
             {
 
                 Language = events.Language,
@@ -69,6 +69,8 @@ WHERE [Language] = @lang order by EventCategoryName", new { lang = language });
                 EventCriticalQuota = events.EventCriticalQuota,
                 CreatedDate = DateTime.Now,
                 CreatedBy = Convert.ToInt32(Session["UserID"]),
+                IsOnlineMeeting = events.IsOnlineMeeting,
+                MeetingLink = events.MeetingLink,
                 IsActive = true
             });
 
@@ -97,7 +99,7 @@ WHERE [Language] = @lang order by EventCategoryName", new { lang = language });
         {
             DapperRepository<Events> addPage = new DapperRepository<Events>();
 
-            var result = addPage.Execute(@"update [Events] set EventIdentifier=@EventIdentifier,[Language]=@Language,EventCategoryID=@EventCategoryID,EventImagePath=@EventImagePath,EventDescription=@EventDescription,EventTitle=@EventTitle,EventDate=@EventDate,EventTime=@EventTime,EventContent=@EventContent,EventSeoLink=@EventSeoLink,EventSeoKeywords=@EventSeoKeywords,EventTags=@EventTags,EventQuota=@EventQuota,EventCriticalQuota=@EventCriticalQuota,CreatedDate=@CreatedDate,CreatedBy=@CreatedBy,IsActive=@IsActive
+            var result = addPage.Execute(@"update [Events] set EventIdentifier=@EventIdentifier,[Language]=@Language,EventCategoryID=@EventCategoryID,EventImagePath=@EventImagePath,EventDescription=@EventDescription,EventTitle=@EventTitle,EventDate=@EventDate,EventTime=@EventTime,EventContent=@EventContent,EventSeoLink=@EventSeoLink,EventSeoKeywords=@EventSeoKeywords,EventTags=@EventTags,EventQuota=@EventQuota,EventCriticalQuota=@EventCriticalQuota,CreatedDate=@CreatedDate,CreatedBy=@CreatedBy,IsOnlineMeeting=@IsOnlineMeeting,MeetingLink=@MeetingLink,IsActive=@IsActive
                 where EventID = @EventID", new
             {
                 EventID = events.EventID,
@@ -118,6 +120,8 @@ WHERE [Language] = @lang order by EventCategoryName", new { lang = language });
                 EventCriticalQuota = events.EventCriticalQuota,
                 CreatedDate = DateTime.Now,
                 CreatedBy = Convert.ToInt32(Session["UserID"]),
+                IsOnlineMeeting = events.IsOnlineMeeting,
+                MeetingLink = events.MeetingLink,
                 IsActive = true
             });
 

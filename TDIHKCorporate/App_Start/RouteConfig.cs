@@ -44,6 +44,22 @@ namespace TDIHKCorporate
                 );
             #endregion
 
+            #region Coronavirus Nachrichten
+            routes.MapRoute(
+                    name: "CoronaNewsGerman",
+                    url: "{lang}/seiten/coronavirus-nachrichten",
+                    defaults: new { controller = "Publication", action = "CoronaNews", lang = language },
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
+
+            routes.MapRoute(
+                    name: "CoronaNewsTurkey",
+                    url: "{lang}/sayfalar/koronavirus-haberleri",
+                    defaults: new { controller = "Publication", action = "CoronaNews", lang = language },
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
+            #endregion
+
             #region Event Categories / Etkinlik Kategorileri
             routes.MapRoute(
                     name: "EventsByCategoryGerman",
@@ -188,21 +204,7 @@ namespace TDIHKCorporate
                 );
             #endregion
 
-            #region Coronavirus Nachrichten
-            routes.MapRoute(
-                    name: "CoronaNewsGerman",
-                    url: "{lang}/seiten/coronavirus-nachrichten",
-                    defaults: new { controller = "Covid", action = "CoronavirusNachrichten", lang = language },
-                 new[] { "TDIHKCorporate.Controllers" }
-                );
-
-            routes.MapRoute(
-                    name: "CoronaNewsTurkey",
-                    url: "{lang}/sayfalar/korona-virus-haberleri",
-                    defaults: new { controller = "Covid", action = "CoronavirusNachrichten", lang = language },
-                 new[] { "TDIHKCorporate.Controllers" }
-                );
-            #endregion
+           
 
             #region Kalender / Etkinlik Takvimi
             routes.MapRoute(
@@ -255,15 +257,32 @@ namespace TDIHKCorporate
 
             #region Nachrichten / Haberler
             routes.MapRoute(
-                    name: "NewsGerman",
+                    name: "RealNewsGerman",
                     url: "{lang}/seiten/nachrichten/",
+                    defaults: new { controller = "Publication", action = "RealNachrichten", lang = language },
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
+
+            routes.MapRoute(
+                    name: "RealNewsTurkey",
+                    url: "{lang}/sayfalar/haberler/",
+                    defaults: new { controller = "Publication", action = "RealNachrichten", lang = language },
+                 new[] { "TDIHKCorporate.Controllers" }
+                );
+
+            #endregion
+
+            #region Events Nachrichten / Etkinlik Haberler
+            routes.MapRoute(
+                    name: "NewsGerman",
+                    url: "{lang}/seiten/events-nachrichten/",
                     defaults: new { controller = "Publication", action = "Nachrichten", lang = language },
                  new[] { "TDIHKCorporate.Controllers" }
                 );
 
             routes.MapRoute(
                     name: "NewsTurkey",
-                    url: "{lang}/sayfalar/haberler/",
+                    url: "{lang}/sayfalar/etkinlik-haberleri/",
                     defaults: new { controller = "Publication", action = "Nachrichten", lang = language },
                  new[] { "TDIHKCorporate.Controllers" }
                 );

@@ -63,6 +63,15 @@ function AddNews() {
     dataParams.NewsImagePath = newsImagePath.getAttribute("image-path");
     dataParams.NewsThumbnailPath = newsImagePath.getAttribute("thumbnail-path");
 
+    var isEventNew = document.getElementById("IsEventNew");
+
+    if (isEventNew.checked === true) {
+        dataParams.IsEventNew = true;
+    }
+    else {
+        dataParams.IsEventNew = false;
+    }
+
 
     if (pageContent === '' || typeof (pageContent) === 'undefined' || pageContent === null) {
         alert("News Content cannot be null!");
@@ -195,6 +204,14 @@ function EditNews(newsID, newsIdentifier) {
 
     dataParams.NewsDescription = $("#NewsDescription").val();
 
+    var isEventNew = document.getElementById("IsEventNew");
+
+    if (isEventNew.checked === true) {
+        dataParams.IsEventNew = true;
+    }
+    else {
+        dataParams.IsEventNew = false;
+    }
 
 
     var identifierElement = document.getElementById("IdentifierCheckbox");
