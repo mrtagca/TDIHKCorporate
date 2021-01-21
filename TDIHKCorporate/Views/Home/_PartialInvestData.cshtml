@@ -409,21 +409,24 @@
             <div class="nav-overlay uk-navbar-left uk-flex-1" hidden>
                 @if (name == "tr")
                 {
-                    <form action="/tr/ara" method="get" class="uk-search uk-search-navbar uk-width-1-1">
-                        <div class="uk-navbar-item uk-width-expand">
-                            <input class="uk-search-input" name="search" type="search" placeholder="@Resources.resource.Ara..." autofocus>
-                        </div>
-                        <input type="submit" class="uk-navbar-toggle" uk-close uk-toggle="target: .nav-overlay; animation: uk-animation-fade" />
-                    </form>
+				<form action="/tr/ara" method="get" class="uk-search uk-search-navbar uk-width-1-1">
+					<div class="uk-navbar-item uk-width-expand">
+						<input class="uk-search-input" name="search" type="search" placeholder="@Resources.resource.Ara..." autofocus>
+						<a class="uk-navbar-toggle" uk-close uk-toggle="target: .nav-overlay; animation: uk-animation-fade" href="#"></a>
+					</div>
+					<input type="submit" class="uk-hidden"/>
+				</form>
                 }
                 else
                 {
-                    <form action="/de/suche" method="get" class="uk-search uk-search-navbar uk-width-1-1">
-                        <div class="uk-navbar-item uk-width-expand">
-                            <input class="uk-search-input" name="search" type="search" placeholder="@Resources.resource.Ara..." autofocus>
-                        </div>
-                        <input type="submit" class="uk-navbar-toggle" uk-close uk-toggle="target: .nav-overlay; animation: uk-animation-fade" />
-                    </form>
+			<form action="/de/suche" method="get" class="uk-search uk-search-navbar uk-width-1-1">
+				<div class="uk-navbar-item uk-width-expand">
+					<input class="uk-search-input" name="search" type="search" placeholder="@Resources.resource.Ara..." autofocus>
+					<a class="uk-navbar-toggle" uk-close uk-toggle="target: .nav-overlay; animation: uk-animation-fade" href="#"></a>
+				</div>
+				
+				<input type="submit" class="uk-button uk-button-secondary uk-hidden" />
+			</form>
                 }
 
             </div>
