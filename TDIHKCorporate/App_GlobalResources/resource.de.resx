@@ -154,7 +154,7 @@
     <value>Erinnere dich an mich</value>
   </data>
   <data name="BesMilyonEuroKadar" xml:space="preserve">
-    <value>bis 5 mio. € (1.200 €/Jahr)</value>
+    <value>bis 5 mio. €</value>
   </data>
   <data name="BilgiNotlari" xml:space="preserve">
     <value>Infoblatter</value>
@@ -197,6 +197,9 @@
   </data>
   <data name="DisTicaretPortali" xml:space="preserve">
     <value>Außenhandelsportal</value>
+  </data>
+  <data name="DortBinSekizYuzEuroYillik" xml:space="preserve">
+    <value>(4.800 € / Jahr)</value>
   </data>
   <data name="Dosya" xml:space="preserve">
     <value>Datei</value>
@@ -375,6 +378,9 @@
   <data name="IdentifierSec" xml:space="preserve">
     <value>Wählen Sie Kennung</value>
   </data>
+  <data name="IkiBinDortYuzEuroYillik" xml:space="preserve">
+    <value>(2.400 €/ Jahr)</value>
+  </data>
   <data name="Iletisim" xml:space="preserve">
     <value>Kontakt</value>
   </data>
@@ -530,6 +536,9 @@
   </data>
   <data name="OneCikanGorselBelirle" xml:space="preserve">
     <value>Stellen sie das vorgestellte bild ein</value>
+  </data>
+  <data name="OnIkiBinEuroYillik" xml:space="preserve">
+    <value>(1.200 € / Jahr)</value>
   </data>
   <data name="Onizleme" xml:space="preserve">
     <value>Vorschau</value>

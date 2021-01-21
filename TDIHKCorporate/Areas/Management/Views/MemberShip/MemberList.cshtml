@@ -13,17 +13,16 @@
     <table id="membersTable" class="table table-hover dataTable" style="width:100%" role="grid" aria-describedby="zero-config_info">
         <thead>
             <tr role="row">
-                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 250px;">@Resources.resource.UyeID</th>
-                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 250px;">@Resources.resource.UyeUnvan</th>
+               
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 150px;">@Resources.resource.UyeUnvan</th>
 
-                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 250px;">@Resources.resource.UyeEmail</th>
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 150px;">@Resources.resource.UyeEmail</th>
 
-                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 250px;">@Resources.resource.UyeWebsite</th>
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 150px;">@Resources.resource.UyeWebsite</th>
 
-                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 250px;">@Resources.resource.UyeTelefon 1</th>
-                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 250px;">@Resources.resource.UyeTelefon 2</th>
-                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 250px;">@Resources.resource.OlusturulmaTarihi</th>
-                <th style="width: 234px;">Eylemler</th>
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 150px;">@Resources.resource.UyeTelefon 1</th>
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 150px;">@Resources.resource.UyeTelefon 2</th>
+                <th style="width: 150px;">Eylemler</th>
 
             </tr>
         </thead>
@@ -31,7 +30,7 @@
             @foreach (var row in Model)
             {
             <tr>
-                <td class="sorting_1">@row.MemberID</td>
+                
                 <td>@row.MemberTitle</td>
                 <td>@row.MemberEmailAddress</td>
                 <td><a target="_blank" href="@row.MemberWebSite">@row.MemberWebSite</a></td>
@@ -42,7 +41,7 @@
                 @{
                     string TimezoneId = System.Configuration.ConfigurationManager.AppSettings[System.Threading.Thread.CurrentThread.CurrentCulture.Name];
                     DateTime createdDate = TimeZoneInfo.ConvertTimeBySystemTimeZoneId((DateTime)row.CreatedDate, TimezoneId);
-                    <td>@createdDate</td>
+                   
                 } 
                 <td>
                     <button onclick="window.open(

@@ -13,12 +13,11 @@
     <table id="podcastTable" class="table table-hover dataTable" style="width:100%" role="grid" aria-describedby="zero-config_info">
         <thead>
             <tr role="row">
-                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 250px;">@Resources.resource.PodcastID</th>
-                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 250px;">@Resources.resource.PodcastDili</th>
-                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 250px;">@Resources.resource.PodcastDosyaYolu</th>
-                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 250px;">@Resources.resource.PodcastBaslik</th>
-                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 250px;">@Resources.resource.OlusturulmaTarihi</th>
-                <th style="width: 234px;">@Resources.resource.Eylemler</th>
+                
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 150px;">@Resources.resource.PodcastDili</th>
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 150px;">@Resources.resource.PodcastDosyaYolu</th>
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 150px;">@Resources.resource.PodcastBaslik</th>
+                <th style="width: 150px;">@Resources.resource.Eylemler</th>
 
             </tr>
         </thead>
@@ -26,7 +25,7 @@
             @foreach (var row in Model)
             {
                 <tr>
-                    <td class="sorting_1">@row.ID</td>
+                    
                     <td>@row.Language</td>
                     <td>@row.PodcastFilePath</td>
                     <td>@row.PodcastTitle</td> 
@@ -34,7 +33,7 @@
                     @{
                         string TimezoneId = System.Configuration.ConfigurationManager.AppSettings[System.Threading.Thread.CurrentThread.CurrentCulture.Name];
                         DateTime createdDate = TimeZoneInfo.ConvertTimeBySystemTimeZoneId((DateTime)row.CreatedDate, TimezoneId);
-                        <td>@createdDate</td>
+                        
                     }
                     <td>
                         <button onclick="window.open(

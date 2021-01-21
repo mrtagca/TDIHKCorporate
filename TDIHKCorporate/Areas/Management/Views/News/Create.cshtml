@@ -58,12 +58,6 @@
                 <div id="collapseNewsFeatures" class="collapse show" aria-labelledby="headingOne" data-parent="#NewsFeatures">
                     <div class="card-body">
                         <div>
-                            <label>@Resources.resource.KategoriSeciniz</label>
-                            <select class="form-control" id="NewsCategories" required>
-                            </select>
-                        </div>
-                        <br />
-                        <div>
                             <label>@Resources.resource.SayfaDili</label>
                             <select class="form-control" onchange="GetLanguageToIdentifiers()" id="NewsLanguage" required>
                                 <option value="tr">TR</option>
@@ -71,11 +65,19 @@
                             </select>
                         </div>
                         <br />
-                        @*<div>
-                            <label>Page Identifier</label>
-                            <input type="text" class="form-control" id="NewsIdentifierTxt" placeholder="Enter Identifier" value="" />
+
+                        <div>
+                            <label>@Resources.resource.KategoriSeciniz</label>
+                            <select class="form-control" id="NewsCategories" required>
+                            </select>
                         </div>
-                        <br />*@
+                        <br />
+
+                        @*<div>
+            <label>Page Identifier</label>
+            <input type="text" class="form-control" id="NewsIdentifierTxt" placeholder="Enter Identifier" value="" />
+        </div>
+        <br />*@
                         <div>
                             <label><input type="checkbox" onchange="DisableIdentifierInputs()" id="IdentifierCheckbox" name="name" value="" /> @Resources.resource.IdentifierSec</label>
                             <select class="form-control" id="NewsIdentifierDropdown" disabled="disabled">

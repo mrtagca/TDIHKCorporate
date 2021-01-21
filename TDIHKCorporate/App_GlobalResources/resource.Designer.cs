@@ -169,7 +169,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 5 Mio € kadar (1,200 € / yıl).
+        ///   Looks up a localized string similar to 5 Mio € kadar.
         /// </summary>
         internal static string BesMilyonEuroKadar {
             get {
@@ -300,6 +300,15 @@ namespace Resources {
         internal static string DisTicaretPortali {
             get {
                 return ResourceManager.GetString("DisTicaretPortali", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to (4.800 € / Yıllık).
+        /// </summary>
+        internal static string DortBinSekizYuzEuroYillik {
+            get {
+                return ResourceManager.GetString("DortBinSekizYuzEuroYillik", resourceCulture);
             }
         }
         
@@ -835,6 +844,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to (2.400 €/ Yıllık).
+        /// </summary>
+        internal static string IkiBinDortYuzEuroYillik {
+            get {
+                return ResourceManager.GetString("IkiBinDortYuzEuroYillik", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to İletişim.
         /// </summary>
         internal static string Iletisim {
@@ -1299,6 +1317,15 @@ namespace Resources {
         internal static string OneCikanGorselBelirle {
             get {
                 return ResourceManager.GetString("OneCikanGorselBelirle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to (1,200 € / Yıllık).
+        /// </summary>
+        internal static string OnIkiBinEuroYillik {
+            get {
+                return ResourceManager.GetString("OnIkiBinEuroYillik", resourceCulture);
             }
         }
         

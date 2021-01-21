@@ -13,14 +13,14 @@
     <table id="jobOfferTable" class="table table-hover dataTable" style="width:100%" role="grid" aria-describedby="zero-config_info">
         <thead>
             <tr role="row">
-                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 250px;">@Resources.resource.IsTeklifiID</th>
-                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 250px;">@Resources.resource.FirmaAdi</th>
-                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 250px;">@Resources.resource.Pozisyon</th>
+               
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 150px;">@Resources.resource.FirmaAdi</th>
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 150px;">@Resources.resource.Pozisyon</th>
 
-                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 250px;">@Resources.resource.PozisyonAciklamasi</th>
-                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 250px;">@Resources.resource.Lokasyon</th>
-                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 250px;">@Resources.resource.OlusturulmaTarihi</th>
-                <th style="width: 234px;">@Resources.resource.Eylemler</th>
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 150px;">@Resources.resource.PozisyonAciklamasi</th>
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 150px;">@Resources.resource.Lokasyon</th>
+                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 150px;">@Resources.resource.OlusturulmaTarihi</th>
+                <th style="width: 150px;">@Resources.resource.Eylemler</th>
 
             </tr>
         </thead>
@@ -28,7 +28,6 @@
             @foreach (var row in Model)
             {
             <tr>
-                <td class="sorting_1">@row.JobOfferID</td>
                 <td>@row.CorporationName</td>
                 <td>@row.Position</td>
                 <td>@row.PositionDescription</td>
