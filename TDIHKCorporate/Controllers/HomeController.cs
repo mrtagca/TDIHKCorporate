@@ -357,21 +357,15 @@ where  (EventTitle like '%'+@search+'%' or EventContent like '%'+@search+'%' or 
 
                 if (count > 0)
                 {
-                    eventList = events.GetList(@"SELECT  evc.EventCategoryName,ev.* FROM [Events] ev
-inner join EventCategories evc
-on ev.EventCategoryID = evc.ID
-
-where ev.[Language] = @lang and CONVERT(date,EventDate) >= CONVERT(date,GETDATE()) and ev.IsActive = 1
-order by CONVERT(datetime,CONVERT(nvarchar,EventDate)+' '+CONVERT(nvarchar,EventTime)) desc", new { lang = name }).Take(count).ToList();
+                    eventList = events.GetList(@"select * from [Events]
+                                            where [Language] = @lang and IsActive=1 and convert(date,EventDate) >= convert(date,getdate())
+                                              order by CONVERT(datetime,CONVERT(nvarchar,EventDate)+' '+CONVERT(nvarchar,EventTime))", new { lang = name }).Take(count).ToList();
                 }
                 else
                 {
-                    eventList = events.GetList(@"SELECT  evc.EventCategoryName,ev.* FROM [Events] ev
-inner join EventCategories evc
-on ev.EventCategoryID = evc.ID
-
-where ev.[Language] = @lang and CONVERT(date,EventDate) >= CONVERT(date,GETDATE())  and ev.IsActive = 1
-order by CONVERT(datetime,CONVERT(nvarchar,EventDate)+' '+CONVERT(nvarchar,EventTime)) desc", new { lang = name });
+                    eventList = events.GetList(@"select * from [Events]
+                                            where [Language] = @lang and IsActive=1 and convert(date,EventDate) >= convert(date,getdate())
+                                              order by CONVERT(datetime,CONVERT(nvarchar,EventDate)+' '+CONVERT(nvarchar,EventTime)) desc", new { lang = name });
                 }
 
                 return eventList;

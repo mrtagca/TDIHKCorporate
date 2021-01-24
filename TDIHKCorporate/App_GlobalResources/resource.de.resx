@@ -121,13 +121,13 @@
     <value>Beschreibung</value>
   </data>
   <data name="AktifMi" xml:space="preserve">
-    <value>Ist es aktiv</value>
+    <value>Aktiv</value>
   </data>
   <data name="Almak" xml:space="preserve">
     <value>einnehmen</value>
   </data>
   <data name="Alman" xml:space="preserve">
-    <value>German</value>
+    <value>Deutsch</value>
   </data>
   <data name="AlmanyaYatirimveTicaretRaporu2020" xml:space="preserve">
     <value>GERMANY TRADE AND INVEST REPORT 2020</value>
@@ -136,7 +136,7 @@
     <value>Untermenü</value>
   </data>
   <data name="AnaDizin" xml:space="preserve">
-    <value>Home Verzeichnis</value>
+    <value>Verzeichnis</value>
   </data>
   <data name="Anasayfa" xml:space="preserve">
     <value>Startseite</value>
@@ -148,7 +148,7 @@
     <value>zu den Vorteilen</value>
   </data>
   <data name="Baslik" xml:space="preserve">
-    <value>Kapuze</value>
+    <value>Titel</value>
   </data>
   <data name="BeniHatirla" xml:space="preserve">
     <value>Erinnere dich an mich</value>
@@ -157,7 +157,7 @@
     <value>bis 5 mio. €</value>
   </data>
   <data name="BilgiNotlari" xml:space="preserve">
-    <value>Infoblatter</value>
+    <value>Infoblätter</value>
   </data>
   <data name="BireyselBasvuru" xml:space="preserve">
     <value>als Privatperson</value>
@@ -166,7 +166,7 @@
     <value>Melden Sie sich für unseren Newsletter an um die neusten Nachrichten und Angebote zu erhalten.</value>
   </data>
   <data name="BurayaTiklayarakKabulEdebilirsiniz" xml:space="preserve">
-    <value>Wenn Sie hier klicken, akzeptieren Sie den</value>
+    <value>Wenn Sie hier klicken, akzeptieren Sie die Datenschutzerklärung und die Satzung</value>
   </data>
   <data name="ContactForm" xml:space="preserve">
     <value>Kontaktformular</value>
@@ -181,16 +181,16 @@
     <value>Weiterlesen</value>
   </data>
   <data name="Dashboard" xml:space="preserve">
-    <value>Instrumententafel</value>
+    <value>Dashboard</value>
   </data>
   <data name="DataPolicyApprove" xml:space="preserve">
-    <value>Zustimmung Datenschutzerklärung</value>
+    <value>Zustimmung zur Datenschutzerklärung</value>
   </data>
   <data name="DataPolicyApproveText" xml:space="preserve">
     <value>Ja, ich stimme der Datenschutzerklärung zu</value>
   </data>
   <data name="DataPolicyReadAndApproveText" xml:space="preserve">
-    <value>Veri koruma düzenlemelerini www.tuerkei.ahk.de/datenschutzerklaerung adresinde okudum ve düzenlemeleri kabul ediyorum.</value>
+    <value>Ich habe die Datenschutzbestimmungen unter www.td-ihk.de/seiten/datenschutz-bestimmungen zur Kenntnis genommen und stimme den Regelungen zu.</value>
   </data>
   <data name="Dil" xml:space="preserve">
     <value>Sprache</value>
@@ -208,7 +208,7 @@
     <value>Größe</value>
   </data>
   <data name="DosyaSeciniz" xml:space="preserve">
-    <value>Choose File</value>
+    <value>Datei auswählen</value>
   </data>
   <data name="DosyaTipi" xml:space="preserve">
     <value>Dateityp</value>
@@ -220,7 +220,7 @@
     <value>Erweiterung</value>
   </data>
   <data name="ElektronikImza" xml:space="preserve">
-    <value>Digital Unterschrift</value>
+    <value>Elektonische Unterschrift</value>
   </data>
   <data name="EmailAdres" xml:space="preserve">
     <value>E-mail Adresse</value>
@@ -232,7 +232,7 @@
     <value>Satzung</value>
   </data>
   <data name="Etiketler" xml:space="preserve">
-    <value>Stichworte</value>
+    <value>Tags</value>
   </data>
   <data name="EtkinlikAciklamasi" xml:space="preserve">
     <value>Eventbeschreibung</value>
@@ -244,37 +244,37 @@
     <value>Veranstaltungstitel</value>
   </data>
   <data name="EtkinlikDili" xml:space="preserve">
-    <value>Ereignissprache</value>
+    <value>Eventsprache</value>
   </data>
   <data name="EtkinlikEkle" xml:space="preserve">
-    <value>Ereignis hinzufügen</value>
+    <value>Event hinzufügen</value>
   </data>
   <data name="EtkinlikKategoriEkle" xml:space="preserve">
-    <value>Ereigniskategorie hinzufügen</value>
+    <value>Kategorie hinzufügen</value>
   </data>
   <data name="EtkinlikKayitID" xml:space="preserve">
-    <value>Ereignisregister-ID</value>
+    <value>Event Register ID</value>
   </data>
   <data name="EtkinlikKayitListesi" xml:space="preserve">
-    <value>Ereignisregistrierungsliste</value>
+    <value>Event Registrierung Liste</value>
   </data>
   <data name="EtkinlikKontenjani" xml:space="preserve">
-    <value>Ereignisquote</value>
+    <value>Teilnehmerlimit</value>
   </data>
   <data name="EtkinlikKritikKontenjan" xml:space="preserve">
-    <value>Ereigniskritische Quote</value>
+    <value>Teilnehmer Warnung</value>
   </data>
   <data name="Etkinlikler" xml:space="preserve">
-    <value>Veranstaltungen</value>
+    <value>Events</value>
   </data>
   <data name="Etkinliklerimiz" xml:space="preserve">
-    <value>Veranstaltungen</value>
+    <value>Events</value>
   </data>
   <data name="EtkinlikListesi" xml:space="preserve">
-    <value>Veranstaltungsliste</value>
+    <value>Event Liste</value>
   </data>
   <data name="EtkinlikOzellikleri" xml:space="preserve">
-    <value>Veranstaltungsfunktionen</value>
+    <value>Event Details</value>
   </data>
   <data name="EtkinlikSaati" xml:space="preserve">
     <value>Ereigniszeit</value>
@@ -283,7 +283,7 @@
     <value>Kalender</value>
   </data>
   <data name="EtkinlikTarihi" xml:space="preserve">
-    <value>Veranstaltungsdatum</value>
+    <value>Event Datum</value>
   </data>
   <data name="EvNumarasi" xml:space="preserve">
     <value>Hausnummer</value>
@@ -316,7 +316,7 @@
     <value>Datenschutz</value>
   </data>
   <data name="GizlilikPolitikasi" xml:space="preserve">
-    <value>Datenschutzerklärun</value>
+    <value>Datenschutzerklärung</value>
   </data>
   <data name="Gonder" xml:space="preserve">
     <value>Senden</value>
@@ -337,16 +337,16 @@
     <value>Datum der Aktualisierung</value>
   </data>
   <data name="Guncelleyen" xml:space="preserve">
-    <value>Aktualisierung</value>
+    <value>Aktualisiert von</value>
   </data>
   <data name="HaberAciklamasi" xml:space="preserve">
-    <value>Pressemitteilung</value>
+    <value>Nachrichtenzusammenfassung</value>
   </data>
   <data name="HaberBaslik" xml:space="preserve">
-    <value>Schlagzeile</value>
+    <value>Titel</value>
   </data>
   <data name="HaberDili" xml:space="preserve">
-    <value>Nachrichtensprache</value>
+    <value>Sprache</value>
   </data>
   <data name="HaberEkle" xml:space="preserve">
     <value>Nachrichten hinzufügen</value>
@@ -358,7 +358,7 @@
     <value>Nachrichten ID</value>
   </data>
   <data name="HaberKategoriEkle" xml:space="preserve">
-    <value>Nachrichtenkategorie hinzufügen</value>
+    <value>Kategorie hinzufügen</value>
   </data>
   <data name="Haberler" xml:space="preserve">
     <value>Nachrichten</value>
@@ -376,7 +376,7 @@
     <value>Herzlich Willkommen</value>
   </data>
   <data name="IdentifierSec" xml:space="preserve">
-    <value>Wählen Sie Kennung</value>
+    <value>Wählen Sie eine ID</value>
   </data>
   <data name="IkiBinDortYuzEuroYillik" xml:space="preserve">
     <value>(2.400 €/ Jahr)</value>
@@ -385,7 +385,7 @@
     <value>Kontakt</value>
   </data>
   <data name="IletisimFormu" xml:space="preserve">
-    <value>Kontakt (Formular)</value>
+    <value>Kontakt-Formular</value>
   </data>
   <data name="Isim" xml:space="preserve">
     <value>Vorname</value>
@@ -397,16 +397,16 @@
     <value>Jobangebot bearbeiten</value>
   </data>
   <data name="IsTeklifiEkle" xml:space="preserve">
-    <value>Stellenangebot hinzufügen</value>
+    <value>Jobangebot hinzufügen</value>
   </data>
   <data name="IsTeklifiID" xml:space="preserve">
     <value>Jobangebot ID</value>
   </data>
   <data name="IsTeklifiListesi" xml:space="preserve">
-    <value>Stellenangebotsliste</value>
+    <value>Jobangebotsliste</value>
   </data>
   <data name="IsTeklifiMetin" xml:space="preserve">
-    <value>Geschäftsvorschlag</value>
+    <value>Jobangebote</value>
   </data>
   <data name="IstekListesi" xml:space="preserve">
     <value>Wunschzettel</value>
@@ -427,7 +427,7 @@
     <value>Kategorie Wählen</value>
   </data>
   <data name="Kaydet" xml:space="preserve">
-    <value>Sparen</value>
+    <value>Speichern</value>
   </data>
   <data name="Kaydol" xml:space="preserve">
     <value>Anmelden</value>
@@ -439,7 +439,7 @@
     <value>Registrieren Sie</value>
   </data>
   <data name="Klasor" xml:space="preserve">
-    <value>Mappe</value>
+    <value>Datei</value>
   </data>
   <data name="Kunye" xml:space="preserve">
     <value>Impressum</value>
@@ -448,10 +448,10 @@
     <value>in Vertretung für Unternehmen</value>
   </data>
   <data name="KurumBilgisiDuzenle" xml:space="preserve">
-    <value>Institutionsinfo bearbeiten</value>
+    <value>Meilenstein bearbeiten</value>
   </data>
   <data name="KurumBilgisiOlustur" xml:space="preserve">
-    <value>Institutionsinfo erstellen</value>
+    <value>Meilenstein erstellen</value>
   </data>
   <data name="Login" xml:space="preserve">
     <value>Anmeldung</value>
@@ -472,7 +472,7 @@
     <value>Mail bereits registriert!</value>
   </data>
   <data name="MailListesineEklendi" xml:space="preserve">
-    <value>zur Mailingliste hinzugefügt.</value>
+    <value>Zur Mailingliste hinzugefügt.</value>
   </data>
   <data name="MailListesineEklenemedi" xml:space="preserve">
     <value>Konnte nicht zur Mailingliste hinzugefügt werden!</value>
@@ -481,16 +481,16 @@
     <value>Menüname</value>
   </data>
   <data name="MenuAdiGiriniz" xml:space="preserve">
-    <value>Geben Sie den Menünamen ein</value>
+    <value>Bezeichnung</value>
   </data>
   <data name="MenuDiliSeciniz" xml:space="preserve">
-    <value>Menüsprache auswählen</value>
+    <value>Sprache</value>
   </data>
   <data name="MenuEkle" xml:space="preserve">
-    <value>Menü Hinzufügen</value>
+    <value>Hinzufügen</value>
   </data>
   <data name="MenuElemanEkle" xml:space="preserve">
-    <value>Menüpunkt Hinzufügen</value>
+    <value>Menüpunkt hinzufügen</value>
   </data>
   <data name="MenuElemaniDuzenle" xml:space="preserve">
     <value>Menüelement bearbeiten</value>
@@ -511,10 +511,10 @@
     <value>Menüliste</value>
   </data>
   <data name="MenuSeciniz" xml:space="preserve">
-    <value>Menü wählen</value>
+    <value>Menü</value>
   </data>
   <data name="MenuSirasi" xml:space="preserve">
-    <value>Menüpriorität</value>
+    <value>Reihenfolge</value>
   </data>
   <data name="MenuTip" xml:space="preserve">
     <value>Menütyp</value>
@@ -523,10 +523,10 @@
     <value>Name</value>
   </data>
   <data name="Olusturan" xml:space="preserve">
-    <value>Schöpferin</value>
+    <value>Erstellt von</value>
   </data>
   <data name="OlusturulmaTarihi" xml:space="preserve">
-    <value>Erstellungsdatum</value>
+    <value>Erstelldatum</value>
   </data>
   <data name="OnBinEuroYillik" xml:space="preserve">
     <value>10.000 €/Jahr</value>
@@ -535,7 +535,7 @@
     <value>Ausgewähltes Bild</value>
   </data>
   <data name="OneCikanGorselBelirle" xml:space="preserve">
-    <value>Stellen sie das vorgestellte bild ein</value>
+    <value>Stellen sie das vorgestellte Bild ein</value>
   </data>
   <data name="OnIkiBinEuroYillik" xml:space="preserve">
     <value>(1.200 € / Jahr)</value>
@@ -544,10 +544,10 @@
     <value>Vorschau</value>
   </data>
   <data name="OnKoltugundanBirisiniIsterMisiniz" xml:space="preserve">
-    <value>10 koltuğundan birini almak ister misiniz</value>
+    <value>Möchten Sie einen Sitz der 10 Premium Mitgliedschaften einnehmen?</value>
   </data>
   <data name="OnKoltuktanBirisiniIsterMisiniz" xml:space="preserve">
-    <value>Möchten Sie einen der 10 Sitze der</value>
+    <value>Möchten Sie einen Sitz der zehn Premium Mitgliedschaften einnehmen?</value>
   </data>
   <data name="Ozet" xml:space="preserve">
     <value>Zusammenfassung</value>
@@ -583,7 +583,7 @@
     <value>Podcast Liste</value>
   </data>
   <data name="PostaKodu" xml:space="preserve">
-    <value>PostLeithzahl</value>
+    <value>Postleitzahl</value>
   </data>
   <data name="Pozisyon" xml:space="preserve">
     <value>Position</value>
@@ -640,7 +640,7 @@
     <value>Seite auswählen</value>
   </data>
   <data name="Sec" xml:space="preserve">
-    <value>Wahlen</value>
+    <value>Wählen</value>
   </data>
   <data name="SeoAnahtarKelimeleri" xml:space="preserve">
     <value>SEO-Schlüsselwörter</value>
@@ -649,7 +649,7 @@
     <value>SEO-Einstellungen</value>
   </data>
   <data name="SeoLink" xml:space="preserve">
-    <value>Seo Link</value>
+    <value>SEO-Link</value>
   </data>
   <data name="Sifre" xml:space="preserve">
     <value>Passwort</value>
@@ -661,43 +661,43 @@
     <value>Firma</value>
   </data>
   <data name="Slider" xml:space="preserve">
-    <value>Schieberegler</value>
+    <value>Slider</value>
   </data>
   <data name="SliderAdi" xml:space="preserve">
-    <value>Name des Schiebereglers</value>
+    <value>Bezeichnung</value>
   </data>
   <data name="SliderAlaniSec" xml:space="preserve">
-    <value>Schiebereglerbereich Auswählen</value>
+    <value>Slider Auswählen</value>
   </data>
   <data name="SliderDili" xml:space="preserve">
-    <value>Slider Sprache</value>
+    <value>Sprache</value>
   </data>
   <data name="SliderEkle" xml:space="preserve">
-    <value>Schieberegler Hinzufügen</value>
+    <value>Hinzufügen</value>
   </data>
   <data name="SliderElemanlari" xml:space="preserve">
     <value>Slider Elemente</value>
   </data>
   <data name="SliderGorselYukle" xml:space="preserve">
-    <value>Schiebereglerbild hinzufügen</value>
+    <value>Bild Hinzufügen</value>
   </data>
   <data name="SliderIcerikDuzenle" xml:space="preserve">
-    <value>Schieberegler Inhalt bearbeiten</value>
+    <value>Slider Inhalt bearbeiten</value>
   </data>
   <data name="SliderIcerikEkle" xml:space="preserve">
-    <value>Schiebereglerinhalt Hinzufügen</value>
+    <value>Hinzufügen</value>
   </data>
   <data name="SliderID" xml:space="preserve">
-    <value>Schieberegler ID</value>
+    <value>ID</value>
   </data>
   <data name="SliderListesi" xml:space="preserve">
-    <value>Schiebereglerliste</value>
+    <value>Slider Liste</value>
   </data>
   <data name="SliderSirasi" xml:space="preserve">
-    <value>Schiebereglerpriorität</value>
+    <value>Reihenfolge</value>
   </data>
   <data name="SliderUrl" xml:space="preserve">
-    <value>Schieberegler URL</value>
+    <value>URL</value>
   </data>
   <data name="Sokak" xml:space="preserve">
     <value>Straße</value>
@@ -715,7 +715,7 @@
     <value>Datum</value>
   </data>
   <data name="TaslakOlarakKaydet" xml:space="preserve">
-    <value>Als Entwurf Speichern</value>
+    <value>Als Entwurf speichern</value>
   </data>
   <data name="TavsiyeEdeceginizDigerOdaUyeleri" xml:space="preserve">
     <value>Empfehlung weiterer Kammermitglieder</value>
@@ -739,22 +739,22 @@
     <value>kostenlos</value>
   </data>
   <data name="UstMenuSeciniz" xml:space="preserve">
-    <value>Wählen Sie das Hauptmenü</value>
+    <value>Hauptmenü</value>
   </data>
   <data name="UyeAdres" xml:space="preserve">
     <value>Mitgliedsadresse</value>
   </data>
   <data name="UyeAra" xml:space="preserve">
-    <value>Nach Mitglieder suchen</value>
+    <value>Nach Mitglied suchen</value>
   </data>
   <data name="UyeDuzenle" xml:space="preserve">
     <value>Mitglied bearbeiten</value>
   </data>
   <data name="UyeEkle" xml:space="preserve">
-    <value>Mitglied Hinzufügen</value>
+    <value>Mitglied hinzufügen</value>
   </data>
   <data name="UyeEmail" xml:space="preserve">
-    <value>Mitglieder Email</value>
+    <value>Mitglieds-Email</value>
   </data>
   <data name="UyeID" xml:space="preserve">
     <value>Mitgliedsnummer</value>
@@ -778,7 +778,7 @@
     <value>Mitgliederlogo</value>
   </data>
   <data name="UyeMi" xml:space="preserve">
-    <value>Mitglied?</value>
+    <value>Bereits Mitglied?</value>
   </data>
   <data name="UyeSeciniz" xml:space="preserve">
     <value>Mitglied auswählen</value>
@@ -787,16 +787,16 @@
     <value>Mitgliedstelefon</value>
   </data>
   <data name="UyeUnvan" xml:space="preserve">
-    <value>Mitgliedertitel</value>
+    <value>Name</value>
   </data>
   <data name="UyeWebsite" xml:space="preserve">
-    <value>Mitglieder Website</value>
+    <value>Website</value>
   </data>
   <data name="VeriGizlilik" xml:space="preserve">
-    <value>Datenschutzerklarung</value>
+    <value>Datenschutzerklärung</value>
   </data>
   <data name="VeriIsleme" xml:space="preserve">
-    <value>Informationen dazu, wie TD-IHK mit deinen Daten umgeht, findest du in unserer</value>
+    <value>Informationen dazu, wie TD-IHK mit Ihren Daten umgeht, finden Sie in unserer Datenschutzerklärung.</value>
   </data>
   <data name="VorteilleMetin" xml:space="preserve">
     <value>Erhalten Sie Wirtschaftsinformationen von unserem Partner GTAI. Lernen Sie mehr über die Vorteile einer Mitgliedschaft.</value>
@@ -805,7 +805,7 @@
     <value>Website</value>
   </data>
   <data name="Yalnizca" xml:space="preserve">
-    <value>Nür Noch</value>
+    <value>nur noch</value>
   </data>
   <data name="Yayimla" xml:space="preserve">
     <value>Veröffentlichen</value>
@@ -817,7 +817,7 @@
     <value>Ort</value>
   </data>
   <data name="YerKaldi" xml:space="preserve">
-    <value>Platze Vervügbar</value>
+    <value>Plätze verfügbar</value>
   </data>
   <data name="YerZaman" xml:space="preserve">
     <value>Ort, Datum</value>
@@ -829,7 +829,7 @@
     <value>über 20 Mio. €</value>
   </data>
   <data name="YonetimPaneli" xml:space="preserve">
-    <value>Management Panel</value>
+    <value>Dashboard</value>
   </data>
   <data name="YourMessage" xml:space="preserve">
     <value>Ihre Nachricht an uns</value>

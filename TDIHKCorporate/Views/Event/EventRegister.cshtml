@@ -19,7 +19,7 @@
 
     @Html.Raw(Model.EventContent)
 
-    @if (Convert.ToDateTime(Model.EventDate.ToString("yyyy-MM-dd")) >= Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd")))
+    @if (Convert.ToDateTime(Model.EventDate.ToString("yyyy-MM-dd")) >= Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd")) && !Model.IsOnlineMeeting)
     {
         <section class="uk-section">
             <h1 class="uk-h2 uk-text-center">@Resources.resource.Kayit</h1>
@@ -55,8 +55,7 @@
             </div>
         </section>
     }
-
-    @if (Model.IsOnlineMeeting)
+    else
     {
         <section class="uk-section">
             <h1 class="uk-h2 uk-text-center">@Resources.resource.Kayit</h1>

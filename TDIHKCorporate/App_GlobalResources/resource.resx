@@ -121,7 +121,7 @@
     <value>Açıklama</value>
   </data>
   <data name="AktifMi" xml:space="preserve">
-    <value>Aktif mi</value>
+    <value>Aktif</value>
   </data>
   <data name="Almak" xml:space="preserve">
     <value>almak</value>
@@ -133,7 +133,7 @@
     <value>ALMANYA TİCARET VE YATIRIM RAPORU 2020</value>
   </data>
   <data name="AltMenuMu" xml:space="preserve">
-    <value>Alt Menü mü</value>
+    <value>Alt menü mü?</value>
   </data>
   <data name="AnaDizin" xml:space="preserve">
     <value>Ana dizin</value>
@@ -166,7 +166,7 @@
     <value>En son gelişmelerden ve fırsatlardan haberdar olmak için bültenimize kaydolun.</value>
   </data>
   <data name="BurayaTiklayarakKabulEdebilirsiniz" xml:space="preserve">
-    <value>Buraya tıklayarak kabul edebilirsiniz.</value>
+    <value>Veri Gizliliği ve Tüzük'ü buraya tıklayarak kabul edebilirsiniz.</value>
   </data>
   <data name="ContactForm" xml:space="preserve">
     <value>İletişim Formu</value>
@@ -190,7 +190,7 @@
     <value>Evet, gizlilik politikasını kabul ediyorum</value>
   </data>
   <data name="DataPolicyReadAndApproveText" xml:space="preserve">
-    <value>Ich habe die Datenschutzbestimmungen unter www.tuerkei.ahk.de/datenschutzerklaerung zur Kenntnis genommen und stimme den Regelungen zu.</value>
+    <value>Veri koruma düzenlemelerini www.td-ihk.de/tr/sayfalar/gizlilik-politikasi adresinde okudum ve düzenlemeleri kabul ediyorum.</value>
   </data>
   <data name="Dil" xml:space="preserve">
     <value>Dil</value>
@@ -229,7 +229,7 @@
     <value>Email veya Kullanıcı Adı</value>
   </data>
   <data name="EsasSozlesme" xml:space="preserve">
-    <value>Esas Sözleşme</value>
+    <value>Tüzük</value>
   </data>
   <data name="Etiketler" xml:space="preserve">
     <value>Etiketler</value>
@@ -238,7 +238,7 @@
     <value>Etkinlik Açıklaması</value>
   </data>
   <data name="EtkinlikArsivi" xml:space="preserve">
-    <value>Etkinlik Arşivi</value>
+    <value>Dijital Arşiv</value>
   </data>
   <data name="EtkinlikBasligi" xml:space="preserve">
     <value>Etkinlik Başlığı</value>
@@ -340,7 +340,7 @@
     <value>Güncelleyen</value>
   </data>
   <data name="HaberAciklamasi" xml:space="preserve">
-    <value>Haber Açııklaması</value>
+    <value>Haber Açıklaması</value>
   </data>
   <data name="HaberBaslik" xml:space="preserve">
     <value>Haber Başlık</value>
@@ -358,7 +358,7 @@
     <value>Haber Identifier</value>
   </data>
   <data name="HaberKategoriEkle" xml:space="preserve">
-    <value>Haber Kategori Ekle</value>
+    <value>Kategori Ekle</value>
   </data>
   <data name="Haberler" xml:space="preserve">
     <value>Haberler</value>
@@ -385,7 +385,7 @@
     <value>İletişim</value>
   </data>
   <data name="IletisimFormu" xml:space="preserve">
-    <value>İletişim (Form)</value>
+    <value>İletişim Formu</value>
   </data>
   <data name="Isim" xml:space="preserve">
     <value>İsim</value>
@@ -433,7 +433,7 @@
     <value>Kaydol</value>
   </data>
   <data name="Kayit" xml:space="preserve">
-    <value>Kayit</value>
+    <value>Kayıt</value>
   </data>
   <data name="KayitOl" xml:space="preserve">
     <value>Kayıt Ol</value>
@@ -445,7 +445,7 @@
     <value>Künye</value>
   </data>
   <data name="KurumBasvurusu" xml:space="preserve">
-    <value>Kurum için Başvuru</value>
+    <value>Kurumsal Başvuru</value>
   </data>
   <data name="KurumBilgisiDuzenle" xml:space="preserve">
     <value>Kurum Bilgisi Düzenle</value>
@@ -466,7 +466,7 @@
     <value>Lokasyon</value>
   </data>
   <data name="LutfenSırketLogonuzuBurayaYukleyin" xml:space="preserve">
-    <value>Lütfen Şirket logonuzu buraya yükleyin.</value>
+    <value>Lütfen şirket logonuzu buraya yükleyin.</value>
   </data>
   <data name="MailAdresiKayitli" xml:space="preserve">
     <value>Mail zaten kayıtlı!</value>
@@ -481,7 +481,7 @@
     <value>Menü Adı</value>
   </data>
   <data name="MenuAdiGiriniz" xml:space="preserve">
-    <value>Menü adı giriniz</value>
+    <value>Menü Adı Giriniz</value>
   </data>
   <data name="MenuDiliSeciniz" xml:space="preserve">
     <value>Menü Dili Seçiniz</value>
@@ -493,7 +493,7 @@
     <value>Menü Elemanı Ekle</value>
   </data>
   <data name="MenuElemaniDuzenle" xml:space="preserve">
-    <value>Menü elemanı düzenle</value>
+    <value>Menü Elemanı Düzenle</value>
   </data>
   <data name="MenuElemanListesi" xml:space="preserve">
     <value>Menü Eleman Listesi</value>
@@ -532,7 +532,7 @@
     <value>10.000 € / yıl</value>
   </data>
   <data name="OneCikanGorsel" xml:space="preserve">
-    <value>Öne Çıkan Görsel</value>
+    <value>Öne Çıkan Görsel Belirle</value>
   </data>
   <data name="OneCikanGorselBelirle" xml:space="preserve">
     <value>Öne çıkarılmış görsel belirle</value>
@@ -544,10 +544,10 @@
     <value>Önizleme</value>
   </data>
   <data name="OnKoltugundanBirisiniIsterMisiniz" xml:space="preserve">
-    <value>10 koltuğundan birini almak ister misiniz</value>
+    <value>Premium Üyeliğin 10 koltuğundan birinde yer almak ister misiniz?</value>
   </data>
   <data name="OnKoltuktanBirisiniIsterMisiniz" xml:space="preserve">
-    <value>10 koltuktan birini ister misiniz</value>
+    <value>Premium Üyeliğin 10 koltuğundan birinde yer almak ister misiniz?</value>
   </data>
   <data name="Ozet" xml:space="preserve">
     <value>Özet</value>
@@ -592,7 +592,7 @@
     <value>Pozisyon Açıklaması</value>
   </data>
   <data name="PremiumUyeAvantajlariDetayliBilgi" xml:space="preserve">
-    <value>Üyelik avantajlari hakkinda daha fazla bilgi edinin</value>
+    <value>Üyelik avantajları hakkında daha fazla bilgi edinin</value>
   </data>
   <data name="PremiumUyeler" xml:space="preserve">
     <value>Premium Üyeler</value>
@@ -637,7 +637,7 @@
     <value>Sayfa Özellikleri</value>
   </data>
   <data name="SayfaSeciniz" xml:space="preserve">
-    <value>Sayfa seçiniz</value>
+    <value>Sayfa Seçiniz</value>
   </data>
   <data name="Sec" xml:space="preserve">
     <value>Seç</value>
@@ -721,7 +721,7 @@
     <value>Tavsiye edebileceğiniz üyeler</value>
   </data>
   <data name="TDIHKUyeligineBasvuruyorum" xml:space="preserve">
-    <value>TD-IHK üyeliği için başvuruyorum.</value>
+    <value>Türk-Alman Ticaret ve Sanayi Odası'na üye olmak istiyorum</value>
   </data>
   <data name="Telefon" xml:space="preserve">
     <value>Telefon</value>
@@ -739,7 +739,7 @@
     <value>ücretsizdir</value>
   </data>
   <data name="UstMenuSeciniz" xml:space="preserve">
-    <value>Üst menü seçiniz</value>
+    <value>Üst Menü Seçiniz</value>
   </data>
   <data name="UyeAdres" xml:space="preserve">
     <value>Üye Adres</value>
@@ -778,7 +778,7 @@
     <value>Üye Logo</value>
   </data>
   <data name="UyeMi" xml:space="preserve">
-    <value>Üye mi</value>
+    <value>Üye mi?</value>
   </data>
   <data name="UyeSeciniz" xml:space="preserve">
     <value>Üye Seçiniz</value>
@@ -787,7 +787,7 @@
     <value>Üye Telefon</value>
   </data>
   <data name="UyeUnvan" xml:space="preserve">
-    <value>Üye Unvan</value>
+    <value>Üye Ünvan</value>
   </data>
   <data name="UyeWebsite" xml:space="preserve">
     <value>Üye Website</value>
@@ -796,7 +796,7 @@
     <value>Veri Gizliliği</value>
   </data>
   <data name="VeriIsleme" xml:space="preserve">
-    <value>TD-IHK'nın verilerinizi nasıl işlediğine ilişkin bilgiler aşağıdaki sayfalarda bulunabilir</value>
+    <value>TD-IHK'nın verilerinizi nasıl işlediğine ilişkin bilgiler Veri Gizliliği sayfasında bulunabilir</value>
   </data>
   <data name="VorteilleMetin" xml:space="preserve">
     <value>İş ortağımız GTAI'den iş bilgileri alın. Üyeliğin avantajları hakkında daha fazla bilgi edinin.</value>
@@ -808,16 +808,16 @@
     <value>Yalnızca</value>
   </data>
   <data name="Yayimla" xml:space="preserve">
-    <value>Yayımla</value>
+    <value>Yayınla</value>
   </data>
   <data name="Yayinlarimiz" xml:space="preserve">
-    <value>Yayınlar</value>
+    <value>Yayınlarımız</value>
   </data>
   <data name="Yer" xml:space="preserve">
     <value>Yer</value>
   </data>
   <data name="YerKaldi" xml:space="preserve">
-    <value>Yer Kaldı</value>
+    <value>Yer kaldı</value>
   </data>
   <data name="YerZaman" xml:space="preserve">
     <value>Yer, Zaman</value>
@@ -829,7 +829,7 @@
     <value>20 Mio € üzerinde</value>
   </data>
   <data name="YonetimPaneli" xml:space="preserve">
-    <value>Yonetim Paneli</value>
+    <value>Yönetim Paneli</value>
   </data>
   <data name="YourMessage" xml:space="preserve">
     <value>Mesajınız</value>

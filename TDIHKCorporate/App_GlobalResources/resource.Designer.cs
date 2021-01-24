@@ -70,7 +70,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Aktif mi.
+        ///   Looks up a localized string similar to Aktif.
         /// </summary>
         internal static string AktifMi {
             get {
@@ -106,7 +106,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Alt Menü mü.
+        ///   Looks up a localized string similar to Alt menü mü?.
         /// </summary>
         internal static string AltMenuMu {
             get {
@@ -205,7 +205,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Buraya tıklayarak kabul edebilirsiniz..
+        ///   Looks up a localized string similar to Veri Gizliliği ve Tüzük&apos;ü buraya tıklayarak kabul edebilirsiniz..
         /// </summary>
         internal static string BurayaTiklayarakKabulEdebilirsiniz {
             get {
@@ -277,7 +277,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ich habe die Datenschutzbestimmungen unter www.tuerkei.ahk.de/datenschutzerklaerung zur Kenntnis genommen und stimme den Regelungen zu..
+        ///   Looks up a localized string similar to Veri koruma düzenlemelerini www.td-ihk.de/tr/sayfalar/gizlilik-politikasi adresinde okudum ve düzenlemeleri kabul ediyorum..
         /// </summary>
         internal static string DataPolicyReadAndApproveText {
             get {
@@ -394,7 +394,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Esas Sözleşme.
+        ///   Looks up a localized string similar to Tüzük.
         /// </summary>
         internal static string EsasSozlesme {
             get {
@@ -421,7 +421,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Etkinlik Arşivi.
+        ///   Looks up a localized string similar to Dijital Arşiv.
         /// </summary>
         internal static string EtkinlikArsivi {
             get {
@@ -727,7 +727,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Haber Açııklaması.
+        ///   Looks up a localized string similar to Haber Açıklaması.
         /// </summary>
         internal static string HaberAciklamasi {
             get {
@@ -781,7 +781,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Haber Kategori Ekle.
+        ///   Looks up a localized string similar to Kategori Ekle.
         /// </summary>
         internal static string HaberKategoriEkle {
             get {
@@ -862,7 +862,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to İletişim (Form).
+        ///   Looks up a localized string similar to İletişim Formu.
         /// </summary>
         internal static string IletisimFormu {
             get {
@@ -1006,7 +1006,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Kayit.
+        ///   Looks up a localized string similar to Kayıt.
         /// </summary>
         internal static string Kayit {
             get {
@@ -1042,7 +1042,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Kurum için Başvuru.
+        ///   Looks up a localized string similar to Kurumsal Başvuru.
         /// </summary>
         internal static string KurumBasvurusu {
             get {
@@ -1105,7 +1105,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Lütfen Şirket logonuzu buraya yükleyin..
+        ///   Looks up a localized string similar to Lütfen şirket logonuzu buraya yükleyin..
         /// </summary>
         internal static string LutfenSırketLogonuzuBurayaYukleyin {
             get {
@@ -1150,7 +1150,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Menü adı giriniz.
+        ///   Looks up a localized string similar to Menü Adı Giriniz.
         /// </summary>
         internal static string MenuAdiGiriniz {
             get {
@@ -1186,7 +1186,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Menü elemanı düzenle.
+        ///   Looks up a localized string similar to Menü Elemanı Düzenle.
         /// </summary>
         internal static string MenuElemaniDuzenle {
             get {
@@ -1303,7 +1303,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Öne Çıkan Görsel.
+        ///   Looks up a localized string similar to Öne Çıkan Görsel Belirle.
         /// </summary>
         internal static string OneCikanGorsel {
             get {
@@ -1339,7 +1339,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 10 koltuğundan birini almak ister misiniz.
+        ///   Looks up a localized string similar to Premium Üyeliğin 10 koltuğundan birinde yer almak ister misiniz?.
         /// </summary>
         internal static string OnKoltugundanBirisiniIsterMisiniz {
             get {
@@ -1348,7 +1348,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 10 koltuktan birini ister misiniz.
+        ///   Looks up a localized string similar to Premium Üyeliğin 10 koltuğundan birinde yer almak ister misiniz?.
         /// </summary>
         internal static string OnKoltuktanBirisiniIsterMisiniz {
             get {
@@ -1483,7 +1483,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Üyelik avantajlari hakkinda daha fazla bilgi edinin.
+        ///   Looks up a localized string similar to Üyelik avantajları hakkında daha fazla bilgi edinin.
         /// </summary>
         internal static string PremiumUyeAvantajlariDetayliBilgi {
             get {
@@ -1618,7 +1618,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sayfa seçiniz.
+        ///   Looks up a localized string similar to Sayfa Seçiniz.
         /// </summary>
         internal static string SayfaSeciniz {
             get {
@@ -1870,7 +1870,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TD-IHK üyeliği için başvuruyorum..
+        ///   Looks up a localized string similar to Türk-Alman Ticaret ve Sanayi Odası&apos;na üye olmak istiyorum.
         /// </summary>
         internal static string TDIHKUyeligineBasvuruyorum {
             get {
@@ -1924,7 +1924,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Üst menü seçiniz.
+        ///   Looks up a localized string similar to Üst Menü Seçiniz.
         /// </summary>
         internal static string UstMenuSeciniz {
             get {
@@ -2041,7 +2041,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Üye mi.
+        ///   Looks up a localized string similar to Üye mi?.
         /// </summary>
         internal static string UyeMi {
             get {
@@ -2068,7 +2068,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Üye Unvan.
+        ///   Looks up a localized string similar to Üye Ünvan.
         /// </summary>
         internal static string UyeUnvan {
             get {
@@ -2095,7 +2095,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TD-IHK&apos;nın verilerinizi nasıl işlediğine ilişkin bilgiler aşağıdaki sayfalarda bulunabilir.
+        ///   Looks up a localized string similar to TD-IHK&apos;nın verilerinizi nasıl işlediğine ilişkin bilgiler Veri Gizliliği sayfasında bulunabilir.
         /// </summary>
         internal static string VeriIsleme {
             get {
@@ -2131,7 +2131,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Yayımla.
+        ///   Looks up a localized string similar to Yayınla.
         /// </summary>
         internal static string Yayimla {
             get {
@@ -2140,7 +2140,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Yayınlar.
+        ///   Looks up a localized string similar to Yayınlarımız.
         /// </summary>
         internal static string Yayinlarimiz {
             get {
@@ -2158,7 +2158,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Yer Kaldı.
+        ///   Looks up a localized string similar to Yer kaldı.
         /// </summary>
         internal static string YerKaldi {
             get {
@@ -2194,7 +2194,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Yonetim Paneli.
+        ///   Looks up a localized string similar to Yönetim Paneli.
         /// </summary>
         internal static string YonetimPaneli {
             get {

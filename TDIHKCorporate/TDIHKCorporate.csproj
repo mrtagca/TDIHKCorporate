@@ -4296,6 +4296,7 @@
     <Content Include="Views\Publication\CoronaNews.cshtml" />
     <Content Include="Views\Publication\RealNachrichten.cshtml" />
     <Content Include="Views\Publication\_PartialRealNachrichtenHead.cshtml" />
+    <Content Include="Views\Publication\_PartialCoronaNachrichtenHead.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
