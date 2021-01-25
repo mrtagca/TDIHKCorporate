@@ -10,5 +10,6 @@ namespace TDIHKCorporate.Types
         public string Type { get; set; }
         public string Title { get; set; }
         public string SeoLink { get; set; }
+        public DateTime Date { get; set; }
     }
 }

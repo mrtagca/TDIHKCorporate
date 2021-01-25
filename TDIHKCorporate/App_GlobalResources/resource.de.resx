@@ -249,6 +249,9 @@
   <data name="EtkinlikEkle" xml:space="preserve">
     <value>Event hinzufügen</value>
   </data>
+  <data name="EtkinlikHaberiMi" xml:space="preserve">
+    <value>Veranstaltungsberichte</value>
+  </data>
   <data name="EtkinlikKategoriEkle" xml:space="preserve">
     <value>Kategorie hinzufügen</value>
   </data>
@@ -317,6 +320,9 @@
   </data>
   <data name="GizlilikPolitikasi" xml:space="preserve">
     <value>Datenschutzerklärung</value>
+  </data>
+  <data name="GizlilikPolitikasiveEsasSozlesme" xml:space="preserve">
+    <value>Datenschutzerklärung und Satzung</value>
   </data>
   <data name="Gonder" xml:space="preserve">
     <value>Senden</value>
@@ -548,6 +554,9 @@
   </data>
   <data name="OnKoltuktanBirisiniIsterMisiniz" xml:space="preserve">
     <value>Möchten Sie einen Sitz der zehn Premium Mitgliedschaften einnehmen?</value>
+  </data>
+  <data name="OnlineMeeting" xml:space="preserve">
+    <value>Online Meeting</value>
   </data>
   <data name="Ozet" xml:space="preserve">
     <value>Zusammenfassung</value>

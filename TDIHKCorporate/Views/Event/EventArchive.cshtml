@@ -1,4 +1,4 @@
-﻿@model List<TDIHKCorporate.Types.Events>
+﻿@model List<TDIHKCorporate.Types.SearchItem>
 @using System.Globalization
 
 
@@ -12,8 +12,8 @@
     string lang = cultureInfo.TwoLetterISOLanguageName;
 }
 
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.2/css/uikit.min.css">
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/dataTables.uikit.min.css">
+@*<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.2/css/uikit.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/dataTables.uikit.min.css">*@
 
 
 <script>
@@ -30,11 +30,12 @@
         <!-- Bu div dahil tablonun içinde arşivde istediğimiz verileri döndürebiliriz-->
 
         <div class="uk-overflow-auto">
-            <table id="EventArchive" class="uk-table uk-table-hover uk-table-striped" style="width:100%">
+            <table id="EventArchive" class="uk-table uk-table-hover uk-table-responsive uk-table-divider" style="width:100%">
                 <thead>
                     <tr>
                         <th class="uk-width-small">@Resources.resource.Tarih</th>
                         <th class="uk-width-expand">@Resources.resource.EtkinlikBasligi</th>
+                        <th class="uk-width-expand">Tip</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -42,15 +43,43 @@
                     {
 
                         <tr>
-                            <td>@item.CreatedDate.ToShortDateString()</td>
+                            <td>@item.Date.ToShortDateString()</td>
                             @if (lang == "tr")
                             {
-                                <td class="uk-table-link uk-text-nowrap"><a class="uk-link-reset" href="/tr/etkinlikler/@item.EventSeoLink">@item.EventTitle</a></td>
+                                if (item.Type == "News")
+                                {
+                                    <td class="uk-table-link uk-text-nowrap"><a class="uk-link-reset" href="/tr/haberler/@item.SeoLink">@item.Title</a></td>
+
+                                }
+                                else if (item.Type == "Events")
+                                {
+                                    <td class="uk-table-link uk-text-nowrap"><a class="uk-link-reset" href="/tr/etkinlikler/@item.SeoLink">@item.Title</a></td>
+                                }
                             }
                             else
                             {
-                                <td class="uk-table-link uk-text-nowrap"><a class="uk-link-reset" href="/de/events/@item.EventSeoLink">@item.EventTitle</a></td>
+                                if (item.Type == "News")
+                                {
+                                    <td class="uk-table-link uk-text-nowrap"><a class="uk-link-reset" href="/tr/haberler/@item.SeoLink">@item.Title</a></td>
+
+                                }
+                                else if (item.Type == "Events")
+                                {
+                                    <td class="uk-table-link uk-text-nowrap"><a class="uk-link-reset" href="/de/events/@item.SeoLink">@item.Title</a></td>
+                                }
                             }
+
+
+                            @if (item.Type == "News")
+                            {
+                            <td>@Resources.resource.Haberler</td>
+
+                            }
+                            else if (item.Type == "Events")
+                            {
+                            <td>@Resources.resource.Etkinlikler</td>
+                            }
+
                         </tr>
                     }
                 </tbody>

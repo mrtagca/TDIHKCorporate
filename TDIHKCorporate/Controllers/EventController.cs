@@ -54,7 +54,24 @@ namespace TDIHKCorporate.Controllers
 
         public ActionResult EventArchive()
         {
-            return View(GetLastEvents(0)); //all events
+            CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+
+            string name = cultureInfo.TwoLetterISOLanguageName;
+
+            DapperRepository<SearchItem> searchItemList = new DapperRepository<SearchItem>();
+            List<SearchItem> searchItems = searchItemList.GetList(@"select * from
+                                                (
+                                                SELECT 'News' as [Type],NewsTitle as Title,NewsSeoLink as SeoLink,CreatedDate as [Date] FROM News  (NOLOCK)
+                                                where [Language] = @lang and  IsActive = 1 and CONVERT(date,CreatedDate) < CONVERT(date,GETDATE())
+ 
+                                                union
+
+                                                SELECT 'Events' as [Type],EventTitle as Title,EventSeoLink as SeoLink,CreatedDate as [Date] FROM [Events]  (NOLOCK)
+                                                where [Language] = @lang and  IsActive = 1  and CONVERT(date,EventDate) < CONVERT(date,GETDATE())
+                                                ) as X
+                                                order by X.[Date] desc", new { lang = name });
+
+            return View(searchItems); //all events
         }
 
         public ActionResult EventRegister(string seolink)

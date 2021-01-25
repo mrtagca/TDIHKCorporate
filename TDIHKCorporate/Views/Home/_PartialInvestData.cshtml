@@ -44,7 +44,7 @@
                                 <ul class="uk-nav-default uk-nav-parent-icon" uk-nav>
                                     @foreach (TDIHKCorporate.Types.MenuItems item in Model.Where(x => x.IsSubMenu == false).OrderBy(x => x.MenuItemPriority))
                                     {
-                                        <li class="uk-parent">
+                                        <li class="uk-parent uk-text-large">
                                             @if (item.Language == "tr")
                                             {
 
@@ -63,7 +63,7 @@
                                                 if (Model.Exists(x => x.ParentMenuItemID == item.ID && x.IsSubMenu == true && x.MenuLevel == 1 && x.IsActive == true))
                                                 {
                                                     <ul class="uk-nav-sub">
-                                                        <li class="uk-parent"><a href="/tr/sayfalar/@item.PageSeoLink">@item.MenuName</a></li>
+                                                        @*<li class="uk-parent uk-text-large"><a href="/tr/sayfalar/@item.PageSeoLink">@item.MenuName</a></li>*@
 
                                                         @foreach (var subMenuItem in Model.Where(x => x.ParentMenuItemID == item.ID && x.IsSubMenu == true && x.MenuLevel == 1 && x.IsActive == true).OrderBy(x => x.MenuItemPriority))
                                                         {
@@ -114,7 +114,7 @@
                                                 if (Model.Exists(x => x.ParentMenuItemID == item.ID && x.IsSubMenu == true && x.MenuLevel == 1 && x.IsActive == true))
                                                 {
                                                     <ul class="uk-nav-sub">
-                                                        <li class="uk-parent"><a href="/de/seiten/@item.PageSeoLink">@item.MenuName</a></li>
+                                                        @*<li class="uk-parent uk-text-large"><a href="/de/seiten/@item.PageSeoLink">@item.MenuName</a></li>*@
 
                                                         @foreach (var subMenuItem in Model.Where(x => x.ParentMenuItemID == item.ID && x.IsSubMenu == true && x.MenuLevel == 1 && x.IsActive == true).OrderBy(x => x.MenuItemPriority))
                                                         {

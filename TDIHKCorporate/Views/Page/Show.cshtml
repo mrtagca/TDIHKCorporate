@@ -35,7 +35,7 @@
 {
     <main class="uk-container" uk-scrollspy="cls: uk-animation-fade; target: > section; delay: 100">
 
-        @if (breadCrumbList != null)
+        @if (breadCrumbList != null && breadCrumbList.Count > 0)
         {
             <div class="uk-background-secondary">
                 <ul class="uk-breadcrumb">
@@ -87,7 +87,7 @@ else
     <main class="uk-container" uk-scrollspy="cls: uk-animation-fade; target: > section; delay: 100">
         <!--Sayfa Başlığı-->
 
-        @if (breadCrumbList != null)
+        @if (breadCrumbList != null && breadCrumbList.Count > 0)
         {
 
             <div class="uk-background-secondary">

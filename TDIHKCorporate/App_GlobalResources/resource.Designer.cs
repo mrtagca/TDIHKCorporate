@@ -457,6 +457,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Etkinlik Haberi.
+        /// </summary>
+        internal static string EtkinlikHaberiMi {
+            get {
+                return ResourceManager.GetString("EtkinlikHaberiMi", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Etkinlik Kategori Ekle.
         /// </summary>
         internal static string EtkinlikKategoriEkle {
@@ -660,6 +669,15 @@ namespace Resources {
         internal static string GizlilikPolitikasi {
             get {
                 return ResourceManager.GetString("GizlilikPolitikasi", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gizlilik Politikası ve Esas Sözleşme.
+        /// </summary>
+        internal static string GizlilikPolitikasiveEsasSozlesme {
+            get {
+                return ResourceManager.GetString("GizlilikPolitikasiveEsasSozlesme", resourceCulture);
             }
         }
         
@@ -1353,6 +1371,15 @@ namespace Resources {
         internal static string OnKoltuktanBirisiniIsterMisiniz {
             get {
                 return ResourceManager.GetString("OnKoltuktanBirisiniIsterMisiniz", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Online Meeting.
+        /// </summary>
+        internal static string OnlineMeeting {
+            get {
+                return ResourceManager.GetString("OnlineMeeting", resourceCulture);
             }
         }
         

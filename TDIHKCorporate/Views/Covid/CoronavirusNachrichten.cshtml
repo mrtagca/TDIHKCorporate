@@ -1,10 +1,13 @@
 ﻿@model TDIHKCorporate.Types.Pages
+@using System.Globalization
 @{
     ViewBag.Title = "CoronavirusNachrichten";
     Layout = "~/Views/Shared/_layoutMaster.cshtml";
+    CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+    string lang = cultureInfo.TwoLetterISOLanguageName;
 }
- 
-    
+
+
 
 <main class="uk-container" uk-scrollspy="cls: uk-animation-fade; target: > section; delay: 250">
     @Html.Raw(Model.PageContent)
@@ -43,3 +46,26 @@
         </div>
     </section>
 </main>
+
+<section class="uk-section">
+    <div class="uk-width-1-2@m uk-margin-auto">
+        <div class="uk-form-stacked uk-grid-medium register-form" uk-grid>
+
+            @if (lang == "tr")
+            {
+
+                <div class="uk-width-1-2@s uk-margin-auto">
+                    <a class="uk-button uk-button-primary uk-width-1-1 uk-border-rounded" href="/tr/sayfalar/etkinlik-arsivi">Dijital Arşiv</a>
+                </div>
+            }
+            else
+            {
+                <div class="uk-width-1-2@s uk-margin-auto">
+                    <a class="uk-button uk-button-primary uk-width-1-1 uk-border-rounded" href="/de/seiten/event-archive">Digital Archiv</a>
+                </div>
+
+            }
+
+        </div>
+    </div>
+</section>
