@@ -25,6 +25,8 @@
 
         var isPrivate = document.getElementById("IsPrivate");
 
+        debugger
+
         if (isCorporate.checked === true)
         {
             dataParams.IsCorporate = true; 

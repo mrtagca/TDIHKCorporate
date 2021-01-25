@@ -3,9 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Text;
 using System.Threading;
 using System.Web;
 using System.Web.Mvc;
+using System.Xml;
 using TDIHKCorporate.BaseControllers.MultiLanguage;
 using TDIHKCorporate.Models.Language;
 using TDIHKCorporate.Types;
@@ -157,7 +159,7 @@ where [Language] = @lang and EventIdentifier in (SELECT top 1 EventIdentifier FR
 
                         if (evt != null)
                         {
-                            return Redirect("https://" + Request.UrlReferrer.Authority + "/" + language + "/events/" + evt.EventSeoLink+ "");
+                            return Redirect("https://" + Request.UrlReferrer.Authority + "/" + language + "/events/" + evt.EventSeoLink + "");
                         }
                         else
                         {
@@ -244,7 +246,7 @@ where [Language] = @lang and EventIdentifier in (SELECT top 1 EventIdentifier FR
 
             return View();
         }
-         
+
         public ActionResult SearchForPages(string search)
         {
             ViewBag.SearchText = search;
@@ -413,6 +415,56 @@ where  (EventTitle like '%'+@search+'%' or EventContent like '%'+@search+'%' or 
 
         }
 
-       
+        public ActionResult SiteMap()
+        {
+            DapperRepository<Pages> pages = new DapperRepository<Pages>();
+
+            List<Pages> pageList = pages.GetList(@"select * from Pages (nolock) where IsActive = 1 order by CreatedDate desc", null);
+
+            Response.Clear();
+            //Response.ContentTpye ile bu Action'ın View'ını XML tabanlı olarak ayarlıyoruz.
+            Response.ContentType = "text/xml";
+            XmlTextWriter xr = new XmlTextWriter(Response.OutputStream, Encoding.UTF8);
+            xr.WriteStartDocument();
+            xr.WriteStartElement("urlset");//urlset etiketi açıyoruz
+            xr.WriteAttributeString("xmlns", "http://www.sitemaps.org/schemas/sitemap/0.9");
+            xr.WriteAttributeString("xmlns:xsi", "http://www.w3.org/2001/XMLSchema-instance");
+            xr.WriteAttributeString("xsi:schemaLocation", "http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/siteindex.xsd");
+            /* sitemap dosyamızın olmazsa olmazını ekledik. Şeması bu dedik buraya kadar.  */
+
+            xr.WriteStartElement("url");
+            xr.WriteElementString("loc", Request.Url.Authority);
+            xr.WriteElementString("lastmod", DateTime.Now.ToString("yyyy-MM-dd"));
+            xr.WriteElementString("changefreq", "daily");
+            xr.WriteElementString("priority", "1");
+            xr.WriteEndElement();
+
+            //Burada veritabanımızdaki Personelleri SiteMap'e ekliyoruz.
+
+            foreach (var p in pageList)
+            {
+                xr.WriteStartElement("url");
+                if (p.Language == "tr")
+                {
+                    xr.WriteElementString("loc", Request.Url.Authority + "/tr/sayfalar/" + p.PageSeoLink);
+                }
+                else
+                {
+                    xr.WriteElementString("loc", Request.Url.Authority + "/de/seiten/" + p.PageSeoLink);
+                }
+                xr.WriteElementString("lastmod", p.CreatedDate.ToString("yyyy-MM-dd"));
+                xr.WriteElementString("priority", "1");
+                xr.WriteElementString("changefreq", "monthly");
+                xr.WriteEndElement();
+            }
+
+            xr.WriteEndDocument();
+            //urlset etiketini kapattık
+            xr.Flush();
+            xr.Close();
+            Response.End();
+            return View();
+        }
+
     }
 }

@@ -17,7 +17,13 @@ namespace TDIHKCorporate
             string language = System.Threading.Thread.CurrentThread.CurrentUICulture.Name;
             language = language.Substring(0, 2);
 
-             
+            routes.MapRoute(
+                 name: "SitemapPages",
+                 url: "sitemap-pages",
+                 defaults: new { controller = "Home", action = "SiteMap", id = UrlParameter.Optional },
+                 new[] { "TDIHKCorporate.Controllers" }
+             );
+
 
             #region Anasayfa / Homepage
             routes.MapRoute(
@@ -27,6 +33,8 @@ namespace TDIHKCorporate
                     new[] { "TDIHKCorporate.Controllers" }
                 );
             #endregion
+
+           
 
             #region Home Search / Search
             routes.MapRoute(
@@ -203,8 +211,6 @@ namespace TDIHKCorporate
                  new[] { "TDIHKCorporate.Controllers" }
                 );
             #endregion
-
-           
 
             #region Kalender / Etkinlik Takvimi
             routes.MapRoute(
