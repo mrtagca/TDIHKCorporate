@@ -10,7 +10,7 @@
 
     <section>
         <!--Highlight Event-->
-        <div class="uk-inline uk-width-1-1 uk-margin-small-bottom">
+        <div class="uk-inline uk-width-1-1 uk-margin-small-bottom uk-visible@m">
             <img src="@Model[0].EventImagePath" class="uk-width-1-1 event-banner-height fit-cover" alt="">
             @*<img src="/Content/MainSite/assets/images/kalender/Highlight picture.png" class="uk-width-1-1 event-banner-height fit-cover" alt="">*@
             <div class="uk-overlay kalender-overlay uk-light uk-position-top uk-height-1-1">
@@ -49,6 +49,48 @@
 
 
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="uk-hidden@m uk-margin">
+            <div class="uk-card uk-card-primary">
+                <div class="uk-card-body">
+					<div class="uk-light uk-flex uk-flex-column uk-flex-between">
+						<div>
+							@{
+								CultureInfo cultureInfoMobile = System.Threading.Thread.CurrentThread.CurrentCulture;
+
+								<div class="size-15-m uk-text-light uk-margin-remove">@Model[0].EventDate.ToString("MMM", cultureInfoMobile).ToUpper()</div>
+							}
+							<div class="size-50 line-height-1 uk-margin-medium-bottom">@Model[0].EventDate.Day</div>
+							<div class="size-20">@Model[0].EventTitle</div>
+							@{
+								TimeSpan tsMobile = new TimeSpan(Model[0].EventTime.Hours, Model[0].EventTime.Minutes, Model[0].EventTime.Seconds);
+								<div class="size-20"><span class="uk-icon uk-margin-small-right" uk-icon="icon: icn-clock"></span><span class="size-20">@String.Format("{0:hh\\:mm}", tsMobile)</div>
+							}
+						</div>
+						<div class="uk-width-1-2@m">
+							<h3 class="uk-text-light">@Model[0].EventDescription</h3>
+						</div>
+						<div>
+							@{
+
+								string langMobile = cultureInfo.TwoLetterISOLanguageName;
+
+								if (langMobile == "tr")
+								{
+									<a href="/tr/etkinlikler/@Model[0].EventSeoLink" class="uk-button uk-button-primary uk-border-rounded uk-width-1-1">@Resources.resource.Kayit</a>
+								}
+								else
+								{
+									<a href="/de/events/@Model[0].EventSeoLink" class="uk-button uk-button-primary uk-border-rounded uk-width-1-1">@Resources.resource.Kayit</a>
+								}
+
+							}
+
+
+						</div>
+					</div>
                 </div>
             </div>
         </div>
