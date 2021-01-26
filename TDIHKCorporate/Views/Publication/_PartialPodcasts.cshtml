@@ -13,30 +13,30 @@
                 <div class="uk-width-1-4 uk-width-1-6@s uk-flex uk-flex-middle">
                     <span class="uk-preserve uk-margin-small-left podcast-icon uk-icon uk-icon-button" uk-icon="icon: rss; ratio: 1.5"></span>
                 </div>
-                <div class="uk-width-1-2 uk-width-2-3@s">
+                <div class="uk-width-expand uk-width-1-3@s">
                     <div class="uk-text-large uk-text-truncate line-height-1 uk-text-bold">@item.PodcastTitle</div>
                     <div class="uk-text-small line-height-1">@item.PodcastDescription</div>
                 </div>
 
 
-                <div class="uk-width-1-4 uk-width-1-6@s uk-flex uk-flex-middle">
-                    <a onclick="prev('audio_@item.ID','audioIcon_prev_@item.ID','btnAudio_prev_@item.ID')" id="btnAudio_prev_@item.ID" class="uk-button uk-button-primary uk-border-rounded color-white">
-                        <span class="" id="audioIcon_prev_@item.ID">PREV</span>
+				<div class="uk-width-1-1 uk-width-auto@s uk-flex uk-flex-middle uk-flex-right">
+						<a onclick="prev('audio_@item.ID','audioIcon_prev_@item.ID','btnAudio_prev_@item.ID')" id="btnAudio_prev_@item.ID" class="uk-width-expand uk-width-auto@s uk-flex uk-flex-middle uk-flex-center uk-button uk-button-primary uk-border-rounded color-white" style="height: 42px;">
+							<span class="" id="audioIcon_prev_@item.ID" uk-icon="icon: refresh; ratio: 1.1" style="transform: rotateY(180deg);"></span>
 
-                    </a>
+						</a>
 
-                    &nbsp;
-                    <a onclick="playAudio('audio_@item.ID','audioIcon_play_@item.ID','btnAudio_play_@item.ID')" id="btnAudio_play_@item.ID" class="uk-button uk-button-primary uk-border-rounded color-white">
-                        <span class="" id="audioIcon_play_@item.ID">PLAY</span>
+						&nbsp;
+						<a onclick="playAudio('audio_@item.ID','audioIcon_play_@item.ID','btnAudio_play_@item.ID')" id="btnAudio_play_@item.ID" class="uk-width-small uk-button uk-button-primary uk-border-rounded color-white">
+							<span class="" id="audioIcon_play_@item.ID">PLAY</span>
 
-                    </a>
+						</a>
 
-                    &nbsp;
-                    <a onclick="next('audio_@item.ID','audioIcon_next_@item.ID','btnAudio_next_@item.ID')" id="btnAudio_next_@item.ID" class="uk-button uk-button-primary uk-border-rounded color-white">
-                        <span class="" id="audioIcon_next_@item.ID">NEXT</span>
+						&nbsp;
+						<a onclick="next('audio_@item.ID','audioIcon_next_@item.ID','btnAudio_next_@item.ID')" id="btnAudio_next_@item.ID" class="uk-width-expand uk-width-auto@s uk-flex uk-flex-middle uk-flex-center uk-button uk-button-primary uk-border-rounded color-white" style="height: 42px">
+							<span class="" id="audioIcon_next_@item.ID" uk-icon="icon: refresh; ratio: 1.1"></span>
 
-                    </a>
-                </div>
+						</a>
+				</div>
             </div>
         }
 
