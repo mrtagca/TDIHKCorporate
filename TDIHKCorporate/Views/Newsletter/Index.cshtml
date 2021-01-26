@@ -1,6 +1,10 @@
-﻿
+﻿@using System.Globalization
 @{
     Layout = null;
+
+    CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+
+    string lang = cultureInfo.TwoLetterISOLanguageName;
 }
 
 <script src="~/Scripts/jquery-1.9.1.js"></script>
@@ -11,23 +15,39 @@
             <div class="uk-text-center uk-margin-medium-bottom">@Resources.resource.BultenSonGelismeler</div>
         </section>
         <!--Bülten Aboneliği-->
-		<div class="uk-width-1-2@s uk-margin-auto">
-			<div class="uk-grid uk-child-width-1-1 uk-grid-medium" uk-grid uk-height-match="target: > div > *">
-				<div>
-					<input type="email" id="email" pattern="^[a-zA-Z0-9._+-]+&#64;[a-zA-Z0-9.-]+\.[a-zA-Z]{2,9}$" maxlength="500" name="Email" class="uk-input uk-border-rounded subscription-email" placeholder="E-mail Adresse" required>
-				</div>
-				<div>
-					<a id="SaveNewsletterEmail" class="uk-button uk-button-primary uk-border-rounded uk-width-1-1" href="#">@Resources.resource.Kaydol</a>
-				</div>
-			</div>
-		</div>
+        <div class="uk-width-1-2@s uk-margin-auto">
+            <div class="uk-grid uk-child-width-1-1 uk-grid-medium" uk-grid uk-height-match="target: > div > *">
+                <div>
+                    <input type="email" id="email" pattern="^[a-zA-Z0-9._+-]+&#64;[a-zA-Z0-9.-]+\.[a-zA-Z]{2,9}$" maxlength="500" name="Email" class="uk-input uk-border-rounded subscription-email" placeholder="E-mail Adresse" required>
+                </div>
+                <div>
+                    <a id="SaveNewsletterEmail" class="uk-button uk-button-primary uk-border-rounded uk-width-1-1" href="#">@Resources.resource.Kaydol</a>
+                </div>
+            </div>
+        </div>
         <div>
             <h3>@ViewBag.ErrorNewsletter</h3>
             <h3>@ViewBag.SuccessNewsletter</h3>
         </div>
         <!--Bülten Aboneliği Sonu-->
         <div class="uk-margin-small-top uk-width-1-1 uk-width-1-3@s uk-margin-auto">
-            <p class="uk-text-center uk-text-light" style="font-size: 16px;">@Resources.resource.VeriIsleme <b>@Resources.resource.VeriGizlilik</b></p>
+            @if (lang == "tr")
+            {
+                <p class="uk-text-center uk-text-light" style="font-size: 15px;">
+                    @Resources.resource.VeriIsleme
+                    <b>
+                        <a href="/Content/MainSite/assets/files/DATENSCHUTZ.pdf" class="uk-link-reset" target="_blank"><u>@Resources.resource.VeriGizlilik</u></a>
+                    </b> sayfasında bulunabilir.
+                </p>
+            }
+            else
+            {
+                <p class="uk-text-center uk-text-light" style="font-size: 15px;">
+                    @Resources.resource.VeriIsleme
+                    <a href="/Content/MainSite/assets/files/DATENSCHUTZ.pdf" class="uk-link-reset" target="_blank"><u>@Resources.resource.VeriGizlilik.</u></a>
+
+                </p>
+            }
         </div>
     </div>
 </main>

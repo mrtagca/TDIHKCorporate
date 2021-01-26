@@ -166,7 +166,7 @@
     <value>En son gelişmelerden ve fırsatlardan haberdar olmak için bültenimize kaydolun.</value>
   </data>
   <data name="BurayaTiklayarakKabulEdebilirsiniz" xml:space="preserve">
-    <value>Veri Gizliliği ve Tüzük'ü buraya tıklayarak kabul edebilirsiniz.</value>
+    <value>buraya tıklayarak kabul edebilirsiniz.</value>
   </data>
   <data name="ContactForm" xml:space="preserve">
     <value>İletişim Formu</value>
@@ -550,10 +550,10 @@
     <value>Önizleme</value>
   </data>
   <data name="OnKoltugundanBirisiniIsterMisiniz" xml:space="preserve">
-    <value>Premium Üyeliğin 10 koltuğundan birinde yer almak ister misiniz?</value>
+    <value>10 koltuğundan birinde yer almak ister misiniz?</value>
   </data>
   <data name="OnKoltuktanBirisiniIsterMisiniz" xml:space="preserve">
-    <value>Premium Üyeliğin 10 koltuğundan birinde yer almak ister misiniz?</value>
+    <value>10 koltuğundan birinde yer almak ister misiniz?</value>
   </data>
   <data name="OnlineMeeting" xml:space="preserve">
     <value>Online Meeting</value>
@@ -801,11 +801,14 @@
   <data name="UyeWebsite" xml:space="preserve">
     <value>Üye Website</value>
   </data>
+  <data name="Ve" xml:space="preserve">
+    <value>ve</value>
+  </data>
   <data name="VeriGizlilik" xml:space="preserve">
     <value>Veri Gizliliği</value>
   </data>
   <data name="VeriIsleme" xml:space="preserve">
-    <value>TD-IHK'nın verilerinizi nasıl işlediğine ilişkin bilgiler Veri Gizliliği sayfasında bulunabilir</value>
+    <value>TD-IHK'nın verilerinizi nasıl işlediğine ilişkin bilgiler</value>
   </data>
   <data name="VorteilleMetin" xml:space="preserve">
     <value>İş ortağımız GTAI'den iş bilgileri alın. Üyeliğin avantajları hakkında daha fazla bilgi edinin.</value>

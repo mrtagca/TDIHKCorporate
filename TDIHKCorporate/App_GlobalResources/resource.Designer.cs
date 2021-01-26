@@ -205,7 +205,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Veri Gizliliği ve Tüzük&apos;ü buraya tıklayarak kabul edebilirsiniz..
+        ///   Looks up a localized string similar to buraya tıklayarak kabul edebilirsiniz..
         /// </summary>
         internal static string BurayaTiklayarakKabulEdebilirsiniz {
             get {
@@ -1357,7 +1357,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Premium Üyeliğin 10 koltuğundan birinde yer almak ister misiniz?.
+        ///   Looks up a localized string similar to 10 koltuğundan birinde yer almak ister misiniz?.
         /// </summary>
         internal static string OnKoltugundanBirisiniIsterMisiniz {
             get {
@@ -1366,7 +1366,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Premium Üyeliğin 10 koltuğundan birinde yer almak ister misiniz?.
+        ///   Looks up a localized string similar to 10 koltuğundan birinde yer almak ister misiniz?.
         /// </summary>
         internal static string OnKoltuktanBirisiniIsterMisiniz {
             get {
@@ -2113,6 +2113,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ve.
+        /// </summary>
+        internal static string Ve {
+            get {
+                return ResourceManager.GetString("Ve", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Veri Gizliliği.
         /// </summary>
         internal static string VeriGizlilik {
@@ -2122,7 +2131,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TD-IHK&apos;nın verilerinizi nasıl işlediğine ilişkin bilgiler Veri Gizliliği sayfasında bulunabilir.
+        ///   Looks up a localized string similar to TD-IHK&apos;nın verilerinizi nasıl işlediğine ilişkin bilgiler.
         /// </summary>
         internal static string VeriIsleme {
             get {

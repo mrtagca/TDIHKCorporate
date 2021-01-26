@@ -166,7 +166,7 @@
     <value>Melden Sie sich für unseren Newsletter an um die neusten Nachrichten und Angebote zu erhalten.</value>
   </data>
   <data name="BurayaTiklayarakKabulEdebilirsiniz" xml:space="preserve">
-    <value>Wenn Sie hier klicken, akzeptieren Sie die Datenschutzerklärung und die Satzung</value>
+    <value>Wenn Sie hier klicken, akzeptieren Sie die</value>
   </data>
   <data name="ContactForm" xml:space="preserve">
     <value>Kontaktformular</value>
@@ -442,7 +442,7 @@
     <value>Registrierung</value>
   </data>
   <data name="KayitOl" xml:space="preserve">
-    <value>Registrieren Sie</value>
+    <value>Registrieren</value>
   </data>
   <data name="Klasor" xml:space="preserve">
     <value>Datei</value>
@@ -553,7 +553,7 @@
     <value>Möchten Sie einen Sitz der 10 Premium Mitgliedschaften einnehmen?</value>
   </data>
   <data name="OnKoltuktanBirisiniIsterMisiniz" xml:space="preserve">
-    <value>Möchten Sie einen Sitz der zehn Premium Mitgliedschaften einnehmen?</value>
+    <value>Möchten Sie einen Sitz der zehn</value>
   </data>
   <data name="OnlineMeeting" xml:space="preserve">
     <value>Online Meeting</value>
@@ -801,11 +801,14 @@
   <data name="UyeWebsite" xml:space="preserve">
     <value>Website</value>
   </data>
+  <data name="Ve" xml:space="preserve">
+    <value>und die</value>
+  </data>
   <data name="VeriGizlilik" xml:space="preserve">
     <value>Datenschutzerklärung</value>
   </data>
   <data name="VeriIsleme" xml:space="preserve">
-    <value>Informationen dazu, wie TD-IHK mit Ihren Daten umgeht, finden Sie in unserer Datenschutzerklärung.</value>
+    <value>Informationen dazu, wie TD-IHK mit Ihren Daten umgeht, finden Sie in unserer</value>
   </data>
   <data name="VorteilleMetin" xml:space="preserve">
     <value>Erhalten Sie Wirtschaftsinformationen von unserem Partner GTAI. Lernen Sie mehr über die Vorteile einer Mitgliedschaft.</value>
