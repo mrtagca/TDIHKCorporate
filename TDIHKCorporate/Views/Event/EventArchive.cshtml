@@ -32,11 +32,19 @@
         <div class="uk-overflow-auto">
             <table id="EventArchive" class="uk-table uk-table-hover uk-table-responsive uk-table-divider" style="width:100%">
                 <thead>
-                    <tr>
-                        <th class="uk-width-small">@Resources.resource.Tarih</th>
-                        <th class="uk-width-expand">@Resources.resource.EtkinlikBasligi</th>
-                        <th class="uk-width-expand">Tip</th>
-                    </tr>
+					<tr>
+						<th class="uk-width-small">@Resources.resource.Tarih</th>
+						<th class="uk-width-expand">@Resources.resource.EtkinlikBasligi</th>
+						@if (lang == "tr")
+						{
+							<th class="uk-width-expand">TÜR</th>
+						}
+						else
+						{
+							<th class="uk-width-expand">TYP</th>
+						}
+
+					</tr>
                 </thead>
                 <tbody>
                     @foreach (var item in Model)
@@ -48,24 +56,24 @@
                             {
                                 if (item.Type == "News")
                                 {
-                                    <td class="uk-table-link uk-text-nowrap"><a class="uk-link-reset" href="/tr/haberler/@item.SeoLink">@item.Title</a></td>
+                                    <td class="uk-table-link"><a class="uk-link-reset" href="/tr/haberler/@item.SeoLink">@item.Title</a></td>
 
                                 }
                                 else if (item.Type == "Events")
                                 {
-                                    <td class="uk-table-link uk-text-nowrap"><a class="uk-link-reset" href="/tr/etkinlikler/@item.SeoLink">@item.Title</a></td>
+                                    <td class="uk-table-link"><a class="uk-link-reset" href="/tr/etkinlikler/@item.SeoLink">@item.Title</a></td>
                                 }
                             }
                             else
                             {
                                 if (item.Type == "News")
                                 {
-                                    <td class="uk-table-link uk-text-nowrap"><a class="uk-link-reset" href="/tr/haberler/@item.SeoLink">@item.Title</a></td>
+                                    <td class="uk-table-link"><a class="uk-link-reset" href="/tr/haberler/@item.SeoLink">@item.Title</a></td>
 
                                 }
                                 else if (item.Type == "Events")
                                 {
-                                    <td class="uk-table-link uk-text-nowrap"><a class="uk-link-reset" href="/de/events/@item.SeoLink">@item.Title</a></td>
+                                    <td class="uk-table-link"><a class="uk-link-reset" href="/de/events/@item.SeoLink">@item.Title</a></td>
                                 }
                             }
 

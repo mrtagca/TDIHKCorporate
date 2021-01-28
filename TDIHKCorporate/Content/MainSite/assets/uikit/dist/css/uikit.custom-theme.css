@@ -1214,7 +1214,7 @@ button.uk-icon:not(:disabled) {
  * Link
  */
 .uk-icon-link {
-  color: #142C51;
+  color: #616771;
 }
 .uk-icon-link:hover,
 .uk-icon-link:focus {
@@ -1232,10 +1232,10 @@ button.uk-icon:not(:disabled) {
  */
 .uk-icon-button {
   box-sizing: border-box;
-  width: 36px;
-  height: 36px;
+  width: 45px;
+  height: 45px;
   border-radius: 500px;
-  background: #333;
+  background: #E7E8E9;
   color: #fff;
   vertical-align: middle;
   /* 1 */
@@ -1248,14 +1248,14 @@ button.uk-icon:not(:disabled) {
 /* Hover + Focus */
 .uk-icon-button:hover,
 .uk-icon-button:focus {
-  background-color: #262626;
+  background-color: #dadbdd;
   color: #fff;
   outline: none;
 }
 /* OnClick + Active */
 .uk-icon-button:active,
 .uk-active > .uk-icon-button {
-  background-color: #1a1a1a;
+  background-color: #cccfd1;
   color: #142C51;
 }
 /* ========================================================================
