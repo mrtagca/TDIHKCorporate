@@ -28,11 +28,11 @@ namespace TDIHKCorporate.Types
         public string Email { get; set; }
         [Required]
         public string PhoneNumber { get; set; }
-        [Required]
+        
         public string WebSite { get; set; }
-        [Required]
+        
         public string Fax { get; set; }
-        [Required]
+        
         public string ResponsiblePersonel { get; set; }
         [Required]
         public string PersonelPosition { get; set; }

@@ -54,6 +54,8 @@ namespace TDIHKCorporate.Controllers
         [HttpPost]
         public string StandardMitgliedschaftAntragsformular(MemberShipForm memberShipForm)
         {
+            bool mailResult = false;
+
             try
             {
                 if (ModelState.IsValid)
@@ -72,15 +74,50 @@ namespace TDIHKCorporate.Controllers
 
                     //Mail Gönderme methodu
                     MailSender mailSender = new MailSender("MemberShip");
-                    mailSender.SendMailStandardMembership(memberShipForm, lang);
+                    mailResult = mailSender.SendMailStandardMembership(memberShipForm, lang);
 
                 }
 
-                return JsonConvert.SerializeObject(true);
+                return JsonConvert.SerializeObject(mailResult);
             }
             catch (Exception ex)
             {
                 return JsonConvert.SerializeObject(false);
+            }
+        }
+
+        [HttpPost]
+        public string StandardMitgliedschaftAntragsformularTest(MemberShipForm memberShipForm)
+        {
+            string mailResult = "";
+
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    DapperRepository<MemberShipForm> memberRepo = new DapperRepository<MemberShipForm>();
+                    memberShipForm.CreatedDate = DateTime.Now;
+                    memberShipForm.IPAdress = Request.UserHostAddress;
+
+
+
+                    int result = memberRepo.Execute(@"insert into MemberShipForm  ([IPAdress],[IsCorporate],[MemberType],[Name],[Street],[HomePhone],[PostalCode],[City],[Email],[PhoneNumber],[WebSite],[Fax],[ResponsiblePersonel],[PersonelPosition],[CorporationIncome],[CorporationLogoPath],[MemberSuggestion1],[MemberSuggestion2],[MemberSuggestion3],[SuggestionInfo],[SuggestionLocationAndTime],[CreatedDate]) values (@IPAdress,@IsCorporate,@MemberType,@Name,@Street,@HomePhone,@PostalCode,@City,@Email,@PhoneNumber,@WebSite,@Fax,@ResponsiblePersonel,@PersonelPosition,@CorporationIncome,@CorporationLogoPath,@MemberSuggestion1,@MemberSuggestion2,@MemberSuggestion3,@SuggestionInfo,@SuggestionLocationAndTime,@CreatedDate)", memberShipForm);
+
+
+                    CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+                    string lang = cultureInfo.TwoLetterISOLanguageName;
+
+                    //Mail Gönderme methodu
+                    MailSender mailSender = new MailSender("MemberShip");
+                    mailResult = mailSender.SendMailStandardMembershipTest(memberShipForm, lang);
+
+                }
+
+                return JsonConvert.SerializeObject(mailResult);
+            }
+            catch (Exception ex)
+            {
+                return JsonConvert.SerializeObject(ex.Message);
             }
         }
 

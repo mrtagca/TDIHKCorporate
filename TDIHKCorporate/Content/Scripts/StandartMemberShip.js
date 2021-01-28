@@ -165,12 +165,13 @@
         dataParams.SuggestionLocationAndTime = document.getElementById("LocationAndTime").value;
 
         var callParams = {
-            endPoint: "/MemberShip/StandardMitgliedschaftAntragsformular",
+            endPoint: "/MemberShip/StandardMitgliedschaftAntragsformularTest",
             requestType: "POST"
         }
 
         RequestAjax(callParams, dataParams, function (response) {
             response = JSON.parse(response);
+
 
             if (response === true) {
 
