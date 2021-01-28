@@ -1,7 +1,10 @@
-﻿
+﻿@using System.Globalization
+
 @{
     ViewBag.Title = "PremiumMitgliedschaftAntragsformular";
     Layout = "~/Views/Shared/_layoutMaster.cshtml";
+    CultureInfo ci = System.Threading.Thread.CurrentThread.CurrentCulture;
+    string lang = ci.TwoLetterISOLanguageName;
 }
 
 <script src="~/Content/Scripts/PremiumMembership.js"></script>
@@ -11,7 +14,6 @@
     <section class="uk-margin-medium-top">
         <div class="uk-text-center">
             <div class="uk-h2">@Resources.resource.UyelikBasvurusu</div>
-            <p>Lorem ipsum dolor sit amet</p>
         </div>
     </section>
     <section class="uk-section">
@@ -70,17 +72,17 @@
             </div>
             <div class="uk-margin uk-width-1-2@s">
                 <div class="uk-form-controls">
-                    <input class="uk-input" id="WebSite" type="text" placeholder="@Resources.resource.Website*" required>
+                    <input class="uk-input" id="WebSite" type="text" placeholder="@Resources.resource.Website">
                 </div>
             </div>
             <div class="uk-margin uk-width-1-2@s">
                 <div class="uk-form-controls">
-                    <input class="uk-input" id="Fax" onkeypress="validateNumber(event)" type="tel" placeholder="@Resources.resource.Fax*" required>
+                    <input class="uk-input" id="Fax" onkeypress="validateNumber(event)" type="tel" placeholder="@Resources.resource.Fax">
                 </div>
             </div>
             <div class="uk-margin uk-width-1-2@s">
                 <div class="uk-form-controls">
-                    <input class="uk-input" id="ResponsiblePersonel" onkeypress="validateOnlyText(event)" type="text" placeholder="@Resources.resource.Temsilci*" required>
+                    <input class="uk-input" id="ResponsiblePersonel" onkeypress="validateOnlyText(event)" type="text" placeholder="@Resources.resource.Temsilci">
                 </div>
             </div>
             <div class="uk-margin uk-width-1-2@s">
@@ -98,9 +100,9 @@
 
 
             @*<div class="uk-margin label-font-size">
-            <div>@Resources.resource.PremiumUyelikUcreti</div>
-            <div>@Resources.resource.OnBinEuroYillik</div>
-        </div>*@
+                    <div>@Resources.resource.PremiumUyelikUcreti</div>
+                    <div>@Resources.resource.OnBinEuroYillik</div>
+                </div>*@
 
             <div class="uk-text-large">@Resources.resource.LutfenSırketLogonuzuBurayaYukleyin</div>
             <div class="uk-margin">
@@ -183,6 +185,9 @@
     </section>
 </main>
 <script type="text/javascript">
+
+    var lang = '@lang';
+
     $("#IsCorporate").change(function () {
 
         document.getElementById("Name").setAttribute("placeholder", "Firma*");
@@ -190,7 +195,13 @@
 
     $("#IsPrivate").change(function () {
 
-        document.getElementById("Name").setAttribute("placeholder", "Name der Person*");
+        if (lang === 'tr') {
+            document.getElementById("Name").setAttribute("placeholder", "İsim*");
+        }
+        else {
+            document.getElementById("Name").setAttribute("placeholder", "Name*");
+        }
+
     });
 
     $('#FileUpload').change(function (event) {

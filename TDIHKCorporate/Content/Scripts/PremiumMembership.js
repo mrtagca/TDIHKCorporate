@@ -112,34 +112,13 @@
         }
 
         var webSite = document.getElementById("WebSite");
-
-        if (webSite.value === null || webSite.value === '' || typeof (webSite.value) === 'undefined') {
-            alert(webSite.getAttribute("placeholder") + " cannot be null!");
-            return;
-        }
-        else {
-            dataParams.WebSite = webSite.value;
-        }
+        dataParams.WebSite = webSite.value;
 
         var fax = document.getElementById("Fax");
-
-        if (fax.value === null || fax.value === '' || typeof (fax.value) === 'undefined') {
-            alert(fax.getAttribute("placeholder") + " cannot be null!");
-            return;
-        }
-        else {
-            dataParams.Fax = fax.value;
-        }
+        dataParams.Fax = fax.value;
 
         var responsiblePersonel = document.getElementById("ResponsiblePersonel");
-
-        if (responsiblePersonel.value === null || responsiblePersonel.value === '' || typeof (responsiblePersonel.value) === 'undefined') {
-            alert(responsiblePersonel.getAttribute("placeholder") + " cannot be null!");
-            return;
-        }
-        else {
-            dataParams.ResponsiblePersonel = responsiblePersonel.value;
-        }
+        dataParams.ResponsiblePersonel = responsiblePersonel.value;
 
         var personelPosition = document.getElementById("PersonelPosition");
 

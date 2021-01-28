@@ -173,7 +173,7 @@ where [Language] = @lang and EventIdentifier in (SELECT top 1 EventIdentifier FR
                 }
                 #endregion
 
-                if (url.Contains("mitgliedschaft") || url.Contains("uyelik"))
+                if (url.Contains("mitgliedschaft/standard") || url.Contains("uyelik/standart"))
                 {
                     if (language == "tr") //change tr
                     {
@@ -182,6 +182,18 @@ where [Language] = @lang and EventIdentifier in (SELECT top 1 EventIdentifier FR
                     else
                     {
                         return Redirect("https://" + Request.UrlReferrer.Authority + "/de/mitgliedschaft/standard-mitgliedschaft-form");
+                    }
+                }
+
+                if (url.Contains("mitgliedschaft/premium") || url.Contains("uyelik/premium"))
+                {
+                    if (language == "tr") //change tr
+                    {
+                        return Redirect("https://" + Request.UrlReferrer.Authority + "/tr/uyelik/premium-uyelik-formu");
+                    }
+                    else
+                    {
+                        return Redirect("https://" + Request.UrlReferrer.Authority + "/de/mitgliedschaft/premium-mitgliedschaft-form");
                     }
                 }
             }

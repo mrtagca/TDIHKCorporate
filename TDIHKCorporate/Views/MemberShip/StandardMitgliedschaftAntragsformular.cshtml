@@ -22,7 +22,7 @@
 
 
 
-<main  class="uk-container">
+<main class="uk-container">
 
     <section id="StandardForm" class="uk-section">
 
@@ -84,17 +84,17 @@
             </div>
             <div class="uk-margin uk-width-1-2@s">
                 <div class="uk-form-controls">
-                    <input class="uk-input" id="WebSite" placeholder="@Resources.resource.Website*" type="text" required>
+                    <input class="uk-input" id="WebSite" placeholder="@Resources.resource.Website" type="text">
                 </div>
             </div>
             <div class="uk-margin uk-width-1-2@s">
                 <div class="uk-form-controls">
-                    <input class="uk-input" id="Fax" onkeypress="validateNumber(event)" type="tel" placeholder="@Resources.resource.Fax*" required>
+                    <input class="uk-input" id="Fax" onkeypress="validateNumber(event)" type="tel" placeholder="@Resources.resource.Fax">
                 </div>
             </div>
             <div class="uk-margin uk-width-1-2@s">
                 <div class="uk-form-controls">
-                    <input class="uk-input" id="ResponsiblePersonel" onkeypress="validateOnlyText(event)" type="text" placeholder="@Resources.resource.Temsilci*" required>
+                    <input class="uk-input" id="ResponsiblePersonel" onkeypress="validateOnlyText(event)" type="text" placeholder="@Resources.resource.Temsilci">
                 </div>
             </div>
             <div class="uk-margin uk-width-1-2@s">
@@ -116,13 +116,13 @@
             </div>
 
             @*<div class="uk-margin">
-				<div class="uk-h4">Höhe des Umsatzes* (Yıllık ciro)</div>
-				<ul class="uk-list uk-list-hyphen">
-					<li>bis 5 Mio. € (5 Mio. €'ya kadar) - 1.200 €/Jahr (1.200 €/Yıllık)</li>
-					<li>bis 20 Mio. € (20 Mio. €'ya kadar) - 2.400 €/Jahr (2.400 €/Yıllık)</li>
-					<li>über 20 Mio. € (20 Mio. € üzeri) - 4.800 €/Jahr (4.800 €/Yıllık)</li>
-				</ul>
-            </div>*@
+                    <div class="uk-h4">Höhe des Umsatzes* (Yıllık ciro)</div>
+                    <ul class="uk-list uk-list-hyphen">
+                        <li>bis 5 Mio. € (5 Mio. €'ya kadar) - 1.200 €/Jahr (1.200 €/Yıllık)</li>
+                        <li>bis 20 Mio. € (20 Mio. €'ya kadar) - 2.400 €/Jahr (2.400 €/Yıllık)</li>
+                        <li>über 20 Mio. € (20 Mio. € üzeri) - 4.800 €/Jahr (4.800 €/Yıllık)</li>
+                    </ul>
+                </div>*@
 
             @if (lang == "tr")
             {
@@ -292,6 +292,9 @@
 
 
 <script type="text/javascript">
+
+    var lang = '@lang';
+
     $("#IsCorporate").change(function () {
 
         document.getElementById("Name").setAttribute("placeholder", "Firma*");
@@ -302,7 +305,16 @@
 
     $("#IsPrivate").change(function () {
 
-        document.getElementById("Name").setAttribute("placeholder", "Name*");
+
+
+        if (lang==='tr') {
+            document.getElementById("Name").setAttribute("placeholder", "İsim*");
+        }
+        else {
+            document.getElementById("Name").setAttribute("placeholder", "Name*");
+        }
+
+
         document.getElementById("WebSite").removeAttribute("required");
         document.getElementById("WebSite").setAttribute("placeholder", "Website");
 
@@ -355,7 +367,7 @@
         pdf.addHTML($("StandardForm"), options, function () {
             pdf.save('pageContent.pdf');
         });
-         
+
 
     });
 </script>
