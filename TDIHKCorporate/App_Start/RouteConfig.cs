@@ -281,7 +281,7 @@ namespace TDIHKCorporate
             #region Events Nachrichten / Etkinlik Haberler
             routes.MapRoute(
                     name: "NewsGerman",
-                    url: "{lang}/seiten/events-nachrichten/",
+                    url: "{lang}/seiten/veranstaltungsberichte/",
                     defaults: new { controller = "Publication", action = "Nachrichten", lang = language },
                  new[] { "TDIHKCorporate.Controllers" }
                 );
