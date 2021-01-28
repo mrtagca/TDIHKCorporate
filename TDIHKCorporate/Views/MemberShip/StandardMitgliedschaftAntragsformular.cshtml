@@ -30,261 +30,258 @@
             <div class="uk-h2">@Resources.resource.UyelikBasvurusu</div>
         </div>
 
-        <div id="StandardForm" class="uk-form-stacked uk-child-width-1-1 uk-width-3-4@s uk-margin-auto msa-form uk-box-shadow-medium uk-grid uk-grid-small" uk-grid>
-            <div>
-                <div class="uk-margin">
-                    <div class="uk-text-large">@Resources.resource.TDIHKUyeligineBasvuruyorum</div>
-                </div>
-            </div>
+		<div id="StandardForm" class="uk-form-stacked uk-child-width-1-1 uk-width-3-4@s uk-margin-auto msa-form uk-box-shadow-medium uk-grid uk-grid-small" uk-grid>
+			<div>
+				<div class="uk-margin">
+					<div class="uk-text-large">@Resources.resource.TDIHKUyeligineBasvuruyorum</div>
+				</div>
+			</div>
 
-            <div id="MemberTypeArea" class="uk-margin">
-                <div class="uk-form-label uk-hidden">Radio</div>
-                <div class="uk-form-controls  label-font-size uk-text-large">
-                    <label>
-                        <input class="uk-checkbox" type="radio" name="radio1" id="IsCorporate">@Resources.resource.KurumBasvurusu
-                    </label>
-                    <label><input class="uk-checkbox" type="radio" name="radio1" id="IsPrivate">@Resources.resource.BireyselBasvuru</label>
-                </div>
-            </div>
+			<div id="MemberTypeArea" class="uk-margin">
+				<div class="uk-form-label uk-hidden">Radio</div>
+				<div class="uk-form-controls  label-font-size uk-text-large">
+					<label>
+						<input class="uk-checkbox" type="radio" name="radio1" id="IsCorporate">@Resources.resource.KurumBasvurusu
+					</label>
+					<label><input class="uk-checkbox" type="radio" name="radio1" id="IsPrivate">@Resources.resource.BireyselBasvuru</label>
+				</div>
+			</div>
 
-            <div class="uk-margin">
-                <div class="uk-form-controls">
-                    <input class="uk-input" name="Name" id="Name" onkeypress="validateText(event)" type="text" placeholder="@Resources.resource.FirmaAdi*" required>
-                </div>
-            </div>
-            <div class="uk-margin uk-width-1-2@s">
-                <div class="uk-form-controls">
-                    <input class="uk-input" id="Street" onkeypress="validateText(event)" type="text" placeholder="@Resources.resource.Sokak*" required>
-                </div>
-            </div>
-            <div class="uk-margin uk-width-1-2@s">
-                <div class="uk-form-controls">
-                    <input class="uk-input" id="HomePhone" onkeypress="validateNumber(event)" type="text" placeholder="@Resources.resource.EvNumarasi*" required>
-                </div>
-            </div>
-            <div class="uk-margin uk-width-1-2@s">
-                <div class="uk-form-controls">
-                    <input class="uk-input" id="PostalCode" onkeypress="validateNumber(event)" type="text" placeholder="@Resources.resource.PostaKodu*" required>
-                </div>
-            </div>
-            <div class="uk-margin uk-width-1-2@s">
-                <div class="uk-form-controls">
-                    <input class="uk-input" id="City" onkeypress="validateOnlyText(event)" type="text" placeholder="@Resources.resource.Yer*" required>
-                </div>
-            </div>
-            <div class="uk-margin uk-width-1-2@s">
-                <div class="uk-form-controls">
-                    <input class="uk-input" id="Email" pattern="^[a-zA-Z0-9._+-]+&#64;[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$" type="email" placeholder="@Resources.resource.EmailAdres*" required>
-                </div>
-            </div>
-            <div class="uk-margin uk-width-1-2@s">
-                <div class="uk-form-controls">
-                    <input class="uk-input" id="PhoneNumber" onkeypress="validateNumber(event)" type="tel" placeholder="@Resources.resource.Telefon*" required>
-                </div>
-            </div>
-            <div class="uk-margin uk-width-1-2@s">
-                <div class="uk-form-controls">
-                    <input class="uk-input" id="WebSite" placeholder="@Resources.resource.Website" type="text">
-                </div>
-            </div>
-            <div class="uk-margin uk-width-1-2@s">
-                <div class="uk-form-controls">
-                    <input class="uk-input" id="Fax" onkeypress="validateNumber(event)" type="tel" placeholder="@Resources.resource.Fax">
-                </div>
-            </div>
-            <div class="uk-margin uk-width-1-2@s">
-                <div class="uk-form-controls">
-                    <input class="uk-input" id="ResponsiblePersonel" onkeypress="validateOnlyText(event)" type="text" placeholder="@Resources.resource.Temsilci">
-                </div>
-            </div>
-            <div class="uk-margin uk-width-1-2@s">
-                <div class="uk-form-controls">
-                    <input class="uk-input" id="PersonelPosition" onkeypress="validateOnlyText(event)" type="text" placeholder="@Resources.resource.Pozisyon*" required>
-                </div>
-            </div>
-            <div id="MemberPacketArea" class="uk-margin">
-                <div class="uk-form-controls uk-flex uk-flex-between label-font-size uk-text-large">
-                    <label style="text-align:center"><input class="uk-checkbox" type="radio" name="radio2" value="bis 5 mio. € (1.200 €/Jahr)" id="MemberPacket1" checked>@Resources.resource.BesMilyonEuroKadar <br /><span>@Resources.resource.OnIkiBinEuroYillik</span></label>
-                    <label><input class="uk-checkbox" type="radio" name="radio2" value="bis 20 mio. €" id="MemberPacket2">@Resources.resource.YirmiMilyonEuroKadar<br /><span>@Resources.resource.IkiBinDortYuzEuroYillik</span></label>
-                    <label><input class="uk-checkbox" type="radio" name="radio2" value="über 20 Mio. €" id="MemberPacket3">@Resources.resource.YirmiMilyonEuroUzerinde<br /><span>@Resources.resource.DortBinSekizYuzEuroYillik</span></label>
-                </div>
+			<div class="uk-margin">
+				<div class="uk-form-controls">
+					<input class="uk-input" name="Name" id="Name" onkeypress="validateText(event)" type="text" placeholder="@Resources.resource.FirmaAdi*" required>
+				</div>
+			</div>
+			<div class="uk-margin uk-width-1-2@s">
+				<div class="uk-form-controls">
+					<input class="uk-input" id="Street" onkeypress="validateText(event)" type="text" placeholder="@Resources.resource.Sokak*" required>
+				</div>
+			</div>
+			<div class="uk-margin uk-width-1-2@s">
+				<div class="uk-form-controls">
+					<input class="uk-input" id="HomePhone" onkeypress="validateNumber(event)" type="text" placeholder="@Resources.resource.EvNumarasi*" required>
+				</div>
+			</div>
+			<div class="uk-margin uk-width-1-2@s">
+				<div class="uk-form-controls">
+					<input class="uk-input" id="PostalCode" onkeypress="validateNumber(event)" type="text" placeholder="@Resources.resource.PostaKodu*" required>
+				</div>
+			</div>
+			<div class="uk-margin uk-width-1-2@s">
+				<div class="uk-form-controls">
+					<input class="uk-input" id="City" onkeypress="validateOnlyText(event)" type="text" placeholder="@Resources.resource.Yer*" required>
+				</div>
+			</div>
+			<div class="uk-margin uk-width-1-2@s">
+				<div class="uk-form-controls">
+					<input class="uk-input" id="Email" pattern="^[a-zA-Z0-9._+-]+&#64;[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$" type="email" placeholder="@Resources.resource.EmailAdres*" required>
+				</div>
+			</div>
+			<div class="uk-margin uk-width-1-2@s">
+				<div class="uk-form-controls">
+					<input class="uk-input" id="PhoneNumber" onkeypress="validateNumber(event)" type="tel" placeholder="@Resources.resource.Telefon*" required>
+				</div>
+			</div>
+			<div class="uk-margin uk-width-1-2@s">
+				<div class="uk-form-controls">
+					<input class="uk-input" id="WebSite" placeholder="@Resources.resource.Website" type="text">
+				</div>
+			</div>
+			<div class="uk-margin uk-width-1-2@s">
+				<div class="uk-form-controls">
+					<input class="uk-input" id="Fax" onkeypress="validateNumber(event)" type="tel" placeholder="@Resources.resource.Fax">
+				</div>
+			</div>
+			<div class="uk-margin uk-width-1-2@s">
+				<div class="uk-form-controls">
+					<input class="uk-input" id="ResponsiblePersonel" onkeypress="validateOnlyText(event)" type="text" placeholder="@Resources.resource.Temsilci">
+				</div>
+			</div>
+			<div class="uk-margin uk-width-1-2@s">
+				<div class="uk-form-controls">
+					<input class="uk-input" id="PersonelPosition" onkeypress="validateOnlyText(event)" type="text" placeholder="@Resources.resource.Pozisyon*" required>
+				</div>
+			</div>
+			<div id="MemberPacketArea" class="uk-margin">
+				<div class="uk-form-controls uk-flex uk-flex-between label-font-size uk-text-large">
+					<label style="text-align:center"><input class="uk-checkbox" type="radio" name="radio2" value="bis 5 mio. € (1.200 €/Jahr)" id="MemberPacket1" checked>@Resources.resource.BesMilyonEuroKadar <br /><span>@Resources.resource.OnIkiBinEuroYillik</span></label>
+					<label><input class="uk-checkbox" type="radio" name="radio2" value="bis 20 mio. €" id="MemberPacket2">@Resources.resource.YirmiMilyonEuroKadar<br /><span>@Resources.resource.IkiBinDortYuzEuroYillik</span></label>
+					<label><input class="uk-checkbox" type="radio" name="radio2" value="über 20 Mio. €" id="MemberPacket3">@Resources.resource.YirmiMilyonEuroUzerinde<br /><span>@Resources.resource.DortBinSekizYuzEuroYillik</span></label>
+				</div>
 
-                @*<div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
-                        <label><input class="uk-radio" type="radio" name="radio2" id="MemberPacket1" checked>@Resources.resource.BesMilyonEuroKadar</label>
-                        <label><input class="uk-radio" type="radio" name="radio2"> B</label>
-                    </div>*@
-            </div>
+				@*<div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
+				<label><input class="uk-radio" type="radio" name="radio2" id="MemberPacket1" checked>@Resources.resource.BesMilyonEuroKadar</label>
+				<label><input class="uk-radio" type="radio" name="radio2"> B</label>
+			</div>*@
+			</div>
 
-            @*<div class="uk-margin">
-                    <div class="uk-h4">Höhe des Umsatzes* (Yıllık ciro)</div>
-                    <ul class="uk-list uk-list-hyphen">
-                        <li>bis 5 Mio. € (5 Mio. €'ya kadar) - 1.200 €/Jahr (1.200 €/Yıllık)</li>
-                        <li>bis 20 Mio. € (20 Mio. €'ya kadar) - 2.400 €/Jahr (2.400 €/Yıllık)</li>
-                        <li>über 20 Mio. € (20 Mio. € üzeri) - 4.800 €/Jahr (4.800 €/Yıllık)</li>
-                    </ul>
-                </div>*@
+			@*<div class="uk-margin">
+			<div class="uk-h4">Höhe des Umsatzes* (Yıllık ciro)</div>
+			<ul class="uk-list uk-list-hyphen">
+				<li>bis 5 Mio. € (5 Mio. €'ya kadar) - 1.200 €/Jahr (1.200 €/Yıllık)</li>
+				<li>bis 20 Mio. € (20 Mio. €'ya kadar) - 2.400 €/Jahr (2.400 €/Yıllık)</li>
+				<li>über 20 Mio. € (20 Mio. € üzeri) - 4.800 €/Jahr (4.800 €/Yıllık)</li>
+			</ul>
+		</div>*@
 
-            @if (lang == "tr")
-            {
-                <div class="uk-margin">
-                    <a target="_blank" href="/tr/sayfalar/premium-uyelik" class="uk-button uk-button-default premium-form-btn uk-width-1-1"><u>@Resources.resource.PremiumUyeligin</u> @Resources.resource.OnKoltugundanBirisiniIsterMisiniz</a>
-                </div>
-                <div class="uk-text-large">@Resources.resource.LutfenSırketLogonuzuBurayaYukleyin</div>
-                <div class="uk-margin">
-                    <div uk-form-custom>
-                        <input id="FileUpload" name="file" image-path="" accept="image/x-png,image/gif,image/jpeg" type="file">
-                        <button class="uk-button uk-button-secondary uk-border-rounded" type="button" tabindex="-1">@Resources.resource.DosyaSeciniz</button>
-                    </div>
-                </div>
-                <div class="uk-text-large">@Resources.resource.TavsiyeEdeceginizDigerOdaUyeleri:</div>
-                <div class="uk-margin">
-                    <div class="uk-form-controls">
-                        <input class="uk-input" id="MemberSuggestion1" onkeypress="validateOnlyText(event)" type="text" placeholder="@Resources.resource.FirmaAdi">
-                    </div>
-                </div>
-                <div class="uk-margin">
-                    <div class="uk-form-controls">
-                        <input class="uk-input" id="MemberSuggestion2" onkeypress="validateOnlyText(event)" type="text" placeholder="@Resources.resource.FirmaAdi">
-                    </div>
-                </div>
-                <div class="uk-margin">
-                    <div class="uk-form-controls">
-                        <input class="uk-input" id="MemberSuggestion3" onkeypress="validateOnlyText(event)" type="text" placeholder="@Resources.resource.FirmaAdi">
-                    </div>
-                </div>
-                <div class="uk-text-large">@Resources.resource.TicaretOdasiMetin:</div>
-                <div class="uk-margin">
-                    <div class="uk-form-controls">
-                        <input class="uk-input" id="SuggestionInfo" onkeypress="validateOnlyText(event)" type="text" placeholder="">
-                    </div>
-                </div>
-                <div class="uk-margin uk-width-1-2@s">
-                    <div class="uk-form-controls">
-                        <input class="uk-input" id="LocationAndTime" onkeypress="validateText(event)" type="text" placeholder="@Resources.resource.YerZaman">
-                    </div>
-                </div>
-                <div class="uk-margin uk-width-1-2@s size-22 size-15-m">
-                    <label><input class="uk-checkbox" id="DigitalSignature" type="checkbox">@Resources.resource.ElektronikImza</label>
-                </div>
-                <div class="uk-margin size-10 size-3-m color-dark-grey line-height-3">
-                    @Resources.resource.FormMetin
-                </div>
-                <div class="uk-margin size-10 size-3-m line-height-3">
-                    TD-IHK Türkisch-Deutsche Industrie- und Handelskammer - Unternehmerverband e.V.<br />
-                    Türk Alman Ticaret ve Sanayi Odası Leipziger Platz 14, 10117 Berlin <br />
-                    <div class="uk-flex contact-infos">
-                        <a href="tel:+4903023329950" class="uk-link-reset uk-margin-small-bottom">+49 (0) 30 233 299 50 |</a>
-                        <span class="uk-margin-small-bottom">Fax: +49 (0) 30 233 299 510 | </span>
-                        <a href="mailto:info@td-ihk.de" class="uk-link-reset uk-margin-small-bottom">info@td-ihk.de | </a>
-                        <span class="uk-margin-small-bottom">th-idk.de</span>
-                    </div>
-                </div>
-                <div class="uk-margin size-10 size-3-m">
-                    <label>
-                        @if (lang == "tr")
-                        {
-                            <input class="uk-checkbox" id="PrivacyPolicy" type="checkbox"><a href="/Content/MainSite/assets/files/Gizlilik_Politikas%C4%B1.pdf" class="uk-link-reset" target="_blank"><u>@Resources.resource.GizlilikPolitikasi</u></a> @Resources.resource.Ve <a href="/Content/MainSite/assets/files/Satzung_2015_12_07.pdf" class="uk-link-reset" target="_blank"><u>@Resources.resource.EsasSozlesme</u></a><span>'ü </span>@Resources.resource.BurayaTiklayarakKabulEdebilirsiniz
-                        }
-                        else
-                        {
-                            <input class="uk-checkbox" id="PrivacyPolicy" type="checkbox">@Resources.resource.BurayaTiklayarakKabulEdebilirsiniz <a href="/Content/MainSite/assets/files/Gizlilik_Politikas%C4%B1.pdf" class="uk-link-reset" target="_blank"><u>@Resources.resource.GizlilikPolitikasi</u></a> @Resources.resource.Ve <a href="/Content/MainSite/assets/files/Satzung_2015_12_07.pdf" class="uk-link-reset" target="_blank"><u>@Resources.resource.EsasSozlesme</u></a>
-                        }
-                    </label>
-                </div>
-                <div onclick="SaveMember()" class="uk-margin uk-width-2-5@s uk-margin-auto">
-                    <button type="submit" class="uk-button uk-button-primary uk-width-1-1 uk-border-rounded">@Resources.resource.Gonder</button>
-                </div>
-                <div class="uk-width-1-1">
-                    <div class="uk-width-1-3@s uk-margin-auto uk-flex uk-flex-around">
-                        <div>
-                            <img src="~/Content/MainSite/assets/images/StandartForm/letter.png" width="40" height="40" />
-                        </div>
-                        <div>
-                            <img src="~/Content/MainSite/assets/images/StandartForm/pdf-icon.png" width="40" height="40" />
-                        </div>
-                        <div>
-                            <img src="~/Content/MainSite/assets/images/StandartForm/print.png" width="40" height="40" />
-                        </div>
-                    </div>
-                </div>
-            }
-            else
-            {
-                <div class="uk-margin">
-                    <a target="_blank" href="/de/seiten/premium-mitgliedschaft" class="uk-button uk-button-default premium-form-btn uk-width-1-1">@Resources.resource.OnKoltuktanBirisiniIsterMisiniz <u>@Resources.resource.PremiumUyelik</u> @Resources.resource.Almak?</a>
-                </div>
-                <div class="uk-text-large">@Resources.resource.LutfenSırketLogonuzuBurayaYukleyin</div>
-                <div class="uk-margin">
-                    <div uk-form-custom>
-                        <input id="FileUpload" name="file" image-path="" accept="image/x-png,image/gif,image/jpeg" type="file">
-                        <button class="uk-button uk-button-secondary uk-border-rounded" type="button" tabindex="-1">@Resources.resource.DosyaSeciniz</button>
-                    </div>
-                </div>
-                <div class="uk-text-large">@Resources.resource.TavsiyeEdeceginizDigerOdaUyeleri:</div>
-                <div class="uk-margin">
-                    <div class="uk-form-controls">
-                        <input class="uk-input" id="MemberSuggestion1" onkeypress="validateOnlyText(event)" type="text" placeholder="@Resources.resource.FirmaAdi">
-                    </div>
-                </div>
-                <div class="uk-margin">
-                    <div class="uk-form-controls">
-                        <input class="uk-input" id="MemberSuggestion2" onkeypress="validateOnlyText(event)" type="text" placeholder="@Resources.resource.FirmaAdi">
-                    </div>
-                </div>
-                <div class="uk-margin">
-                    <div class="uk-form-controls">
-                        <input class="uk-input" id="MemberSuggestion3" onkeypress="validateOnlyText(event)" type="text" placeholder="@Resources.resource.FirmaAdi">
-                    </div>
-                </div>
-                <div class="uk-text-large">Die Kammer ist mir bekannt durch Empfehlung/Informationen von:</div>
-                <div class="uk-margin">
-                    <div class="uk-form-controls">
-                        <input class="uk-input" id="SuggestionInfo" onkeypress="validateOnlyText(event)" type="text" placeholder="">
-                    </div>
-                </div>
-                <div class="uk-margin uk-width-1-2@s">
-                    <div class="uk-form-controls">
-                        <input class="uk-input" id="LocationAndTime" onkeypress="validateText(event)" type="text" placeholder="@Resources.resource.YerZaman">
-                    </div>
-                </div>
-                <div class="uk-margin uk-width-1-2@s size-22 size-15-m">
-                    <label><input class="uk-checkbox" id="DigitalSignature" type="checkbox">@Resources.resource.ElektronikImza</label>
-                </div>
-                <div class="uk-margin size-10 size-3-m color-dark-grey line-height-3">
-                    @Resources.resource.FormMetin
-                </div>
-                <div class="uk-margin size-10 size-3-m line-height-3">
-                    TD-IHK Türkisch-Deutsche Industrie- und Handelskammer - Unternehmerverband e.V.<br />
-                    Türk Alman Ticaret ve Sanayi Odası Leipziger Platz 14, 10117 Berlin <br />
-                    <div class="uk-flex contact-infos">
-                        <a href="tel:+4903023329950" class="uk-link-reset uk-margin-small-bottom">+49 (0) 30 233 299 50 |</a>
-                        <span class="uk-margin-small-bottom">Fax: +49 (0) 30 233 299 510 | </span>
-                        <a href="mailto:info@td-ihk.de" class="uk-link-reset uk-margin-small-bottom">info@td-ihk.de | </a>
-                        <span class="uk-margin-small-bottom">th-idk.de</span>
-                    </div>
-                </div>
-                <div class="uk-margin size-10 size-3-m">
-                    <label>
-                        <input class="uk-checkbox" id="PrivacyPolicy" type="checkbox">@Resources.resource.BurayaTiklayarakKabulEdebilirsiniz <a href="/Content/MainSite/assets/files/DATENSCHUTZ.pdf" class="uk-link-reset" target="_blank"><u>@Resources.resource.GizlilikPolitikasi</u></a> und die <a href="/Content/MainSite/assets/files/Satzung_2015_12_07.pdf" class="uk-link-reset" target="_blank"><u>@Resources.resource.EsasSozlesme</u></a>
-                    </label>
-                </div>
-                <div onclick="SaveMember()" class="uk-margin uk-width-2-5@s uk-margin-auto">
-                    <button type="submit" class="uk-button uk-button-primary uk-width-1-1 uk-border-rounded">@Resources.resource.Gonder</button>
-                </div>
-                <div class="uk-width-1-1">
-                    <div class="uk-width-1-3@s uk-margin-auto uk-flex uk-flex-around">
-                        <div>
-                            <button id="ScreenShotDownload" class="uk-button uk-button-default uk-padding-small uk-border-circle">
-                                <img src="~/Content/MainSite/assets/images/StandartForm/pdf-icon.png" width="40" height="40" />
-                            </button>
+			@if (lang == "tr")
+			{
+				<div class="uk-margin">
+					<a target="_blank" href="/tr/sayfalar/premium-uyelik" class="uk-button uk-button-default premium-form-btn uk-width-1-1"><u>@Resources.resource.PremiumUyeligin</u> @Resources.resource.OnKoltugundanBirisiniIsterMisiniz</a>
+				</div>
+				<div class="uk-text-large">@Resources.resource.LutfenSırketLogonuzuBurayaYukleyin</div>
+				<div class="uk-margin">
+					<div uk-form-custom>
+						<input id="FileUpload" name="file" image-path="" accept="image/x-png,image/gif,image/jpeg" type="file">
+						<button class="uk-button uk-button-secondary uk-border-rounded" type="button" tabindex="-1">@Resources.resource.DosyaSeciniz</button>
+					</div>
+				</div>
+				<div class="uk-text-large">@Resources.resource.TavsiyeEdeceginizDigerOdaUyeleri:</div>
+				<div class="uk-margin">
+					<div class="uk-form-controls">
+						<input class="uk-input" id="MemberSuggestion1" onkeypress="validateOnlyText(event)" type="text" placeholder="@Resources.resource.FirmaAdi">
+					</div>
+				</div>
+				<div class="uk-margin">
+					<div class="uk-form-controls">
+						<input class="uk-input" id="MemberSuggestion2" onkeypress="validateOnlyText(event)" type="text" placeholder="@Resources.resource.FirmaAdi">
+					</div>
+				</div>
+				<div class="uk-margin">
+					<div class="uk-form-controls">
+						<input class="uk-input" id="MemberSuggestion3" onkeypress="validateOnlyText(event)" type="text" placeholder="@Resources.resource.FirmaAdi">
+					</div>
+				</div>
+				<div class="uk-text-large">@Resources.resource.TicaretOdasiMetin:</div>
+				<div class="uk-margin">
+					<div class="uk-form-controls">
+						<input class="uk-input" id="SuggestionInfo" onkeypress="validateOnlyText(event)" type="text" placeholder="">
+					</div>
+				</div>
+				<div class="uk-margin uk-width-1-2@s">
+					<div class="uk-form-controls">
+						<input class="uk-input" id="LocationAndTime" onkeypress="validateText(event)" type="text" placeholder="@Resources.resource.YerZaman">
+					</div>
+				</div>
+				<div class="uk-margin uk-width-1-2@s size-22 size-15-m">
+					<label><input class="uk-checkbox" id="DigitalSignature" type="checkbox">@Resources.resource.ElektronikImza</label>
+				</div>
+				<div class="uk-margin size-10 size-3-m color-dark-grey line-height-3">
+					@Resources.resource.FormMetin
+				</div>
+				<div class="uk-margin size-10 size-3-m line-height-3">
+					TD-IHK Türkisch-Deutsche Industrie- und Handelskammer - Unternehmerverband e.V.<br />
+					Türk Alman Ticaret ve Sanayi Odası Leipziger Platz 14, 10117 Berlin <br />
+					<div class="uk-flex contact-infos">
+						<a href="tel:+4903023329950" class="uk-link-reset uk-margin-small-bottom">+49 (0) 30 233 299 50 |</a>
+						<span class="uk-margin-small-bottom">Fax: +49 (0) 30 233 299 510 | </span>
+						<a href="mailto:info@td-ihk.de" class="uk-link-reset uk-margin-small-bottom">info@td-ihk.de | </a>
+						<span class="uk-margin-small-bottom">td-ihk.de</span>
+					</div>
+				</div>
+				<div class="uk-margin size-10 size-3-m">
+					<label>
+						@if (lang == "tr")
+						{
+							<input class="uk-checkbox" id="PrivacyPolicy" type="checkbox"><a href="/Content/MainSite/assets/files/Gizlilik_Politikas%C4%B1.pdf" class="uk-link-reset" target="_blank"><u>@Resources.resource.GizlilikPolitikasi</u></a> @Resources.resource.Ve <a href="/Content/MainSite/assets/files/Satzung_2015_12_07.pdf" class="uk-link-reset" target="_blank"><u>@Resources.resource.EsasSozlesme</u></a><span>'ü </span>@Resources.resource.BurayaTiklayarakKabulEdebilirsiniz
+						}
+						else
+						{
+							<input class="uk-checkbox" id="PrivacyPolicy" type="checkbox">@Resources.resource.BurayaTiklayarakKabulEdebilirsiniz <a href="/Content/MainSite/assets/files/Gizlilik_Politikas%C4%B1.pdf" class="uk-link-reset" target="_blank"><u>@Resources.resource.GizlilikPolitikasi</u></a> @Resources.resource.Ve <a href="/Content/MainSite/assets/files/Satzung_2015_12_07.pdf" class="uk-link-reset" target="_blank"><u>@Resources.resource.EsasSozlesme</u></a>
+						}
+					</label>
+				</div>
+				<div onclick="SaveMember()" class="uk-margin uk-width-2-5@s uk-margin-auto">
+					<button type="submit" class="uk-button uk-button-primary uk-width-1-1 uk-border-rounded">@Resources.resource.Gonder</button>
+				</div>
+				<div class="uk-width-1-1">
+					<div class="uk-width-1-3@s uk-margin-auto uk-flex uk-flex-around">
+						<div>
+							<button id="ScreenShotDownload" class="uk-button uk-button-default uk-padding-small uk-border-circle">
+								<img src="~/Content/MainSite/assets/images/StandartForm/pdf-icon.png" width="40" height="40" />
+							</button>
 
-                        </div>
-                    </div>
-                </div>
-            }
+						</div>
+					</div>
+				</div>
+			}
+			else
+			{
+				<div class="uk-margin">
+					<a target="_blank" href="/de/seiten/premium-mitgliedschaft" class="uk-button uk-button-default premium-form-btn uk-width-1-1">@Resources.resource.OnKoltuktanBirisiniIsterMisiniz <u>@Resources.resource.PremiumUyelik</u> @Resources.resource.Almak?</a>
+				</div>
+				<div class="uk-text-large">@Resources.resource.LutfenSırketLogonuzuBurayaYukleyin</div>
+				<div class="uk-margin">
+					<div uk-form-custom>
+						<input id="FileUpload" name="file" image-path="" accept="image/x-png,image/gif,image/jpeg" type="file">
+						<button class="uk-button uk-button-secondary uk-border-rounded" type="button" tabindex="-1">@Resources.resource.DosyaSeciniz</button>
+					</div>
+				</div>
+				<div class="uk-text-large">@Resources.resource.TavsiyeEdeceginizDigerOdaUyeleri:</div>
+				<div class="uk-margin">
+					<div class="uk-form-controls">
+						<input class="uk-input" id="MemberSuggestion1" onkeypress="validateOnlyText(event)" type="text" placeholder="@Resources.resource.FirmaAdi">
+					</div>
+				</div>
+				<div class="uk-margin">
+					<div class="uk-form-controls">
+						<input class="uk-input" id="MemberSuggestion2" onkeypress="validateOnlyText(event)" type="text" placeholder="@Resources.resource.FirmaAdi">
+					</div>
+				</div>
+				<div class="uk-margin">
+					<div class="uk-form-controls">
+						<input class="uk-input" id="MemberSuggestion3" onkeypress="validateOnlyText(event)" type="text" placeholder="@Resources.resource.FirmaAdi">
+					</div>
+				</div>
+				<div class="uk-text-large">Die Kammer ist mir bekannt durch Empfehlung/Informationen von:</div>
+				<div class="uk-margin">
+					<div class="uk-form-controls">
+						<input class="uk-input" id="SuggestionInfo" onkeypress="validateOnlyText(event)" type="text" placeholder="">
+					</div>
+				</div>
+				<div class="uk-margin uk-width-1-2@s">
+					<div class="uk-form-controls">
+						<input class="uk-input" id="LocationAndTime" onkeypress="validateText(event)" type="text" placeholder="@Resources.resource.YerZaman">
+					</div>
+				</div>
+				<div class="uk-margin uk-width-1-2@s size-22 size-15-m">
+					<label><input class="uk-checkbox" id="DigitalSignature" type="checkbox">@Resources.resource.ElektronikImza</label>
+				</div>
+				<div class="uk-margin size-10 size-3-m color-dark-grey line-height-3">
+					@Resources.resource.FormMetin
+				</div>
+				<div class="uk-margin size-10 size-3-m line-height-3">
+					TD-IHK Türkisch-Deutsche Industrie- und Handelskammer - Unternehmerverband e.V.<br />
+					Türk Alman Ticaret ve Sanayi Odası Leipziger Platz 14, 10117 Berlin <br />
+					<div class="uk-flex contact-infos">
+						<a href="tel:+4903023329950" class="uk-link-reset uk-margin-small-bottom">+49 (0) 30 233 299 50 |</a>
+						<span class="uk-margin-small-bottom">Fax: +49 (0) 30 233 299 510 | </span>
+						<a href="mailto:info@td-ihk.de" class="uk-link-reset uk-margin-small-bottom">info@td-ihk.de | </a>
+						<span class="uk-margin-small-bottom">th-idk.de</span>
+					</div>
+				</div>
+				<div class="uk-margin size-10 size-3-m">
+					<label>
+						<input class="uk-checkbox" id="PrivacyPolicy" type="checkbox">@Resources.resource.BurayaTiklayarakKabulEdebilirsiniz <a href="/Content/MainSite/assets/files/DATENSCHUTZ.pdf" class="uk-link-reset" target="_blank"><u>@Resources.resource.GizlilikPolitikasi</u></a> und die <a href="/Content/MainSite/assets/files/Satzung_2015_12_07.pdf" class="uk-link-reset" target="_blank"><u>@Resources.resource.EsasSozlesme</u></a>
+					</label>
+				</div>
+				<div onclick="SaveMember()" class="uk-margin uk-width-2-5@s uk-margin-auto">
+					<button type="submit" class="uk-button uk-button-primary uk-width-1-1 uk-border-rounded">@Resources.resource.Gonder</button>
+				</div>
+				<div class="uk-width-1-1">
+					<div class="uk-width-1-3@s uk-margin-auto uk-flex uk-flex-around">
+						<div>
+							<button id="ScreenShotDownload" class="uk-button uk-button-default uk-padding-small uk-border-circle">
+								<img src="~/Content/MainSite/assets/images/StandartForm/pdf-icon.png" width="40" height="40" />
+							</button>
+
+						</div>
+					</div>
+				</div>
+			}
 
 
-        </div>
+		</div>
 
     </section>
 
