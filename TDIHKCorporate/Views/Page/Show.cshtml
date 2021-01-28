@@ -12,15 +12,17 @@
 }
 
 @{
-    List<TDIHKCorporate.Types.BreadCrumb> breadCrumbList = new List<TDIHKCorporate.Types.BreadCrumb>();
-    try
-    {
-        breadCrumbList = (List<TDIHKCorporate.Types.BreadCrumb>)ViewBag.BreadcrumbList;
-    }
-    catch (Exception ex)
-    {
+  
+        List<TDIHKCorporate.Types.BreadCrumb> breadCrumbList = new List<TDIHKCorporate.Types.BreadCrumb>();
+        try
+        {
+            breadCrumbList = (List<TDIHKCorporate.Types.BreadCrumb>)ViewBag.BreadcrumbList;
+        }
+        catch (Exception ex)
+        {
 
-    }
+        }
+  
 }
 
 
@@ -35,7 +37,7 @@
 {
     <main class="uk-container" uk-scrollspy="cls: uk-animation-fade; target: > section; delay: 100">
 
-        @if (breadCrumbList != null && breadCrumbList.Count > 0)
+        @if ((breadCrumbList != null && breadCrumbList.Count > 0) && Model.PageIdentifier!="Kunye")
         {
             <div class="uk-background-secondary">
                 <ul class="uk-breadcrumb">
