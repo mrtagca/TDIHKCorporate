@@ -66,11 +66,15 @@ namespace TDIHKCorporate.Helpers.Mail
 
                 }
 
+                ePosta.DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure;
+
+
                 var smtp = new SmtpClient(_mailOptions.SmtpServer, _mailOptions.SmtpPort)
                 {
+                    DeliveryMethod  = SmtpDeliveryMethod.Network,
                     Credentials = new NetworkCredential(_mailOptions.CredentialUsername, _mailOptions.CredentialPassword),
                     EnableSsl = _mailOptions.EnableSsl,
-                    Timeout = 999999999
+                    Timeout = 10000
                 };
 
                 try
