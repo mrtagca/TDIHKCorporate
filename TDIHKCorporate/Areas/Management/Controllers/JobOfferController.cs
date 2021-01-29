@@ -121,7 +121,7 @@ namespace TDIHKCorporate.Areas.Management.Controllers
             {
                 DapperRepository<JobOffers> jobOffer = new DapperRepository<JobOffers>();
 
-                int result = jobOffer.Execute(@"update JobOffers set IsActive = 0 where JobOfferID = @JobOfferID", new { JobOfferID = jobOfferID });
+                int result = jobOffer.Execute(@"update JobOffers set IsActive = 0,UpdatedDate=@UpdatedDate,UpdatedBy=@UpdatedBy where JobOfferID = @JobOfferID", new { JobOfferID = jobOfferID, UpdatedDate = DateTime.Now, UpdatedBy = Convert.ToInt32(Session["UserID"]) });
 
 
                 return JsonConvert.SerializeObject(true);
@@ -138,7 +138,7 @@ namespace TDIHKCorporate.Areas.Management.Controllers
             {
                 DapperRepository<JobOffers> jobOffer = new DapperRepository<JobOffers>();
 
-                int result = jobOffer.Execute(@"update JobOffers set IsActive = 1 where JobOfferID = @JobOfferID", new { JobOfferID = jobOfferID });
+                int result = jobOffer.Execute(@"update JobOffers set IsActive = 1,UpdatedDate=@UpdatedDate,UpdatedBy=@UpdatedBy where JobOfferID = @JobOfferID", new { JobOfferID = jobOfferID, UpdatedDate = DateTime.Now, UpdatedBy = Convert.ToInt32(Session["UserID"]) });
 
 
                 return JsonConvert.SerializeObject(true);

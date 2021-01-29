@@ -85,7 +85,7 @@ namespace TDIHKCorporate.Areas.Management.Controllers
             {
                 DapperRepository<Podcasts> podcast = new DapperRepository<Podcasts>();
 
-                int result = podcast.Execute(@"update Podcasts set IsActive = 0 where ID = @ID", new { ID = podcastID });
+                int result = podcast.Execute(@"update Podcasts set IsActive = 0,UpdatedDate=@UpdatedDate,UpdatedBy=@UpdatedBy where ID = @ID", new { ID = podcastID, UpdatedDate = DateTime.Now, UpdatedBy = Convert.ToInt32(Session["UserID"]) });
 
 
                 return JsonConvert.SerializeObject(true);
@@ -102,7 +102,7 @@ namespace TDIHKCorporate.Areas.Management.Controllers
             {
                 DapperRepository<Podcasts> podcast = new DapperRepository<Podcasts>();
 
-                int result = podcast.Execute(@"update Podcasts set IsActive = 1 where ID = @ID", new { ID = podcastID });
+                int result = podcast.Execute(@"update Podcasts set IsActive = 1,UpdatedDate=@UpdatedDate,UpdatedBy=@UpdatedBy where ID = @ID", new { ID = podcastID, UpdatedDate = DateTime.Now, UpdatedBy = Convert.ToInt32(Session["UserID"]) });
 
 
                 return JsonConvert.SerializeObject(true);

@@ -146,7 +146,7 @@ where MemberID = @MemberID";
             {
                 DapperRepository<Members> member = new DapperRepository<Members>();
 
-                int result = member.Execute(@"update Members set IsActive = 0,UpdatedDate=@UpdatedDate,UpdatedBy=@UpdatedBy where MemberID = @MemberID", new { MemberID = memberID, UpdatedDate = DateTime.Now, UpdatedBy = 1 });
+                int result = member.Execute(@"update Members set IsActive = 0,UpdatedDate=@UpdatedDate,UpdatedBy=@UpdatedBy where MemberID = @MemberID", new { MemberID = memberID, UpdatedDate = DateTime.Now, UpdatedBy = Convert.ToInt32(Session["UserID"]) });
 
 
                 return JsonConvert.SerializeObject(true);

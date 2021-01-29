@@ -253,7 +253,7 @@ namespace TDIHKCorporate.Areas.Management.Controllers
             try
             {
                 DapperRepository<SliderContent> item = new DapperRepository<SliderContent>();
-                int result = item.Execute(@"update SliderContent set IsActive = 1 where SliderContentID = @SliderContentID ", new { SliderContentID = sliderItemId });
+                int result = item.Execute(@"update SliderContent set IsActive = 1,UpdatedDate=@UpdatedDate,UpdatedBy=@UpdatedBy where SliderContentID = @SliderContentID ", new { SliderContentID = sliderItemId, UpdatedDate = DateTime.Now, UpdatedBy = Convert.ToInt32(Session["UserID"]) });
 
                 return JsonConvert.SerializeObject(true);
             }
