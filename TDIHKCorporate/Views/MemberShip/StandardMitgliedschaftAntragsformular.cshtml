@@ -1,8 +1,9 @@
 ﻿@using System.Globalization
 
 @{
-    ViewBag.Title = "StandardMitgliedschaftAntragsformular";
     Layout = "~/Views/Shared/_layoutMaster.cshtml";
+    CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+    string lang = cultureInfo.TwoLetterISOLanguageName;
 }
 
 <script src="~/Content/Scripts/RequestHelper.js"></script>
@@ -13,12 +14,24 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
 
 
-@{
-    CultureInfo ci = System.Threading.Thread.CurrentThread.CurrentCulture;
-    string lang = ci.TwoLetterISOLanguageName;
+<head>
+    <meta charset="utf-8">
 
-}
+    @if (lang == "tr")
+    {
+        <meta name="description" content="TD IHK standart üyelikle ilgili bilgiye bu sayfadan ulaşabilirsiniz. TD IHK standart üyeliği için ayrıca başvuruda bulunup, üyeliğin avantajlarından faydalanabilirsiniz.">
+        <title>TD IHK Standart Üyelik</title>
+    }
+    else
+    {
+        <meta name="description" content="Informationen zur TD IHK-Standardmitgliedschaft finden Sie auf dieser Seite. Sie können auch eine TD IHK-Standardmitgliedschaft beantragen und von den Vorteilen einer Mitgliedschaft profitieren.">
+        <title>TD IHK Standard Mitgliedschaft</title>
+    }
 
+    <meta name="keywords" content="td ihk mitgliedschaft,td ihk standard mitgliedschaft,td ihk standart üyelik,td ihk üyelik,td ihk üye ol">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="TD IHK">
+</head>
 
 
 

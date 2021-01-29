@@ -4255,9 +4255,7 @@
     <Content Include="Views\Newsletter\Index.cshtml" />
     <Content Include="Views\Covid\Index.cshtml" />
     <Content Include="Views\Services\Jobangebote.cshtml" />
-    <Content Include="Views\MemberShip\StandardMitgliedschaft.cshtml" />
     <Content Include="Views\MemberShip\StandardMitgliedschaftAntragsformular.cshtml" />
-    <Content Include="Views\MemberShip\PremiumMitgliedschaft.cshtml" />
     <Content Include="Views\MemberShip\PremiumMitgliedschaftAntragsformular.cshtml" />
     <Content Include="Views\MemberShip\Mitgliederliste.cshtml" />
     <Content Include="Views\Event\Kalender.cshtml" />

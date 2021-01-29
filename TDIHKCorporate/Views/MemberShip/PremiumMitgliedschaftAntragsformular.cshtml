@@ -1,13 +1,31 @@
 ﻿@using System.Globalization
 
 @{
-    ViewBag.Title = "PremiumMitgliedschaftAntragsformular";
     Layout = "~/Views/Shared/_layoutMaster.cshtml";
     CultureInfo ci = System.Threading.Thread.CurrentThread.CurrentCulture;
     string lang = ci.TwoLetterISOLanguageName;
 }
 
 <script src="~/Content/Scripts/PremiumMembership.js"></script>
+
+<head>
+    <meta charset="utf-8">
+
+    @if (lang == "tr")
+    {
+        <meta name="description" content="TD IHK premium üyelikle ilgili bilgiye bu sayfadan ulaşabilirsiniz. TD IHK premium üyeliği için ayrıca başvuruda bulunup, üyeliğin avantajlarından faydalanabilirsiniz.">
+        <title>TD IHK Premium Üyelik</title>
+    }
+    else
+    {
+        <meta name="description" content="Informationen zur TD IHK Premium-Mitgliedschaft finden Sie auf dieser Seite. Sie können die TD IHK Premium-Mitgliedschaft separat beantragen und die Vorteile der Mitgliedschaft nutzen.">
+        <title>TD IHK Premium Mitgliedschaft</title>
+    }
+
+    <meta name="keywords" content="td ihk pmitgliedschaft,td ihk premium mitgliedschaft,td ihk premium üyelik,td ihk üyelik,td ihk üye ol">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="TD IHK">
+</head>
 
 
 <main class="uk-container" uk-scrollspy="cls: uk-animation-fade; target: > section; delay: 250">

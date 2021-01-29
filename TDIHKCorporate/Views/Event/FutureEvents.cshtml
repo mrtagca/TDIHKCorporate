@@ -3,7 +3,29 @@
 
 @{
     Layout = null;
+    CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+    string lang = cultureInfo.TwoLetterISOLanguageName;
 }
+}
+
+<head>
+    <meta charset="utf-8">
+
+    @if (lang == "tr")
+    {
+        <meta name="description" content="TD IHK nın düzenleyeceği gelecek etkinliklere arşivine bu sayfadan ulaşabilirsiniz.">
+        <title>TD IHK Gelecek Etkinlikler</title>
+    }
+    else
+    {
+        <meta name="description" content="Auf dieser Seite können Sie auf das Archiv zukünftiger Veranstaltungen zugreifen, die von TD IHK organisiert werden sollen.">
+        <title>TD IHK Zukünftige Events</title>
+    }
+
+    <meta name="keywords" content="td ihk gelecek etkinlikler,td ihk etkinlikler,td ihk zukünftige events,td ihk events">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="TD IHK">
+</head>
 
 @if (Model.Count > 0)
 {

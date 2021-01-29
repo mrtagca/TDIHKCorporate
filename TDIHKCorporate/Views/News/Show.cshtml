@@ -1,14 +1,19 @@
-﻿@model TDIHKCorporate.Types.News
+﻿@using System.Globalization
+@model TDIHKCorporate.Types.News
 
 @{
-    ViewBag.Title = "Show";
     Layout = "~/Views/Shared/_layoutMaster.cshtml";
+    CultureInfo ci = System.Threading.Thread.CurrentThread.CurrentCulture;
+    string lang = ci.TwoLetterISOLanguageName;
 }
 
 <head>
-    <meta name="description" content="@Model.NewsTitle">
+    <meta charset="utf-8">
+    <meta name="description" content="@Model.NewsDescription">
+    <title>TD IHK @Model.NewsTitle</title>
     <meta name="keywords" content="@Model.NewsSeoKeywords">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="TD IHK">
 </head>
 
 

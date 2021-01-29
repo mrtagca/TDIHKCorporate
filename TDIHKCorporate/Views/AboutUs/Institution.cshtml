@@ -1,26 +1,53 @@
 ﻿@model TDIHKCorporate.Types.Pages
+@using System.Globalization
+
+@{
+
+    CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+
+    string lang = cultureInfo.TwoLetterISOLanguageName;
+}
+<head>
+    <meta charset="utf-8">
+
+    @if (lang == "tr")
+    {
+        <meta name="description" content="TD-IHK, Türkiye Odalar ve Borsalar Birliği (TOBB) ve Alman Ticaret ve Sanayi  Odaları  Birliği  (DIHK)  arasında  imzalanan  protokol  sonucu, 2003 yılında kurulmuştur. TD-IHK Türkiye ve Almanya arasında gelişen her türlü ticari konuda şirketler, resmi kurumlar ve sivil toplum örgütleri için bir temas noktası ve arabulucu olarak rol oynamaktadır.">
+        <title>TD IHK Institution</title>
+    }
+    else
+    {
+        <meta name="description" content="Auf  Grundlage  eines  Protokolls  zwischen  den  beiden  Dachverbänden, der Türkischen Kammern- und Börsenunion (TOBB) und dem  Deutschen  Industrie- und Handelskammertag (DIHK),  wurde 2003 die TD-IHK gegründet. Die TD-IHK versteht sich als Ansprechpartner und Vermittler in allen wirtschaftlichen Belangen zwischen Deutschland und der Türkei für private Unternehmen, staatliche Institutionen sowie Vereinigungen der Zivilgesellschaft.">
+        <title>TD IHK Kurum</title>
+    }
+
+    <meta name="keywords" content="td ihk institution,td ihk kurum,td ihk kurum bilgileri,td ihk ne zaman kuruldu,td ihk kuruluş,td ihk informationen zur institution,td ihk information,">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="TD IHK">
+</head>
+
 @{
     ViewBag.Title = "Institution";
     Layout = "~/Views/Shared/_layoutMaster.cshtml";
 }
 
 <main class="uk-container" uk-scrollspy="cls: uk-animation-fade; target: > section; delay: 250">
-	<section>
-		<!-- Banner-->
-		<div>
-			<img src="@Model.PageImagePath" alt="@Model.PageTitle" />
-		</div>
-	</section>
-	<!-- Text- Content-->
-	<section>
-		<div class="uk-margin-medium-top">
-			@*<div class="uk-h2">Lorem Ipsum</div>
-			<p>Lorem ipsum dolor sit amet</p>*@
+    <section>
+        <!-- Banner-->
+        <div>
+            <img src="@Model.PageImagePath" alt="@Model.PageTitle" />
+        </div>
+    </section>
+    <!-- Text- Content-->
+    <section>
+        <div class="uk-margin-medium-top">
+            @*<div class="uk-h2">Lorem Ipsum</div>
+                <p>Lorem ipsum dolor sit amet</p>*@
             @Html.Raw(Model.PageContent)
-		</div>
-	</section>
+        </div>
+    </section>
     <br />
-	
-	@Html.Action("GetInstitutionTimeline", "AboutUs")
+
+    @Html.Action("GetInstitutionTimeline", "AboutUs")
 </main>
 <br />

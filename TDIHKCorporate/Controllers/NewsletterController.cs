@@ -52,7 +52,7 @@ namespace TDIHKCorporate.Controllers
                 DapperRepository<NewsletterRegistrations> newsletterCheck = new DapperRepository<NewsletterRegistrations>();
                 NewsletterRegistrations newsletterRegistrations = newsletterCheck.Get(@"SELECT * FROM NewsletterRegistrations (NOLOCK) where EmailAddress = @email", new { email = email });
 
-                if (newsletterRegistrations != null)
+                if (newsletterRegistrations.EmailAddress != null)
                 {
                     return false;
                 }

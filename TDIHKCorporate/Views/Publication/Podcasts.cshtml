@@ -1,8 +1,31 @@
 ﻿@model TDIHKCorporate.Types.Pages
+@using System.Globalization
+
 @{
-    ViewBag.Title = "Podcasts";
     Layout = "~/Views/Shared/_layoutMaster.cshtml";
+    CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+    string lang = cultureInfo.TwoLetterISOLanguageName;
 }
+
+
+<head>
+    <meta charset="utf-8">
+
+    @if (lang == "tr")
+    {
+        <meta name="description" content="TD IHK podcastlerine bu sayfadan ulaşabilirsiniz. Podcastler ile toplantılar,gündemdeki gelişmeler,yasal bilgilendirmeler ile ilgili anlatımları uzmanlardan dinleyebilirsiniz.">
+        <title>TD IHK Podcast'ler</title>
+    }
+    else
+    {
+        <meta name="description" content="Auf diese Seite können Sie auf TD IHK-Podcasts zugreifen. Mit Podcasts können Sie Vorträge über Besprechungen, Entwicklungen auf der Tagesordnung und rechtliche Informationen von Experten anhören.">
+        <title>TD IHK Podcasts</title>
+    }
+
+    <meta name="keywords" content="td ihk podcasts,ihk podcasts,td ihk podcastler,ihk podcastler">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="TD IHK">
+</head>
 
 <main class="uk-container" uk-scrollspy="cls: uk-animation-fade; target: > section; delay: 250">
     @*<iframe style="background-image:#ffffff" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX4Y4RhrZqHhr" width="100%" height="600" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>*@

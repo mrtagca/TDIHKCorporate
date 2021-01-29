@@ -4,6 +4,25 @@
     Layout = "~/Views/Shared/_layoutMaster.cshtml";
 }
 
+<head>
+    <meta charset="utf-8">
+
+    @if (lang == "tr")
+    {
+        <meta name="description" content="Korona salgını, bilhassa seyahatlarda önemli belirsizliğe neden oluyor. Her zaman uyulması gereken yeni kurallar gündeme çıkabilir. En güncel duruma hakim olmalısınız. Lütfen Federal Dışişleri Bakanlığı, Federal Almanya Büyükelçiliği ve Federal İçişleri Bakanlığı'nın web sitelerinden bilgi alın. Burada size en önemli bilgilerden bazılarını sağlıyor ve bunları düzenli aralıklarla güncelliyoruz.">
+        <title>TD IHK Covid-19</title>
+    }
+    else
+    {
+        <meta name="description" content="Die Corona-Pandemie führt weltweit zu erheblicher Verunsicherung beim Reisen. Immer wieder gibt es neue Regeln zu beachten. Bitte halten Sie sich auf den Seiten des Auswärtigen Amts und des Bundesinnenministeriums informiert. Hier stellen wir Ihnen einige der wichtigsten Informationen zur Verfügung und aktualisieren diese in regelmäßigen Abständen.">
+        <title>TD IHK Covid-19</title>
+    }
+
+    <meta name="keywords" content="td ihk covid,ihk covid,covid-19,almanya korona haberleri,almanya covid 19,td ihk covid nachrichten,germany covid nachrichten,covid maßnahmen">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="TD IHK">
+</head>
+
 <main class="uk-container" uk-scrollspy="cls: uk-animation-fade; target: > section > div; delay: 100">
 
     @Html.Raw(Model.PageContent)

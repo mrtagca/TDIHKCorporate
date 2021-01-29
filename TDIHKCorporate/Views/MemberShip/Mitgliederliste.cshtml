@@ -2,12 +2,30 @@
 @using System.Globalization
 
 @{
-    ViewBag.Title = "Mitgliederliste";
     Layout = "~/Views/Shared/_layoutMaster.cshtml";
 
     CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
     string lang = cultureInfo.TwoLetterISOLanguageName;
 }
+
+<head>
+    <meta charset="utf-8">
+
+    @if (lang == "tr")
+    {
+        <meta name="description" content="TD IHK üye listesine buradan ulaşabilirsiniz. TD IHK üyeliği için ayrıca başvuruda bulunup, üyeliğin avantajlarından faydalanabilirsiniz.">
+        <title>TD IHK Üye Listesi</title>
+    }
+    else
+    {
+        <meta name="description" content="Die TD IHK-Mitgliederliste finden Sie hier. Sie können die TD IHK-Mitgliedschaft separat beantragen und von den Vorteilen der Mitgliedschaft profitieren.">
+        <title>TD IHK Mitgliederliste</title>
+    }
+
+    <meta name="keywords" content="td ihk mitgliederliste,td ihk üye listesi,td ihk üyeliği,td ihk üye ol,td ihk premium üyelik,td ihk üyelik">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="TD IHK">
+</head>
 
 @{
     List<TDIHKCorporate.Types.BreadCrumb> breadCrumbList = new List<TDIHKCorporate.Types.BreadCrumb>();
