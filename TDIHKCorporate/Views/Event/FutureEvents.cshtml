@@ -1,5 +1,6 @@
-﻿@model List<TDIHKCorporate.Types.Events>
-@using System.Globalization
+﻿@using System.Globalization
+@model List<TDIHKCorporate.Types.Events>
+
 
 @{
     Layout = null;
@@ -38,10 +39,8 @@
                 <div class="uk-box-shadow-medium uk-width-1-4@m uk-padding-small uk-card uk-card-primary uk-card-body uk-flex uk-flex-column uk-flex-between height-match">
 
                     @{
-                        CultureInfo ci = System.Threading.Thread.CurrentThread.CurrentCulture;
-                        string lang = ci.TwoLetterISOLanguageName;
 
-                        <span class="size-h2 line-height-1 uk-margin-small-top">@item.EventDate.ToString("MMM", ci).ToUpper()</span>
+                        <span class="size-h2 line-height-1 uk-margin-small-top">@item.EventDate.ToString("MMM", cultureInfo).ToUpper()</span>
                     }
 
                     <span class="line-height-1 uk-margin-small-bottom" style="font-size: 60px">@item.EventDate.Day</span>

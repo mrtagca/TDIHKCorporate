@@ -2,7 +2,7 @@
 @{
     Layout = null;
     CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
-    string lang = cultureInfo.TwoLetterISOLanguageName;
+    string masterlang = cultureInfo.TwoLetterISOLanguageName;
 }
 
 <!DOCTYPE html>
@@ -11,7 +11,7 @@
 <head>
 
     <meta charset="utf-8">
-    @if (lang == "tr")
+    @if (masterlang == "tr")
     {
         <meta name="Description" CONTENT="Auf  Grundlage  eines  Protokolls  zwischen  den  beiden  Dachverbänden, der Türkischen Kammern- und Börsenunion (TOBB) und dem  Deutschen  Industrie- und Handelskammertag (DIHK),  wurde 2003 die TD-IHK gegründet. Die TD-IHK versteht sich als Ansprechpartner und Vermittler in allen wirtschaftlichen Belangen zwischen Deutschland und der Türkei für private Unternehmen, staatliche Institutionen sowie Vereinigungen der Zivilgesellschaft.">
     }
@@ -51,7 +51,7 @@
 
 
 
-    @if (lang == "tr")
+    @if (masterlang == "tr")
     {
         <script>
             (function () {

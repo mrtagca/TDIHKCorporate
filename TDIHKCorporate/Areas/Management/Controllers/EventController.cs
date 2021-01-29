@@ -159,7 +159,7 @@ order by CreatedDate desc", new { lang = lang });
             {
                 DapperRepository<Pages> page = new DapperRepository<Pages>();
 
-                int result = page.Execute(@"update Events set IsActive = 0,UpdatedDate=@UpdatedDate,UpdatedBy=@UpdatedBy where EventID = @EventID", new { EventID = eventID,UpdatedDate=DateTime.Now,UpdatedBy=1 });
+                int result = page.Execute(@"update Events set IsActive = 0,UpdatedDate=@UpdatedDate,UpdatedBy=@UpdatedBy where EventID = @EventID", new { EventID = eventID, UpdatedDate = DateTime.Now, UpdatedBy = Convert.ToInt32(Session["UserID"])});
 
 
                 return JsonConvert.SerializeObject(true);
@@ -176,7 +176,7 @@ order by CreatedDate desc", new { lang = lang });
             {
                 DapperRepository<Pages> page = new DapperRepository<Pages>();
 
-                int result = page.Execute(@"update Events set IsActive = 1,UpdatedDate=@UpdatedDate,UpdatedBy=@UpdatedBy where EventID = @EventID", new { EventID = eventID, UpdatedDate = DateTime.Now, UpdatedBy = 1 });
+                int result = page.Execute(@"update Events set IsActive = 1,UpdatedDate=@UpdatedDate,UpdatedBy=@UpdatedBy where EventID = @EventID", new { EventID = eventID, UpdatedDate = DateTime.Now, UpdatedBy = Convert.ToInt32(Session["UserID"]) });
 
 
                 return JsonConvert.SerializeObject(true);
