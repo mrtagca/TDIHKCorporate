@@ -458,15 +458,15 @@ where  (EventTitle like '%'+@search+'%' or EventContent like '%'+@search+'%' or 
                 xr.WriteStartElement("url");
                 if (p.Language == "tr")
                 {
-                    xr.WriteElementString("loc", Request.Url.Authority + "/tr/sayfalar/" + p.PageSeoLink);
+                    xr.WriteElementString("loc", Request.Url.Scheme + "://" + Request.Url.Authority + "/tr/sayfalar/" + p.PageSeoLink);
                 }
                 else
                 {
-                    xr.WriteElementString("loc", Request.Url.Authority + "/de/seiten/" + p.PageSeoLink);
+                    xr.WriteElementString("loc", Request.Url.Scheme + "://" + Request.Url.Authority + "/de/seiten/" + p.PageSeoLink);
                 }
                 xr.WriteElementString("lastmod", p.CreatedDate.ToString("yyyy-MM-dd"));
                 xr.WriteElementString("priority", "1");
-                xr.WriteElementString("changefreq", "monthly");
+                xr.WriteElementString("changefreq", "weekly");
                 xr.WriteEndElement();
             }
 
