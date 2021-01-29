@@ -1,6 +1,11 @@
 ﻿@model List<TDIHKCorporate.Types.MenuItems>
 @using System.Globalization
 
+@{
+    CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+
+    string lang = cultureInfo.TwoLetterISOLanguageName;
+}
 
 <style>
     @@media only screen and (max-width: 600px) {
@@ -159,16 +164,13 @@
 
 
                 @{
-                    CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
-
-                    string name = cultureInfo.TwoLetterISOLanguageName;
 
                     <div class="uk-navbar-right uk-flex-right uk-text-right">
                         <a class="uk-navbar-toggle uk-icon" uk-search-icon="icon: icn-search"
                            uk-toggle="target: .nav-overlay-mobile; animation: uk-animation-fade" href="#"></a>
                         <div class="uk-inline uk-width-1-3">
 
-                            @if (name == "tr")
+                            @if (lang == "tr")
                             {
                                 <button type="button" onclick="location.href='/Home/ChangeLanguage?language=de'" class="uk-width-1-1 uk-margin-small-left" style="background: transparent; border: none;">
                                     <img src="~/Content/MainSite/assets/images/Germany-icon.png" alt="">
@@ -191,7 +193,7 @@
             <div class="nav-overlay-mobile uk-navbar-left uk-flex-1 uk-container" hidden>
 
                 <div class="uk-navbar-item uk-width-expand">
-                    @if (name == "tr")
+                    @if (lang == "tr")
                     {
                         <form action="/tr/ara" method="get" class="uk-search uk-search-navbar uk-width-1-1">
                             <input class="uk-search-input" name="search" type="text" placeholder="@Resources.resource.Ara..." autofocus>
@@ -378,9 +380,6 @@
 
 
                 @{
-                    CultureInfo ci = System.Threading.Thread.CurrentThread.CurrentCulture;
-
-                    string lang = cultureInfo.TwoLetterISOLanguageName;
 
                     <div class="uk-navbar-right uk-flex-right uk-text-right">
                         <a class="uk-navbar-toggle uk-icon" uk-search-icon="icon: icn-search"
@@ -407,26 +406,26 @@
                 }
             </div>
             <div class="nav-overlay uk-navbar-left uk-flex-1" hidden>
-                @if (name == "tr")
+                @if (lang == "tr")
                 {
-				<form action="/tr/ara" method="get" class="uk-search uk-search-navbar uk-width-1-1">
-					<div class="uk-navbar-item uk-width-expand">
-						<input class="uk-search-input" name="search" type="search" placeholder="@Resources.resource.Ara..." autofocus>
-						<a class="uk-navbar-toggle" uk-close uk-toggle="target: .nav-overlay; animation: uk-animation-fade" href="#"></a>
-					</div>
-					<input type="submit" class="uk-hidden"/>
-				</form>
+                    <form action="/tr/ara" method="get" class="uk-search uk-search-navbar uk-width-1-1">
+                        <div class="uk-navbar-item uk-width-expand">
+                            <input class="uk-search-input" name="search" type="search" placeholder="@Resources.resource.Ara..." autofocus>
+                            <a class="uk-navbar-toggle" uk-close uk-toggle="target: .nav-overlay; animation: uk-animation-fade" href="#"></a>
+                        </div>
+                        <input type="submit" class="uk-hidden" />
+                    </form>
                 }
                 else
                 {
-			<form action="/de/suche" method="get" class="uk-search uk-search-navbar uk-width-1-1">
-				<div class="uk-navbar-item uk-width-expand">
-					<input class="uk-search-input" name="search" type="search" placeholder="@Resources.resource.Ara..." autofocus>
-					<a class="uk-navbar-toggle" uk-close uk-toggle="target: .nav-overlay; animation: uk-animation-fade" href="#"></a>
-				</div>
-				
-				<input type="submit" class="uk-button uk-button-secondary uk-hidden" />
-			</form>
+                    <form action="/de/suche" method="get" class="uk-search uk-search-navbar uk-width-1-1">
+                        <div class="uk-navbar-item uk-width-expand">
+                            <input class="uk-search-input" name="search" type="search" placeholder="@Resources.resource.Ara..." autofocus>
+                            <a class="uk-navbar-toggle" uk-close uk-toggle="target: .nav-overlay; animation: uk-animation-fade" href="#"></a>
+                        </div>
+
+                        <input type="submit" class="uk-button uk-button-secondary uk-hidden" />
+                    </form>
                 }
 
             </div>
