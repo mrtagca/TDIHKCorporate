@@ -136,31 +136,6 @@ else
         @Html.Raw(Model.PageContent)
 
 
-        @if (Model.PageIdentifier == "Publications")
-        {
-            <section>
-                <div class="podcast-container">
-                    <div class="uk-grid uk-grid-medium podcast-wrapper" uk-grid>
-                        <div class="uk-width-1-4 uk-width-1-6@s">
-                            <span class="uk-preserve uk-margin-small-left podcast-icon uk-icon" uk-icon="icon: icn-podcast"></span>
-                        </div>
-                        <div class="uk-width-1-2 uk-width-2-3@s">
-                            <div class="uk-text-large uk-text-truncate line-height-1 uk-text-bold">PodcastTitle</div>
-                            <div class="uk-text-small line-height-1">PodcastDescription</div>
-                        </div>
-
-
-                        <div class="uk-width-1-4 uk-width-1-6@s">
-                            <a onclick="" id="btnAudio_1" class="uk-link-reset">
-                                <span class="uk-preserve uk-icon" id="audioIcon_1" uk-icon="icon:icn-play; ratio: 2.3334"></span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <br />
-            <br />
-        }
 
         @if (Model.PageIdentifier == "PremiumMemberShip")
         {

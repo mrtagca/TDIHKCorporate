@@ -8,14 +8,14 @@
 <br />
 
 <div class="col-sm-12">
-    <table id="contactTable" class="table dataTable" style="width:100%" role="grid" aria-describedby="zero-config_info">
+    <table id="contactTable" class="table dataTable" style="width:100%">
         <thead>
             <tr role="row">
-                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 250px;">Contact Form ID</th>
-                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 250px;">@Resources.resource.Isim</th>
-                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 250px;">@Resources.resource.Soyadi</th>
-                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 250px;">IP Address</th>
-                <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 250px;">@Resources.resource.OlusturulmaTarihi</th>
+                <th style="width: 250px;">Contact Form ID</th>
+                <th style="width: 250px;">@Resources.resource.Isim</th>
+                <th style="width: 250px;">@Resources.resource.Soyadi</th>
+                <th style="width: 250px;">IP Address</th>
+                <th style="width: 250px;">@Resources.resource.OlusturulmaTarihi</th>
                 <th style="width: 234px;">@Resources.resource.Eylemler</th>
 
             </tr>
@@ -31,7 +31,7 @@
                     style = "background-color:#e8eae6";
                 }
                 <tr style="@style">
-                    <td class="sorting_1">@row.ContactFormID</td>
+                    <td>@row.ContactFormID</td>
                     <td>@row.Name</td>
                     <td>@row.Surname</td>
                     <td>@row.IPAddress</td>

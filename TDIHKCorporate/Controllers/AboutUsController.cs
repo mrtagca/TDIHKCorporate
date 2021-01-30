@@ -60,7 +60,7 @@ namespace TDIHKCorporate.Controllers
 
                 DapperRepository<ContactForm> contact = new DapperRepository<ContactForm>();
 
-                int result = contact.Execute(@"insert into ContactForm ([Name],Surname,[Message],IPAdress,CreatedDate) values (@Name,@Surname,@Message,@IPAdress,@CreatedDate)", contactForm);
+                int result = contact.Execute(@"insert into ContactForm ([Name],Surname,[Message],IPAddress,CreatedDate) values (@Name,@Surname,@Message,@IPAddress,@CreatedDate)", contactForm);
 
                 if (result > 0)
                 {

@@ -31,7 +31,6 @@
         </div>
         <div>
             @{
-                CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
 
                 <span class="color-dark-grey size-20">@cultureInfo.DateTimeFormat.GetDayName(Model.CreatedDate.DayOfWeek).ToString(), @Model.CreatedDate.Day @cultureInfo.DateTimeFormat.GetMonthName(Model.CreatedDate.Month)</span>
             }
