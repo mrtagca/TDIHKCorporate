@@ -201,11 +201,11 @@ where [Language] = @lang and EventIdentifier in (SELECT top 1 EventIdentifier FR
                 {
                     if (language == "tr") //change tr
                     {
-                        return Redirect("https://" + Request.UrlReferrer.Authority + "/de");
+                        return Redirect("https://" + Request.UrlReferrer.Authority + "/tr");
                     }
                     else
                     {
-                        return Redirect("https://" + Request.UrlReferrer.Authority + "/tr");
+                        return Redirect("https://" + Request.UrlReferrer.Authority + "/de");
                     }
                 }
             }
