@@ -18,9 +18,17 @@
                         <div class="uk-button uk-button-secondary uk-width-1-1 uk-text-bold uk-margin-medium-bottom uk-border-rounded">@Resources.resource.LogonuzBurayaGelecek</div>
                     </div>
                     <div class="uk-text-center">@Resources.resource.UyelerimizIcinBu <u>@Resources.resource.Ucretsizdir.</u> @Resources.resource.JobageboteMetin.</div>
-                    <div>
-                        <a href="#" class="uk-button uk-button-secondary uk-width-1-1 uk-border-rounded" style="margin-bottom: 64px;">@Resources.resource.Avantajlar</a>
-                    </div>
+					<div>
+						@if (lang == "tr")
+						{
+							<a href="uyelik" class="uk-button uk-button-secondary uk-width-1-1 uk-border-rounded" style="margin-bottom: 64px;">@Resources.resource.Avantajlar</a>
+						}
+						else
+						{
+							<a href="mitgliedschaft" class="uk-button uk-button-secondary uk-width-1-1 uk-border-rounded" style="margin-bottom: 64px;">@Resources.resource.Avantajlar</a>
+						}
+
+					</div>
                 </div>
             </div>
         </div>
