@@ -1,17 +1,17 @@
-﻿@model TDIHKCorporate.Types.Pages
-@using System.Globalization
+﻿@using System.Globalization
+@model TDIHKCorporate.Types.Pages
+
 
 @{
-    ViewBag.Title = "Show";
     Layout = "~/Views/Shared/_layoutMaster.cshtml";
 
     CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
     string lang = cultureInfo.TwoLetterISOLanguageName;
 
-
 }
 
 @{
+
     List<TDIHKCorporate.Types.BreadCrumb> breadCrumbList = new List<TDIHKCorporate.Types.BreadCrumb>();
     try
     {
@@ -21,13 +21,15 @@
     {
 
     }
+
 }
 
-
 <head>
-    <meta name="description" content="@Model.PageTitle">
+    <meta charset="utf-8">
+    <meta name="description" content="TD IHK @Model.PageTitle">
     <meta name="keywords" content="@Model.PageSeoKeywords">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="TD IHK">
 </head>
 
 
@@ -35,7 +37,7 @@
 {
     <main class="uk-container" uk-scrollspy="cls: uk-animation-fade; target: > section; delay: 100">
 
-        @if (breadCrumbList != null && breadCrumbList.Count > 0)
+        @if ((breadCrumbList != null && breadCrumbList.Count > 0) && Model.PageIdentifier != "Kunye")
         {
             <div class="uk-background-secondary">
                 <ul class="uk-breadcrumb">
@@ -134,31 +136,6 @@ else
         @Html.Raw(Model.PageContent)
 
 
-        @if (Model.PageIdentifier == "Publications")
-        {
-            <section>
-                <div class="podcast-container">
-                    <div class="uk-grid uk-grid-medium podcast-wrapper" uk-grid>
-                        <div class="uk-width-1-4 uk-width-1-6@s">
-                            <span class="uk-preserve uk-margin-small-left podcast-icon uk-icon" uk-icon="icon: icn-podcast"></span>
-                        </div>
-                        <div class="uk-width-1-2 uk-width-2-3@s">
-                            <div class="uk-text-large uk-text-truncate line-height-1 uk-text-bold">PodcastTitle</div>
-                            <div class="uk-text-small line-height-1">PodcastDescription</div>
-                        </div>
-
-
-                        <div class="uk-width-1-4 uk-width-1-6@s">
-                            <a onclick="" id="btnAudio_1" class="uk-link-reset">
-                                <span class="uk-preserve uk-icon" id="audioIcon_1" uk-icon="icon:icn-play; ratio: 2.3334"></span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <br />
-            <br />
-        }
 
         @if (Model.PageIdentifier == "PremiumMemberShip")
         {

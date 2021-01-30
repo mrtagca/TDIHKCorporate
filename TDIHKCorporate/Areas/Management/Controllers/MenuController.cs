@@ -128,7 +128,7 @@ namespace TDIHKCorporate.Areas.Management.Controllers
             try
             {
                 DapperRepository<MenuItems> item = new DapperRepository<MenuItems>();
-                int result = item.Execute(@"update MenuItems set IsActive = 0 where ID = @id ", new { id = menuItemId });
+                int result = item.Execute(@"update MenuItems set IsActive = 0,UpdatedDate=@UpdatedDate,UpdatedBy=@UpdatedBy where ID = @id ", new { id = menuItemId, UpdatedDate = DateTime.Now, UpdatedBy = Convert.ToInt32(Session["UserID"]) });
 
                 return JsonConvert.SerializeObject(true);
             }
@@ -144,7 +144,12 @@ namespace TDIHKCorporate.Areas.Management.Controllers
             try
             {
                 DapperRepository<MenuItems> item = new DapperRepository<MenuItems>();
-                int result = item.Execute(@"update MenuItems set IsActive = 1 where ID = @id ", new { id = menuItemId });
+                int result = item.Execute(@"update MenuItems set IsActive = 1,UpdatedDate=@UpdatedDate,UpdatedBy=@UpdatedBy where ID = @id ", new
+                {
+                    id = menuItemId,
+                    UpdatedDate = DateTime.Now,
+                    UpdatedBy = Convert.ToInt32(Session["UserID"])
+                });
 
                 return JsonConvert.SerializeObject(true);
             }

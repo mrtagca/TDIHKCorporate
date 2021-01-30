@@ -18,8 +18,22 @@ namespace TDIHKCorporate
             language = language.Substring(0, 2);
 
             routes.MapRoute(
+                 name: "SitemapNews",
+                 url: "sitemap-news.xml",
+                 defaults: new { controller = "News", action = "SiteMap", id = UrlParameter.Optional },
+                 new[] { "TDIHKCorporate.Controllers" }
+             );
+
+            routes.MapRoute(
+                 name: "SitemapEvents",
+                 url: "sitemap-events.xml",
+                 defaults: new { controller = "Event", action = "SiteMap", id = UrlParameter.Optional },
+                 new[] { "TDIHKCorporate.Controllers" }
+             );
+
+            routes.MapRoute(
                  name: "SitemapPages",
-                 url: "sitemap-pages",
+                 url: "sitemap-pages.xml",
                  defaults: new { controller = "Home", action = "SiteMap", id = UrlParameter.Optional },
                  new[] { "TDIHKCorporate.Controllers" }
              );

@@ -123,6 +123,7 @@ namespace TDIHKCorporate.Areas.Management.Controllers
 
                     SliderContent sliderContent = new SliderContent()
                     {
+                        SliderID = editContentViewModel.SliderID,
                         SliderContentID = editContentViewModel.SliderContentID,
                         SliderContentTitle = editContentViewModel.SliderContentTitle,
                         Language = editContentViewModel.SliderContentLanguage,
@@ -151,7 +152,10 @@ namespace TDIHKCorporate.Areas.Management.Controllers
                     var result = sliderContentRepo.Execute(sqlCommand, sliderContent);
 
                     ViewBag.Success = "Success";
-                    return View(sliderContent);
+
+                    SliderContent scEdit = scRepo.Get("select * from SliderContent where SliderContentID = @SliderContentID", new { SliderContentID = editContentViewModel.SliderContentID });
+
+                    return View(scEdit);
                 }
                 else
                 {
@@ -253,7 +257,7 @@ namespace TDIHKCorporate.Areas.Management.Controllers
             try
             {
                 DapperRepository<SliderContent> item = new DapperRepository<SliderContent>();
-                int result = item.Execute(@"update SliderContent set IsActive = 1 where SliderContentID = @SliderContentID ", new { SliderContentID = sliderItemId });
+                int result = item.Execute(@"update SliderContent set IsActive = 1,UpdatedDate=@UpdatedDate,UpdatedBy=@UpdatedBy where SliderContentID = @SliderContentID ", new { SliderContentID = sliderItemId, UpdatedDate = DateTime.Now, UpdatedBy = Convert.ToInt32(Session["UserID"]) });
 
                 return JsonConvert.SerializeObject(true);
             }

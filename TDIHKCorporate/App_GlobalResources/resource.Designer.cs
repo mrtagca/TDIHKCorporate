@@ -1942,6 +1942,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Tür.
+        /// </summary>
+        internal static string Tur {
+            get {
+                return ResourceManager.GetString("Tur", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ücretsizdir.
         /// </summary>
         internal static string Ucretsizdir {

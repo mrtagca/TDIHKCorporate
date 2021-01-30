@@ -1,6 +1,8 @@
 ﻿@using System.Globalization
 @{
     Layout = null;
+    CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+    string masterlang = cultureInfo.TwoLetterISOLanguageName;
 }
 
 <!DOCTYPE html>
@@ -8,27 +10,22 @@
 <html lang="@Session["language"]">
 <head>
 
-    @*<link rel="stylesheet" type="text/css" href="~/Content/Admin/plugins/table/datatable/datatables.css">
-        <link href="~/Content/Admin/plugins/table/datatable/buttons.dataTables.min.css" rel="stylesheet" />
-        <link rel="stylesheet" type="text/css" href="~/Content/Admin/plugins/table/datatable/dt-global_style.css">
-    *@
+    <meta charset="utf-8">
+    @if (masterlang == "tr")
+    {
+        <meta name="Description" CONTENT="Auf  Grundlage  eines  Protokolls  zwischen  den  beiden  Dachverbänden, der Türkischen Kammern- und Börsenunion (TOBB) und dem  Deutschen  Industrie- und Handelskammertag (DIHK),  wurde 2003 die TD-IHK gegründet. Die TD-IHK versteht sich als Ansprechpartner und Vermittler in allen wirtschaftlichen Belangen zwischen Deutschland und der Türkei für private Unternehmen, staatliche Institutionen sowie Vereinigungen der Zivilgesellschaft.">
+    }
+    else
+    {
+        <meta name="Description" CONTENT="TD-IHK, Türkiye Odalar ve Borsalar Birliği (TOBB) ve Alman Ticaret ve Sanayi  Odaları  Birliği  (DIHK)  arasında  imzalanan  protokol  sonucu, 2003 yılında kurulmuştur. TD-IHK Türkiye ve Almanya arasında gelişen her türlü ticari konuda şirketler, resmi kurumlar ve sivil toplum örgütleri için bir temas noktası ve arabulucu olarak rol oynamaktadır.">
+    }
+    <meta name="google-site-verification" content="+nxGUDJ4QpAZ5l9Bsjdi102tLVC21AIh5d1Nl23908vVuFHs34=" />
+    <meta name="author" content="TD IHK">,
+    <meta name="keywords" content="td ihk,ihk,türk alman sanayi odası,türk alman sanayi ve ticaret odası,turkish deutsche industrie,deutsche industrie,turkish industrie,turkish deutsche industrie und handelskammer">
+    <title>Turkish-Deutsche Industrie- und Handelskammer | Türk-Alman Ticaret ve Sanayi Odası</title>
+    <meta name="robots" content="noindex,nofollow">
 
     <script src="~/Content/Admin/vendor/jquery/jquery-3.5.1.min.js"></script>
-
-
-
-
-
-    @{
-        CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
-
-        string lang = cultureInfo.TwoLetterISOLanguageName;
-    }
-
-
-
-    @*@Html.Partial("~/Views/Partial/_PartialHead.cshtml")*@
-
 
 </head>
 @Html.Partial("~/Views/Partial/_PartialHeader.cshtml")
@@ -54,16 +51,16 @@
 
 
 
-    @if (lang == "tr")
+    @if (masterlang == "tr")
     {
         <script>
             (function () {
                 if (!localStorage.getItem('cookieconsent')) {
                     document.body.innerHTML += '\
-                                                            <div class="cookieconsent" style="position:fixed;padding:20px 0;left:0;bottom:0;background-color:#000;color:#FFF;text-align:center;width:100%;z-index:99999;">\
-                                                                Bu web sitesi çerez bilgileri kullanır. Bu web sitesini kullanmaya devam ederek, <a id="PrivacyPolicy" href="/tr/sayfalar/gizlilik-politikasi" target="_blank" style="color:#CCCCCC;">Gizlilik Politikası ve Çerez Kullanımını</a> kabul etmiş olursunuz. \
-                                                                <a id="Accept" href="#" style="color:#CCCCCC;">Anladım, kabul ediyorum.</a>\
-                                                            </div>\
+                                                                    <div class="cookieconsent" style="position:fixed;padding:20px 0;left:0;bottom:0;background-color:#000;color:#FFF;text-align:center;width:100%;z-index:99999;">\
+                                                                        Bu web sitesi çerez bilgileri kullanır. Bu web sitesini kullanmaya devam ederek, <a id="PrivacyPolicy" href="/tr/sayfalar/gizlilik-politikasi" target="_blank" style="color:#CCCCCC;">Gizlilik Politikası ve Çerez Kullanımını</a> kabul etmiş olursunuz. \
+                                                                        <a id="Accept" href="#" style="color:#CCCCCC;">Anladım, kabul ediyorum.</a>\
+                                                                    </div>\
 ';
                     document.querySelector('#Accept').onclick = function (e) {
                         debugger
@@ -82,10 +79,10 @@
             (function () {
                 if (!localStorage.getItem('cookieconsent')) {
                     document.body.innerHTML += '\
-                                                            <div class="cookieconsent" style="position:fixed;padding:20px 0;left:0;bottom:0;background-color:#000;color:#FFF;text-align:center;width:100%;z-index:99999;">\
-                                                                Diese Webseite verwendet Cookies. Wenn Sie diese Website weiterhin nutzen möchten, stimmen Sie bitte der <a id="PrivacyPolicy" href="/de/seiten/datenschutz-bestimmungen" target="_blank" style="color:#CCCCCC;">Nutzung von Cookies und unserer Datenschutzerklärung</a> zu. \
-                                                                <a id="Accept" href="#" target="_blank" style="color:#CCCCCC;">Ich verstehe, ich akzeptiere.</a>\
-                                                            </div>\
+                                                                    <div class="cookieconsent" style="position:fixed;padding:20px 0;left:0;bottom:0;background-color:#000;color:#FFF;text-align:center;width:100%;z-index:99999;">\
+                                                                        Diese Webseite verwendet Cookies. Wenn Sie diese Website weiterhin nutzen möchten, stimmen Sie bitte der <a id="PrivacyPolicy" href="/de/seiten/datenschutz-bestimmungen" target="_blank" style="color:#CCCCCC;">Nutzung von Cookies und unserer Datenschutzerklärung</a> zu. \
+                                                                        <a id="Accept" href="#" target="_blank" style="color:#CCCCCC;">Ich verstehe, ich akzeptiere.</a>\
+                                                                    </div>\
 ';
                     document.querySelector('#Accept').onclick = function (e) {
                         debugger

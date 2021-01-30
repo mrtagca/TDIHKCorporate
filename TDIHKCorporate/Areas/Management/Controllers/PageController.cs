@@ -248,7 +248,7 @@ order by CreatedDate desc", new { lang = "tr" });
             {
                 DapperRepository<Pages> page = new DapperRepository<Pages>();
 
-                int result = page.Execute(@"update Pages set IsActive = 0 where PageID = @pageID", new { pageID = pageID });
+                int result = page.Execute(@"update Pages set IsActive = 0,UpdatedDate=@UpdatedDate,UpdatedBy=@UpdatedBy where PageID = @pageID", new { pageID = pageID, UpdatedDate = DateTime.Now, UpdatedBy = Convert.ToInt32(Session["UserID"]) });
 
 
                 return JsonConvert.SerializeObject(true);
@@ -265,7 +265,12 @@ order by CreatedDate desc", new { lang = "tr" });
             {
                 DapperRepository<Pages> page = new DapperRepository<Pages>();
 
-                int result = page.Execute(@"update Pages set IsActive = 1 where PageID = @pageID", new { pageID = pageID });
+                int result = page.Execute(@"update Pages set IsActive = 1,UpdatedDate=@UpdatedDate,UpdatedBy=@UpdatedBy where PageID = @pageID", new
+                {
+                    pageID = pageID,
+                    UpdatedDate = DateTime.Now,
+                    UpdatedBy = Convert.ToInt32(Session["UserID"])
+                });
 
 
                 return JsonConvert.SerializeObject(true);

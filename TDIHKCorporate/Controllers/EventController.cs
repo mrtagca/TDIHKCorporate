@@ -4,8 +4,10 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
+using System.Xml;
 using TDIHKCorporate.BaseControllers.MultiLanguage;
 using TDIHKCorporate.Types;
 
@@ -264,7 +266,7 @@ inner join EventCategories evc
 on ev.EventCategoryID = evc.ID
 
 where ev.[Language] = @lang and CONVERT(date,EventDate) >= CONVERT(date,GETDATE()) and ev.IsActive=1
-order by CONVERT(datetime,CONVERT(nvarchar,EventDate)+' '+CONVERT(nvarchar,EventTime)) desc", new { lang = name }).Take(count).ToList();
+order by CONVERT(datetime,CONVERT(nvarchar,EventDate)+' '+CONVERT(nvarchar,EventTime))", new { lang = name }).Take(count).ToList();
                 }
                 else
                 {
@@ -273,7 +275,7 @@ inner join EventCategories evc
 on ev.EventCategoryID = evc.ID
 
 where ev.[Language] = @lang and CONVERT(date,EventDate) >= CONVERT(date,GETDATE()) and ev.IsActive=1
-order by CONVERT(datetime,CONVERT(nvarchar,EventDate)+' '+CONVERT(nvarchar,EventTime)) desc", new { lang = name });
+order by CONVERT(datetime,CONVERT(nvarchar,EventDate)+' '+CONVERT(nvarchar,EventTime))", new { lang = name });
                 }
 
                 return eventList;
@@ -341,7 +343,56 @@ where ev.[Language] = @lang and evc.[Language] = @lang and evc.EventCategoryName
             }
         }
 
-      
+        public ActionResult SiteMap()
+        {
+            DapperRepository<Events> events = new DapperRepository<Events>();
+
+            List<Events> eventList = events.GetList(@"select * from [Events] (nolock) where IsActive = 1 order by CreatedDate desc", null);
+
+            Response.Clear();
+            //Response.ContentTpye ile bu Action'ın View'ını XML tabanlı olarak ayarlıyoruz.
+            Response.ContentType = "text/xml";
+            XmlTextWriter xr = new XmlTextWriter(Response.OutputStream, Encoding.UTF8);
+            xr.WriteStartDocument();
+            xr.WriteStartElement("urlset");//urlset etiketi açıyoruz
+            xr.WriteAttributeString("xmlns", "http://www.sitemaps.org/schemas/sitemap/0.9");
+            xr.WriteAttributeString("xmlns:xsi", "http://www.w3.org/2001/XMLSchema-instance");
+            xr.WriteAttributeString("xsi:schemaLocation", "http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/siteindex.xsd");
+            /* sitemap dosyamızın olmazsa olmazını ekledik. Şeması bu dedik buraya kadar.  */
+
+            xr.WriteStartElement("url");
+            xr.WriteElementString("loc", Request.Url.Authority);
+            xr.WriteElementString("lastmod", DateTime.Now.ToString("yyyy-MM-dd"));
+            xr.WriteElementString("changefreq", "daily");
+            xr.WriteElementString("priority", "1");
+            xr.WriteEndElement();
+
+            //Burada veritabanımızdaki Personelleri SiteMap'e ekliyoruz.
+
+            foreach (var e in eventList)
+            {
+                xr.WriteStartElement("url");
+                if (e.Language == "tr")
+                {
+                    xr.WriteElementString("loc", Request.Url.Scheme + "://" + Request.Url.Authority + "/tr/etkinlikler/" + e.EventSeoLink);
+                }
+                else
+                {
+                    xr.WriteElementString("loc",Request.Url.Scheme+"://"+ Request.Url.Authority + "/de/events/" + e.EventSeoLink);
+                }
+                xr.WriteElementString("lastmod", e.CreatedDate.ToString("yyyy-MM-dd"));
+                xr.WriteElementString("priority", "1");
+                xr.WriteElementString("changefreq", "daily");
+                xr.WriteEndElement();
+            }
+
+            xr.WriteEndDocument();
+            //urlset etiketini kapattık
+            xr.Flush();
+            xr.Close();
+            Response.End();
+            return View();
+        }
 
     }
 }

@@ -3,7 +3,28 @@
 
 @{
     Layout = null;
+    CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+    string lang = cultureInfo.TwoLetterISOLanguageName;
 }
+
+<head>
+    <meta charset="utf-8">
+
+    @if (lang == "tr")
+    {
+        <meta name="description" content="TD IHK nın geçmiş etkinliklerine bu sayfadan ulaşabilirsiniz. Bu sayfada geçişteki buluşma etkinlikleri,toplantılar ve eğitimlere ait bilgilendirmelere ulaşabilirsiniz.">
+        <title>TD IHK Geçmiş Etkinlikler</title>
+    }
+    else
+    {
+        <meta name="description" content="Auf dieser Seite können Sie die bisherigen Aktivitäten von TD IHK erreichen. Auf dieser Seite finden Sie Informationen zu Besprechungsveranstaltungen, Besprechungen und Schulungen im Übergang.">
+        <title>TD IHK Last Events</title>
+    }
+
+    <meta name="keywords" content="td ihk geçmiş etkinlikler,td ihk last events,td ihk etkinlikler,td ihk events">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="TD IHK">
+</head>
 
 <style>
     .cover {
@@ -17,11 +38,6 @@
     <div class="uk-text-center events-page-header">@Resources.resource.GecmisEtkinlikler</div>
     <div class="uk-grid uk-grid-medium uk-child-width-1-2@s uk-child-width-1-3@m event-cards uk-margin-large-bottom" uk-grid uk-scrollspy="cls: uk-animation-fade; target: > div; delay: 100">
 
-        @{
-            CultureInfo ci = System.Threading.Thread.CurrentThread.CurrentCulture;
-            string lang = ci.TwoLetterISOLanguageName;
-
-        }
 
 
         @foreach (var item in Model)

@@ -1,10 +1,7 @@
 ﻿@model List<TDIHKCorporate.Types.SearchItem>
 @using System.Globalization
 
-
-
 @{
-    ViewBag.Title = "EventArchive";
     Layout = "~/Views/Shared/_layoutMaster.cshtml";
 
     CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
@@ -12,8 +9,24 @@
     string lang = cultureInfo.TwoLetterISOLanguageName;
 }
 
-@*<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.2/css/uikit.min.css">
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/dataTables.uikit.min.css">*@
+<head>
+    <meta charset="utf-8">
+
+    @if (lang == "tr")
+    {
+        <meta name="description" content="TD IHK nın düzenlemiş olduğu tüm etkinliklerin arşivine bu sayfadan ulaşabilirsiniz.">
+        <title>TD IHK Etkinlik Arşivi</title>
+    }
+    else
+    {
+        <meta name="description" content="Auf dieser Seite können Sie auf das Archiv aller von TD IHK organisierten Aktivitäten zugreifen.">
+        <title>TD IHK Events Archive</title>
+    }
+
+    <meta name="keywords" content="td ihk etkinlikler,td ihk events,td ihk etkinlik arşivi,td ihk event archive,td ihk geçmiş etkinlikler,td ihk last events">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="TD IHK">
+</head>
 
 
 <script>
@@ -32,19 +45,12 @@
         <div class="uk-overflow-auto">
             <table id="EventArchive" class="uk-table uk-table-hover uk-table-responsive uk-table-divider" style="width:100%">
                 <thead>
-					<tr>
-						<th class="uk-width-small">@Resources.resource.Tarih</th>
-						<th class="uk-width-expand">@Resources.resource.EtkinlikBasligi</th>
-						@if (lang == "tr")
-						{
-							<th class="uk-width-expand">TÜR</th>
-						}
-						else
-						{
-							<th class="uk-width-expand">TYP</th>
-						}
+                    <tr>
+                        <th class="uk-width-small">@Resources.resource.Tarih</th>
+                        <th class="uk-width-expand">@Resources.resource.EtkinlikBasligi</th>
+                        <th class="uk-width-expand">@Resources.resource.Tur</th>
 
-					</tr>
+                    </tr>
                 </thead>
                 <tbody>
                     @foreach (var item in Model)
@@ -80,12 +86,12 @@
 
                             @if (item.Type == "News")
                             {
-                            <td>@Resources.resource.Haberler</td>
+                                <td>@Resources.resource.Haberler</td>
 
                             }
                             else if (item.Type == "Events")
                             {
-                            <td>@Resources.resource.Etkinlikler</td>
+                                <td>@Resources.resource.Etkinlikler</td>
                             }
 
                         </tr>

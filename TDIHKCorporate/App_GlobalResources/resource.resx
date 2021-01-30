@@ -744,6 +744,9 @@
   <data name="TumunuGoster" xml:space="preserve">
     <value>Tümünü Göster</value>
   </data>
+  <data name="Tur" xml:space="preserve">
+    <value>Tür</value>
+  </data>
   <data name="Ucretsizdir" xml:space="preserve">
     <value>ücretsizdir</value>
   </data>

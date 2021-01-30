@@ -1,9 +1,31 @@
 ﻿@model TDIHKCorporate.Types.Events
+@using System.Globalization
+
 @{
-    ViewBag.Title = "EventRegister";
     Layout = "~/Views/Shared/_layoutMaster.cshtml";
+    CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+
+    string lang = cultureInfo.TwoLetterISOLanguageName;
 }
 
+<head>
+    <meta charset="utf-8">
+
+    @if (lang == "tr")
+    {
+        <meta name="description" content="TD IHK nın düzenlemiş olduğu tüm etkinliklere bu sayfadan ulaşabilirsiniz.">
+        <title>TD IHK Etkinlikler</title>
+    }
+    else
+    {
+        <meta name="description" content="Auf dieser Seite können Sie auf alle von TD IHK organisierten Veranstaltungen zugreifen.">
+        <title>TD IHK Events</title>
+    }
+
+    <meta name="keywords" content="td ihk etkinlikler,td ihk events,td ihk toplantılar,td ihk buluşma etkinlikleri,td ihk toplantılar">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="TD IHK">
+</head>
 
 
 <main class="uk-container" uk-scrollspy="cls: uk-animation-fade; target: > section; delay: 250">
@@ -17,58 +39,65 @@
         </div>
     </section>
 
+    <section>
+        <div class="size-20 color-black uk-text-bold uk-margin-small-bottom">@Model.EventDescription</div>
+    </section>
+
     @Html.Raw(Model.EventContent)
 
-    @if (Convert.ToDateTime(Model.EventDate.ToString("yyyy-MM-dd")) >= Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd")) && !Model.IsOnlineMeeting)
+    @if (Convert.ToDateTime(Model.EventDate.ToString("yyyy-MM-dd")) >= Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd")))
     {
-        <section class="uk-section">
-            <h1 class="uk-h2 uk-text-center">@Resources.resource.Kayit</h1>
-            <div class="uk-width-1-2@m uk-margin-auto">
-                <div class="uk-form-stacked uk-grid-medium register-form" uk-grid>
-                    <div class="uk-width-1-2@m">
-                        <div class="uk-form-controls">
-                            <input class="uk-input uk-border-rounded" id="firstName" type="text" placeholder="@Resources.resource.Isim*" required>
+        if (!Model.IsOnlineMeeting)
+        {
+            <section class="uk-section">
+                <h1 class="uk-h2 uk-text-center">@Resources.resource.Kayit</h1>
+                <div class="uk-width-1-2@m uk-margin-auto">
+                    <div class="uk-form-stacked uk-grid-medium register-form" uk-grid>
+                        <div class="uk-width-1-2@m">
+                            <div class="uk-form-controls">
+                                <input class="uk-input uk-border-rounded" id="firstName" type="text" placeholder="@Resources.resource.Isim*" required>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="uk-width-1-2@m">
-                        <div class="uk-form-controls">
-                            <input class="uk-input uk-border-rounded" id="lastName" type="text" placeholder="@Resources.resource.Soyadi*" required>
+                        <div class="uk-width-1-2@m">
+                            <div class="uk-form-controls">
+                                <input class="uk-input uk-border-rounded" id="lastName" type="text" placeholder="@Resources.resource.Soyadi*" required>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="uk-width-1-1">
-                        <div class="uk-form-controls">
-                            <input class="uk-input uk-border-rounded" id="email" type="email" placeholder="@Resources.resource.EmailAdres*" required>
+                        <div class="uk-width-1-1">
+                            <div class="uk-form-controls">
+                                <input class="uk-input uk-border-rounded" id="email" type="email" placeholder="@Resources.resource.EmailAdres*" required>
+                            </div>
+                        </div>
+                        <div class="uk-width-1-1">
+                            <div class="uk-form-controls">
+                                <input class="uk-input uk-border-rounded" id="company" type="text" placeholder="@Resources.resource.Sirket" required>
+                            </div>
+                        </div>
+                        <div class="uk-width-1-1">
+                            <button onclick="RegisterEvent('@Model.EventIdentifier')" class="uk-button uk-button-primary uk-width-1-1 uk-border-rounded" type="submit">@Resources.resource.KayitOl</button>
                         </div>
                     </div>
-                    <div class="uk-width-1-1">
-                        <div class="uk-form-controls">
-                            <input class="uk-input uk-border-rounded" id="company" type="text" placeholder="@Resources.resource.Sirket" required>
+                    <div class="uk-width-3-5@m uk-margin-auto uk-margin-medium-top"> @Resources.resource.VeriIsleme <b>@Resources.resource.VeriGizlilik.</b></div>
+                </div>
+            </section>
+        }
+        else
+        {
+            <section class="uk-section">
+                <h1 class="uk-h2 uk-text-center">@Resources.resource.Kayit</h1>
+                <div class="uk-width-1-2@m uk-margin-auto">
+                    <div class="uk-form-stacked uk-grid-medium register-form" uk-grid>
+
+
+                        <div class="uk-width-1-1">
+                            <button onclick="window.open('@Model.MeetingLink')" class="uk-button uk-button-primary uk-width-1-1 uk-border-rounded" type="submit">@Resources.resource.KayitOl</button>
                         </div>
-                    </div>
-                    <div class="uk-width-1-1">
-                        <button onclick="RegisterEvent('@Model.EventIdentifier')" class="uk-button uk-button-primary uk-width-1-1 uk-border-rounded" type="submit">@Resources.resource.KayitOl</button>
                     </div>
                 </div>
-                <div class="uk-width-3-5@m uk-margin-auto uk-margin-medium-top"> @Resources.resource.VeriIsleme<b>@Resources.resource.VeriGizlilik.</b></div>
-            </div>
-        </section>
-    }
-    else
-    {
-        <section class="uk-section">
-            <h1 class="uk-h2 uk-text-center">@Resources.resource.Kayit</h1>
-            <div class="uk-width-1-2@m uk-margin-auto">
-                <div class="uk-form-stacked uk-grid-medium register-form" uk-grid>
-
-
-                    <div class="uk-width-1-1">
-                        <button onclick="window.open('@Model.MeetingLink')" class="uk-button uk-button-primary uk-width-1-1 uk-border-rounded" type="submit">@Resources.resource.KayitOl</button>
-                    </div>
-                </div>
-            </div>
-        </section>
+            </section>
+        }
     }
 </main>
 

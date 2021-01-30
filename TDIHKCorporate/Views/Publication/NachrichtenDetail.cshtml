@@ -1,39 +1,50 @@
 ﻿@model TDIHKCorporate.Types.News
 @using System.Globalization
 @{
-    ViewBag.Title = "NachrichtenDetail";
     Layout = "~/Views/Shared/_layoutMaster.cshtml";
+    CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+    string lang = cultureInfo.TwoLetterISOLanguageName;
 }
+
+
+<head>
+    <meta charset="utf-8">
+
+    <meta name="description" content="@Model.NewsDescription">
+    <title>TD IHK @Model.NewsTitle</title>
+    <meta name="keywords" content="td ihk haberler,ihk haber,almanya haberleri,td ihk nachrichten,germany nachrichten">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="TD IHK">
+</head>
 
 <main class="uk-container" uk-scrollspy="cls: uk-animation-fade; target: > section; delay: 250">
 
 
-	<section>
-		<div class="uk-text-right color-dark-grey size-20" @*id="today"*@>
-			@*@Model.CreatedDate*@
-
-
-	</div>
-	<div class="uk-margin-medium-bottom">
-		<img src="@Model.NewsImagePath" alt="@Model.NewsTitle" uk-img />
-	</div>
-	<div>
-		@{
-			CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
-
-			<span class="color-dark-grey size-20">@cultureInfo.DateTimeFormat.GetDayName(Model.CreatedDate.DayOfWeek).ToString(), @Model.CreatedDate.Day @cultureInfo.DateTimeFormat.GetMonthName(Model.CreatedDate.Month)</span>
-		}
-	</div>
-	</section>
     <section>
-    <div class="size-20 color-black uk-text-bold uk-margin-small-bottom">@Model.NewsDescription</div>
-        </section>
-    <section>
-    <div class="news-detail-content uk-margin-medium-bottom">
-        @Html.Raw(Model.NewsContent)
+        <div class="uk-text-right color-dark-grey size-20" @*id="today"*@>
+            @*@Model.CreatedDate*@
+
+
+        </div>
+        <div class="uk-margin-medium-bottom">
+            <img src="@Model.NewsImagePath" alt="@Model.NewsTitle" uk-img />
+        </div>
+        <div>
+            @{
+
+                <span class="color-dark-grey size-20">@cultureInfo.DateTimeFormat.GetDayName(Model.CreatedDate.DayOfWeek).ToString(), @Model.CreatedDate.Day @cultureInfo.DateTimeFormat.GetMonthName(Model.CreatedDate.Month)</span>
+            }
         </div>
     </section>
-	<br />
+    <section>
+        <div class="size-20 color-black uk-text-bold uk-margin-small-bottom">@Model.NewsDescription</div>
+    </section>
+    <section>
+        <div class="news-detail-content uk-margin-medium-bottom">
+            @Html.Raw(Model.NewsContent)
+        </div>
+    </section>
+    <br />
     @Html.Action("GetNewsForNewsDetail")
 </main>
 

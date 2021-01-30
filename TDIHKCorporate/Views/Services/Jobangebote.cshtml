@@ -2,7 +2,6 @@
 @using System.Globalization
 
 @{
-    ViewBag.Title = "Jobangebote";
     Layout = "~/Views/Shared/_layoutMaster.cshtml";
 
     CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
@@ -22,6 +21,24 @@
     }
 }
 
+<head>
+    <meta charset="utf-8">
+
+    @if (lang == "tr")
+    {
+        <meta name="description" content="TD IHK iş tekliflerine bu sayfadan ulaşabilirsiniz. TD IHK üyeleri,iş ortakları kapsamındaki iş ilanlarına ulaşabilir, başvuru yapabilirsiniz.">
+        <title>TD IHK İş Teklifleri</title>
+    }
+    else
+    {
+        <meta name="description" content="Auf dieser Seite finden Sie Stellenangebote von TD IHK. Sie können auf Stellenausschreibungen im Rahmen von TD IHK-Mitgliedern, Geschäftspartnern zugreifen und sich bewerben.">
+        <title>TD IHK Jobangebote</title>
+    }
+
+    <meta name="keywords" content="td ihk iş teklifleri,td ihk iş fırsatları,td ihk iş ilanları,td ihk jobangebote,ihk jobangebote">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="TD IHK">
+</head>
 
 <main class="uk-container" uk-scrollspy="cls: uk-animation-fade; target: > section; delay: 250">
     <section>

@@ -15,7 +15,7 @@ namespace TDIHKCorporate.Areas.Management.Controllers
         public ActionResult ContactFormList()
         {
             DapperRepository<ContactForm> podcastList = new DapperRepository<ContactForm>();
-            List<ContactForm> result = podcastList.GetList(@"SELECT * FROM ContactForm (NOLOCK) order by CreatedDate desc", null).ToList();
+            List<ContactForm> result = podcastList.GetList(@"SELECT * FROM ContactForm (NOLOCK) order by ContactFormID desc", null).ToList();
 
             return View(result);
         }

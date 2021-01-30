@@ -1,9 +1,32 @@
-﻿@model List<TDIHKCorporate.Types.Events>
-@using System.Globalization
+﻿@using System.Globalization
+@model List<TDIHKCorporate.Types.Events>
+
 
 @{
     Layout = null;
+    CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+    string lang = cultureInfo.TwoLetterISOLanguageName;
 }
+
+
+<head>
+    <meta charset="utf-8">
+
+    @if (lang == "tr")
+    {
+        <meta name="description" content="TD IHK nın düzenleyeceği gelecek etkinliklere arşivine bu sayfadan ulaşabilirsiniz.">
+        <title>TD IHK Gelecek Etkinlikler</title>
+    }
+    else
+    {
+        <meta name="description" content="Auf dieser Seite können Sie auf das Archiv zukünftiger Veranstaltungen zugreifen, die von TD IHK organisiert werden sollen.">
+        <title>TD IHK Zukünftige Events</title>
+    }
+
+    <meta name="keywords" content="td ihk gelecek etkinlikler,td ihk etkinlikler,td ihk zukünftige events,td ihk events">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="TD IHK">
+</head>
 
 @if (Model.Count > 0)
 {
@@ -16,10 +39,8 @@
                 <div class="uk-box-shadow-medium uk-width-1-4@m uk-padding-small uk-card uk-card-primary uk-card-body uk-flex uk-flex-column uk-flex-between height-match">
 
                     @{
-                        CultureInfo ci = System.Threading.Thread.CurrentThread.CurrentCulture;
-                        string lang = ci.TwoLetterISOLanguageName;
 
-                        <span class="size-h2 line-height-1 uk-margin-small-top">@item.EventDate.ToString("MMM", ci).ToUpper()</span>
+                        <span class="size-h2 line-height-1 uk-margin-small-top">@item.EventDate.ToString("MMM", cultureInfo).ToUpper()</span>
                     }
 
                     <span class="line-height-1 uk-margin-small-bottom" style="font-size: 60px">@item.EventDate.Day</span>
@@ -55,11 +76,6 @@
                         }
                     </div>
 
-
-                    @*<div class="uk-hidden@m height-match">
-                            <div class="event-flag">@Resources.resource.Yalnizca <span>3</span> @Resources.resource.YerKaldi</div>
-                            <img src="/Content/MainSite/assets/images/events/Past-2.png" class="uk-width-1-1" alt="">
-                        </div>*@
                 </div>
 
             </div>

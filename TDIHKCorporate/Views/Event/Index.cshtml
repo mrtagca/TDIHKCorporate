@@ -9,6 +9,25 @@
     string lang = cultureInfo.TwoLetterISOLanguageName;
 }
 
+<head>
+    <meta charset="utf-8">
+
+    @if (lang == "tr")
+    {
+        <meta name="description" content="TD IHK nın düzenlediği ve düzenleyeceği etkinliklere arşivine bu sayfadan ulaşabilirsiniz.">
+        <title>TD IHK Etkinlikler</title>
+    }
+    else
+    {
+        <meta name="description" content="Auf dieser Seite erreichen Sie das Archiv der von TD IHK organisierten und zu organisierenden Veranstaltungen.">
+        <title>TD IHK Events</title>
+    }
+
+    <meta name="keywords" content="td ihk etkinlikler,td ihk events">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="TD IHK">
+</head>
+
 @{
     List<TDIHKCorporate.Types.BreadCrumb> breadCrumbList = new List<TDIHKCorporate.Types.BreadCrumb>();
     try

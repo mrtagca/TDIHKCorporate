@@ -744,6 +744,9 @@
   <data name="TumunuGoster" xml:space="preserve">
     <value>Alle anzeigen</value>
   </data>
+  <data name="Tur" xml:space="preserve">
+    <value>Typ</value>
+  </data>
   <data name="Ucretsizdir" xml:space="preserve">
     <value>kostenlos</value>
   </data>

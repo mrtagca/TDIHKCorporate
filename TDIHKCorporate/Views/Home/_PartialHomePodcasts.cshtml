@@ -1,65 +1,79 @@
-﻿@model List<TDIHKCorporate.Types.Podcasts>
+﻿
+@using System.Globalization
+@model List<TDIHKCorporate.Types.Podcasts>
 
-<section>
-    <h2>Podcasts</h2>
-    <div class="podcast-container uk-overflow-hidden">
+@{
+    CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
 
-        @foreach (var item in Model)
-        {
-            <audio id="audio_@item.ID">
-                <source src="@item.PodcastFilePath" type="audio/mpeg">
-            </audio>
+    string lang = cultureInfo.TwoLetterISOLanguageName;
+}
+    <section>
+        <h2>Podcasts</h2>
+        <div class="podcast-container uk-overflow-hidden">
 
-            <div class="uk-grid uk-grid-medium podcast-wrapper" uk-grid>
-                <div class="uk-width-1-4 uk-width-1-6@s uk-flex uk-flex-middle">
-                    <span class="uk-preserve uk-margin-small-left podcast-icon uk-icon uk-icon-button" uk-icon="icon: rss; ratio: 1.5"></span>
+            @foreach (var item in Model)
+            {
+                <audio id="audio_@item.ID">
+                    <source src="@item.PodcastFilePath" type="audio/mpeg">
+                </audio>
+
+                <div class="uk-grid uk-grid-medium podcast-wrapper" uk-grid>
+                    <div class="uk-width-1-4 uk-width-1-6@s uk-flex uk-flex-middle">
+                        <span class="uk-preserve uk-margin-small-left podcast-icon uk-icon uk-icon-button" uk-icon="icon: rss; ratio: 1.5"></span>
+                    </div>
+                    <div class="uk-width-1-2 uk-width-2-3@s">
+                        <div class="uk-text-large uk-text-truncate line-height-1 uk-text-bold">@item.PodcastTitle</div>
+                        <div class="uk-text-small line-height-1">@item.PodcastDescription</div>
+                    </div>
+
+
+                    <div class="uk-width-1-4 uk-width-1-6@s uk-flex uk-flex-middle">
+                        <a onclick="playAudio('audio_@item.ID','audioIcon_@item.ID','btnAudio_@item.ID')" id="btnAudio_@item.ID" class="uk-button uk-button-primary uk-border-rounded color-white">
+                            <span class="" id="audioIcon_@item.ID">PLAY</span>
+                        </a>
+                    </div>
                 </div>
-                <div class="uk-width-1-2 uk-width-2-3@s">
-                    <div class="uk-text-large uk-text-truncate line-height-1 uk-text-bold">@item.PodcastTitle</div>
-                    <div class="uk-text-small line-height-1">@item.PodcastDescription</div>
-                </div>
+            }
+        </div>
+        <div class="uk-flex uk-flex-center uk-margin-medium-top">
+            @if (lang == "tr")
+            {
+                <a class="uk-button uk-button-primary uk-border-rounded" href="/tr/sayfalar/podcastler" type="button">Tüm Podcastler</a>
+            }
+            else
+            {
+                <a class="uk-button uk-button-primary uk-border-rounded" href="/de/seiten/podcasts" type="button">Podcasts</a>
+            }
+        </div>
+    </section>
+
+    <script>
+
+        function playAudio(audioId, iconId, btnId) {
+            var x = document.getElementById(audioId);
+            x.play();
+
+            var icon = document.getElementById(iconId);
+            icon.innerText = "PAUSE";
+            //icon.setAttribute("uk-icon", "icon:icn-pause-3; ratio: 0.06")
+
+            var btn = document.getElementById(btnId);
+            btn.setAttribute("onclick", " pauseAudio('" + audioId + "', '" + iconId + "', '" + btnId + "')")
 
 
-                <div class="uk-width-1-4 uk-width-1-6@s uk-flex uk-flex-middle">
-                    <a onclick="playAudio('audio_@item.ID','audioIcon_@item.ID','btnAudio_@item.ID')" id="btnAudio_@item.ID" class="uk-button uk-button-primary uk-border-rounded color-white">
-						<span class="" id="audioIcon_@item.ID">PLAY</span>
-                    </a>
-                </div>
-            </div>
+
         }
-    </div>
-    <div class="uk-flex uk-flex-center uk-margin-medium-top">
-        <a class="uk-button uk-button-primary uk-border-rounded" href="#" type="button">Tüm Podcastler</a>
-    </div>
-</section>
 
-<script>
+        function pauseAudio(audioId, iconId, btnId) {
+            var x = document.getElementById(audioId);
+            x.pause();
 
-    function playAudio(audioId, iconId, btnId) {
-        var x = document.getElementById(audioId);
-        x.play();
+            var icon = document.getElementById(iconId);
+            icon.innerText = "PLAY";
+            //icon.setAttribute("uk-icon", "icon:icn-play-3; ratio: 1.5")
 
-        var icon = document.getElementById(iconId);
-        icon.innerText = "PAUSE";
-        //icon.setAttribute("uk-icon", "icon:icn-pause-3; ratio: 0.06")
+            var btn = document.getElementById(btnId);
+            btn.setAttribute("onclick", " playAudio('" + audioId + "', '" + iconId + "', '" + btnId + "')")
+        }
 
-        var btn = document.getElementById(btnId);
-        btn.setAttribute("onclick", " pauseAudio('" + audioId + "', '" + iconId + "', '" + btnId + "')")
-
-
-
-    }
-
-    function pauseAudio(audioId, iconId, btnId) {
-        var x = document.getElementById(audioId);
-        x.pause();
-
-        var icon = document.getElementById(iconId);
-        icon.innerText = "PLAY";
-        //icon.setAttribute("uk-icon", "icon:icn-play-3; ratio: 1.5")
-
-        var btn = document.getElementById(btnId);
-        btn.setAttribute("onclick", " playAudio('" + audioId + "', '" + iconId + "', '" + btnId + "')")
-    }
-
-</script>
+    </script>
