@@ -165,7 +165,7 @@
         dataParams.SuggestionLocationAndTime = document.getElementById("LocationAndTime").value;
 
         var callParams = {
-            endPoint: "/MemberShip/StandardMitgliedschaftAntragsformularTest",
+            endPoint: "/MemberShip/StandardMitgliedschaftAntragsformular",
             requestType: "POST"
         }
 
