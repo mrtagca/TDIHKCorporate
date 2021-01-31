@@ -5,7 +5,7 @@
 
         @foreach (var item in Model)
         {
-            <audio id="audio_@item.ID">
+            <audio data-id="@item.ID" id="audio_@item.ID">
                 <source src="@item.PodcastFilePath" type="audio/mpeg">
             </audio>
 
@@ -19,19 +19,17 @@
                 </div>
 
 
-				<div class="uk-width-1-1 uk-width-medium@s uk-flex uk-flex-middle uk-flex-right uk-flex-between">
-						<a onclick="prev('audio_@item.ID','audioIcon_prev_@item.ID','btnAudio_prev_@item.ID')" id="btnAudio_prev_@item.ID" class="uk-width-auto uk-flex uk-flex-middle uk-flex-center uk-button uk-button-primary uk-border-rounded color-white" style="height: 42px;">
-							<span class="" id="audioIcon_prev_@item.ID" uk-icon="icon: refresh; ratio: 1.1" style="transform: rotateY(180deg);"></span>
-
-						</a>
-						<a onclick="playAudio('audio_@item.ID','audioIcon_play_@item.ID','btnAudio_play_@item.ID')" id="btnAudio_play_@item.ID" class="uk-width-small uk-button uk-button-primary uk-border-rounded color-white">
-							<span class="" id="audioIcon_play_@item.ID">PLAY</span>
-
-						</a>
-						<a onclick="next('audio_@item.ID','audioIcon_next_@item.ID','btnAudio_next_@item.ID')" id="btnAudio_next_@item.ID" class="uk-width-auto uk-flex uk-flex-middle uk-flex-center uk-button uk-button-primary uk-border-rounded color-white" style="height: 42px">
-							<span class="" id="audioIcon_next_@item.ID" uk-icon="icon: refresh; ratio: 1.1"></span>
-						</a>
-				</div>
+                <div class="uk-width-1-1 uk-width-medium@s uk-flex uk-flex-middle uk-flex-right uk-flex-between">
+                    <a onclick="prev('audio_@item.ID','audioIcon_prev_@item.ID','btnAudio_prev_@item.ID')" id="btnAudio_prev_@item.ID" class="uk-width-auto uk-width-auto@s uk-flex uk-flex-middle uk-flex-center uk-button uk-button-primary uk-border-rounded color-white" style="height: 42px;">
+                        <span class="" id="audioIcon_prev_@item.ID" uk-icon="icon: refresh; ratio: 1.1" style="transform: rotateY(180deg);"></span>
+                    </a>
+                    <a onclick="playAudio('audio_@item.ID','audioIcon_@item.ID','btnAudio_@item.ID')" id="btnAudio_@item.ID" class="uk-button uk-button-primary uk-border-rounded color-white uk-width-small">
+                        <span class="" id="audioIcon_@item.ID">PLAY</span>
+                    </a>
+                    <a onclick="next('audio_@item.ID','audioIcon_next_@item.ID','btnAudio_next_@item.ID')" id="btnAudio_next_@item.ID" class="uk-width-auto uk-width-auto@s uk-flex uk-flex-middle uk-flex-center uk-button uk-button-primary uk-border-rounded color-white" style="height: 42px">
+                        <span class="" id="audioIcon_next_@item.ID" uk-icon="icon: refresh; ratio: 1.1"></span>
+                    </a>
+                </div>
             </div>
         }
 
@@ -42,7 +40,12 @@
 
     function playAudio(audioId, iconId, btnId) {
 
-        debugger
+        var audios = document.getElementsByTagName('audio');
+        for (var i = 0, len = audios.length; i < len; i++) {
+
+            pauseAudio(audios[i].id, 'audioIcon_' + audios[i].getAttribute("data-id"), 'btnAudio_' + audios[i].getAttribute("data-id"));
+        }
+
         var x = document.getElementById(audioId);
         x.play();
 

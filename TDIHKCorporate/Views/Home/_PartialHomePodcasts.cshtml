@@ -13,7 +13,7 @@
 
             @foreach (var item in Model)
             {
-                <audio id="audio_@item.ID">
+                <audio data-id="@item.ID" id="audio_@item.ID">
                     <source src="@item.PodcastFilePath" type="audio/mpeg">
                 </audio>
 
@@ -51,10 +51,17 @@
             }
         </div>
     </section>
-
     <script>
 
         function playAudio(audioId, iconId, btnId) {
+
+            debugger
+            var audios = document.getElementsByTagName('audio');
+            for (var i = 0, len = audios.length; i < len; i++) {
+
+                pauseAudio(audios[i].id, 'audioIcon_' + audios[i].getAttribute("data-id"), 'btnAudio_' + audios[i].getAttribute("data-id"));
+            }
+
             var x = document.getElementById(audioId);
             x.play();
 
@@ -80,5 +87,31 @@
             var btn = document.getElementById(btnId);
             btn.setAttribute("onclick", " playAudio('" + audioId + "', '" + iconId + "', '" + btnId + "')")
         }
+
+        function next(audioId, iconId, btnId) {
+            debugger
+            var x = document.getElementById(audioId);
+            x.currentTime += 10;
+
+            //var icon = document.getElementById(iconId);
+            //icon.innerText = "PAUSE";
+            ////icon.setAttribute("uk-icon", "icon:icn-play-3; ratio: 1.5")
+
+            //var btn = document.getElementById(btnId);
+            //btn.setAttribute("onclick", " pauseAudio('" + audioId + "', '" + iconId + "', '" + btnId + "')")
+        }
+
+        function prev(audioId, iconId, btnId) {
+            var x = document.getElementById(audioId);
+            x.currentTime -= 10;
+
+            //var icon = document.getElementById(iconId);
+            //icon.innerText = "PAUSE";
+            ////icon.setAttribute("uk-icon", "icon:icn-play-3; ratio: 1.5")
+
+            //var btn = document.getElementById(btnId);
+            //btn.setAttribute("onclick", " pauseAudio('" + audioId + "', '" + iconId + "', '" + btnId + "')")
+        }
+
 
     </script>
