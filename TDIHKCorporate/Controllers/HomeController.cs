@@ -18,8 +18,8 @@ namespace TDIHKCorporate.Controllers
     {
         public ActionResult ChangeLanguage(string language)
         {
-            HttpContext.Session["Mainlanguage"] = null;
-            HttpContext.Session["Mainculture"] = null;
+            HttpContext.Session["Mainlanguage"] = "";
+            HttpContext.Session["Mainculture"] = "";
 
             new SiteLanguage().SetLanguage(language);
 
@@ -201,35 +201,35 @@ where [Language] = @lang and EventIdentifier in (SELECT top 1 EventIdentifier FR
                 }
 
 
-                //string lang = "";
-                //string cult = "";
+                string lang = "";
+                string cult = "";
 
-                //if (language == "tr") //change tr
-                //{
-                //    lang = "tr";
-                //    cult = "TR";
+                if (language == "tr") //change tr
+                {
+                    lang = "tr";
+                    cult = "TR";
 
-                //    HttpContext.Session["Mainlanguage"] = lang;
-                //    HttpContext.Session["Mainculture"] = cult;
-                //    Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo($"{lang}-{cult}");
-                //    Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo($"{lang}-{cult}");
+                    HttpContext.Session["Mainlanguage"] = lang;
+                    HttpContext.Session["Mainculture"] = cult;
+                    Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo($"{lang}-{cult}");
+                    Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo($"{lang}-{cult}");
 
-                //    return Redirect(Request.UrlReferrer.ToString());
-                //}
-                //else
-                //{
-                //    lang = "de";
-                //    cult = "DE";
+                    return Redirect(Request.UrlReferrer.ToString());
+                }
+                else
+                {
+                    lang = "de";
+                    cult = "DE";
 
-                //    HttpContext.Session["Mainlanguage"] = lang;
-                //    HttpContext.Session["Mainculture"] = cult;
-                //    Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo($"{lang}-{cult}");
-                //    Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo($"{lang}-{cult}");
+                    HttpContext.Session["Mainlanguage"] = lang;
+                    HttpContext.Session["Mainculture"] = cult;
+                    Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo($"{lang}-{cult}");
+                    Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo($"{lang}-{cult}");
 
-                //    return Redirect(Request.UrlReferrer.ToString());
-                //}
+                    return Redirect(Request.UrlReferrer.ToString());
+                }
 
-                
+
             }
             else
             {
