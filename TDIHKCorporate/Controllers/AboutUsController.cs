@@ -7,6 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TDIHKCorporate.BaseControllers.MultiLanguage;
+using TDIHKCorporate.Helpers.Mail;
 using TDIHKCorporate.Types;
 using TDIHKCorporate.Types.ViewTypes;
 
@@ -53,18 +54,47 @@ namespace TDIHKCorporate.Controllers
         {
             try
             {
+                CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+                string lang = cultureInfo.TwoLetterISOLanguageName;
+
                 contactForm.IPAddress = Request.UserHostAddress;
                 contactForm.CreatedDate = DateTime.Now;
                 contactForm.IsRead = false;
 
-
                 DapperRepository<ContactForm> contact = new DapperRepository<ContactForm>();
 
-                int result = contact.Execute(@"insert into ContactForm ([Name],Surname,[Message],EmailAdress,IPAddress,CreatedDate) values (@Name,@Surname,@Message,@IPAddress,@CreatedDate)", contactForm);
+                int result = contact.Execute(@"insert into ContactForm ([Name],Surname,[Message],EmailAdress,IPAddress,CreatedDate) values (@Name,@Surname,@Message,@EmailAdress,@IPAddress,@CreatedDate)", contactForm);
 
                 if (result > 0)
                 {
-                    return JsonConvert.SerializeObject(true);
+                    DapperRepository<EmailTemplates> emailRepo = new DapperRepository<EmailTemplates>();
+                    EmailTemplates emailTemplate = emailRepo.Get(@"select * from EmailTemplates (nolock) where [Language] = @Language and TemplateIdentifier = @templateIdentifier", new
+                    {
+                        TemplateIdentifier = "ContactFormInfo",
+                        Language = lang
+                    });
+
+                    emailTemplate.TemplateHtml =
+                        emailTemplate.TemplateHtml
+                        .Replace("<##Name##>", contactForm.Name)
+                        .Replace("<##Surname##>", contactForm.Surname)
+                        .Replace("<##Email##>", contactForm.EmailAdress)
+                        .Replace("<##Message##>", contactForm.EmailAdress);
+
+                    MailSender mailSender = new MailSender("MemberShip");
+                    List<string> list = new List<string>();
+                    list.Add("info@td-ihk.de");
+                    bool mailSent = mailSender.SendMail(emailTemplate, list);
+
+                    if (mailSent)
+                    {
+                        return JsonConvert.SerializeObject(true); 
+                    }
+                    else
+                    {
+                        return JsonConvert.SerializeObject(false);
+
+                    }
                 }
                 else
                 {

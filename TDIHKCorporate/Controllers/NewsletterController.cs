@@ -1,10 +1,12 @@
 ﻿using DbAccess.Dapper.Repository;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TDIHKCorporate.BaseControllers.MultiLanguage;
+using TDIHKCorporate.Helpers.Mail;
 using TDIHKCorporate.Types;
 using TDIHKCorporate.Types.FormTypes;
 
@@ -23,6 +25,9 @@ namespace TDIHKCorporate.Controllers
         {
             try
             {
+                CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+                string lang = cultureInfo.TwoLetterISOLanguageName;
+
                 DapperRepository<NewsletterRegistrations> newsletterAdd = new DapperRepository<NewsletterRegistrations>();
 
                 string IP = Request.UserHostAddress;
@@ -30,7 +35,30 @@ namespace TDIHKCorporate.Controllers
                 int result = newsletterAdd.Execute(@"insert into NewsletterRegistrations (EmailAddress,[IP]) values (@email,@IP)", new { email = email, IP = IP });
                 if (result > 0)
                 {
-                    return true;
+                    DapperRepository<EmailTemplates> emailRepo = new DapperRepository<EmailTemplates>();
+                    EmailTemplates emailTemplate = emailRepo.Get(@"select * from EmailTemplates (nolock) where [Language] = @Language and TemplateIdentifier = @templateIdentifier", new
+                    {
+                        TemplateIdentifier = "NewsletterInfo",
+                        Language = lang
+                    });
+
+                    emailTemplate.TemplateHtml =
+                        emailTemplate.TemplateHtml
+                        .Replace("<##Email##>", email);
+
+                    MailSender mailSender = new MailSender("MemberShip");
+                    List<string> list = new List<string>();
+                    list.Add("info@td-ihk.de");
+                    bool mailSent = mailSender.SendMail(emailTemplate, list);
+
+                    if (mailSent)
+                    {
+                        return true; 
+                    }
+                    else
+                    {
+                        return false;
+                    }
                 }
                 else
                 {

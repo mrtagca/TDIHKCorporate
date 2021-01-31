@@ -35,13 +35,41 @@ namespace TDIHKCorporate.Helpers.Mail
                 CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
                 string lang = cultureInfo.TwoLetterISOLanguageName;
 
+                DapperRepository<EmailTemplates> emailRepo = new DapperRepository<EmailTemplates>();
+                EmailTemplates emailTemplateInfo = new EmailTemplates();
+                
+
+                if (lang == "tr")
+                {
+                    emailTemplateInfo = emailRepo.Get(@"select * from EmailTemplates (nolock) where [Language] = @Language and TemplateIdentifier = @templateIdentifier", new
+                    {
+                        TemplateIdentifier = "StandardMembershipInfo",
+                        Language = lang
+                    });
+
+                    emailTemplateInfo.TemplateHtml = emailTemplateInfo.TemplateHtml;
+
+                }
+                else
+                {
+                    emailTemplateInfo = emailRepo.Get(@"select * from EmailTemplates (nolock) where [Language] = @Language and TemplateIdentifier = @templateIdentifier", new
+                    {
+                        TemplateIdentifier = "StandardMembershipInfo",
+                        Language = lang
+                    });
+
+                    emailTemplateInfo.TemplateHtml = emailTemplateInfo.TemplateHtml;
+                }
+
+               
+
                 ServicePointManager.ServerCertificateValidationCallback =
                 (sender, certificate, chain, sslPolicyErrors) => true;
                 MailMessage ePosta = new MailMessage();
                 ePosta.From = new MailAddress(_mailOptions.CredentialUsername);
                 ePosta.To.Add(memberShipForm.Email);
                 ePosta.Subject = emailTemplates.Subject;
-                ePosta.Body = emailTemplates.TemplateHtml;
+                ePosta.Body = emailTemplateInfo.TemplateHtml;
                 ePosta.IsBodyHtml = true;
                 ePosta.Priority = MailPriority.High;
                 ePosta.BodyEncoding = Encoding.Default;
@@ -51,7 +79,7 @@ namespace TDIHKCorporate.Helpers.Mail
                     var htmlToPdf = new NReco.PdfGenerator.HtmlToPdfConverter();
 
                     string path = AppDomain.CurrentDomain.BaseDirectory + "Content\\MainSite\\assets\\memberShipFiles\\" + memberShipForm.MemberType + "_" + memberShipForm.Name + "_" + DateTime.Now.ToShortDateString()+"_"+Guid.NewGuid()+ ".pdf";
-                    htmlToPdf.GeneratePdf(ePosta.Body, null, path);
+                    htmlToPdf.GeneratePdf(emailTemplates.TemplateHtml, null, path);
 
                     string tuzukPath = "";
 
@@ -71,6 +99,56 @@ namespace TDIHKCorporate.Helpers.Mail
 
                 ePosta.DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure;
 
+
+                SmtpClient smtp = new SmtpClient();
+                smtp.Host = _mailOptions.SmtpServer;
+                smtp.Port = _mailOptions.SmtpPort;
+                smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+                smtp.Credentials = new NetworkCredential(_mailOptions.CredentialUsername, _mailOptions.CredentialPassword);
+                smtp.EnableSsl = _mailOptions.EnableSsl;
+                smtp.Timeout = 10000;
+
+                try
+                {
+                    smtp.Send(ePosta);
+                    return true;
+
+                }
+                catch (SmtpException ex)
+                {
+                    return false;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+        public bool SendMail(EmailTemplates emailTemplates, List<string> emailList)
+        {
+            try
+            {
+                CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+                string lang = cultureInfo.TwoLetterISOLanguageName;
+
+                ServicePointManager.ServerCertificateValidationCallback =
+                (sender, certificate, chain, sslPolicyErrors) => true;
+                MailMessage ePosta = new MailMessage();
+                ePosta.From = new MailAddress(_mailOptions.CredentialUsername);
+
+                foreach (var item in emailList)
+                {
+                    ePosta.To.Add(item); 
+                }
+                ePosta.Subject = emailTemplates.Subject;
+                ePosta.Body = emailTemplates.TemplateHtml;
+                ePosta.IsBodyHtml = true;
+                ePosta.Priority = MailPriority.High;
+                ePosta.BodyEncoding = Encoding.Default;
+
+                ePosta.DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure;
 
                 SmtpClient smtp = new SmtpClient();
                 smtp.Host = _mailOptions.SmtpServer;

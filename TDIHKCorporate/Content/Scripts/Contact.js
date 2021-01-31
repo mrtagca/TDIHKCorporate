@@ -23,6 +23,7 @@
     dataParams.Name = name.value;
     dataParams.Surname = surname.value;
     dataParams.Message = message.value;
+    dataParams.EmailAdress = email.value;
 
     if (dataParams.Name === '' || typeof (dataParams.Name) === 'undefined' || dataParams.Name === null) {
         alert("Name cannot be null!");
@@ -31,6 +32,11 @@
 
     if (dataParams.Surname === '' || typeof (dataParams.Surname) === 'undefined' || dataParams.Surname === null) {
         alert("Surname cannot be null!");
+        return;
+    }
+
+    if (dataParams.EmailAdress === '' || typeof (dataParams.EmailAdress) === 'undefined' || dataParams.EmailAdress === null) {
+        alert("EmailAdress cannot be null!");
         return;
     }
 
