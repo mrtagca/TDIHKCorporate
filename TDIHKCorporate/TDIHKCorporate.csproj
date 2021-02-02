@@ -3592,7 +3592,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Management\Models\" />
     <Folder Include="Areas\Management\Views\Url\" />
-    <Folder Include="Content\MainSite\assets\memberShipFiles\" />
     <Folder Include="Views\Image\" />
     <Folder Include="Views\Slider\" />
   </ItemGroup>
