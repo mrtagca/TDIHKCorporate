@@ -19,7 +19,7 @@
                     {
                         <a href="/tr/haberler/@Model[0].NewsSeoLink" class="uk-inline-clip uk-link-reset uk-width-1-1 uk-height-1-1">
                             <div class="uk-inline uk-transition-toggle uk-width-1-1 uk-height-1-1">
-                                <img src="@Model[0].NewsThumbnailPath" class="uk-width-1-1 uk-height-1-1 uk-transition-opaque uk-transition-scale-up" />
+                                <img data-src="@Model[0].NewsThumbnailPath" class="uk-width-1-1 uk-height-1-1 uk-transition-opaque uk-transition-scale-up" uk-img/>
                                 <div class="uk-overlay uk-position-bottom uk-light uk-transition-slow">
                                     <div class="size-30 size-20-m line-height-1 highlight-news-main">@Model[0].NewsTitle</div>
                                     @*<div>Two countries will be asked to recount votes as Donald Trump continues to confest the election result.</div>*@
@@ -32,7 +32,7 @@
                     {
                         <a href="/de/nachrichten/@Model[0].NewsSeoLink" class="uk-inline-clip uk-link-reset uk-width-1-1 uk-height-1-1">
                             <div class="uk-inline uk-transition-toggle uk-width-1-1 uk-height-1-1">
-                                <img src="@Model[0].NewsThumbnailPath" class="uk-width-1-1 uk-height-1-1 uk-transition-opaque uk-transition-scale-up uk-grid-match fit-cover" />
+                                <img data-src="@Model[0].NewsThumbnailPath" class="uk-width-1-1 uk-height-1-1 uk-transition-opaque uk-transition-scale-up uk-grid-match fit-cover" uk-img/>
                                 <div class="uk-overlay uk-position-bottom uk-light uk-transition-slow">
                                     <div class="size-30 size-20-m line-height-1 highlight-news-main">@Model[0].NewsTitle</div>
                                     @*<div>Two countries will be asked to recount votes as Donald Trump continues to confest the election result.</div>*@
@@ -59,7 +59,7 @@
                                 {
                                     <a href="/tr/haberler/@item.NewsSeoLink" class="uk-inline-clip uk-link-reset uk-width-1-1 uk-height-1-1">
                                         <div class="uk-inline uk-transition-toggle uk-width-1-1 uk-height-1-1">
-                                            <img src="@item.NewsThumbnailPath" class="uk-width-1-1 uk-height-1-1 uk-transition-opaque uk-transition-scale-up" />
+                                            <img data-src="@item.NewsThumbnailPath" class="uk-width-1-1 uk-height-1-1 uk-transition-opaque uk-transition-scale-up" uk-img/>
                                             <div class="uk-overlay uk-position-bottom uk-light uk-transition-slow">
                                                 <div class="size-20 line-height-1 highlight-news-main">@item.NewsTitle</div>
                                                 <div class="uk-flex uk-flex-middle uk-margin-small-top"><span class="uk-badge">@item.NewsCategoryName</span></div>
@@ -71,7 +71,7 @@
                                 {
                                     <a href="/de/nachrichten/@item.NewsSeoLink" class="uk-inline-clip uk-link-reset uk-width-1-1 uk-height-1-1">
                                         <div class="uk-inline uk-transition-toggle uk-width-1-1 uk-height-1-1">
-                                            <img src="@item.NewsThumbnailPath" class="uk-width-1-1 uk-height-1-1 uk-transition-opaque uk-transition-scale-up" />
+                                            <img data-src="@item.NewsThumbnailPath" class="uk-width-1-1 uk-height-1-1 uk-transition-opaque uk-transition-scale-up" uk-img/>
                                             <div class="uk-overlay uk-position-bottom uk-light uk-transition-slow">
                                                 <div class="size-20 line-height-1 highlight-news-main">@item.NewsTitle</div>
                                                 <div class="uk-flex uk-flex-middle uk-margin-small-top"><span class="uk-badge">@item.NewsCategoryName</span></div>
