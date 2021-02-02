@@ -31,7 +31,27 @@
 
 <script>
     $(document).ready(function () {
-        $("#EventArchive").DataTable();
+
+        var lang = '@lang';
+        var languageUrl = '';
+
+        if (lang==="tr") {
+            languageUrl = '/Content/plugins/datatable/turkish.json';
+        }
+        else {
+            languageUrl = '/Content/plugins/datatable/german.json';
+        }
+
+        $("#EventArchive").DataTable({
+            language: {
+                url: languageUrl
+            },
+            "order": [[0, "desc"]]
+            "stripeClasses": [],
+            "lengthMenu": [7, 10, 20, 50],
+            "pageLength": 7
+
+        });
     })
 </script>
 

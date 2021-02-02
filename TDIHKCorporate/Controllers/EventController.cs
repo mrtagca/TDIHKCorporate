@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Xml;
 using TDIHKCorporate.BaseControllers.MultiLanguage;
+using TDIHKCorporate.Helpers.Mail;
 using TDIHKCorporate.Types;
 
 
@@ -93,6 +95,9 @@ namespace TDIHKCorporate.Controllers
         [HttpPost]
         public string EventRegisterForm(EventRegistrations eventRegistrations)
         {
+            CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+            string lang = cultureInfo.TwoLetterISOLanguageName;
+
             try
             {
                 eventRegistrations.CreatedDate = DateTime.Now;
@@ -104,6 +109,28 @@ namespace TDIHKCorporate.Controllers
 
                 if (result > 0)
                 {
+                    DapperRepository<EmailTemplates> emailRepo = new DapperRepository<EmailTemplates>();
+                    EmailTemplates emailTemplate = emailRepo.Get(@"select * from EmailTemplates (nolock) where [Language] = @Language and TemplateIdentifier = @templateIdentifier", new
+                    {
+                        TemplateIdentifier = "StandardMembership",
+                        Language = lang
+                    });
+
+                    emailTemplate.TemplateHtml =
+                        emailTemplate.TemplateHtml
+                        .Replace("<##Name##>", eventRegistrations.Name)
+                        .Replace("<##Surname##>", eventRegistrations.Surname)
+                        .Replace("<##Email##>", eventRegistrations.EmailAddress)
+                        .Replace("<##CorporationName##>", eventRegistrations.CorporationName);
+
+                    MailSender mailSender = new MailSender("Event");
+
+                    EmailTemplates emailTemplateInfo = new EmailTemplates();
+                    List<string> list = new List<string>();
+                    list.Add(ConfigurationManager.AppSettings["EventMailBox"]);
+
+                    mailSender.SendMail(emailTemplate, list);
+
                     return JsonConvert.SerializeObject(true);
 
                 }

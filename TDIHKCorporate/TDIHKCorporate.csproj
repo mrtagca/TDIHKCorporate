@@ -2829,6 +2829,8 @@
     <Content Include="Areas\Management\Views\Contact\ContactFormList.cshtml" />
     <Content Include="Areas\Management\Views\Contact\Show.cshtml" />
     <Content Include="Scripts\html2canvas\html2canvas.js.map" />
+    <Content Include="Content\plugins\datatable\turkish.json" />
+    <Content Include="Content\plugins\datatable\german.json" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="HTML-1\dienstleistungen.html" />
     <Content Include="HTML-1\etkinlik-detay.html" />

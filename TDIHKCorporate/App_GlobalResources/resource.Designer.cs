@@ -439,6 +439,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Etkinliğinizi bulmak için bir tarih, konu veya yer bulun.
+        /// </summary>
+        internal static string EtkinlikBul {
+            get {
+                return ResourceManager.GetString("EtkinlikBul", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Etkinlik Dili.
         /// </summary>
         internal static string EtkinlikDili {

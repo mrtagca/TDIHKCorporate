@@ -1,6 +1,7 @@
 ﻿using DbAccess.Dapper.Repository;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Globalization;
 using System.Linq;
 using System.Web;
@@ -48,7 +49,7 @@ namespace TDIHKCorporate.Controllers
 
                     MailSender mailSender = new MailSender("MemberShip");
                     List<string> list = new List<string>();
-                    list.Add("info@td-ihk.de");
+                    list.Add(ConfigurationManager.AppSettings["NewsletterMailBox"]);
                     bool mailSent = mailSender.SendMail(emailTemplate, list);
 
                     if (mailSent)

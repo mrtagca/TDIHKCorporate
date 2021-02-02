@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Globalization;
 using System.Linq;
 using System.Net;
@@ -137,8 +138,6 @@ namespace TDIHKCorporate.Controllers
 
                     string tuzukPath = "";
 
-                    if (memberShipForm.Email != "mitgliedschaft@td-ihk.de")
-                    {
                         if (lang == "tr")
                         {
                             tuzukPath = AppDomain.CurrentDomain.BaseDirectory + "Content\\MainSite\\assets\\files\\Tuzuk_2015_12_07.pdf";
@@ -148,10 +147,10 @@ namespace TDIHKCorporate.Controllers
                             tuzukPath = AppDomain.CurrentDomain.BaseDirectory + "Content\\MainSite\\assets\\files\\Satzung_2015_12_07.pdf";
                         }
                         attachments.Add(new Attachment(tuzukPath));
-                    }
+                    
 
                     List<string> internalMail = new List<string>();
-                    internalMail.Add("mitgliedschaft@td-ihk.de");
+                    internalMail.Add(ConfigurationManager.AppSettings["MemberShipMailBox"]);
                     mailSender.SendMail(emailTemplate, internalMail);
 
                     mailResult = mailSender.SendMail(emailTemplateInfo, list, attachments);
@@ -269,7 +268,7 @@ namespace TDIHKCorporate.Controllers
 
 
                     List<string> internalMail = new List<string>();
-                    internalMail.Add("mitgliedschaft@td-ihk.de");
+                    internalMail.Add(ConfigurationManager.AppSettings["MemberShipMailBox"]);
                     mailSender.SendMail(emailTemplate, internalMail);
 
                     mailResult = mailSender.SendMail(emailTemplateInfo, list, attachments);

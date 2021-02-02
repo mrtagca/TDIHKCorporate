@@ -243,6 +243,9 @@
   <data name="EtkinlikBasligi" xml:space="preserve">
     <value>Etkinlik Başlığı</value>
   </data>
+  <data name="EtkinlikBul" xml:space="preserve">
+    <value>Etkinliğinizi bulmak için bir tarih, konu veya yer bulun</value>
+  </data>
   <data name="EtkinlikDili" xml:space="preserve">
     <value>Etkinlik Dili</value>
   </data>

@@ -243,6 +243,9 @@
   <data name="EtkinlikBasligi" xml:space="preserve">
     <value>Veranstaltungstitel</value>
   </data>
+  <data name="EtkinlikBul" xml:space="preserve">
+    <value>Suchen Sie ein Datum, Thema oder Ort um Ihr Event zu finden</value>
+  </data>
   <data name="EtkinlikDili" xml:space="preserve">
     <value>Eventsprache</value>
   </data>
@@ -268,7 +271,7 @@
     <value>Teilnehmer Warnung</value>
   </data>
   <data name="Etkinlikler" xml:space="preserve">
-    <value>Events</value>
+    <value>Veranstaltungen</value>
   </data>
   <data name="Etkinliklerimiz" xml:space="preserve">
     <value>Events</value>
