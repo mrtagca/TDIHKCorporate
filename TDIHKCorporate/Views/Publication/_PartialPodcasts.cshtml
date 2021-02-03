@@ -5,7 +5,7 @@
 
         @foreach (var item in Model)
         {
-            <audio data-id="@item.ID" id="audio_@item.ID">
+            <audio controls data-id="@item.ID" id="audio_@item.ID" hidden>
                 <source src="@item.PodcastFilePath" type="audio/mpeg">
             </audio>
 
@@ -46,6 +46,7 @@
             pauseAudio(audios[i].id, 'audioIcon_' + audios[i].getAttribute("data-id"), 'btnAudio_' + audios[i].getAttribute("data-id"));
         }
 
+
         var x = document.getElementById(audioId);
         x.play();
 
@@ -73,7 +74,7 @@
     }
 
     function next(audioId, iconId, btnId) {
-        debugger
+        
         var x = document.getElementById(audioId);
         x.currentTime += 10;
 
