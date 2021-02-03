@@ -3583,6 +3583,7 @@
     <Content Include="Views\Publication\RealNachrichten.cshtml" />
     <Content Include="Views\Publication\_PartialRealNachrichtenHead.cshtml" />
     <Content Include="Views\Publication\_PartialCoronaNachrichtenHead.cshtml" />
+    <Content Include="Views\Publication\SoundTest.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

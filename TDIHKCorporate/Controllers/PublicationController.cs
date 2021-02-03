@@ -188,5 +188,11 @@ namespace TDIHKCorporate.Controllers
 
             return PartialView("_PartialRealNachrichtenHead", newsList);
         }
+
+        public ActionResult SoundTest()
+        {
+
+            return View();
+        }
     }
 }

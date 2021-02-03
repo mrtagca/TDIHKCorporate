@@ -1,0 +1,116 @@
+﻿
+@{
+    ViewBag.Title = "SoundTest";
+    Layout = "~/Views/Shared/_layoutMaster.cshtml";
+}
+
+
+
+<p>
+    Example of using the Web Audio API to load a sound file and </br>play once, play continous on mousedown or stop play
+    and start playing on user-click.
+</p>
+  Tested in Firefox and Chrome</p>
+@*<input type="file" accept="audio/*" value="">*@
+
+
+<audio id="myAudio" controls="controls">
+    <source src="~/Content/MainSite/assets/files/podcasts/ajda-pekkan-feat-volga-tamoz-ayrilik-atesi.mp3" type="audio/mpeg" />
+</audio> 
+
+<button id="playonce" disabled= disabled>Play once</button>
+<button id="playstop" disabled= disabled>Stop play</button>
+<button id="playcont" disabled= disabled>Play cont</button>
+<script>
+    /* global AudioContext:true,
+*/
+    window.AudioContext = window.AudioContext || window.webkitAudioContext;
+    var context = new AudioContext();
+    var source = null;
+    var clickingBuffer = null;
+    var mouseIsDown = false;
+    var buttonPo = document.getElementById("playonce");
+    var buttonPs = document.getElementById("playstop");
+    var buttonPc = document.getElementById("playcont");
+
+    if (document.readyState != "loading") docReady();
+    /* Modern browsers */
+    else document.addEventListener("DOMContentLoaded", docReady);
+    function docReady() {
+
+        buttonPo.addEventListener("click", function (e) {
+            playSound(clickingBuffer, 0, 0, 0.8);
+            buttonPs.disabled = false;
+        });
+        buttonPs.addEventListener("click", function (e) {
+            if (source) {
+                source.stop(0);
+            }
+            buttonPs.disabled = true;
+        });
+
+        buttonPc.addEventListener("mousedown", function (e) {
+            playSound(clickingBuffer, 1, 0, 1);
+            //  while(mouseIsDown)   playSound(clickingBuffer, 0, 1);
+        });
+        buttonPc.addEventListener("mouseup", function (e) {
+            if (source) {
+                source.stop(0);
+            }
+        });
+    }
+
+    function playSound(buffer2play, isLoop, time, volume) {
+        console.log("playsound called");
+        source = context.createBufferSource();   // creates a sound source
+        source.buffer = buffer2play;                     // tell the source which sound to play
+        if (isLoop) source.loop = true;
+        else source.loop = false;
+        source.connect(context.destination);          // connect the source to the context's destination (the speakers)
+        var gainNode = context.createGain();          // Create a gain node
+        source.connect(gainNode);                     // Connect the source to the gain node
+        gainNode.connect(context.destination);        // Connect the gain node to the destination
+        gainNode.gain.value = volume;                  // Set the volume
+        source.start(time);                           // play the source at the deisred time 0=now
+        console.log("playSound");
+    }
+
+    function initSound(arrayBuffer) {
+        context.decodeAudioData(arrayBuffer, function (buffer) {
+            // clickingBuffer is global to reuse the decoded audio later.
+            clickingBuffer = buffer;
+            // Test routine activate buttons
+            buttonPo.disabled = false;
+            buttonPc.disabled = false;
+        }, function (e) {
+            console.log('Error decoding file', e);
+        });
+    }
+
+     //User selects file, read it as an ArrayBuffer and pass to the API.
+
+    var fileInput = document.getElementById("myAudio");
+    fileInput.addEventListener('change', function (e) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            initSound(this.result);
+        };
+        reader.readAsArrayBuffer(this.files[0]);
+    }, false);
+
+    // Load file from a URL as an ArrayBuffer.
+    // Example: loading via xhr2: loadSoundFile('sounds/test.mp3');
+    function loadClickSound(url) {
+        console.log("loading sound");
+        var request = new XMLHttpRequest();
+        request.open('GET', '../Content/MainSite/assets/files/podcasts/ajda-pekkan-feat-volga-tamoz-ayrilik-atesi.mp3', true);
+        request.responseType = 'arraybuffer';
+        // Decode asynchronously
+        request.onload = function () {
+            // Decode asynchronously
+            initSound(this.response); // this.response is an ArrayBuffer.
+        };
+        xhr.send();
+    }
+
+</script>
