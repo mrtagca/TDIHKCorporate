@@ -18,7 +18,6 @@ namespace TDIHKCorporate.Controllers
     {
         // GET: Newsletter
 
-        [OutputCache(Duration = int.MaxValue, VaryByParam = "none", Location = OutputCacheLocation.Server, NoStore = true)]
         public ActionResult Index()
         {
             return View();
@@ -99,7 +98,8 @@ namespace TDIHKCorporate.Controllers
             }
         }
 
-        [OutputCache(Duration = int.MaxValue, VaryByParam = "none", Location = OutputCacheLocation.Server, NoStore = true)]
+        [ChildActionOnly]
+        [OutputCache(Duration = 3600)]
         public ActionResult Vorteille()
         {
             return PartialView("_PartialVorteille");

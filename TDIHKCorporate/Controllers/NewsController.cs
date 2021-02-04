@@ -9,13 +9,15 @@ using System.Web.Mvc;
 using System.Web.UI;
 using System.Xml;
 using TDIHKCorporate.BaseControllers.MultiLanguage;
+using TDIHKCorporate.Helpers.Compress;
 using TDIHKCorporate.Types;
 
 namespace TDIHKCorporate.Controllers
 {
     public class NewsController : SiteBaseController
-    { 
-        [OutputCache(Duration = int.MaxValue, VaryByParam = "seolink", Location = OutputCacheLocation.Server, NoStore = true)]
+    {
+        [OutputCache(Duration = 3600, VaryByParam = "*", Location = OutputCacheLocation.Server, NoStore = true)]
+        [Compress]
         public ActionResult Show(string seolink)
         {
 

@@ -10,6 +10,7 @@ using System.Web.Mvc;
 using System.Web.UI;
 using System.Xml;
 using TDIHKCorporate.BaseControllers.MultiLanguage;
+using TDIHKCorporate.Helpers.Compress;
 using TDIHKCorporate.Models.Language;
 using TDIHKCorporate.Types;
 
@@ -241,7 +242,9 @@ where [Language] = @lang and EventIdentifier in (SELECT top 1 EventIdentifier FR
             return Redirect(Request.UrlReferrer.ToString());
         }
 
-        [OutputCache(Duration = 3600, VaryByParam = "none", Location = OutputCacheLocation.Server, NoStore = true)]
+
+        [OutputCache(Duration = 3600, VaryByParam = "*", Location = OutputCacheLocation.Server, NoStore = true)]
+        [Compress]
         public ActionResult Index()
         {
             try
@@ -291,7 +294,8 @@ where [Language] = @lang and EventIdentifier in (SELECT top 1 EventIdentifier FR
             }
         }
 
-        [OutputCache(Duration = 60, VaryByParam = "none", Location = OutputCacheLocation.Server, NoStore = true)]
+
+        [Compress]
         public ActionResult SearchForPages(string search)
         {
             ViewBag.SearchText = search;
@@ -314,7 +318,8 @@ where  (EventTitle like '%'+@search+'%' or EventContent like '%'+@search+'%' or 
             return View(searchItems);
         }
 
-        [OutputCache(Duration = 3600, VaryByParam = "none", Location = OutputCacheLocation.Server, NoStore = true)]
+        [ChildActionOnly]
+        [OutputCache(Duration = 3600)]
         public ActionResult MenuList()
         {
             DapperRepository<MenuItems> getPageCategories = new DapperRepository<MenuItems>();
@@ -335,7 +340,8 @@ where  (EventTitle like '%'+@search+'%' or EventContent like '%'+@search+'%' or 
             return PartialView("_PartialInvestData", menuItems);
         }
 
-        [OutputCache(Duration = 3600, VaryByParam = "none", Location = OutputCacheLocation.Server, NoStore = true)]
+        [ChildActionOnly]
+        [OutputCache(Duration = 3600)]
         public ActionResult ShowHomePageSlider()
         {
             DapperRepository<SliderContent> sliderContent = new DapperRepository<SliderContent>();
@@ -353,7 +359,8 @@ where  (EventTitle like '%'+@search+'%' or EventContent like '%'+@search+'%' or 
             return PartialView("_PartialHomePageSlider", sliderItems);
         }
 
-        [OutputCache(Duration = 3600, VaryByParam = "none", Location = OutputCacheLocation.Server, NoStore = true)]
+        [ChildActionOnly]
+        [OutputCache(Duration = 3600)]
         public ActionResult ShowPremiumMembersSlider()
         {
             DapperRepository<SliderContent> sliderContent = new DapperRepository<SliderContent>();
@@ -371,7 +378,8 @@ where  (EventTitle like '%'+@search+'%' or EventContent like '%'+@search+'%' or 
             return PartialView("_PartialPremiumMembers", sliderItems);
         }
 
-        [OutputCache(Duration = 3600, VaryByParam = "none", Location = OutputCacheLocation.Server, NoStore = true)]
+        [ChildActionOnly]
+        [OutputCache(Duration = 3600)]
         public ActionResult ShowPremiumAdvantageSlider()
         {
             DapperRepository<SliderContent> sliderContent = new DapperRepository<SliderContent>();
@@ -388,7 +396,8 @@ where  (EventTitle like '%'+@search+'%' or EventContent like '%'+@search+'%' or 
             return PartialView("_PartialMitgliedschaftAdvantage", sliderItems);
         }
 
-        [OutputCache(Duration = 3600, VaryByParam = "none", Location = OutputCacheLocation.Server, NoStore = true)]
+        [ChildActionOnly]
+        [OutputCache(Duration = 3600)]
         public ActionResult ShowHomePageKalender()
         {
             List<Events> eventList = GetFutureEvents(8);
@@ -396,7 +405,8 @@ where  (EventTitle like '%'+@search+'%' or EventContent like '%'+@search+'%' or 
             return PartialView("_PartialShowHomePageKalender", eventList);
         }
 
-        [OutputCache(Duration = 3600, VaryByParam = "none", Location = OutputCacheLocation.Server, NoStore = true)]
+        [ChildActionOnly]
+        [OutputCache(Duration = 3600)]
         public List<Events> GetFutureEvents(int count)
         {
             try
@@ -428,8 +438,9 @@ where  (EventTitle like '%'+@search+'%' or EventContent like '%'+@search+'%' or 
                 return null;
             }
         }
-
-        [OutputCache(Duration = 3600, VaryByParam = "none", Location = OutputCacheLocation.Server, NoStore = true)]
+        [ChildActionOnly]
+        [OutputCache(Duration = 3600)]
+       
         public ActionResult GetHomepagePodcasts()
         {
             //
@@ -443,8 +454,7 @@ where  (EventTitle like '%'+@search+'%' or EventContent like '%'+@search+'%' or 
             });
             return PartialView("_PartialHomePodcasts", podcastList);
         }
-
-        [OutputCache(Duration = 3600, VaryByParam = "none", Location = OutputCacheLocation.Server, NoStore = true)]
+        
         public ActionResult ShowHomePageNachrichten()
         {
 

@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.UI;
 using TDIHKCorporate.BaseControllers.MultiLanguage;
+using TDIHKCorporate.Helpers.Compress;
 using TDIHKCorporate.Helpers.Mail;
 using TDIHKCorporate.Types;
 using TDIHKCorporate.Types.ViewTypes;
@@ -17,7 +18,9 @@ namespace TDIHKCorporate.Controllers
 {
     public class AboutUsController : SiteBaseController
     {
-        [OutputCache(Duration = 3600, VaryByParam = "none", Location = OutputCacheLocation.Server, NoStore = true)]
+
+        [OutputCache(Duration = 3600, VaryByParam = "*", Location = OutputCacheLocation.Server, NoStore = true)]
+        [Compress]
         public ActionResult Institution()
         {
             DapperRepository<Pages> inst = new DapperRepository<Pages>();
@@ -35,7 +38,8 @@ namespace TDIHKCorporate.Controllers
             return View(institution);
         }
 
-        [OutputCache(Duration = 3600, VaryByParam = "none", Location = OutputCacheLocation.Server, NoStore = true)]
+        [ChildActionOnly]
+        [OutputCache(Duration = 3600)]
         public ActionResult GetInstitutionTimeline()
         {
             DapperRepository<Institution> inst = new DapperRepository<Institution>();
@@ -49,13 +53,15 @@ namespace TDIHKCorporate.Controllers
             return PartialView("_PartialInstitutionTimeline", institutionList);
         }
 
-        [OutputCache(Duration = 3600, VaryByParam = "none", Location = OutputCacheLocation.Server, NoStore = true)]
+
+        [OutputCache(Duration = 3600, VaryByParam = "*", Location = OutputCacheLocation.Server, NoStore = true)]
+        [Compress]
         public ActionResult Contact()
         {
             return View();
         }
 
-        [OutputCache(Duration = 3600, VaryByParam = "none", Location = OutputCacheLocation.Server, NoStore = true)]
+
         [HttpPost]
         public string AddContact(ContactForm contactForm)
         {
@@ -95,7 +101,7 @@ namespace TDIHKCorporate.Controllers
 
                     if (mailSent)
                     {
-                        return JsonConvert.SerializeObject(true); 
+                        return JsonConvert.SerializeObject(true);
                     }
                     else
                     {

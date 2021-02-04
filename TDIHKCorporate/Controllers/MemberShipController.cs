@@ -11,6 +11,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.UI;
 using TDIHKCorporate.BaseControllers.MultiLanguage;
+using TDIHKCorporate.Helpers.Compress;
 using TDIHKCorporate.Helpers.Mail;
 using TDIHKCorporate.Types;
 
@@ -18,7 +19,8 @@ namespace TDIHKCorporate.Controllers
 {
     public class MemberShipController : SiteBaseController
     {
-        [OutputCache(Duration = 3600, VaryByParam = "none", Location = OutputCacheLocation.Server, NoStore = true)]
+        [OutputCache(Duration = 3600, VaryByParam = "*", Location = OutputCacheLocation.Server, NoStore = true)]
+        [Compress]
         public ActionResult StandardMitgliedschaft()
         {
             DapperRepository<Pages> page = new DapperRepository<Pages>();
@@ -34,7 +36,8 @@ namespace TDIHKCorporate.Controllers
             return View(pageItem);
         }
 
-        [OutputCache(Duration = 3600, VaryByParam = "none", Location = OutputCacheLocation.Server, NoStore = true)]
+        [OutputCache(Duration = 3600, VaryByParam = "*", Location = OutputCacheLocation.Server, NoStore = true)]
+        [Compress]
         public ActionResult PremiumMitgliedschaft()
         {
             DapperRepository<Pages> page = new DapperRepository<Pages>();
@@ -50,7 +53,8 @@ namespace TDIHKCorporate.Controllers
             return View(pageItem);
         }
 
-        [OutputCache(Duration = int.MaxValue, VaryByParam = "none", Location = OutputCacheLocation.Server, NoStore = true)]
+        [OutputCache(Duration = 3600, VaryByParam = "*", Location = OutputCacheLocation.Server, NoStore = true)]
+        [Compress]
         public ActionResult StandardMitgliedschaftAntragsformular()
         {
             return View();
@@ -170,7 +174,8 @@ namespace TDIHKCorporate.Controllers
             }
         }
 
-        [OutputCache(Duration = int.MaxValue, VaryByParam = "none", Location = OutputCacheLocation.Server, NoStore = true)]
+        [OutputCache(Duration = 3600, VaryByParam = "*", Location = OutputCacheLocation.Server, NoStore = true)]
+        [Compress]
         public ActionResult PremiumMitgliedschaftAntragsformular()
         {
             return View();
@@ -289,7 +294,8 @@ namespace TDIHKCorporate.Controllers
             }
         }
 
-        [OutputCache(Duration = 3600, VaryByParam = "none", Location = OutputCacheLocation.Server, NoStore = true)]
+        [OutputCache(Duration = 3600, VaryByParam = "*", Location = OutputCacheLocation.Server, NoStore = true)]
+        [Compress]
         public ActionResult Mitgliederliste(string search)
         {
             DapperRepository<Members> memberRepo = new DapperRepository<Members>();
