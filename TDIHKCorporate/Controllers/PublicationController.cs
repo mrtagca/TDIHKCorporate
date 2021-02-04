@@ -191,8 +191,15 @@ namespace TDIHKCorporate.Controllers
 
         public ActionResult SoundTest()
         {
+            DapperRepository<Podcasts> podcastRepo = new DapperRepository<Podcasts>();
+            CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+            string name = cultureInfo.TwoLetterISOLanguageName;
 
-            return View();
+            List<Podcasts> podcastList = podcastRepo.GetList(@"select * from Podcasts (NOLOCK) where IsActive=1 and [Language] = @Language order by CreatedDate desc", new
+            {
+                Language = name
+            });
+            return View(podcastList);
         }
     }
 }
