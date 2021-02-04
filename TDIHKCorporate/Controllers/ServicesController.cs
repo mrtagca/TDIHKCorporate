@@ -5,6 +5,7 @@ using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI;
 using TDIHKCorporate.BaseControllers.MultiLanguage;
 using TDIHKCorporate.Types;
 
@@ -12,6 +13,7 @@ namespace TDIHKCorporate.Controllers
 {
     public class ServicesController : SiteBaseController
     {
+        [OutputCache(Duration = 3600, VaryByParam = "none", Location = OutputCacheLocation.Server, NoStore = true)]
         public ActionResult Jobangebote()
         {
             DapperRepository<Pages> page = new DapperRepository<Pages>();
@@ -35,6 +37,7 @@ namespace TDIHKCorporate.Controllers
             return View(pageItem);
         }
 
+        [OutputCache(Duration = 3600, VaryByParam = "none", Location = OutputCacheLocation.Server, NoStore = true)]
         public ActionResult GetJobOffers()
         {
             DapperRepository<JobOffers> job = new DapperRepository<JobOffers>();
@@ -66,6 +69,7 @@ namespace TDIHKCorporate.Controllers
             return PartialView("_JobOffers", jobOfferList);
         }
 
+        [OutputCache(Duration = 3600, VaryByParam = "PageID", Location = OutputCacheLocation.Server, NoStore = true)]
         public List<BreadCrumb> GetBreadCrumbs(int PageID, string language)
         {
             DapperRepository<BreadCrumb> breadCrumb = new DapperRepository<BreadCrumb>();

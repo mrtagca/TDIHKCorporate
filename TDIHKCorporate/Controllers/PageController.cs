@@ -5,6 +5,7 @@ using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI;
 using TDIHKCorporate.BaseControllers.MultiLanguage;
 using TDIHKCorporate.Types;
 
@@ -15,6 +16,7 @@ namespace TDIHKCorporate.Controllers
     {
         // GET: Page
 
+        [OutputCache(Duration = 3600, VaryByParam = "seoLink", Location = OutputCacheLocation.Server, NoStore = true)]
         public ActionResult Show(string seoLink)
         {
 
@@ -39,6 +41,7 @@ namespace TDIHKCorporate.Controllers
             return View(pageItem);
         }
 
+        [OutputCache(Duration = int.MaxValue, VaryByParam = "PageID", Location = OutputCacheLocation.Server, NoStore = true)]
         public List<BreadCrumb> GetBreadCrumbs(int PageID, string language)
         {
             DapperRepository<BreadCrumb> breadCrumb = new DapperRepository<BreadCrumb>();

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI;
 using System.Xml;
 using TDIHKCorporate.BaseControllers.MultiLanguage;
 using TDIHKCorporate.Helpers.Mail;
@@ -18,7 +19,7 @@ namespace TDIHKCorporate.Controllers
 {
     public class EventController : SiteBaseController
     {
-        // GET: Event
+        [OutputCache(Duration = 3600, VaryByParam = "none", Location = OutputCacheLocation.Server, NoStore = true)]
         public ActionResult Index()
         {
             DapperRepository<Pages> page = new DapperRepository<Pages>();
@@ -42,7 +43,7 @@ namespace TDIHKCorporate.Controllers
             return View(pageItem);
         }
 
-
+        [OutputCache(Duration = 3600, VaryByParam = "none", Location = OutputCacheLocation.Server, NoStore = true)]
         public List<BreadCrumb> GetBreadCrumbs(int PageID, string language)
         {
             DapperRepository<BreadCrumb> breadCrumb = new DapperRepository<BreadCrumb>();
@@ -56,6 +57,7 @@ namespace TDIHKCorporate.Controllers
             return breadCrumbList;
         }
 
+        [OutputCache(Duration = 3600, VaryByParam = "none", Location = OutputCacheLocation.Server, NoStore = true)]
         public ActionResult EventArchive()
         {
             CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
@@ -78,6 +80,7 @@ namespace TDIHKCorporate.Controllers
             return View(searchItems); //all events
         }
 
+        [OutputCache(Duration = int.MaxValue, Location = OutputCacheLocation.Server, VaryByParam = "seolink")]
         public ActionResult EventRegister(string seolink)
         {
             CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
@@ -92,6 +95,8 @@ namespace TDIHKCorporate.Controllers
 
             return View(evt);
         }
+
+
         [HttpPost]
         public string EventRegisterForm(EventRegistrations eventRegistrations)
         {
@@ -145,6 +150,7 @@ namespace TDIHKCorporate.Controllers
             }
         }
 
+        [OutputCache(Duration = 3600, VaryByParam = "none", Location = OutputCacheLocation.Server, NoStore = true)]
         public ActionResult GetEventCategoriesArea()
         {
 
@@ -158,21 +164,25 @@ namespace TDIHKCorporate.Controllers
             return View(eventCategoryList);
         }
 
+        [OutputCache(Duration = 3600, VaryByParam = "none", Location = OutputCacheLocation.Server, NoStore = true)]
         public ActionResult FutureEvents()
         {
             return View(GetFutureEvents(3));
         }
 
+        [OutputCache(Duration = 3600, VaryByParam = "none", Location = OutputCacheLocation.Server, NoStore = true)]
         public ActionResult LastEvents()
         {
             return View(GetLastEvents(9));
         }
 
+        [OutputCache(Duration = 3600, VaryByParam = "none", Location = OutputCacheLocation.Server, NoStore = true)]
         public ActionResult Kalender()
         {
             return View(GetKalenderEvents(9));
         }
 
+        [OutputCache(Duration = 3600, VaryByParam = "none", Location = OutputCacheLocation.Server, NoStore = true)]
         public List<Events> GetKalenderEvents(int count)
         {
             try
@@ -205,6 +215,7 @@ namespace TDIHKCorporate.Controllers
             }
         }
 
+        [OutputCache(Duration = 3600, VaryByParam = "none", Location = OutputCacheLocation.Server, NoStore = true)]
         public List<Events> GetEvents(int count)
         {
             try
@@ -237,6 +248,7 @@ namespace TDIHKCorporate.Controllers
             }
         }
 
+        [OutputCache(Duration = 3600, VaryByParam = "none", Location = OutputCacheLocation.Server, NoStore = true)]
         public List<Events> GetLastEvents(int count)
         {
             try
@@ -275,6 +287,7 @@ order by CONVERT(datetime,CONVERT(nvarchar,EventDate)+' '+CONVERT(nvarchar,Event
             }
         }
 
+        [OutputCache(Duration = 3600, VaryByParam = "none", Location = OutputCacheLocation.Server, NoStore = true)]
         public List<Events> GetFutureEvents(int count)
         {
             try
@@ -313,6 +326,7 @@ order by CONVERT(datetime,CONVERT(nvarchar,EventDate)+' '+CONVERT(nvarchar,Event
             }
         }
 
+        [OutputCache(Duration = 3600, VaryByParam = "none", Location = OutputCacheLocation.Server, NoStore = true)]
         public ActionResult SearchEvents(string search)
         {
             try
@@ -341,6 +355,7 @@ order by CONVERT(datetime,CONVERT(nvarchar,EventDate)+' '+CONVERT(nvarchar,Event
             }
         }
 
+        [OutputCache(Duration = 3600, VaryByParam = "none", Location = OutputCacheLocation.Server, NoStore = true)]
         public ActionResult EventsByCategoryName(string category)
         {
             try

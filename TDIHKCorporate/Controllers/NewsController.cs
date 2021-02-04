@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI;
 using System.Xml;
 using TDIHKCorporate.BaseControllers.MultiLanguage;
 using TDIHKCorporate.Types;
@@ -13,9 +14,9 @@ using TDIHKCorporate.Types;
 namespace TDIHKCorporate.Controllers
 {
     public class NewsController : SiteBaseController
-    {
-        // GET: News
-        public ActionResult Show(string lang,string category,string seolink)
+    { 
+        [OutputCache(Duration = int.MaxValue, VaryByParam = "seolink", Location = OutputCacheLocation.Server, NoStore = true)]
+        public ActionResult Show(string seolink)
         {
 
             DapperRepository<News> news = new DapperRepository<News>();

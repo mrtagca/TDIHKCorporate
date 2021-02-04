@@ -6,6 +6,7 @@ using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI;
 using TDIHKCorporate.BaseControllers.MultiLanguage;
 using TDIHKCorporate.Helpers.Mail;
 using TDIHKCorporate.Types;
@@ -16,6 +17,8 @@ namespace TDIHKCorporate.Controllers
     public class NewsletterController : SiteBaseController
     {
         // GET: Newsletter
+
+        [OutputCache(Duration = int.MaxValue, VaryByParam = "none", Location = OutputCacheLocation.Server, NoStore = true)]
         public ActionResult Index()
         {
             return View();
@@ -96,6 +99,7 @@ namespace TDIHKCorporate.Controllers
             }
         }
 
+        [OutputCache(Duration = int.MaxValue, VaryByParam = "none", Location = OutputCacheLocation.Server, NoStore = true)]
         public ActionResult Vorteille()
         {
             return PartialView("_PartialVorteille");

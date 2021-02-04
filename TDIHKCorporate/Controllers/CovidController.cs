@@ -5,6 +5,7 @@ using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI;
 using TDIHKCorporate.BaseControllers.MultiLanguage;
 using TDIHKCorporate.Types;
 
@@ -12,7 +13,7 @@ namespace TDIHKCorporate.Controllers
 {
     public class CovidController : SiteBaseController
     {
-        // GET: Covid
+        [OutputCache(Duration = 3600, VaryByParam = "none", Location = OutputCacheLocation.Server, NoStore = true)]
         public ActionResult Index()
         {
             DapperRepository<Pages> page = new DapperRepository<Pages>();
@@ -27,6 +28,8 @@ namespace TDIHKCorporate.Controllers
 
             return View(pageItem);
         }
+
+        [OutputCache(Duration = 3600, VaryByParam = "none", Location = OutputCacheLocation.Server, NoStore = true)]
         public ActionResult CoronavirusNachrichten()
         {
             DapperRepository<Pages> page = new DapperRepository<Pages>();
