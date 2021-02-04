@@ -217,6 +217,7 @@ where [Language] = @lang and EventIdentifier in (SELECT top 1 EventIdentifier FR
                     Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo($"{lang}-{cult}");
                     Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo($"{lang}-{cult}");
 
+
                     return Redirect(Request.UrlReferrer.ToString());
                 }
                 else
@@ -318,8 +319,8 @@ where  (EventTitle like '%'+@search+'%' or EventContent like '%'+@search+'%' or 
             return View(searchItems);
         }
 
-        [ChildActionOnly]
-        [OutputCache(Duration = 3600)]
+        //[ChildActionOnly]
+        //[OutputCache(Duration = 3600)]
         public ActionResult MenuList()
         {
             DapperRepository<MenuItems> getPageCategories = new DapperRepository<MenuItems>();

@@ -2831,7 +2831,6 @@
     <Content Include="Scripts\html2canvas\html2canvas.js.map" />
     <Content Include="Content\plugins\datatable\turkish.json" />
     <Content Include="Content\plugins\datatable\german.json" />
-    <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="HTML-1\dienstleistungen.html" />
     <Content Include="HTML-1\etkinlik-detay.html" />
     <Content Include="HTML-1\etkinlik-arsiv.html" />
@@ -2848,8 +2847,6 @@
     <Content Include="html\aubenhandelsportal.html" />
     <Content Include="Scripts\html2canvas.min.js" />
     <Content Include="Scripts\html2canvas\html2canvas.js" />
-    <Content Include="Scripts\jquery-1.9.1.js" />
-    <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="Scripts\kendo\js\kendo.all.min.js" />
     <Content Include="Scripts\kendo\css\kendo.common-material.min.css" />
     <Content Include="Scripts\kendo\css\kendo.material.min.css" />
@@ -3537,7 +3534,6 @@
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
     <Content Include="Views\Page\Show.cshtml" />
-    <Content Include="Scripts\jquery-1.9.1.min.map" />
     <Content Include="Views\Event\Index.cshtml" />
     <Content Include="Views\Event\FutureEvents.cshtml" />
     <Content Include="Views\Event\LastEvents.cshtml" />
