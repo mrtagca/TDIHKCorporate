@@ -5,7 +5,7 @@
 
         @foreach (var item in Model)
         {
-            <audio data-id="@item.ID" id="audio_@item.ID" autoPlay >
+            <audio data-id="@item.ID" id="audio_@item.ID">
                 <source src="@item.PodcastFilePath" type="audio/mpeg">
             </audio>
 
@@ -40,11 +40,11 @@
 
     function playAudio(audioId, iconId, btnId) {
 
-        //var audios = document.getElementsByTagName('audio');
-        //for (var i = 0, len = audios.length; i < len; i++) {
+        var audios = document.getElementsByTagName('audio');
+        for (var i = 0, len = audios.length; i < len; i++) {
 
-        //    pauseAudio(audios[i].id, 'audioIcon_' + audios[i].getAttribute("data-id"), 'btnAudio_' + audios[i].getAttribute("data-id"));
-        //}
+            pauseAudio(audios[i].id, 'audioIcon_' + audios[i].getAttribute("data-id"), 'btnAudio_' + audios[i].getAttribute("data-id"));
+        }
 
 
         var x = document.getElementById(audioId);

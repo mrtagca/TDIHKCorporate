@@ -13,7 +13,7 @@
 
             @foreach (var item in Model)
             {
-                <audio controls data-id="@item.ID" id="audio_@item.ID" hidden>
+                <audio data-id="@item.ID" id="audio_@item.ID">
                     <source src="@item.PodcastFilePath" type="audio/mpeg">
                 </audio>
 
