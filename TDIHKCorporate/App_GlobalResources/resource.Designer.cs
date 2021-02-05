@@ -835,6 +835,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Haber Tarihi.
+        /// </summary>
+        internal static string HaberTarihi {
+            get {
+                return ResourceManager.GetString("HaberTarihi", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Hakkımızda.
         /// </summary>
         internal static string Hakkimizda {

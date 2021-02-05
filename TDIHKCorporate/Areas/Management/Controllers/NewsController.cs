@@ -116,7 +116,6 @@ values (@NewsCategoryName,@Language,@CreatedDate,@CreatedBy,@IsActive)", new { N
                 DapperRepository<News> addNews = new DapperRepository<News>();
 
                 string TimezoneId = System.Configuration.ConfigurationManager.AppSettings[System.Threading.Thread.CurrentThread.CurrentCulture.Name];
-                news.CreatedDate = TimeZoneInfo.ConvertTimeBySystemTimeZoneId(DateTime.Now, TimezoneId);
                 news.CreatedBy = Convert.ToInt32(Session["UserID"]);
                 news.IsActive = true;
 
@@ -206,7 +205,7 @@ order by CreatedDate desc", new { lang = "tr" });
                 DapperRepository<News> addNews = new DapperRepository<News>();
 
 
-                int result = addNews.Execute(@"update News set NewsImagePath=@NewsImagePath,NewsIdentifier=@NewsIdentifier,NewsThumbnailPath=@NewsThumbnailPath,NewsDescription=@NewsDescription,NewsCategoryID = @NewsCategoryID,NewsTitle=@NewsTitle,NewsContent=@NewsContent,NewsSeoLink=@NewsSeoLink,NewsSeoKeywords=@NewsSeoKeywords,[Language]=@language,UpdatedDate=@updatedDate,UpdatedBy=@UpdatedBy,IsEventNew=@IsEventNew,IsActive=@IsActive
+                int result = addNews.Execute(@"update News set NewsImagePath=@NewsImagePath,NewsIdentifier=@NewsIdentifier,NewsThumbnailPath=@NewsThumbnailPath,NewsDescription=@NewsDescription,NewsCategoryID = @NewsCategoryID,NewsTitle=@NewsTitle,NewsContent=@NewsContent,NewsSeoLink=@NewsSeoLink,NewsSeoKeywords=@NewsSeoKeywords,[Language]=@language,CreatedDate=@CreatedDate,UpdatedDate=@updatedDate,UpdatedBy=@UpdatedBy,IsEventNew=@IsEventNew,IsActive=@IsActive
                                         where NewsID = @NewsID", new
                 {
                     NewsID = news.NewsID,
@@ -220,6 +219,7 @@ order by CreatedDate desc", new { lang = "tr" });
                     NewsSeoLink = news.NewsSeoLink,
                     NewsSeoKeywords = news.NewsSeoKeywords,
                     Language = news.Language,
+                    CreatedDate=news.CreatedDate,
                     UpdatedDate = DateTime.Now,
                     UpdatedBy = Convert.ToInt32(Session["UserID"]),
                     IsEventNew=news.IsEventNew,

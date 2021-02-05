@@ -48,6 +48,7 @@ function AddNews() {
     dataParams.NewsSeoLink = $("#NewsSeoLink").val();
     dataParams.NewsSeoKeywords = $("#NewsSeoKeywords").val();
     dataParams.NewsDescription = $("#NewsDescription").val();
+    dataParams.CreatedDate = $("#NewsDate").val();
      
 
     var identifierElement = document.getElementById("IdentifierCheckbox");
@@ -128,6 +129,13 @@ function AddNews() {
         return;
     }
 
+    if (dataParams.CreatedDate === '' || typeof (dataParams.CreatedDate) === 'undefined' || dataParams.CreatedDate === null) {
+        alert("News Date cannot be null!");
+        var element = document.getElementById("NewsDate");
+        element.style = styleCss;
+        return;
+    }
+
 
     RequestAjax(callParams, dataParams, function (response) {
 
@@ -198,6 +206,8 @@ function EditNews(newsID, newsIdentifier) {
     dataParams.NewsSeoLink = $("#NewsSeoLink").val();
     dataParams.NewsSeoKeywords = $("#NewsSeoKeywords").val();
 
+    dataParams.CreatedDate = $("#NewsDate").val();
+
     var newsImagePath = document.getElementById("NewsImage");
     dataParams.NewsImagePath = newsImagePath.getAttribute("image-path");
     dataParams.NewsThumbnailPath = newsImagePath.getAttribute("thumbnail-path");
@@ -252,6 +262,13 @@ function EditNews(newsID, newsIdentifier) {
     if (dataParams.NewsCategoryID === '' || typeof (dataParams.NewsCategoryID) === 'undefined' || dataParams.NewsCategoryID === null) {
         alert("Please select a news category!");
         var element = document.getElementById("NewsCategories");
+        element.style = styleCss;
+        return;
+    }
+
+    if (dataParams.CreatedDate === '' || typeof (dataParams.CreatedDate) === 'undefined' || dataParams.CreatedDate === null) {
+        alert("News Date cannot be null!");
+        var element = document.getElementById("NewsDate");
         element.style = styleCss;
         return;
     }

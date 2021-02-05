@@ -375,6 +375,9 @@
   <data name="HaberListesi" xml:space="preserve">
     <value>Haber Listesi</value>
   </data>
+  <data name="HaberTarihi" xml:space="preserve">
+    <value>Haber Tarihi</value>
+  </data>
   <data name="Hakkimizda" xml:space="preserve">
     <value>Hakkımızda</value>
   </data>

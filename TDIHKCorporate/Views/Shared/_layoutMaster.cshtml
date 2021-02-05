@@ -40,6 +40,8 @@
     @Html.Partial("~/Views/Partial/_PartialFooter.cshtml")
 
 
+    <script src="~/Content/Admin/vendor/jquery/jquery-3.5.1.min.js"></script>
+
     <script src="~/Content/MainSite/assets/uikit/dist/js/uikit.min.js"></script>
     <script src="~/Content/MainSite/assets/uikit/dist/js/uikit-icons.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
@@ -57,10 +59,10 @@
             (function () {
                 if (!localStorage.getItem('cookieconsent')) {
                     document.body.innerHTML += '\
-                                                                    <div class="cookieconsent" style="position:fixed;padding:20px 0;left:0;bottom:0;background-color:#000;color:#FFF;text-align:center;width:100%;z-index:99999;">\
-                                                                        Bu web sitesi çerez bilgileri kullanır. Bu web sitesini kullanmaya devam ederek, <a id="PrivacyPolicy" href="/tr/sayfalar/gizlilik-politikasi" target="_blank" style="color:#CCCCCC;">Gizlilik Politikası ve Çerez Kullanımını</a> kabul etmiş olursunuz. \
-                                                                        <a id="Accept" href="#" style="color:#CCCCCC;">Anladım, kabul ediyorum.</a>\
-                                                                    </div>\
+                                                                            <div class="cookieconsent" style="position:fixed;padding:20px 0;left:0;bottom:0;background-color:#000;color:#FFF;text-align:center;width:100%;z-index:99999;">\
+                                                                                Bu web sitesi çerez bilgileri kullanır. Bu web sitesini kullanmaya devam ederek, <a id="PrivacyPolicy" href="/tr/sayfalar/gizlilik-politikasi" target="_blank" style="color:#CCCCCC;">Gizlilik Politikası ve Çerez Kullanımını</a> kabul etmiş olursunuz. \
+                                                                                <a id="Accept" href="#" style="color:#CCCCCC;">Anladım, kabul ediyorum.</a>\
+                                                                            </div>\
 ';
                     document.querySelector('#Accept').onclick = function (e) {
                         debugger
@@ -79,10 +81,10 @@
             (function () {
                 if (!localStorage.getItem('cookieconsent')) {
                     document.body.innerHTML += '\
-                                                                    <div class="cookieconsent" style="position:fixed;padding:20px 0;left:0;bottom:0;background-color:#000;color:#FFF;text-align:center;width:100%;z-index:99999;">\
-                                                                        Diese Webseite verwendet Cookies. Wenn Sie diese Website weiterhin nutzen möchten, stimmen Sie bitte der <a id="PrivacyPolicy" href="/de/seiten/datenschutz-bestimmungen" target="_blank" style="color:#CCCCCC;">Nutzung von Cookies und unserer Datenschutzerklärung</a> zu. \
-                                                                        <a id="Accept" href="#" target="_blank" style="color:#CCCCCC;">Ich verstehe, ich akzeptiere.</a>\
-                                                                    </div>\
+                                                                            <div class="cookieconsent" style="position:fixed;padding:20px 0;left:0;bottom:0;background-color:#000;color:#FFF;text-align:center;width:100%;z-index:99999;">\
+                                                                                Diese Webseite verwendet Cookies. Wenn Sie diese Website weiterhin nutzen möchten, stimmen Sie bitte der <a id="PrivacyPolicy" href="/de/seiten/datenschutz-bestimmungen" target="_blank" style="color:#CCCCCC;">Nutzung von Cookies und unserer Datenschutzerklärung</a> zu. \
+                                                                                <a id="Accept" href="#" target="_blank" style="color:#CCCCCC;">Ich verstehe, ich akzeptiere.</a>\
+                                                                            </div>\
 ';
                     document.querySelector('#Accept').onclick = function (e) {
                         debugger

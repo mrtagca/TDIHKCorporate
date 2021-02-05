@@ -14,7 +14,7 @@ namespace TDIHKCorporate.Controllers
 {
     public class PublicationController : SiteBaseController
     {
-        [OutputCache(Duration = 3600, VaryByParam = "*", Location = OutputCacheLocation.Server, NoStore = true)]
+        [OutputCache(Duration = 60, VaryByParam = "*", Location = OutputCacheLocation.Server, NoStore = true)]
         [Compress]
         public ActionResult Nachrichten()
         {
@@ -39,7 +39,7 @@ namespace TDIHKCorporate.Controllers
         }
 
         [ChildActionOnly]
-        [OutputCache(Duration = 3600)]
+        [OutputCache(Duration = 60)]
         public ActionResult GetNachrichtenHead()
         {
             DapperRepository<News> news = new DapperRepository<News>();
@@ -59,7 +59,7 @@ namespace TDIHKCorporate.Controllers
             return PartialView("_PartialNachrichtenHead", newsList);
         }
         [ChildActionOnly]
-        [OutputCache(Duration = 3600)]
+        [OutputCache(Duration = 60)]
         public ActionResult GetNewsForNewsDetail()
         {
             DapperRepository<News> news = new DapperRepository<News>();
@@ -79,7 +79,7 @@ namespace TDIHKCorporate.Controllers
             return PartialView("_PartialNewsForNewsDetail", newsList);
         }
 
-        [OutputCache(Duration = 3600, VaryByParam = "*", Location = OutputCacheLocation.Server, NoStore = true)]
+        [OutputCache(Duration = 60, VaryByParam = "*", Location = OutputCacheLocation.Server, NoStore = true)]
         [Compress]
         public ActionResult NachrichtenDetail(string seoLink)
         {
@@ -90,7 +90,7 @@ namespace TDIHKCorporate.Controllers
             return View(news);
         }
 
-        [OutputCache(Duration = 3600, VaryByParam = "*", Location = OutputCacheLocation.Server, NoStore = true)]
+        [OutputCache(Duration = 60, VaryByParam = "*", Location = OutputCacheLocation.Server, NoStore = true)]
         [Compress]
         public ActionResult Podcasts()
         {
@@ -107,7 +107,7 @@ namespace TDIHKCorporate.Controllers
         }
 
         [ChildActionOnly]
-        [OutputCache(Duration = 3600)]
+        [OutputCache(Duration = 60)]
         public ActionResult GetPodcasts()
         {
             DapperRepository<Podcasts> podcastRepo = new DapperRepository<Podcasts>();
@@ -122,7 +122,7 @@ namespace TDIHKCorporate.Controllers
         }
 
         [ChildActionOnly]
-        [OutputCache(Duration = 3600)]
+        [OutputCache(Duration = 60)]
         public ActionResult GetCoronaNachrichtenHead()
         {
             DapperRepository<News> news = new DapperRepository<News>();
@@ -141,7 +141,7 @@ namespace TDIHKCorporate.Controllers
             return PartialView("_PartialCoronaNachrichtenHead", newsList);
         }
 
-        [OutputCache(Duration = 3600, VaryByParam = "*", Location = OutputCacheLocation.Server, NoStore = true)]
+        [OutputCache(Duration = 60, VaryByParam = "*", Location = OutputCacheLocation.Server, NoStore = true)]
         [Compress]
         public ActionResult CoronaNews()
         {
@@ -165,7 +165,7 @@ namespace TDIHKCorporate.Controllers
             return View(newsList);
         }
 
-        [OutputCache(Duration = 3600, VaryByParam = "*", Location = OutputCacheLocation.Server, NoStore = true)]
+        [OutputCache(Duration = 60, VaryByParam = "*", Location = OutputCacheLocation.Server, NoStore = true)]
         [Compress]
         public ActionResult RealNachrichten()
         {
@@ -190,7 +190,7 @@ namespace TDIHKCorporate.Controllers
         }
 
         [ChildActionOnly]
-        [OutputCache(Duration = 3600)]
+        [OutputCache(Duration = 60)]
         public ActionResult GetRealNachrichtenHead()
         {
             DapperRepository<News> news = new DapperRepository<News>();

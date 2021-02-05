@@ -59,6 +59,14 @@
                             </select>
                         </div>
                         <br />
+
+                        <div>
+                            <label>@Resources.resource.HaberTarihi</label>
+                            <input type="date" class="form-control" id="NewsDate" name="name" value="@Model.CreatedDate.ToString("yyyy-MM-dd")" />
+                        </div>
+                        <br />
+
+
                         <div>
                             <label>@Resources.resource.SayfaDili</label>
                             <select class="form-control" onchange="GetLanguageToIdentifiers()" id="NewsLanguage" required>
@@ -185,6 +193,7 @@
         else {
             eventNewElement.checked = false;
         }
+         
 
     });
 
@@ -228,7 +237,7 @@
            var element = document.getElementById("IdentifierCheckbox")
 
            @*if ('@Model.NewsIdentifier' != null) {*@
-               
+
                $('#NewsIdentifierDropdown').val('@Model.NewsIdentifier');
                //element.checked = true;
            //}

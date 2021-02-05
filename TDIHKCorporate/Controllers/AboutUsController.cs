@@ -19,7 +19,7 @@ namespace TDIHKCorporate.Controllers
     public class AboutUsController : SiteBaseController
     {
 
-        [OutputCache(Duration = 3600, VaryByParam = "*", Location = OutputCacheLocation.Server, NoStore = true)]
+        [OutputCache(Duration = 60, VaryByParam = "*", Location = OutputCacheLocation.Server, NoStore = true)]
         [Compress]
         public ActionResult Institution()
         {
@@ -39,7 +39,7 @@ namespace TDIHKCorporate.Controllers
         }
 
         [ChildActionOnly]
-        [OutputCache(Duration = 3600)]
+        [OutputCache(Duration = 60)]
         public ActionResult GetInstitutionTimeline()
         {
             DapperRepository<Institution> inst = new DapperRepository<Institution>();
@@ -54,7 +54,7 @@ namespace TDIHKCorporate.Controllers
         }
 
 
-        [OutputCache(Duration = 3600, VaryByParam = "*", Location = OutputCacheLocation.Server, NoStore = true)]
+        [OutputCache(Duration = 60, VaryByParam = "*", Location = OutputCacheLocation.Server, NoStore = true)]
         [Compress]
         public ActionResult Contact()
         {

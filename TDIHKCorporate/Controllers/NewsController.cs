@@ -16,7 +16,7 @@ namespace TDIHKCorporate.Controllers
 {
     public class NewsController : SiteBaseController
     {
-        [OutputCache(Duration = 3600, VaryByParam = "*", Location = OutputCacheLocation.Server, NoStore = true)]
+        [OutputCache(Duration = 60, VaryByParam = "*", Location = OutputCacheLocation.Server, NoStore = true)]
         [Compress]
         public ActionResult Show(string seolink)
         {

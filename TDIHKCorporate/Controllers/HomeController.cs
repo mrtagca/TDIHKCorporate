@@ -244,7 +244,7 @@ where [Language] = @lang and EventIdentifier in (SELECT top 1 EventIdentifier FR
         }
 
 
-        [OutputCache(Duration = 3600, VaryByParam = "*", Location = OutputCacheLocation.Server, NoStore = true)]
+        [OutputCache(Duration = 60, VaryByParam = "*", Location = OutputCacheLocation.Server, NoStore = true)]
         [Compress]
         public ActionResult Index()
         {
@@ -320,7 +320,7 @@ where  (EventTitle like '%'+@search+'%' or EventContent like '%'+@search+'%' or 
         }
 
         //[ChildActionOnly]
-        //[OutputCache(Duration = 3600)]
+        //[OutputCache(Duration = 60)]
         public ActionResult MenuList()
         {
             DapperRepository<MenuItems> getPageCategories = new DapperRepository<MenuItems>();
@@ -342,7 +342,7 @@ where  (EventTitle like '%'+@search+'%' or EventContent like '%'+@search+'%' or 
         }
 
         [ChildActionOnly]
-        [OutputCache(Duration = 3600)]
+        [OutputCache(Duration = 60)]
         public ActionResult ShowHomePageSlider()
         {
             DapperRepository<SliderContent> sliderContent = new DapperRepository<SliderContent>();
@@ -361,7 +361,7 @@ where  (EventTitle like '%'+@search+'%' or EventContent like '%'+@search+'%' or 
         }
 
         [ChildActionOnly]
-        [OutputCache(Duration = 3600)]
+        [OutputCache(Duration = 60)]
         public ActionResult ShowPremiumMembersSlider()
         {
             DapperRepository<SliderContent> sliderContent = new DapperRepository<SliderContent>();
@@ -380,7 +380,7 @@ where  (EventTitle like '%'+@search+'%' or EventContent like '%'+@search+'%' or 
         }
 
         [ChildActionOnly]
-        [OutputCache(Duration = 3600)]
+        [OutputCache(Duration = 60)]
         public ActionResult ShowPremiumAdvantageSlider()
         {
             DapperRepository<SliderContent> sliderContent = new DapperRepository<SliderContent>();
@@ -398,7 +398,7 @@ where  (EventTitle like '%'+@search+'%' or EventContent like '%'+@search+'%' or 
         }
 
         [ChildActionOnly]
-        [OutputCache(Duration = 3600)]
+        [OutputCache(Duration = 60)]
         public ActionResult ShowHomePageKalender()
         {
             List<Events> eventList = GetFutureEvents(8);
@@ -407,7 +407,7 @@ where  (EventTitle like '%'+@search+'%' or EventContent like '%'+@search+'%' or 
         }
 
         [ChildActionOnly]
-        [OutputCache(Duration = 3600)]
+        [OutputCache(Duration = 60)]
         public List<Events> GetFutureEvents(int count)
         {
             try
@@ -440,7 +440,7 @@ where  (EventTitle like '%'+@search+'%' or EventContent like '%'+@search+'%' or 
             }
         }
         [ChildActionOnly]
-        [OutputCache(Duration = 3600)]
+        [OutputCache(Duration = 60)]
        
         public ActionResult GetHomepagePodcasts()
         {

@@ -19,7 +19,7 @@ namespace TDIHKCorporate.Controllers
 {
     public class MemberShipController : SiteBaseController
     {
-        [OutputCache(Duration = 3600, VaryByParam = "*", Location = OutputCacheLocation.Server, NoStore = true)]
+        [OutputCache(Duration = 60, VaryByParam = "*", Location = OutputCacheLocation.Server, NoStore = true)]
         [Compress]
         public ActionResult StandardMitgliedschaft()
         {
@@ -36,7 +36,7 @@ namespace TDIHKCorporate.Controllers
             return View(pageItem);
         }
 
-        [OutputCache(Duration = 3600, VaryByParam = "*", Location = OutputCacheLocation.Server, NoStore = true)]
+        [OutputCache(Duration = 60, VaryByParam = "*", Location = OutputCacheLocation.Server, NoStore = true)]
         [Compress]
         public ActionResult PremiumMitgliedschaft()
         {
@@ -53,7 +53,7 @@ namespace TDIHKCorporate.Controllers
             return View(pageItem);
         }
 
-        [OutputCache(Duration = 3600, VaryByParam = "*", Location = OutputCacheLocation.Server, NoStore = true)]
+        [OutputCache(Duration = 60, VaryByParam = "*", Location = OutputCacheLocation.Server, NoStore = true)]
         [Compress]
         public ActionResult StandardMitgliedschaftAntragsformular()
         {
@@ -174,7 +174,7 @@ namespace TDIHKCorporate.Controllers
             }
         }
 
-        [OutputCache(Duration = 3600, VaryByParam = "*", Location = OutputCacheLocation.Server, NoStore = true)]
+        [OutputCache(Duration = 60, VaryByParam = "*", Location = OutputCacheLocation.Server, NoStore = true)]
         [Compress]
         public ActionResult PremiumMitgliedschaftAntragsformular()
         {
@@ -294,7 +294,7 @@ namespace TDIHKCorporate.Controllers
             }
         }
 
-        [OutputCache(Duration = 3600, VaryByParam = "*", Location = OutputCacheLocation.Server, NoStore = true)]
+        [OutputCache(Duration = 60, VaryByParam = "*", Location = OutputCacheLocation.Server, NoStore = true)]
         [Compress]
         public ActionResult Mitgliederliste(string search)
         {
