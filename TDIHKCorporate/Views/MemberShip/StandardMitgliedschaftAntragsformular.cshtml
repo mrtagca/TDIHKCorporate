@@ -225,6 +225,10 @@
                         <input id="FileUpload" name="file" image-path="" accept="image/x-png,image/gif,image/jpeg" type="file">
                         <button class="uk-button uk-button-secondary uk-border-rounded" type="button" tabindex="-1">@Resources.resource.DosyaSeciniz</button>
                     </div>
+
+                    <div>
+                        <img id="Preview" src="#" alt="Corp Logo" />
+                    </div>
                 </div>
                 <div class="uk-text-large">@Resources.resource.TavsiyeEdeceginizDigerOdaUyeleri:</div>
                 <div class="uk-margin">
@@ -350,6 +354,7 @@
                 success: function (result) {
                     debugger
                     $("#FileUpload").attr("image-path", result);
+                    $("#Preview").attr("src", result)
                 },
                 error: function (err) {
                     alert(err.statusText);

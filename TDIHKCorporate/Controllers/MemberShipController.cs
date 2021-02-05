@@ -1,5 +1,6 @@
 ﻿using DbAccess.Dapper.Repository;
 using Newtonsoft.Json;
+using NReco.PdfGenerator;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -110,6 +111,19 @@ namespace TDIHKCorporate.Controllers
                         .Replace("<##Suggestion_Info##>", memberShipForm.SuggestionInfo)
                         .Replace("<##SuggestionLocationAndTime##>", memberShipForm.SuggestionLocationAndTime);
 
+                    if (memberShipForm.IsCorporate)
+                    {
+                        emailTemplate.TemplateHtml =
+                       emailTemplate.TemplateHtml
+                       .Replace("<##MemberType##>", "in Vertretung für Unternehmen");
+                    }
+                    else
+                    {
+                        emailTemplate.TemplateHtml =
+                       emailTemplate.TemplateHtml
+                       .Replace("<##MemberType##>", "als Privatperson");
+                    }
+
 
                     EmailTemplates emailTemplateInfo = new EmailTemplates();
 
@@ -140,6 +154,7 @@ namespace TDIHKCorporate.Controllers
 
 
                     var htmlToPdf = new NReco.PdfGenerator.HtmlToPdfConverter();
+                    htmlToPdf.Size = PageSize.A4;
                     string path = AppDomain.CurrentDomain.BaseDirectory + "Content\\MainSite\\assets\\memberShipFiles\\" + memberShipForm.MemberType + "_" + memberShipForm.Name + "_" + DateTime.Now.ToShortDateString() + "_" + Guid.NewGuid() + ".pdf";
                     htmlToPdf.GeneratePdf(emailTemplate.TemplateHtml, null, path);
 
