@@ -172,6 +172,7 @@ namespace TDIHKCorporate.Controllers
 
 
                     var htmlToPdf = new NReco.PdfGenerator.HtmlToPdfConverter();
+                    
                     htmlToPdf.Size = PageSize.A4;
                     string path = AppDomain.CurrentDomain.BaseDirectory + "Content\\MainSite\\assets\\memberShipFiles\\" + memberShipForm.MemberType + "_" + memberShipForm.Name + "_" + DateTime.Now.ToShortDateString() + "_" + Guid.NewGuid() + ".pdf";
                     htmlToPdf.GeneratePdf(emailTemplate.TemplateHtml, null, path);
@@ -230,12 +231,12 @@ namespace TDIHKCorporate.Controllers
                     memberShipForm.CreatedDate = DateTime.Now;
                     memberShipForm.IPAdress = Request.UserHostAddress;
 
-                    //Mail Gönderme methodu
+
 
                     int result = memberRepo.Execute(@"insert into MemberShipForm  ([IPAdress],[IsCorporate],[MemberType],[Name],[Street],[HomePhone],[PostalCode],[City],[Email],[PhoneNumber],[WebSite],[Fax],[ResponsiblePersonel],[PersonelPosition],[CorporationIncome],[CorporationLogoPath],[MemberSuggestion1],[MemberSuggestion2],[MemberSuggestion3],[SuggestionInfo],[SuggestionLocationAndTime],[CreatedDate]) values (@IPAdress,@IsCorporate,@MemberType,@Name,@Street,@HomePhone,@PostalCode,@City,@Email,@PhoneNumber,@WebSite,@Fax,@ResponsiblePersonel,@PersonelPosition,@CorporationIncome,@CorporationLogoPath,@MemberSuggestion1,@MemberSuggestion2,@MemberSuggestion3,@SuggestionInfo,@SuggestionLocationAndTime,@CreatedDate)", memberShipForm);
 
-                    MailSender mailSender = new MailSender("MemberShip");
 
+                    //Mail Gönderme methodu
                     DapperRepository<EmailTemplates> emailRepo = new DapperRepository<EmailTemplates>();
                     EmailTemplates emailTemplate = emailRepo.Get(@"select * from EmailTemplates (nolock) where [Language] = @Language and TemplateIdentifier = @templateIdentifier", new
                     {
@@ -294,38 +295,40 @@ namespace TDIHKCorporate.Controllers
                         }
                     }
 
+
                     EmailTemplates emailTemplateInfo = new EmailTemplates();
-                    List<string> list = new List<string>();
-                    list.Add(memberShipForm.Email);
-                    List<Attachment> attachments = new List<Attachment>();
 
                     if (lang == "tr")
                     {
                         emailTemplateInfo = emailRepo.Get(@"select * from EmailTemplates (nolock) where [Language] = @Language and TemplateIdentifier = @templateIdentifier", new
                         {
-                            TemplateIdentifier = "StandardMembershipInfo",
+                            TemplateIdentifier = "PremiumMembershipInfo",
                             Language = lang
                         });
-
                         emailTemplateInfo.TemplateHtml = emailTemplateInfo.TemplateHtml;
-
                     }
                     else
                     {
                         emailTemplateInfo = emailRepo.Get(@"select * from EmailTemplates (nolock) where [Language] = @Language and TemplateIdentifier = @templateIdentifier", new
                         {
-                            TemplateIdentifier = "StandardMembershipInfo",
+                            TemplateIdentifier = "PremiumMembershipInfo",
                             Language = lang
                         });
-
                         emailTemplateInfo.TemplateHtml = emailTemplateInfo.TemplateHtml;
                     }
+
+                    MailSender mailSender = new MailSender("MemberShip");
+                    List<string> list = new List<string>();
+                    list.Add(memberShipForm.Email);
+                    List<Attachment> attachments = new List<Attachment>();
+
 
 
                     var htmlToPdf = new NReco.PdfGenerator.HtmlToPdfConverter();
 
+                    htmlToPdf.Size = PageSize.A4;
                     string path = AppDomain.CurrentDomain.BaseDirectory + "Content\\MainSite\\assets\\memberShipFiles\\" + memberShipForm.MemberType + "_" + memberShipForm.Name + "_" + DateTime.Now.ToShortDateString() + "_" + Guid.NewGuid() + ".pdf";
-                    htmlToPdf.GeneratePdf(emailTemplateInfo.TemplateHtml, null, path);
+                    htmlToPdf.GeneratePdf(emailTemplate.TemplateHtml, null, path);
 
                     attachments.Add(new Attachment(path));
 
@@ -339,7 +342,6 @@ namespace TDIHKCorporate.Controllers
                     {
                         tuzukPath = AppDomain.CurrentDomain.BaseDirectory + "Content\\MainSite\\assets\\files\\Satzung_2015_12_07.pdf";
                     }
-
                     attachments.Add(new Attachment(tuzukPath));
 
 
@@ -348,6 +350,7 @@ namespace TDIHKCorporate.Controllers
                     mailSender.SendMail(emailTemplate, internalMail);
 
                     mailResult = mailSender.SendMail(emailTemplateInfo, list, attachments);
+
                 }
 
                 return JsonConvert.SerializeObject(mailResult);
