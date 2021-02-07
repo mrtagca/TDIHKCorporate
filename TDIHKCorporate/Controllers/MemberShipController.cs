@@ -263,6 +263,37 @@ namespace TDIHKCorporate.Controllers
                         .Replace("<##Suggestion_Info##>", memberShipForm.SuggestionInfo)
                         .Replace("<##SuggestionLocationAndTime##>", memberShipForm.SuggestionLocationAndTime);
 
+                    if (memberShipForm.IsCorporate)
+                    {
+                        if (lang == "tr")
+                        {
+                            emailTemplate.TemplateHtml =
+                                           emailTemplate.TemplateHtml
+                                           .Replace("<##MemberType##>", "Kurumsal Üyelik");
+                        }
+                        else
+                        {
+                            emailTemplate.TemplateHtml =
+                                          emailTemplate.TemplateHtml
+                                          .Replace("<##MemberType##>", "in Vertretung für Unternehmen");
+                        }
+                    }
+                    else
+                    {
+                        if (lang == "tr")
+                        {
+                            emailTemplate.TemplateHtml =
+                                         emailTemplate.TemplateHtml
+                                         .Replace("<##MemberType##>", "Bireysel Üyelik");
+                        }
+                        else
+                        {
+                            emailTemplate.TemplateHtml =
+                                         emailTemplate.TemplateHtml
+                                         .Replace("<##MemberType##>", "als Privatperson");
+                        }
+                    }
+
                     EmailTemplates emailTemplateInfo = new EmailTemplates();
                     List<string> list = new List<string>();
                     list.Add(memberShipForm.Email);
