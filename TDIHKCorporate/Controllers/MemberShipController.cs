@@ -113,15 +113,33 @@ namespace TDIHKCorporate.Controllers
 
                     if (memberShipForm.IsCorporate)
                     {
-                        emailTemplate.TemplateHtml =
-                       emailTemplate.TemplateHtml
-                       .Replace("<##MemberType##>", "in Vertretung für Unternehmen");
+                        if (lang=="tr")
+                        {
+                            emailTemplate.TemplateHtml =
+                                           emailTemplate.TemplateHtml
+                                           .Replace("<##MemberType##>", "Kurumsal Üyelik");
+                        }
+                        else
+                        {
+                            emailTemplate.TemplateHtml =
+                                          emailTemplate.TemplateHtml
+                                          .Replace("<##MemberType##>", "in Vertretung für Unternehmen");
+                        }
                     }
                     else
                     {
-                        emailTemplate.TemplateHtml =
-                       emailTemplate.TemplateHtml
-                       .Replace("<##MemberType##>", "als Privatperson");
+                        if (lang=="tr")
+                        {
+                            emailTemplate.TemplateHtml =
+                                         emailTemplate.TemplateHtml
+                                         .Replace("<##MemberType##>", "Bireysel Üyelik");
+                        }
+                        else
+                        {
+                            emailTemplate.TemplateHtml =
+                                         emailTemplate.TemplateHtml
+                                         .Replace("<##MemberType##>", "als Privatperson");
+                        }
                     }
 
 
@@ -221,7 +239,7 @@ namespace TDIHKCorporate.Controllers
                     DapperRepository<EmailTemplates> emailRepo = new DapperRepository<EmailTemplates>();
                     EmailTemplates emailTemplate = emailRepo.Get(@"select * from EmailTemplates (nolock) where [Language] = @Language and TemplateIdentifier = @templateIdentifier", new
                     {
-                        TemplateIdentifier = "StandardMembership",
+                        TemplateIdentifier = "PremiumMembership",
                         Language = lang
                     });
 

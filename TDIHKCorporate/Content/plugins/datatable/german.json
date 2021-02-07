@@ -4,7 +4,7 @@
 	"sInfoEmpty":    	"Keine Daten vorhanden",
 	"sInfoFiltered": 	"(gefiltert von _MAX_ Einträgen)",
 	"sInfoThousands":  	".",
-	"sLengthMenu":   	"_MENU_ Einträge anzeigen",
+	"sLengthMenu":   	"Seiten _MENU_ Einträge anzeigen",
 	"sLoadingRecords": 	"Wird geladen ..",
 	"sProcessing":   	"Bitte warten ..",
 	"sSearch":       	"Suchen",
