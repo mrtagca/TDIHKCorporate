@@ -98,8 +98,8 @@ namespace TDIHKCorporate.Controllers
             }
         }
 
-        [ChildActionOnly]
-        [OutputCache(Duration = 3600)]
+        //[ChildActionOnly]
+        //[OutputCache(Duration = 3600)]
         public ActionResult Vorteille()
         {
             return PartialView("_PartialVorteille");

@@ -14,8 +14,8 @@ namespace TDIHKCorporate.Controllers
 {
     public class ServicesController : SiteBaseController
     {
-        [OutputCache(Duration = 60, VaryByParam = "*", Location = OutputCacheLocation.Server, NoStore = true)]
-        [Compress]
+        //[OutputCache(Duration = 60, VaryByParam = "*", Location = OutputCacheLocation.Server, NoStore = true)]
+        //[Compress]
         public ActionResult Jobangebote()
         {
             DapperRepository<Pages> page = new DapperRepository<Pages>();
@@ -39,8 +39,8 @@ namespace TDIHKCorporate.Controllers
             return View(pageItem);
         }
 
-        [ChildActionOnly]
-        [OutputCache(Duration = 60)]
+        //[ChildActionOnly]
+        //[OutputCache(Duration = 60)]
         public ActionResult GetJobOffers()
         {
             DapperRepository<JobOffers> job = new DapperRepository<JobOffers>();
@@ -73,8 +73,8 @@ namespace TDIHKCorporate.Controllers
         }
 
 
-        [ChildActionOnly]
-        [OutputCache(Duration = 60)]
+        //[ChildActionOnly]
+        //[OutputCache(Duration = 60)]
         public List<BreadCrumb> GetBreadCrumbs(int PageID, string language)
         {
             DapperRepository<BreadCrumb> breadCrumb = new DapperRepository<BreadCrumb>();

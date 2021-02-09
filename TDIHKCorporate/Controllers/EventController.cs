@@ -20,8 +20,8 @@ namespace TDIHKCorporate.Controllers
 {
     public class EventController : SiteBaseController
     {
-        [OutputCache(Duration = 60, VaryByParam = "*", Location = OutputCacheLocation.Server, NoStore = true)]
-        [Compress]
+        //[OutputCache(Duration = 60, VaryByParam = "*", Location = OutputCacheLocation.Server, NoStore = true)]
+        //[Compress]
         public ActionResult Index()
         {
             DapperRepository<Pages> page = new DapperRepository<Pages>();
@@ -45,8 +45,8 @@ namespace TDIHKCorporate.Controllers
             return View(pageItem);
         }
 
-        [ChildActionOnly]
-        [OutputCache(Duration = 60)]
+        //[ChildActionOnly]
+        //[OutputCache(Duration = 60)]
         public List<BreadCrumb> GetBreadCrumbs(int PageID, string language)
         {
             DapperRepository<BreadCrumb> breadCrumb = new DapperRepository<BreadCrumb>();
@@ -60,8 +60,8 @@ namespace TDIHKCorporate.Controllers
             return breadCrumbList;
         }
 
-        [OutputCache(Duration = 60, VaryByParam = "*", Location = OutputCacheLocation.Server, NoStore = true)]
-        [Compress]
+        //[OutputCache(Duration = 60, VaryByParam = "*", Location = OutputCacheLocation.Server, NoStore = true)]
+        //[Compress]
         public ActionResult EventArchive()
         {
             CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
@@ -84,8 +84,8 @@ namespace TDIHKCorporate.Controllers
             return View(searchItems); //all events
         }
 
-        [OutputCache(Duration = 60, VaryByParam = "*", Location = OutputCacheLocation.Server, NoStore = true)]
-        [Compress]
+        //[OutputCache(Duration = 60, VaryByParam = "*", Location = OutputCacheLocation.Server, NoStore = true)]
+        //[Compress]
         public ActionResult EventRegister(string seolink)
         {
             CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
@@ -155,8 +155,8 @@ namespace TDIHKCorporate.Controllers
             }
         }
 
-        [ChildActionOnly]
-        [OutputCache(Duration = 60)]
+        //[ChildActionOnly]
+        //[OutputCache(Duration = 60)]
         public ActionResult GetEventCategoriesArea()
         {
 
@@ -170,29 +170,29 @@ namespace TDIHKCorporate.Controllers
             return View(eventCategoryList);
         }
 
-        [ChildActionOnly]
-        [OutputCache(Duration = 60)]
+        //[ChildActionOnly]
+        //[OutputCache(Duration = 60)]
         public ActionResult FutureEvents()
         {
             return View(GetFutureEvents(3));
         }
 
-        [ChildActionOnly]
-        [OutputCache(Duration = 60)]
+        //[ChildActionOnly]
+        //[OutputCache(Duration = 60)]
         public ActionResult LastEvents()
         {
             return View(GetLastEvents(9));
         }
 
-        [OutputCache(Duration = 60, VaryByParam = "*", Location = OutputCacheLocation.Server, NoStore = true)]
-        [Compress]
+        //[OutputCache(Duration = 60, VaryByParam = "*", Location = OutputCacheLocation.Server, NoStore = true)]
+        //[Compress]
         public ActionResult Kalender()
         {
             return View(GetKalenderEvents(9));
         }
 
-        [ChildActionOnly]
-        [OutputCache(Duration = 60)]
+        //[ChildActionOnly]
+        //[OutputCache(Duration = 60)]
         public List<Events> GetKalenderEvents(int count)
         {
             try
@@ -225,8 +225,8 @@ namespace TDIHKCorporate.Controllers
             }
         }
 
-        [ChildActionOnly]
-        [OutputCache(Duration = 60)]
+        //[ChildActionOnly]
+        //[OutputCache(Duration = 60)]
         public List<Events> GetEvents(int count)
         {
             try
@@ -259,8 +259,8 @@ namespace TDIHKCorporate.Controllers
             }
         }
 
-        [ChildActionOnly]
-        [OutputCache(Duration = 60)]
+        //[ChildActionOnly]
+        //[OutputCache(Duration = 60)]
         public List<Events> GetLastEvents(int count)
         {
             try
@@ -299,8 +299,8 @@ order by CONVERT(datetime,CONVERT(nvarchar,EventDate)+' '+CONVERT(nvarchar,Event
             }
         }
 
-        [ChildActionOnly]
-        [OutputCache(Duration = 60)]
+        //[ChildActionOnly]
+        //[OutputCache(Duration = 60)]
         public List<Events> GetFutureEvents(int count)
         {
             try
@@ -339,8 +339,8 @@ order by CONVERT(datetime,CONVERT(nvarchar,EventDate)+' '+CONVERT(nvarchar,Event
             }
         }
 
-        [ChildActionOnly]
-        [OutputCache(Duration = 60)]
+        //[ChildActionOnly]
+        //[OutputCache(Duration = 60)]
         public ActionResult SearchEvents(string search)
         {
             try
@@ -369,8 +369,8 @@ order by CONVERT(datetime,CONVERT(nvarchar,EventDate)+' '+CONVERT(nvarchar,Event
             }
         }
 
-        [OutputCache(Duration = 60, VaryByParam = "*", Location = OutputCacheLocation.Server, NoStore = true)]
-        [Compress]
+        //[OutputCache(Duration = 60, VaryByParam = "*", Location = OutputCacheLocation.Server, NoStore = true)]
+        //[Compress]
         public ActionResult EventsByCategoryName(string category)
         {
             try

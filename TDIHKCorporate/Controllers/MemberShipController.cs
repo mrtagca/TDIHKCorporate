@@ -20,8 +20,8 @@ namespace TDIHKCorporate.Controllers
 {
     public class MemberShipController : SiteBaseController
     {
-        [OutputCache(Duration = 60, VaryByParam = "*", Location = OutputCacheLocation.Server, NoStore = true)]
-        [Compress]
+        //[OutputCache(Duration = 60, VaryByParam = "*", Location = OutputCacheLocation.Server, NoStore = true)]
+        //[Compress]
         public ActionResult StandardMitgliedschaft()
         {
             DapperRepository<Pages> page = new DapperRepository<Pages>();
@@ -37,8 +37,8 @@ namespace TDIHKCorporate.Controllers
             return View(pageItem);
         }
 
-        [OutputCache(Duration = 60, VaryByParam = "*", Location = OutputCacheLocation.Server, NoStore = true)]
-        [Compress]
+        //[OutputCache(Duration = 60, VaryByParam = "*", Location = OutputCacheLocation.Server, NoStore = true)]
+        //[Compress]
         public ActionResult PremiumMitgliedschaft()
         {
             DapperRepository<Pages> page = new DapperRepository<Pages>();
@@ -54,8 +54,8 @@ namespace TDIHKCorporate.Controllers
             return View(pageItem);
         }
 
-        [OutputCache(Duration = 60, VaryByParam = "*", Location = OutputCacheLocation.Server, NoStore = true)]
-        [Compress]
+        //[OutputCache(Duration = 60, VaryByParam = "*", Location = OutputCacheLocation.Server, NoStore = true)]
+        //[Compress]
         public ActionResult StandardMitgliedschaftAntragsformular()
         {
             return View();
@@ -190,13 +190,18 @@ namespace TDIHKCorporate.Controllers
                             tuzukPath = AppDomain.CurrentDomain.BaseDirectory + "Content\\MainSite\\assets\\files\\Satzung_2015_12_07.pdf";
                         }
                         attachments.Add(new Attachment(tuzukPath));
-                    
+
 
                     List<string> internalMail = new List<string>();
+                    List<Attachment> attachmentsInternal = new List<Attachment>();
+                    attachmentsInternal.Add(new Attachment(path));
                     internalMail.Add(ConfigurationManager.AppSettings["MemberShipMailBox"]);
-                    mailSender.SendMail(emailTemplate, internalMail);
+                    emailTemplate.TemplateHtml = "";
+                    mailSender.SendMail(emailTemplate, internalMail, attachmentsInternal);
 
                     mailResult = mailSender.SendMail(emailTemplateInfo, list, attachments);
+
+                    
 
                 }
 
@@ -208,8 +213,8 @@ namespace TDIHKCorporate.Controllers
             }
         }
 
-        [OutputCache(Duration = 60, VaryByParam = "*", Location = OutputCacheLocation.Server, NoStore = true)]
-        [Compress]
+        //[OutputCache(Duration = 60, VaryByParam = "*", Location = OutputCacheLocation.Server, NoStore = true)]
+        //[Compress]
         public ActionResult PremiumMitgliedschaftAntragsformular()
         {
             return View();
@@ -346,8 +351,11 @@ namespace TDIHKCorporate.Controllers
 
 
                     List<string> internalMail = new List<string>();
+                    List<Attachment> attachmentsInternal = new List<Attachment>();
+                    attachmentsInternal.Add(new Attachment(path));
                     internalMail.Add(ConfigurationManager.AppSettings["MemberShipMailBox"]);
-                    mailSender.SendMail(emailTemplate, internalMail);
+                    emailTemplate.TemplateHtml = "";
+                    mailSender.SendMail(emailTemplate, internalMail, attachmentsInternal);
 
                     mailResult = mailSender.SendMail(emailTemplateInfo, list, attachments);
 
@@ -361,8 +369,8 @@ namespace TDIHKCorporate.Controllers
             }
         }
 
-        [OutputCache(Duration = 60, VaryByParam = "*", Location = OutputCacheLocation.Server, NoStore = true)]
-        [Compress]
+        //[OutputCache(Duration = 60, VaryByParam = "*", Location = OutputCacheLocation.Server, NoStore = true)]
+        //[Compress]
         public ActionResult Mitgliederliste(string search)
         {
             DapperRepository<Members> memberRepo = new DapperRepository<Members>();

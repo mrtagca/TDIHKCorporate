@@ -15,8 +15,8 @@ namespace TDIHKCorporate.Controllers
 
     public class PageController : SiteBaseController
     {
-        [OutputCache(Duration = 60, VaryByParam = "*", Location = OutputCacheLocation.Server, NoStore = true)]
-        [Compress]
+        //[OutputCache(Duration = 60, VaryByParam = "*", Location = OutputCacheLocation.Server, NoStore = true)]
+        //[Compress]
         public ActionResult Show(string seoLink)
         {
 
@@ -41,8 +41,8 @@ namespace TDIHKCorporate.Controllers
             return View(pageItem);
         }
 
-        [ChildActionOnly]
-        [OutputCache(Duration = 60)]
+        //[ChildActionOnly]
+        //[OutputCache(Duration = 60)]
         public List<BreadCrumb> GetBreadCrumbs(int PageID, string language)
         {
             DapperRepository<BreadCrumb> breadCrumb = new DapperRepository<BreadCrumb>();

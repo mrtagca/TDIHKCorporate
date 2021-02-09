@@ -179,7 +179,14 @@
                 </div>
                 <div class="uk-margin">
                     <label>
-                        <input class="uk-checkbox" id="PrivacyPolicy" type="checkbox">@Resources.resource.BurayaTiklayarakKabulEdebilirsiniz <a href="#" class="uk-link-reset" target="_blank"><u>@Resources.resource.GizlilikPolitikasiveEsasSozlesme.</u></a>
+                        @if (lang == "tr")
+                        {
+                            <input class="uk-checkbox" id="PrivacyPolicy" type="checkbox"><a href="/tr/sayfalar/gizlilik-politikasi" class="uk-link-reset" target="_blank"><u>@Resources.resource.GizlilikPolitikasi</u></a> @Resources.resource.Ve <a href="/Content/MainSite/assets/files/Tuzuk_2015_12_07.pdf" class="uk-link-reset" target="_blank"><u>@Resources.resource.EsasSozlesme</u></a><span>'ü </span>@Resources.resource.BurayaTiklayarakKabulEdebilirsiniz
+                        }
+                        else
+                        {
+                            <input class="uk-checkbox" id="PrivacyPolicy" type="checkbox">@Resources.resource.BurayaTiklayarakKabulEdebilirsiniz <a href="/de/seiten/datenschutz-bestimmungen" class="uk-link-reset" target="_blank"><u>@Resources.resource.GizlilikPolitikasi</u></a> @Resources.resource.Ve <a href="/de/seiten/datenschutz-bestimmungen" class="uk-link-reset" target="_blank"><u>@Resources.resource.EsasSozlesme</u></a>
+                        }
                     </label>
                 </div>
                 <div onclick="SaveMemberPremium()" class="uk-margin uk-width-2-5@s uk-margin-auto">

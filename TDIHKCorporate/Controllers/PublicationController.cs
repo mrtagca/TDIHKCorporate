@@ -38,7 +38,7 @@ namespace TDIHKCorporate.Controllers
             return View(newsList);
         }
 
-        [ChildActionOnly]
+        //[ChildActionOnly]
         public ActionResult GetNachrichtenHead()
         {
             DapperRepository<News> news = new DapperRepository<News>();
@@ -57,7 +57,7 @@ namespace TDIHKCorporate.Controllers
 
             return PartialView("_PartialNachrichtenHead", newsList);
         }
-        [ChildActionOnly]
+        //[ChildActionOnly]
         public ActionResult GetNewsForNewsDetail()
         {
             DapperRepository<News> news = new DapperRepository<News>();
@@ -102,7 +102,7 @@ namespace TDIHKCorporate.Controllers
             return View(pageItem);
         }
 
-        [ChildActionOnly]
+        //[ChildActionOnly]
         public ActionResult GetPodcasts()
         {
             DapperRepository<Podcasts> podcastRepo = new DapperRepository<Podcasts>();
@@ -116,7 +116,7 @@ namespace TDIHKCorporate.Controllers
             return PartialView("_PartialPodcasts", podcastList);
         }
 
-        [ChildActionOnly]
+        //[ChildActionOnly]
         public ActionResult GetCoronaNachrichtenHead()
         {
             DapperRepository<News> news = new DapperRepository<News>();
@@ -181,7 +181,7 @@ namespace TDIHKCorporate.Controllers
             return View(newsList);
         }
 
-        [ChildActionOnly]
+        //[ChildActionOnly]
         public ActionResult GetRealNachrichtenHead()
         {
             DapperRepository<News> news = new DapperRepository<News>();

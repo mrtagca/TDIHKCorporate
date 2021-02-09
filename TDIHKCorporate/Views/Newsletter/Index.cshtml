@@ -58,52 +58,54 @@
         </div>
     </main>
     <script>
-    $("#SaveNewsletterEmail").click(function () {
-
-        debugger
-
-        var callParams = {
-            endPoint: "/Newsletter/CheckEmail",
-            requestType: "POST"
-        };
-
-        var email = $("#email").val();
-
-
-        var dataParams = {};
-        dataParams.Email = email;
-
-        RequestAjax(callParams, dataParams, function (response) {
+        $("#SaveNewsletterEmail").click(function () {
 
             debugger
 
-            if (response == "True") {
+            var callParams = {
+                endPoint: "/Newsletter/CheckEmail",
+                requestType: "POST"
+            };
 
-                var callParams = {
-                    endPoint: "/Newsletter/AddEmail",
-                    requestType: "POST"
-                };
+            var email = $("#email").val();
 
-                var dataParams = {};
-                dataParams.Email = email;
 
-                RequestAjax(callParams, dataParams, function (response) {
-                    if (response == "True") {
-                        alert('@Resources.resource.MailListesineEklendi');
-                        $("#email").val("");
-                    }
-                    else {
-                        alert('@Resources.resource.MailListesineEklenemedi');
-                    }
-                });
+            var dataParams = {};
+            dataParams.Email = email;
 
-            }
-            else {
-                alert('@Resources.resource.MailAdresiKayitli');
-            }
-        });
+            RequestAjax(callParams, dataParams, function (response) {
 
-    });
+                debugger
+
+                if (response == "True") {
+
+                    var callParams = {
+                        endPoint: "/Newsletter/AddEmail",
+                        requestType: "POST"
+                    };
+
+                    var dataParams = {};
+                    dataParams.Email = email;
+
+                    RequestAjax(callParams, dataParams, function (response) {
+                        if (response == "True") {
+                            alert('Success');
+                            $("#email").val("");
+                        }
+                        else {
+                            alert('Fail');
+                        }
+                    });
+
+                }
+                else {
+                    /**/
+                    alert('The mail has already been registered.');
+        /**/
+    }
+});
+
+});
     </script>
 
 </body>

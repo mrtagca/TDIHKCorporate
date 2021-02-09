@@ -14,8 +14,8 @@ namespace TDIHKCorporate.Controllers
 {
     public class CovidController : SiteBaseController
     {
-        [OutputCache(Duration = 60, VaryByParam = "*", Location = OutputCacheLocation.Server, NoStore = true)]
-        [Compress]
+        //[OutputCache(Duration = 60, VaryByParam = "*", Location = OutputCacheLocation.Server, NoStore = true)]
+        //[Compress]
         public ActionResult Index()
         {
             DapperRepository<Pages> page = new DapperRepository<Pages>();
@@ -31,8 +31,8 @@ namespace TDIHKCorporate.Controllers
             return View(pageItem);
         }
 
-        [OutputCache(Duration = 60, VaryByParam = "*", Location = OutputCacheLocation.Server, NoStore = true)]
-        [Compress]
+        //[OutputCache(Duration = 60, VaryByParam = "*", Location = OutputCacheLocation.Server, NoStore = true)]
+        //[Compress]
         public ActionResult CoronavirusNachrichten()
         {
             DapperRepository<Pages> page = new DapperRepository<Pages>();

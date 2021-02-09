@@ -178,11 +178,11 @@
                         <label>
                             @if (lang == "tr")
                             {
-                                <input class="uk-checkbox" id="PrivacyPolicy" type="checkbox"><a href="/Content/MainSite/assets/files/Gizlilik_Politikas%C4%B1.pdf" class="uk-link-reset" target="_blank"><u>@Resources.resource.GizlilikPolitikasi</u></a> @Resources.resource.Ve <a href="/Content/MainSite/assets/files/Satzung_2015_12_07.pdf" class="uk-link-reset" target="_blank"><u>@Resources.resource.EsasSozlesme</u></a><span>'ü </span>@Resources.resource.BurayaTiklayarakKabulEdebilirsiniz
+                                <input class="uk-checkbox" id="PrivacyPolicy" type="checkbox"><a href="/tr/sayfalar/gizlilik-politikasi" class="uk-link-reset" target="_blank"><u>@Resources.resource.GizlilikPolitikasi</u></a> @Resources.resource.Ve <a href="/Content/MainSite/assets/files/Tuzuk_2015_12_07.pdf" class="uk-link-reset" target="_blank"><u>@Resources.resource.EsasSozlesme</u></a><span>'ü </span>@Resources.resource.BurayaTiklayarakKabulEdebilirsiniz
                             }
                             else
                             {
-                                <input class="uk-checkbox" id="PrivacyPolicy" type="checkbox">@Resources.resource.BurayaTiklayarakKabulEdebilirsiniz <a href="/Content/MainSite/assets/files/Gizlilik_Politikas%C4%B1.pdf" class="uk-link-reset" target="_blank"><u>@Resources.resource.GizlilikPolitikasi</u></a> @Resources.resource.Ve <a href="/Content/MainSite/assets/files/Satzung_2015_12_07.pdf" class="uk-link-reset" target="_blank"><u>@Resources.resource.EsasSozlesme</u></a>
+                                <input class="uk-checkbox" id="PrivacyPolicy" type="checkbox">@Resources.resource.BurayaTiklayarakKabulEdebilirsiniz <a href="/de/seiten/datenschutz-bestimmungen" class="uk-link-reset" target="_blank"><u>@Resources.resource.GizlilikPolitikasi</u></a> @Resources.resource.Ve <a href="/de/seiten/datenschutz-bestimmungen" class="uk-link-reset" target="_blank"><u>@Resources.resource.EsasSozlesme</u></a>
                             }
                         </label>
                     </div>
@@ -212,8 +212,8 @@
                             <button class="uk-button uk-button-secondary uk-border-rounded" type="button" tabindex="-1">@Resources.resource.DosyaSeciniz</button>
                         </div>
 
-                        <div>
-                            <img id="Preview" src="#" alt="Corp Logo" />
+                        <div id="Preview">
+                            
                         </div>
                     </div>
                     <div class="uk-text-large">@Resources.resource.TavsiyeEdeceginizDigerOdaUyeleri:</div>
@@ -261,7 +261,14 @@
                     </div>
                     <div class="uk-margin size-10 size-3-m">
                         <label>
-                            <input class="uk-checkbox" id="PrivacyPolicy" type="checkbox">@Resources.resource.BurayaTiklayarakKabulEdebilirsiniz <a href="/Content/MainSite/assets/files/DATENSCHUTZ.pdf" class="uk-link-reset" target="_blank"><u>@Resources.resource.GizlilikPolitikasi</u></a> und die <a href="/Content/MainSite/assets/files/Satzung_2015_12_07.pdf" class="uk-link-reset" target="_blank"><u>@Resources.resource.EsasSozlesme</u></a>
+                            @if (lang == "tr")
+                            {
+                                <input class="uk-checkbox" id="PrivacyPolicy" type="checkbox"><a href="/tr/sayfalar/gizlilik-politikasi" class="uk-link-reset" target="_blank"><u>@Resources.resource.GizlilikPolitikasi</u></a> @Resources.resource.Ve <a href="/Content/MainSite/assets/files/Tuzuk_2015_12_07.pdf" class="uk-link-reset" target="_blank"><u>@Resources.resource.EsasSozlesme</u></a><span>'ü </span>@Resources.resource.BurayaTiklayarakKabulEdebilirsiniz
+                            }
+                            else
+                            {
+                                <input class="uk-checkbox" id="PrivacyPolicy" type="checkbox">@Resources.resource.BurayaTiklayarakKabulEdebilirsiniz <a href="/de/seiten/datenschutz-bestimmungen" class="uk-link-reset" target="_blank"><u>@Resources.resource.GizlilikPolitikasi</u></a> @Resources.resource.Ve <a href="/de/seiten/datenschutz-bestimmungen" class="uk-link-reset" target="_blank"><u>@Resources.resource.EsasSozlesme</u></a>
+                            }
                         </label>
                     </div>
                     <div onclick="SaveMember()" class="uk-margin uk-width-2-5@s uk-margin-auto">
@@ -348,12 +355,15 @@
                 processData: false, // Not to process data
                 data: fileData,
                 success: function (result) {
-                    debugger
+                    
                     $("#FileUpload").attr("image-path", result);
-                    $("#Preview").attr("src", result)
+                    
+
+                    document.getElementById("Preview").innerHTML = '<p>Upload Success<p/>';
                 },
                 error: function (err) {
                     alert(err.statusText);
+                    document.getElementById("Preview").innerHTML = '<p>Upload Fail<p/>';
                 }
             });
         } else {
@@ -381,9 +391,9 @@
 
         // Generate the PDF.
         html2pdf().from(element).set({
-            filename: mode + '.pdf',
+            filename:  'form.pdf',
             pagebreak: pagebreak,
             jsPDF: { orientation: 'portrait', unit: 'in', format: 'letter', compressPDF: true }
-        }).save();
+        }).save(); 
     }
 </script>
