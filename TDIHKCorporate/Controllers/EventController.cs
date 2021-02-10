@@ -148,7 +148,7 @@ namespace TDIHKCorporate.Controllers
 
                     MailSender mailSender = new MailSender("MemberShip");
                     List<string> list = new List<string>();
-                    list.Add(ConfigurationManager.AppSettings["MemberShipMailBox"]);
+                    list.Add(ConfigurationManager.AppSettings["ContactMailBox"]);
                     emailTemplate.Subject = emailTemplate.Subject + " (" +ev.EventTitle+ ")";
                     emailTemplate.TemplateHtml = "";
                     bool mailSent = mailSender.SendMail(emailTemplate, list, attachments);
