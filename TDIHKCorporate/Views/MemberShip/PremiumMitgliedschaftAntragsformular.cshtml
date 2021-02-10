@@ -199,7 +199,7 @@
                 <div class="uk-width-1-1">
                     <div class="uk-width-1-3@s uk-margin-auto uk-flex uk-flex-around">
                         <div>
-                            <button onclick="test()" id="ScreenShotDownload" class="uk-button uk-button-default uk-padding-small uk-border-circle">
+                            <button onclick="Printer()" id="ScreenShotDownload" class="uk-button uk-button-default uk-padding-small uk-border-circle">
                                 <img src="~/Content/MainSite/assets/images/StandartForm/pdf-icon.png" width="40" height="40" />
                             </button>
 
@@ -289,5 +289,9 @@
             pagebreak: pagebreak,
             jsPDF: { orientation: 'portrait', unit: 'in', format: 'letter', compressPDF: true }
         }).save();
+    }
+
+    function Printer() {
+        window.print();
     }
 </script>
