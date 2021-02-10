@@ -1,10 +1,12 @@
 ﻿using DbAccess.Dapper.Repository;
 using Newtonsoft.Json;
+using NReco.PdfGenerator;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Globalization;
 using System.Linq;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.UI;
@@ -94,10 +96,18 @@ namespace TDIHKCorporate.Controllers
                         .Replace("<##Email##>", contactForm.EmailAdress)
                         .Replace("<##Message##>", contactForm.EmailAdress);
 
+                    List<Attachment> attachments = new List<Attachment>();
+                    var htmlToPdf = new NReco.PdfGenerator.HtmlToPdfConverter();
+                    htmlToPdf.Size = PageSize.A4;
+                    string path = AppDomain.CurrentDomain.BaseDirectory + "Content\\MainSite\\assets\\memberShipFiles\\" +contactForm.Name + "_" + contactForm.Surname + "_Newsletter_" + DateTime.Now.ToShortDateString() + "_" + Guid.NewGuid() + ".pdf";
+                    htmlToPdf.GeneratePdf(emailTemplate.TemplateHtml, null, path);
+                    attachments.Add(new Attachment(path));
+
                     MailSender mailSender = new MailSender("MemberShip");
                     List<string> list = new List<string>();
                     list.Add(ConfigurationManager.AppSettings["ContactMailBox"]);
-                    bool mailSent = mailSender.SendMail(emailTemplate, list);
+                    emailTemplate.TemplateHtml = "";
+                    bool mailSent = mailSender.SendMail(emailTemplate, list,attachments);
 
                     if (mailSent)
                     {

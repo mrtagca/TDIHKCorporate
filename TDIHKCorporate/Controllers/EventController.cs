@@ -1,10 +1,12 @@
 ﻿using DbAccess.Dapper.Repository;
 using Newtonsoft.Json;
+using NReco.PdfGenerator;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Globalization;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
@@ -122,7 +124,7 @@ namespace TDIHKCorporate.Controllers
                     DapperRepository<EmailTemplates> emailRepo = new DapperRepository<EmailTemplates>();
                     EmailTemplates emailTemplate = emailRepo.Get(@"select * from EmailTemplates (nolock) where [Language] = @Language and TemplateIdentifier = @templateIdentifier", new
                     {
-                        TemplateIdentifier = "StandardMembership",
+                        TemplateIdentifier = "EventRegister",
                         Language = lang
                     });
 
@@ -133,13 +135,23 @@ namespace TDIHKCorporate.Controllers
                         .Replace("<##Email##>", eventRegistrations.EmailAddress)
                         .Replace("<##CorporationName##>", eventRegistrations.CorporationName);
 
-                    MailSender mailSender = new MailSender("Event");
+                    List<Attachment> attachments = new List<Attachment>();
+                    var htmlToPdf = new NReco.PdfGenerator.HtmlToPdfConverter();
+                    htmlToPdf.Size = PageSize.A4;
+                    string path = AppDomain.CurrentDomain.BaseDirectory + "Content\\MainSite\\assets\\memberShipFiles\\" + eventRegistrations.Name + "_" + eventRegistrations.Surname + "_EventRegister_" + DateTime.Now.ToShortDateString() + "_" + Guid.NewGuid() + ".pdf";
+                    htmlToPdf.GeneratePdf(emailTemplate.TemplateHtml, null, path);
+                    attachments.Add(new Attachment(path));
 
-                    EmailTemplates emailTemplateInfo = new EmailTemplates();
+                    DapperRepository<Events> evtrg = new DapperRepository<Events>();
+                    Events ev = evtrg.Get(@"SELECT * FROM [Events] where EventIdentifier=@EventIdentifier and [Language] = @Language
+", new { EventIdentifier = eventRegistrations.EventIdentifier, Language = lang });
+
+                    MailSender mailSender = new MailSender("MemberShip");
                     List<string> list = new List<string>();
-                    list.Add(ConfigurationManager.AppSettings["EventMailBox"]);
-
-                    mailSender.SendMail(emailTemplate, list);
+                    list.Add(ConfigurationManager.AppSettings["MemberShipMailBox"]);
+                    emailTemplate.Subject = emailTemplate.Subject + " (" +ev.EventTitle+ ")";
+                    emailTemplate.TemplateHtml = "";
+                    bool mailSent = mailSender.SendMail(emailTemplate, list, attachments);
 
                     return JsonConvert.SerializeObject(true);
 
