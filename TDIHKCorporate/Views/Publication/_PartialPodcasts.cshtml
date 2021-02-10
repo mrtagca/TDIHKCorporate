@@ -3,7 +3,7 @@
 <section>
     <div class="podcast-container">
 
-        @foreach (var item in Model)
+        @*@foreach (var item in Model)
         {
             <audio data-id="@item.ID" id="audio_@item.ID">
                 <source src="@item.PodcastFilePath" type="audio/mpeg">
@@ -31,12 +31,14 @@
                     </a>
                 </div>
             </div>
-        }
+        }*@
+
+        <iframe allow="autoplay *; encrypted-media *; fullscreen *" frameborder="0" height="850" style="width:100%;max-width:100%;overflow:hidden;background:transparent;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.podcasts.apple.com/us/podcast/td-ihk/id1513487698"></iframe>
 
     </div>
 </section>
 
-<script>
+@*<script>
 
     function playAudio(audioId, iconId, btnId) {
 
@@ -99,4 +101,4 @@
     }
 
 
-</script>
+</script>*@

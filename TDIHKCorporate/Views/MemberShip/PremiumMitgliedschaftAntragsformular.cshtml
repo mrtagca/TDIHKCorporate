@@ -132,6 +132,10 @@
                         <input id="FileUpload" name="file" image-path="" accept="image/x-png,image/gif,image/jpeg" type="file">
                         <button class="uk-button uk-button-secondary uk-border-rounded" type="button" tabindex="-1">@Resources.resource.DosyaSeciniz</button>
                     </div>
+
+                    <div id="Preview">
+
+                    </div>
                 </div>
                 <div class="uk-text-large">@Resources.resource.TavsiyeEdeceginizDigerOdaUyeleri:</div>
                 <div class="uk-margin">
@@ -185,7 +189,7 @@
                         }
                         else
                         {
-                            <input class="uk-checkbox" id="PrivacyPolicy" type="checkbox">@Resources.resource.BurayaTiklayarakKabulEdebilirsiniz <a href="/de/seiten/datenschutz-bestimmungen" class="uk-link-reset" target="_blank"><u>@Resources.resource.GizlilikPolitikasi</u></a> @Resources.resource.Ve <a href="/de/seiten/datenschutz-bestimmungen" class="uk-link-reset" target="_blank"><u>@Resources.resource.EsasSozlesme</u></a>
+                            <input class="uk-checkbox" id="PrivacyPolicy" type="checkbox">@Resources.resource.BurayaTiklayarakKabulEdebilirsiniz <a href="https://td-ihk.de/Content/MainSite/assets/files/Satzung_2015_12_07.pdf" class="uk-link-reset" target="_blank"><u>@Resources.resource.GizlilikPolitikasi</u></a> @Resources.resource.Ve <a href="/de/seiten/datenschutz-bestimmungen" class="uk-link-reset" target="_blank"><u>@Resources.resource.EsasSozlesme</u></a>
                         }
                     </label>
                 </div>
@@ -249,9 +253,12 @@
                 success: function (result) {
                     debugger
                     $("#FileUpload").attr("image-path", result);
+
+                    document.getElementById("Preview").innerHTML = '<p>Upload Success<p/>';
                 },
                 error: function (err) {
                     alert(err.statusText);
+                    document.getElementById("Preview").innerHTML = '<p>Upload Fail<p/>';
                 }
             });
         } else {
