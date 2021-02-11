@@ -47,7 +47,7 @@ namespace TDIHKCorporate.Controllers
 
                     emailTemplate.TemplateHtml =
                         emailTemplate.TemplateHtml
-                        .Replace("<##Email##>", email);
+                        .Replace("<##EMAIL##>", email);
 
                     MailSender mailSender = new MailSender("MemberShip");
                     List<string> list = new List<string>();

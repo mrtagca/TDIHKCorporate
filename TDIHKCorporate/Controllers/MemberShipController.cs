@@ -196,7 +196,16 @@ namespace TDIHKCorporate.Controllers
                     List<Attachment> attachmentsInternal = new List<Attachment>();
                     attachmentsInternal.Add(new Attachment(path));
                     internalMail.Add(ConfigurationManager.AppSettings["MemberShipMailBox"]);
-                    emailTemplate.TemplateHtml = "";
+
+                    if (lang == "tr")
+                    {
+                        emailTemplate.TemplateHtml = "<html></head><body><div><p>Yeni üye başvurusu kaydı oluşturulmuştur. Üye adayı bilgilerine ekteki PDF dosyasından ulaşabilirsiniz.</p></div></body></html>";
+                    }
+                    else
+                    {
+                        emailTemplate.TemplateHtml = "<html></head><body><div><p>Ein neuer Mitgliedschaftsantrag wurde gestellt. Weitere Informationen finden Sie im beigefügten PDF</p></div></body></html>";
+                    }
+
                     mailSender.SendMail(emailTemplate, internalMail, attachmentsInternal);
 
                     mailResult = mailSender.SendMail(emailTemplateInfo, list, attachments);
@@ -354,7 +363,16 @@ namespace TDIHKCorporate.Controllers
                     List<Attachment> attachmentsInternal = new List<Attachment>();
                     attachmentsInternal.Add(new Attachment(path));
                     internalMail.Add(ConfigurationManager.AppSettings["MemberShipMailBox"]);
-                    emailTemplate.TemplateHtml = "";
+
+                    if (lang == "tr")
+                    {
+                        emailTemplate.TemplateHtml = "<html></head><body><div><p>Yeni üye başvurusu kaydı oluşturulmuştur. Üye adayı bilgilerine ekteki PDF dosyasından ulaşabilirsiniz.</p></div></body></html>";
+                    }
+                    else
+                    {
+                        emailTemplate.TemplateHtml = "<html></head><body><div><p>Ein neuer Mitgliedschaftsantrag wurde gestellt. Weitere Informationen finden Sie im beigefügten PDF</p></div></body></html>";
+                    }
+                   
                     mailSender.SendMail(emailTemplate, internalMail, attachmentsInternal);
 
                     mailResult = mailSender.SendMail(emailTemplateInfo, list, attachments);
