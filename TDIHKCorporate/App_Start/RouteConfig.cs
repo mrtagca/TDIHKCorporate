@@ -130,37 +130,37 @@ namespace TDIHKCorporate
                 );
             #endregion
 
-            #region Standart Mitgliedschaft Form / Standart Üyelik Formu
-            routes.MapRoute(
-                    name: "StandardMitgliedschaftFormGerman",
-                    url: "{lang}/mitgliedschaft/standard-mitgliedschaft-form",
-                    defaults: new { controller = "MemberShip", action = "StandardMitgliedschaftAntragsformular", lang = language },
-                 new[] { "TDIHKCorporate.Controllers" }
-                );
+            //#region Standart Mitgliedschaft Form / Standart Üyelik Formu
+            //routes.MapRoute(
+            //        name: "StandardMitgliedschaftFormGerman",
+            //        url: "{lang}/mitgliedschaft/standard-mitgliedschaft-form",
+            //        defaults: new { controller = "MemberShip", action = "StandardMitgliedschaftAntragsformular", lang = language },
+            //     new[] { "TDIHKCorporate.Controllers" }
+            //    );
 
-            routes.MapRoute(
-                    name: "StandardMitgliedschaftFormTurkey",
-                    url: "{lang}/uyelik/standart-uyelik-formu",
-                    defaults: new { controller = "MemberShip", action = "StandardMitgliedschaftAntragsformular", lang = language },
-                 new[] { "TDIHKCorporate.Controllers" }
-                );
-            #endregion
+            //routes.MapRoute(
+            //        name: "StandardMitgliedschaftFormTurkey",
+            //        url: "{lang}/uyelik/standart-uyelik-formu",
+            //        defaults: new { controller = "MemberShip", action = "StandardMitgliedschaftAntragsformular", lang = language },
+            //     new[] { "TDIHKCorporate.Controllers" }
+            //    );
+            //#endregion
 
-            #region Premium Mitgliedschaft Form / Premiuum Üyelik Formu
-            routes.MapRoute(
-                    name: "PremiumMitgliedschaftFormGerman",
-                    url: "{lang}/mitgliedschaft/premium-mitgliedschaft-form",
-                    defaults: new { controller = "MemberShip", action = "PremiumMitgliedschaftAntragsformular", lang = language },
-                 new[] { "TDIHKCorporate.Controllers" }
-                );
+            //#region Premium Mitgliedschaft Form / Premiuum Üyelik Formu
+            //routes.MapRoute(
+            //        name: "PremiumMitgliedschaftFormGerman",
+            //        url: "{lang}/mitgliedschaft/premium-mitgliedschaft-form",
+            //        defaults: new { controller = "MemberShip", action = "PremiumMitgliedschaftAntragsformular", lang = language },
+            //     new[] { "TDIHKCorporate.Controllers" }
+            //    );
 
-            routes.MapRoute(
-                    name: "PremiumMitgliedschaftFormTurkey",
-                    url: "{lang}/uyelik/premium-uyelik-formu",
-                    defaults: new { controller = "MemberShip", action = "PremiumMitgliedschaftAntragsformular", lang = language },
-                 new[] { "TDIHKCorporate.Controllers" }
-                );
-            #endregion
+            //routes.MapRoute(
+            //        name: "PremiumMitgliedschaftFormTurkey",
+            //        url: "{lang}/uyelik/premium-uyelik-formu",
+            //        defaults: new { controller = "MemberShip", action = "PremiumMitgliedschaftAntragsformular", lang = language },
+            //     new[] { "TDIHKCorporate.Controllers" }
+            //    );
+            //#endregion
 
             #region Üye Listesi / Mitgliederliste
             routes.MapRoute(

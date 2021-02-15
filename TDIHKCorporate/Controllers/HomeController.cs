@@ -63,7 +63,7 @@ where [Language] = @lang and PageIdentifier in (SELECT top 1 PageIdentifier FROM
 
                         DapperRepository<Pages> pageRepo = new DapperRepository<Pages>();
                         Pages page = pageRepo.Get(@"SELECT * FROM [IHK].[dbo].[Pages] (NOLOCK)
-where [Language] = @lang and PageIdentifier in (SELECT top 1 PageIdentifier FROM Pages (NOLOCK) where PageSeoLink = @seoUrl) ", new { lang = language, seoUrl = seo });
+where [Language] = @lang and PageIdentifier in (SELECT top 1 PageIdentifier FROM Pages (NOLOCK) where PageSeoLink = @seoUrl) and IsActive = 1", new { lang = language, seoUrl = seo });
 
                         if (page != null)
                         {
@@ -88,7 +88,7 @@ where [Language] = @lang and PageIdentifier in (SELECT top 1 PageIdentifier FROM
 
                         DapperRepository<News> newsRepo = new DapperRepository<News>();
                         News news = newsRepo.Get(@"SELECT * FROM  News (NOLOCK)
-where [Language] = @lang and NewsIdentifier in (SELECT top 1 NewsIdentifier FROM News (NOLOCK) where NewsSeoLink = @seoUrl) and IsActive=1 ", new { lang = language, seoUrl = seo });
+where [Language] = @lang and NewsIdentifier in (SELECT top 1 NewsIdentifier FROM News (NOLOCK) where NewsSeoLink = @seoUrl) and IsActive = 1", new { lang = language, seoUrl = seo });
 
                         if (news != null)
                         {
@@ -110,7 +110,7 @@ where [Language] = @lang and NewsIdentifier in (SELECT top 1 NewsIdentifier FROM
 
                         DapperRepository<News> newsRepo = new DapperRepository<News>();
                         News news = newsRepo.Get(@"SELECT * FROM  News (NOLOCK)
-where [Language] = @lang and NewsIdentifier in (SELECT top 1 NewsIdentifier FROM News (NOLOCK) where NewsSeoLink = @seoUrl) ", new { lang = language, seoUrl = seo });
+where [Language] = @lang and NewsIdentifier in (SELECT top 1 NewsIdentifier FROM News (NOLOCK) where NewsSeoLink = @seoUrl)  and IsActive = 1", new { lang = language, seoUrl = seo });
 
 
                         if (news != null)
@@ -179,29 +179,29 @@ where [Language] = @lang and EventIdentifier in (SELECT top 1 EventIdentifier FR
                 }
                 #endregion
 
-                if (url.Contains("mitgliedschaft/standard") || url.Contains("uyelik/standart"))
-                {
-                    if (language == "tr") //change tr
-                    {
-                        return Redirect("https://" + Request.UrlReferrer.Authority + "/tr/uyelik/standart-uyelik-formu");
-                    }
-                    else
-                    {
-                        return Redirect("https://" + Request.UrlReferrer.Authority + "/de/mitgliedschaft/standard-mitgliedschaft-form");
-                    }
-                }
+                //if (url.Contains("mitgliedschaft/standard") || url.Contains("uyelik/standart"))
+                //{
+                //    if (language == "tr") //change tr
+                //    {
+                //        return Redirect("https://" + Request.UrlReferrer.Authority + "/tr/uyelik/standart-uyelik-formu");
+                //    }
+                //    else
+                //    {
+                //        return Redirect("https://" + Request.UrlReferrer.Authority + "/de/mitgliedschaft/standard-mitgliedschaft-form");
+                //    }
+                //}
 
-                if (url.Contains("mitgliedschaft/premium") || url.Contains("uyelik/premium"))
-                {
-                    if (language == "tr") //change tr
-                    {
-                        return Redirect("https://" + Request.UrlReferrer.Authority + "/tr/uyelik/premium-uyelik-formu");
-                    }
-                    else
-                    {
-                        return Redirect("https://" + Request.UrlReferrer.Authority + "/de/mitgliedschaft/premium-mitgliedschaft-form");
-                    }
-                }
+                //if (url.Contains("mitgliedschaft/premium") || url.Contains("uyelik/premium"))
+                //{
+                //    if (language == "tr") //change tr
+                //    {
+                //        return Redirect("https://" + Request.UrlReferrer.Authority + "/tr/uyelik/premium-uyelik-formu");
+                //    }
+                //    else
+                //    {
+                //        return Redirect("https://" + Request.UrlReferrer.Authority + "/de/mitgliedschaft/premium-mitgliedschaft-form");
+                //    }
+                //}
 
 
                 string lang = "";
