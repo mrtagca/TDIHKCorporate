@@ -16,5 +16,6 @@ namespace TDIHKCorporate.Types.ViewTypes
         public string Creator { get; set; }
         public DateTime? UpdatedDate { get; set; }
         public string Updater { get; set; }
+        public bool IsActive { get; set; }
     }
 }

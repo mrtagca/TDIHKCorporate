@@ -344,3 +344,59 @@ function GetNewsIdentifier(identifierDropdown, lang) {
         });
     });
 }
+
+function PassiveNews(newsID) {
+
+    if (confirm("Are you sure for delete this news?")) {
+        var callParams = {
+            endPoint: "/Management/News/PassiveNews",
+            requestType: "POST"
+        }
+
+        var dataParams = {};
+        dataParams.newsID = newsID;
+
+        RequestAjax(callParams, dataParams, function (response) {
+            debugger
+            response = JSON.parse(response);
+
+            if (response === true) {
+                alert("News is passive now.");
+                location.reload();
+            }
+            else {
+                alert("Fail!");
+            }
+        });
+    }
+
+
+}
+
+function ActivateNews(newsID) {
+
+    if (confirm("Are you sure for activate this news?")) {
+        var callParams = {
+            endPoint: "/Management/News/ActivateNews",
+            requestType: "POST"
+        }
+
+        var dataParams = {};
+        dataParams.newsID = newsID;
+
+        RequestAjax(callParams, dataParams, function (response) {
+            debugger
+            response = JSON.parse(response);
+
+            if (response === true) {
+                alert("News is active now.");
+                location.reload();
+            }
+            else {
+                alert("Fail!");
+            }
+        });
+    }
+
+
+}

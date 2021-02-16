@@ -255,7 +255,8 @@ order by CreatedDate desc", new { lang = "tr" });
 
                                             usr.Username as Creator,
                                             nw.UpdatedDate as UpdatedDate,
-                                            case when (nw.UpdatedBy=usr.UserID) then usr.Username end as Updater
+                                            case when (nw.UpdatedBy=usr.UserID) then usr.Username end as Updater,
+                                            nw.IsActive
 
                                             FROM News nw (NOLOCK)
                                             inner join NewsCategories nc (NOLOCK)
@@ -266,6 +267,40 @@ order by CreatedDate desc", new { lang = "tr" });
 
 
             return View(result);
+        }
+
+        public string PassiveNews(int newsID)
+        {
+            try
+            {
+                DapperRepository<Pages> page = new DapperRepository<Pages>();
+
+                int result = page.Execute(@"update News set IsActive = 0,UpdatedDate=@UpdatedDate,UpdatedBy=@UpdatedBy where NewsID = @NewsID", new { NewsID = newsID, UpdatedDate = DateTime.Now, UpdatedBy = Convert.ToInt32(Session["UserID"]) });
+
+
+                return JsonConvert.SerializeObject(true);
+            }
+            catch (Exception ex)
+            {
+                return JsonConvert.SerializeObject(false);
+            }
+        }
+
+        public string ActivateNews(int newsID)
+        {
+            try
+            {
+                DapperRepository<Pages> page = new DapperRepository<Pages>();
+
+                int result = page.Execute(@"update News set IsActive = 1,UpdatedDate=@UpdatedDate,UpdatedBy=@UpdatedBy where NewsID = @NewsID", new { NewsID = newsID, UpdatedDate = DateTime.Now, UpdatedBy = Convert.ToInt32(Session["UserID"]) });
+
+
+                return JsonConvert.SerializeObject(true);
+            }
+            catch (Exception ex)
+            {
+                return JsonConvert.SerializeObject(false);
+            }
         }
     }
 }

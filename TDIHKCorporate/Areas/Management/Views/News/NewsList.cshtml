@@ -4,6 +4,8 @@
     Layout = "~/Areas/Management/Views/Shared/_layoutDashboard.cshtml";
 }
 
+<script src="~/Content/Scripts/News.js"></script>
+
 <h5>@Resources.resource.HaberListesi</h5>
 <br />
 
@@ -11,7 +13,7 @@
     <table id="newsTable" class="table table-hover dataTable" style="width:100%" role="grid" aria-describedby="zero-config_info">
         <thead>
             <tr role="row">
-                
+
                 <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 150px;">@Resources.resource.HaberBaslik</th>
                 <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="        width: 150px;">@Resources.resource.HaberDili</th>
                 <th class="sorting_asc" tabindex="0" aria-controls="zero-config" rowspan="1" colspan="1" aria-sort="ascending" style="        width: 150px;">@Resources.resource.GuncellemeTarihi</th>
@@ -20,20 +22,20 @@
 
             </tr>
         </thead>
-        <tbody> 
+        <tbody>
 
             @foreach (var row in Model)
             {
                 <tr>
-                   
+
                     <td>@row.NewsTitle</td>
                     <td>@row.NewsLanguage</td>
-                   
+
 
                     @{
                         string TimezoneId = System.Configuration.ConfigurationManager.AppSettings[System.Threading.Thread.CurrentThread.CurrentCulture.Name];
                         DateTime createdDate = TimeZoneInfo.ConvertTimeBySystemTimeZoneId((DateTime)row.CreatedDate, TimezoneId);
-                       
+
                     }
 
                     @if (row.UpdatedDate != null)
@@ -49,6 +51,16 @@
                     }
                     <td>@row.Updater</td>
                     <td>
+
+                        @if (row.IsActive)
+                        {
+                            <button onclick="PassiveNews(@row.NewsID)" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                        }
+                        else
+                        {
+                            <button onclick="ActivateNews(@row.NewsID)" class="btn btn-success"><i class="fa fa-check"></i></button>
+                        }
+
                         <input type="submit" onclick="
                            window.open(
                          '/Management/News/Edit/' +@row.NewsID,

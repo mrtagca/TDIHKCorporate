@@ -29,7 +29,7 @@ namespace TDIHKCorporate.Controllers
                                                 select nw.* from News nw (NOLOCK)
                                                 inner join NewsCategories nwc (NOLOCK)
                                                 on nw.NewsCategoryID = nwc.ID
-                                                where nw.[Language] = @language and nwc.[Language] = @language and nw.IsEventNew=1
+                                                where nw.[Language] = @language and nwc.[Language] = @language and nw.IsEventNew=1 and nw.IsActive = 1
                                                 order by CreatedDate desc
                                                 OFFSET 3 ROWS
                                                 ) as X", new { language = name });
@@ -51,7 +51,7 @@ namespace TDIHKCorporate.Controllers
                                                 inner join NewsCategories nwc (NOLOCK)
                                                 on nw.NewsCategoryID = nwc.ID
 
-                                                where nw.[Language] = @language and nwc.[Language] = @language and nw.IsEventNew=1
+                                                where nw.[Language] = @language and nwc.[Language] = @language and nw.IsEventNew=1 and nw.IsActive = 1
                                                 order by CreatedDate desc", new { language = name });
 
 
@@ -172,7 +172,7 @@ namespace TDIHKCorporate.Controllers
                                                 select nw.* from News nw (NOLOCK)
                                                 inner join NewsCategories nwc (NOLOCK)
                                                 on nw.NewsCategoryID = nwc.ID
-                                                where nw.[Language] = @language and nwc.[Language] = @language and nw.IsEventNew=0
+                                                where nw.[Language] = @language and nwc.[Language] = @language and nw.IsEventNew=0 and nw.IsActive = 1
                                                 order by CreatedDate desc
                                                 OFFSET 3 ROWS
                                                 ) as X", new { language = name });
@@ -194,7 +194,7 @@ namespace TDIHKCorporate.Controllers
                                                 inner join NewsCategories nwc (NOLOCK)
                                                 on nw.NewsCategoryID = nwc.ID
 
-                                                where nw.[Language] = @language and nwc.[Language] = @language and nw.IsEventNew=0
+                                                where nw.[Language] = @language and nwc.[Language] = @language and nw.IsEventNew=0 and nw.IsActive = 1
                                                 order by CreatedDate desc", new { language = name });
 
 
