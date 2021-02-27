@@ -11,6 +11,7 @@ using System.Web.UI;
 using System.Xml;
 using TDIHKCorporate.BaseControllers.MultiLanguage;
 using TDIHKCorporate.Helpers.Compress;
+using TDIHKCorporate.Helpers.Rss;
 using TDIHKCorporate.Models.Language;
 using TDIHKCorporate.Types;
 
@@ -248,6 +249,9 @@ where [Language] = @lang and EventIdentifier in (SELECT top 1 EventIdentifier FR
         //[Compress]
         public ActionResult Index()
         {
+
+            new RssFeeder().GetRobertKochRss();
+
             try
             {
                 //string lang = "";

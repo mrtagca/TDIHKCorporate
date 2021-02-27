@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using System.Web.UI;
 using TDIHKCorporate.BaseControllers.MultiLanguage;
 using TDIHKCorporate.Helpers.Compress;
+using TDIHKCorporate.Helpers.Rss;
 using TDIHKCorporate.Types;
 
 namespace TDIHKCorporate.Controllers
@@ -144,18 +145,29 @@ namespace TDIHKCorporate.Controllers
 
             string name = cultureInfo.TwoLetterISOLanguageName;
 
-            List<News> newsList = page.GetList(@"select top 33 * from
-                                                (
-                                                select nw.* from News nw (NOLOCK)
-                                                inner join NewsCategories nwc (NOLOCK)
-                                                on nw.NewsCategoryID = nwc.ID
-                                                where nw.[Language] = @language and nwc.[Language] = @language and nwc.NewsCategoryName = 'COVID-19'
-                                                order by CreatedDate desc
-                                                OFFSET 3 ROWS
-                                                ) as X", new { language = name });
+            //List<News> newsList = page.GetList(@"select top 33 * from
+            //                                    (
+            //                                    select nw.* from News nw (NOLOCK)
+            //                                    inner join NewsCategories nwc (NOLOCK)
+            //                                    on nw.NewsCategoryID = nwc.ID
+            //                                    where nw.[Language] = @language and nwc.[Language] = @language and nwc.NewsCategoryName = 'COVID-19'
+            //                                    order by CreatedDate desc
+            //                                    OFFSET 3 ROWS
+            //                                    ) as X", new { language = name });
 
+            List<News> newsList = new List<News>();
+            if (name == "de")
+            {
+                newsList.AddRange(new RssFeeder().GetRobertKochRss());
+                newsList.AddRange(new RssFeeder().GetWhoRss());
+            }
+            else
+            {
+                newsList.AddRange(new RssFeeder().GetSaglikGovTrRss());
+                newsList.AddRange(new RssFeeder().GetWhoRss());
+            }
 
-            return View(newsList);
+            return View(newsList.OrderByDescending(x=>x.CreatedDate).ToList());
         }
 
         [Compress]

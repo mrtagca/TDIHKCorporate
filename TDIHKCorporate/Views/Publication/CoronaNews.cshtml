@@ -7,87 +7,97 @@
 }
 
 
+
 <head>
     <meta charset="utf-8">
 
     @if (lang == "tr")
     {
-        <meta name="description" content="Korona salgını, bilhassa seyahatlarda önemli belirsizliğe neden oluyor. Her zaman uyulması gereken yeni kurallar gündeme çıkabilir. En güncel duruma hakim olmalısınız. Lütfen Federal Dışişleri Bakanlığı, Federal Almanya Büyükelçiliği ve Federal İçişleri Bakanlığı'nın web sitelerinden bilgi alın. Burada size en önemli bilgilerden bazılarını sağlıyor ve bunları düzenli aralıklarla güncelliyoruz.">
-        <title>TD IHK Covid-19</title>
+        <meta name="description" content="TD IHK nın düzenlemiş olduğu tüm etkinliklerin arşivine bu sayfadan ulaşabilirsiniz.">
+        <title>TD IHK Etkinlik Arşivi</title>
     }
     else
     {
-        <meta name="description" content="Die Corona-Pandemie führt weltweit zu erheblicher Verunsicherung beim Reisen. Immer wieder gibt es neue Regeln zu beachten. Bitte halten Sie sich auf den Seiten des Auswärtigen Amts und des Bundesinnenministeriums informiert. Hier stellen wir Ihnen einige der wichtigsten Informationen zur Verfügung und aktualisieren diese in regelmäßigen Abständen.">
-        <title>TD IHK Covid-19</title>
+        <meta name="description" content="Auf dieser Seite können Sie auf das Archiv aller von TD IHK organisierten Aktivitäten zugreifen.">
+        <title>TD IHK Events Archive</title>
     }
 
-    <meta name="keywords" content="td ihk covid,ihk covid,covid-19,almanya korona haberleri,almanya covid 19,td ihk covid nachrichten,germany covid nachrichten,covid maßnahmen">
+    <meta name="keywords" content="td ihk etkinlikler,td ihk events,td ihk etkinlik arşivi,td ihk event archive,td ihk geçmiş etkinlikler,td ihk last events">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="TD IHK">
+
+    <script src="~/Content/Admin/vendor/jquery/jquery-3.5.1.min.js"></script>
 </head>
 
+
+<script>
+    $(document).ready(function () {
+
+        var lang = '@lang';
+        var languageUrl = '';
+
+        if (lang==="tr") {
+            languageUrl = '/Content/plugins/datatable/turkish.json';
+        }
+        else {
+            languageUrl = '/Content/plugins/datatable/german.json';
+        }
+
+        $("#EventArchive").DataTable({
+            language: {
+                url: languageUrl
+            },
+            "order": [[0, "desc"]],
+            "stripeClasses": [],
+            "lengthMenu": [7, 10, 20, 50],
+            "pageLength": 7
+
+        });
+    })
+</script>
+
+
 <main class="uk-container" uk-scrollspy="cls: uk-animation-fade; target: > section; delay: 250">
+    <section class="uk-section">
+        <h1>@Resources.resource.EtkinlikArsivi</h1>
+        <!-- Bu div dahil tablonun içinde arşivde istediğimiz verileri döndürebiliriz-->
 
-    @Html.Action("GetCoronaNachrichtenHead")
+        <div class="uk-overflow-auto">
+            <table id="EventArchive" class="uk-table uk-table-hover uk-table-responsive uk-table-divider" style="width:100%">
+                <thead>
+                    <tr>
+                        <th class="uk-form-small">@Resources.resource.Tarih</th>
+                        <th class="uk-width-expand">@Resources.resource.HaberBaslik</th>
 
-
-    <!--Alt kısım-->
-    <section>
-        <div class="uk-flex uk-flex-middle uk-margin-small-bottom"><span style="height: 25px; width: 5px; background-color: black" class="uk-margin-small-right"></span><span class="size-20" style="color: black">@Resources.resource.Haberler</span></div>
-        <div class="uk-grid uk-grid-small uk-grid-row-large uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m uk-margin-medium-bottom" uk-grid>
-            <!-- Buradaki imajlara da 500px en 300px boy şeklinde yüklemeliyiz.-->
-
-            @foreach (var item in Model)
-            {
-                <div>
-                    @if (item.Language == "tr")
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
                     {
-                        <a href="/tr/haberler/@item.NewsSeoLink" class="uk-link-reset">
-                            <div class="uk-inline-clip uk-transition-toggle">
-                                <img src="@item.NewsThumbnailPath" class="uk-width-1-1 uk-height-1-1 uk-transition-opaque uk-transition-scale-up" uk-img/>
-                            </div>
-                            <div class="news-card-title line-height-1">@item.NewsTitle</div>
-                            @*<div class="news-card-subtitle">@item.NewsDescription</div>*@
-                        </a>
-                    }
-                    else
-                    {
-                        <a href="/de/nachrichten/@item.NewsSeoLink" class="uk-link-reset">
-                            <div class="uk-inline-clip uk-transition-toggle">
-                                <img src="@item.NewsThumbnailPath" class="uk-width-1-1 uk-height-1-1 uk-transition-opaque uk-transition-scale-up" uk-img/>
-                            </div>
-                            <div class="news-card-title line-height-1">@item.NewsTitle</div>
-                            @*<div class="news-card-subtitle">@item.NewsDescription</div>*@
-                        </a>
-                    }
+                        <tr>
+                            <td>@item.CreatedDate.ToShortDateString()</td>
 
-                </div>
-            }
+                            @if (lang == "tr")
+                            {
+                                <td class="uk-table-link"><a class="uk-link-reset" href="@item.NewsSeoLink" target="_blank">@item.NewsTitle</a></td>
+
+                            }
+                            else
+                            {
+                                <td class="uk-table-link"><a class="uk-link-reset" href="@item.NewsSeoLink" target="_blank">@item.NewsTitle</a></td>
+                            }
+                        </tr>
+                    }
+                </tbody>
+            </table>
         </div>
     </section>
 </main>
-<section class="uk-section">
-    <div class="uk-width-1-2@m uk-margin-auto">
-        <div class="uk-form-stacked uk-grid-medium register-form" uk-grid>
 
-            @if (lang == "tr")
-            {
 
-                <div class="uk-width-1-2@s uk-margin-auto">
-                    <a class="uk-button uk-button-primary uk-width-1-1 uk-border-rounded" href="/tr/sayfalar/etkinlik-arsivi">Dijital Arşiv</a>
-                </div>
-            }
-            else
-            {
-                <div class="uk-width-1-2@s uk-margin-auto">
-                    <a class="uk-button uk-button-primary uk-width-1-1 uk-border-rounded" href="/de/seiten/event-archive">Digital Archiv</a>
-                </div>
+<script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.23/js/dataTables.uikit.min.js"></script>
 
-            }
-
-        </div>
-    </div>
-</section>
 
 
 @Html.Action("Index", "Newsletter")
