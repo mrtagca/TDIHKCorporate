@@ -21,21 +21,21 @@ namespace TDIHKCorporate
 
             routes.MapRoute(
                  name: "SitemapNews",
-                 url: "sitemap-news.xml",
+                 url: "sitemap-news-update.xml",
                  defaults: new { controller = "News", action = "SiteMap", id = UrlParameter.Optional },
                  new[] { "TDIHKCorporate.Controllers" }
              );
 
             routes.MapRoute(
                  name: "SitemapEvents",
-                 url: "sitemap-events.xml",
+                 url: "sitemap-events-update.xml",
                  defaults: new { controller = "Event", action = "SiteMap", id = UrlParameter.Optional },
                  new[] { "TDIHKCorporate.Controllers" }
              );
 
             routes.MapRoute(
                  name: "SitemapPages",
-                 url: "sitemap-pages.xml",
+                 url: "sitemap-pages-update.xml",
                  defaults: new { controller = "Home", action = "SiteMap", id = UrlParameter.Optional },
                  new[] { "TDIHKCorporate.Controllers" }
              );

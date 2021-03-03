@@ -62,7 +62,7 @@ namespace TDIHKCorporate.Controllers
                 xr.WriteStartElement("url");
                 if (n.Language == "tr")
                 {
-                    xr.WriteElementString("loc", Request.Url.Scheme + "://" + Request.Url.Authority + "/tr/etkinlikler/" + n.NewsSeoLink);
+                    xr.WriteElementString("loc", Request.Url.Scheme + "://" + Request.Url.Authority + "/tr/haberler/" + n.NewsSeoLink);
                 }
                 else
                 {
