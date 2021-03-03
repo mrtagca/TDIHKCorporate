@@ -250,8 +250,6 @@ where [Language] = @lang and EventIdentifier in (SELECT top 1 EventIdentifier FR
         public ActionResult Index()
         {
 
-            new RssFeeder().GetRobertKochRss();
-
             try
             {
                 //string lang = "";

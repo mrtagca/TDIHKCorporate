@@ -2917,6 +2917,7 @@
     <Compile Include="BaseControllers\MultiLanguage\SiteBaseController.cs" />
     <Compile Include="Controllers\AboutUsController.cs" />
     <Compile Include="Controllers\CovidController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\EventController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MemberShipController.cs" />
@@ -3626,6 +3627,7 @@
     <Folder Include="Areas\Management\Helpers\" />
     <Folder Include="Areas\Management\Models\" />
     <Folder Include="Areas\Management\Views\Url\" />
+    <Folder Include="Views\Error\" />
     <Folder Include="Views\Image\" />
     <Folder Include="Views\Slider\" />
   </ItemGroup>

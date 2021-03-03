@@ -17,6 +17,8 @@ namespace TDIHKCorporate
             string language = System.Threading.Thread.CurrentThread.CurrentUICulture.Name;
             language = language.Substring(0, 2);
 
+            
+
             routes.MapRoute(
                  name: "SitemapNews",
                  url: "sitemap-news.xml",
@@ -351,6 +353,12 @@ namespace TDIHKCorporate
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional},
                 new[] { "TDIHKCorporate.Controllers" }
             );
+
+            routes.MapRoute(
+    "404-PageNotFound",
+    "{*url}",
+    new { controller = "Error", action = "NotFound" }
+    );
         }
     }
 }

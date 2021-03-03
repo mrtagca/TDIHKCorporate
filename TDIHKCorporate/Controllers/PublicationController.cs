@@ -163,7 +163,7 @@ namespace TDIHKCorporate.Controllers
             }
             else
             {
-                newsList.AddRange(new RssFeeder().GetSaglikGovTrRss());
+                //newsList.AddRange(new RssFeeder().GetSaglikGovTrRss());
                 newsList.AddRange(new RssFeeder().GetWhoRss());
             }
 
