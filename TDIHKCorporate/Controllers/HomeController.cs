@@ -499,7 +499,7 @@ where  (EventTitle like '%'+@search+'%' or EventContent like '%'+@search+'%' or 
             /* sitemap dosyamızın olmazsa olmazını ekledik. Şeması bu dedik buraya kadar.  */
 
             xr.WriteStartElement("url");
-            xr.WriteElementString("loc", Request.Url.Authority);
+            xr.WriteElementString("loc", Request.Url.Scheme + "://" + Request.Url.Authority);
             xr.WriteElementString("lastmod", DateTime.Now.ToString("yyyy-MM-dd"));
             xr.WriteElementString("changefreq", "daily");
             xr.WriteElementString("priority", "1");
