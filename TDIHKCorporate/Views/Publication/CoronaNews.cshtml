@@ -75,17 +75,29 @@
                     @foreach (var item in Model)
                     {
                         <tr>
-                            <td>@item.CreatedDate.ToShortDateString()</td>
+                            <td style="width:100px;" class="uk-table-link">
+                                <div>
+                                    @item.CreatedDate.ToShortDateString()
+                                </div>
+                            </td>
+                            <td class="uk-table-link">
 
-                            @if (lang == "tr")
-                            {
-                                <td class="uk-table-link"><a class="uk-link-reset" href="@item.NewsSeoLink" target="_blank">@item.NewsTitle</a></td>
+                                <div>
+                                    <a class="uk-link-reset" href="@item.NewsSeoLink" target="_blank"><h5>@item.NewsTitle</h5></a>
+                                </div>
 
-                            }
-                            else
-                            {
-                                <td class="uk-table-link"><a class="uk-link-reset" href="@item.NewsSeoLink" target="_blank">@item.NewsTitle</a></td>
-                            }
+                                @{
+                                    string desc = item.NewsDescription;
+                                    if (desc.Length >= 200)
+                                    {
+                                        desc = desc.Substring(0, 200) + "...";
+                                    }
+                                }
+                                <div>
+                                    <span>@Html.Raw(desc)</span>
+                                </div>
+                                <br />
+                            </td>
                         </tr>
                     }
                 </tbody>
