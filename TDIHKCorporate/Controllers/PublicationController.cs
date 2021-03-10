@@ -158,13 +158,13 @@ namespace TDIHKCorporate.Controllers
             List<News> newsList = new List<News>();
             if (name == "de")
             {
-                newsList.AddRange(new RssFeeder().GetRobertKochRss());
-                newsList.AddRange(new RssFeeder().GetWhoRss());
+                newsList.AddRange(new RssFeeder().GetRobertKochRss().OrderByDescending(x=>x.CreatedDate));
+                newsList.AddRange(new RssFeeder().GetWhoRss().OrderByDescending(x => x.CreatedDate));
             }
             else
             {
-                newsList.AddRange(new RssFeeder().GetSaglikGovTrRss());
-                newsList.AddRange(new RssFeeder().GetWhoRss());
+                newsList.AddRange(new RssFeeder().GetSaglikGovTrRss().OrderByDescending(x => x.CreatedDate));
+                newsList.AddRange(new RssFeeder().GetWhoRss().OrderByDescending(x => x.CreatedDate));
             }
 
             return View(newsList.OrderByDescending(x=>x.CreatedDate).ToList());

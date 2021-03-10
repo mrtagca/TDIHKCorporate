@@ -142,7 +142,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Avantajlar.
+        ///   Looks up a localized string similar to TD-IHK Üyelik Avantajları.
         /// </summary>
         internal static string Avantajlar {
             get {
@@ -237,6 +237,15 @@ namespace Resources {
         internal static string Covid19 {
             get {
                 return ResourceManager.GetString("Covid19", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Coronavirüs Haberleri.
+        /// </summary>
+        internal static string CovidHaberleri {
+            get {
+                return ResourceManager.GetString("CovidHaberleri", resourceCulture);
             }
         }
         

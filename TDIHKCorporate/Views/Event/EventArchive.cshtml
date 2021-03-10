@@ -45,14 +45,26 @@
             languageUrl = '/Content/plugins/datatable/german.json';
         }
 
+        var table;
+
+
         $("#EventArchive").DataTable({
             language: {
                 url: languageUrl
             },
-            "order": [[0, "desc"]],
             "stripeClasses": [],
             "lengthMenu": [7, 10, 20, 50],
-            "pageLength": 7
+            "pageLength": 7,
+
+            "columnDefs": [
+                //date-fields
+                {
+                    "searchable": false,
+                    "orderable": true,
+                    "targets": 0,
+                    "type": 'date'
+                }
+            ],
 
         });
     })
@@ -68,9 +80,9 @@
             <table id="EventArchive" class="uk-table uk-table-hover uk-table-responsive uk-table-divider" style="width:100%">
                 <thead>
                     <tr>
-                        <th class="uk-width-small">@Resources.resource.Tarih</th>
-                        <th class="uk-width-expand">@Resources.resource.EtkinlikBasligi</th>
-                        <th class="uk-width-expand">@Resources.resource.Tur</th>
+                        <th>@Resources.resource.Tarih</th>
+                        <th>@Resources.resource.EtkinlikBasligi</th>
+                        <th>@Resources.resource.Tur</th>
 
                     </tr>
                 </thead>
@@ -124,6 +136,6 @@
     </section>
 </main>
 
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
 <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.23/js/dataTables.uikit.min.js"></script>

@@ -145,7 +145,7 @@
     <value>Ara</value>
   </data>
   <data name="Avantajlar" xml:space="preserve">
-    <value>Avantajlar</value>
+    <value>TD-IHK Üyelik Avantajları</value>
   </data>
   <data name="Baslik" xml:space="preserve">
     <value>Başlık</value>
@@ -176,6 +176,9 @@
   </data>
   <data name="Covid19" xml:space="preserve">
     <value>COVID-19</value>
+  </data>
+  <data name="CovidHaberleri" xml:space="preserve">
+    <value>Coronavirüs Haberleri</value>
   </data>
   <data name="DahaFazla" xml:space="preserve">
     <value>Daha Fazla</value>

@@ -47,10 +47,18 @@
             language: {
                 url: languageUrl
             },
-            "order": [[0, "desc"]],
             "stripeClasses": [],
             "lengthMenu": [7, 10, 20, 50],
-            "pageLength": 7
+            "pageLength": 7,
+            "columnDefs": [
+                //date-fields
+                {
+                    "searchable": false,
+                    "orderable": true,
+                    "targets": 0,
+                    "type": 'date'
+                }
+            ]
 
         });
     })
@@ -59,15 +67,15 @@
 
 <main class="uk-container" uk-scrollspy="cls: uk-animation-fade; target: > section; delay: 250">
     <section class="uk-section">
-        <h1>@Resources.resource.EtkinlikArsivi</h1>
+        <h1>@Resources.resource.CovidHaberleri</h1>
         <!-- Bu div dahil tablonun içinde arşivde istediğimiz verileri döndürebiliriz-->
 
         <div class="uk-overflow-auto">
             <table id="EventArchive" class="uk-table uk-table-hover uk-table-responsive uk-table-divider" style="width:100%">
                 <thead>
                     <tr>
-                        <th class="uk-form-small">@Resources.resource.Tarih</th>
-                        <th class="uk-width-expand">@Resources.resource.HaberBaslik</th>
+                        <th style="padding-left:0px;" class="uk-form-small">@Resources.resource.Tarih</th>
+                        <th style="padding-left:0px;" class="uk-form-small">@Resources.resource.HaberBaslik</th>
 
                     </tr>
                 </thead>

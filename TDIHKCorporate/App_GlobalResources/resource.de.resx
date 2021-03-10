@@ -145,7 +145,7 @@
     <value>Suche</value>
   </data>
   <data name="Avantajlar" xml:space="preserve">
-    <value>zu den Vorteilen</value>
+    <value>zu den Vorteilen der TD-IHK Mitgliedschaft</value>
   </data>
   <data name="Baslik" xml:space="preserve">
     <value>Titel</value>
@@ -176,6 +176,9 @@
   </data>
   <data name="Covid19" xml:space="preserve">
     <value>COVID-19</value>
+  </data>
+  <data name="CovidHaberleri" xml:space="preserve">
+    <value>Coronavirus Nachrichten</value>
   </data>
   <data name="DahaFazla" xml:space="preserve">
     <value>Weiterlesen</value>
