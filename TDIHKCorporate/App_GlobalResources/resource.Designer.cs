@@ -151,6 +151,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Avantajlar.
+        /// </summary>
+        internal static string AvantajlarButon {
+            get {
+                return ResourceManager.GetString("AvantajlarButon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Başlık.
         /// </summary>
         internal static string Baslik {

@@ -147,6 +147,9 @@
   <data name="Avantajlar" xml:space="preserve">
     <value>zu den Vorteilen der TD-IHK Mitgliedschaft</value>
   </data>
+  <data name="AvantajlarButon" xml:space="preserve">
+    <value>Vorteile</value>
+  </data>
   <data name="Baslik" xml:space="preserve">
     <value>Titel</value>
   </data>

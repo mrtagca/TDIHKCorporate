@@ -124,13 +124,13 @@ else
             </div>
         }
 
-        @*<div class="uk-background-secondary">
-                <h1 class="uk-h5 banner-padding uk-margin-remove">@Model.PageTitle</h1>
-            </div>*@
-        <!--Sayfa Başlığı sonu-->
-        <!--Banner: Eklenen imajın en boy oranı korunur.-->
 
-        <div><img @*style="width:1140px;height:463px;"*@ src="@Model.PageImagePath" alt="@Model.PageTitle" uk-img /></div><!--Banner sonu-->
+        <div>
+            @if (Model.PageImagePath != null)
+            {
+                <img src="@Model.PageImagePath" alt="@Model.PageTitle" uk-img />
+            }
+        </div>
         <br />
 
         @Html.Raw(Model.PageContent)

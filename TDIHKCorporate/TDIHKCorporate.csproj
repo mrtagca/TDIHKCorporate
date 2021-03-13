@@ -2931,6 +2931,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\Breadcrumb\BreadcrumbHelper.cs" />
     <Compile Include="Helpers\Compress\CompressAttribute.cs" />
     <Compile Include="Helpers\Extensions\DirectoryBrowser.cs" />
     <Compile Include="Helpers\Extensions\FileBrowserEntry.cs" />

@@ -11,6 +11,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.UI;
 using TDIHKCorporate.BaseControllers.MultiLanguage;
+using TDIHKCorporate.Helpers.Breadcrumb;
 using TDIHKCorporate.Helpers.Compress;
 using TDIHKCorporate.Helpers.Mail;
 using TDIHKCorporate.Types;
@@ -35,6 +36,15 @@ namespace TDIHKCorporate.Controllers
                 PageIdentifier = "Institution",
                 Language = name
             });
+
+            try
+            {
+                ViewBag.BreadcrumbList = BreadcrumbHelper.GetBreadCrumbs(institution.PageID, name);
+            }
+            catch (Exception ex)
+            {
+                 
+            }
 
 
             return View(institution);

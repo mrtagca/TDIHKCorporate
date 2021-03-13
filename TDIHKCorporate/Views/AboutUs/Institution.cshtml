@@ -31,11 +31,58 @@
     Layout = "~/Views/Shared/_layoutMaster.cshtml";
 }
 
+@{
+
+    List<TDIHKCorporate.Types.BreadCrumb> breadCrumbList = new List<TDIHKCorporate.Types.BreadCrumb>();
+    try
+    {
+        breadCrumbList = (List<TDIHKCorporate.Types.BreadCrumb>)ViewBag.BreadcrumbList;
+    }
+    catch (Exception ex)
+    {
+
+    }
+
+}
+
 <main class="uk-container" uk-scrollspy="cls: uk-animation-fade; target: > section; delay: 250">
     <section>
         <!-- Banner-->
+        @if ((breadCrumbList != null && breadCrumbList.Count > 0) && Model.PageIdentifier != "Kunye")
+        {
+            <div class="uk-background-secondary">
+                <ul class="uk-breadcrumb">
+
+                    @foreach (var item in breadCrumbList)
+                    {
+                        if (breadCrumbList.IndexOf(item) == breadCrumbList.Count - 1) //son elemansa
+                        {
+                            if (lang == "de")
+                            {
+                                <li><span>@item.MenuName</span></li>
+                            }
+                            else
+                            {
+                                <li><span>@item.MenuName</span></li>
+                            }
+                        }
+                        else
+                        {
+                            if (lang == "de")
+                            {
+                                <li><a href="/de/seiten/@item.PageSeoLink">@item.MenuName</a></li>
+                            }
+                            else
+                            {
+                                <li><a href="/tr/sayfalar/@item.PageSeoLink">@item.MenuName</a></li>
+                            }
+                        }
+                    }
+                </ul>
+            </div>
+        }
         <div>
-            <img src="@Model.PageImagePath" alt="@Model.PageTitle" uk-img/>
+            <img src="@Model.PageImagePath" alt="@Model.PageTitle" uk-img />
         </div>
     </section>
     <!-- Text- Content-->

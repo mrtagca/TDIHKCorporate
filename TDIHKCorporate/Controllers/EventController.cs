@@ -78,7 +78,7 @@ namespace TDIHKCorporate.Controllers
  
                                                 union
 
-                                                SELECT 'Events' as [Type],EventTitle as Title,EventSeoLink as SeoLink,CreatedDate as [Date] FROM [Events]  (NOLOCK)
+                                                SELECT 'Events' as [Type],EventTitle as Title,EventSeoLink as SeoLink,EventDate as [Date] FROM [Events]  (NOLOCK)
                                                 where [Language] = @lang and  IsActive = 1  and CONVERT(date,EventDate) < CONVERT(date,GETDATE())
                                                 ) as X
                                                 order by CONVERT(date,X.[Date]) desc", new { lang = name }).OrderByDescending(x=>x.Date).ToList();

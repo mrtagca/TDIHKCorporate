@@ -147,6 +147,9 @@
   <data name="Avantajlar" xml:space="preserve">
     <value>TD-IHK Üyelik Avantajları</value>
   </data>
+  <data name="AvantajlarButon" xml:space="preserve">
+    <value>Avantajlar</value>
+  </data>
   <data name="Baslik" xml:space="preserve">
     <value>Başlık</value>
   </data>
