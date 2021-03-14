@@ -36,7 +36,7 @@
         var lang = '@lang';
         var languageUrl = '';
 
-        if (lang==="tr") {
+        if (lang === "tr") {
             languageUrl = '/Content/plugins/datatable/turkish.json';
         }
         else {
@@ -49,16 +49,7 @@
             },
             "stripeClasses": [],
             "lengthMenu": [7, 10, 20, 50],
-            "pageLength": 7,
-            "columnDefs": [
-                //date-fields
-                {
-                    "searchable": false,
-                    "orderable": true,
-                    "targets": 0,
-                    "type": 'date'
-                }
-            ]
+            "pageLength": 7
 
         });
     })
@@ -74,8 +65,8 @@
             <table id="EventArchive" class="uk-table uk-table-hover uk-table-responsive uk-table-divider" style="width:100%">
                 <thead>
                     <tr>
-                        <th style="padding-left:0px;" class="uk-form-small">@Resources.resource.Tarih</th>
-                        <th style="padding-left:0px;" class="uk-form-small">@Resources.resource.HaberBaslik</th>
+                        <th>@Resources.resource.Tarih</th>
+                        <th>@Resources.resource.HaberBaslik</th>
 
                     </tr>
                 </thead>
@@ -83,16 +74,15 @@
                     @foreach (var item in Model)
                     {
                         <tr>
-                            <td style="width:100px;" class="uk-table-link">
-                                <div>
-                                    @item.CreatedDate.ToShortDateString()
-                                </div>
+                            @{
+                                double timestamp = (TimeZoneInfo.ConvertTimeToUtc(item.CreatedDate) -
+new DateTime(item.CreatedDate.Year, item.CreatedDate.Month, item.CreatedDate.Day, item.CreatedDate.Hour, item.CreatedDate.Minute, item.CreatedDate.Second, System.DateTimeKind.Utc)).TotalSeconds;
+                            }
+                            <td data-order="@timestamp">
+                                @item.CreatedDate.ToShortDateString()
                             </td>
                             <td class="uk-table-link">
-
-                                <div>
-                                    <a class="uk-link-reset" href="@item.NewsSeoLink" target="_blank"><h5>@item.NewsTitle</h5></a>
-                                </div>
+                                <a class="uk-link-reset" href="@item.NewsSeoLink" target="_blank">@item.NewsTitle</a>
                             </td>
                         </tr>
                     }

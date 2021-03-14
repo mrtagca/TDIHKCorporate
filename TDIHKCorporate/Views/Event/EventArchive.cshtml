@@ -54,17 +54,7 @@
             },
             "stripeClasses": [],
             "lengthMenu": [7, 10, 20, 50],
-            "pageLength": 7,
-
-            "columnDefs": [
-                //date-fields
-                {
-                    "searchable": false,
-                    "orderable": true,
-                    "targets": 0,
-                    "type": 'date'
-                }
-            ],
+            "pageLength": 7
 
         });
     })
@@ -90,45 +80,50 @@
                     @foreach (var item in Model)
                     {
 
-                        <tr>
-                            <td>@item.Date.ToShortDateString()</td>
-                            @if (lang == "tr")
+                    <tr>
+                        @{
+                            double timestamp = (TimeZoneInfo.ConvertTimeToUtc(item.Date) -
+new DateTime(item.Date.Year, item.Date.Month, item.Date.Day, 0, 0, 0, System.DateTimeKind.Utc)).TotalSeconds;
+                        }
+
+                        <td data-order="@timestamp">@item.Date.ToShortDateString()</td>
+                        @if (lang == "tr")
+                        {
+                            if (item.Type == "News")
                             {
-                                if (item.Type == "News")
-                                {
-                                    <td class="uk-table-link"><a class="uk-link-reset" href="/tr/haberler/@item.SeoLink">@item.Title</a></td>
-
-                                }
-                                else if (item.Type == "Events")
-                                {
-                                    <td class="uk-table-link"><a class="uk-link-reset" href="/tr/etkinlikler/@item.SeoLink">@item.Title</a></td>
-                                }
-                            }
-                            else
-                            {
-                                if (item.Type == "News")
-                                {
-                                    <td class="uk-table-link"><a class="uk-link-reset" href="/tr/haberler/@item.SeoLink">@item.Title</a></td>
-
-                                }
-                                else if (item.Type == "Events")
-                                {
-                                    <td class="uk-table-link"><a class="uk-link-reset" href="/de/events/@item.SeoLink">@item.Title</a></td>
-                                }
-                            }
-
-
-                            @if (item.Type == "News")
-                            {
-                                <td>@Resources.resource.Haberler</td>
+                                <td class="uk-table-link"><a class="uk-link-reset" href="/tr/haberler/@item.SeoLink">@item.Title</a></td>
 
                             }
                             else if (item.Type == "Events")
                             {
-                                <td>@Resources.resource.Etkinlikler</td>
+                                <td class="uk-table-link"><a class="uk-link-reset" href="/tr/etkinlikler/@item.SeoLink">@item.Title</a></td>
                             }
+                        }
+                        else
+                        {
+                            if (item.Type == "News")
+                            {
+                                <td class="uk-table-link"><a class="uk-link-reset" href="/tr/haberler/@item.SeoLink">@item.Title</a></td>
 
-                        </tr>
+                            }
+                            else if (item.Type == "Events")
+                            {
+                                <td class="uk-table-link"><a class="uk-link-reset" href="/de/events/@item.SeoLink">@item.Title</a></td>
+                            }
+                        }
+
+
+                        @if (item.Type == "News")
+                        {
+                            <td>@Resources.resource.Haberler</td>
+
+                        }
+                        else if (item.Type == "Events")
+                        {
+                            <td>@Resources.resource.Etkinlikler</td>
+                        }
+
+                    </tr>
                     }
                 </tbody>
             </table>
